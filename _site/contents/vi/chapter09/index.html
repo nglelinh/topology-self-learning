@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Topology Đại Chúng &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item active" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>09. Topology Đại Chúng</h1>
+
+
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p><strong>Khám phá Topology qua Ví dụ Thực Tế</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Bạn đã bao giờ nghe câu nói nổi tiếng trong toán học: “Một nhà topologist không thể phân biệt giữa một chiếc ly cà phê và một chiếc bánh donut”? Nghe có vẻ kỳ lạ, nhưng đây là một trong những khái niệm cơ bản nhất và thú vị nhất của topology—một nhánh toán học nghiên cứu các tính chất của không gian không thay đổi khi chúng ta “kéo dãn” hoặc “bóp méo” chúng.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá tại sao một chiếc ly cà phê và một chiếc bánh donut lại “giống nhau” về mặt topology. Chúng ta sẽ học về khái niệm <strong>homeomorphism</strong>—một cách toán học để nói rằng hai vật thể có thể biến đổi thành nhau mà không cần cắt hoặc dán. Chúng ta cũng sẽ khám phá khái niệm “lỗ” trong topology và cách các nhà toán học sử dụng số lượng lỗ để phân loại các vật thể.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif" alt="Coffee cup and donut morphing" /><br />
+<em>Ly cà phê biến thành bánh donut - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Khái niệm homeomorphism là nền tảng của topology—nó cho phép chúng ta phân loại các không gian theo các tính chất cơ bản của chúng, không phụ thuộc vào hình dạng cụ thể. Hiểu được khái niệm này giúp chúng ta nhìn thế giới theo một cách mới mẻ, nơi mà hình dạng không quan trọng bằng cấu trúc cơ bản.</p>
+
+<hr />
+
+<h2 id="-khái-niệm-cơ-bản-biến-dạng-liên-tục">🎯 Khái niệm Cơ bản: Biến dạng Liên tục</h2>
+
+<h3 id="tưởng-tượng-một-cách-đơn-giản">Tưởng tượng một cách đơn giản</h3>
+
+<p>Hãy tưởng tượng bạn có một chiếc ly cà phê làm bằng đất sét mềm. Bạn có thể kéo dãn, bóp méo, uốn cong nó theo bất kỳ cách nào bạn muốn—miễn là bạn không cắt nó hoặc dán các phần lại với nhau. Bạn có thể làm gì với chiếc ly này?</p>
+
+<p>Bạn có thể:</p>
+<ul>
+  <li>✅ Kéo dãn phần quai của ly để làm nó dài hơn hoặc ngắn hơn</li>
+  <li>✅ Bóp méo phần thân của ly để làm nó rộng hơn hoặc hẹp hơn</li>
+  <li>✅ Uốn cong toàn bộ chiếc ly</li>
+  <li>✅ Nén hoặc mở rộng các phần khác nhau</li>
+  <li>✅ Xoay và quay chiếc ly theo bất kỳ hướng nào</li>
+  <li>✅ Làm mỏng hoặc dày các phần khác nhau</li>
+</ul>
+
+<p>Nhưng bạn không thể:</p>
+<ul>
+  <li>❌ Cắt chiếc ly thành nhiều mảnh</li>
+  <li>❌ Dán các phần lại với nhau</li>
+  <li>❌ Tạo ra một lỗ mới hoặc đóng một lỗ hiện có</li>
+  <li>❌ Tách các phần đã được nối với nhau</li>
+  <li>❌ Tạo ra các điểm “nhọn” hoặc “góc cạnh” không liên tục</li>
+</ul>
+
+<p>Nếu bạn có thể biến đổi một vật thể thành một vật thể khác chỉ bằng cách kéo dãn và bóp méo (không cắt hoặc dán), thì hai vật thể đó được gọi là <strong>homeomorphic</strong>—chúng có cùng “hình dạng topology”.</p>
+
+<h3 id="tại-sao-gọi-là-biến-dạng-liên-tục">Tại sao gọi là “biến dạng liên tục”?</h3>
+
+<p>Từ “liên tục” ở đây có nghĩa là quá trình biến đổi phải diễn ra một cách mượt mà, không có bước nhảy đột ngột. Hãy nghĩ về nó như một video quay chậm—mỗi khung hình chỉ khác một chút so với khung hình trước đó. Không có khoảnh khắc nào mà vật thể đột nhiên “nhảy” từ hình dạng này sang hình dạng khác.</p>
+
+<p>Điều này khác với việc cắt và dán, nơi bạn có thể đột ngột tách một vật thể thành nhiều phần hoặc nối các phần lại với nhau. Trong topology, chúng ta chỉ quan tâm đến các biến đổi “mượt mà” như vậy.</p>
+
+<h3 id="ví-dụ-về-biến-dạng-không-liên-tục">Ví dụ về biến dạng không liên tục</h3>
+
+<p>Để hiểu rõ hơn, hãy xem xét một ví dụ về biến dạng <strong>không</strong> liên tục:</p>
+
+<p>Giả sử bạn có một hình cầu và bạn muốn biến nó thành hai hình cầu riêng biệt. Bạn có thể làm điều này bằng cách cắt hình cầu thành hai phần, nhưng đây không phải là một biến dạng liên tục—tại thời điểm bạn cắt, có một “bước nhảy” đột ngột từ một vật thể thành hai vật thể.</p>
+
+<p>Tương tự, nếu bạn có hai hình cầu riêng biệt và muốn biến chúng thành một hình cầu, bạn sẽ phải dán chúng lại với nhau—một hành động không liên tục.</p>
+
+<h3 id="ví-dụ-cụ-thể-ly-cà-phê-và-bánh-donut">Ví dụ cụ thể: Ly cà phê và Bánh donut</h3>
+
+<p>Bây giờ, hãy tưởng tượng bạn có một chiếc ly cà phê với một quai cầm. Nếu bạn có thể kéo dãn và bóp méo chiếc ly này (không cắt hoặc dán), bạn có thể biến nó thành một chiếc bánh donut không?</p>
+
+<p>Câu trả lời là <strong>có</strong>! Đây là cách bạn có thể làm một cách chi tiết:</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mug_and_Torus_morph.gif/500px-Mug_and_Torus_morph.gif" alt="Coffee cup to donut transformation" /><br />
+<em>Quá trình biến đổi từ ly cà phê thành bánh donut - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif">Wikimedia Commons</a></em></p>
+
+<h4 id="quá-trình-biến-đổi-từng-bước">Quá trình biến đổi từng bước</h4>
+
+<p><strong>Bước 1: Phân tích cấu trúc ban đầu</strong></p>
+
+<p>Chiếc ly cà phê có cấu trúc như sau:</p>
+<ul>
+  <li><strong>Phần thân:</strong> Một hình trụ rỗng (giống như một ống tròn)</li>
+  <li><strong>Phần đáy:</strong> Một đĩa tròn đóng phần dưới của thân</li>
+  <li><strong>Phần quai cầm:</strong> Một vòng cung nối từ một điểm trên thân đến một điểm khác trên thân</li>
+</ul>
+
+<p>Điểm quan trọng: Quai cầm tạo ra một “lỗ” trong không gian—bạn có thể luồn ngón tay qua quai cầm.</p>
+
+<p><strong>Bước 2: Bắt đầu biến dạng</strong></p>
+
+<p>Bắt đầu bằng cách mở rộng phần quai cầm. Tưởng tượng bạn đang kéo dãn quai cầm từ cả hai phía, làm cho nó lớn hơn và tròn hơn. Đồng thời, bạn bắt đầu thu nhỏ phần thân của ly.</p>
+
+<p><strong>Bước 3: Chuyển đổi cấu trúc</strong></p>
+
+<p>Tiếp tục quá trình:</p>
+<ul>
+  <li>Phần quai cầm ngày càng lớn hơn và tròn hơn</li>
+  <li>Phần thân ngày càng nhỏ hơn và mỏng hơn</li>
+  <li>Phần đáy của ly dần dần biến mất (bị kéo vào trong)</li>
+</ul>
+
+<p><strong>Bước 4: Hoàn thiện</strong></p>
+
+<p>Cuối cùng:</p>
+<ul>
+  <li>Phần quai cầm đã trở thành “lỗ” chính của bánh donut—một vòng tròn lớn ở giữa</li>
+  <li>Phần thân đã trở thành “thân” của bánh donut—một vòng tròn nhỏ hơn bao quanh lỗ</li>
+  <li>Toàn bộ cấu trúc giờ giống như một bánh donut</li>
+</ul>
+
+<p><strong>Bước 5: Kiểm tra</strong></p>
+
+<p>Bạn có thể kiểm tra rằng quá trình này là liên tục:</p>
+<ul>
+  <li>Không có bước nào đòi hỏi cắt hoặc dán</li>
+  <li>Mỗi giai đoạn chỉ là sự kéo dãn và bóp méo mượt mà</li>
+  <li>Số lượng lỗ vẫn là một (không thay đổi)</li>
+</ul>
+
+<h4 id="tại-sao-điều-này-hoạt-động">Tại sao điều này hoạt động?</h4>
+
+<p>Điều quan trọng là cả hai vật thể đều có <strong>một lỗ</strong>—ly cà phê có lỗ ở quai cầm, và bánh donut có lỗ ở giữa. Đây là tính chất topology quan trọng nhất của cả hai vật thể. Số lượng lỗ là một <strong>bất biến topology</strong>—nó không thay đổi khi chúng ta biến dạng liên tục vật thể.</p>
+
+<p>Ngoài ra, cả hai vật thể đều là các <strong>bề mặt</strong> (surfaces)—chúng là các đối tượng 2 chiều trong không gian 3 chiều. Điều này có nghĩa là chúng chỉ có bề mặt, không có “bên trong” theo nghĩa topology (khác với một quả bóng đặc, có cả bề mặt và phần bên trong).</p>
+
+<hr />
+
+<h2 id="-khái-niệm-lỗ-trong-topology">🔍 Khái niệm “Lỗ” trong Topology</h2>
+
+<h3 id="đếm-số-lỗ">Đếm số lỗ</h3>
+
+<p>Một trong những cách đơn giản nhất để phân loại các vật thể theo topology là đếm số lượng “lỗ” của chúng. Nhưng “lỗ” trong topology có nghĩa gì?</p>
+
+<p>Trong topology, một “lỗ” không phải là một lỗ hổng trên bề mặt—mà là một lỗ hổng xuyên qua vật thể. Hãy nghĩ về nó như sau:</p>
+
+<ul>
+  <li>
+    <p><strong>Không có lỗ:</strong> Một quả bóng, một hình cầu. Bạn không thể đi xuyên qua nó từ bên này sang bên kia. Một vòng tròn cũng không có lỗ (theo nghĩa topology)—nó chỉ là một đường cong khép kín.</p>
+  </li>
+  <li>
+    <p><strong>Một lỗ:</strong> Một bánh donut, một ly cà phê có quai cầm. Bạn có thể đi xuyên qua lỗ của bánh donut hoặc qua quai cầm của ly cà phê. Một vòng đeo tay cũng có một lỗ.</p>
+  </li>
+  <li>
+    <p><strong>Hai lỗ:</strong> Một chiếc kính có hai quai cầm, hoặc một “bánh donut kép” (hai bánh donut được nối với nhau). Bạn có thể đi qua cả hai lỗ.</p>
+  </li>
+  <li>
+    <p><strong>Nhiều lỗ:</strong> Các vật thể phức tạp hơn với nhiều lỗ, như một chiếc kính có ba quai cầm hoặc một “bánh donut ba lỗ”.</p>
+  </li>
+</ul>
+
+<h3 id="cách-xác-định-số-lỗ">Cách xác định số lỗ</h3>
+
+<p>Có một cách đơn giản để xác định số lỗ của một vật thể:</p>
+
+<ol>
+  <li><strong>Tưởng tượng vật thể được làm bằng cao su mềm</strong></li>
+  <li><strong>Đếm số lượng vòng tròn độc lập</strong> mà bạn có thể vẽ trên bề mặt mà không thể co lại thành một điểm</li>
+</ol>
+
+<p>Ví dụ:</p>
+<ul>
+  <li><strong>Hình cầu:</strong> Bất kỳ vòng tròn nào bạn vẽ đều có thể co lại thành một điểm → <strong>0 lỗ</strong></li>
+  <li><strong>Bánh donut:</strong> Bạn có thể vẽ một vòng tròn đi qua lỗ giữa—vòng tròn này không thể co lại thành một điểm → <strong>1 lỗ</strong></li>
+  <li><strong>Kính hai quai:</strong> Bạn có thể vẽ hai vòng tròn độc lập, mỗi vòng đi qua một quai cầm → <strong>2 lỗ</strong></li>
+</ul>
+
+<h3 id="tại-sao-số-lỗ-quan-trọng">Tại sao số lỗ quan trọng?</h3>
+
+<p>Số lượng lỗ là một <strong>bất biến topology</strong>—nó không thay đổi khi chúng ta kéo dãn hoặc bóp méo vật thể. Điều này có nghĩa là:</p>
+
+<ul>
+  <li>
+    <p>Nếu một vật thể có một lỗ và một vật thể khác có hai lỗ, thì chúng <strong>không thể</strong> là homeomorphic—bạn không thể biến đổi một thành cái kia chỉ bằng cách kéo dãn và bóp méo.</p>
+  </li>
+  <li>
+    <p>Nếu cả hai vật thể đều có cùng số lượng lỗ, thì chúng <strong>có thể</strong> là homeomorphic (nhưng không chắc chắn—còn phụ thuộc vào các tính chất khác).</p>
+  </li>
+</ul>
+
+<h3 id="ví-dụ-chi-tiết-so-sánh-các-vật-thể">Ví dụ chi tiết: So sánh các vật thể</h3>
+
+<p>Hãy xem xét một số ví dụ cụ thể:</p>
+
+<p><strong>Ví dụ 1: Hình cầu vs Bánh donut</strong></p>
+<ul>
+  <li>Hình cầu: 0 lỗ</li>
+  <li>Bánh donut: 1 lỗ</li>
+  <li><strong>Kết luận:</strong> Không homeomorphic</li>
+</ul>
+
+<p><strong>Ví dụ 2: Bánh donut vs Ly cà phê</strong></p>
+<ul>
+  <li>Bánh donut: 1 lỗ</li>
+  <li>Ly cà phê: 1 lỗ</li>
+  <li><strong>Kết luận:</strong> Có thể homeomorphic (và thực sự là homeomorphic!)</li>
+</ul>
+
+<p><strong>Ví dụ 3: Kính một quai vs Kính hai quai</strong></p>
+<ul>
+  <li>Kính một quai: 1 lỗ</li>
+  <li>Kính hai quai: 2 lỗ</li>
+  <li><strong>Kết luận:</strong> Không homeomorphic</li>
+</ul>
+
+<h3 id="lỗ-và-genus">Lỗ và Genus</h3>
+
+<p>Trong topology, số lượng lỗ của một bề mặt được gọi là <strong>genus</strong>. Một bề mặt có genus $g$ có nghĩa là nó có $g$ lỗ. Ví dụ:</p>
+
+<ul>
+  <li><strong>Genus 0:</strong> Hình cầu (không có lỗ)</li>
+  <li><strong>Genus 1:</strong> Bánh donut, ly cà phê (một lỗ)</li>
+  <li><strong>Genus 2:</strong> Kính hai quai (hai lỗ)</li>
+  <li><strong>Genus $g$:</strong> Bề mặt với $g$ lỗ</li>
+</ul>
+
+<p>Genus là một trong những bất biến quan trọng nhất trong topology của các bề mặt.</p>
+
+<hr />
+
+<h2 id="-homeomorphism-định-nghĩa-toán-học">🧮 Homeomorphism: Định nghĩa Toán học</h2>
+
+<h3 id="định-nghĩa-đơn-giản">Định nghĩa đơn giản</h3>
+
+<p>Hai không gian tô-pô $X$ và $Y$ được gọi là <strong>homeomorphic</strong> nếu tồn tại một ánh xạ liên tục $f: X \to Y$ có ánh xạ ngược $f^{-1}: Y \to X$ cũng liên tục.</p>
+
+<p>Điều này có nghĩa là gì?</p>
+
+<ul>
+  <li>
+    <p><strong>Ánh xạ liên tục:</strong> Ánh xạ không “cắt” hoặc “nhảy”—nó mượt mà và liên tục. Trong toán học, điều này có nghĩa là với mọi tập mở trong $Y$, tập nghịch ảnh của nó trong $X$ cũng là tập mở.</p>
+  </li>
+  <li>
+    <p><strong>Có ánh xạ ngược:</strong> Chúng ta có thể “quay ngược lại” quá trình biến đổi. Điều này có nghĩa là ánh xạ $f$ là một song ánh (one-to-one và onto).</p>
+  </li>
+  <li>
+    <p><strong>Ánh xạ ngược cũng liên tục:</strong> Quá trình quay ngược lại cũng mượt mà. Điều này đảm bảo rằng cả hai chiều của biến đổi đều là liên tục.</p>
+  </li>
+</ul>
+
+<h3 id="định-nghĩa-chính-xác-hơn">Định nghĩa chính xác hơn</h3>
+
+<p>Một cách chính xác hơn, một <strong>homeomorphism</strong> là một ánh xạ $f: X \to Y$ sao cho:</p>
+
+<ol>
+  <li>$f$ là song ánh (bijective)</li>
+  <li>$f$ là liên tục</li>
+  <li>$f^{-1}$ là liên tục</li>
+</ol>
+
+<p>Khi đó, chúng ta nói rằng $X$ và $Y$ là <strong>homeomorphic</strong>, và viết $X \cong Y$.</p>
+
+<h3 id="ví-dụ-ly-cà-phê-và-bánh-donut">Ví dụ: Ly cà phê và Bánh donut</h3>
+
+<p>Một chiếc ly cà phê (với quai cầm) và một chiếc bánh donut đều là các ví dụ của <strong>torus</strong>—một không gian topology có một lỗ. Chúng homeomorphic với nhau vì:</p>
+
+<ol>
+  <li>
+    <p><strong>Cả hai đều có một lỗ:</strong> Quai cầm của ly tạo ra một lỗ, và bánh donut có một lỗ ở giữa. Đây là tính chất topology cơ bản nhất của cả hai.</p>
+  </li>
+  <li>
+    <p><strong>Chúng ta có thể tưởng tượng một cách biến đổi liên tục:</strong> Như đã mô tả ở trên, chúng ta có thể biến đổi liên tục từ ly cà phê sang bánh donut chỉ bằng cách kéo dãn và bóp méo.</p>
+  </li>
+  <li>
+    <p><strong>Chúng ta cũng có thể biến đổi ngược lại:</strong> Quá trình này có thể đảo ngược—chúng ta có thể biến đổi từ bánh donut sang ly cà phê bằng cách thực hiện các bước ngược lại.</p>
+  </li>
+  <li>
+    <p><strong>Cả hai đều là bề mặt:</strong> Cả hai đều là các bề mặt 2 chiều trong không gian 3 chiều, và cả hai đều có cùng genus (genus 1).</p>
+  </li>
+</ol>
+
+<h3 id="torus-không-gian-topology-cơ-bản">Torus: Không gian topology cơ bản</h3>
+
+<p><strong>Torus</strong> (số nhiều: tori) là một trong những không gian topology cơ bản nhất. Một torus có thể được mô tả như:</p>
+
+<ul>
+  <li>Một bánh donut</li>
+  <li>Một ly cà phê có quai cầm</li>
+  <li>Một vòng đeo tay</li>
+  <li>Một hình trụ với hai đầu được nối lại với nhau</li>
+</ul>
+
+<p>Tất cả các vật thể này đều homeomorphic với nhau vì chúng đều có cùng cấu trúc topology cơ bản: một bề mặt có một lỗ.</p>
+
+<h3 id="ký-hiệu-toán-học">Ký hiệu toán học</h3>
+
+<p>Nếu $X$ và $Y$ là homeomorphic, chúng ta viết:</p>
+
+\[X \cong Y\]
+
+<p>Đọc là “$X$ homeomorphic với $Y$”.</p>
+
+<p>Ví dụ:</p>
+<ul>
+  <li>Torus $\cong$ Bánh donut</li>
+  <li>Hình cầu $\cong$ Hình lập phương (chỉ bề mặt)</li>
+  <li>Vòng tròn $\cong$ Hình elip</li>
+</ul>
+
+<h3 id="tính-chất-của-homeomorphism">Tính chất của homeomorphism</h3>
+
+<p>Homeomorphism có một số tính chất quan trọng:</p>
+
+<ol>
+  <li>
+    <p><strong>Phản xạ:</strong> Mọi không gian đều homeomorphic với chính nó ($X \cong X$)</p>
+  </li>
+  <li>
+    <p><strong>Đối xứng:</strong> Nếu $X \cong Y$, thì $Y \cong X$</p>
+  </li>
+  <li>
+    <p><strong>Bắc cầu:</strong> Nếu $X \cong Y$ và $Y \cong Z$, thì $X \cong Z$</p>
+  </li>
+</ol>
+
+<p>Những tính chất này có nghĩa là homeomorphism là một <strong>quan hệ tương đương</strong>—nó chia các không gian thành các lớp tương đương, nơi mỗi lớp chứa tất cả các không gian có cùng “hình dạng topology”.</p>
+
+<hr />
+
+<h2 id="-các-ví-dụ-khác">🎨 Các Ví dụ Khác</h2>
+
+<h3 id="ví-dụ-1-hình-cầu-và-quả-bóng">Ví dụ 1: Hình cầu và Quả bóng</h3>
+
+<p>Một hình cầu (bề mặt của quả bóng) và một quả bóng (bao gồm cả bên trong) <strong>không</strong> homeomorphic. Tại sao?</p>
+
+<p><strong>Phân tích chi tiết:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Hình cầu:</strong> Là một bề mặt 2 chiều—nó chỉ có bề mặt, không có “bên trong” theo nghĩa topology. Nếu bạn đứng trên một hình cầu, bạn chỉ có thể di chuyển trên bề mặt của nó.</p>
+  </li>
+  <li>
+    <p><strong>Quả bóng:</strong> Là một vật thể 3 chiều—nó có cả bề mặt và phần bên trong. Nếu bạn đứng trong một quả bóng rỗng, bạn có thể di chuyển trong không gian 3 chiều bên trong nó.</p>
+  </li>
+</ul>
+
+<p><strong>Tại sao không homeomorphic?</strong></p>
+
+<p>Nếu bạn cố gắng tạo một homeomorphism giữa hình cầu và quả bóng, bạn sẽ gặp vấn đề: một điểm trên bề mặt của quả bóng có một “lân cận” (neighborhood) là một phần của không gian 3 chiều, trong khi một điểm trên hình cầu chỉ có một lân cận là một phần của bề mặt 2 chiều. Không có cách nào để ánh xạ một cách liên tục giữa hai loại lân cận này.</p>
+
+<p><strong>Tuy nhiên:</strong></p>
+
+<p>Một hình cầu và một hình lập phương (chỉ bề mặt) <strong>là</strong> homeomorphic—bạn có thể bóp méo một hình cầu thành một hình lập phương! Điều này hoạt động vì cả hai đều là bề mặt 2 chiều.</p>
+
+<h3 id="ví-dụ-2-vòng-tròn-và-đoạn-thẳng">Ví dụ 2: Vòng tròn và Đoạn thẳng</h3>
+
+<p>Một vòng tròn (đường tròn) và một đoạn thẳng <strong>không</strong> homeomorphic. Tại sao?</p>
+
+<p><strong>Phân tích chi tiết:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Vòng tròn:</strong> Là một đường cong khép kín—nó không có điểm đầu và điểm cuối. Nếu bạn đi dọc theo vòng tròn, bạn sẽ quay trở lại điểm xuất phát.</p>
+  </li>
+  <li>
+    <p><strong>Đoạn thẳng:</strong> Có điểm đầu và điểm cuối. Nếu bạn đi dọc theo đoạn thẳng, bạn sẽ đến điểm cuối và không thể tiếp tục.</p>
+  </li>
+</ul>
+
+<p><strong>Tại sao không homeomorphic?</strong></p>
+
+<p>Nếu bạn cố gắng tạo một homeomorphism giữa vòng tròn và đoạn thẳng, bạn sẽ gặp vấn đề với các điểm cuối. Một điểm cuối của đoạn thẳng có một lân cận chỉ mở về một phía, trong khi mọi điểm trên vòng tròn đều có lân cận mở về cả hai phía. Không có cách nào để ánh xạ một cách liên tục giữa hai loại điểm này.</p>
+
+<p><strong>Tuy nhiên:</strong></p>
+
+<p>Một vòng tròn và một hình elip <strong>là</strong> homeomorphic—bạn có thể kéo dãn một vòng tròn thành một hình elip! Điều này hoạt động vì cả hai đều là các đường cong khép kín.</p>
+
+<h3 id="ví-dụ-3-bánh-donut-và-cốc-có-hai-quai">Ví dụ 3: Bánh donut và Cốc có hai quai</h3>
+
+<p>Một bánh donut (một lỗ) và một cốc có hai quai cầm (hai lỗ) <strong>không</strong> homeomorphic. Tại sao?</p>
+
+<p><strong>Phân tích chi tiết:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Bánh donut:</strong> Có một lỗ—bạn có thể vẽ một vòng tròn đi qua lỗ giữa mà không thể co lại thành một điểm.</p>
+  </li>
+  <li>
+    <p><strong>Cốc có hai quai:</strong> Có hai lỗ—bạn có thể vẽ hai vòng tròn độc lập, mỗi vòng đi qua một quai cầm, và cả hai đều không thể co lại thành một điểm.</p>
+  </li>
+</ul>
+
+<p><strong>Tại sao không homeomorphic?</strong></p>
+
+<p>Số lượng lỗ là một bất biến topology—nó không thay đổi khi chúng ta biến dạng liên tục. Vì bánh donut có một lỗ và cốc có hai quai có hai lỗ, chúng không thể homeomorphic.</p>
+
+<p><strong>Tuy nhiên:</strong></p>
+
+<p>Một cốc có hai quai và một “bánh donut kép” (hai bánh donut được nối với nhau) <strong>là</strong> homeomorphic—cả hai đều có hai lỗ!</p>
+
+<h3 id="ví-dụ-4-hình-cầu-và-torus">Ví dụ 4: Hình cầu và Torus</h3>
+
+<p>Một hình cầu và một torus (bánh donut) <strong>không</strong> homeomorphic. Tại sao?</p>
+
+<ul>
+  <li><strong>Hình cầu:</strong> Có 0 lỗ (genus 0)</li>
+  <li><strong>Torus:</strong> Có 1 lỗ (genus 1)</li>
+</ul>
+
+<p>Vì số lượng lỗ khác nhau, chúng không thể homeomorphic.</p>
+
+<h3 id="ví-dụ-5-hình-cầu-và-hình-lập-phương-bề-mặt">Ví dụ 5: Hình cầu và Hình lập phương (bề mặt)</h3>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sphere_and_cube_homeomorphic.svg/500px-Sphere_and_cube_homeomorphic.svg.png" alt="Sphere and cube homeomorphic" /><br />
+<em>Hình cầu và hình lập phương (bề mặt) là homeomorphic - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Sphere_and_cube_homeomorphic.svg">Wikimedia Commons</a></em></p>
+
+<p>Một hình cầu và một hình lập phương (chỉ bề mặt, không bao gồm bên trong) <strong>là</strong> homeomorphic!</p>
+
+<p><strong>Tại sao?</strong></p>
+
+<p>Cả hai đều là bề mặt 2 chiều không có lỗ (genus 0). Bạn có thể tưởng tượng một cách biến đổi liên tục: bắt đầu với một hình cầu làm bằng cao su mềm, và từ từ bóp méo nó thành một hình lập phương. Quá trình này là liên tục và có thể đảo ngược.</p>
+
+<p>Điều này minh họa một điểm quan trọng: trong topology, hình dạng cụ thể không quan trọng—chỉ có cấu trúc cơ bản mới quan trọng!</p>
+
+<hr />
+
+<h2 id="-ứng-dụng-trong-cuộc-sống">🔗 Ứng dụng trong Cuộc sống</h2>
+
+<h3 id="phân-loại-các-vật-thể">Phân loại các vật thể</h3>
+
+<p>Khái niệm homeomorphism giúp chúng ta phân loại các vật thể theo các tính chất cơ bản của chúng. Đây là một cách tiếp cận mạnh mẽ vì nó cho phép chúng ta nhóm các vật thể lại với nhau dựa trên cấu trúc cơ bản của chúng, không phụ thuộc vào hình dạng cụ thể.</p>
+
+<p><strong>Ví dụ về phân loại:</strong></p>
+
+<ul>
+  <li><strong>Lớp topology “không có lỗ” (genus 0):</strong> Tất cả các vật thể không có lỗ đều thuộc cùng một lớp topology. Điều này bao gồm:
+    <ul>
+      <li>Quả bóng (bề mặt)</li>
+      <li>Hình cầu</li>
+      <li>Hình lập phương (chỉ bề mặt)</li>
+      <li>Bất kỳ hình đa diện nào (chỉ bề mặt)</li>
+      <li>Một chiếc bát không có quai cầm</li>
+    </ul>
+  </li>
+  <li><strong>Lớp topology “một lỗ” (genus 1):</strong> Tất cả các vật thể có một lỗ đều thuộc cùng một lớp topology:
+    <ul>
+      <li>Bánh donut</li>
+      <li>Ly cà phê có quai cầm</li>
+      <li>Vòng đeo tay</li>
+      <li>Một chiếc cốc có một quai cầm</li>
+    </ul>
+  </li>
+  <li><strong>Lớp topology “hai lỗ” (genus 2):</strong> Tất cả các vật thể có hai lỗ đều thuộc cùng một lớp topology:
+    <ul>
+      <li>Kính có hai quai cầm</li>
+      <li>“Bánh donut kép”</li>
+      <li>Một chiếc cốc có hai quai cầm</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tại-sao-phân-loại-này-quan-trọng">Tại sao phân loại này quan trọng?</h3>
+
+<p>Phân loại theo topology giúp chúng ta:</p>
+
+<ol>
+  <li>
+    <p><strong>Hiểu các tính chất chung:</strong> Nếu hai vật thể thuộc cùng một lớp topology, chúng chia sẻ nhiều tính chất toán học quan trọng.</p>
+  </li>
+  <li>
+    <p><strong>Đơn giản hóa các vấn đề:</strong> Thay vì nghiên cứu từng vật thể riêng lẻ, chúng ta có thể nghiên cứu một đại diện của mỗi lớp topology.</p>
+  </li>
+  <li>
+    <p><strong>Dự đoán hành vi:</strong> Các vật thể trong cùng một lớp topology thường có hành vi tương tự trong nhiều tình huống khác nhau.</p>
+  </li>
+</ol>
+
+<h3 id="trong-khoa-học-và-công-nghệ">Trong khoa học và công nghệ</h3>
+
+<h4 id="sinh-học">Sinh học</h4>
+
+<p><strong>Topology của protein:</strong> Các nhà sinh học sử dụng topology để nghiên cứu cấu trúc của protein. Protein là các phân tử phức tạp được tạo thành từ các chuỗi amino acid, và cách chúng gấp lại (fold) quyết định chức năng của chúng. Topology giúp các nhà khoa học phân loại các protein theo cấu trúc cơ bản của chúng, không phụ thuộc vào chi tiết cụ thể của cách gấp.</p>
+
+<p><strong>Topology của DNA:</strong> DNA là một chuỗi xoắn kép, và topology giúp các nhà khoa học hiểu cách DNA xoắn và giải xoắn trong quá trình sao chép và phiên mã. Các khái niệm như “supercoiling” (siêu xoắn) được nghiên cứu bằng cách sử dụng topology.</p>
+
+<p><strong>Knot theory trong sinh học:</strong> Các nhà khoa học sử dụng knot theory (một nhánh của topology) để nghiên cứu cách các phân tử DNA và protein tạo thành các “nút” và cách các enzyme có thể “tháo gỡ” các nút này.</p>
+
+<h4 id="vật-lý">Vật lý</h4>
+
+<p><strong>Topological phases of matter:</strong> Trong vật lý hiện đại, các nhà khoa học đã phát hiện ra các “pha topology” của vật chất—các trạng thái của vật chất được phân loại theo các tính chất topology của chúng, không phụ thuộc vào chi tiết cụ thể của vật liệu. Điều này đã dẫn đến việc phát hiện ra các vật liệu mới với các tính chất kỳ lạ.</p>
+
+<p><strong>Topology trong quantum mechanics:</strong> Topology đóng vai trò quan trọng trong quantum mechanics, đặc biệt là trong nghiên cứu về các hệ thống lượng tử và các tính chất của chúng.</p>
+
+<p><strong>String theory:</strong> Trong string theory, các nhà vật lý nghiên cứu các không gian nhiều chiều và cách topology của các không gian này ảnh hưởng đến vật lý của chúng ta.</p>
+
+<h4 id="khoa-học-máy-tính">Khoa học máy tính</h4>
+
+<p><strong>Topological Data Analysis (TDA):</strong> Đây là một lĩnh vực mới nổi sử dụng topology để phân tích dữ liệu phức tạp. TDA giúp các nhà khoa học dữ liệu phát hiện các cấu trúc và mẫu trong dữ liệu mà các phương pháp truyền thống không thể phát hiện được.</p>
+
+<p><strong>Machine learning:</strong> Topology được sử dụng trong machine learning để hiểu cấu trúc của dữ liệu và cải thiện các thuật toán học máy.</p>
+
+<p><strong>Network analysis:</strong> Topology được sử dụng để phân tích các mạng lưới phức tạp, từ mạng internet đến mạng xã hội.</p>
+
+<h3 id="trong-thiết-kế-và-kỹ-thuật">Trong thiết kế và kỹ thuật</h3>
+
+<p><strong>Thiết kế sản phẩm:</strong> Các nhà thiết kế sử dụng các khái niệm topology để tạo ra các sản phẩm với các tính chất mong muốn. Ví dụ, hiểu về topology giúp thiết kế các vật thể có thể biến dạng một cách mượt mà.</p>
+
+<p><strong>Kỹ thuật:</strong> Các kỹ sư sử dụng topology để phân tích và thiết kế các cấu trúc phức tạp, từ các tòa nhà đến các hệ thống cơ khí.</p>
+
+<p><strong>Robotics:</strong> Trong robotics, topology được sử dụng để nghiên cứu cách các robot có thể di chuyển và biến dạng trong không gian.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Leonhard Euler</strong> - <em>“Solutio problematis ad geometriam situs pertinentis”</em> (1736)<br />
+<em>Bài toán bảy cây cầu ở Königsberg—khởi đầu của topology</em></p>
+  </li>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Nền tảng của topology hiện đại</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Định nghĩa không gian tô-pô hiện đại</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ul>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., Ch. 2<br />
+<em>Định nghĩa homeomorphism và các ví dụ</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology without Tears</em>, Ch. 1-2<br />
+<em>Giải thích trực quan về homeomorphism</em></p>
+  </li>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, §0.1<br />
+<em>Homeomorphism và homotopy equivalence</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="trong-toán-học">Trong toán học</h3>
+
+<p>Homeomorphism là khái niệm cơ bản nhất trong topology—nó cho phép chúng ta phân loại các không gian theo các tính chất cơ bản của chúng. Nhiều khái niệm topology khác (như fundamental group, homology) được xây dựng trên nền tảng của homeomorphism.</p>
+
+<h3 id="trong-khoa-học">Trong khoa học</h3>
+
+<ul>
+  <li>
+    <p><strong>Sinh học:</strong> Topology của protein và DNA giúp các nhà khoa học hiểu cách các phân tử này hoạt động.</p>
+  </li>
+  <li>
+    <p><strong>Vật lý:</strong> Topology được sử dụng để nghiên cứu các pha của vật chất và các tính chất của không gian-thời gian.</p>
+  </li>
+  <li>
+    <p><strong>Khoa học dữ liệu:</strong> Topological Data Analysis (TDA) sử dụng topology để phân tích dữ liệu phức tạp.</p>
+  </li>
+</ul>
+
+<h3 id="trong-nghệ-thuật">Trong nghệ thuật</h3>
+
+<p>Nhiều nghệ sĩ đã sử dụng các khái niệm topology trong tác phẩm của họ, từ các tác phẩm của M.C. Escher đến các tác phẩm nghệ thuật hiện đại.</p>
+
+<hr />
+
+<h2 id="-homotopy-vs-homeomorphism">🎓 Homotopy vs Homeomorphism</h2>
+
+<h3 id="sự-khác-biệt-quan-trọng">Sự khác biệt quan trọng</h3>
+
+<p>Trong khi homeomorphism là một khái niệm mạnh mẽ, có một khái niệm liên quan nhưng yếu hơn gọi là <strong>homotopy equivalence</strong>. Điều quan trọng là hiểu sự khác biệt giữa hai khái niệm này.</p>
+
+<p><strong>Homeomorphism:</strong> Hai không gian là homeomorphic nếu chúng có thể biến đổi thành nhau một cách liên tục và có thể đảo ngược. Đây là một khái niệm rất mạnh—nó yêu cầu một sự tương ứng một-một hoàn hảo giữa các điểm.</p>
+
+<p><strong>Homotopy equivalence:</strong> Hai không gian là homotopy equivalent nếu chúng có thể “co lại” thành cùng một không gian. Đây là một khái niệm yếu hơn—nó cho phép các biến đổi không thể đảo ngược hoàn toàn.</p>
+
+<h3 id="câu-hỏi-quan-trọng-một-điểm-có-thể-biến-thành-một-hình-cầu-không">Câu hỏi quan trọng: Một điểm có thể biến thành một hình cầu không?</h3>
+
+<p>Đây là một câu hỏi rất hay và quan trọng! Câu trả lời là <strong>KHÔNG</strong>—một phép biến đổi liên tục (homeomorphism) không thể biến một điểm thành một hình cầu.</p>
+
+<h4 id="tại-sao-không">Tại sao không?</h4>
+
+<p><strong>Lý do cơ bản:</strong></p>
+
+<ol>
+  <li>
+    <p><strong>Số lượng điểm:</strong> Một điểm chỉ có <strong>một điểm duy nhất</strong>, trong khi một hình cầu có <strong>vô số điểm</strong>. Không có cách nào để ánh xạ một điểm thành vô số điểm một cách liên tục và có thể đảo ngược.</p>
+  </li>
+  <li>
+    <p><strong>Homeomorphism yêu cầu song ánh:</strong> Một homeomorphism phải là một song ánh (bijection)—mỗi điểm trong không gian này phải tương ứng với đúng một điểm trong không gian kia. Vì một điểm chỉ có một điểm và một hình cầu có vô số điểm, không thể có song ánh giữa chúng.</p>
+  </li>
+  <li>
+    <p><strong>Không thể “tạo ra” điểm mới:</strong> Trong một phép biến đổi liên tục, bạn không thể “tạo ra” các điểm mới từ không có gì. Bạn chỉ có thể di chuyển, kéo dãn, và bóp méo các điểm đã có sẵn.</p>
+  </li>
+</ol>
+
+<h4 id="ví-dụ-minh-họa">Ví dụ minh họa</h4>
+
+<p>Hãy tưởng tượng bạn có một điểm duy nhất trên một tờ giấy. Bạn có thể:</p>
+<ul>
+  <li>✅ Di chuyển điểm đó đến vị trí khác</li>
+  <li>✅ Kéo dãn điểm đó thành một đường thẳng (nhưng đây không phải là homeomorphism vì bạn đang tạo ra vô số điểm mới)</li>
+  <li>❌ Biến điểm đó thành một hình cầu mà vẫn giữ tính chất homeomorphism</li>
+</ul>
+
+<p><strong>Tại sao không thể?</strong></p>
+
+<p>Nếu bạn cố gắng “mở rộng” một điểm thành một hình cầu, bạn sẽ phải tạo ra vô số điểm mới từ một điểm duy nhất. Điều này vi phạm định nghĩa của homeomorphism—bạn không thể có một song ánh giữa một tập hợp có một phần tử và một tập hợp có vô số phần tử.</p>
+
+<h4 id="nhưng-có-thể-có-homotopy-equivalence">Nhưng có thể có Homotopy Equivalence!</h4>
+
+<p>Mặc dù một điểm và một hình cầu <strong>không</strong> homeomorphic, chúng <strong>có thể</strong> là homotopy equivalent trong một số trường hợp đặc biệt!</p>
+
+<p><strong>Homotopy equivalence cho phép:</strong></p>
+
+<p>Một hình cầu có thể “co lại” thành một điểm bằng cách thu nhỏ tất cả các điểm về một điểm duy nhất. Quá trình này là một phép biến đổi liên tục, nhưng nó <strong>không thể đảo ngược</strong>—bạn không thể “mở rộng” một điểm thành một hình cầu một cách liên tục và duy nhất.</p>
+
+<p><strong>Điều kiện đặc biệt:</strong></p>
+
+<p>Một hình cầu và một điểm chỉ là homotopy equivalent nếu hình cầu đó là <strong>contractible</strong> (có thể co lại). Trong không gian Euclid thông thường, một hình cầu rỗng (chỉ bề mặt) <strong>không</strong> contractible—bạn không thể co nó thành một điểm mà không làm hỏng cấu trúc của nó. Tuy nhiên, một quả bóng đặc (bao gồm cả bên trong) <strong>là</strong> contractible—bạn có thể co nó thành một điểm ở trung tâm.</p>
+
+<h3 id="các-ví-dụ-khác">Các ví dụ khác</h3>
+
+<h4 id="ví-dụ-1-hình-cầu-và-một-điểm">Ví dụ 1: Hình cầu và một điểm</h4>
+
+<ul>
+  <li><strong>Homeomorphic?</strong> KHÔNG—một hình cầu có vô số điểm, một điểm chỉ có một điểm.</li>
+  <li><strong>Homotopy equivalent?</strong> PHỤ THUỘC—một hình cầu rỗng không contractible, nhưng một quả bóng đặc thì có thể contractible.</li>
+</ul>
+
+<h4 id="ví-dụ-2-một-hình-trụ-và-một-vòng-tròn">Ví dụ 2: Một hình trụ và một vòng tròn</h4>
+
+<ul>
+  <li><strong>Homeomorphic?</strong> KHÔNG—một hình trụ là 2 chiều, một vòng tròn là 1 chiều.</li>
+  <li><strong>Homotopy equivalent?</strong> CÓ—một hình trụ có thể co lại thành một vòng tròn bằng cách thu nhỏ chiều cao.</li>
+</ul>
+
+<h4 id="ví-dụ-3-một-hình-cầu-và-một-hình-lập-phương-bề-mặt">Ví dụ 3: Một hình cầu và một hình lập phương (bề mặt)</h4>
+
+<ul>
+  <li><strong>Homeomorphic?</strong> CÓ—cả hai đều là bề mặt 2 chiều không có lỗ.</li>
+  <li><strong>Homotopy equivalent?</strong> CÓ—nếu hai không gian homeomorphic, chúng cũng homotopy equivalent.</li>
+</ul>
+
+<h3 id="tại-sao-điều-này-quan-trọng">Tại sao điều này quan trọng?</h3>
+
+<p>Sự khác biệt giữa homeomorphism và homotopy equivalence là rất quan trọng trong topology:</p>
+
+<ol>
+  <li>
+    <p><strong>Homeomorphism:</strong> Yêu cầu một sự tương ứng hoàn hảo giữa các điểm. Nếu hai không gian homeomorphic, chúng có cùng mọi tính chất topology.</p>
+  </li>
+  <li>
+    <p><strong>Homotopy equivalence:</strong> Yêu cầu ít hơn—chỉ cần có thể “co lại” thành cùng một không gian. Nhiều tính chất toán học quan trọng (như fundamental group, homology) chỉ phụ thuộc vào homotopy type, không phụ thuộc vào homeomorphism type.</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Homotopy equivalence cho phép chúng ta đơn giản hóa các không gian phức tạp để nghiên cứu chúng dễ dàng hơn, trong khi vẫn giữ được các tính chất toán học quan trọng.</p>
+  </li>
+</ol>
+
+<h3 id="kết-luận">Kết luận</h3>
+
+<p><strong>Một phép biến đổi liên tục (homeomorphism) không thể biến một điểm thành một hình cầu</strong> vì:</p>
+<ul>
+  <li>Một điểm chỉ có một điểm, một hình cầu có vô số điểm</li>
+  <li>Homeomorphism yêu cầu song ánh giữa các điểm</li>
+  <li>Không thể tạo ra điểm mới từ không có gì trong một phép biến đổi liên tục</li>
+</ul>
+
+<p>Tuy nhiên, một hình cầu có thể <strong>co lại</strong> thành một điểm (homotopy equivalence), nhưng quá trình này không thể đảo ngược một cách liên tục và duy nhất.</p>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Tưởng tượng chi tiết:</strong> Hãy tưởng tượng bạn có một chiếc ly cà phê và một chiếc bánh donut. Bạn có thể mô tả từng bước cách biến đổi một thành cái kia không? Hãy nghĩ về các bước trung gian và cách mỗi bước chỉ là sự kéo dãn và bóp méo mượt mà.</p>
+  </li>
+  <li>
+    <p><strong>Phân loại nâng cao:</strong> Hãy liệt kê mười vật thể trong cuộc sống hàng ngày và phân loại chúng theo số lượng lỗ (genus) của chúng. Sau đó, hãy thử tìm các vật thể trong cùng một lớp topology và giải thích tại sao chúng thuộc cùng một lớp.</p>
+  </li>
+  <li>
+    <p><strong>So sánh sâu:</strong> Tại sao một hình cầu và một hình lập phương (chỉ bề mặt) là homeomorphic, nhưng một hình cầu và một quả bóng (bao gồm cả bên trong) thì không? Hãy nghĩ về khái niệm “lân cận” (neighborhood) và cách nó khác nhau giữa các không gian có số chiều khác nhau.</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng sáng tạo:</strong> Hãy nghĩ về một ứng dụng của topology trong lĩnh vực mà bạn quan tâm (khoa học, nghệ thuật, công nghệ, v.v.). Làm thế nào các khái niệm về homeomorphism và bất biến topology có thể được sử dụng trong lĩnh vực đó?</p>
+  </li>
+  <li>
+    <p><strong>Thử thách:</strong> Hãy nghĩ về một vật thể có hình dạng phức tạp. Bạn có thể xác định số lượng lỗ của nó không? Bạn có thể tìm một vật thể đơn giản hơn trong cùng một lớp topology không?</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-thực-tế">Thử nghiệm thực tế</h3>
+
+<ol>
+  <li>
+    <p><strong>Làm một Möbius strip:</strong> Cắt một dải giấy dài và mỏng, xoắn một đầu 180 độ, và dán hai đầu lại với nhau. Bạn sẽ có một Möbius strip—một bề mặt chỉ có một mặt và một cạnh! Hãy thử vẽ một đường thẳng dọc theo Möbius strip và xem điều gì xảy ra.</p>
+  </li>
+  <li>
+    <p><strong>Vẽ các biến dạng:</strong> Hãy vẽ một chuỗi các hình ảnh (ít nhất 5-6 bước) cho thấy cách một chiếc ly cà phê biến thành một chiếc bánh donut. Hãy đảm bảo mỗi bước chỉ là sự kéo dãn và bóp méo mượt mà, không có cắt hoặc dán.</p>
+  </li>
+  <li>
+    <p><strong>Đếm lỗ và phân loại:</strong> Hãy đi quanh nhà và đếm số lượng lỗ của các vật thể khác nhau. Tạo một bảng phân loại các vật thể theo genus của chúng. Bạn có thể tìm thấy các vật thể trong cùng một lớp topology không?</p>
+  </li>
+  <li>
+    <p><strong>Thí nghiệm với đất sét:</strong> Nếu bạn có đất sét hoặc Play-Doh, hãy thử tạo một chiếc ly cà phê và một chiếc bánh donut. Sau đó, hãy thử biến đổi một thành cái kia chỉ bằng cách kéo dãn và bóp méo. Điều này sẽ giúp bạn hiểu rõ hơn về khái niệm homeomorphism.</p>
+  </li>
+  <li>
+    <p><strong>Khám phá các bề mặt:</strong> Hãy tìm hiểu về các bề mặt khác nhau (hình cầu, torus, Klein bottle, v.v.) và thử phân loại chúng theo genus của chúng. Bạn có thể tìm thấy các ví dụ thực tế của các bề mặt này trong cuộc sống hàng ngày không?</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá:</p>
+
+<ul>
+  <li>
+    <p><strong>Homeomorphism:</strong> Khái niệm toán học về việc hai vật thể có thể biến đổi thành nhau chỉ bằng cách kéo dãn và bóp méo.</p>
+  </li>
+  <li>
+    <p><strong>Ly cà phê và Bánh donut:</strong> Cả hai đều có một lỗ và là homeomorphic với nhau.</p>
+  </li>
+  <li>
+    <p><strong>Số lượng lỗ:</strong> Một bất biến topology quan trọng giúp phân loại các vật thể.</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Topology xuất hiện khắp nơi trong khoa học, công nghệ, và nghệ thuật.</p>
+  </li>
+</ul>
+
+<p>Topology không chỉ là toán học trừu tượng—nó giúp chúng ta hiểu thế giới xung quanh theo một cách mới mẻ và sâu sắc hơn. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>
+
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Konigsberg_Bridges/">Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Mobius_Strip/">Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Euler_Characteristic/">Bài 09.03: Euler Characteristic - Công Thức V - E + F</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Four_Color_Theorem/">Bài 09.04: Bốn Màu Đủ Để Tô Bản Đồ</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_DNA_Knot_Theory/">Bài 09.05: Topology của DNA - Xoắn và Nút</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_Physics_Topology/">Bài 09.06: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Topological_Data_Analysis/">Bài 09.07: Topology của Dữ Liệu - Phân Tích Dữ Liệu Bằng Topology</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture/">Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô</a>
+      
+    </li>
+  
+  
+
+</ul>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

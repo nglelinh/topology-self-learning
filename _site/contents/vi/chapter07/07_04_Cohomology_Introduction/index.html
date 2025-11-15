@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 07.04: Cohomology - Introduction &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 07.04: Cohomology - Introduction
+    
+  </h1>
+  <p><strong>H^n(X) - Dual Theory with Rich Algebraic Structure</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Chúng ta đã thành thạo <strong>homology $H_n(X)$</strong>—các bất biến abelian group mạnh mẽ. Homology cho chúng ta một cách đo lường các lỗ trong không gian và là một công cụ mạnh mẽ trong topology đại số.</p>
+
+<p><strong>Nhưng có gì thêm?</strong></p>
+
+<blockquote>
+  <p><strong>Cohomology $H^n(X)$ = “dual” của homology</strong></p>
+</blockquote>
+
+<p><strong>Tại sao “dual” không đủ?</strong></p>
+
+<p>Cohomology có <strong>cấu trúc bổ sung</strong> mà homology không có:</p>
+
+<p>✅ <strong>Cup product $\cup$:</strong> Phép nhân trong cohomology! Đây là một cấu trúc đại số quan trọng cho phép chúng ta nhân các cohomology classes với nhau.</p>
+
+<p>✅ <strong>Ring structure:</strong> $H^*(X)$ = graded ring—tổng trực tiếp của tất cả các cohomology groups tạo thành một graded ring, một cấu trúc đại số phong phú hơn nhiều so với chỉ các groups.</p>
+
+<p>✅ <strong>Contravariant:</strong> $f: X \to Y$ cảm ứng $f^*: H^n(Y) \to H^n(X)$ (reverse direction!)—cohomology là contravariant, nghĩa là các maps đi theo hướng ngược lại so với homology.</p>
+
+<p>✅ <strong>More refined:</strong> Phân biệt các không gian mà homology không thể—cohomology có thể phân biệt các không gian mà homology không thể phân biệt được.</p>
+
+<p>✅ <strong>Geometric:</strong> Poincaré duality liên kết $H^k \leftrightarrow H_{n-k}$—đây là một kết quả hình học sâu sắc cho phép chúng ta liên kết cohomology và homology trên các manifolds.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cup_product.svg/400px-Cup_product.svg.png" alt="Cohomology cup product" /><br />
+<em>Cup product visualization - Nguồn concept</em></p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá cohomology một cách có hệ thống. Chúng ta sẽ nghiên cứu <strong>Cochain complex</strong>—cấu trúc dual của chain complex. Chúng ta sẽ học về <strong>Cohomology groups $H^n(X)$</strong>—định nghĩa và các tính chất cơ bản. Chúng ta sẽ tìm hiểu <strong>Cup product $\cup$</strong>—cấu trúc phép nhân quan trọng trong cohomology. Chúng ta sẽ xem xét <strong>Ring $H^*(X)$</strong>—graded ring invariant mạnh mẽ. Chúng ta sẽ học về <strong>Universal Coefficient Theorem</strong>—liên kết $H^n$ với $H_n$. Chúng ta sẽ khám phá <strong>Poincaré Duality</strong>—duality trên các manifolds. Chúng ta sẽ xem xét các <strong>ví dụ</strong> cụ thể như spheres, torus, projective spaces—những ví dụ này cho thấy sức mạnh của cohomology. Cuối cùng, chúng ta sẽ xem xét các <strong>ứng dụng</strong> trong obstruction theory và characteristic classes—những ứng dụng quan trọng trong topology và geometry.</p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> <strong>Ring structure</strong> = bất biến mạnh mẽ hơn nhiều so với chỉ các groups—cấu trúc ring cho phép chúng ta nhân các cohomology classes và tạo ra các bất biến mạnh mẽ hơn. Đây là <strong>nền tảng</strong> cho modern geometry (vector bundles, characteristic classes)—cohomology là công cụ cơ bản trong nghiên cứu các vector bundles và characteristic classes. Nó <strong>cần thiết</strong> trong algebraic geometry và differential topology—cohomology xuất hiện khắp nơi trong các lĩnh vực này. Cuối cùng, <strong>Cup product</strong> phát hiện các intersections hình học—đây là một cách mạnh mẽ để nghiên cứu các intersections trong không gian.</p>
+
+<hr />
+
+<h2 id="-cochains-and-coboundary">🔗 Cochains and Coboundary</h2>
+
+<h3 id="1-cochain-groups">1. Cochain Groups</h3>
+
+<p><strong>Ôn tập (Homology):</strong><br />
+Chain complex: $C_n(X)$ với boundary $\partial: C_n \to C_{n-1}$.</p>
+
+<p><strong>Dualize:</strong></p>
+
+<p><strong>Định nghĩa (Cochain Groups):</strong><br />
+Cố định coefficient group $G$ (thường là $\mathbb{Z}$).</p>
+
+\[C^n(X; G) = \text{Hom}(C_n(X), G)\]
+
+<p><strong>Group của các homomorphisms từ $C_n(X)$ đến $G$.</strong> Trực giác hình học là cochain group là không gian của các “functions” trên chain group—mỗi cochain là một cách gán giá trị cho mỗi chain.</p>
+
+<p><strong>Elements:</strong> Cochains $\phi: C_n(X) \to G$. Mỗi cochain là một homomorphism từ chain group đến coefficient group.</p>
+
+<hr />
+
+<p><strong>Trực giác:</strong></p>
+
+<ul>
+  <li><strong>Chains:</strong> “Geometric” objects (simplices)—các đối tượng hình học như simplices</li>
+  <li><strong>Cochains:</strong> “Functions” trên chains (assign values)—các hàm số trên chains, gán giá trị cho mỗi chain</li>
+</ul>
+
+<p><strong>Ví dụ:</strong> 1-chain = formal sum của các edges.<br />
+1-cochain = function gán số cho mỗi edge. Đây là một cách hiểu trực quan—chains là các đối tượng hình học, còn cochains là các hàm số trên các đối tượng này.</p>
+
+<hr />
+
+<h3 id="2-coboundary-operator">2. Coboundary Operator</h3>
+
+<p><strong>Định nghĩa (Coboundary):</strong><br />
+Boundary $\partial: C_{n+1} \to C_n$ cảm ứng <strong>coboundary</strong> $\delta: C^n \to C^{n+1}$.</p>
+
+<p><strong>Công thức:</strong> $\phi \in C^n$, định nghĩa $\delta\phi \in C^{n+1}$ bởi:</p>
+
+\[(\delta \phi)(c) = \phi(\partial c), \quad c \in C_{n+1}\]
+
+<p><strong>“Precompose với boundary.”</strong> Trực giác hình học là coboundary operator được định nghĩa bằng cách “precompose” với boundary operator—chúng ta áp dụng cochain vào boundary của chain. Điều này tạo ra một cochain ở chiều cao hơn.</p>
+
+<hr />
+
+<p><strong>Diagram:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C_{n+1} --∂--&gt; C_n
+   |           |
+   ↓           ↓
+   G &lt;--δφ--- G
+</code></pre></div></div>
+
+<p>δφ = φ ∘ ∂.</p>
+
+<hr />
+
+<h3 id="3-key-property-δ--0">3. Key Property: δ² = 0</h3>
+
+<p><strong>Theorem:</strong> δ^{n+1} ∘ δ^n = 0.</p>
+
+<p><strong>Proof:</strong><br />
+(δ²φ)(c) = (δφ)(∂c) = φ(∂²c) = φ(0) = 0.</p>
+
+<p>Uses ∂² = 0! ✓</p>
+
+<p><strong>Same as homology, but “dual.”</strong></p>
+
+<hr />
+
+<h3 id="4-cochain-complex">4. Cochain Complex</h3>
+
+<p><strong>Cochain complex:</strong></p>
+
+\[0 \to C^0(X) \xrightarrow{\delta^0} C^1(X) \xrightarrow{\delta^1} C^2(X) \to \cdots\]
+
+<p><strong>Arrows go UP in dimension</strong> (opposite of chains).</p>
+
+<p><strong>Cocycles:</strong> Z^n = ker(δ^n) (cochains với δφ = 0)</p>
+
+<p><strong>Coboundaries:</strong> B^n = im(δ^{n-1}) (cochains = δψ)</p>
+
+<p><strong>Lemma:</strong> B^n ⊆ Z^n (follows from δ² = 0).</p>
+
+<hr />
+
+<h2 id="-cohomology-groups">📊 Cohomology Groups</h2>
+
+<h3 id="1-definition">1. Definition</h3>
+
+<p><strong>Định nghĩa (Cohomology Groups):</strong></p>
+
+\[H^n(X; G) = \frac{Z^n(X; G)}{B^n(X; G)} = \frac{\ker(\delta^n)}{\text{im}(\delta^{n-1})}\]
+
+<p><strong>Quotient: cocycles modulo coboundaries.</strong></p>
+
+<p><strong>Same algebraic structure as homology!</strong></p>
+
+<hr />
+
+<h3 id="2-properties">2. Properties</h3>
+
+<p><strong>Abelian groups:</strong> H^n(X) always abelian.</p>
+
+<p><strong>Functorial (contravariant):</strong><br />
+f: X → Y induces:</p>
+
+\[f^* : H^n(Y) \to H^n(X) \quad \text{(reverse direction!)}\]
+
+<p><strong>Construction:</strong><br />
+φ: C_n(Y) → G cochain.<br />
+Define f^*(φ) = φ ∘ f_# (precompose with chain map).</p>
+
+<p><strong>Contravariance:</strong></p>
+<ul>
+  <li>(f ∘ g)^* = g^* ∘ f^*</li>
+  <li>id^* = id</li>
+</ul>
+
+<p><strong>Opposite category behavior dari homology!</strong></p>
+
+<hr />
+
+<h3 id="3-homotopy-invariance">3. Homotopy Invariance</h3>
+
+<p><strong>Theorem:</strong> X ≃ Y ⇒ H^n(X) ≅ H^n(Y).</p>
+
+<p><strong>Proof:</strong> Same as homology (dual argument). ✓</p>
+
+<p><strong>Cohomology = homotopy invariant.</strong></p>
+
+<hr />
+
+<h2 id="-cup-product">⭐ Cup Product</h2>
+
+<h3 id="1-definition-1">1. Definition</h3>
+
+<p><strong>Revolutionary feature:</strong> Cohomology có <strong>multiplication</strong>!</p>
+
+<p><strong>Định nghĩa (Cup Product):</strong></p>
+
+\[\cup : H^p(X) \times H^q(X) \to H^{p+q}(X)\]
+
+<p><strong>Bilinear, associative operation.</strong></p>
+
+<hr />
+
+<p><strong>Construction (Sketch):</strong><br />
+φ ∈ C^p, ψ ∈ C^q. Define φ ∪ ψ ∈ C^{p+q} by:</p>
+
+\[(\phi \cup \psi)(\sigma) = \phi(\sigma|_{[v_0, \ldots, v_p]}) \cdot \psi(\sigma|_{[v_p, \ldots, v_{p+q}]})\]
+
+<p><strong>Evaluate φ on “front” of simplex, ψ on “back”, multiply.</strong></p>
+
+<p><strong>Extends to cohomology:</strong><br />
+If φ, ψ cocycles, then φ ∪ ψ cocycle.<br />
+If φ coboundary, then φ ∪ ψ coboundary.</p>
+
+<p><strong>Induces well-defined:</strong><br />
+[φ] ∪ [ψ] = [φ ∪ ψ] ∈ H^{p+q}(X).</p>
+
+<hr />
+
+<h3 id="2-properties-1">2. Properties</h3>
+
+<p><strong>Bilinearity:</strong> (α₁ + α₂) ∪ β = α₁ ∪ β + α₂ ∪ β.</p>
+
+<p><strong>Associativity:</strong> (α ∪ β) ∪ γ = α ∪ (β ∪ γ).</p>
+
+<p><strong>Unity:</strong> 1 ∈ H^0(X) is identity: 1 ∪ α = α ∪ 1 = α.</p>
+
+<p><strong>Graded commutativity:</strong></p>
+
+\[\alpha \cup \beta = (-1)^{pq} \beta \cup \alpha\]
+
+<p>(α ∈ H^p, β ∈ H^q)</p>
+
+<p><strong>Signs matter!</strong></p>
+
+<hr />
+
+<h3 id="3-ring-structure">3. Ring Structure</h3>
+
+<p><strong>Định nghĩa (Cohomology Ring):</strong></p>
+
+\[H^*(X) = \bigoplus_{n=0}^\infty H^n(X)\]
+
+<p>with cup product ∪.</p>
+
+<p><strong>H^*(X) = graded commutative ring!</strong></p>
+
+<p><strong>Much richer structure than homology groups.</strong></p>
+
+<hr />
+
+<p><strong>Example:</strong></p>
+
+<p>For S², we’ll see:<br />
+H^*(S²) = ℤ[α]/(α²) where α ∈ H²(S²).</p>
+
+<p><strong>Polynomial ring truncated!</strong></p>
+
+<hr />
+
+<h2 id="-universal-coefficient-theorem">🔄 Universal Coefficient Theorem</h2>
+
+<h3 id="1-statement">1. Statement</h3>
+
+<p><strong>Theorem (Universal Coefficient - Cohomology):</strong></p>
+
+\[H^n(X; G) \cong \text{Hom}(H_n(X), G) \oplus \text{Ext}(H_{n-1}(X), G)\]
+
+<p><strong>Relates cohomology to homology!</strong></p>
+
+<hr />
+
+<p><strong>Terms:</strong></p>
+<ul>
+  <li><strong>Hom(A, G):</strong> Homomorphisms A → G</li>
+  <li><strong>Ext(A, G):</strong> Extension group (measures “twisting”)</li>
+</ul>
+
+<p><strong>Special case:</strong> If H_n(X) free (no torsion), then:</p>
+
+\[H^n(X; G) \cong \text{Hom}(H_n(X), G) \cong H_n(X) \otimes G\]
+
+<p><strong>(When G = ℤ, just H^n ≅ H_n)</strong></p>
+
+<hr />
+
+<h3 id="2-example">2. Example</h3>
+
+<p><strong>X = S²:</strong><br />
+H₂(S²) = ℤ (free).</p>
+
+\[H^2(S^2; \mathbb{Z}) \cong \text{Hom}(\mathbb{Z}, \mathbb{Z}) \oplus \text{Ext}(0, \mathbb{Z}) \cong \mathbb{Z}\]
+
+<p><strong>H^2(S²) ≅ H₂(S²) ≅ ℤ.</strong> ✓</p>
+
+<hr />
+
+<p><strong>X = ℝP²:</strong><br />
+H₁(ℝP²) = ℤ/2ℤ (torsion!).</p>
+
+\[H^1(\mathbb{RP}^2; \mathbb{Z}) \cong \text{Hom}(\mathbb{Z}/2\mathbb{Z}, \mathbb{Z}) \oplus \text{Ext}(H_0, \mathbb{Z})\]
+
+\[\cong 0 \oplus 0 = 0\]
+
+<p><strong>But H₁(ℝP²) = ℤ/2ℤ ≠ 0!</strong></p>
+
+<p><strong>Torsion causes H^n ≠ H_n!</strong></p>
+
+<hr />
+
+<h2 id="-examples-and-computations">🧮 Examples and Computations</h2>
+
+<h3 id="example-1-point">Example 1: Point</h3>
+
+<p>X = {pt}.</p>
+
+<p><strong>H_n(pt) = ℤ (n=0), 0 (n&gt;0).</strong></p>
+
+<p><strong>Universal Coefficient:</strong></p>
+
+\[H^n(\text{pt}) \cong H_n(\text{pt}) \cong \begin{cases}
+\mathbb{Z} &amp; n = 0 \\
+0 &amp; n &gt; 0
+\end{cases}\]
+
+<p><strong>Ring:</strong> H^*(pt) = ℤ (trivial multiplication).</p>
+
+<hr />
+
+<h3 id="example-2-sphere-sn">Example 2: Sphere S^n</h3>
+
+<p><strong>H_k(S^n) = ℤ (k=0,n), 0 else.</strong></p>
+
+<p><strong>Universal Coefficient:</strong></p>
+
+\[H^k(S^n) \cong \begin{cases}
+\mathbb{Z} &amp; k = 0, n \\
+0 &amp; \text{otherwise}
+\end{cases}\]
+
+<p><strong>Cohomology ring:</strong></p>
+
+\[H^*(S^n) \cong \mathbb{Z}[x]/(x^2), \quad x \in H^n(S^n)\]
+
+<p><strong>(Generator x với x² = 0.)</strong></p>
+
+<p><strong>For n odd:</strong> Actually x² automatically 0 (graded commutativity).</p>
+
+<p><strong>For n even:</strong> x² = 0 by dimension (no H^{2n}(S^n)).</p>
+
+<hr />
+
+<h3 id="example-3-torus-t">Example 3: Torus T²</h3>
+
+<p><strong>H_*(T²) = ℤ, ℤ², ℤ</strong> (n = 0,1,2).</p>
+
+<p><strong>H^*(T²) = ℤ, ℤ², ℤ</strong> (same by Universal Coefficient, no torsion).</p>
+
+<p><strong>Ring structure:</strong></p>
+
+<p>Generators: 1 ∈ H^0, a, b ∈ H^1, (a∪b) ∈ H^2.</p>
+
+\[H^*(T^2) \cong \mathbb{Z}[a, b]/(a^2, b^2)\]
+
+<p><strong>Exterior algebra on two generators!</strong></p>
+
+<p><strong>Key:</strong> a ∪ a = 0, b ∪ b = 0 (graded commutativity, odd degree).<br />
+But a ∪ b ≠ 0 (generates H²).</p>
+
+<hr />
+
+<h3 id="example-4-ℝp">Example 4: ℝP²</h3>
+
+<p><strong>H_*(ℝP²) = ℤ, ℤ/2ℤ, 0.</strong></p>
+
+<p><strong>Cohomology (ℤ coefficients):</strong></p>
+
+\[H^0(\mathbb{RP}^2) = \mathbb{Z}, \quad H^1 = 0, \quad H^2 = 0\]
+
+<p><strong>Torsion disappears!</strong></p>
+
+<p><strong>Different picture:</strong> Use ℤ/2ℤ coefficients:</p>
+
+\[H^*(\mathbb{RP}^2; \mathbb{Z}/2\mathbb{Z}) = (\mathbb{Z}/2\mathbb{Z})[x]/(x^3), \quad x \in H^1\]
+
+<p><strong>Polynomial ring mod x³!</strong></p>
+
+<p><strong>Cup product:</strong> x ∪ x = x² ≠ 0 ∈ H²(ℝP²; ℤ/2ℤ) ≅ ℤ/2ℤ.</p>
+
+<p><strong>Detects non-orientability!</strong></p>
+
+<hr />
+
+<h2 id="-poincaré-duality">🧠 Poincaré Duality</h2>
+
+<h3 id="1-statement-1">1. Statement</h3>
+
+<p><strong>Theorem (Poincaré Duality):</strong><br />
+M compact, oriented, n-manifold without boundary.</p>
+
+\[H^k(M; \mathbb{Z}) \cong H_{n-k}(M; \mathbb{Z})\]
+
+<p><strong>Isomorphism:</strong></p>
+
+\[PD : H^k(M) \xrightarrow{\cong} H_{n-k}(M)\]
+
+<p><strong>“Top homology ↔ bottom cohomology.”</strong></p>
+
+<hr />
+
+<p><strong>Geometric intuition:</strong><br />
+k-dimensional cycle α in M.<br />
+Dual (n-k)-dimensional cycle β = “orthogonal complement.”</p>
+
+<p><strong>Intersection pairing ↔ cup product!</strong></p>
+
+<hr />
+
+<h3 id="2-example-sn">2. Example: S^n</h3>
+
+<p><strong>H^k(S^n) ≅ H_{n-k}(S^n):</strong></p>
+
+<ul>
+  <li>k=0: H^0 = ℤ ↔ H_n = ℤ ✓</li>
+  <li>k=n: H^n = ℤ ↔ H_0 = ℤ ✓</li>
+  <li>else: 0 ↔ 0 ✓</li>
+</ul>
+
+<p><strong>Perfect duality!</strong></p>
+
+<hr />
+
+<h3 id="3-example-t">3. Example: T²</h3>
+
+<p><strong>n=2:</strong></p>
+
+<ul>
+  <li>H^0(T²) = ℤ ↔ H₂(T²) = ℤ ✓</li>
+  <li>H^1(T²) = ℤ² ↔ H₁(T²) = ℤ² ✓ (self-dual!)</li>
+  <li>H^2(T²) = ℤ ↔ H₀(T²) = ℤ ✓</li>
+</ul>
+
+<hr />
+
+<h3 id="4-non-orientable">4. Non-orientable</h3>
+
+<p><strong>ℝP²:</strong> Not orientable ⇒ Poincaré Duality fails với ℤ coefficients.</p>
+
+<p><strong>Use ℤ/2ℤ coefficients:</strong> Duality holds.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Introduced duality, Betti numbers</em></p>
+  </li>
+  <li>
+    <p><strong>Eduard Čech</strong> - <em>“Théorie générale de l’homologie”</em> (1932)<br />
+<em>Cohomology theory</em></p>
+  </li>
+  <li>
+    <p><strong>Samuel Eilenberg, Norman Steenrod</strong> - <em>“Foundations”</em> (1952)<br />
+<em>Axiomatic cohomology</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§3.1: Cohomology</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter V</strong></p>
+  </li>
+  <li>
+    <p><strong>Raoul Bott, Loring W. Tu</strong> - <em>Differential Forms in Algebraic Topology</em></p>
+  </li>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Elements of Algebraic Topology</em>, <strong>Chapter 5</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="characteristic-classes">Characteristic Classes</h3>
+<p><strong>Chern, Stiefel-Whitney, Pontryagin Classes:</strong> Cohomology classes of vector bundles. Classify bundles, detect obstructions.</p>
+
+<h3 id="obstruction-theory">Obstruction Theory</h3>
+<p><strong>Cup Product:</strong> Detects obstructions to extending maps, sections. Essential in bundle theory.</p>
+
+<h3 id="algebraic-geometry">Algebraic Geometry</h3>
+<p><strong>Sheaf Cohomology:</strong> Cohomology of sheaves = foundation. Computes geometric invariants.</p>
+
+<h3 id="string-theory">String Theory</h3>
+<p><strong>Cohomology Classes:</strong> Background fields (B-fields, RR-fields) = cohomology classes. Topology affects physics.</p>
+
+<h3 id="de-rham-cohomology">De Rham Cohomology</h3>
+<p><strong>Differential Forms:</strong> For manifolds, H^n_{dR}(M) ≅ H^n(M; ℝ). Bridge topology ↔ analysis.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="cochains">Cochains</h3>
+
+<ol>
+  <li>
+    <p><strong>Dual:</strong> If C_n = ℤ³, what is C^n?</p>
+  </li>
+  <li>
+    <p><strong>Coboundary:</strong> Verify δ² = 0 using ∂² = 0.</p>
+  </li>
+</ol>
+
+<h3 id="cohomology-groups">Cohomology Groups</h3>
+
+<ol>
+  <li>
+    <p><strong>Point:</strong> Verify H^n(pt) = ℤ (n=0), 0 (n&gt;0).</p>
+  </li>
+  <li>
+    <p><strong>Contractible:</strong> X contractible ⇒ H^n(X) = ?</p>
+  </li>
+</ol>
+
+<h3 id="contravariance">Contravariance</h3>
+
+<ol>
+  <li>
+    <p><strong>Induced Map:</strong> f: S¹ → S¹ degree 2. What is f^*: H^1(S¹) → H^1(S¹)?</p>
+  </li>
+  <li>
+    <p><strong>Composition:</strong> Verify (f ∘ g)^* = g^* ∘ f^*.</p>
+  </li>
+</ol>
+
+<h3 id="cup-product">Cup Product</h3>
+
+<ol>
+  <li>
+    <p><strong>Torus:</strong> Verify a ∪ b ≠ 0 but a ∪ a = 0 trong H^*(T²).</p>
+  </li>
+  <li>
+    <p><strong>Commutativity:</strong> α ∈ H^1, β ∈ H^2. Compute α ∪ β vs β ∪ α.</p>
+  </li>
+</ol>
+
+<h3 id="ring-structure">Ring Structure</h3>
+
+<ol>
+  <li>
+    <p><strong>Sphere:</strong> Verify H^*(S²) ≅ ℤ[x]/(x²).</p>
+  </li>
+  <li>
+    <p><strong>Product:</strong> Compute H^*(S¹ × S¹) as ring.</p>
+  </li>
+</ol>
+
+<h3 id="universal-coefficient">Universal Coefficient</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply:</strong> X với H₁(X) = ℤ/3ℤ. Compute H^1(X; ℤ).</p>
+  </li>
+  <li>
+    <p><strong>Torsion:</strong> Why H^1(ℝP²; ℤ) = 0 even though H₁ = ℤ/2ℤ?</p>
+  </li>
+</ol>
+
+<h3 id="poincaré-duality">Poincaré Duality</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify:</strong> Poincaré Duality for S³ explicitly.</p>
+  </li>
+  <li>
+    <p><strong>Surface:</strong> Σ_g genus g. Verify H^1(Σ_g) ≅ H₁(Σ_g) via duality.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>ℝP² Coefficients:</strong> Compute H^*(ℝP²; ℤ/2ℤ) và verify ring structure.</p>
+  </li>
+  <li>
+    <p><strong>ℂP²:</strong> Research H^*(ℂP²). (Answer: ℤ[x]/(x³), x ∈ H².)</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Cohomology?:</strong> List advantages over homology.</p>
+  </li>
+  <li>
+    <p><strong>Ring Power:</strong> Give example where ring structure distinguishes spaces homology groups can’t.</p>
+  </li>
+  <li>
+    <p><strong>Contravariance:</strong> Explain intuition for reverse direction của cohomology maps.</p>
+  </li>
+  <li>
+    <p><strong>Cup Product Geometry:</strong> Research how cup product relates to intersection theory.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, §3:</strong> Comprehensive cohomology theory</li>
+  <li><strong>Bott &amp; Tu:</strong> Differential forms perspective</li>
+  <li><strong>Bredon, Chapter V:</strong> Advanced topics</li>
+  <li><strong>Milnor &amp; Stasheff:</strong> <em>Characteristic Classes</em></li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p><strong>Cohomology = dual theory with rich structure:</strong></p>
+
+<p>✅ <strong>Cochains C^n:</strong> Hom(C_n, G) (dual)<br />
+✅ <strong>Coboundary δ:</strong> C^n → C^{n+1} (δ² = 0)<br />
+✅ <strong>Cohomology H^n:</strong> ker(δ) / im(δ)<br />
+✅ <strong>Contravariant:</strong> f induces f^* (reverse direction)<br />
+✅ <strong>Cup Product ∪:</strong> Multiplication H^p ⊗ H^q → H^{p+q}<br />
+✅ <strong>Ring H^*(X):</strong> Graded ring invariant<br />
+✅ <strong>Universal Coefficient:</strong> Relates H^n to H_n (Ext appears!)<br />
+✅ <strong>Poincaré Duality:</strong> H^k(M) ≅ H_{n-k}(M) (manifolds)</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Cohomology = more refined than homology</li>
+  <li>Cup product = powerful geometric invariant</li>
+  <li>Ring structure detects subtle topology</li>
+  <li>Contravariance = natural for duality</li>
+  <li>Foundation for characteristic classes</li>
+</ul>
+
+<p><strong>Geometric intuition:</strong></p>
+<ul>
+  <li>Cochains = “measurements” on chains</li>
+  <li>Cup product = intersection of cycles</li>
+  <li>Ring structure = multiplicative invariant</li>
+  <li>Poincaré Duality = orthogonal complement</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Use ℤ/2ℤ coefficients for non-orientable spaces</li>
+  <li>Cup product often easiest to compute via duality</li>
+  <li>Ring structure more powerful than groups alone</li>
+  <li>Essential for bundles, obstruction theory</li>
+</ul>
+
+<p><strong>Chapter 07 Complete!</strong> Chúng ta mastered:</p>
+<ul>
+  <li>Simplicial homology (triangulation)</li>
+  <li>Singular homology (universal)</li>
+  <li>Computational methods (cellular, Mayer-Vietoris)</li>
+  <li>Cohomology (dual, ring structure)</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Chapter 08 về <strong>Advanced Topics</strong>—higher homotopy, bundles, manifolds!</p>
+
+<hr />
+
+<p><em>“Cohomology: where duality becomes multiplication, and topology becomes algebra.”</em></p>
+
+<p>🎯 <strong>Master cohomology! The ring structure is revolutionary.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter07/07_03_Mayer_Vietoris/">Lecture 07.03: Mayer-Vietoris</a><br />
+<strong>Next Chapter:</strong> <a href="/contents/vi/topology-chapter08/">Chapter 08: Advanced Topics</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter7/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

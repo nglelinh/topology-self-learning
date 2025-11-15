@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 06.00: Homotopy and Path Homotopy &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 06.00: Homotopy and Path Homotopy
+    
+  </h1>
+  <p><strong>Homotopy and Path Homotopy</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Lý thuyết homotopy là trái tim của tô-pô học đại số. Ý tưởng cốt lõi là:</p>
+
+<blockquote>
+  <p><strong>Hai đối tượng được coi là “giống nhau” nếu một đối tượng có thể biến dạng liên tục thành đối tượng kia.</strong></p>
+</blockquote>
+
+<p>Homotopy chính là sự biến dạng liên tục này. Nó cho phép chúng ta phân loại các không gian “theo homotopy” (một quan hệ yếu hơn homeomorphism), định nghĩa fundamental group $\pi_1$ (các vòng lặp theo homotopy), và chứng minh các định lý mạnh mẽ như định lý điểm cố định Brouwer và định lý quả bóng có lông.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Homotopy_Illustration.svg/500px-Homotopy_Illustration.svg.png" alt="Homotopy visualization" /><br />
+<em>Sự biến dạng liên tục (homotopy) - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Homotopy_Illustration.svg">Wikimedia Commons</a></em></p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của homotopy theory. Chúng ta bắt đầu với homotopy của các ánh xạ—một ánh xạ liên tục $F: X \times I \to Y$ kết nối hai ánh xạ $f$ và $g$ một cách liên tục. Chúng ta sẽ nghiên cứu homotopy equivalence—một quan hệ yếu hơn homeomorphism nhưng vẫn bảo toàn nhiều tính chất đại số quan trọng. Chúng ta sẽ khám phá path homotopy—sự biến dạng của các đường đi với các điểm đầu và cuối cố định, đây là nền tảng cho fundamental group. Chúng ta sẽ nghiên cứu các không gian contractible—các không gian đồng luân tương đương với một điểm, và các ví dụ quan trọng như hình tròn, hình cầu, và torus.</p>
+
+<p>Các bài học tiếp theo sẽ khám phá $\pi_1$, covering spaces, và định lý van Kampen—đây là nơi tô-pô học đại số thực sự nở rộ!</p>
+
+<hr />
+
+<h2 id="-homotopy-of-maps">🔄 Homotopy of Maps</h2>
+
+<h3 id="1-definition">1. Definition</h3>
+
+<p><strong>Định nghĩa (Homotopy):</strong><br />
+Cho $f, g: X \to Y$ là các ánh xạ liên tục. <strong>Homotopy</strong> từ $f$ đến $g$ là một ánh xạ liên tục:</p>
+
+\[F: X \times [0,1] \to Y\]
+
+<p>sao cho $F(x, 0) = f(x)$ và $F(x, 1) = g(x)$ cho mọi $x \in X$.</p>
+
+<p><strong>Ký hiệu:</strong> $F: f \simeq g$ (hay $f \sim g$).</p>
+
+<p>Trực giác hình học đằng sau định nghĩa này là chúng ta tưởng tượng một “bộ phim” của sự biến dạng liên tục từ ánh xạ $f$ đến ánh xạ $g$. Tham số $t \in [0,1]$ đóng vai trò như “thời gian” trong bộ phim này—tại thời điểm $t=0$, chúng ta có ánh xạ $f$, và tại thời điểm $t=1$, chúng ta có ánh xạ $g$. Với mỗi giá trị trung gian $t \in (0,1)$, $F(x, t)$ cho chúng ta một ánh xạ trung gian—một “khung hình” trong bộ phim biến dạng. Tính liên tục của $F$ đảm bảo rằng sự biến dạng này diễn ra một cách mượt mà, không có “nhảy vọt” đột ngột. Đây chính là ý tưởng cốt lõi của homotopy: chúng ta có thể biến dạng một ánh xạ thành ánh xạ khác một cách liên tục, giống như cách chúng ta có thể kéo giãn và uốn cong một tấm cao su mà không làm rách nó.</p>
+
+<hr />
+
+<p><strong>Homotopic:</strong> $f$, $g$ <strong>homotopic</strong> nếu $\exists$ homotopy $F: f \simeq g$.</p>
+
+<hr />
+
+<p><strong>Định lý:</strong> $\sim$ là quan hệ tương đương.</p>
+
+<p><strong>Chứng minh:</strong> Chúng ta cần kiểm tra ba tính chất của quan hệ tương đương. Tính phản xạ được thỏa mãn một cách tầm thường—mỗi ánh xạ đồng luân với chính nó thông qua constant homotopy $F(x,t) = f(x)$, nghĩa là chúng ta không thay đổi ánh xạ trong suốt quá trình biến dạng. Tính đối xứng được thiết lập bằng cách đảo ngược thời gian—nếu $F: f \simeq g$ là một homotopy từ $f$ đến $g$, thì $G(x,t) = F(x, 1-t)$ là một homotopy từ $g$ đến $f$, đơn giản là chạy bộ phim ngược lại. Tính bắc cầu được chứng minh bằng cách nối các homotopies—nếu chúng ta có $F: f \simeq g$ và $G: g \simeq h$, chúng ta có thể tạo ra một homotopy từ $f$ đến $h$ bằng cách chạy $F$ trong nửa đầu của khoảng thời gian và $G$ trong nửa sau, với một reparametrization thích hợp để đảm bảo tính liên tục tại điểm nối.</p>
+
+<hr />
+
+<h3 id="2-examples">2. Examples</h3>
+
+<p><strong>Ví dụ 1: Ánh xạ đồng nhất đồng luân với chính nó</strong></p>
+
+<p>Ví dụ đơn giản nhất của homotopy là trường hợp một ánh xạ đồng luân với chính nó. Cho $f = \text{id}_X$ là ánh xạ đồng nhất trên $X$. Chúng ta có thể định nghĩa một homotopy tầm thường bằng cách đặt $F(x,t) = x$ cho mọi $t \in [0,1]$. Điều này có nghĩa là chúng ta không thay đổi ánh xạ trong suốt quá trình biến dạng—mỗi điểm được ánh xạ đến chính nó tại mọi thời điểm. Đây là một ví dụ quan trọng vì nó cho thấy rằng mỗi ánh xạ đều đồng luân với chính nó, đảm bảo tính phản xạ của quan hệ homotopy.</p>
+
+<p><strong>Ví dụ 2: Các ánh xạ hằng đồng luân</strong></p>
+
+<p>Một ví dụ thú vị hơn là trường hợp các ánh xạ hằng. Giả sử $X$ là một không gian liên thông và $f, g: X \to Y$ là các ánh xạ hằng, nghĩa là $f(x) = y_0$ và $g(x) = y_1$ cho mọi $x \in X$, trong đó $y_0$ và $y_1$ là hai điểm cố định trong $Y$. Nếu $Y$ là path-connected, thì tồn tại một đường đi liên tục $\alpha: [0,1] \to Y$ từ $y_0$ đến $y_1$. Chúng ta có thể định nghĩa một homotopy $F: X \times [0,1] \to Y$ bằng cách đặt $F(x,t) = \alpha(t)$ cho mọi $x \in X$. Điều này có nghĩa là tại mỗi thời điểm $t$, tất cả các điểm của $X$ đều được ánh xạ đến cùng một điểm $\alpha(t)$ trên đường đi từ $y_0$ đến $y_1$. Kết quả là $f \simeq g$, cho thấy rằng trong một không gian path-connected, tất cả các ánh xạ hằng đều đồng luân với nhau.</p>
+
+<p><strong>Ví dụ 3: Ánh xạ đối cực trên $S^1$</strong></p>
+
+<p>Một ví dụ quan trọng về hai ánh xạ không đồng luân là ánh xạ đối cực trên hình tròn. Cho $f: S^1 \to S^1$ được định nghĩa bởi $f(z) = -z$, đây là ánh xạ ánh xạ mỗi điểm trên hình tròn đến điểm đối diện của nó. Cho $\text{id}: S^1 \to S^1$ là ánh xạ đồng nhất. Mặc dù cả hai ánh xạ đều liên tục, nhưng chúng không đồng luân với nhau. Lý do sâu xa là ánh xạ đối cực “quấn” hình tròn một cách khác với ánh xạ đồng nhất—nó có winding number khác nhau. Nếu chúng ta cố gắng biến dạng liên tục ánh xạ đồng nhất thành ánh xạ đối cực, chúng ta sẽ phải “xé” hình tròn tại một số điểm, điều này vi phạm tính liên tục. Một cách chính thức hơn, nếu $f \simeq \text{id}$, thì chúng sẽ cảm ứng cùng một đồng cấu trên fundamental group $\pi_1(S^1) \cong \mathbb{Z}$, nhưng ánh xạ đối cực cảm ứng phép nhân với $-1$, trong khi ánh xạ đồng nhất cảm ứng phép nhân với $1$. Điều này cho thấy rằng homotopy không chỉ là một khái niệm hình học mà còn có ý nghĩa đại số sâu sắc.</p>
+
+<hr />
+
+<h2 id="-homotopy-equivalence">🏠 Homotopy Equivalence</h2>
+
+<h3 id="1-definition-1">1. Definition</h3>
+
+<p><strong>Định nghĩa (Homotopy Equivalence):</strong><br />
+Cho $f: X \to Y$ là một ánh xạ liên tục. $f$ là <strong>homotopy equivalence</strong> nếu $\exists g: Y \to X$:</p>
+<ul>
+  <li>$g \circ f \simeq \text{id}_X$</li>
+  <li>$f \circ g \simeq \text{id}_Y$</li>
+</ul>
+
+<p><strong>$g$ được gọi là homotopy inverse của $f$.</strong></p>
+
+<p><strong>Các không gian $X$, $Y$ được gọi là **homotopy equivalent:</strong> $X \simeq Y$.</p>
+
+<hr />
+
+<p><strong>Định lý:</strong> $\simeq$ là quan hệ tương đương trên các không gian.</p>
+
+<hr />
+
+<h3 id="2-examples-1">2. Examples</h3>
+
+<p><strong>Ví dụ 1: Các không gian Contractible</strong></p>
+
+<p><strong>Định nghĩa:</strong> Một không gian $X$ được gọi là <strong>contractible</strong> nếu $X \simeq {pt}$, nghĩa là $X$ đồng luân tương đương với một điểm.</p>
+
+<p>Điều này tương đương với việc ánh xạ đồng nhất $\text{id}_X$ đồng luân với một ánh xạ hằng. Trực giác hình học là chúng ta có thể “co” toàn bộ không gian về một điểm một cách liên tục, giống như cách một con sứa co lại khi bị chạm vào. Đây là một tính chất hình học mạnh mẽ—một không gian contractible không có “lỗ” hoặc “vòng lặp” nào mà không thể co lại được.</p>
+
+<p>Các ví dụ quan trọng của không gian contractible bao gồm $\mathbb{R}^n$—chúng ta có thể co toàn bộ không gian Euclid về gốc tọa độ bằng cách nhân mỗi điểm với một hệ số $(1-t)$ khi $t$ chạy từ $0$ đến $1$. Tương tự, đĩa đóng $D^n$ là contractible vì chúng ta có thể co nó về tâm của nó. Cone $CX$ của một không gian $X$ cũng là contractible—cone về bản chất là một cách xây dựng một không gian contractible từ một không gian bất kỳ. Các tập star-shaped (các tập có một điểm sao cho mọi điểm khác đều có thể được nối với điểm đó bằng một đoạn thẳng nằm trong tập) cũng là contractible vì chúng ta có thể co chúng về điểm sao.</p>
+
+<p>Ngược lại, các không gian như $S^1$ (hình tròn), $S^n$ (hình cầu), và $T^2$ (torus) không phải là contractible. Lý do là chúng có “lỗ” hoặc “vòng lặp” không thể co lại được. Ví dụ, trên hình tròn $S^1$, bất kỳ vòng lặp nào đi một vòng quanh hình tròn đều không thể co lại về một điểm mà không “xé” hình tròn. Điều này được phản ánh trong fundamental group không tầm thường của chúng—$\pi_1(S^1) \cong \mathbb{Z}$ và $\pi_1(T^2) \cong \mathbb{Z}^2$.</p>
+
+<hr />
+
+<p><strong>Ví dụ 2: $D^2 \simeq {pt}$</strong></p>
+
+<p>Một ví dụ cụ thể và trực quan của không gian contractible là đĩa đóng $D^2$. Chúng ta có thể chứng minh rằng $D^2$ đồng luân tương đương với một điểm bằng cách xây dựng một homotopy rõ ràng. Đặt $F: D^2 \times I \to D^2$ được định nghĩa bởi $F(x,t) = (1-t)x$. Tại thời điểm $t=0$, chúng ta có $F(x,0) = x$, nghĩa là ánh xạ đồng nhất. Tại thời điểm $t=1$, chúng ta có $F(x,1) = 0$, nghĩa là ánh xạ hằng ánh xạ mọi điểm đến gốc tọa độ. Quá trình này có thể được hình dung như việc “thu nhỏ” đĩa về tâm của nó một cách liên tục—mỗi điểm di chuyển dọc theo đường thẳng từ vị trí ban đầu của nó đến gốc tọa độ với tốc độ tỷ lệ với khoảng cách của nó đến gốc. Đây là một ví dụ đẹp về cách một không gian có thể được co lại về một điểm mà không làm thay đổi topology cơ bản của nó.</p>
+
+<p><strong>Ví dụ 3: $\mathbb{R}^n \setminus {0} \simeq S^{n-1}$</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Một ví dụ quan trọng khác là mối quan hệ giữa không gian $\mathbb{R}^n \setminus {0}$ (không gian Euclid trừ đi gốc tọa độ) và hình cầu $S^{n-1}$. Mặc dù hai không gian này không homeomorphic (một không gian là không compact và một không gian là compact), chúng đồng luân tương đương với nhau. Cách xây dựng homotopy equivalence này thông qua khái niệm deformation retract. Chúng ta định nghĩa một retraction $r: \mathbb{R}^n \setminus {0} \to S^{n-1}$ bằng cách đặt $r(x) = x/</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>$, nghĩa là chúng ta chiếu mỗi điểm về hình cầu đơn vị bằng cách chuẩn hóa vector của nó. Cho $i: S^{n-1} \to \mathbb{R}^n \setminus {0}$ là ánh xạ bao hàm. Khi đó hợp thành $r \circ i$ là ánh xạ đồng nhất trên $S^{n-1}$, và hợp thành $i \circ r$ đồng luân với ánh xạ đồng nhất trên $\mathbb{R}^n \setminus {0}$ thông qua homotopy $F(x,t) = (1-t)x + t(x/</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>)$, nghĩa là chúng ta di chuyển mỗi điểm từ vị trí ban đầu của nó đến hình chiếu của nó trên hình cầu. Trực giác hình học là chúng ta có thể “kéo” tất cả các điểm trong $\mathbb{R}^n \setminus {0}$ về hình cầu đơn vị một cách liên tục mà không làm thay đổi topology cơ bản của không gian.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="3-homotopy-invariants">3. Homotopy Invariants</h3>
+
+<p><strong>Homotopy invariant:</strong> Một tính chất được gọi là <strong>homotopy invariant</strong> nếu nó được bảo toàn bởi homotopy equivalence. Điều này có nghĩa là nếu hai không gian đồng luân tương đương, thì chúng phải có cùng tính chất đó. Đây là một khái niệm quan trọng vì nó cho phép chúng ta phân loại các không gian theo homotopy type thay vì chỉ theo homeomorphism type.</p>
+
+<p>Các ví dụ quan trọng của homotopy invariants bao gồm fundamental group $\pi_1(X)$—nhóm các lớp đồng luân của các vòng lặp, homology groups $H_n(X)$—các nhóm đo lường “lỗ” trong các chiều khác nhau, cohomology groups $H^n(X)$—các nhóm đối ngẫu của homology groups, và homotopy groups $\pi_n(X)$—các nhóm tổng quát hóa của fundamental group cho các chiều cao hơn. Tất cả các bất biến này đều được bảo toàn bởi homotopy equivalence, nghĩa là nếu $X \simeq Y$, thì $\pi_1(X) \cong \pi_1(Y)$, $H_n(X) \cong H_n(Y)$, và tương tự cho các bất biến khác. Đây là lý do tại sao homotopy theory lại mạnh mẽ đến vậy—nó cho phép chúng ta nghiên cứu các không gian thông qua các bất biến đại số mà không cần biết chi tiết về cấu trúc hình học của chúng.</p>
+
+<p>Tuy nhiên, không phải tất cả các tính chất đều là homotopy invariants. Ví dụ, compactness không phải là homotopy invariant—$\mathbb{R}^n \simeq {pt}$ (một điểm là compact), nhưng $\mathbb{R}^n$ không compact. Tính chất Hausdorff cũng không phải là homotopy invariant. Connectedness thường được bảo toàn bởi homotopy equivalence, nhưng có những sắc thái phức tạp khi làm việc với các không gian không path-connected. Điều này cho thấy rằng homotopy equivalence là một quan hệ yếu hơn homeomorphism—nó bảo toàn các tính chất đại số nhưng không nhất thiết bảo toàn các tính chất tô-pô như compactness.</p>
+
+<hr />
+
+<h2 id="️-paths-và-loops">🛤️ Paths và Loops</h2>
+
+<h3 id="1-paths">1. Paths</h3>
+
+<p><strong>Định nghĩa (Path):</strong><br />
+Một <strong>path</strong> trong không gian $X$ từ điểm $x_0$ đến điểm $x_1$ là một ánh xạ liên tục:</p>
+
+\[\gamma: [0,1] \to X\]
+
+<p>thỏa mãn $\gamma(0) = x_0$ và $\gamma(1) = x_1$. Trực giác hình học là một path là một “đường đi liên tục” từ điểm này đến điểm khác trong không gian—chúng ta có thể tưởng tượng một con kiến đi từ $x_0$ đến $x_1$ dọc theo đường đi $\gamma$. Tham số $t \in [0,1]$ đại diện cho “thời gian” trong hành trình này—tại thời điểm $t=0$, con kiến ở điểm xuất phát $x_0$, và tại thời điểm $t=1$, con kiến đến điểm đích $x_1$.</p>
+
+<p>Một <strong>loop</strong> (hay <strong>based loop</strong>) là một path đặc biệt trong đó điểm xuất phát và điểm đích trùng nhau, nghĩa là $\gamma(0) = \gamma(1) = x_0$ cho một điểm cố định $x_0$ được gọi là <strong>basepoint</strong>. Trực giác hình học là một loop là một đường đi khép kín—con kiến bắt đầu tại $x_0$, đi vòng quanh không gian, và quay lại điểm xuất phát. Các loops là đối tượng cơ bản trong nghiên cứu fundamental group vì chúng nắm bắt cách không gian có thể được “quấn” hoặc “vòng lặp” xung quanh các điểm cố định.</p>
+
+<hr />
+
+<p><strong>Concatenation:</strong><br />
+Khi chúng ta có hai paths $\gamma$ và $\delta$ với điểm cuối của $\gamma$ trùng với điểm đầu của $\delta$, nghĩa là $\gamma(1) = \delta(0)$, chúng ta có thể “nối” chúng lại với nhau để tạo thành một path mới. <strong>Product path</strong> $\gamma \cdot \delta$ được định nghĩa bằng cách đi qua $\gamma$ với tốc độ gấp đôi trong nửa đầu của khoảng thời gian, sau đó đi qua $\delta$ với tốc độ gấp đôi trong nửa sau:</p>
+
+\[(\gamma \cdot \delta)(t) = \begin{cases}
+\gamma(2t) &amp; 0 \leq t \leq 1/2 \\
+\delta(2t-1) &amp; 1/2 \leq t \leq 1
+\end{cases}\]
+
+<p>Trực giác hình học là chúng ta đi qua $\gamma$ rồi tiếp tục đi qua $\delta$—giống như cách chúng ta đi từ điểm A đến điểm B, rồi từ điểm B đến điểm C. Reparametrization (thay đổi tốc độ) là cần thiết để đảm bảo rằng path mới vẫn được định nghĩa trên khoảng $[0,1]$. Điều này cho phép chúng ta định nghĩa một phép toán trên các paths, và khi chúng ta xét các lớp đồng luân của các loops, phép toán này sẽ trở thành phép nhóm trong fundamental group.</p>
+
+<p><strong>Inverse path:</strong> Cho một path $\gamma$ từ $x_0$ đến $x_1$, chúng ta có thể định nghĩa <strong>inverse path</strong> $\gamma^{-1}$ bằng cách đảo ngược hướng: $\gamma^{-1}(t) = \gamma(1-t)$. Điều này có nghĩa là chúng ta đi ngược lại đường đi ban đầu—nếu $\gamma$ đi từ $x_0$ đến $x_1$, thì $\gamma^{-1}$ đi từ $x_1$ đến $x_0$ dọc theo cùng một đường đi nhưng theo hướng ngược lại. Trực giác hình học là chúng ta quay lại con đường mà chúng ta đã đi. Khi chúng ta xét các lớp đồng luân của các loops, inverse path sẽ trở thành phần tử nghịch đảo trong fundamental group.</p>
+
+<hr />
+
+<h3 id="2-path-homotopy">2. Path Homotopy</h3>
+
+<p><strong>Định nghĩa (Path Homotopy):</strong><br />
+Cho $\gamma$, $\delta$: $[0,1] \to X$ là các paths với cùng các điểm đầu và cuối, nghĩa là $\gamma(0) = \delta(0) = x_0$ và $\gamma(1) = \delta(1) = x_1$. Một <strong>path homotopy</strong> $F: \gamma \simeq \delta$ (rel endpoints) là một ánh xạ liên tục:</p>
+
+\[F: [0,1] \times [0,1] \to X\]
+
+<p>thỏa mãn $F(s,0) = \gamma(s)$ và $F(s,1) = \delta(s)$ cho mọi $s \in [0,1]$, và quan trọng là $F(0,t) = x_0$ và $F(1,t) = x_1$ cho mọi $t \in [0,1]$, nghĩa là các điểm đầu và cuối được giữ cố định trong suốt quá trình biến dạng.</p>
+
+<p><strong>Ký hiệu:</strong> $\gamma \simeq_p \delta$ (path homotopic).</p>
+
+<p>Trực giác hình học đằng sau path homotopy là chúng ta có thể biến dạng liên tục đường đi $\gamma$ thành đường đi $\delta$ trong khi giữ các điểm đầu và cuối được “dán chặt” tại vị trí của chúng. Hãy tưởng tượng một sợi dây được căng giữa hai điểm cố định—chúng ta có thể uốn cong và kéo giãn sợi dây này một cách liên tục, nhưng chúng ta không thể di chuyển hai đầu của nó. Điều kiện giữ các điểm đầu và cuối cố định là rất quan trọng vì nó đảm bảo rằng khi chúng ta xét các lớp đồng luân của các loops, chúng ta có thể định nghĩa một phép toán nhóm một cách nhất quán. Nếu chúng ta cho phép các điểm đầu và cuối di chuyển, thì phép toán concatenation sẽ không được định nghĩa tốt.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Path_homotopy.svg/400px-Path_homotopy.svg.png" alt="Path homotopy" /><br />
+<em>Path homotopy with fixed endpoints - Nguồn concept</em></p>
+
+<hr />
+
+<p><strong>Định lý:</strong> $\simeq_p$ là quan hệ tương đương.</p>
+
+<hr />
+
+<h3 id="3-homotopy-classes">3. Homotopy Classes</h3>
+
+<p><strong>$[\gamma]$ = homotopy class của path $\gamma$.</strong></p>
+
+<p><strong>Tập các based loops tại $x_0$:</strong></p>
+
+\[\Omega(X, x_0) = \{\text{loops } \gamma: [0,1] \to X, \gamma(0)=\gamma(1)=x_0\}\]
+
+<p><strong>Quotient:</strong> $\Omega(X,x_0) / \simeq_p$ = các homotopy classes.</p>
+
+<p><strong>Đây sẽ trở thành fundamental group $\pi_1(X, x_0)$!</strong> (Bài học tiếp theo.)</p>
+
+<hr />
+
+<h2 id="-key-theorems">🎯 Key Theorems</h2>
+
+<h3 id="1-homotopy-extension-property-hep">1. Homotopy Extension Property (HEP)</h3>
+
+<p><strong>Định lý:</strong><br />
+Cho $(X, A)$ là một cặp “nice” (ví dụ, CW pair). Cho trước:</p>
+<ul>
+  <li>$f: X \to Y$</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$F: A \times I \to Y$ là homotopy bắt đầu tại $f</td>
+          <td>_A$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>Khi đó $\exists$ extension $\tilde{F}: X \times I \to Y$ mở rộng $F$.</p>
+
+<p><strong>Application:</strong> Construct homotopies.</p>
+
+<hr />
+
+<h3 id="2-deformation-retract">2. Deformation Retract</h3>
+
+<p><strong>Định nghĩa (Deformation Retract):</strong><br />
+Cho $A \subseteq X$. $A$ là <strong>deformation retract</strong> của $X$ nếu $\exists r: X \to A$:</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$r</td>
+          <td>_A = \text{id}_A$ (retraction)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>$ir \simeq \text{id}_X$ ($i: A \to X$ là inclusion, homotopy rel $A$)</li>
+</ul>
+
+<p><strong>Ví dụ:</strong> $S^{n-1}$ là deformation retract của $\mathbb{R}^n \setminus {0}$. ✓</p>
+
+<hr />
+
+<p><strong>Định lý:</strong> Nếu $A$ là deformation retract của $X$, thì $A \simeq X$.</p>
+
+<hr />
+
+<h3 id="3-contractibility">3. Contractibility</h3>
+
+<p><strong>Định lý:</strong><br />
+Nếu $X$ contractible, thì $X$ path-connected, $\pi_1(X) = {e}$, $H_n(X) = 0$ ($n \geq 1$).</p>
+
+<p><strong>Điều ngược lại sai:</strong> (Whitehead manifold counterexample—nâng cao.)</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Founded algebraic topology, introduced notion of continuous deformation</em></p>
+  </li>
+  <li>
+    <p><strong>L.E.J. Brouwer</strong> - <em>“Über Abbildung von Mannigfaltigkeiten”</em> (1911)<br />
+<em>Fixed point theorem using homotopy theory</em></p>
+  </li>
+  <li>
+    <p><strong>Heinz Hopf</strong> - <em>“Über die Abbildungen der dreidimensionalen Sphäre”</em> (1931)<br />
+<em>Hopf fibration, foundational homotopy theory</em></p>
+  </li>
+  <li>
+    <p><strong>Witold Hurewicz</strong> - <em>“Beiträge zur Topologie der Deformationen”</em> (1935-36)<br />
+<em>Systematized homotopy theory</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§51-52: Homotopy</strong></p>
+  </li>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§0-1: Homotopy and Fundamental Group</strong><br />
+<em>Modern comprehensive treatment với geometric intuition</em></p>
+  </li>
+  <li>
+    <p><strong>Edwin Spanier</strong> - <em>Algebraic Topology</em>, <strong>Chapter 1: Homotopy Theory</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter I</strong></p>
+  </li>
+  <li>
+    <p><strong>Tammo tom Dieck</strong> - <em>Algebraic Topology</em>, <strong>Chapter 2</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="topology---classification">Topology - Classification</h3>
+
+<p>Homotopy type là một cách phân loại các không gian tô-pô dựa trên homotopy equivalence thay vì homeomorphism. Đây là một quan hệ yếu hơn homeomorphism nhưng lại nắm bắt được các tính chất đại số quan trọng của không gian. Ví dụ, $\mathbb{R}^n$ đồng luân tương đương với một điểm mặc dù chúng không homeomorphic—điều này cho thấy rằng từ quan điểm của homotopy theory, không gian Euclid không có “lỗ” hoặc “vòng lặp” nào. Ngược lại, $S^1$ không đồng luân tương đương với một điểm vì nó có một vòng lặp không thể co lại được, được phản ánh trong fundamental group không tầm thường $\pi_1(S^1) \cong \mathbb{Z}$.</p>
+
+<h3 id="analysis---fixed-point-theorems">Analysis - Fixed Point Theorems</h3>
+
+<p>Định lý điểm cố định Brouwer là một trong những ứng dụng nổi tiếng nhất của homotopy theory trong giải tích. Định lý phát biểu rằng mọi ánh xạ liên tục $f: D^n \to D^n$ từ đĩa đóng $n$-chiều vào chính nó đều có ít nhất một điểm cố định. Chứng minh của định lý này sử dụng homotopy theory một cách tinh tế—nếu $f$ không có điểm cố định, thì chúng ta có thể xây dựng một retraction từ $S^{n-1}$ (biên của đĩa) vào $D^n$, điều này mâu thuẫn với một kết quả cơ bản trong homotopy theory rằng không thể có một retraction như vậy. Đây là một ví dụ tuyệt vời về cách homotopy theory cung cấp các công cụ mạnh mẽ để chứng minh các định lý trong các lĩnh vực khác của toán học.</p>
+
+<h3 id="complex-analysis---winding-numbers">Complex Analysis - Winding Numbers</h3>
+
+<p>Trong giải tích phức, tích phân đường $\int_\gamma f(z)dz$ của một hàm holomorphic $f$ chỉ phụ thuộc vào homotopy class của đường đi $\gamma$, không phụ thuộc vào đường đi cụ thể. Điều này có nghĩa là nếu chúng ta biến dạng liên tục đường đi $\gamma$ thành đường đi $\delta$ (với các điểm đầu và cuối cố định), thì tích phân sẽ không thay đổi. Đây là một kết quả sâu sắc kết nối giải tích phức với topology—winding number của một đường đi quanh một điểm là một bất biến homotopy, và nó đóng vai trò quan trọng trong định lý thặng dư Cauchy.</p>
+
+<h3 id="robotics---configuration-spaces">Robotics - Configuration Spaces</h3>
+
+<p>Trong robotics, không gian cấu hình của một robot là không gian của tất cả các vị trí và hướng có thể của robot. Mỗi điểm trong không gian cấu hình đại diện cho một “trạng thái” của robot. Khi robot cần di chuyển từ một cấu hình này sang cấu hình khác trong khi tránh các chướng ngại vật, các đường đi hợp lệ tương ứng với các homotopy classes của paths trong không gian cấu hình. Các homotopy classes khác nhau đại diện cho các cách “về mặt tô-pô khác nhau” để robot có thể di chuyển—ví dụ, đi bên trái hoặc bên phải của một chướng ngại vật là hai homotopy classes khác nhau. Hiểu được cấu trúc homotopy của không gian cấu hình giúp các nhà robotics thiết kế các thuật toán lập kế hoạch đường đi hiệu quả.</p>
+
+<h3 id="physics---gauge-theory">Physics - Gauge Theory</h3>
+
+<p>Trong vật lý, gauge theory là một khung lý thuyết quan trọng để mô tả các tương tác cơ bản trong tự nhiên. Các gauge transformations là các phép biến đổi của các connections trên principal bundles, và chúng có thể được hiểu như các homotopy equivalences. Các instantons—các nghiệm của phương trình Yang-Mills—tương ứng với các homotopy classes của gauge fields. Điều này cho thấy rằng topology đóng vai trò quan trọng trong việc phân loại các trạng thái vật lý, và homotopy theory cung cấp các công cụ để nghiên cứu các cấu trúc này.</p>
+
+<h3 id="data-science---topological-data-analysis">Data Science - Topological Data Analysis</h3>
+
+<p>Topological Data Analysis (TDA) là một lĩnh vực mới nổi sử dụng các công cụ từ topology để phân tích dữ liệu. Persistent homology là một kỹ thuật quan trọng trong TDA—nó nghiên cứu “hình dạng” của dữ liệu thông qua các homology groups, là các homotopy invariants. Các homotopy types khác nhau tương ứng với các cấu trúc dữ liệu khác nhau—ví dụ, một tập dữ liệu có thể có các “lỗ” hoặc “vòng lặp” mà persistent homology có thể phát hiện. Điều này cho phép chúng ta phân loại và so sánh các tập dữ liệu dựa trên cấu trúc tô-pô của chúng, không chỉ dựa trên các tính chất metric hoặc thống kê.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="homotopy-definition">Homotopy Definition</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Equivalence Relation:</strong><br />
+Prove carefully that homotopy ~ is equivalence relation: reflexive, symmetric, transitive.</p>
+  </li>
+  <li>
+    <p><strong>Constant Homotopy:</strong><br />
+f: X → Y. Show F(x,t) = f(x) is homotopy f ≃ f.</p>
+  </li>
+  <li>
+    <p><strong>Explicit Homotopy:</strong><br />
+ℝ² contractible. Write explicit F: [0,1] × ℝ² → ℝ² với F₀ = id, F₁ = const.</p>
+  </li>
+</ol>
+
+<h3 id="homotopy-equivalence">Homotopy Equivalence</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Homotopy Equivalence:</strong><br />
+D² và {pt} homotopy equivalent. Write explicit maps f, g và homotopies.</p>
+  </li>
+  <li>
+    <p><strong>ℝⁿ \ {0} ≃ S^(n-1):</strong><br />
+Construct explicit homotopy equivalence. Verify r ∘ i = id và i ∘ r ≃ id.</p>
+  </li>
+  <li>
+    <p><strong>Cylinder:</strong><br />
+S¹ × [0,1] homotopy equivalent với S¹. Find explicit homotopy equivalence.</p>
+  </li>
+</ol>
+
+<h3 id="contractible-spaces">Contractible Spaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Star-Shaped:</strong><br />
+X ⊆ ℝⁿ star-shaped (∃x₀: line segment [x₀,x] ⊆ X ∀x) ⇒ X contractible. Prove.</p>
+  </li>
+  <li>
+    <p><strong>Cone:</strong><br />
+Cone CX = (X × [0,1])/(X × {0}) contractible. Prove.</p>
+  </li>
+  <li>
+    <p><strong>KHÔNG Contractible:</strong><br />
+$S^1$ không contractible. Lập luận trực quan (chứng minh chính thức yêu cầu $\pi_1(S^1) \cong \mathbb{Z}$).</p>
+  </li>
+</ol>
+
+<h3 id="path-homotopy">Path Homotopy</h3>
+
+<ol>
+  <li>
+    <p><strong>Path Concatenation:</strong><br />
+Cho $\gamma$, $\delta$ là các paths. Xác minh $(\gamma \cdot \delta)(t)$ well-defined và continuous.</p>
+  </li>
+  <li>
+    <p><strong>Inverse Path:</strong><br />
+Cho $\gamma$ là path từ $x_0$ đến $x_1$. Chứng minh $\gamma \cdot \gamma^{-1} \simeq_p$ constant path tại $x_0$.</p>
+  </li>
+  <li>
+    <p><strong>Associativity:</strong><br />
+Chứng minh $(\gamma \cdot \delta) \cdot \varepsilon \simeq_p \gamma \cdot (\delta \cdot \varepsilon)$ (associative up to homotopy).</p>
+  </li>
+</ol>
+
+<h3 id="deformation-retracts">Deformation Retracts</h3>
+
+<ol>
+  <li>
+    <p><strong>$S^{n-1} \subseteq \mathbb{R}^n \setminus {0}$:</strong><br />
+Chứng minh $S^{n-1}$ là deformation retract của $\mathbb{R}^n \setminus {0}$. Retraction rõ ràng $r(x) = x/||x||$.</p>
+  </li>
+  <li>
+    <p><strong>Properties:</strong><br />
+Cho $A$ là deformation retract của $X$. Chứng minh:<br />
+a) $A \simeq X$<br />
+b) $i_*: \pi_1(A) \to \pi_1(X)$ là isomorphism (sẽ chứng minh sau)</p>
+  </li>
+  <li>
+    <p><strong>Strong Deformation Retract:</strong><br />
+$r: X \to A$ là strong deformation retract nếu homotopy $F: \text{id}_X \simeq ir$ cố định $A$ từng điểm. Ví dụ: $S^1 \subseteq \mathbb{R}^2 \setminus {0}$.</p>
+  </li>
+</ol>
+
+<h3 id="homotopy-extension">Homotopy Extension</h3>
+
+<ol>
+  <li>
+    <p><strong>HEP Example:</strong><br />
+$(D^2, S^1)$ có HEP. Cho trước $f: D^2 \to Y$, $F: S^1 \times I \to Y$. Xây dựng $\tilde{F}: D^2 \times I \to Y$ mở rộng $F$.</p>
+  </li>
+  <li>
+    <p><strong>Applications:</strong><br />
+Why HEP important cho proving theorems về homotopy?</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Homotopy Equivalence KHÔNG phải Homeomorphism:</strong><br />
+Tìm $X$, $Y$: $X \simeq Y$ nhưng $X \not\cong Y$ (không homeomorphic).<br />
+Gợi ý: $\mathbb{R} \simeq$ điểm nhưng $\mathbb{R}$ không compact.</p>
+  </li>
+  <li>
+    <p><strong>Whitehead Theorem Preview:</strong><br />
+Cho $f: X \to Y$ là ánh xạ giữa các CW complexes. Nếu $f$ cảm ứng isomorphism $\pi_n$ $\forall n$, thì $f$ là homotopy equivalence.<br />
+Nghiên cứu phát biểu này.</p>
+  </li>
+  <li>
+    <p><strong>Applications:</strong><br />
+Give three examples applications của homotopy theory trong different fields (physics, CS, data science).</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Homotopy vs Homeomorphism:</strong><br />
+So sánh: homeomorphism preserves gì? Homotopy equivalence preserves gì?<br />
+Which coarser?</p>
+  </li>
+  <li>
+    <p><strong>Intuition:</strong><br />
+Explain homotopy concept đến người không học topology. Use rubber sheet / deformation analogy.</p>
+  </li>
+  <li>
+    <p><strong>Why Path Homotopy?:</strong><br />
+Tại sao fix endpoints khi define path homotopy? Ý nghĩa cho fundamental group?</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, Algebraic Topology:</strong> §0-1 (Geometric intuition excellent)</li>
+  <li><strong>Munkres, Topology:</strong> §51-52 (Rigorous treatment)</li>
+  <li><strong>Spanier, Algebraic Topology:</strong> Chapter 1 (Comprehensive)</li>
+  <li><strong>Bredon, Topology and Geometry:</strong> Chapter I (Modern perspective)</li>
+  <li><strong>May, Concise Course:</strong> Homotopy theory foundations</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá các nền tảng của <strong>homotopy theory</strong>—một trong những công cụ mạnh mẽ nhất trong tô-pô học đại số. Homotopy là một ánh xạ liên tục $F: X \times I \to Y$ kết nối hai ánh xạ $f$ và $g$ một cách liên tục—nó cho phép chúng ta biến dạng một ánh xạ thành ánh xạ khác. Homotopy equivalence là một quan hệ giữa các không gian—một ánh xạ $f: X \to Y$ là homotopy equivalence nếu tồn tại một ánh xạ ngược $g: Y \to X$ sao cho các hợp thành là đồng luân với ánh xạ đồng nhất. Một không gian contractible là một không gian đồng luân tương đương với một điểm—$X \simeq {pt}$, tương đương với việc ánh xạ đồng nhất đồng luân với một ánh xạ hằng. Path homotopy là sự biến dạng của các đường đi với các điểm đầu và cuối cố định—đây là nền tảng cho fundamental group. Deformation retract là một không gian con $A \subseteq X$ mà $X$ có thể co lại về $A$ thông qua một homotopy—đây là một cách tự nhiên để xây dựng các homotopy equivalences. Các ví dụ quan trọng bao gồm: $\mathbb{R}^n$ là contractible, $\mathbb{R}^n \setminus {0} \simeq S^{n-1}$, và $D^2 \simeq$ điểm.</p>
+
+<p>Điểm chính của bài học là homotopy là sự biến dạng liên tục—một quan hệ yếu hơn homeomorphism nhưng vẫn bảo toàn nhiều tính chất đại số quan trọng. Homotopy equivalence bảo toàn các bất biến đại số như $\pi_1$ và $H_n$—đây là lý do tại sao homotopy theory lại mạnh mẽ đến vậy. Path homotopy là nền tảng cho fundamental group—các lớp đồng luân của các đường đi tạo thành các phần tử của fundamental group. Các không gian contractible là đơn giản nhất về mặt đại số—chúng có fundamental group tầm thường và homology groups bằng không. Deformation retracts bảo toàn homotopy type—nếu $A$ là deformation retract của $X$, thì $A \simeq X$.</p>
+
+<p>Trực giác hình học đằng sau homotopy là hãy tưởng tượng sự biến dạng của một tấm cao su—chúng ta có thể kéo giãn, uốn cong, và biến dạng không gian một cách liên tục. Homotopy giống như một bộ phim từ $f$ đến $g$—mỗi khung hình là một ánh xạ trung gian. Path homotopy là biến dạng đường đi trong khi giữ các điểm đầu và cuối được dán chặt—điều này đảm bảo rằng các đường đi vẫn có cùng điểm đầu và cuối. Contractible có nghĩa là chúng ta có thể co không gian về một điểm—đây là một tính chất hình học mạnh mẽ.</p>
+
+<p>Trong thực tế, chúng ta kiểm tra homotopy equivalence bằng cách tìm các ánh xạ rõ ràng và các homotopies—chúng ta cần chứng minh rằng các hợp thành là đồng luân với ánh xạ đồng nhất. Deformation retracts đơn giản hóa các tính toán—nếu chúng ta có thể tìm thấy một deformation retract đơn giản hơn, chúng ta có thể tính toán các bất biến đại số dễ dàng hơn. Các lớp path homotopy là các phần tử của $\pi_1$—chúng ta sẽ thấy điều này trong bài học tiếp theo. Các bất biến homotopy phân biệt các không gian—nếu hai không gian có các bất biến homotopy khác nhau, chúng không thể đồng luân tương đương.</p>
+
+<p><strong>Tiếp theo:</strong> Lecture 06.01 về <strong>Fundamental Group $\pi_1(X, x_0)$</strong>—bất biến đại số đầu tiên từ homotopy theory! Chúng ta sẽ gán một nhóm cho mỗi không gian có điểm cơ sở, nắm bắt các vòng lặp và các “lỗ”.</p>
+
+<hr />
+
+<p><em>“Homotopy is the art of continuous deformation.”</em> — Algebraic topologist’s motto</p>
+
+<p>🎯 <strong>Master homotopy! It’s the gateway to algebraic topology.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous Chapter:</strong> <a href="/contents/vi/topology-chapter05/">Chapter 05: Quotient Spaces</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter06/06_01_Fundamental_Group/">Lecture 06.01: Fundamental Group</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter6/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

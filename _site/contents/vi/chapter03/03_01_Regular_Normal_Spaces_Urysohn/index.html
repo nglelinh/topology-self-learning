@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 03.01: Regular and Normal Spaces - Urysohn's Lemma &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 03.01: Regular and Normal Spaces - Urysohn's Lemma
+    
+  </h1>
+  <p><strong>Regular and Normal Spaces - Urysohn’s Lemma</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Trong bài trước, chúng ta học về T₀, T₁, T₂ (Hausdorff)—cách “tách” hai <strong>điểm</strong> khác nhau. Giờ đây chúng ta nâng cấp: làm sao “tách” <strong>điểm và tập closed</strong>, hoặc <strong>hai tập closed</strong> disjoint?</p>
+
+<p><strong>Hierarchy tiếp tục:</strong></p>
+
+\[T_2 \subset T_3 \subset T_{3.5} \subset T_4\]
+
+<p><strong>Động lực:</strong></p>
+<ul>
+  <li><strong>T₃ (Regular):</strong> Tách điểm và closed set</li>
+  <li><strong>T₄ (Normal):</strong> Tách hai closed sets disjoint</li>
+  <li><strong>T₃.₅ (Completely Regular/Tychonoff):</strong> Tách bằng continuous functions</li>
+</ul>
+
+<p><strong>Ví dụ trực quan:</strong></p>
+
+<p>Tưởng tượng Alice đứng <strong>bên ngoài</strong> một căn phòng (closed set).</p>
+<ul>
+  <li><strong>Regular:</strong> Có thể xây “bức tường” (open sets) ngăn cách Alice và phòng</li>
+  <li><strong>Normal:</strong> Có hai phòng riêng biệt, có thể xây tường ngăn cách chúng</li>
+  <li><strong>Tychonoff:</strong> Có “gradient” (continuous function) từ Alice (=0) đến phòng (=1)</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Normal_space.svg/500px-Normal_space.svg.png" alt="Regular and Normal spaces" /><br />
+<em>Normal space: hai closed sets có disjoint neighborhoods - Nguồn concept</em></p>
+
+<p><strong>Trong bài này:</strong></p>
+<ul>
+  <li><strong>T₃ (Regular spaces):</strong> Definition và examples</li>
+  <li><strong>T₄ (Normal spaces):</strong> Strongest separation trong “standard” hierarchy</li>
+  <li><strong>Urysohn’s Lemma:</strong> Existence của continuous functions</li>
+  <li><strong>Tietze Extension Theorem:</strong> Extending continuous functions</li>
+  <li>Applications trong analysis</li>
+</ul>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+<ul>
+  <li>Urysohn’s Lemma = powerful existence tool</li>
+  <li>Normal spaces = “nice” spaces (ℝⁿ, compact Hausdorff, metric spaces)</li>
+  <li>Tietze = extension property, key trong homotopy theory</li>
+  <li>Metrization: T₃ + second countable ⇒ metrizable</li>
+</ul>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-t-spaces-regular">1. T₃ Spaces (Regular)</h3>
+
+<p><strong>Định nghĩa (Regular Space):</strong><br />
+X là <strong>regular</strong> nếu với mọi x ∈ X và closed set F không chứa x, tồn tại disjoint open neighborhoods.</p>
+
+\[\forall x \in X, \forall F \text{ closed}: x \notin F \implies \exists U, V \in \tau: x \in U, F \subseteq V, U \cap V = \emptyset\]
+
+<p><strong>Định nghĩa (T₃ Space):</strong><br />
+X là <strong>T₃</strong> nếu X <strong>regular</strong> và <strong>T₁</strong> (hay T₀—authors vary).</p>
+
+<p><strong>Convention:</strong> Chúng ta dùng <strong>T₃ = regular + T₁</strong>.</p>
+
+<p><strong>Trực giác:</strong> Có thể “separate” điểm khỏi closed set bằng open sets disjoint.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Regular_space.svg/400px-Regular_space.svg.png" alt="Regular space illustration" /><br />
+<em>Regular: điểm và closed set có disjoint neighborhoods - Nguồn concept</em></p>
+
+<p><strong>Ví dụ 1: Metric Spaces</strong></p>
+
+<p><strong>Định lý:</strong> Mọi metric space là regular.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho x ∉ F closed. Đặt d = d(x, F) = inf{d(x,y) : y ∈ F} &gt; 0 (vì F closed).<br />
+U = B(x, d/2), V = ⋃_{y∈F} B(y, d/2).<br />
+U ∩ V = ∅ (triangle inequality). ✓</p>
+
+<p><strong>Hệ quả:</strong> ℝⁿ (Euclidean) là T₃.</p>
+
+<p><strong>Ví dụ 2: Compact Hausdorff</strong></p>
+
+<p><strong>Định lý:</strong> Mọi compact Hausdorff space là regular.</p>
+
+<p><strong>Chứng minh (sketch):</strong><br />
+Cho x ∉ F closed. Với mọi y ∈ F:</p>
+<ul>
+  <li>Hausdorff → ∃U_y ∋ x, V_y ∋ y disjoint.
+{V_y} open cover của F → finite subcover (compact).
+U = ⋂ U_{y_i}, V = ⋃ V_{y_i} là disjoint neighborhoods. ✓</li>
+</ul>
+
+<p><strong>Non-example: Countable Complement Topology</strong></p>
+
+<p>Trên uncountable set, cocountable topology <strong>không regular</strong>!</p>
+
+<p><strong>Proof:</strong> Xét x và F = {y} (singleton closed).<br />
+Mọi open U ∋ x, V ∋ y đều uncountable → U ∩ V ≠ ∅. ✗</p>
+
+<hr />
+
+<h3 id="2-t-spaces-normal">2. T₄ Spaces (Normal)</h3>
+
+<p><strong>Định nghĩa (Normal Space):</strong><br />
+X là <strong>normal</strong> nếu với mọi hai closed sets disjoint A, B, tồn tại disjoint open neighborhoods.</p>
+
+\[\forall A, B \text{ closed}: A \cap B = \emptyset \implies \exists U, V \in \tau: A \subseteq U, B \subseteq V, U \cap V = \emptyset\]
+
+<p><strong>Định nghĩa (T₄ Space):</strong><br />
+X là <strong>T₄</strong> nếu X <strong>normal</strong> và <strong>T₁</strong>.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/T4_space.svg/400px-T4_space.svg.png" alt="Normal space illustration" /><br />
+<em>Normal: hai closed sets disjoint có disjoint neighborhoods - Nguồn concept</em></p>
+
+<p><strong>Ví dụ 1: Metric Spaces</strong></p>
+
+<p><strong>Định lý:</strong> Mọi metric space là normal.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho A, B closed disjoint.<br />
+Define: d_A(x) = inf{d(x,a) : a ∈ A}, d_B(x) tương tự.<br />
+U = {x : d_A(x) &lt; d_B(x)}, V = {x : d_B(x) &lt; d_A(x)}.<br />
+U, V open, A ⊆ U, B ⊆ V, U ∩ V = ∅. ✓</p>
+
+<p><strong>Ví dụ 2: Compact Hausdorff</strong></p>
+
+<p><strong>Định lý:</strong> Mọi compact Hausdorff space là normal.</p>
+
+<p><strong>Chứng minh:</strong> Tương tự như regular case, sử dụng compactness. ✓</p>
+
+<p><strong>Non-example: Sorgenfrey Plane</strong></p>
+
+<p><strong>Sorgenfrey line</strong> ℝ_ℓ = ℝ với lower limit topology (basis {[a,b)}) là normal.<br />
+Nhưng <strong>Sorgenfrey plane</strong> ℝ_ℓ × ℝ_ℓ <strong>không normal</strong>!</p>
+
+<p><strong>Proof:</strong> Kỳ diệu và phức tạp—famous counterexample.</p>
+
+<p><strong>Ý nghĩa:</strong> Normality <strong>không</strong> preserved by products (even finite!)</p>
+
+<hr />
+
+<h3 id="3-urysohns-lemma">3. Urysohn’s Lemma</h3>
+
+<p><strong>Định lý Urysohn (Urysohn’s Lemma):</strong></p>
+
+<blockquote>
+  <p><strong>Nếu X normal, A, B closed disjoint, thì tồn tại continuous function f: X → [0,1] với:</strong>
+\(f(A) = \{0\}, \quad f(B) = \{1\}\)</p>
+</blockquote>
+
+<p><strong>Nói bằng lời:</strong> Trong normal space, có thể “separate” hai closed sets bằng continuous function!</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Urysohn_function.svg/500px-Urysohn_function.svg.png" alt="Urysohn Lemma visualization" /><br />
+<em>Urysohn function: continuous separation - Nguồn concept</em></p>
+
+<p><strong>Ý nghĩa:</strong></p>
+<ul>
+  <li>Normality ⇒ existence của “many” continuous functions</li>
+  <li>Basis cho metrization theorems</li>
+  <li>Key tool trong homotopy theory</li>
+</ul>
+
+<p><strong>Chứng minh (Construction):</strong></p>
+
+<p><strong>Idea:</strong> Construct f bằng cách xây dựng nested open sets.</p>
+
+<p><strong>Step 1:</strong> Sử dụng normality recursively để tạo họ open sets {U_r}_{r∈ℚ∩[0,1]} sao cho:</p>
+<ul>
+  <li>A ⊆ U_0</li>
+  <li>U_1^c ⊇ B (hay equivalently, cl(U_1) ∩ B = ∅)</li>
+  <li>r &lt; s ⇒ cl(U_r) ⊆ U_s</li>
+</ul>
+
+<p><strong>Construction of {U_r}:</strong></p>
+<ol>
+  <li>U_0: normal → ∃U_0 ⊇ A với cl(U_0) ∩ B = ∅</li>
+  <li>U_1: normal → ∃V ⊇ B disjoint từ cl(U_0). Set U_1 = X \ cl(V)</li>
+  <li>U_{1/2}: normal applied to cl(U_0) và X \ U_1</li>
+  <li>Continue binary subdivision…</li>
+</ol>
+
+<p><strong>Step 2:</strong> Define f:
+\(f(x) = \begin{cases}
+\inf\{r \in \mathbb{Q} \cap [0,1] : x \in U_r\} &amp; \text{if } x \in U_1 \\
+1 &amp; \text{if } x \notin U_1
+\end{cases}\)</p>
+
+<p><strong>Step 3:</strong> Verify f continuous:<br />
+f⁻¹([0,a)) = ⋃<em>{r&lt;a} U_r open.<br />
+f⁻¹((a,1]) = ⋃</em>{s&gt;a} (X \ cl(U_s)) open.<br />
+→ f continuous. ✓</p>
+
+<p><strong>Verification:</strong></p>
+<ul>
+  <li>x ∈ A → x ∈ U_r với mọi r → f(x) = 0</li>
+  <li>x ∈ B → x ∉ U_1 → f(x) = 1 ✓</li>
+</ul>
+
+<p><strong>Corollary quan trọng:</strong><br />
+Normal space có “plenty” of continuous functions!</p>
+
+<hr />
+
+<h3 id="4-tietze-extension-theorem">4. Tietze Extension Theorem</h3>
+
+<p><strong>Định lý Tietze (Tietze Extension Theorem):</strong></p>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>**Nếu X normal, A ⊆ X closed, f: A → [a,b] continuous, thì tồn tại extension F: X → [a,b] continuous với F</td>
+        <td>_A = f.**</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A ---f---&gt; [a,b]
+|          
+i|         
+v          
+X ---F---&gt; [a,b]
+</code></pre></div></div>
+
+<p><strong>Nói bằng lời:</strong> Continuous functions trên closed subsets có thể extend lên toàn bộ space!</p>
+
+<p><strong>Ý nghĩa:</strong></p>
+<ul>
+  <li>Powerful trong homotopy theory</li>
+  <li>Basis cho partition of unity</li>
+  <li>Key trong differential topology</li>
+</ul>
+
+<p><strong>Chứng minh (Sketch):</strong></p>
+
+<p><strong>Idea:</strong> Approximate f bằng sequence của extensions.</p>
+
+<p><strong>WLOG:</strong> Assume f: A → [-1,1] (scale if necessary).</p>
+
+<p><strong>Step 1:</strong> Apply Urysohn cho A₁ = f⁻¹([-1, -1/3]), A₂ = f⁻¹([1/3, 1]).<br />
+Tồn tại g₁: X → [-1/3, 1/3] với g₁(A₁) = -1/3, g₁(A₂) = 1/3.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Step 2:</strong> Set f₁ = f - g₁</td>
+      <td>_A: A → [-2/3, 2/3].</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Step 3:</strong> Iterate: construct g₂, g₃, … với</td>
+      <td>gₙ</td>
+      <td>≤ (2/3)ⁿ.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Step 4:</strong> F = ∑ gₙ converges uniformly → continuous. ✓</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Verification:</strong> F</td>
+      <td>_A = ∑(f - f₁ + f₁ - f₂ + …) = f. ✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="5-t-spaces-completely-regular--tychonoff">5. T₃.₅ Spaces (Completely Regular / Tychonoff)</h3>
+
+<p><strong>Định nghĩa (Completely Regular):</strong><br />
+X là <strong>completely regular</strong> nếu với mọi x ∈ X và closed F ∋ x, tồn tại continuous f: X → [0,1] với f(x) = 0, f(F) = {1}.</p>
+
+<p><strong>Định nghĩa (T₃.₅ / Tychonoff Space):</strong><br />
+X là <strong>Tychonoff</strong> nếu completely regular và T₁.</p>
+
+<p><strong>Hierarchy:</strong>
+\(T_4 \implies T_{3.5} \implies T_3 \implies T_2 \implies T_1 \implies T_0\)</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>Metric spaces: Tychonoff ✓</li>
+  <li>Compact Hausdorff: Tychonoff ✓</li>
+  <li>Subspaces của Tychonoff: Tychonoff ✓</li>
+</ul>
+
+<p><strong>Ý nghĩa:</strong> Tychonoff spaces = spaces có “enough” continuous functions.</p>
+
+<p><strong>Định lý:</strong><br />
+X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of intervals).</p>
+
+<p><strong>Proof:</strong> Embedding Theorem—advanced. ✓</p>
+
+<hr />
+
+<h3 id="6-relationships-và-properties">6. Relationships và Properties</h3>
+
+<p><strong>Summary Diagram:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                T₄ (Normal + T₁)
+                      ↓
+              T₃.₅ (Tychonoff)
+                      ↓
+              T₃ (Regular + T₁)
+                      ↓
+              T₂ (Hausdorff)
+                      ↓
+                  T₁ (Fréchet)
+                      ↓
+              T₀ (Kolmogorov)
+</code></pre></div></div>
+
+<p><strong>Key Facts:</strong></p>
+<ol>
+  <li><strong>Metric ⇒ T₄:</strong> Mọi metric space normal</li>
+  <li><strong>Compact Hausdorff ⇒ T₄:</strong> Compact + Hausdorff = normal</li>
+  <li><strong>T₄ ⇒ Urysohn’s Lemma:</strong> Existence của separating functions</li>
+  <li><strong>T₄ + Urysohn ⇒ Tietze:</strong> Extension property</li>
+  <li><strong>Products:</strong> Normality <strong>không</strong> preserved! (Sorgenfrey plane)</li>
+</ol>
+
+<p><strong>Theorem (Preservation):</strong></p>
+<ul>
+  <li>Subspace của T₃ là T₃</li>
+  <li>Subspace của Tychonoff là Tychonoff</li>
+  <li>Product của Tychonoff là Tychonoff (Tychonoff product theorem)</li>
+  <li>Product của T₄ <strong>không nhất thiết</strong> T₄!</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Pavel Urysohn</strong> - <em>“Über die Mächtigkeit der zusammenhängenden Mengen”</em> (1925)<br />
+<em>Urysohn’s Lemma - một trong những công cụ mạnh nhất</em></p>
+  </li>
+  <li>
+    <p><strong>Heinrich Tietze</strong> - <em>“Über Funktionen, die auf einer abgeschlossenen Menge stetig sind”</em> (1915)<br />
+<em>Tietze Extension Theorem</em></p>
+  </li>
+  <li>
+    <p><strong>Andrey Tychonoff</strong> - <em>“Über einen Funktionenraum”</em> (1935)<br />
+<em>Completely regular spaces</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§31–33: Normal Spaces</strong><br />
+<em>Complete proofs của Urysohn và Tietze</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Willard</strong> - <em>General Topology</em>, <strong>Chapter 5</strong><br />
+<em>Advanced treatment</em></p>
+  </li>
+  <li>
+    <p><strong>John L. Kelley</strong> - <em>General Topology</em>, <strong>Chapter 4</strong><br />
+<em>Classic exposition</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="analysis---extension-problems">Analysis - Extension Problems</h3>
+<p><strong>Hahn-Banach:</strong> Tietze là topological analog của Hahn-Banach theorem (functional analysis).</p>
+
+<h3 id="differential-topology---partitions-of-unity">Differential Topology - Partitions of Unity</h3>
+<p><strong>Smooth Extensions:</strong> Tietze + smoothing = partition of unity trên manifolds.</p>
+
+<h3 id="homotopy-theory">Homotopy Theory</h3>
+<p><strong>CW Complexes:</strong> Urysohn + Tietze essential trong constructing homotopies.</p>
+
+<h3 id="metrization">Metrization</h3>
+<p><strong>Urysohn Metrization:</strong> T₃ + second countable ⇒ metrizable (next lecture!)</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="regular-spaces">Regular Spaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Metric Regular:</strong><br />
+Chứng minh chi tiết: mọi metric space là regular.</p>
+  </li>
+  <li>
+    <p><strong>Compact Hausdorff:</strong><br />
+Chứng minh: compact Hausdorff ⇒ regular.</p>
+  </li>
+  <li>
+    <p><strong>Subspace:</strong><br />
+Nếu X regular, A ⊆ X, chứng minh A regular (subspace topology).</p>
+  </li>
+</ol>
+
+<h3 id="normal-spaces">Normal Spaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Metric Normal:</strong><br />
+Chứng minh: mọi metric space là normal.</p>
+  </li>
+  <li>
+    <p><strong>Compact Hausdorff Normal:</strong><br />
+Chứng minh: compact Hausdorff ⇒ normal.</p>
+  </li>
+  <li>
+    <p><strong>Products:</strong><br />
+Tìm hiểu Sorgenfrey plane.<br />
+Tại sao ℝ_ℓ × ℝ_ℓ không normal?</p>
+  </li>
+</ol>
+
+<h3 id="urysohns-lemma">Urysohn’s Lemma</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply Urysohn:</strong><br />
+X = ℝ, A = {0}, B = {1}.<br />
+Construct explicitly một Urysohn function f: ℝ → [0,1] với f(A) = 0, f(B) = 1.</p>
+  </li>
+  <li>
+    <p><strong>Uniqueness:</strong><br />
+Urysohn function có unique không? Nếu không, có bao nhiêu?</p>
+  </li>
+  <li>
+    <p><strong>Converse:</strong><br />
+Nếu X có property “mọi A, B closed disjoint có Urysohn function”, thì X có normal không?</p>
+  </li>
+</ol>
+
+<h3 id="tietze-extension">Tietze Extension</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply Tietze:</strong><br />
+X = ℝ, A = [0,1], f: A → ℝ, f(x) = sin(πx).<br />
+Tìm extension F: ℝ → [-1,1].</p>
+  </li>
+  <li>
+    <p><strong>Non-example:</strong><br />
+X = ℚ (rationals), A = ℚ ∩ [0,1], f(x) = x.<br />
+Có thể extend f lên ℝ continuous không? Tại sao/tại sao không?</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>T₃.₅:</strong><br />
+Chứng minh: T₄ ⇒ T₃.₅.<br />
+(<em>Hint:</em> Dùng Urysohn)</p>
+  </li>
+  <li>
+    <p><strong>Embedding:</strong><br />
+Chứng minh: Mọi Tychonoff space embeds vào [0,1]^I với I thích hợp.</p>
+  </li>
+  <li>
+    <p><strong>Counterexample:</strong><br />
+Tìm T₃ space không T₄.<br />
+(<em>Hint:</em> Tìm trong uncountable spaces)</p>
+  </li>
+  <li>
+    <p><strong>Metrization Preview:</strong><br />
+Nếu X T₃ và second countable, chứng minh X có countably many Urysohn functions “separating points from closed sets”.</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Urysohn’s Power:</strong><br />
+Giải thích tại sao Urysohn’s Lemma “powerful”—nó guarantee existence của functions mà không cần construct!</p>
+  </li>
+  <li>
+    <p><strong>Normality vs Products:</strong><br />
+Tại sao normality không preserved bởi products, trong khi Hausdorff thì có?</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §31–33 (Normal Spaces, Urysohn, Tietze)</li>
+  <li><strong>Willard, General Topology:</strong> Chapter 5 (Normal and Completely Regular Spaces)</li>
+  <li><strong>Engelking, General Topology:</strong> Chapter 1.5 (Separation)</li>
+  <li><strong>Steen &amp; Seebach:</strong> <em>Counterexamples</em> (Sorgenfrey plane, etc.)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài này, chúng ta nâng cấp separation hierarchy:</p>
+
+<p>✅ <strong>T₃ (Regular):</strong> Tách điểm khỏi closed set<br />
+✅ <strong>T₄ (Normal):</strong> Tách hai closed sets disjoint<br />
+✅ <strong>Urysohn’s Lemma:</strong> Normal ⇒ existence của continuous separating functions<br />
+✅ <strong>Tietze Extension:</strong> Extend continuous functions từ closed subsets<br />
+✅ <strong>T₃.₅ (Tychonoff):</strong> Separate bằng continuous functions<br />
+✅ <strong>Hierarchy:</strong> T₄ ⇒ T₃.₅ ⇒ T₃ ⇒ T₂</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Metric spaces, compact Hausdorff đều normal</li>
+  <li>Urysohn = existence tool (không cần explicit construction!)</li>
+  <li>Tietze = extension property</li>
+  <li>Normality <strong>không</strong> preserved by products</li>
+  <li>Applications: metrization, homotopy theory, partitions of unity</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Lecture 03.02 về <strong>Countability Axioms</strong>—first/second countable, separable, Lindelöf spaces!</p>
+
+<hr />
+
+<p><em>“Urysohn’s Lemma: In normal spaces, closed sets can be separated not just by open sets, but by continuous functions.”</em> — Topological wisdom</p>
+
+<p>🎯 <strong>Master Urysohn and Tietze—they’re everywhere in topology!</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter03/03_00_Separation_Axioms_T0_T1_T2/">Lecture 03.00: T₀, T₁, T₂ Spaces</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter03/03_02_Countability_Axioms/">Lecture 03.02: Countability Axioms</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter3/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

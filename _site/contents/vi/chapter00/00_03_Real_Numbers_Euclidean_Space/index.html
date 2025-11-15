@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 00.03: Real Numbers and Euclidean Space &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 00.03: Real Numbers and Euclidean Space
+    
+  </h1>
+  <p><strong>Real Numbers and Euclidean Space</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Sau khi xây dựng nền tảng logic và lý thuyết tập hợp, chúng ta cuối cùng đến với <strong>ví dụ cụ thể đầu tiên</strong>: các số thực ℝ và không gian Euclid ℝⁿ. Đây không chỉ là ví dụ—chúng là <strong>động lực</strong> (motivation) cho toàn bộ topology!</p>
+
+<p>Hãy nghĩ lại: Topology ra đời từ câu hỏi “Liên tục là gì?” trong giải tích. Calculus định nghĩa liên tục qua ε và δ. Nhưng các nhà toán học nhận ra rằng bản chất của “liên tục” không phụ thuộc vào số—mà phụ thuộc vào <strong>cấu trúc của không gian</strong>.</p>
+
+<p>Trong bài này, chúng ta sẽ:</p>
+<ul>
+  <li>Xây dựng <strong>ℝ</strong> từ ℚ (phác thảo)</li>
+  <li>Hiểu <strong>completeness</strong> (tính đầy đủ) của ℝ</li>
+  <li>Định nghĩa <strong>metric</strong> và <strong>metric space</strong></li>
+  <li>Khám phá <strong>Euclidean topology</strong> trên ℝⁿ</li>
+  <li>Thấy rằng topology là sự trừu tượng hóa của các khái niệm metric</li>
+</ul>
+
+<p><strong>Tại sao bài này quan trọng?</strong></p>
+<ul>
+  <li>ℝⁿ là không gian tô-pô quan trọng nhất trong thực hành</li>
+  <li>Metric space là cầu nối giữa giải tích và topology</li>
+  <li>Mọi khái niệm topology (open, closed, continuous) đều có nguồn gốc từ ℝ</li>
+  <li>Completeness là tính chất quyết định sự “nice” của không gian</li>
+</ul>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-số-thực">Câu chuyện về Số Thực</h3>
+
+<p>Hãy bắt đầu từ những gì bạn biết:</p>
+<ul>
+  <li><strong>ℕ = {1, 2, 3, …}</strong>: Số tự nhiên, đủ để đếm</li>
+  <li><strong>ℤ = {…, -2, -1, 0, 1, 2, …}</strong>: Số nguyên, đủ để trừ</li>
+  <li><strong>ℚ = {p/q : p,q ∈ ℤ, q ≠ 0}</strong>: Số hữu tỉ, đủ để chia</li>
+</ul>
+
+<p><strong>Nhưng:</strong> ℚ không đủ! Chúng ta đã biết √2 ∉ ℚ.</p>
+
+<p><strong>Vấn đề sâu xa hơn:</strong> ℚ có “lỗ hổng” (gaps).</p>
+
+<p>Xét tập A = {x ∈ ℚ : x² &lt; 2}. Tập này không có <strong>supremum</strong> (cận trên nhỏ nhất) trong ℚ!</p>
+<ul>
+  <li>Nếu x² &lt; 2, ta có thể tìm y ∈ ℚ với x &lt; y và y² &lt; 2</li>
+  <li>Không có “số hữu tỉ lớn nhất” trong A</li>
+</ul>
+
+<p><strong>Giải pháp:</strong> Cần một hệ số “đầy đủ” hơn—đó là <strong>ℝ</strong>.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Real_number_line.svg/500px-Real_number_line.svg.png" alt="Number line with gaps" /><br />
+<em>Trục số thực - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Real_number_line.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-construction-of-ℝ-xây-dựng-số-thực">1. Construction of ℝ (Xây dựng Số thực)</h3>
+
+<p>Có nhiều cách xây dựng ℝ từ ℚ. Hai cách phổ biến:</p>
+
+<h4 id="cách-1-dedekind-cuts">Cách 1: Dedekind Cuts</h4>
+
+<p><strong>Định nghĩa (Dedekind Cut):</strong><br />
+Một <strong>Dedekind cut</strong> là một cặp (A, B) với A, B ⊆ ℚ sao cho:</p>
+<ol>
+  <li>A ∪ B = ℚ, A ∩ B = ∅, A ≠ ∅, B ≠ ∅</li>
+  <li>∀a ∈ A, ∀b ∈ B: a &lt; b</li>
+  <li>A không có phần tử lớn nhất</li>
+</ol>
+
+<p><strong>Trực giác:</strong> Một “cắt” chia ℚ thành hai nửa: “nhỏ hơn” và “lớn hơn” một số thực.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>√2:</strong> A = {x ∈ ℚ : x &lt; 0 hoặc x² &lt; 2}, B = {x ∈ ℚ : x &gt; 0 và x² ≥ 2}</li>
+  <li><strong>π:</strong> A = {x ∈ ℚ : x &lt; π}, B = {x ∈ ℚ : x ≥ π}</li>
+</ul>
+
+<p><strong>Định nghĩa:</strong> ℝ = {tất cả Dedekind cuts}</p>
+
+<h4 id="cách-2-cauchy-sequences">Cách 2: Cauchy Sequences</h4>
+
+<p><strong>Định nghĩa (Cauchy Sequence):</strong><br />
+Dãy (xₙ) trong ℚ là <strong>Cauchy</strong> nếu:
+\(\forall \varepsilon &gt; 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: |x_m - x_n| &lt; \varepsilon\)</p>
+
+<p><strong>Trực giác:</strong> Các phần tử của dãy “tụ lại gần nhau” khi n → ∞.</p>
+
+<p><strong>Vấn đề:</strong> Một Cauchy sequence trong ℚ có thể không hội tụ đến số hữu tỉ!</p>
+
+<p><strong>Ví dụ:</strong><br />
+Dãy xₙ = 1 + 1/2 + 1/6 + … + 1/n! là Cauchy, nhưng hội tụ đến e ≈ 2.718… ∉ ℚ.</p>
+
+<p><strong>Giải pháp:</strong> Định nghĩa ℝ là tập các lớp tương đương của Cauchy sequences trong ℚ (hai dãy tương đương nếu hiệu chúng → 0).</p>
+
+<hr />
+
+<h3 id="2-completeness-axiom-tiên-đề-đầy-đủ">2. Completeness Axiom (Tiên đề Đầy đủ)</h3>
+
+<p>Thay vì xây dựng, ta thường <strong>tiên đề hóa</strong> ℝ qua tính chất quan trọng nhất:</p>
+
+<p><strong>Least Upper Bound Property (LUB):</strong></p>
+
+<blockquote>
+  <p><strong>Mọi tập con không rỗng, bị chặn trên của ℝ đều có supremum (cận trên nhỏ nhất) trong ℝ.</strong></p>
+</blockquote>
+
+\[\forall A \subseteq \mathbb{R}: (A \neq \emptyset \land A \text{ bounded above}) \implies \exists \sup A \in \mathbb{R}\]
+
+<p><strong>Định nghĩa (Supremum):</strong><br />
+Số s = sup A nếu:</p>
+<ol>
+  <li>s là cận trên của A: ∀a ∈ A: a ≤ s</li>
+  <li>s là nhỏ nhất: nếu t là cận trên khác, thì s ≤ t</li>
+</ol>
+
+<p><strong>Tương tự:</strong> Greatest Lower Bound (GLB) = Infimum (inf A)</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>A = (0, 1): sup A = 1 (nhưng 1 ∉ A!)</li>
+  <li>B = {1 - 1/n : n ∈ ℕ}: sup B = 1</li>
+  <li>C = ℚ ∩ [0, √2]: sup C = √2 (trong ℝ, không tồn tại trong ℚ!)</li>
+</ul>
+
+<p><strong>Hệ quả quan trọng:</strong></p>
+
+<p><strong>Archimedean Property:</strong><br />
+∀x, y ∈ ℝ với y &gt; 0: ∃n ∈ ℕ: ny &gt; x</p>
+
+<p><strong>Trực giác:</strong> Không có “infinitesimal” (vô cùng nhỏ) thực sự trong ℝ.</p>
+
+<p><strong>Density of ℚ:</strong><br />
+Giữa hai số thực bất kỳ luôn có một số hữu tỉ.</p>
+
+\[\forall x, y \in \mathbb{R}: (x &lt; y) \implies \exists r \in \mathbb{Q}: x &lt; r &lt; y\]
+
+<hr />
+
+<h3 id="3-metric-spaces-không-gian-metric">3. Metric Spaces (Không gian Metric)</h3>
+
+<p><strong>Động lực:</strong> Để nói về “liên tục”, ta cần khái niệm “khoảng cách”. Đó chính là <strong>metric</strong>.</p>
+
+<p><strong>Định nghĩa (Metric):</strong><br />
+Một <strong>metric</strong> trên tập X là hàm d: X × X → ℝ thỏa mãn:</p>
+
+<ol>
+  <li><strong>Non-negativity:</strong> d(x, y) ≥ 0, và d(x, y) = 0 ⟺ x = y</li>
+  <li><strong>Symmetry:</strong> d(x, y) = d(y, x)</li>
+  <li><strong>Triangle Inequality:</strong> d(x, z) ≤ d(x, y) + d(y, z)</li>
+</ol>
+
+<p><strong>Trực giác:</strong> d(x, y) là “khoảng cách” từ x đến y.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Triangle_inequality.svg/400px-Triangle_inequality.svg.png" alt="Triangle inequality visualization" /><br />
+<em>Bất đẳng thức tam giác - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Triangle_inequality.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p><strong>1. Euclidean metric trên ℝ:</strong>
+\(d(x, y) = |x - y|\)</p>
+
+<p><strong>2. Euclidean metric trên ℝⁿ:</strong>
+\(d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)²}\)</p>
+
+<p><strong>3. Manhattan metric (Taxicab) trên ℝ²:</strong>
+\(d_1((x_1, y_1), (x_2, y_2)) = |x_1 - x_2| + |y_1 - y_2|\)</p>
+
+<p><strong>Tên gọi:</strong> Khoảng cách đi “theo lưới đường phố” ở Manhattan.</p>
+
+<p><strong>4. Max metric (Chebyshev) trên ℝⁿ:</strong>
+\(d_\infty(\mathbf{x}, \mathbf{y}) = \max_{i=1,\ldots,n} |x_i - y_i|\)</p>
+
+<p><strong>5. Discrete metric trên bất kỳ tập X:</strong>
+\(d(x, y) = \begin{cases} 0 &amp; \text{if } x = y \\ 1 &amp; \text{if } x \neq y \end{cases}\)</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Manhattan_distance.svg/400px-Manhattan_distance.svg.png" alt="Different metrics on R2" /><br />
+<em>So sánh Euclidean và Manhattan distance - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Manhattan_distance.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="4-metric-topology-tô-pô-metric">4. Metric Topology (Tô-pô Metric)</h3>
+
+<p><strong>Định nghĩa (Open Ball - Hình cầu mở):</strong><br />
+Với x ∈ X và r &gt; 0, <strong>open ball</strong> tâm x bán kính r là:
+\(B(x, r) = \{y \in X : d(x, y) &lt; r\}\)</p>
+
+<p><strong>Trong ℝ:</strong> B(a, r) = (a - r, a + r) (khoảng mở)<br />
+<strong>Trong ℝ²:</strong> B(p, r) = đĩa tròn mở tâm p bán kính r<br />
+<strong>Trong ℝ³:</strong> B(p, r) = quả bóng mở tâm p bán kính r</p>
+
+<p><strong>Định nghĩa (Open Set in Metric Space):</strong><br />
+Tập U ⊆ X là <strong>open</strong> (mở) nếu:
+\(\forall x \in U: \exists r &gt; 0: B(x, r) \subseteq U\)</p>
+
+<p><strong>Trực giác:</strong> Mọi điểm trong U có “không gian xung quanh” vẫn nằm trong U.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Open_set_-_example.svg/400px-Open_set_-_example.svg.png" alt="Open set visualization" /><br />
+<em>Tập mở trong mặt phẳng - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Open_set_-_example.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+<ul>
+  <li><strong>(a, b)</strong> là mở (khoảng mở)</li>
+  <li><strong>[a, b]</strong> KHÔNG mở (điểm a không có ball xung quanh nằm trong [a, b])</li>
+  <li><strong>ℝ</strong> là mở</li>
+  <li><strong>∅</strong> là mở (vacuously true!)</li>
+</ul>
+
+<p><strong>Định lý:</strong><br />
+Họ tất cả các tập mở trong metric space (X, d) tạo thành một <strong>topology</strong> trên X.</p>
+
+<p><strong>Chứng minh (sketch):</strong><br />
+Cần kiểm tra:</p>
+<ol>
+  <li>∅ và X mở ✓</li>
+  <li>Hợp tùy ý các tập mở là mở ✓</li>
+  <li>Giao hữu hạn các tập mở là mở ✓</li>
+</ol>
+
+<p><strong>Ý nghĩa:</strong> Mọi metric space tự động là topological space!</p>
+
+<hr />
+
+<h3 id="5-euclidean-space-ℝⁿ">5. Euclidean Space ℝⁿ</h3>
+
+<p><strong>Định nghĩa:</strong><br />
+<strong>Không gian Euclid n-chiều</strong> là ℝⁿ = ℝ × ℝ × … × ℝ (n lần) với Euclidean metric:
+\(d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)²}\)</p>
+
+<p><strong>Các trường hợp đặc biệt:</strong></p>
+<ul>
+  <li><strong>ℝ¹ = ℝ:</strong> Đường thẳng</li>
+  <li><strong>ℝ²:</strong> Mặt phẳng</li>
+  <li><strong>ℝ³:</strong> Không gian 3 chiều (thế giới vật lý)</li>
+  <li><strong>ℝ⁴:</strong> Không-thời gian (relativity)</li>
+</ul>
+
+<p><strong>Standard Basis:</strong> ℝⁿ có topology induced bởi tất cả các open balls. Nhưng ta có thể dùng <strong>basis</strong> đơn giản hơn:</p>
+
+<p><strong>Định lý (Standard Basis for ℝⁿ):</strong><br />
+Họ tất cả các “open rectangles” (tích Cartesian của các khoảng mở) tạo thành basis cho topology của ℝⁿ:
+\(\mathcal{B} = \{(a_1, b_1) \times (a_2, b_2) \times \cdots \times (a_n, b_n)\}\)</p>
+
+<p><strong>Ví dụ trong ℝ²:</strong><br />
+Một open rectangle: (1, 3) × (2, 5) = {(x, y) : 1 &lt; x &lt; 3, 2 &lt; y &lt; 5}</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Open_rectangle.svg/300px-Open_rectangle.svg.png" alt="Open rectangle in R2" /><br />
+<em>Open rectangle làm basis element - Nguồn: Minh họa concept</em></p>
+
+<p><strong>Tính chất quan trọng của ℝⁿ:</strong></p>
+<ul>
+  <li><strong>Separable:</strong> Có countable dense subset (ℚⁿ)</li>
+  <li><strong>Second countable:</strong> Có countable basis</li>
+  <li><strong>Hausdorff:</strong> Hai điểm khác nhau có neighborhoods disjoint</li>
+  <li><strong>Complete:</strong> Mọi Cauchy sequence hội tụ (trong ℝⁿ)</li>
+  <li><strong>Locally compact:</strong> Mọi điểm có compact neighborhood</li>
+  <li><strong>Connected:</strong> Không thể chia thành hai open sets rời nhau</li>
+</ul>
+
+<hr />
+
+<h3 id="6-convergence-in-metric-spaces">6. Convergence in Metric Spaces</h3>
+
+<p><strong>Định nghĩa (Convergence - Hội tụ):</strong><br />
+Dãy (xₙ) trong metric space (X, d) <strong>hội tụ</strong> đến x ∈ X nếu:
+\(\forall \varepsilon &gt; 0 \; \exists N \in \mathbb{N} \; \forall n \geq N: d(x_n, x) &lt; \varepsilon\)</p>
+
+<p><strong>Ký hiệu:</strong> xₙ → x hoặc lim_{n→∞} xₙ = x</p>
+
+<p><strong>Trực giác:</strong> Khoảng cách từ xₙ đến x → 0 khi n → ∞.</p>
+
+<p><strong>Định nghĩa (Cauchy Sequence trong Metric Space):</strong><br />
+Dãy (xₙ) là <strong>Cauchy</strong> nếu:
+\(\forall \varepsilon &gt; 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: d(x_m, x_n) &lt; \varepsilon\)</p>
+
+<p><strong>Định lý:</strong><br />
+Mọi convergent sequence là Cauchy.</p>
+
+<p><strong>Chứng minh:</strong> Nếu xₙ → x, cho ε &gt; 0, chọn N sao cho ∀n ≥ N: d(xₙ, x) &lt; ε/2.<br />
+Khi đó với m, n ≥ N:
+\(d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) &lt; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\)
+∎</p>
+
+<p><strong>Ngược lại KHÔNG đúng tổng quát!</strong> (Trừ khi space “complete”)</p>
+
+<p><strong>Định nghĩa (Complete Metric Space):</strong><br />
+Metric space (X, d) là <strong>complete</strong> nếu mọi Cauchy sequence hội tụ trong X.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>ℝ</strong> complete ✓ (theo completeness axiom)</li>
+  <li><strong>ℚ</strong> KHÔNG complete ✗ (√2 = lim 1.4, 1.41, 1.414, … ∉ ℚ)</li>
+  <li><strong>(0, 1)</strong> KHÔNG complete ✗ (dãy 1/n → 0 ∉ (0, 1))</li>
+  <li><strong>[0, 1]</strong> complete ✓</li>
+</ul>
+
+<p><strong>Định lý quan trọng:</strong><br />
+<strong>ℝⁿ</strong> là complete metric space.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Richard Dedekind</strong> - <em>Stetigkeit und irrationale Zahlen</em> (1872)<br />
+<em>Xây dựng ℝ bằng Dedekind cuts</em></p>
+  </li>
+  <li>
+    <p><strong>Georg Cantor</strong> - <em>Grundlagen einer allgemeinen Mannigfaltigkeitslehre</em> (1883)<br />
+<em>Xây dựng ℝ bằng Cauchy sequences</em></p>
+  </li>
+  <li>
+    <p><strong>Maurice Fréchet</strong> - <em>Sur quelques points du calcul fonctionnel</em> (1906)<br />
+<em>Giới thiệu khái niệm metric space</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>Grundzüge der Mengenlehre</em> (1914)<br />
+<em>Nền tảng của topology hiện đại, metric spaces</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>Walter Rudin</strong> - <em>Principles of Mathematical Analysis</em>, 3rd Ed., <strong>Chapter 1</strong><br />
+<em>Construction và properties của ℝ</em></p>
+  </li>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§20: Metric Topology</strong><br />
+<em>Metric spaces trong context của topology</em></p>
+  </li>
+  <li>
+    <p><strong>Kenneth A. Ross</strong> - <em>Elementary Analysis: The Theory of Calculus</em> (2013)<br />
+<em>Undergraduate-friendly approach đến ℝ</em></p>
+  </li>
+  <li>
+    <p><strong>Charles C. Pugh</strong> - <em>Real Mathematical Analysis</em> (2002)<br />
+<em>Modern treatment với geometric intuition</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="physics---relativity">Physics - Relativity</h3>
+<p><strong>Minkowski Space:</strong> Trong special relativity, không-thời gian là ℝ⁴ với metric không phải Euclidean:
+\(ds² = -c²dt² + dx² + dy² + dz²\)</p>
+
+<p>Metric này không positive definite, nhưng vẫn định nghĩa topology.</p>
+
+<h3 id="computer-graphics">Computer Graphics</h3>
+<p><strong>3D Rendering:</strong> Các objects trong 3D graphics được model trong ℝ³. Transformations (rotation, translation) là continuous maps preserving Euclidean metric.</p>
+
+<h3 id="data-science">Data Science</h3>
+<p><strong>Euclidean Space:</strong> Mỗi data point thường được represent như một vector trong ℝⁿ. Distance metrics (Euclidean, Manhattan, Cosine) được dùng để “so sánh” data points.</p>
+
+<p><strong>Ví dụ:</strong> K-nearest neighbors (KNN) algorithm dựa vào Euclidean metric trong ℝⁿ.</p>
+
+<h3 id="machine-learning">Machine Learning</h3>
+<p><strong>Feature Spaces:</strong> Neural networks hoạt động trong không gian Euclid high-dimensional (ℝⁿ với n rất lớn). Topology của ℝⁿ đảm bảo gradient descent “works”.</p>
+
+<h3 id="real-world-example">Real-World Example</h3>
+<p><strong>GPS Navigation:</strong> Vị trí trên Trái đất được approximate bằng ℝ³ (latitude, longitude, altitude). Khoảng cách giữa hai điểm dùng metric gần Euclidean (thực tế là spherical geometry).</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="understanding-ℝ">Understanding ℝ</h3>
+
+<ol>
+  <li><strong>Supremum và Infimum:</strong><br />
+Tìm sup A và inf A (nếu tồn tại):
+    <ul>
+      <li>a) A = {1/n : n ∈ ℕ}</li>
+      <li>b) A = {x ∈ ℚ : x² &lt; 3}</li>
+      <li>c) A = {x ∈ ℝ : sin(x) = 1}</li>
+    </ul>
+  </li>
+  <li><strong>Density:</strong><br />
+Chứng minh rằng giữa hai số thực bất kỳ a &lt; b luôn tồn tại:
+    <ul>
+      <li>a) Một số hữu tỉ</li>
+      <li>b) Một số vô tỉ</li>
+    </ul>
+  </li>
+  <li><strong>Archimedean Property:</strong><br />
+Sử dụng Archimedean property để chứng minh: ∀ε &gt; 0, ∃n ∈ ℕ: 1/n &lt; ε.</li>
+</ol>
+
+<h3 id="metrics">Metrics</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Metric:</strong><br />
+Chứng minh Manhattan metric d₁ trên ℝ² thỏa mãn triangle inequality.</p>
+  </li>
+  <li><strong>Different Metrics:</strong><br />
+Trên ℝ², vẽ “unit ball” B(0, 1) trong ba metrics:
+    <ul>
+      <li>a) Euclidean: d₂(x, y) = √(Σ(xᵢ - yᵢ)²)</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>b) Manhattan: d₁(x, y) = Σ</td>
+              <td>xᵢ - yᵢ</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>c) Max: d∞(x, y) = max</td>
+              <td>xᵢ - yᵢ</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+
+    <p>Hình dạng của chúng khác nhau như thế nào?</p>
+  </li>
+  <li><strong>Discrete Metric:</strong><br />
+Với discrete metric trên X, mô tả tất cả open balls. Tập nào là open?</li>
+</ol>
+
+<h3 id="open-sets">Open Sets</h3>
+
+<ol>
+  <li><strong>Open or Not:</strong><br />
+Trong ℝ với Euclidean metric, các tập sau mở hay không? Tại sao?
+    <ul>
+      <li>a) (0, 1)</li>
+      <li>b) [0, 1]</li>
+      <li>c) (0, 1] ∪ (2, 3)</li>
+      <li>d) ℕ</li>
+      <li>e) ℚ</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Open Balls:</strong><br />
+Trong ℝ² với Euclidean metric, chứng minh rằng B((0,0), 1) là open set.</p>
+  </li>
+  <li><strong>Basis:</strong><br />
+Chứng minh rằng họ tất cả open intervals (a, b) tạo thành basis cho topology của ℝ.</li>
+</ol>
+
+<h3 id="convergence">Convergence</h3>
+
+<ol>
+  <li><strong>Convergence Examples:</strong><br />
+Xác định các dãy sau hội tụ hay không (trong ℝ):
+    <ul>
+      <li>a) xₙ = 1/n</li>
+      <li>b) xₙ = (-1)ⁿ</li>
+      <li>c) xₙ = (n² + 1) / (n² + 2)</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Cauchy but not Convergent:</strong><br />
+Tìm một Cauchy sequence trong (0, 1) (với Euclidean metric) không hội tụ trong (0, 1).<br />
+Điều này cho thấy gì về completeness của (0, 1)?</p>
+  </li>
+  <li><strong>Convergence in ℝ²:</strong><br />
+Trong ℝ², dãy (xₙ, yₙ) hội tụ đến (a, b) khi nào?<br />
+Chứng minh rằng: (xₙ, yₙ) → (a, b) ⟺ xₙ → a và yₙ → b.</li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li><strong>Equivalent Metrics:</strong><br />
+Hai metrics d₁, d₂ trên X được gọi là <strong>equivalent</strong> nếu chúng induce cùng topology.<br />
+Chứng minh rằng trên ℝⁿ, ba metrics sau equivalent:
+    <ul>
+      <li>Euclidean d₂</li>
+      <li>Manhattan d₁</li>
+      <li>Max d∞</li>
+    </ul>
+
+    <p>(<em>Hint:</em> Chỉ ra rằng mọi d₁-open ball chứa d₂-open ball và ngược lại)</p>
+  </li>
+  <li>
+    <p><strong>Completeness:</strong><br />
+Chứng minh rằng [0, 1] ⊂ ℝ là complete (metric space với inherited metric).</p>
+  </li>
+  <li><strong>Product Metric:</strong><br />
+Trên ℝ² = ℝ × ℝ, định nghĩa:
+\(d((x_1, y_1), (x_2, y_2)) = \max\{|x_1 - x_2|, |y_1 - y_2|\}\)
+Chứng minh đây là metric. Mô tả open balls trong metric này.</li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Completeness vs Compactness:</strong><br />
+(0, 1) không complete. [0, 1] complete.<br />
+Sự khác biệt nào giữa chúng gây ra điều này?<br />
+(<em>Preview:</em> [0, 1] còn có tính chất gì đặc biệt?)</p>
+  </li>
+  <li>
+    <p><strong>Topology from Metric:</strong><br />
+Tại sao “open balls” là concept tự nhiên để định nghĩa topology?<br />
+Liên hệ với intuition về “neighborhoods” và “closeness”.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Rudin, Principles of Mathematical Analysis:</strong> Chapter 1 (The Real Number System)</li>
+  <li><strong>Munkres, Topology:</strong> §20 (Metric Topology), §27 (Compact Spaces in Metric Topology)</li>
+  <li><strong>Kolmogorov &amp; Fomin, Introductory Real Analysis:</strong> Chapter 2 (Metric Spaces)</li>
+  <li><strong>Sutherland, Introduction to Metric and Topological Spaces:</strong> Chapters 1–3</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta đã hoàn thiện nền móng:</p>
+
+<p>✅ <strong>Số thực ℝ:</strong> Construction qua Dedekind cuts hoặc Cauchy sequences<br />
+✅ <strong>Completeness:</strong> LUB property, Archimedean property, density<br />
+✅ <strong>Metric spaces:</strong> Định nghĩa khoảng cách, nhiều ví dụ metrics<br />
+✅ <strong>Metric topology:</strong> Open balls → open sets → topology<br />
+✅ <strong>Euclidean space ℝⁿ:</strong> Ví dụ cụ thể quan trọng nhất<br />
+✅ <strong>Convergence:</strong> Cauchy sequences, completeness</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>ℝ “đầy đủ” (complete) theo nghĩa mọi Cauchy sequence hội tụ</li>
+  <li>Metric là cách formalize “khoảng cách”</li>
+  <li>Mọi metric tự động induce topology qua open balls</li>
+  <li>ℝⁿ là ví dụ prototype cho mọi khái niệm topology</li>
+  <li>Completeness là tính chất quan trọng—nhiều theorems cần nó</li>
+</ul>
+
+<p><strong>Connection đến topology:</strong></p>
+<ul>
+  <li>Topology ra đời để trừu tượng hóa các properties của ℝ không phụ thuộc vào metric cụ thể</li>
+  <li>Open sets trong topology = generalization của open balls</li>
+  <li>Continuity trong topology = generalization của ε-δ definition</li>
+</ul>
+
+<p><strong>Kết thúc Chapter 00!</strong><br />
+Chúng ta đã xây dựng đầy đủ nền tảng:</p>
+<ul>
+  <li>Set theory, functions, relations</li>
+  <li>Axiom of Choice, Zorn’s Lemma</li>
+  <li>Logic, proof techniques</li>
+  <li>Real numbers, metric spaces</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Chapter 01 sẽ giới thiệu <strong>TOPOLOGICAL SPACES</strong>—định nghĩa chính thức của topology, basis, continuous functions, và các ví dụ beyond metric spaces!</p>
+
+<hr />
+
+<p><em>“In mathematics, you don’t understand things. You just get used to them.” — John von Neumann</em></p>
+
+<p>🎯 <strong>Chúc mừng hoàn thành Chapter 00! Bây giờ bạn đã sẵn sàng cho Topology thực sự!</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter00/00_02_Logic_Mathematical_Proofs/">Lecture 00.02: Logic and Mathematical Proofs</a><br />
+<strong>Next Chapter:</strong> <a href="/contents/vi/topology-chapter01/">Chapter 01: Topological Spaces and Continuous Functions</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter0/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

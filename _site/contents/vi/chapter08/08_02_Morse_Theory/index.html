@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 08.02: Morse Theory - Topology from Critical Points &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 08.02: Morse Theory - Topology from Critical Points
+    
+  </h1>
+  <p><strong>$f: M \to \mathbb{R}$ - Where Analysis Meets Topology</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Một trong những khám phá đẹp nhất của toán học thế kỷ 20 là sự kết nối sâu sắc giữa giải tích trơn và tô-pô học thông qua lý thuyết Morse. Marston Morse, trong những năm 1930, đã chỉ ra một mối liên hệ đáng kinh ngạc: <strong>tô-pô học của một đa tạp $M$ được xác định hoàn toàn bởi các điểm tới hạn của một hàm trơn $f: M \to \mathbb{R}$</strong>. Đây không chỉ là một kết quả toán học đẹp đẽ mà còn là một công cụ tính toán mạnh mẽ, cho phép chúng ta tính toán homology của đa tạp thông qua việc phân tích các điểm tới hạn của hàm số.</p>
+
+<p>Mối liên hệ này hoạt động như thế nào? Hãy tưởng tượng chúng ta có một đa tạp trơn $M$ và một hàm trơn $f: M \to \mathbb{R}$. Các điểm tới hạn của $f$ là những điểm mà gradient của hàm số biến mất—những điểm mà hàm số không tăng hoặc giảm theo bất kỳ hướng nào. Điều đáng ngạc nhiên là, chỉ bằng cách nghiên cứu các điểm tới hạn này—số lượng của chúng, chỉ số của chúng (số chiều của các hướng không ổn định), và cách chúng được sắp xếp—chúng ta có thể suy ra toàn bộ cấu trúc tô-pô của $M$.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Torus_with_height_function.svg/400px-Torus_with_height_function.svg.png" alt="Torus height function" /><br />
+<em>Hàm chiều cao trên torus với 4 điểm tới hạn - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Torus_with_height_function.svg">Wikimedia Commons</a></em></p>
+
+<p>Lý thuyết Morse là cách mạng vì nhiều lý do. Thứ nhất, nó cung cấp một phương pháp tính toán thực tế để tính toán homology của đa tạp. Thay vì phải xây dựng các chuỗi phức phức tạp, chúng ta chỉ cần tìm các điểm tới hạn của một hàm Morse và đếm chúng theo chỉ số. Thứ hai, nó cho phép chúng ta xây dựng cấu trúc CW của đa tạp một cách tự nhiên—mỗi điểm tới hạn chỉ số $k$ tương ứng với việc gắn một $k$-cell vào không gian con mức dưới. Thứ ba, các bất đẳng thức Morse liên hệ số lượng điểm tới hạn với các số Betti, cho chúng ta các giới hạn dưới về số lượng điểm tới hạn mà bất kỳ hàm Morse nào cũng phải có. Cuối cùng, định lý Reeb cho thấy rằng nếu một đa tạp compact có một hàm Morse với đúng hai điểm tới hạn, thì nó phải đồng phôi với một hình cầu—một kết quả đẹp đẽ và sâu sắc.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của lý thuyết Morse. Chúng ta bắt đầu với định nghĩa của các hàm Morse—những hàm mà tất cả các điểm tới hạn đều không suy biến, nghĩa là ma trận Hessian tại mỗi điểm tới hạn đều không suy biến. Chỉ số của một điểm tới hạn là số lượng các giá trị riêng âm của ma trận Hessian, và nó đo lường số chiều của các hướng không ổn định xung quanh điểm đó. Chúng ta sẽ nghiên cứu các tập con mức dưới $M^a = f^{-1}(-\infty, a]$ và cách tô-pô học của chúng thay đổi khi chúng ta vượt qua các điểm tới hạn—mỗi điểm tới hạn chỉ số $k$ dẫn đến việc gắn một $k$-cell. Chúng ta sẽ phát biểu và chứng minh các bất đẳng thức Morse, liên hệ số lượng điểm tới hạn với các số Betti, và khám phá các ứng dụng trong hình học, động lực học, và vật lý.</p>
+
+<p>Tại sao lý thuyết Morse lại quan trọng đến vậy? Nó tạo ra một cây cầu giữa giải tích và tô-pô học, cho phép chúng ta sử dụng các công cụ của giải tích để hiểu cấu trúc tô-pô. Nó cung cấp các thuật toán tính toán thực tế để tính toán homology, làm cho nó trở thành một công cụ mạnh mẽ trong hình học tính toán. Hơn nữa, mọi đa tạp trơn đều thừa nhận một hàm Morse, làm cho lý thuyết này trở nên phổ quát. Cuối cùng, các phát triển hiện đại như Floer homology và cách tiếp cận của Witten đối với cohomology đã mở rộng lý thuyết Morse vào các lĩnh vực mới, cho thấy sức mạnh và tính linh hoạt của nó.</p>
+
+<hr />
+
+<h2 id="-morse-functions---definition">🎯 Morse Functions - Definition</h2>
+
+<h3 id="1-critical-points">1. Critical Points</h3>
+
+<p>Để hiểu lý thuyết Morse, chúng ta cần bắt đầu với khái niệm cơ bản nhất: các điểm tới hạn của một hàm trơn. Giả sử chúng ta có một đa tạp trơn $M$ có chiều $n$ và một hàm trơn $f: M \to \mathbb{R}$. Một điểm $p \in M$ được gọi là <strong>điểm tới hạn</strong> của $f$ nếu vi phân của $f$ tại $p$ biến mất, nghĩa là $df_p = 0$. Điều này có nghĩa là tất cả các đạo hàm theo hướng đều bằng không tại điểm đó—hàm số không tăng hoặc giảm theo bất kỳ hướng nào trong không gian tiếp tuyến tại $p$.</p>
+
+<p><strong>Định nghĩa (Critical Point):</strong><br />
+Cho $M$ là một đa tạp trơn có chiều $n$ và $f: M \to \mathbb{R}$ là một hàm trơn. Một điểm $p \in M$ được gọi là <strong>điểm tới hạn</strong> của $f$ nếu:</p>
+
+\[df_p = 0 \quad \text{(tất cả các đạo hàm theo hướng đều biến mất)}\]
+
+<p>Trong tọa độ địa phương, điều này có nghĩa là $\partial f/\partial x_1 = \cdots = \partial f/\partial x_n = 0$ tại $p$. Nếu $M$ có cấu trúc Riemannian, thì điều kiện này tương đương với việc gradient $\nabla f$ bằng không tại $p$.</p>
+
+<p>Giá trị $c = f(p)$ tại một điểm tới hạn $p$ được gọi là <strong>giá trị tới hạn</strong>. Một giá trị $c \in \mathbb{R}$ không phải là giá trị tới hạn được gọi là <strong>giá trị chính quy</strong>, và một điểm $p \in M$ không phải là điểm tới hạn được gọi là <strong>điểm chính quy</strong>.</p>
+
+<p>Hãy xem xét một số ví dụ đơn giản để hiểu rõ hơn về các điểm tới hạn. Đối với hàm $f: \mathbb{R} \to \mathbb{R}$ được định nghĩa bởi $f(x) = x^2$, điểm $x = 0$ là một điểm tới hạn vì $f’(0) = 0$. Đây là một điểm cực tiểu địa phương—hàm số đạt giá trị nhỏ nhất tại điểm này. Một ví dụ hình học đẹp hơn là hàm chiều cao trên một torus đứng thẳng trong không gian ba chiều. Nếu chúng ta định nghĩa $h: T^2 \to \mathbb{R}$ là hàm chiều cao (tọa độ $z$), thì hàm này có bốn điểm tới hạn: một điểm cực tiểu ở đáy (điểm thấp nhất), hai điểm yên ngựa ở hai bên (các điểm mà đường cong chiều cao có hình yên ngựa), và một điểm cực đại ở đỉnh (điểm cao nhất). Các điểm này không chỉ là các điểm tới hạn mà còn là các điểm tới hạn không suy biến, như chúng ta sẽ thấy ngay sau đây.</p>
+
+<hr />
+
+<h3 id="2-hessian-and-index">2. Hessian and Index</h3>
+
+<p>Để hiểu sâu hơn về các điểm tới hạn, chúng ta cần nghiên cứu ma trận Hessian, một công cụ mạnh mẽ trong giải tích đa biến. Ma trận Hessian tại một điểm tới hạn $p$ mã hóa thông tin về độ cong của hàm số theo các hướng khác nhau, và nó đóng vai trò quan trọng trong việc phân loại các điểm tới hạn.</p>
+
+<p><strong>Định nghĩa (Hessian):</strong><br />
+Cho $p$ là một điểm tới hạn của hàm trơn $f: M \to \mathbb{R}$. <strong>Ma trận Hessian</strong> $\text{Hess}_p(f)$ tại $p$ là ma trận của các đạo hàm riêng cấp hai:</p>
+
+\[\text{Hess}_p(f) = \left[\frac{\partial^2 f}{\partial x_i \partial x_j}\right]_{i,j=1}^n\]
+
+<p>Vì $f$ là hàm trơn, ma trận Hessian là đối xứng, và do đó tất cả các giá trị riêng của nó đều là số thực. Các giá trị riêng này cho chúng ta biết về độ cong của hàm số theo các hướng khác nhau—một giá trị riêng dương cho thấy hàm số cong lên theo hướng đó, trong khi một giá trị riêng âm cho thấy hàm số cong xuống.</p>
+
+<p><strong>Định nghĩa (Non-degenerate Critical Point):</strong><br />
+Một điểm tới hạn $p$ của $f$ được gọi là <strong>không suy biến</strong> nếu ma trận Hessian $\text{Hess}_p(f)$ không suy biến, nghĩa là $\det(\text{Hess}_p(f)) \neq 0$. Điều này tương đương với việc tất cả các giá trị riêng của ma trận Hessian đều khác không.</p>
+
+<p>Tại sao điều kiện không suy biến lại quan trọng? Nếu một điểm tới hạn là suy biến (một số giá trị riêng bằng không), thì hành vi của hàm số gần điểm đó có thể rất phức tạp và không thể được mô tả đơn giản bằng một dạng chuẩn. Các điểm tới hạn không suy biến, mặt khác, có hành vi rất tốt và có thể được mô tả bằng một dạng chuẩn đơn giản, như chúng ta sẽ thấy trong bổ đề Morse.</p>
+
+<p><strong>Định nghĩa (Index):</strong><br />
+Cho $p$ là một điểm tới hạn không suy biến của $f$. <strong>Chỉ số</strong> $\lambda(p)$ của $p$ được định nghĩa là số lượng các giá trị riêng âm của ma trận Hessian $\text{Hess}_p(f)$.</p>
+
+<p>Chỉ số có thể nhận các giá trị từ $0$ đến $n$ (chiều của $M$). Nó đo lường số chiều của các hướng không ổn định xung quanh điểm tới hạn—các hướng mà hàm số giảm khi chúng ta di chuyển ra khỏi điểm đó. Một điểm cực tiểu có chỉ số $0$ (không có hướng không ổn định), một điểm cực đại có chỉ số $n$ (tất cả các hướng đều không ổn định), và một điểm yên ngựa có chỉ số giữa $0$ và $n$ (một số hướng ổn định, một số không ổn định).</p>
+
+<p>Hãy xem xét một số ví dụ cụ thể. Đối với hàm $f(x) = x^2$ tại $x = 0$, ma trận Hessian chỉ là $f’‘(0) = 2 &gt; 0$, vì vậy chỉ số là $0$—đây là một điểm cực tiểu. Đối với hàm $f(x) = -x^2$ tại $x = 0$, ma trận Hessian là $-2 &lt; 0$, vì vậy chỉ số là $1$ (trong không gian một chiều, đây là một điểm cực đại). Một ví dụ thú vị hơn là hàm $f(x, y) = x^2 - y^2$ tại điểm $(0, 0)$. Ma trận Hessian là ma trận đường chéo $\text{diag}(2, -2)$, có một giá trị riêng dương và một giá trị riêng âm, vì vậy chỉ số là $1$—đây là một điểm yên ngựa, với một hướng ổn định (theo trục $x$) và một hướng không ổn định (theo trục $y$).</p>
+
+<hr />
+
+<h3 id="3-morse-functions">3. Morse Functions</h3>
+
+<p>Bây giờ chúng ta đã hiểu về các điểm tới hạn và chỉ số của chúng, chúng ta có thể định nghĩa các hàm Morse—những hàm mà tất cả các điểm tới hạn đều không suy biến. Đây là lớp hàm quan trọng nhất trong lý thuyết Morse, vì chúng có các tính chất tốt cho phép chúng ta liên kết giải tích với tô-pô học.</p>
+
+<p><strong>Định nghĩa (Morse Function):</strong><br />
+Một hàm trơn $f: M \to \mathbb{R}$ được gọi là <strong>hàm Morse</strong> nếu tất cả các điểm tới hạn của nó đều không suy biến.</p>
+
+<p>Các hàm Morse có nhiều tính chất quan trọng làm cho chúng trở nên đặc biệt hữu ích. Thứ nhất, các điểm tới hạn của một hàm Morse là các điểm cô lập—không có hai điểm tới hạn nào nằm gần nhau. Điều này có nghĩa là nếu $M$ là compact, thì một hàm Morse chỉ có hữu hạn điểm tới hạn, làm cho việc phân tích trở nên dễ dàng hơn nhiều. Thứ hai, các hàm Morse là “generic” theo nghĩa rằng hầu hết các hàm trơn đều là hàm Morse—tập hợp các hàm Morse là một tập mở và trù mật trong không gian của tất cả các hàm trơn. Điều này có nghĩa là nếu chúng ta chọn ngẫu nhiên một hàm trơn, thì với xác suất một, nó sẽ là một hàm Morse. Thứ ba, mọi đa tạp trơn đều thừa nhận một hàm Morse—chúng ta luôn có thể tìm thấy một hàm Morse trên bất kỳ đa tạp trơn nào. Cuối cùng, bất kỳ hàm trơn nào cũng có thể được nhiễu loạn một chút để trở thành một hàm Morse—chúng ta có thể thêm một nhiễu loạn nhỏ để loại bỏ các điểm tới hạn suy biến.</p>
+
+<p>Một ví dụ cổ điển của hàm Morse là hàm chiều cao $h: T^2 \to \mathbb{R}$ trên một torus đứng thẳng trong không gian ba chiều. Hàm này có bốn điểm tới hạn, tất cả đều không suy biến: một điểm cực tiểu ở đáy (chỉ số $0$), hai điểm yên ngựa ở hai bên (chỉ số $1$), và một điểm cực đại ở đỉnh (chỉ số $2$). Vì tất cả các điểm tới hạn đều không suy biến, đây là một hàm Morse. Như chúng ta sẽ thấy sau này, hàm này thực sự là một hàm Morse hoàn hảo, vì số lượng điểm tới hạn của mỗi chỉ số bằng đúng với số Betti tương ứng của torus.</p>
+
+<hr />
+
+<h2 id="-sublevel-sets-and-topology-changes">📊 Sublevel Sets and Topology Changes</h2>
+
+<h3 id="1-sublevel-sets">1. Sublevel Sets</h3>
+
+<p>Một trong những ý tưởng cốt lõi của lý thuyết Morse là nghiên cứu cách tô-pô học của các tập con mức dưới thay đổi khi chúng ta tăng giá trị của hàm số. Điều này cho phép chúng ta hiểu cách các điểm tới hạn ảnh hưởng đến cấu trúc tô-pô của đa tạp.</p>
+
+<p><strong>Định nghĩa:</strong><br />
+Cho $f: M \to \mathbb{R}$ là một hàm trơn và $a \in \mathbb{R}$. <strong>Tập con mức dưới</strong> $M^a$ được định nghĩa là:</p>
+
+\[M^a = f^{-1}(-\infty, a] = \{p \in M : f(p) \leq a\}\]
+
+<p>Đây là tập hợp tất cả các điểm trong $M$ mà giá trị của hàm $f$ nhỏ hơn hoặc bằng $a$. Thông thường, $M^a$ là một đa tạp có biên (khi $a$ là một giá trị chính quy, biên là tập mức $f^{-1}(a)$). Khi $a$ tăng, tập $M^a$ mở rộng, và tô-pô học của nó có thể thay đổi khi chúng ta vượt qua các điểm tới hạn.</p>
+
+<p>Một kết quả quan trọng là định lý về các giá trị chính quy: nếu $a$ là một giá trị chính quy của $f$, thì $M^a$ là vi phôi với $M^{a-\varepsilon}$ đối với một số $\varepsilon &gt; 0$ đủ nhỏ. Điều này có nghĩa là tô-pô học không thay đổi khi chúng ta vượt qua một giá trị chính quy—chúng ta chỉ đơn giản là mở rộng tập con mức dưới một cách liên tục mà không thay đổi hình dạng của nó. Sự thay đổi tô-pô học chỉ xảy ra khi chúng ta vượt qua các giá trị tới hạn, và đây là nơi mà các điểm tới hạn trở nên quan trọng.</p>
+
+<hr />
+
+<h3 id="2-passing-critical-points">2. Passing Critical Points</h3>
+
+<p>Bổ đề Morse là một trong những kết quả quan trọng nhất trong lý thuyết Morse, vì nó cho chúng ta một dạng chuẩn địa phương cho hàm số gần một điểm tới hạn không suy biến. Điều này cho phép chúng ta hiểu chính xác cách hàm số hoạt động gần điểm tới hạn và cách tô-pô học thay đổi khi chúng ta vượt qua điểm đó.</p>
+
+<p><strong>Định lý (Bổ đề Morse):</strong><br />
+Cho $p$ là một điểm tới hạn không suy biến của hàm Morse $f: M \to \mathbb{R}$ với chỉ số $\lambda$ và $f(p) = c$. Khi đó, tồn tại các tọa độ địa phương $(x_1, \ldots, x_n)$ gần $p$ sao cho:</p>
+
+\[f(x) = c - x_1^2 - \cdots - x_\lambda^2 + x_{\lambda+1}^2 + \cdots + x_n^2\]
+
+<p>Đây là dạng chuẩn của hàm số gần một điểm tới hạn không suy biến. Số lượng các số hạng âm bằng đúng chỉ số $\lambda$ của điểm tới hạn, và số lượng các số hạng dương bằng $n - \lambda$. Dạng chuẩn này cho chúng ta biết rằng gần điểm tới hạn, hàm số trông giống như một dạng bậc hai không suy biến, với $\lambda$ hướng không ổn định (các hướng mà hàm số giảm) và $n - \lambda$ hướng ổn định (các hướng mà hàm số tăng).</p>
+
+<p>Bây giờ chúng ta có thể hiểu cách tô-pô học thay đổi khi chúng ta vượt qua một điểm tới hạn. Giả sử $p$ là điểm tới hạn duy nhất với $f(p) = c$ và chỉ số $\lambda$, và giả sử $a &lt; c &lt; b$ với không có giá trị tới hạn nào khác trong khoảng $[a, b]$. Khi đó, định lý về sự thay đổi tô-pô học cho chúng ta biết rằng:</p>
+
+\[M^b \simeq M^a \cup_{\phi} D^\lambda\]
+
+<p>Nghĩa là, $M^b$ có cùng kiểu đồng luân với không gian thu được từ $M^a$ bằng cách gắn một $D^\lambda$ (một đĩa $\lambda$-chiều) vào $M^a$ dọc theo một ánh xạ gắn $\phi: \partial D^\lambda \to M^a$. Điều này có nghĩa là khi chúng ta vượt qua một điểm tới hạn chỉ số $\lambda$, tập con mức dưới mở rộng bằng cách thêm một “handle” $\lambda$-chiều—một tế bào $\lambda$-chiều được gắn vào không gian hiện có.</p>
+
+<p>Trực giác hình học đằng sau điều này là như sau. Bổ đề Morse cho chúng ta biết rằng gần điểm tới hạn $p$, hàm số $f$ trông giống như một dạng bậc hai với $\lambda$ hướng không ổn định và $n - \lambda$ hướng ổn định. Khi chúng ta tăng giá trị của hàm số từ $a$ lên $b$, tập con mức dưới mở rộng bằng cách thêm một vùng mới xung quanh điểm tới hạn. Vùng này có hình dạng của một đĩa $\lambda$-chiều trong các hướng không ổn định, và được gắn vào $M^a$ dọc theo biên của nó. Đây chính là cách chúng ta gắn một $\lambda$-cell vào không gian.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Critical_point_types.svg/500px-Critical_point_types.svg.png" alt="Critical point types" /><br />
+<em>Các loại điểm tới hạn chỉ số 0, 1, 2 trong không gian 2D - Nguồn: Wikimedia Commons</em></p>
+
+<hr />
+
+<h3 id="3-cw-complex-structure">3. CW Complex Structure</h3>
+
+<p>Một hệ quả quan trọng của định lý về sự thay đổi tô-pô học là mỗi hàm Morse trên một đa tạp compact tự động tạo ra một cấu trúc CW trên đa tạp đó. Điều này cung cấp một cách tự nhiên để xây dựng cấu trúc CW và tính toán homology của đa tạp.</p>
+
+<p>Giả sử $f: M \to \mathbb{R}$ là một hàm Morse trên một đa tạp compact $M$. Vì $M$ là compact và các điểm tới hạn của hàm Morse là các điểm cô lập, chúng ta chỉ có hữu hạn điểm tới hạn. Hãy sắp xếp các điểm tới hạn theo thứ tự tăng dần của giá trị hàm số: $p_1, \ldots, p_k$ với $f(p_1) &lt; f(p_2) &lt; \cdots &lt; f(p_k)$, và gọi $\lambda_1, \ldots, \lambda_k$ là các chỉ số tương ứng.</p>
+
+<p>Bây giờ, khi chúng ta xây dựng $M$ bằng cách tăng dần giá trị của hàm số, mỗi điểm tới hạn $p_i$ với chỉ số $\lambda_i$ dẫn đến việc gắn một $\lambda_i$-cell vào không gian con mức dưới hiện có. Điều này có nghĩa là $M$ có một cấu trúc CW tự nhiên, trong đó số lượng các $i$-cells bằng đúng số lượng các điểm tới hạn chỉ số $i$. Nếu chúng ta ký hiệu $c_i$ là số lượng các điểm tới hạn chỉ số $i$, thì $c_i$ cũng là số lượng các $i$-cells trong cấu trúc CW này.</p>
+
+<p>Điều này có một hệ quả quan trọng: chuỗi phức tế bào của cấu trúc CW này tính toán homology $H_*(M)$ của đa tạp. Điều này có nghĩa là chúng ta có thể tính toán homology của $M$ bằng cách nghiên cứu các điểm tới hạn của hàm Morse—một phương pháp tính toán thực tế và hiệu quả. Đây là một trong những lý do tại sao lý thuyết Morse lại mạnh mẽ đến vậy—nó cung cấp một cách cụ thể để tính toán các bất biến tô-pô từ các đối tượng giải tích.</p>
+
+<hr />
+
+<h2 id="-morse-inequalities">🔢 Morse Inequalities</h2>
+
+<h3 id="1-statement">1. Statement</h3>
+
+<p>Các bất đẳng thức Morse là một trong những kết quả quan trọng nhất trong lý thuyết Morse, vì chúng liên hệ số lượng các điểm tới hạn với các số Betti của đa tạp. Điều này cho chúng ta các giới hạn dưới về số lượng điểm tới hạn mà bất kỳ hàm Morse nào cũng phải có, và cung cấp một cách để hiểu mối quan hệ giữa giải tích và tô-pô học.</p>
+
+<p><strong>Định lý (Bất đẳng thức Morse yếu):</strong><br />
+Cho $M$ là một đa tạp compact và $f: M \to \mathbb{R}$ là một hàm Morse. Gọi $c_k$ là số lượng các điểm tới hạn chỉ số $k$, và $\beta_k$ là số Betti thứ $k$ của $M$, được định nghĩa là $\beta_k = \text{rank}(H_k(M))$. Khi đó, các bất đẳng thức sau đây đúng:</p>
+
+\[c_k \geq \beta_k \quad \forall k\]
+
+<p>Nghĩa là, số lượng các điểm tới hạn chỉ số $k$ luôn lớn hơn hoặc bằng số Betti thứ $k$. Điều này có nghĩa là chúng ta không thể có ít điểm tới hạn hơn số Betti—mỗi số Betti đòi hỏi ít nhất một điểm tới hạn tương ứng.</p>
+
+<p>Các bất đẳng thức Morse mạnh hơn cung cấp thông tin chi tiết hơn về mối quan hệ giữa các điểm tới hạn và các số Betti:</p>
+
+\[\sum_{i=0}^k (-1)^{k-i} c_i \geq \sum_{i=0}^k (-1)^{k-i} \beta_i\]
+
+<p>Đối với mọi $k$, với đẳng thức khi $k = \dim M$. Các bất đẳng thức này tính đến các tương tác giữa các điểm tới hạn ở các chỉ số khác nhau và cung cấp thông tin chính xác hơn về cách các điểm tới hạn liên quan đến homology của đa tạp.</p>
+
+<hr />
+
+<h3 id="2-perfect-morse-functions">2. Perfect Morse Functions</h3>
+
+<p>Một hàm Morse được gọi là hoàn hảo nếu số lượng điểm tới hạn của mỗi chỉ số bằng đúng với số Betti tương ứng. Đây là các hàm Morse tối ưu theo nghĩa chúng có số lượng điểm tới hạn tối thiểu có thể có.</p>
+
+<p><strong>Định nghĩa:</strong><br />
+Một hàm Morse $f: M \to \mathbb{R}$ được gọi là <strong>hàm Morse hoàn hảo</strong> nếu:</p>
+
+\[c_k = \beta_k \quad \forall k\]
+
+<p>Nghĩa là, số lượng các điểm tới hạn chỉ số $k$ bằng đúng với số Betti thứ $k$ cho mọi $k$. Điều này có nghĩa là hàm Morse này có số lượng điểm tới hạn tối thiểu có thể có—không thể có ít điểm tới hạn hơn vì các bất đẳng thức Morse cho chúng ta biết rằng $c_k \geq \beta_k$ cho mọi $k$.</p>
+
+<p>Một ví dụ cổ điển của hàm Morse hoàn hảo là hàm chiều cao trên một hình cầu $S^n$. Nếu chúng ta đặt hình cầu đứng thẳng và định nghĩa $h: S^n \to \mathbb{R}$ là hàm chiều cao, thì hàm này có đúng hai điểm tới hạn: một điểm cực tiểu ở đáy (chỉ số $0$) và một điểm cực đại ở đỉnh (chỉ số $n$). Các số Betti của $S^n$ là $\beta_0 = \beta_n = 1$ và $\beta_k = 0$ cho $k \neq 0, n$. Vì $c_0 = c_n = 1$ và $c_k = 0$ cho $k \neq 0, n$, chúng ta có $c_k = \beta_k$ cho mọi $k$, vì vậy đây là một hàm Morse hoàn hảo. Điều này không phải là ngẫu nhiên—như chúng ta sẽ thấy trong định lý Reeb, bất kỳ đa tạp compact nào có một hàm Morse với đúng hai điểm tới hạn phải đồng phôi với một hình cầu.</p>
+
+<hr />
+
+<h3 id="3-applications">3. Applications</h3>
+
+<p>Các bất đẳng thức Morse có nhiều ứng dụng quan trọng trong hình học và giải tích. Thứ nhất, chúng cung cấp các kết quả tồn tại về số lượng điểm tới hạn. Các bất đẳng thức Morse cho chúng ta biết rằng số lượng điểm tới hạn của mỗi chỉ số phải lớn hơn hoặc bằng số Betti tương ứng, điều này cung cấp các giới hạn dưới về số lượng điểm tới hạn mà bất kỳ hàm Morse nào cũng phải có.</p>
+
+<p>Ví dụ, nếu một đa tạp $M$ có $\beta_1 = 5$, thì bất kỳ hàm Morse nào trên $M$ cũng phải có ít nhất $5$ điểm tới hạn chỉ số $1$. Điều này có nghĩa là chúng ta không thể tìm thấy một hàm Morse với ít hơn $5$ điểm yên ngựa—đây là một ràng buộc tô-pô học về số lượng điểm tới hạn mà chúng ta có thể có.</p>
+
+<p>Các bất đẳng thức Morse cũng có ứng dụng trong các bài toán tối ưu hóa và giải tích biến phân. Khi chúng ta nghiên cứu các bài toán biến phân, chúng ta thường quan tâm đến việc tìm các điểm tới hạn của các hàm năng lượng hoặc các hàm tác dụng. Các bất đẳng thức Morse cho chúng ta biết về số lượng điểm tới hạn mà chúng ta có thể mong đợi, và giúp chúng ta hiểu hình học của không gian các nghiệm. Điều này đặc biệt quan trọng trong các lĩnh vực như hình học vi phân, động lực học, và vật lý toán học.</p>
+
+<hr />
+
+<h2 id="-reebs-theorem">🌟 Reeb’s Theorem</h2>
+
+<h3 id="statement">Statement</h3>
+
+<p>Định lý Reeb là một trong những kết quả đẹp nhất và sâu sắc nhất trong lý thuyết Morse. Nó cho chúng ta biết rằng nếu một đa tạp compact có một hàm Morse với đúng hai điểm tới hạn, thì đa tạp đó phải đồng phôi với một hình cầu. Đây là một kết quả mạnh mẽ cho thấy cách lý thuyết Morse có thể được sử dụng để phân loại các đa tạp.</p>
+
+<p><strong>Định lý (Reeb):</strong><br />
+Cho $M$ là một đa tạp compact và $f: M \to \mathbb{R}$ là một hàm Morse với đúng <strong>hai điểm tới hạn</strong>. Khi đó:</p>
+
+\[M \cong S^n\]
+
+<p>Nghĩa là, $M$ đồng phôi với một hình cầu $n$-chiều, trong đó $n = \dim M$.</p>
+
+<h3 id="proof-sketch">Proof Sketch</h3>
+
+<p>Ý tưởng chính của chứng minh là sử dụng cấu trúc CW mà hàm Morse tạo ra. Nếu hàm Morse có đúng hai điểm tới hạn, thì một trong số chúng phải là điểm cực tiểu (chỉ số $0$) và điểm còn lại phải là điểm cực đại (chỉ số $n$). Điều này có nghĩa là khi chúng ta xây dựng $M$ bằng cách tăng dần giá trị của hàm số, chúng ta bắt đầu với một điểm (điểm cực tiểu), và sau đó gắn một $n$-cell (điểm cực đại) vào điểm đó. Điều này cho chúng ta cấu trúc CW $M = D^0 \cup D^n$, trong đó $D^0$ là một điểm và $D^n$ là một đĩa $n$-chiều được gắn vào điểm đó.</p>
+
+<p>Nhưng đây chính là cấu trúc CW của một hình cầu $S^n$! Một hình cầu $n$-chiều có thể được xây dựng bằng cách gắn một $n$-cell vào một điểm, và đây chính là những gì chúng ta có. Do đó, $M$ có cùng kiểu đồng luân với $S^n$, và vì cả hai đều là đa tạp compact, chúng đồng phôi với nhau.</p>
+
+<p>Định lý Reeb cho chúng ta biết rằng các đa tạp compact với đúng hai điểm tới hạn là chính xác các hình cầu—không có đa tạp nào khác có thể có một hàm Morse với chỉ hai điểm tới hạn. Đây là một kết quả phân loại mạnh mẽ cho thấy cách lý thuyết Morse có thể được sử dụng để hiểu cấu trúc tô-pô của các đa tạp.</p>
+
+<hr />
+
+<h2 id="-example-torus">🧮 Example: Torus</h2>
+
+<h3 id="height-function">Height Function</h3>
+
+<p>Một ví dụ cổ điển và đẹp đẽ của lý thuyết Morse là hàm chiều cao trên một torus đứng thẳng trong không gian ba chiều. Ví dụ này minh họa tất cả các khái niệm chính của lý thuyết Morse và cho thấy cách chúng hoạt động cùng nhau.</p>
+
+<p>Giả sử chúng ta có một torus $T^2$ đứng thẳng trong $\mathbb{R}^3$, và định nghĩa hàm chiều cao $h: T^2 \to \mathbb{R}$ là tọa độ $z$ của mỗi điểm trên torus. Hàm này có bốn điểm tới hạn, tất cả đều không suy biến:</p>
+
+<ol>
+  <li><strong>$p_1$:</strong> Điểm cực tiểu ở đáy (chỉ số $0$)</li>
+  <li><strong>$p_2, p_3$:</strong> Hai điểm yên ngựa ở hai bên (mỗi điểm có chỉ số $1$)</li>
+  <li><strong>$p_4$:</strong> Điểm cực đại ở đỉnh (chỉ số $2$)</li>
+</ol>
+
+<p>Nếu chúng ta đếm số lượng điểm tới hạn của mỗi chỉ số, chúng ta có $c_0 = 1$, $c_1 = 2$, và $c_2 = 1$. Các số Betti của torus là $\beta_0 = 1$ (một thành phần liên thông), $\beta_1 = 2$ (hai vòng độc lập), và $\beta_2 = 1$ (một lớp định hướng). Vì $c_k = \beta_k$ cho mọi $k$, đây là một hàm Morse hoàn hảo—nó có số lượng điểm tới hạn tối thiểu có thể có.</p>
+
+<h3 id="cw-structure">CW Structure</h3>
+
+<p>Khi chúng ta xây dựng torus bằng cách tăng dần giá trị của hàm chiều cao, chúng ta bắt đầu với điểm cực tiểu (một $0$-cell), sau đó gắn hai $1$-cells tại các điểm yên ngựa, và cuối cùng gắn một $2$-cell tại điểm cực đại. Điều này cho chúng ta cấu trúc CW của torus với một $0$-cell, hai $1$-cells, và một $2$-cell—chính xác như lý thuyết Morse dự đoán.</p>
+
+<p>Chuỗi phức tế bào của cấu trúc CW này tính toán homology của torus: $H_0 = \mathbb{Z}$ (một thành phần liên thông), $H_1 = \mathbb{Z}^2$ (hai vòng độc lập), và $H_2 = \mathbb{Z}$ (một lớp định hướng). Điều này minh họa cách lý thuyết Morse cung cấp một phương pháp tính toán thực tế để tính toán homology của đa tạp—chúng ta chỉ cần tìm các điểm tới hạn của hàm Morse và đếm chúng theo chỉ số.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Marston Morse</strong> - <em>“The Calculus of Variations in the Large”</em> (1934)<br />
+<em>Founded Morse theory</em></p>
+  </li>
+  <li>
+    <p><strong>Raoul Bott</strong> - <em>“Morse theory indomitable”</em> (1988)<br />
+<em>Survey of developments</em></p>
+  </li>
+  <li>
+    <p><strong>John Milnor</strong> - <em>“Morse Theory”</em> (1963)<br />
+<em>Classic textbook, Annals of Math Studies</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Smale</strong> - <em>“Generalized Poincaré’s conjecture”</em> (1961)<br />
+<em>h-cobordism theorem using Morse theory</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>John Milnor</strong> - <em>Morse Theory</em>, <strong>Annals Study 51</strong></p>
+  </li>
+  <li>
+    <p><strong>Yukio Matsumoto</strong> - <em>An Introduction to Morse Theory</em></p>
+  </li>
+  <li>
+    <p><strong>Liviu I. Nicolaescu</strong> - <em>An Invitation to Morse Theory</em></p>
+  </li>
+  <li>
+    <p><strong>Michèle Audin, Mihai Damian</strong> - <em>Morse Theory and Floer Homology</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<p>Lý thuyết Morse có nhiều ứng dụng sâu sắc và rộng rãi trong nhiều lĩnh vực của toán học và vật lý. Các ứng dụng này cho thấy cách lý thuyết Morse không chỉ là một công cụ tính toán mà còn là một cách tiếp cận cơ bản để hiểu mối quan hệ giữa giải tích và tô-pô học.</p>
+
+<h3 id="calculus-of-variations">Calculus of Variations</h3>
+
+<p>Trong giải tích biến phân, chúng ta thường quan tâm đến việc tìm các geodesic (đường cong ngắn nhất) và các mặt cực tiểu (minimal surfaces). Các đối tượng này xuất hiện như các điểm tới hạn của các hàm năng lượng hoặc diện tích. Lý thuyết Morse cung cấp một cách tiếp cận mạnh mẽ để phân tích sự tồn tại và số lượng của các điểm tới hạn này. Bằng cách nghiên cứu các điểm tới hạn của hàm năng lượng, chúng ta có thể hiểu về hình học của không gian các geodesic hoặc các mặt cực tiểu, và các bất đẳng thức Morse cho chúng ta biết về số lượng tối thiểu của các nghiệm mà chúng ta có thể mong đợi.</p>
+
+<h3 id="symplectic-topology---floer-homology">Symplectic Topology - Floer Homology</h3>
+
+<p>Một trong những phát triển quan trọng nhất của lý thuyết Morse là Floer homology, một mở rộng của lý thuyết Morse vào không gian vô hạn chiều. Floer đã phát triển một phiên bản vô hạn chiều của lý thuyết Morse, trong đó các điểm tới hạn là các quỹ đạo tuần hoàn của các hệ động lực Hamilton, và hàm năng lượng được thay thế bởi hàm tác dụng trên không gian các vòng lặp. Floer homology đã có nhiều ứng dụng quan trọng trong tô-pô học symplectic, bao gồm chứng minh giả thuyết Arnold về số lượng quỹ đạo tuần hoàn của các hệ Hamilton, và cung cấp các bất biến symplectic mạnh mẽ.</p>
+
+<h3 id="physics---quantum-field-theory">Physics - Quantum Field Theory</h3>
+
+<p>Trong vật lý lý thuyết, đặc biệt là trong lý thuyết trường lượng tử, lý thuyết Morse đóng vai trò quan trọng trong cách tiếp cận của Witten đối với cohomology. Witten đã chỉ ra rằng tích phân đường (path integral) trong cơ học lượng tử có thể được hiểu như một tổng trên các điểm tới hạn của hàm tác dụng cổ điển, và lý thuyết Morse cung cấp một xấp xỉ bán cổ điển (semi-classical approximation) cho tích phân này. Điều này đặc biệt quan trọng trong cơ học lượng tử siêu đối xứng (supersymmetric quantum mechanics), nơi mà lý thuyết Morse cung cấp một cách tiếp cận hình học để hiểu các tính chất lượng tử.</p>
+
+<h3 id="dynamical-systems">Dynamical Systems</h3>
+
+<p>Trong lý thuyết hệ động lực, các dòng gradient (gradient flows) được định nghĩa bởi phương trình vi phân $\dot{x} = -\nabla f$ đóng vai trò quan trọng. Các quỹ đạo của dòng gradient kết nối các điểm tới hạn với nhau, và động lực học của dòng gradient xác định cấu trúc tô-pô của đa tạp. Lý thuyết Morse cho chúng ta biết về cách các điểm tới hạn được kết nối với nhau thông qua các đường dòng (flow lines), và điều này cung cấp một cách để hiểu về hình học của đa tạp thông qua động lực học của hàm số.</p>
+
+<h3 id="cobordism-theory">Cobordism Theory</h3>
+
+<p>Một trong những ứng dụng quan trọng nhất của lý thuyết Morse là trong định lý h-cobordism của Smale, một kết quả cơ bản trong tô-pô học. Định lý h-cobordism sử dụng lý thuyết Morse để chứng minh giả thuyết Poincaré trong các chiều cao, và nó là một trong những kết quả quan trọng nhất trong tô-pô học của thế kỷ 20. Định lý này cho thấy cách lý thuyết Morse có thể được sử dụng để phân loại các đa tạp và hiểu về cấu trúc tô-pô của chúng.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="critical-points">Critical Points</h3>
+
+<ol>
+  <li>
+    <p><strong>Identify:</strong> f(x, y) = x² + y². Find critical points, classify (min/max/saddle), compute index.</p>
+  </li>
+  <li>
+    <p><strong>Hessian:</strong> f(x, y, z) = x² - y² + z³. Compute Hessian at (0,0,0). Is it non-degenerate?</p>
+  </li>
+  <li>
+    <p><strong>Index:</strong> f(x, y) = xy. Critical point (0,0). Compute index.</p>
+  </li>
+</ol>
+
+<h3 id="morse-functions">Morse Functions</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify:</strong> Height h: S² → ℝ (sphere standing). Show 2 critical points (poles), both non-degenerate. Indices?</p>
+  </li>
+  <li>
+    <p><strong>Torus:</strong> Height on T² lying flat (different orientation). How many critical points? Indices?</p>
+  </li>
+</ol>
+
+<h3 id="sublevel-sets">Sublevel Sets</h3>
+
+<ol>
+  <li>
+    <p><strong>Sphere:</strong> h: S² → ℝ (height). Describe M^a for a &lt; 0, 0 &lt; a &lt; max, a &gt; max.</p>
+  </li>
+  <li>
+    <p><strong>Topology Change:</strong> f: ℝ² → ℝ, f(x,y) = x² - y². Describe topology change passing (0,0).</p>
+  </li>
+</ol>
+
+<h3 id="morse-inequalities">Morse Inequalities</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply:</strong> M with β₀ = 1, β₁ = 3, β₂ = 2. What are minimum numbers c₀, c₁, c₂ for Morse f?</p>
+  </li>
+  <li>
+    <p><strong>Perfect:</strong> Show height h: Sⁿ → ℝ perfect Morse function.</p>
+  </li>
+</ol>
+
+<h3 id="reebs-theorem">Reeb’s Theorem</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply:</strong> M compact dengan Morse f: M → ℝ having exactly 2 critical points. Conclude M ≅ Sⁿ.</p>
+  </li>
+  <li>
+    <p><strong>Converse:</strong> Does Sⁿ admit Morse function with &gt; 2 critical points? (Yes! Construct example.)</p>
+  </li>
+</ol>
+
+<h3 id="examples">Examples</h3>
+
+<ol>
+  <li>
+    <p><strong>Figure-Eight:</strong> Can S¹ ∨ S¹ be obtained as sublevel set of Morse f: ℝ² → ℝ? Sketch.</p>
+  </li>
+  <li>
+    <p><strong>Klein Bottle:</strong> Height function on Klein bottle. How many critical points minimum? Compute.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Morse Homology:</strong> Research Morse homology—chain complex from critical points, boundary operator from flow lines.</p>
+  </li>
+  <li>
+    <p><strong>Floer Homology:</strong> Read about infinite-dimensional Morse theory (Floer). Applications to symplectic topology.</p>
+  </li>
+  <li>
+    <p><strong>Cerf Theory:</strong> Research Cerf theory—families of Morse functions, generic properties.</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Profound?:</strong> Explain connection analysis ↔ topology that Morse theory reveals.</p>
+  </li>
+  <li>
+    <p><strong>Computational:</strong> How can Morse theory compute homology practically?</p>
+  </li>
+  <li>
+    <p><strong>Limitations:</strong> Are there topological invariants Morse theory can’t detect?</p>
+  </li>
+  <li>
+    <p><strong>Modern Developments:</strong> Research Morse-Bott theory, stratified Morse theory, or discrete Morse theory.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Milnor:</strong> <em>Morse Theory</em> (definitive classic)</li>
+  <li><strong>Nicolaescu:</strong> <em>Invitation to Morse Theory</em> (gentle introduction)</li>
+  <li><strong>Audin &amp; Damian:</strong> <em>Morse Theory and Floer Homology</em> (modern perspective)</li>
+  <li><strong>Matsumoto:</strong> <em>Introduction to Morse Theory</em> (visual, intuitive)</li>
+  <li><strong>Bott:</strong> <em>Morse Theory Indomitable</em> (survey article)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Lý thuyết Morse là một trong những kết nối đẹp nhất giữa giải tích trơn và tô-pô học, cho phép chúng ta hiểu cấu trúc tô-pô của đa tạp thông qua việc nghiên cứu các điểm tới hạn của hàm trơn. Một hàm Morse là một hàm trơn mà tất cả các điểm tới hạn đều không suy biến, và chỉ số $\lambda(p)$ của một điểm tới hạn là số lượng các giá trị riêng âm của ma trận Hessian tại điểm đó. Các tập con mức dưới $M^a = f^{-1}(-\infty, a]$ mở rộng khi $a$ tăng, và tô-pô học của chúng thay đổi khi chúng ta vượt qua các điểm tới hạn—mỗi điểm tới hạn chỉ số $\lambda$ dẫn đến việc gắn một $\lambda$-cell vào không gian con mức dưới hiện có. Điều này tạo ra một cấu trúc CW tự nhiên trên đa tạp, trong đó số lượng các $i$-cells bằng số lượng các điểm tới hạn chỉ số $i$.</p>
+
+<p>Các bất đẳng thức Morse liên hệ số lượng các điểm tới hạn với các số Betti: $c_k \geq \beta_k$ cho mọi $k$, nghĩa là số lượng các điểm tới hạn chỉ số $k$ luôn lớn hơn hoặc bằng số Betti thứ $k$. Một hàm Morse hoàn hảo là một hàm mà $c_k = \beta_k$ cho mọi $k$—đây là các hàm Morse tối ưu với số lượng điểm tới hạn tối thiểu có thể có. Định lý Reeb cho chúng ta biết rằng nếu một đa tạp compact có một hàm Morse với đúng hai điểm tới hạn, thì nó phải đồng phôi với một hình cầu—một kết quả phân loại mạnh mẽ cho thấy cách lý thuyết Morse có thể được sử dụng để hiểu cấu trúc tô-pô của các đa tạp.</p>
+
+<p>Điểm chính của lý thuyết Morse là giải tích trơn xác định tô-pô học—chúng ta có thể suy ra cấu trúc tô-pô của đa tạp từ các điểm tới hạn của hàm trơn. Các điểm tới hạn là các khối xây dựng cơ bản, và chỉ số của chúng xác định chiều của tế bào được gắn vào. Các bất đẳng thức Morse là các ràng buộc cơ bản về số lượng điểm tới hạn mà chúng ta có thể có, và hầu hết các hàm trơn đều là hàm Morse—chúng là generic trong không gian của tất cả các hàm trơn.</p>
+
+<p>Trực giác hình học đằng sau lý thuyết Morse là các tập con mức dưới mở rộng qua các mức tới hạn, và mỗi điểm tới hạn thêm một handle vào không gian. Chỉ số đo lường số chiều của các hướng “độ cong âm” (negative curvature)—các hướng mà hàm số giảm khi chúng ta di chuyển ra khỏi điểm tới hạn. Các hàm Morse hoàn hảo là các hàm tối ưu với số lượng điểm tới hạn tối thiểu, và các hàm chiều cao là các ví dụ cổ điển minh họa tất cả các khái niệm chính.</p>
+
+<p>Trong thực tế, chúng ta kiểm tra ma trận Hessian để đảm bảo tính không suy biến của các điểm tới hạn, và đếm số lượng điểm tới hạn để có được giới hạn dưới về các số Betti. Dòng gradient kết nối các điểm tới hạn với nhau, và Morse homology cung cấp một phương pháp tính toán thực tế để tính toán homology của đa tạp. Các ứng dụng của lý thuyết Morse bao gồm Floer homology trong tô-pô học symplectic, các bài toán biến phân trong hình học vi phân, động lực học của các hệ gradient, và vật lý lý thuyết trong cách tiếp cận của Witten đối với cohomology.</p>
+
+<p><strong>Tiếp theo:</strong> Topological Manifolds—final lecture!</p>
+
+<hr />
+
+<p><em>“Morse theory: where calculus becomes topology, and functions reveal shape.”</em></p>
+
+<p>🎯 <strong>Master Morse theory! It’s where analysis meets geometry.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter08/08_01_Fiber_Bundles/">Lecture 08.01: Fiber Bundles</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter08/08_03_Topological_Manifolds/">Lecture 08.03: Topological Manifolds</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter8/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

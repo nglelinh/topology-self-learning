@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 07.02: Homology Computations &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 07.02: Homology Computations
+    
+  </h1>
+  <p><strong>Systematic Methods and Standard Examples</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p><strong>Lý thuyết đẹp, nhưng làm sao TÍNH TOÁN $H_n(X)$?</strong></p>
+
+<p>Tính toán trực tiếp từ định nghĩa (singular chains) = thường là không thể! Có vô số singular simplices, các chain groups được sinh bởi vô số generators, và chúng ta cần các phương pháp thông minh hơn.</p>
+
+<p><strong>Các phương pháp tính toán:</strong></p>
+<ol>
+  <li><strong>Homotopy equivalence:</strong> $X \simeq Y$, $H_n(X) = H_n(Y)$—sử dụng homotopy equivalence để đơn giản hóa không gian trước khi tính toán</li>
+  <li><strong>CW complexes:</strong> Cellular homology (finite computations!)—sử dụng cấu trúc CW để tính toán homology một cách hữu hạn</li>
+  <li><strong>Mayer-Vietoris sequence:</strong> Phân tích không gian—chia không gian thành các phần và tính toán homology từ các phần đó</li>
+  <li><strong>Long exact sequences:</strong> Các cặp $(X, A)$, fibrations—sử dụng các dãy khớp dài để tính toán homology</li>
+  <li><strong>Spectral sequences:</strong> Công cụ có hệ thống nâng cao—một công cụ mạnh mẽ cho các tính toán phức tạp</li>
+</ol>
+
+<p>Trong bài học này, chúng ta sẽ tập trung vào các ví dụ chuẩn và cellular homology—những công cụ thực tế nhất để tính toán homology.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/CW-komplex-1.svg/400px-CW-komplex-1.svg.png" alt="CW complex structure" /><br />
+<em>CW complex built from cells - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:CW-komplex-1.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Nội dung:</strong></p>
+<ul>
+  <li><strong>Point, contractible spaces:</strong> Trivial homology—các không gian đơn giản nhất với homology tầm thường</li>
+  <li><strong>Spheres $S^n$:</strong> Fundamental examples—các ví dụ cơ bản cho thấy cách homology phát hiện các lỗ ở mọi chiều</li>
+  <li><strong>Torus $T^2$:</strong> First nontrivial surface—surface đầu tiên không tầm thường với homology thú vị</li>
+  <li><strong>Surfaces $\Sigma_g$:</strong> Genus $g$ classification—phân loại các surfaces theo genus và cách homology phản ánh điều này</li>
+  <li><strong>CW complexes:</strong> Cellular homology algorithm—thuật toán thực tế để tính toán homology của CW complexes</li>
+  <li><strong>Euler characteristic:</strong> Topological invariant—bất biến tô-pô quan trọng liên quan đến homology</li>
+  <li><strong>Betti numbers:</strong> Counting holes—đếm số lượng các lỗ trong không gian</li>
+</ul>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Đây là <strong>các tính toán chuẩn</strong> mà mọi người phải biết—những ví dụ này xuất hiện khắp nơi trong topology. <strong>Pattern recognition</strong>—nhìn thấy cách homology phát hiện các lỗ giúp chúng ta hiểu sâu hơn về lý thuyết. <strong>Computational tools</strong>—Cellular homology = practical algorithm cho phép chúng ta tính toán homology một cách có hệ thống. Cuối cùng, đây là <strong>nền tảng</strong> để xây dựng trực giác cho lý thuyết tổng quát.</p>
+
+<hr />
+
+<h2 id="-basic-computations">🎯 Basic Computations</h2>
+
+<h3 id="ví-dụ-1-điểm">Ví dụ 1: Điểm</h3>
+
+<p>$X = {\text{pt}}$.</p>
+
+<p><strong>Lập luận homotopy:</strong> Điểm = 0-dimensional, minimal. Đây là không gian đơn giản nhất có thể có.</p>
+
+<p><strong>Tính toán trực tiếp:</strong></p>
+<ul>
+  <li>$C_n = \mathbb{Z}$ (single constant map $\Delta^n \to \text{pt}$)—chỉ có một cách ánh xạ standard simplex vào một điểm, đó là ánh xạ hằng</li>
+  <li>All $\partial = 0$ (no other simplices to map to)—không có simplices khác để ánh xạ đến, nên boundary operator bằng không</li>
+  <li>$Z_n = C_n$, $B_n = 0$ (except $B_0$)—mọi chain đều là cycle vì boundary bằng không</li>
+</ul>
+
+<p><strong>Kết quả:</strong></p>
+
+\[H_n(\text{pt}) = \begin{cases}
+\mathbb{Z} &amp; n = 0 \\
+0 &amp; n &gt; 0
+\end{cases}\]
+
+<p><strong>Giải thích:</strong> Connected (một thành phần liên thông), không có lỗ ở chiều cao hơn. Đây là ví dụ cơ bản nhất—một điểm chỉ có một thành phần liên thông và không có lỗ nào.</p>
+
+<hr />
+
+<h3 id="ví-dụ-2-không-gian-contractible">Ví dụ 2: Không gian Contractible</h3>
+
+<p>$X$ contractible ⇒ $X \simeq \text{pt}$.</p>
+
+<p><strong>Homotopy invariance:</strong></p>
+
+\[H_n(X) \cong H_n(\text{pt})\]
+
+<p><strong>Kết quả:</strong><br />
+$H_0(X) = \mathbb{Z}$, $H_n(X) = 0$ ($n &gt; 0$). Đây là một kết quả quan trọng—mọi không gian contractible đều có homology giống như một điểm.</p>
+
+<p><strong>Các ví dụ:</strong></p>
+<ul>
+  <li><strong>$\mathbb{R}^n$:</strong> Contractible ⇒ trivial homology—không gian Euclid có homology tầm thường</li>
+  <li><strong>$D^n$ (disk):</strong> Contractible ⇒ trivial homology—đĩa có homology tầm thường</li>
+  <li><strong>Star-shaped regions:</strong> Contractible—các vùng hình sao có thể co về một điểm</li>
+  <li><strong>Cone $CX$:</strong> Always contractible—cone của bất kỳ không gian nào đều contractible</li>
+</ul>
+
+<p>Đây là một lớp không gian rộng lớn với homology tầm thường—bất kỳ không gian nào có thể co về một điểm đều có homology giống như một điểm.</p>
+
+<p><strong>Powerful principle:</strong> Reduce to homotopy equivalence!</p>
+
+<hr />
+
+<h2 id="-spheres">🔵 Spheres</h2>
+
+<h3 id="định-lý-h_nsk">Định lý: $H_n(S^k)$</h3>
+
+<p><strong>Định lý:</strong></p>
+
+\[H_n(S^k) = \begin{cases}
+\mathbb{Z} &amp; n = 0 \\
+\mathbb{Z} &amp; n = k \\
+0 &amp; \text{otherwise}
+\end{cases}\]
+
+<p><strong>Hai homology groups không tầm thường:</strong></p>
+<ul>
+  <li><strong>$H_0 = \mathbb{Z}$:</strong> Connected—hình cầu là connected</li>
+  <li><strong>$H_k = \mathbb{Z}$:</strong> k-dimensional “hole” (hollow interior)—hình cầu có một lỗ $k$-chiều, chính là khoảng trống bên trong</li>
+</ul>
+
+<p>Đây là một kết quả quan trọng—hình cầu $k$-chiều có homology tầm thường ở mọi chiều ngoại trừ chiều $0$ và chiều $k$. Điều này phản ánh cách hình cầu có một lỗ ở chiều cao nhất của nó.</p>
+
+<hr />
+
+<h3 id="chứng-minh-sketch-phương-pháp-cw-complex">Chứng minh Sketch (Phương pháp CW Complex)</h3>
+
+<p><strong>CW structure cho $S^k$:</strong></p>
+<ul>
+  <li>One 0-cell $e^0$ (point)—một điểm</li>
+  <li>One k-cell $e^k$ (attach $D^k$ to point)—một $k$-cell được dán vào điểm</li>
+</ul>
+
+<p><strong>Cellular chain complex:</strong></p>
+
+\[0 \to \mathbb{Z} \xrightarrow{\partial_k} \mathbb{Z} \to 0\]
+
+<p>(Chỉ $C_0$ và $C_k$ không tầm thường)</p>
+
+<p><strong>Boundary map $\partial_k$:</strong><br />
+Attaching map $S^{k-1} \to e^0$ = constant (degree 0). Đây là điểm quan trọng—attaching map là constant, nghĩa là nó ánh xạ toàn bộ boundary của $k$-cell vào một điểm.</p>
+
+<p><strong>$\partial_k = 0$!</strong> Điều này có nghĩa là boundary map bằng không vì attaching map là constant.</p>
+
+<p><strong>Homology:</strong></p>
+<ul>
+  <li>$H_0 = \mathbb{Z}/0 = \mathbb{Z}$—một thành phần liên thông</li>
+  <li>$H_k = \mathbb{Z}/0 = \mathbb{Z}$—một lỗ $k$-chiều</li>
+  <li>Others = 0—không có lỗ ở các chiều khác</li>
+</ul>
+
+<p>✓ <strong>QED</strong></p>
+
+<hr />
+
+<h3 id="các-trường-hợp-cụ-thể">Các trường hợp cụ thể</h3>
+
+<p><strong>$S^0$ = hai điểm:</strong><br />
+$H_0(S^0) = \mathbb{Z} \oplus \mathbb{Z}$ (hai components!)—hình cầu không chiều là hai điểm rời nhau, nên có hai thành phần liên thông.</p>
+
+<p><strong>$S^1$ (circle):</strong><br />
+$H_0(S^1) = \mathbb{Z}$, $H_1(S^1) = \mathbb{Z}$, $H_n = 0$ ($n \geq 2$). Hình tròn có một thành phần liên thông và một lỗ một chiều—chính là vòng lặp.</p>
+
+<p><strong>$S^2$ (sphere):</strong><br />
+$H_0(S^2) = \mathbb{Z}$, $H_2(S^2) = \mathbb{Z}$, $H_1 = 0$. Hình cầu hai chiều có một thành phần liên thông và một lỗ hai chiều—khoảng trống bên trong. Điều thú vị là $H_1 = 0$—không có lỗ một chiều vì mọi loop đều có thể co lại về một điểm.</p>
+
+<p><strong>$S^3$:</strong><br />
+$H_0(S^3) = \mathbb{Z}$, $H_3(S^3) = \mathbb{Z}$. Hình cầu ba chiều có một thành phần liên thông và một lỗ ba chiều.</p>
+
+<p><strong>Pattern rõ ràng!</strong> Mỗi hình cầu $S^k$ có một thành phần liên thông ($H_0 = \mathbb{Z}$) và một lỗ ở chiều cao nhất của nó ($H_k = \mathbb{Z}$), và không có lỗ ở các chiều khác.</p>
+
+<hr />
+
+<h2 id="-torus-t">🍩 Torus T²</h2>
+
+<h3 id="cw-structure">CW Structure</h3>
+
+<p><strong>Torus $T^2 = S^1 \times S^1$:</strong></p>
+
+<p><strong>CW complex:</strong></p>
+<ul>
+  <li>1 vertex $e^0$—một đỉnh</li>
+  <li>2 edges $a$, $b$ (loops)—hai cạnh tạo thành các vòng lặp</li>
+  <li>1 square $e^2$ (2-cell)—một ô vuông được dán vào skeleton</li>
+</ul>
+
+<p><strong>Attaching:</strong> Square boundary = $aba^{-1}b^{-1}$ (commutator). Đây là cách chúng ta dán square vào skeleton—boundary của square được ánh xạ vào skeleton theo thứ tự $a$, $b$, $a^{-1}$, $b^{-1}$.</p>
+
+<hr />
+
+<h3 id="cellular-chain-complex">Cellular Chain Complex</h3>
+
+<p><strong>Chain groups:</strong></p>
+<ul>
+  <li>$C_0 = \mathbb{Z}$ (one vertex)—một generator cho vertex</li>
+  <li>$C_1 = \mathbb{Z}^2$ (two edges $a$, $b$)—hai generators cho hai edges</li>
+  <li>$C_2 = \mathbb{Z}$ (one 2-cell)—một generator cho square</li>
+</ul>
+
+<p><strong>Boundary maps:</strong></p>
+
+\[C_2 \xrightarrow{\partial_2} C_1 \xrightarrow{\partial_1} C_0\]
+
+<p><strong>$\partial_2(e^2)$:</strong> Boundary của square = $a + b - a - b = 0$ (after cancellation). Đây là điểm quan trọng—boundary của square triệt tiêu vì chúng ta đi qua mỗi edge hai lần với các dấu đối nhau.</p>
+
+<p><strong>$\partial_1(a) = \partial_1(b) = 0$</strong> (loops based at vertex). Các edges là loops nên không có boundary—chúng bắt đầu và kết thúc tại cùng một vertex.</p>
+
+<hr />
+
+<h3 id="tính-toán-homology">Tính toán Homology</h3>
+
+<p><strong>$H_1$:</strong></p>
+<ul>
+  <li><strong>$Z_1 = \ker(\partial_1) = \mathbb{Z}^2$</strong> (cả hai loops đều đóng—chúng không có boundary vì là loops)</li>
+  <li><strong>$B_1 = \text{im}(\partial_2) = {0}$</strong> ($\partial_2 = 0$ vì boundary của square triệt tiêu)</li>
+  <li><strong>$H_1 = \mathbb{Z}^2 / {0} = \mathbb{Z}^2$</strong> ✓</li>
+</ul>
+
+<p>Điều này có nghĩa là torus có hai lỗ một chiều độc lập—một theo hướng meridian và một theo hướng longitude.</p>
+
+<p><strong>$H_0$:</strong></p>
+<ul>
+  <li><strong>$Z_0 = \ker(\partial_0) = \mathbb{Z}$</strong> (tất cả các 0-chains đều đóng—không có boundary operator từ $C_0$)</li>
+  <li><strong>$B_0 = \text{im}(\partial_1) = {0}$</strong> (không có boundaries vì các edges là loops)</li>
+  <li><strong>$H_0 = \mathbb{Z}$</strong> ✓ (connected—torus là connected)</li>
+</ul>
+
+<p><strong>$H_2$:</strong></p>
+<ul>
+  <li><strong>$Z_2 = \ker(\partial_2 \to C_1) = \mathbb{Z}$</strong> ($\partial_2 = 0$ nên mọi 2-chain đều là cycle)</li>
+  <li><strong>$B_2 = \text{im}(\partial_3) = {0}$</strong> (không có 3-cells)</li>
+  <li><strong>$H_2 = \mathbb{Z}$</strong> ✓</li>
+</ul>
+
+<p>Điều này có nghĩa là torus có một lỗ hai chiều—khoảng trống bên trong torus.</p>
+
+<hr />
+
+<h3 id="kết-quả">Kết quả</h3>
+
+\[H_*(T^2) = \mathbb{Z}, \mathbb{Z}^2, \mathbb{Z}, 0, 0, \ldots\]
+
+<p><strong>Giải thích:</strong></p>
+<ul>
+  <li><strong>$H_0 = \mathbb{Z}$:</strong> Connected—torus có một thành phần liên thông</li>
+  <li><strong>$H_1 = \mathbb{Z}^2$:</strong> Hai lỗ một chiều độc lập (meridian, longitude)—torus có hai hướng độc lập để tạo thành loops</li>
+  <li><strong>$H_2 = \mathbb{Z}$:</strong> Một lỗ hai chiều (hollow interior)—torus có một khoảng trống hai chiều bên trong</li>
+</ul>
+
+<p><strong>Betti numbers:</strong> $\beta_0 = 1$, $\beta_1 = 2$, $\beta_2 = 1$. Đây là các số đếm số lượng các lỗ ở mỗi chiều—torus có một thành phần liên thông, hai lỗ một chiều, và một lỗ hai chiều.</p>
+
+<p><strong>Euler characteristic:</strong> $\chi(T^2) = 1 - 2 + 1 = 0$. Đây là một tính chất quan trọng của torus—Euler characteristic bằng không, phản ánh cách torus có thể được xây dựng từ một hình vuông với các cạnh đối diện được đồng nhất.</p>
+
+<hr />
+
+<h2 id="️-surfaces-σ_g">🏔️ Surfaces Σ_g</h2>
+
+<h3 id="phân-loại">Phân loại</h3>
+
+<p><strong>Orientable closed surface genus $g$:</strong></p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Torus_cycles.png/400px-Torus_cycles.png" alt="Genus surfaces" /><br />
+<em>Torus với các cycles cơ bản - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Torus_cycles.png">Wikimedia Commons</a></em></p>
+
+<p><strong>CW structure:</strong></p>
+<ul>
+  <li>1 vertex—một đỉnh</li>
+  <li>$2g$ edges (loops $a_1$, $b_1$, $\ldots$, $a_g$, $b_g$)—$2g$ cạnh tạo thành các vòng lặp, mỗi “lỗ” đóng góp hai loops</li>
+  <li>1 face ($4g$-gon với boundary relation)—một mặt được tạo thành từ một đa giác $4g$ cạnh với boundary relation phản ánh cách các edges được dán lại</li>
+</ul>
+
+<hr />
+
+<h3 id="homology">Homology</h3>
+
+<p><strong>Tính toán Cellular:</strong></p>
+
+<p><strong>$H_0(\Sigma_g) = \mathbb{Z}$</strong> (connected—mọi surface đều connected)</p>
+
+<p><strong>$H_1(\Sigma_g) = \mathbb{Z}^{2g}$</strong> ($2g$ independent loops—mỗi “lỗ” đóng góp hai loops độc lập, một cho mỗi hướng)</p>
+
+<p><strong>$H_2(\Sigma_g) = \mathbb{Z}$</strong> (surface encloses hollow region—surface bao quanh một vùng rỗng hai chiều)</p>
+
+<p>Đây là một kết quả quan trọng—homology của một surface chỉ phụ thuộc vào genus $g$, không phụ thuộc vào cách cụ thể mà surface được xây dựng.</p>
+
+<hr />
+
+<h3 id="các-trường-hợp-cụ-thể-1">Các trường hợp cụ thể</h3>
+
+<p><strong>$g = 0$ ($S^2$):</strong><br />
+$H_1 = 0$ (no loops—simply connected). Hình cầu không có lỗ một chiều vì mọi loop đều có thể co lại về một điểm.</p>
+
+<p><strong>$g = 1$ ($T^2$):</strong><br />
+$H_1 = \mathbb{Z}^2$ (two loops). Torus có hai lỗ một chiều độc lập—một theo hướng meridian và một theo hướng longitude.</p>
+
+<p><strong>$g = 2$:</strong><br />
+$H_1 = \mathbb{Z}^4$ (four loops). Surface với genus 2 có bốn lỗ một chiều độc lập—mỗi “lỗ” đóng góp hai loops.</p>
+
+<p><strong>Tổng quát:</strong> Rank của $H_1$ = $2g$ = genus invariant! Đây là một kết quả quan trọng—rank của $H_1$ hoàn toàn xác định genus của surface, và đây là một bất biến tô-pô mạnh mẽ.</p>
+
+<hr />
+
+<h3 id="euler-characteristic">Euler Characteristic</h3>
+
+<p><strong>$\chi(\Sigma_g) = 2 - 2g$</strong></p>
+
+<p><strong>Các ví dụ:</strong></p>
+<ul>
+  <li>$S^2$ ($g=0$): $\chi = 2$—hình cầu có Euler characteristic dương</li>
+  <li>$T^2$ ($g=1$): $\chi = 0$—torus có Euler characteristic bằng không</li>
+  <li>Genus 2: $\chi = -2$—surfaces với genus cao hơn có Euler characteristic âm</li>
+</ul>
+
+<p><strong>$\chi$ xác định genus cho orientable surfaces!</strong> Đây là một kết quả quan trọng—Euler characteristic hoàn toàn xác định genus của một orientable surface, và đây là một cách thuận tiện để tính toán genus.</p>
+
+<hr />
+
+<h2 id="️-cellular-homology">🏗️ Cellular Homology</h2>
+
+<h3 id="1-cw-complexes-review">1. CW Complexes Review</h3>
+
+<p><strong>CW complex $X$:</strong> Được xây dựng một cách quy nạp:</p>
+<ul>
+  <li>Bắt đầu: discrete 0-cells (vertices)—bắt đầu với một tập hợp các điểm rời rạc</li>
+  <li>Attach n-cells: glue $D^n$ along boundary $S^{n-1}$—dán các $n$-cells vào skeleton hiện có dọc theo boundary của chúng</li>
+</ul>
+
+<p><strong>n-skeleton $X^{(n)}$:</strong> Tất cả các cells có chiều $\leq n$. Đây là “bộ xương” của CW complex—tất cả các cells từ chiều 0 đến chiều $n$.</p>
+
+<p><strong>Các ví dụ:</strong> Spheres, tori, surfaces, manifolds, hầu hết các không gian “nice”. CW complexes là một lớp không gian rất rộng và quan trọng trong topology.</p>
+
+<hr />
+
+<h3 id="2-cellular-chain-complex">2. Cellular Chain Complex</h3>
+
+<p><strong>Cellular chain groups:</strong></p>
+
+\[C_n^{CW}(X) = H_n(X^{(n)}, X^{(n-1)})\]
+
+<p><strong>(Relative homology của các skeleta)</strong> Trực giác hình học là cellular chain group ở chiều $n$ đo lường các “cells” $n$-chiều trong CW complex—nó là relative homology của $n$-skeleton modulo $(n-1)$-skeleton.</p>
+
+<p><strong>Finitely generated:</strong> Nếu finite CW complex, mỗi $C_n$ là free abelian với rank = số lượng các $n$-cells. Đây là một lợi thế lớn so với singular homology—cellular chain groups là hữu hạn sinh cho finite CW complexes.</p>
+
+<p><strong>Boundary map $\partial_n$:</strong> Được cảm ứng bởi các inclusions (công thức rõ ràng qua degree). Boundary map được tính toán bằng cách xem xét cách các $n$-cells được dán vào $(n-1)$-skeleton.</p>
+
+<hr />
+
+<h3 id="3-định-lý-cellular-homology">3. Định lý Cellular Homology</h3>
+
+<p><strong>Định lý:</strong><br />
+Cho CW complex $X$:</p>
+
+\[H_n^{CW}(X) \cong H_n(X)\]
+
+<p><strong>(Cellular homology = singular homology)</strong> Đây là một kết quả cực kỳ mạnh mẽ—cellular homology và singular homology cho cùng kết quả, nhưng cellular homology thường dễ tính toán hơn nhiều.</p>
+
+<p><strong>Sức mạnh:</strong> Cellular chains FINITELY GENERATED (cho finite CW complexes)! Đây là điểm quan trọng—thay vì làm việc với vô số singular simplices, chúng ta chỉ cần làm việc với một số hữu hạn các cells.</p>
+
+<p><strong>Thuật toán:</strong> Tính toán $H_n$ bằng đại số tuyến tính trên chain complex hữu hạn chiều. Đây là một thuật toán thực tế—chúng ta có thể tính toán homology bằng cách giải các hệ phương trình tuyến tính trên các không gian vector hữu hạn chiều.</p>
+
+<hr />
+
+<h3 id="4-ví-dụ-mathbbrp2">4. Ví dụ: $\mathbb{R}P^2$</h3>
+
+<p><strong>CW structure:</strong></p>
+<ul>
+  <li>1 vertex $e^0$—một đỉnh</li>
+  <li>1 edge $e^1$ (loop)—một cạnh tạo thành vòng lặp</li>
+  <li>1 disk $e^2$ (attach với antipodal identification)—một đĩa được dán với đồng nhất đối cực</li>
+</ul>
+
+<p><strong>Cellular chains:</strong></p>
+<ul>
+  <li>$C_0 = \mathbb{Z}$—một generator cho vertex</li>
+  <li>$C_1 = \mathbb{Z}$—một generator cho edge</li>
+  <li>$C_2 = \mathbb{Z}$—một generator cho disk</li>
+</ul>
+
+<p><strong>Boundary:</strong> $\partial_2(e^2) = 2e^1$ (boundary wraps twice). Đây là điểm quan trọng—boundary của disk được ánh xạ vào edge hai lần vì antipodal identification, nên boundary map nhân với 2.</p>
+
+<p><strong>Homology:</strong></p>
+<ul>
+  <li>$H_0 = \mathbb{Z}$ (connected)—projective plane là connected</li>
+  <li>$H_1 = \mathbb{Z}/2\mathbb{Z}$ (torsion!)—đây là ví dụ đầu tiên về torsion trong homology</li>
+  <li>$H_2 = 0$ (cycle = 2 × boundary)—không có lỗ hai chiều vì cycle là bội của boundary</li>
+</ul>
+
+<p><strong>Ví dụ đầu tiên về torsion!</strong> Đây là một khám phá quan trọng—projective plane có homology với torsion, không chỉ là free abelian groups. Điều này phản ánh tính chất không định hướng được của projective plane.</p>
+
+<hr />
+
+<h2 id="-euler-characteristic">🔢 Euler Characteristic</h2>
+
+<h3 id="định-nghĩa">Định nghĩa</h3>
+
+<p><strong>Euler characteristic:</strong></p>
+
+\[\chi(X) = \sum_{n=0}^\infty (-1)^n \beta_n\]
+
+<p>trong đó $\beta_n = \text{rank}(H_n(X))$ (Betti numbers).</p>
+
+<p><strong>Alternating sum của các ranks của homology.</strong> Trực giác hình học là Euler characteristic là một cách đo lường “tổng thể” của topology của không gian—nó là tổng alternating của các Betti numbers, phản ánh cách các lỗ ở các chiều khác nhau tương tác với nhau.</p>
+
+<hr />
+
+<h3 id="định-lý-euler-poincaré">Định lý (Euler-Poincaré)</h3>
+
+<p>Cho CW complex:</p>
+
+\[\chi(X) = \sum_{n=0}^\infty (-1)^n (\text{số lượng các } n\text{-cells})\]
+
+<p><strong>Đồng ý với công thức cổ điển $V - E + F$!</strong> Đây là một kết quả đẹp—Euler characteristic có thể được tính toán từ homology groups hoặc từ số lượng các cells trong CW complex, và cả hai cách cho cùng kết quả. Đối với các polyhedra trong không gian ba chiều, công thức này trở thành $V - E + F$ (vertices - edges + faces).</p>
+
+<hr />
+
+<h3 id="các-ví-dụ">Các ví dụ</h3>
+
+<p><strong>$S^2$:</strong><br />
+$\chi = \beta_0 - \beta_1 + \beta_2 = 1 - 0 + 1 = 2$</p>
+
+<p>CW: 2 vertices, 1 edge, 1 face (nghĩ về hemisphere decomposition).<br />
+Alternative: 1 vertex, 0 edges, 1 2-cell ⇒ $1 - 0 + 1 = 2$. ✓ Cả hai cách tính đều cho cùng kết quả, minh họa tính nhất quán của Euler characteristic.</p>
+
+<p><strong>$T^2$:</strong><br />
+$\chi = 1 - 2 + 1 = 0$. Torus có Euler characteristic bằng không, phản ánh cách nó có thể được xây dựng từ một hình vuông với các cạnh đối diện được đồng nhất.</p>
+
+<p><strong>$\Sigma_g$:</strong><br />
+$\chi = 1 - 2g + 1 = 2 - 2g$. Đây là công thức tổng quát cho orientable surfaces—Euler characteristic giảm khi genus tăng.</p>
+
+<p><strong>$\mathbb{R}P^2$:</strong><br />
+$\chi = 1 - 0 + 0 = 1$ (sử dụng $\beta_1$ = torsion rank 0). Projective plane có Euler characteristic bằng 1, khác với hình cầu mặc dù cả hai đều là surfaces.</p>
+
+<hr />
+
+<h3 id="các-tính-chất">Các tính chất</h3>
+
+<ol>
+  <li>
+    <p><strong>Homotopy invariant:</strong> $X \simeq Y$ ⇒ $\chi(X) = \chi(Y)$. Đây là một tính chất mạnh mẽ—Euler characteristic chỉ phụ thuộc vào homotopy type của không gian.</p>
+  </li>
+  <li>
+    <p><strong>Multiplicative:</strong> $\chi(X \times Y) = \chi(X) \cdot \chi(Y)$. Euler characteristic của tích là tích của các Euler characteristics.</p>
+  </li>
+  <li>
+    <p><strong>Additive:</strong> $\chi(X \cup Y) = \chi(X) + \chi(Y) - \chi(X \cap Y)$ (nếu intersection “nice”). Đây là một tính chất quan trọng cho phép chúng ta tính toán Euler characteristic bằng cách chia không gian thành các phần.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Leonhard Euler</strong> - <em>“Solutio problematis ad geometriam situs pertinentis”</em> (1736)<br />
+<em>V - E + F formula</em></p>
+  </li>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Homology and Betti numbers</em></p>
+  </li>
+  <li>
+    <p><strong>J.H.C. Whitehead</strong> - <em>“Combinatorial homotopy”</em> (1949)<br />
+<em>CW complexes and cellular homology</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§2.1-2.2</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter IV</strong></p>
+  </li>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Elements of Algebraic Topology</em>, <strong>Chapter 2</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications">🔗 Applications</h2>
+
+<h3 id="computer-graphics---mesh-processing">Computer Graphics - Mesh Processing</h3>
+<p><strong>Euler Characteristic Check:</strong> Verify 3D mesh topology. Detect errors in scanned models.</p>
+
+<h3 id="robotics---configuration-spaces">Robotics - Configuration Spaces</h3>
+<p><strong>Homology Computation:</strong> Understand configuration space topology. Motion planning algorithms.</p>
+
+<h3 id="data-science---shape-analysis">Data Science - Shape Analysis</h3>
+<p><strong>Persistent Homology:</strong> Track Betti numbers across scales. Feature detection in data.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="basic-computations">Basic Computations</h3>
+
+<ol>
+  <li>
+    <p><strong>Two Points:</strong><br />
+X = {pt₁, pt₂} (discrete). Compute H_n(X).</p>
+  </li>
+  <li>
+    <p><strong>Interval:</strong><br />
+X = [0,1]. Use contractibility: H_n = ?</p>
+  </li>
+  <li>
+    <p><strong>Figure-Eight:</strong><br />
+S¹ ∨ S¹. Compute H₁ (hint: wedge axiom).</p>
+  </li>
+</ol>
+
+<h3 id="spheres">Spheres</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify:</strong><br />
+H_n(S³) using CW complex (one 0-cell, one 3-cell).</p>
+  </li>
+  <li>
+    <p><strong>Suspension:</strong><br />
+Σ(Sⁿ) = Sⁿ⁺¹. Verify homology agrees.</p>
+  </li>
+</ol>
+
+<h3 id="surfaces">Surfaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Klein Bottle:</strong><br />
+CW structure: 1 vertex, 2 edges, 1 face.<br />
+Compute H_n. (Answer: H₁ = ℤ ⊕ ℤ/2ℤ)</p>
+  </li>
+  <li>
+    <p><strong>ℝP³:</strong><br />
+H_n(ℝP³) = ℤ, ℤ/2ℤ, 0, ℤ. Verify using CW complex.</p>
+  </li>
+</ol>
+
+<h3 id="euler-characteristic-1">Euler Characteristic</h3>
+
+<ol>
+  <li>
+    <p><strong>Cube:</strong><br />
+8 vertices, 12 edges, 6 faces. χ = ?<br />
+(Answer: 8 - 12 + 6 = 2 = χ(S²))</p>
+  </li>
+  <li>
+    <p><strong>Genus 5:</strong><br />
+χ(Σ₅) = ?</p>
+  </li>
+  <li>
+    <p><strong>Product:</strong><br />
+χ(S² × S²) using χ(X × Y) = χ(X)χ(Y).</p>
+  </li>
+</ol>
+
+<h3 id="cw-complexes">CW Complexes</h3>
+
+<ol>
+  <li>
+    <p><strong>Attach 2-cell:</strong><br />
+Start S¹. Attach D² via degree 2 map.<br />
+Compute H_n. (ℝP²!)</p>
+  </li>
+  <li>
+    <p><strong>Wedge:</strong><br />
+Prove: H_n(X ∨ Y) ≅ H_n(X) ⊕ H_n(Y) (n &gt; 0).</p>
+  </li>
+</ol>
+
+<h3 id="cellular-homology">Cellular Homology</h3>
+
+<ol>
+  <li>
+    <p><strong>Compute by Hand:</strong><br />
+T² using cellular chains explicitly.</p>
+  </li>
+  <li>
+    <p><strong>ℝP²:</strong><br />
+Verify H₁(ℝP²) = ℤ/2ℤ via cellular boundary ∂₂(e²) = 2e¹.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Research:</strong><br />
+What is H_n(ℂP²)? (Complex projective plane)</p>
+  </li>
+  <li>
+    <p><strong>Homology Sphere:</strong><br />
+3-manifold with H_n = H_n(S³) but not S³. Research Poincaré homology sphere.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, §2.1-2.2:</strong> Detailed examples and cellular homology</li>
+  <li><strong>Bredon, Chapter IV:</strong> Comprehensive</li>
+  <li><strong>Munkres, Elements:</strong> Careful computations</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p><strong>Systematic homology computations:</strong></p>
+
+<p>✅ <strong>Contractible spaces:</strong> H₀ = ℤ, others = 0<br />
+✅ <strong>Spheres Sⁿ:</strong> H₀ = Hₙ = ℤ, others = 0<br />
+✅ <strong>Torus T²:</strong> H₀ = ℤ, H₁ = ℤ², H₂ = ℤ<br />
+✅ <strong>Surfaces Σ_g:</strong> H₁ = ℤ^(2g) determines genus<br />
+✅ <strong>Cellular homology:</strong> Finite algorithm via CW complexes<br />
+✅ <strong>Euler characteristic χ:</strong> Homotopy invariant, computable<br />
+✅ <strong>Betti numbers β_n:</strong> Count n-dimensional holes</p>
+
+<p><strong>Tiếp theo:</strong> Mayer-Vietoris—powerful computational tool!</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter07/07_01_Singular_Homology/">Lecture 07.01: Singular Homology</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter07/07_03_Mayer_Vietoris/">Lecture 07.03: Mayer-Vietoris Sequence</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter7/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+---
+layout: page
+title: "Fundamental Group and Covering Spaces"
+lang: vi
+lang-ref: topology-chapter06
+chapter: '06'
+permalink: /contents/vi/chapter06/
+---
+
+<div class="chapter-intro">
+  <h1>Chapter 06: Fundamental Group and Covering Spaces</h1>
+  <p class="chapter-description">
+    Chapter này marks the beginning của <strong>algebraic topology</strong>—using algebraic structures (groups) để study topological spaces. Fundamental group π₁(X, x₀) assigns một group cho mỗi pointed space, capturing thông tin về loops và "holes". Covering space theory provides powerful machinery cho computing π₁ và understanding global topology from local structure. Van Kampen's theorem enables computation of π₁ for complex spaces from simpler pieces.
+  </p>
+  
+  <div class="learning-objectives">
+    <h3>🎯 Learning Objectives</h3>
+    <ul>
+      <li>Understand homotopy và path homotopy</li>
+      <li>Define và compute fundamental group π₁(X, x₀)</li>
+      <li>Master covering space theory</li>
+      <li>Apply lifting properties</li>
+      <li>Compute π₁ using Van Kampen's theorem</li>
+      <li>Understand deck transformations</li>
+      <li>Work with universal covers</li>
+      <li>Connect topology với group theory</li>
+    </ul>
+  </div>
+  
+  <div class="prerequisites">
+    <h3>📚 Prerequisites</h3>
+    <p>Chapters 00-05: Topological spaces, quotient topology, group actions. Basic group theory helpful.</p>
+  </div>
+</div>
+
+<div class="lectures-list">
+  <h2>📖 Lectures</h2>
+  
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter06/06_00_Homotopy_Path_Homotopy/">
+        Lecture 06.00: Homotopy and Path Homotopy
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Homotopy definition (continuous deformation), homotopy equivalence, contractible spaces, paths và loops, path homotopy (rel endpoints), homotopy classes, examples (ℝⁿ contractible, S¹ ≃ ℝ²\{0})
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">homotopy</span>
+      <span class="tag">path-homotopy</span>
+      <span class="tag">contractible</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter06/06_01_Fundamental_Group/">
+        Lecture 06.01: The Fundamental Group
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Definition π₁(X, x₀) = homotopy classes of loops, group structure (concatenation), identity và inverses, basepoint independence, examples (π₁(ℝⁿ) = 0, π₁(S¹) ≅ ℤ, π₁(T²) ≅ ℤ²)
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">fundamental-group</span>
+      <span class="tag">π1</span>
+      <span class="tag">loops</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter06/06_02_Computing_Fundamental_Group/">
+        Lecture 06.02: Computing π₁ - Examples
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Standard computations (S¹, Sⁿ, T², surfaces, ℝPⁿ), techniques (covering spaces, homotopy equivalence), winding numbers, simply connected spaces, genus g surfaces
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">π1-computations</span>
+      <span class="tag">examples</span>
+      <span class="tag">winding-number</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter06/06_03_Covering_Spaces/">
+        Lecture 06.03: Covering Spaces
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Covering space definition p: X̃ → X, evenly covered neighborhoods, examples (ℝ → S¹, Sⁿ → ℝPⁿ), lifting properties (path lifting, homotopy lifting), universal cover, deck transformations, classification theorem
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">covering-spaces</span>
+      <span class="tag">universal-cover</span>
+      <span class="tag">deck-transformations</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter06/06_04_Van_Kampen_Theorem/">
+        Lecture 06.04: Seifert-Van Kampen Theorem
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Van Kampen's theorem statement, free product with amalgamation, computing π₁ from decomposition X = A ∪ B, applications (π₁(S¹), figure-eight, torus, surfaces), pushout diagram
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">van-kampen</span>
+      <span class="tag">free-product</span>
+      <span class="tag">amalgamated-product</span>
+    </p>
+  </div>
+</div>
+
+<div class="chapter-summary">
+  <h2>🎓 Chapter Summary</h2>
+  <p>
+    Chapter 06 introduced <strong>fundamental group</strong> và <strong>covering spaces</strong>—foundation của algebraic topology:
+  </p>
+  <ul>
+    <li><strong>Homotopy:</strong> Continuous deformation, homotopy equivalence</li>
+    <li><strong>π₁(X, x₀):</strong> Group of homotopy classes of loops at basepoint</li>
+    <li><strong>Examples:</strong> π₁(S¹) ≅ ℤ, π₁(Sⁿ) = 0 (n≥2), π₁(T²) ≅ ℤ²</li>
+    <li><strong>Covering Spaces:</strong> p: X̃ → X locally homeomorphic</li>
+    <li><strong>Universal Cover:</strong> X̃ simply connected, X = X̃/π₁(X)</li>
+    <li><strong>Lifting Properties:</strong> Paths và homotopies lift uniquely</li>
+    <li><strong>Van Kampen:</strong> Compute π₁(X) from π₁(A), π₁(B), π₁(A∩B)</li>
+  </ul>
+  
+  <h3>Key Theorems</h3>
+  <ul>
+    <li><strong>π₁(S¹) ≅ ℤ:</strong> Winding number</li>
+    <li><strong>Path Lifting:</strong> Unique lifts of paths in covering spaces</li>
+    <li><strong>Covering Classification:</strong> X̃/Aut(X̃/X) ≅ X</li>
+    <li><strong>Van Kampen:</strong> π₁(A ∪ B) ≅ π₁(A) *_{π₁(A∩B)} π₁(B)</li>
+  </ul>
+  
+  <h3>Applications</h3>
+  <ul>
+    <li><strong>Topology:</strong> Distinguish spaces (S¹ ≠ S²)</li>
+    <li><strong>Fixed Points:</strong> Brouwer theorem via π₁</li>
+    <li><strong>Complex Analysis:</strong> Riemann surfaces, monodromy</li>
+    <li><strong>Physics:</strong> Gauge theory, magnetic monopoles</li>
+  </ul>
+</div>
+
+<div class="navigation-links">
+  <p>
+    <strong>Previous Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter05/">Chapter 05: Quotient Spaces and Surfaces</a><br>
+    <strong>Next Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter07/">Chapter 07: Homology Theory</a>
+  </p>
+</div>
+
+<style>
+.chapter-intro {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.chapter-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learning-objectives, .prerequisites {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.learning-objectives h3, .prerequisites h3 {
+  color: #2c5aa0;
+  margin-top: 0;
+}
+
+.lectures-list {
+  margin-top: 30px;
+}
+
+.lecture-item {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4CAF50;
+}
+
+.lecture-item h3 {
+  margin-top: 0;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a {
+  text-decoration: none;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a:hover {
+  color: #4CAF50;
+}
+
+.lecture-description {
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.lecture-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.chapter-summary {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.chapter-summary h2 {
+  color: #856404;
+  margin-top: 0;
+}
+
+.navigation-links {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e9;
+  border-radius: 10px;
+}
+</style>
+

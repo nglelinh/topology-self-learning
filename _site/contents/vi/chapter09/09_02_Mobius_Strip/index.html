@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt
+    
+  </h1>
+  <p><strong>Khám phá Bề Mặt Kỳ Lạ Chỉ Có Một Mặt và Một Cạnh</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Hãy tưởng tượng bạn có một dải giấy dài và mỏng. Bạn xoắn một đầu 180 độ, sau đó dán hai đầu lại với nhau. Bạn sẽ có một vật thể kỳ lạ gọi là <strong>Möbius strip</strong> (hoặc Möbius band)—một bề mặt chỉ có <strong>một mặt</strong> và <strong>một cạnh</strong>!</p>
+
+<p>Nghe có vẻ không thể tin được? Hãy thử làm một cái và bạn sẽ thấy rằng nếu bạn bắt đầu vẽ một đường thẳng dọc theo bề mặt, bạn sẽ quay trở lại điểm xuất phát sau khi đi qua cả hai “mặt” của dải giấy—mà không cần nhấc bút lên!</p>
+
+<p>Möbius strip được đặt tên theo nhà toán học người Đức <strong>August Ferdinand Möbius</strong> (1790-1868), người đã phát hiện ra nó vào năm 1858. Đây là một trong những ví dụ đơn giản nhất và thú vị nhất về một bề mặt <strong>không định hướng được</strong> (non-orientable surface)—một khái niệm quan trọng trong topology.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá Möbius strip một cách chi tiết: cách làm nó, tại sao nó chỉ có một mặt và một cạnh, các tính chất toán học của nó, và các ứng dụng thực tế trong cuộc sống hàng ngày.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/MobiusStrip-01.png/500px-MobiusStrip-01.png" alt="Möbius strip" /><br />
+<em>Möbius strip - một bề mặt chỉ có một mặt và một cạnh - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:MobiusStrip-01.png">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Möbius strip minh họa một cách tuyệt vời khái niệm về <strong>định hướng</strong> trong topology—một tính chất cơ bản phân biệt các loại bề mặt khác nhau. Hiểu được Möbius strip giúp chúng ta hiểu sâu hơn về topology của các bề mặt và các không gian phức tạp hơn như Klein bottle.</p>
+
+<hr />
+
+<h2 id="-cách-làm-möbius-strip">🎯 Cách Làm Möbius Strip</h2>
+
+<h3 id="hướng-dẫn-từng-bước">Hướng dẫn từng bước</h3>
+
+<p>Làm một Möbius strip rất đơn giản và bạn có thể thử ngay tại nhà! Đây là cách làm:</p>
+
+<p><strong>Vật liệu cần thiết:</strong></p>
+<ul>
+  <li>Một dải giấy dài và mỏng (khoảng 30-40 cm dài, 3-5 cm rộng)</li>
+  <li>Băng dính hoặc keo</li>
+  <li>Bút chì hoặc bút màu (để thử nghiệm)</li>
+</ul>
+
+<p><strong>Các bước:</strong></p>
+
+<ol>
+  <li>
+    <p><strong>Bước 1:</strong> Lấy dải giấy và đặt nó phẳng trên bàn.</p>
+  </li>
+  <li>
+    <p><strong>Bước 2:</strong> Xoắn một đầu của dải giấy <strong>180 độ</strong> (nửa vòng). Điều quan trọng là bạn phải xoắn đúng 180 độ—không phải 90 độ, không phải 270 độ, mà chính xác là 180 độ.</p>
+  </li>
+  <li>
+    <p><strong>Bước 3:</strong> Uốn cong dải giấy để hai đầu gặp nhau, tạo thành một vòng tròn.</p>
+  </li>
+  <li>
+    <p><strong>Bước 4:</strong> Dán hai đầu lại với nhau bằng băng dính hoặc keo.</p>
+  </li>
+  <li>
+    <p><strong>Bước 5:</strong> Bạn đã có một Möbius strip!</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-vẽ-một-đường-thẳng">Thử nghiệm: Vẽ một đường thẳng</h3>
+
+<p>Bây giờ hãy thử một thí nghiệm thú vị:</p>
+
+<ol>
+  <li>
+    <p><strong>Đặt bút của bạn</strong> ở một điểm bất kỳ trên Möbius strip.</p>
+  </li>
+  <li>
+    <p><strong>Bắt đầu vẽ một đường thẳng</strong> dọc theo giữa của dải giấy, không nhấc bút lên.</p>
+  </li>
+  <li>
+    <p><strong>Tiếp tục vẽ</strong> cho đến khi bạn quay trở lại điểm xuất phát.</p>
+  </li>
+  <li>
+    <p><strong>Quan sát:</strong> Bạn sẽ thấy rằng đường thẳng đã đi qua <strong>cả hai “mặt”</strong> của dải giấy mà không cần nhấc bút lên! Điều này chứng minh rằng Möbius strip chỉ có một mặt duy nhất.</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-cắt-đôi">Thử nghiệm: Cắt đôi</h3>
+
+<p>Một thí nghiệm khác thú vị không kém:</p>
+
+<ol>
+  <li>
+    <p><strong>Cắt Möbius strip</strong> dọc theo đường giữa (song song với các cạnh).</p>
+  </li>
+  <li>
+    <p><strong>Quan sát kết quả:</strong> Thay vì tách thành hai dải riêng biệt như bạn có thể mong đợi, bạn sẽ có <strong>một dải dài hơn</strong> với hai vòng xoắn!</p>
+  </li>
+</ol>
+
+<p>Điều này minh họa một tính chất quan trọng của Möbius strip—nó có cấu trúc topology đặc biệt không giống như một dải giấy thông thường.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/MobiusStrip-01.png/500px-MobiusStrip-01.png" alt="Möbius strip cutting" /><br />
+<em>Möbius strip và thí nghiệm cắt đôi - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:MobiusStrip-01.png">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h2 id="-tại-sao-möbius-strip-chỉ-có-một-mặt">🔍 Tại sao Möbius Strip Chỉ Có Một Mặt?</h2>
+
+<h3 id="so-sánh-với-dải-giấy-thông-thường">So sánh với dải giấy thông thường</h3>
+
+<p>Để hiểu tại sao Möbius strip chỉ có một mặt, hãy so sánh nó với một dải giấy thông thường:</p>
+
+<p><strong>Dải giấy thông thường:</strong></p>
+<ul>
+  <li>Có <strong>hai mặt</strong>: mặt trên và mặt dưới</li>
+  <li>Có <strong>hai cạnh</strong>: cạnh trên và cạnh dưới</li>
+  <li>Nếu bạn vẽ một đường thẳng dọc theo giữa, bạn sẽ chỉ đi trên một mặt</li>
+</ul>
+
+<p><strong>Möbius strip:</strong></p>
+<ul>
+  <li>Chỉ có <strong>một mặt</strong>: không có mặt trên và mặt dưới riêng biệt</li>
+  <li>Chỉ có <strong>một cạnh</strong>: cạnh trên và cạnh dưới được nối với nhau</li>
+  <li>Nếu bạn vẽ một đường thẳng dọc theo giữa, bạn sẽ đi qua cả hai “mặt” và quay trở lại điểm xuất phát</li>
+</ul>
+
+<h3 id="giải-thích-bằng-topology">Giải thích bằng topology</h3>
+
+<p>Tại sao điều này xảy ra? Câu trả lời nằm ở cách Möbius strip được tạo ra:</p>
+
+<ol>
+  <li>
+    <p><strong>Xoắn 180 độ:</strong> Khi bạn xoắn một đầu 180 độ, bạn đang “đảo ngược” một mặt của dải giấy.</p>
+  </li>
+  <li>
+    <p><strong>Dán hai đầu lại:</strong> Khi bạn dán hai đầu lại, bạn đang nối mặt trên của một đầu với mặt dưới của đầu kia (do xoắn 180 độ).</p>
+  </li>
+  <li>
+    <p><strong>Kết quả:</strong> Mặt trên và mặt dưới được nối với nhau, tạo thành một mặt duy nhất liên tục.</p>
+  </li>
+</ol>
+
+<h3 id="khái-niệm-định-hướng">Khái niệm định hướng</h3>
+
+<p>Trong topology, một bề mặt được gọi là <strong>định hướng được</strong> (orientable) nếu bạn có thể phân biệt rõ ràng giữa “mặt trên” và “mặt dưới” tại mọi điểm. Ngược lại, một bề mặt <strong>không định hướng được</strong> (non-orientable) nếu không thể phân biệt như vậy.</p>
+
+<p><strong>Möbius strip là không định hướng được</strong> vì:</p>
+<ul>
+  <li>Bạn không thể xác định một cách nhất quán đâu là “mặt trên” và đâu là “mặt dưới”</li>
+  <li>Nếu bạn đi dọc theo bề mặt, bạn sẽ thấy mình đang ở “mặt kia” mà không cần đi qua cạnh</li>
+</ul>
+
+<hr />
+
+<h2 id="-tính-chất-toán-học">🧮 Tính Chất Toán Học</h2>
+
+<h3 id="định-nghĩa-toán-học">Định nghĩa toán học</h3>
+
+<p>Một cách toán học, Möbius strip có thể được định nghĩa như sau:</p>
+
+<p><strong>Möbius strip</strong> là không gian thương của hình chữ nhật $[0,1] \times [0,1]$ với quan hệ tương đương:
+\((0, y) \sim (1, 1-y) \quad \text{với mọi } y \in [0,1]\)</p>
+
+<p><strong>Ý nghĩa của định nghĩa này:</strong></p>
+
+<p>Định nghĩa này mô tả chính xác cách chúng ta tạo ra Möbius strip:</p>
+<ul>
+  <li>Hình chữ nhật $[0,1] \times [0,1]$ đại diện cho dải giấy ban đầu</li>
+  <li>Quan hệ $(0, y) \sim (1, 1-y)$ có nghĩa là cạnh trái được dán với cạnh phải</li>
+  <li>Nhưng với một sự “đảo ngược”—điểm trên cùng của cạnh trái $(0, 1)$ được nối với điểm dưới cùng của cạnh phải $(1, 0)$, và ngược lại</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Đây chính là cách toán học mô tả việc “xoắn 180 độ” mà chúng ta đã làm khi tạo Möbius strip! Sự đảo ngược $(1-y)$ thay vì $y$ chính là phép xoắn 180 độ. Khi bạn xoắn một đầu 180 độ trước khi dán, bạn đang thực hiện chính xác phép biến đổi này.</p>
+
+<h3 id="euler-characteristic">Euler Characteristic</h3>
+
+<p><strong>Euler characteristic</strong> của Möbius strip là $\chi = 0$.</p>
+
+<p>Để tính toán điều này, chúng ta có thể sử dụng công thức:
+\(\chi = V - E + F\)</p>
+
+<p>trong đó:</p>
+<ul>
+  <li>$V$ = số đỉnh (vertices)</li>
+  <li>$E$ = số cạnh (edges)</li>
+  <li>$F$ = số mặt (faces)</li>
+</ul>
+
+<p><strong>Cách tính cụ thể:</strong></p>
+
+<p>Nếu chúng ta chia Möbius strip thành các tam giác nhỏ (triangulation), chúng ta có thể đếm:</p>
+<ul>
+  <li>Giả sử chúng ta chia thành $n$ tam giác</li>
+  <li>Mỗi tam giác có 3 cạnh, nhưng các cạnh được chia sẻ, nên tổng số cạnh là khoảng $3n/2$</li>
+  <li>Số đỉnh phụ thuộc vào cách chia, nhưng sau khi tính toán chi tiết, ta được $\chi = 0$</li>
+</ul>
+
+<p><strong>Ý nghĩa của $\chi = 0$:</strong></p>
+
+<p>Euler Characteristic = 0 có nghĩa là gì? Hãy so sánh với các bề mặt khác:</p>
+<ul>
+  <li><strong>Hình cầu:</strong> $\chi = 2$ (không có lỗ, không có boundary)</li>
+  <li><strong>Torus (bánh donut):</strong> $\chi = 0$ (một lỗ, không có boundary)</li>
+  <li><strong>Möbius strip:</strong> $\chi = 0$ (có boundary, không định hướng được)</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Euler Characteristic = 0 phản ánh tính chất đặc biệt của Möbius strip—nó không phải là một bề mặt đóng như hình cầu, nhưng cũng có cùng Euler Characteristic với torus. Giá trị 0 này liên quan đến việc Möbius strip có boundary (một cạnh) và không định hướng được. Điều này cho thấy Euler Characteristic không đủ để phân biệt hoàn toàn các bề mặt—chúng ta cần thêm khái niệm về định hướng!</p>
+
+<h3 id="fundamental-group">Fundamental Group</h3>
+
+<p><strong>Fundamental group</strong> của Möbius strip là $\pi_1(M) = \mathbb{Z}$—nhóm cyclic vô hạn.</p>
+
+<p><strong>Giải thích chi tiết:</strong></p>
+
+<p>Fundamental group đo lường các “vòng lặp” không thể co lại thành một điểm. Đối với Möbius strip:</p>
+<ul>
+  <li>Có một vòng lặp cơ bản duy nhất không thể co lại thành một điểm</li>
+  <li>Vòng lặp này chính là đường đi dọc theo giữa của Möbius strip</li>
+  <li>Khi bạn đi một lần quanh đường giữa, bạn quay trở lại điểm xuất phát nhưng ở “mặt kia”</li>
+  <li>Đi hai lần quanh đường giữa sẽ đưa bạn về đúng vị trí ban đầu (cả về vị trí và định hướng)</li>
+</ul>
+
+<p><strong>Tại sao là $\mathbb{Z}$?</strong></p>
+
+<p>Nhóm $\mathbb{Z}$ (số nguyên) có nghĩa là:</p>
+<ul>
+  <li>Mỗi số nguyên $n$ đại diện cho việc đi quanh đường giữa $n$ lần</li>
+  <li>Đi $n$ lần + đi $m$ lần = đi $(n+m)$ lần (phép cộng trong $\mathbb{Z}$)</li>
+  <li>Đi 0 lần = không đi đâu cả (phần tử đơn vị)</li>
+  <li>Đi $-n$ lần = đi ngược lại $n$ lần (phần tử nghịch đảo)</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Fundamental group = $\mathbb{Z}$ phản ánh trực tiếp tính chất “một mặt” của Möbius strip! Khi bạn đi quanh đường giữa một lần, bạn không quay về đúng vị trí ban đầu về mặt định hướng—bạn cần đi hai lần mới về đúng vị trí. Điều này chính xác là những gì bạn quan sát được khi vẽ một đường thẳng dọc theo giữa của Möbius strip—đường thẳng đi qua cả hai “mặt” và quay trở lại điểm xuất phát!</p>
+
+<h3 id="boundary">Boundary</h3>
+
+<p>Möbius strip có <strong>một cạnh duy nhất</strong>—một đường cong khép kín.</p>
+
+<p><strong>Giải thích chi tiết:</strong></p>
+
+<p>Để hiểu tại sao Möbius strip chỉ có một cạnh, hãy tưởng tượng:</p>
+<ul>
+  <li>Trong một dải giấy thông thường, bạn có cạnh trên và cạnh dưới—hai đường cong riêng biệt</li>
+  <li>Trong Möbius strip, do xoắn 180 độ, cạnh trên của một đầu được nối với cạnh dưới của đầu kia</li>
+  <li>Kết quả là chỉ có một đường cong khép kín duy nhất làm boundary</li>
+</ul>
+
+<p><strong>Cách kiểm tra:</strong></p>
+
+<p>Bạn có thể kiểm tra điều này bằng cách:</p>
+<ol>
+  <li>Vẽ một đường dọc theo một cạnh của Möbius strip</li>
+  <li>Tiếp tục vẽ mà không nhấc bút lên</li>
+  <li>Bạn sẽ thấy rằng đường vẽ đi qua cả hai “cạnh” của dải giấy và quay trở lại điểm xuất phát</li>
+</ol>
+
+<p><strong>Liên hệ với phần chính:</strong> Tính chất “một cạnh” này liên quan trực tiếp đến tính chất “một mặt”! Cả hai đều xuất phát từ việc xoắn 180 độ khi dán hai đầu lại với nhau. Đây là một trong những đặc điểm nổi bật nhất của Möbius strip mà bạn có thể quan sát trực tiếp khi làm thí nghiệm!</p>
+
+<h3 id="so-sánh-với-dải-giấy-thông-thường-1">So sánh với Dải Giấy Thông Thường</h3>
+
+<p>Để hiểu rõ hơn các tính chất toán học của Möbius strip, hãy so sánh với một dải giấy thông thường:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tính chất</th>
+      <th>Dải giấy thông thường</th>
+      <th>Möbius strip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Số mặt</strong></td>
+      <td>2 mặt (trên và dưới)</td>
+      <td>1 mặt duy nhất</td>
+    </tr>
+    <tr>
+      <td><strong>Số cạnh</strong></td>
+      <td>2 cạnh (trên và dưới)</td>
+      <td>1 cạnh duy nhất</td>
+    </tr>
+    <tr>
+      <td><strong>Định hướng</strong></td>
+      <td>Định hướng được</td>
+      <td>Không định hướng được</td>
+    </tr>
+    <tr>
+      <td><strong>Euler Characteristic</strong></td>
+      <td>$\chi = 0$ (có boundary)</td>
+      <td>$\chi = 0$ (có boundary)</td>
+    </tr>
+    <tr>
+      <td><strong>Fundamental Group</strong></td>
+      <td>$\pi_1 = \mathbb{Z}$</td>
+      <td>$\pi_1 = \mathbb{Z}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Điểm thú vị:</strong> Mặc dù cả hai đều có cùng Euler Characteristic và Fundamental Group, chúng khác nhau về tính định hướng. Điều này cho thấy Euler Characteristic và Fundamental Group không đủ để phân biệt hoàn toàn các bề mặt—chúng ta cần thêm khái niệm về định hướng để phân biệt Möbius strip với dải giấy thông thường!</p>
+
+<hr />
+
+<h2 id="-các-biến-thể-và-mở-rộng">🎨 Các Biến Thể và Mở Rộng</h2>
+
+<h3 id="möbius-strip-với-nhiều-vòng-xoắn">Möbius Strip với nhiều vòng xoắn</h3>
+
+<p>Bạn có thể tạo các biến thể của Möbius strip bằng cách xoắn nhiều lần:</p>
+
+<ul>
+  <li><strong>Möbius strip chuẩn:</strong> Xoắn 180 độ (1/2 vòng)</li>
+  <li><strong>Xoắn 360 độ (1 vòng):</strong> Tạo ra một dải giấy thông thường với hai mặt</li>
+  <li><strong>Xoắn 540 độ (1.5 vòng):</strong> Tạo ra một Möbius strip với ba vòng xoắn</li>
+  <li><strong>Xoắn 720 độ (2 vòng):</strong> Tạo ra một dải giấy thông thường</li>
+</ul>
+
+<p><strong>Quy luật:</strong> Möbius strip chỉ xuất hiện khi số vòng xoắn là số lẻ lần 180 độ (180°, 540°, 900°, …).</p>
+
+<h3 id="klein-bottle">Klein Bottle</h3>
+
+<p><strong>Klein bottle</strong> là một mở rộng của Möbius strip lên không gian 4 chiều. Nó là một bề mặt không định hướng được không có boundary (cạnh).</p>
+
+<p>Một cách đơn giản để hiểu Klein bottle:</p>
+<ul>
+  <li>Nếu bạn cắt một Klein bottle theo một cách nhất định, bạn sẽ có hai Möbius strips</li>
+  <li>Ngược lại, nếu bạn dán hai Möbius strips lại với nhau theo cách đúng, bạn có thể tạo ra một Klein bottle</li>
+</ul>
+
+<p>Tuy nhiên, Klein bottle không thể tồn tại trong không gian 3 chiều thông thường—nó cần không gian 4 chiều để tồn tại mà không tự cắt chính nó.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/KleinBottle-01.png/500px-KleinBottle-01.png" alt="Klein bottle" /><br />
+<em>Klein bottle - một mở rộng của Möbius strip - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:KleinBottle-01.png">Wikimedia Commons</a></em></p>
+
+<h3 id="real-projective-plane">Real Projective Plane</h3>
+
+<p><strong>Real projective plane</strong> ($\mathbb{R}P^2$) là một bề mặt không định hướng được khác liên quan đến Möbius strip. Nó có thể được tạo ra bằng cách dán một đĩa tròn vào boundary của một Möbius strip.</p>
+
+<hr />
+
+<h2 id="-ứng-dụng-trong-cuộc-sống">🔗 Ứng dụng trong Cuộc sống</h2>
+
+<h3 id="băng-tải-möbius">Băng tải Möbius</h3>
+
+<p>Một ứng dụng thực tế quan trọng của Möbius strip là trong <strong>băng tải</strong>:</p>
+
+<p><strong>Vấn đề với băng tải thông thường:</strong></p>
+<ul>
+  <li>Băng tải chỉ sử dụng một mặt</li>
+  <li>Mặt kia bị lãng phí và có thể bị mòn không đều</li>
+</ul>
+
+<p><strong>Giải pháp với băng tải Möbius:</strong></p>
+<ul>
+  <li>Băng tải được làm thành hình Möbius strip</li>
+  <li>Cả hai “mặt” đều được sử dụng, làm tăng gấp đôi tuổi thọ của băng tải</li>
+  <li>Mòn đều hơn vì cả hai mặt đều được sử dụng</li>
+</ul>
+
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+  <li>Máy in và máy photocopy</li>
+  <li>Băng tải công nghiệp</li>
+  <li>Hệ thống vận chuyển</li>
+</ul>
+
+<h3 id="resistor-möbius">Resistor Möbius</h3>
+
+<p>Trong điện tử, <strong>resistor Möbius</strong> là một loại điện trở có hình dạng Möbius strip:</p>
+
+<ul>
+  <li>Giảm cảm ứng từ</li>
+  <li>Cải thiện hiệu suất ở tần số cao</li>
+  <li>Ứng dụng trong các mạch điện tử phức tạp</li>
+</ul>
+
+<h3 id="nghệ-thuật-và-thiết-kế">Nghệ thuật và Thiết kế</h3>
+
+<p>Möbius strip đã truyền cảm hứng cho nhiều nghệ sĩ và nhà thiết kế:</p>
+
+<p><strong>Nghệ thuật:</strong></p>
+<ul>
+  <li>Các tác phẩm điêu khắc với hình dạng Möbius strip</li>
+  <li>Các tác phẩm nghệ thuật khái niệm sử dụng tính chất “một mặt” của Möbius strip</li>
+</ul>
+
+<p><strong>Thiết kế:</strong></p>
+<ul>
+  <li>Logo và biểu tượng với hình dạng Möbius strip</li>
+  <li>Kiến trúc với các yếu tố thiết kế dựa trên Möbius strip</li>
+</ul>
+
+<p><strong>Ví dụ nổi tiếng:</strong></p>
+<ul>
+  <li>Tác phẩm điêu khắc “Möbius Strip” của Max Bill</li>
+  <li>Logo của nhiều công ty và tổ chức sử dụng hình dạng Möbius strip</li>
+</ul>
+
+<h3 id="trong-toán-học-và-khoa-học">Trong Toán học và Khoa học</h3>
+
+<p><strong>Topology:</strong></p>
+<ul>
+  <li>Möbius strip là ví dụ cơ bản nhất về bề mặt không định hướng được</li>
+  <li>Giúp hiểu các khái niệm về định hướng và boundary</li>
+</ul>
+
+<p><strong>Vật lý:</strong></p>
+<ul>
+  <li>Nghiên cứu về các tính chất topology của không gian-thời gian</li>
+  <li>Ứng dụng trong string theory và các lý thuyết vật lý hiện đại</li>
+</ul>
+
+<p><strong>Hóa học:</strong></p>
+<ul>
+  <li>Nghiên cứu về cấu trúc của các phân tử phức tạp</li>
+  <li>Ứng dụng trong nghiên cứu về DNA và protein</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>August Ferdinand Möbius</strong> - <em>“Über die Bestimmung des Inhaltes eines Polyëders”</em> (1858)<br />
+<em>Bài báo gốc của Möbius về bề mặt một mặt</em></p>
+  </li>
+  <li>
+    <p><strong>Johann Benedict Listing</strong> - <em>“Vorstudien zur Topologie”</em> (1847)<br />
+<em>Nghiên cứu độc lập về các bề mặt tương tự</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Klein</strong> - <em>“Über die sogenannte nicht-euklidische Geometrie”</em> (1871)<br />
+<em>Nghiên cứu về Klein bottle và các bề mặt không định hướng được</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ul>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., Ch. 2<br />
+<em>Định nghĩa và tính chất của Möbius strip</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology without Tears</em>, Ch. 3<br />
+<em>Giải thích trực quan về Möbius strip và định hướng</em></p>
+  </li>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, §0.1<br />
+<em>Möbius strip và fundamental group</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="trong-toán-học">Trong toán học</h3>
+
+<p>Möbius strip là một ví dụ cơ bản và quan trọng trong topology:</p>
+
+<ol>
+  <li><strong>Định hướng:</strong> Minh họa khái niệm về bề mặt không định hướng được</li>
+  <li><strong>Boundary:</strong> Ví dụ về bề mặt có boundary</li>
+  <li><strong>Fundamental group:</strong> Ví dụ về cách tính fundamental group của các bề mặt phức tạp</li>
+  <li><strong>Euler characteristic:</strong> Ví dụ về cách tính Euler characteristic</li>
+</ol>
+
+<h3 id="trong-khoa-học">Trong khoa học</h3>
+
+<p><strong>Vật lý:</strong></p>
+<ul>
+  <li>Nghiên cứu về các tính chất topology của không gian-thời gian</li>
+  <li>Ứng dụng trong quantum mechanics và string theory</li>
+  <li>Nghiên cứu về các pha topology của vật chất</li>
+</ul>
+
+<p><strong>Hóa học:</strong></p>
+<ul>
+  <li>Nghiên cứu về cấu trúc của các phân tử phức tạp</li>
+  <li>Ứng dụng trong nghiên cứu về DNA và protein</li>
+  <li>Nghiên cứu về các polymer và vật liệu phức tạp</li>
+</ul>
+
+<p><strong>Sinh học:</strong></p>
+<ul>
+  <li>Nghiên cứu về cấu trúc của các phân tử sinh học</li>
+  <li>Ứng dụng trong nghiên cứu về protein folding</li>
+</ul>
+
+<h3 id="trong-công-nghệ">Trong công nghệ</h3>
+
+<p><strong>Kỹ thuật:</strong></p>
+<ul>
+  <li>Thiết kế băng tải và hệ thống vận chuyển</li>
+  <li>Thiết kế các thiết bị điện tử</li>
+  <li>Ứng dụng trong robotics và automation</li>
+</ul>
+
+<p><strong>Khoa học máy tính:</strong></p>
+<ul>
+  <li>Nghiên cứu về cấu trúc dữ liệu</li>
+  <li>Ứng dụng trong graphics và animation</li>
+  <li>Nghiên cứu về algorithms và data structures</li>
+</ul>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Thử nghiệm:</strong> Hãy làm một Möbius strip và thử vẽ một đường thẳng dọc theo giữa. Bạn có thể giải thích tại sao đường thẳng đi qua cả hai “mặt” không?</p>
+  </li>
+  <li>
+    <p><strong>So sánh:</strong> Hãy so sánh một Möbius strip với một dải giấy thông thường. Những điểm khác biệt chính là gì?</p>
+  </li>
+  <li>
+    <p><strong>Thử nghiệm cắt:</strong> Hãy thử cắt một Möbius strip dọc theo đường giữa. Điều gì xảy ra? Bạn có thể giải thích tại sao không?</p>
+  </li>
+  <li>
+    <p><strong>Định hướng:</strong> Hãy thử xác định “mặt trên” và “mặt dưới” của một Möbius strip. Bạn có thể làm điều này một cách nhất quán không? Tại sao?</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Hãy nghĩ về các ứng dụng khác của Möbius strip trong cuộc sống hàng ngày. Bạn có thể tìm thấy các ví dụ khác không?</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-thực-tế">Thử nghiệm thực tế</h3>
+
+<ol>
+  <li>
+    <p><strong>Làm Möbius strip:</strong> Hãy làm một Möbius strip theo hướng dẫn ở trên và thử các thí nghiệm khác nhau.</p>
+  </li>
+  <li>
+    <p><strong>Vẽ đường thẳng:</strong> Vẽ một đường thẳng dọc theo giữa của Möbius strip và quan sát kết quả.</p>
+  </li>
+  <li>
+    <p><strong>Cắt đôi:</strong> Cắt Möbius strip dọc theo đường giữa và quan sát điều gì xảy ra.</p>
+  </li>
+  <li>
+    <p><strong>Tạo biến thể:</strong> Hãy thử tạo các biến thể với số vòng xoắn khác nhau (360°, 540°, 720°) và quan sát sự khác biệt.</p>
+  </li>
+  <li>
+    <p><strong>Khám phá ứng dụng:</strong> Hãy tìm hiểu về các ứng dụng thực tế của Möbius strip trong công nghiệp và công nghệ.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá:</p>
+
+<ul>
+  <li>
+    <p><strong>Cách làm Möbius strip:</strong> Xoắn một đầu 180 độ và dán hai đầu lại với nhau</p>
+  </li>
+  <li>
+    <p><strong>Tính chất đặc biệt:</strong> Möbius strip chỉ có một mặt và một cạnh</p>
+  </li>
+  <li>
+    <p><strong>Định hướng:</strong> Möbius strip là một bề mặt không định hướng được</p>
+  </li>
+  <li>
+    <p><strong>Tính chất toán học:</strong> Euler characteristic = 0, fundamental group = $\mathbb{Z}$</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Băng tải, điện tử, nghệ thuật, và nhiều lĩnh vực khác</p>
+  </li>
+</ul>
+
+<p>Möbius strip là một ví dụ tuyệt vời về cách topology có thể tạo ra những vật thể kỳ lạ và thú vị với các tính chất không thể tưởng tượng được. Nó minh họa một cách rõ ràng khái niệm về định hướng và giúp chúng ta hiểu sâu hơn về topology của các bề mặt.</p>
+
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter9/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

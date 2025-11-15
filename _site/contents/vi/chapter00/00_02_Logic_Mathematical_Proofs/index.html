@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 00.02: Logic and Mathematical Proofs &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 00.02: Logic and Mathematical Proofs
+    
+  </h1>
+  <p><strong>Logic and Mathematical Proofs</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Topology là một môn học đòi hỏi <strong>reasoning</strong> chặt chẽ. Không giống như calculus nơi bạn “tính toán” để tìm đáp án, trong topology bạn <strong>chứng minh</strong> các mệnh đề bằng logic thuần túy. Một định lý topology có thể nói: “Mọi không gian compact và Hausdorff đều normal”—không có số, không có công thức, chỉ có logic và cấu trúc.</p>
+
+<p>Để thành công trong topology, bạn cần thành thạo <strong>proof techniques</strong> (kỹ thuật chứng minh). Đây không phải “tricks”—chúng là cách tư duy có hệ thống để biến trực giác thành lập luận nghiêm ngặt.</p>
+
+<p>Trong bài này, chúng ta sẽ học bốn pillars của mathematical reasoning. Đầu tiên, <strong>propositional logic</strong> teaches us làm sao combine simple statements thành complex ones using connectives như “and”, “or”, và crucially “implies”. Thứ hai, <strong>quantifiers</strong> (“for all” và “there exists”) cho phép ta make general statements about infinite collections—backbone của topology definitions. Thứ ba, <strong>proof techniques</strong> (direct, contrapositive, contradiction, induction) provide systematic strategies để transform intuition thành rigorous arguments. Cuối cùng, understanding <strong>common pitfalls</strong> helps us avoid logical traps mà even experienced mathematicians sometimes fall into.</p>
+
+<p><strong>Tại sao bài này fundamental?</strong> Mọi single theorem trong topology—from basic definitions đến deep results—relies on rigorous proof. Khi bạn đọc một topology textbook, understanding logical structure cho phép bạn “parse” complex proofs thành manageable pieces. Hơn nữa, these techniques không chỉ là tools để verify existing results; chúng empower bạn để discover new mathematics, to ask “what if” questions và answer them rigorously.</p>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-chứng-minh">Câu chuyện về Chứng minh</h3>
+
+<p>Tưởng tượng bạn là một thám tử. Bạn có một giả thuyết: “Người A là thủ phạm”. Có nhiều cách tiếp cận: <strong>Direct proof</strong> involves chỉ ra bằng chứng trực tiếp—A có động cơ, có mặt tại hiện trường, fingerprints match. <strong>Proof by contradiction</strong> starts bằng cách giả sử opposite (A không phải thủ phạm), rồi show rằng điều này leads to một absurdity contradicting known evidence. <strong>Proof by contrapositive</strong> reasons: nếu ai đó không có mặt tại hiện trường, họ không thể là thủ phạm—establishing contrapositive của “thủ phạm ⇒ có mặt tại hiện trường”.</p>
+
+<p>Mathematical proofs work exactly như vậy! Một <strong>chứng minh</strong> là một carefully constructed chain of logical steps starting từ accepted <strong>giả thiết</strong> (hypotheses, axioms, previously proven theorems) và leading inexorably đến <strong>kết luận</strong> (conclusion). Mỗi step phải follow from previous ones by pure logic, creating an argument mà any reasonable person must accept một khi họ accept the starting assumptions.</p>
+
+<p><strong>Ví dụ đơn giản:</strong></p>
+
+<p><strong>Mệnh đề:</strong> Nếu n là số chẵn, thì n² là số chẵn.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Giả sử n chẵn. Theo định nghĩa, tồn tại k ∈ ℤ sao cho n = 2k.<br />
+Khi đó: n² = (2k)² = 4k² = 2(2k²).<br />
+Vì 2k² ∈ ℤ, nên n² chẵn. ∎</p>
+
+<p>Đơn giản! Nhưng đây là nền tảng của mọi chứng minh topology phức tạp.</p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-propositional-logic-logic-mệnh-đề">1. Propositional Logic (Logic Mệnh đề)</h3>
+
+<p><strong>Mệnh đề (Proposition):</strong> Một câu có giá trị đúng (T) hoặc sai (F).</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>“2 + 2 = 4” → T</li>
+  <li>“Paris là thủ đô của Đức” → F</li>
+  <li>“x &gt; 5” → Không phải mệnh đề (phụ thuộc vào x)</li>
+</ul>
+
+<h4 id="logical-connectives-liên-từ-logic">Logical Connectives (Liên từ Logic)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ký hiệu</th>
+      <th>Tên</th>
+      <th>Định nghĩa</th>
+      <th>Ví dụ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¬P</td>
+      <td>NOT (Phủ định)</td>
+      <td>Đảo giá trị P</td>
+      <td>Nếu P: “n chẵn”, ¬P: “n lẻ”</td>
+    </tr>
+    <tr>
+      <td>P ∧ Q</td>
+      <td>AND (Hội)</td>
+      <td>Đúng khi cả P, Q đúng</td>
+      <td>“n chẵn VÀ n &gt; 10”</td>
+    </tr>
+    <tr>
+      <td>P ∨ Q</td>
+      <td>OR (Tuyển)</td>
+      <td>Đúng khi ít nhất một đúng</td>
+      <td>“n chẵn HOẶC n &gt; 10”</td>
+    </tr>
+    <tr>
+      <td>P ⇒ Q</td>
+      <td>Implication (Kéo theo)</td>
+      <td>“Nếu P thì Q”</td>
+      <td>“Nếu n chẵn thì n² chẵn”</td>
+    </tr>
+    <tr>
+      <td>P ⇔ Q</td>
+      <td>Biconditional (Tương đương)</td>
+      <td>P ⇒ Q và Q ⇒ P</td>
+      <td>“n chẵn ⇔ n = 2k”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Truth Table của Implication:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>P</th>
+      <th>Q</th>
+      <th>P ⇒ Q</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>F</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>T</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>F</td>
+      <td>T</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Chú ý quan trọng:</strong> P ⇒ Q đúng khi P sai! (Vacuous truth)</p>
+
+<p><strong>Ví dụ kỳ lạ:</strong> “Nếu 1 + 1 = 3 thì tôi là Napoleon” → Mệnh đề này ĐÚNG!</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Venn_diagram_for_OR.svg/300px-Venn_diagram_for_OR.svg.png" alt="Logic gates visualization" /><br />
+<em>Biểu đồ Venn cho OR logic - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Venn_diagram_for_OR.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="2-quantifiers-lượng-từ">2. Quantifiers (Lượng từ)</h3>
+
+<h4 id="universal-quantifier-">Universal Quantifier (∀)</h4>
+
+<p><strong>∀x ∈ S: P(x)</strong> đọc là “Với mọi x trong S, P(x) đúng”</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>∀n ∈ ℕ: n² ≥ 0</li>
+  <li>∀x ∈ ℝ: x² - 1 = (x-1)(x+1)</li>
+</ul>
+
+<p><strong>Phủ định:</strong>
+\(\neg(\forall x: P(x)) \equiv \exists x: \neg P(x)\)</p>
+
+<p>“Không phải mọi x đều thỏa P” ⇔ “Tồn tại x không thỏa P”</p>
+
+<h4 id="existential-quantifier-">Existential Quantifier (∃)</h4>
+
+<p><strong>∃x ∈ S: P(x)</strong> đọc là “Tồn tại x trong S sao cho P(x) đúng”</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>∃n ∈ ℕ: n² = 16 (Đúng, n = 4)</li>
+  <li>∃x ∈ ℝ: x² = -1 (Sai trong ℝ, đúng trong ℂ)</li>
+</ul>
+
+<p><strong>Phủ định:</strong>
+\(\neg(\exists x: P(x)) \equiv \forall x: \neg P(x)\)</p>
+
+<p>“Không tồn tại x thỏa P” ⇔ “Mọi x đều không thỏa P”</p>
+
+<h4 id="nested-quantifiers-lượng-từ-lồng-nhau">Nested Quantifiers (Lượng từ lồng nhau)</h4>
+
+<p><strong>Thứ tự quan trọng!</strong></p>
+
+<ul>
+  <li><strong>∀x ∃y: P(x,y)</strong> ≠ <strong>∃y ∀x: P(x,y)</strong></li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+<ol>
+  <li>
+    <p><strong>∀x ∈ ℝ ∃y ∈ ℝ: y &gt; x</strong><br />
+“Với mọi x, tồn tại y lớn hơn x” → ĐÚNG (chọn y = x + 1)</p>
+  </li>
+  <li>
+    <p><strong>∃y ∈ ℝ ∀x ∈ ℝ: y &gt; x</strong><br />
+“Tồn tại y lớn hơn mọi x” → SAI (không có số lớn nhất)</p>
+  </li>
+</ol>
+
+<p><strong>Trong topology:</strong></p>
+
+<p><strong>Định nghĩa (Continuity):</strong>
+\(\forall \varepsilon &gt; 0 \; \exists \delta &gt; 0 \; \forall x: (|x - a| &lt; \delta \implies |f(x) - f(a)| &lt; \varepsilon)\)</p>
+
+<p>Thứ tự quantifiers xác định chính xác khái niệm “liên tục”!</p>
+
+<hr />
+
+<h3 id="3-proof-techniques-kỹ-thuật-chứng-minh">3. Proof Techniques (Kỹ thuật Chứng minh)</h3>
+
+<h4 id="a-direct-proof-chứng-minh-trực-tiếp">A. Direct Proof (Chứng minh Trực tiếp)</h4>
+
+<p><strong>Cấu trúc:</strong> Giả sử P đúng → Suy luận từng bước → Kết luận Q đúng</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p><strong>Mệnh đề:</strong> Nếu a, b là số lẻ, thì a + b chẵn.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Giả sử a, b lẻ. Theo định nghĩa:</p>
+<ul>
+  <li>a = 2k + 1 với k ∈ ℤ</li>
+  <li>b = 2m + 1 với m ∈ ℤ</li>
+</ul>
+
+<p>Do đó:
+\(a + b = (2k + 1) + (2m + 1) = 2(k + m + 1)\)</p>
+
+<p>Vì k + m + 1 ∈ ℤ, nên a + b chẵn. ∎</p>
+
+<p><strong>Khi nào dùng:</strong> Khi có “đường” rõ ràng từ giả thiết đến kết luận.</p>
+
+<hr />
+
+<h4 id="b-proof-by-contrapositive-chứng-minh-bằng-mệnh-đề-đảo">B. Proof by Contrapositive (Chứng minh bằng Mệnh đề Đảo)</h4>
+
+<p><strong>Nguyên tắc:</strong> Để chứng minh P ⇒ Q, ta chứng minh ¬Q ⇒ ¬P (tương đương logic!)</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p><strong>Mệnh đề:</strong> Nếu n² chẵn, thì n chẵn.</p>
+
+<p><strong>Chứng minh (bằng contrapositive):</strong><br />
+Ta chứng minh: Nếu n lẻ, thì n² lẻ.</p>
+
+<p>Giả sử n lẻ, tức n = 2k + 1.<br />
+Khi đó:
+\(n² = (2k + 1)² = 4k² + 4k + 1 = 2(2k² + 2k) + 1\)</p>
+
+<p>Nên n² lẻ. ∎</p>
+
+<p><strong>Khi nào dùng:</strong> Khi ¬Q dễ làm việc hơn Q (ví dụ: Q là phủ định)</p>
+
+<hr />
+
+<h4 id="c-proof-by-contradiction-chứng-minh-bằng-phản-chứng">C. Proof by Contradiction (Chứng minh bằng Phản chứng)</h4>
+
+<p><strong>Cấu trúc:</strong> Giả sử kết luận SAI → Suy luận → Dẫn đến mâu thuẫn → Kết luận ban đầu ĐÚNG</p>
+
+<p><strong>Ví dụ kinh điển:</strong></p>
+
+<p><strong>Mệnh đề:</strong> √2 là số vô tỉ.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Giả sử (phản chứng) √2 hữu tỉ. Khi đó:
+\(\sqrt{2} = \frac{p}{q}\)
+với p, q ∈ ℤ, gcd(p,q) = 1 (tối giản).</p>
+
+<p>Bình phương hai vế:
+\(2 = \frac{p²}{q²} \implies p² = 2q²\)</p>
+
+<p>Do đó p² chẵn ⇒ p chẵn (theo ví dụ trước) ⇒ p = 2k.</p>
+
+<p>Thay vào:
+\((2k)² = 2q² \implies 4k² = 2q² \implies q² = 2k²\)</p>
+
+<p>Do đó q² chẵn ⇒ q chẵn.</p>
+
+<p><strong>Mâu thuẫn!</strong> Cả p và q đều chẵn → gcd(p,q) ≥ 2, trái với giả thiết tối giản.</p>
+
+<p>Vậy √2 vô tỉ. ∎</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Proof_by_Contradiction_Diagram.svg/400px-Proof_by_Contradiction_Diagram.svg.png" alt="Proof by contradiction flowchart" /><br />
+<em>Sơ đồ chứng minh phản chứng - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Proof_by_Contradiction_Diagram.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Khi nào dùng:</strong> Khi khó chứng minh trực tiếp, đặc biệt với các mệnh đề về sự “không tồn tại”.</p>
+
+<hr />
+
+<h4 id="d-mathematical-induction-quy-nạp-toán-học">D. Mathematical Induction (Quy nạp Toán học)</h4>
+
+<p><strong>Nguyên tắc:</strong> Để chứng minh P(n) đúng với mọi n ∈ ℕ:</p>
+<ol>
+  <li><strong>Base case:</strong> Chứng minh P(1) đúng (hoặc P(0))</li>
+  <li><strong>Inductive step:</strong> Giả sử P(k) đúng (inductive hypothesis), chứng minh P(k+1) đúng</li>
+</ol>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p><strong>Mệnh đề:</strong> Với mọi n ≥ 1:
+\(1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}\)</p>
+
+<p><strong>Chứng minh:</strong></p>
+
+<p><strong>Base case (n = 1):</strong>
+\(1 = \frac{1 \cdot 2}{2} = 1 \quad \checkmark\)</p>
+
+<p><strong>Inductive step:</strong><br />
+Giả sử công thức đúng với n = k:
+\(1 + 2 + \cdots + k = \frac{k(k+1)}{2}\)</p>
+
+<p>Ta cần chứng minh đúng với n = k + 1:
+\(1 + 2 + \cdots + k + (k+1) = \frac{(k+1)(k+2)}{2}\)</p>
+
+<p>Theo giả thiết quy nạp:
+\(1 + 2 + \cdots + k + (k+1) = \frac{k(k+1)}{2} + (k+1)\)
+\(= \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2} \quad \checkmark\)</p>
+
+<p>Vậy công thức đúng với mọi n ∈ ℕ. ∎</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Dominoeffect.png/400px-Dominoeffect.png" alt="Mathematical induction dominoes" /><br />
+<em>Hiệu ứng domino minh họa quy nạp - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Dominoeffect.png">Wikimedia Commons</a></em></p>
+
+<p><strong>Biến thể:</strong></p>
+<ul>
+  <li><strong>Strong induction:</strong> Giả sử P(1), …, P(k) đều đúng → chứng minh P(k+1)</li>
+  <li><strong>Well-ordering principle:</strong> Tương đương với induction</li>
+</ul>
+
+<p><strong>Khi nào dùng:</strong> Chứng minh công thức, tính chất phụ thuộc vào n ∈ ℕ</p>
+
+<hr />
+
+<h3 id="4-common-logical-mistakes-lỗi-logic-phổ-biến">4. Common Logical Mistakes (Lỗi Logic Phổ biến)</h3>
+
+<h4 id="mistake-1-converse-error">Mistake 1: Converse Error</h4>
+
+<p><strong>Sai lầm:</strong> P ⇒ Q đúng KHÔNG có nghĩa là Q ⇒ P đúng!</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>Đúng:</strong> “Nếu trời mưa, đường ướt” (P ⇒ Q)</li>
+  <li><strong>SAI:</strong> “Nếu đường ướt, trời mưa” (Q ⇒ P) — có thể ai đó tưới nước!</li>
+</ul>
+
+<p><strong>Trong topology:</strong></p>
+<ul>
+  <li><strong>Đúng:</strong> “Nếu không gian compact, mọi dãy có dãy con hội tụ”</li>
+  <li><strong>SAI:</strong> “Nếu mọi dãy có dãy con hội tụ, không gian compact” (Sai trong không gian không metric!)</li>
+</ul>
+
+<h4 id="mistake-2-quantifier-order">Mistake 2: Quantifier Order</h4>
+
+<p><strong>Sai lầm:</strong> Đổi thứ tự ∀ và ∃</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>∀ε ∃δ:</strong> “Với mọi ε, tồn tại δ” → Continuity</li>
+  <li><strong>∃δ ∀ε:</strong> “Tồn tại δ với mọi ε” → Nonsense!</li>
+</ul>
+
+<h4 id="mistake-3-vacuous-truth-confusion">Mistake 3: Vacuous Truth Confusion</h4>
+
+<p><strong>Sai lầm:</strong> Quên rằng P ⇒ Q đúng khi P sai</p>
+
+<p><strong>Ví dụ:</strong> “Mọi số chẵn lẻ đều chia hết cho 7” → ĐÚNG (vì không có số chẵn lẻ!)</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-logic-texts">Classic Logic Texts</h3>
+
+<ol>
+  <li>
+    <p><strong>Aristotle</strong> - <em>Organon</em> (~350 BCE)<br />
+<em>Nền tảng của logic hình thức phương Tây</em></p>
+  </li>
+  <li>
+    <p><strong>Gottlob Frege</strong> - <em>Begriffsschrift</em> (1879)<br />
+<em>Phát minh ký hiệu logic hiện đại, quantifiers</em></p>
+  </li>
+  <li>
+    <p><strong>Bertrand Russell &amp; Alfred N. Whitehead</strong> - <em>Principia Mathematica</em> (1910–1913)<br />
+<em>Cố gắng xây dựng toàn bộ toán học từ logic</em></p>
+  </li>
+  <li>
+    <p><strong>Kurt Gödel</strong> - <em>Incompleteness Theorems</em> (1931)<br />
+<em>Chứng minh giới hạn của logic hình thức</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks-for-topology">Textbooks for Topology</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§2: Logical Implications</strong><br />
+<em>Brief nhưng đủ cho topology</em></p>
+  </li>
+  <li>
+    <p><strong>Daniel J. Velleman</strong> - <em>How to Prove It</em> (2006)<br />
+<em>Giáo trình proof-writing xuất sắc cho beginners</em></p>
+  </li>
+  <li>
+    <p><strong>Richard Hammack</strong> - <em>Book of Proof</em> (2013)<br />
+<em>Free online, rất accessible</em></p>
+  </li>
+  <li>
+    <p><strong>Patrick Suppes</strong> - <em>Introduction to Logic</em> (1957)<br />
+<em>Classic text, formal approach</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="computer-science---formal-verification">Computer Science - Formal Verification</h3>
+<p><strong>Proof Assistants</strong> như Coq, Lean, Isabelle sử dụng logic hình thức để verify tính đúng đắn của phần mềm. Mọi chứng minh toán học có thể được “formalize” thành code!</p>
+
+<p><strong>Ví dụ:</strong> Định lý Four Color Theorem đã được chứng minh hoàn toàn bằng computer (Coq).</p>
+
+<h3 id="mathematics---gödels-theorems">Mathematics - Gödel’s Theorems</h3>
+<p><strong>Incompleteness Theorems:</strong> Trong bất kỳ hệ thống hình thức đủ mạnh (chứa số học), luôn tồn tại mệnh đề không thể chứng minh hoặc bác bỏ được.</p>
+
+<p><strong>Ý nghĩa:</strong> Có giới hạn của “proof”—không phải mọi sự thật toán học đều chứng minh được!</p>
+
+<h3 id="philosophy---foundations-of-mathematics">Philosophy - Foundations of Mathematics</h3>
+<p><strong>Intuitionistic Logic:</strong> Một số toán học gia từ chối Law of Excluded Middle (P ∨ ¬P luôn đúng) và proof by contradiction.</p>
+
+<p><strong>Ví dụ:</strong> Trong toán học constructive, chứng minh “∃x: P(x)” cần phải chỉ ra tường minh x là gì!</p>
+
+<h3 id="real-world-example">Real-World Example</h3>
+<p><strong>Legal Reasoning:</strong> Hệ thống pháp luật sử dụng logic: “Nếu X phạm tội Y, thì X bị phạt Z”. Proof by contradiction xuất hiện: “Giả sử bị cáo vô tội, nhưng bằng chứng cho thấy…”</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="basic-logic">Basic Logic</h3>
+
+<ol>
+  <li>
+    <p><strong>Truth Tables:</strong><br />
+Tạo truth table cho (P ∨ Q) ⇒ (P ∧ Q). Điều kiện nào làm cho mệnh đề này đúng?</p>
+  </li>
+  <li><strong>Negations:</strong><br />
+Viết phủ định của các mệnh đề sau:
+    <ul>
+      <li>a) ∀x ∈ ℝ: x² ≥ 0</li>
+      <li>b) ∃n ∈ ℕ: n² &lt; n</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>c) ∀ε &gt; 0 ∃δ &gt; 0:</td>
+              <td>x - a</td>
+              <td>&lt; δ ⇒</td>
+              <td>f(x) - f(a)</td>
+              <td>&lt; ε</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Quantifier Order:</strong><br />
+Phát biểu bằng lời nói và xác định đúng/sai:
+    <ul>
+      <li>a) ∀x ∈ ℝ ∃y ∈ ℝ: x + y = 0</li>
+      <li>b) ∃y ∈ ℝ ∀x ∈ ℝ: x + y = 0</li>
+      <li>c) ∀x ∈ ℝ ∀y ∈ ℝ: (x &lt; y ⇒ x² &lt; y²)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="proof-practice">Proof Practice</h3>
+
+<ol>
+  <li>
+    <p><strong>Direct Proof:</strong><br />
+Chứng minh: Nếu n chia hết cho 6, thì n chia hết cho 2 và 3.</p>
+  </li>
+  <li>
+    <p><strong>Contrapositive:</strong><br />
+Chứng minh: Nếu n² không chia hết cho 3, thì n không chia hết cho 3.</p>
+  </li>
+  <li>
+    <p><strong>Contradiction:</strong><br />
+Chứng minh: Không tồn tại số hữu tỉ r sao cho r² = 3.</p>
+  </li>
+  <li>
+    <p><strong>Induction:</strong><br />
+Chứng minh: Với mọi n ≥ 1,
+\(1² + 2² + 3² + \cdots + n² = \frac{n(n+1)(2n+1)}{6}\)</p>
+  </li>
+</ol>
+
+<h3 id="topology-related">Topology-Related</h3>
+
+<ol>
+  <li><strong>Logical Structure:</strong><br />
+Định nghĩa topology: “Một họ 𝜏 của các tập con của X là topology nếu:
+    <ul>
+      <li>(i) ∅, X ∈ 𝜏</li>
+      <li>(ii) Hợp tùy ý các tập trong 𝜏 thuộc 𝜏</li>
+      <li>(iii) Giao hữu hạn các tập trong 𝜏 thuộc 𝜏”</li>
+    </ul>
+
+    <p>Viết lại (ii) và (iii) bằng ký hiệu logic với quantifiers.</p>
+  </li>
+  <li>
+    <p><strong>Continuity:</strong><br />
+Định nghĩa ε-δ của continuity:
+\(\forall \varepsilon &gt; 0 \; \exists \delta &gt; 0 \; \forall x: (|x - a| &lt; \delta \implies |f(x) - f(a)| &lt; \varepsilon)\)</p>
+
+    <p>Viết định nghĩa “f không liên tục tại a” (phủ định).</p>
+  </li>
+  <li>
+    <p><strong>Proof Analysis:</strong><br />
+Đọc chứng minh sau và xác định kỹ thuật nào được dùng:</p>
+
+    <p><strong>Mệnh đề:</strong> Tập số nguyên tố là vô hạn.</p>
+
+    <p><strong>Chứng minh:</strong> Giả sử (phản chứng) chỉ có hữu hạn số nguyên tố: p₁, p₂, …, pₙ.<br />
+Xét N = p₁p₂…pₙ + 1.<br />
+N không chia hết cho bất kỳ pᵢ nào (dư 1).<br />
+Do đó N nguyên tố hoặc có ước nguyên tố khác không nằm trong danh sách → Mâu thuẫn! ∎</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Constructive vs Non-constructive:</strong><br />
+Chứng minh: Tồn tại hai số vô tỉ a, b sao cho a^b hữu tỉ.</p>
+
+    <p><strong>Hint:</strong> Xét √2^√2. Nếu nó hữu tỉ → done. Nếu vô tỉ, xét (√2^√2)^√2 = √2^2 = 2.</p>
+
+    <p>Chứng minh này có “constructive” không? (Có chỉ ra tường minh a, b không?)</p>
+  </li>
+  <li>
+    <p><strong>Meta-mathematics:</strong><br />
+Tìm hiểu về “Law of Excluded Middle”: P ∨ ¬P luôn đúng.</p>
+    <ul>
+      <li>Tại sao intuitionistic logic từ chối nó?</li>
+      <li>Ứng dụng gì trong topology?</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Velleman, How to Prove It:</strong> Chapters 1–3 (Propositional and Quantificational Logic)</li>
+  <li><strong>Hammack, Book of Proof:</strong> Chapters 4–6 (Direct Proof, Contrapositive, Contradiction)</li>
+  <li><strong>Munkres, Topology:</strong> §2 (Logical implications in set theory)</li>
+  <li><strong>Eccles, An Introduction to Mathematical Reasoning:</strong> Comprehensive proof techniques</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta đã học:</p>
+
+<p>✅ <strong>Propositional Logic:</strong> Connectives (¬, ∧, ∨, ⇒, ⇔)<br />
+✅ <strong>Quantifiers:</strong> ∀ (universal), ∃ (existential), và thứ tự quan trọng<br />
+✅ <strong>Proof Techniques:</strong></p>
+<ul>
+  <li>Direct proof: P → … → Q</li>
+  <li>Contrapositive: ¬Q → … → ¬P</li>
+  <li>Contradiction: ¬Q → … → False</li>
+  <li>Induction: P(1) ∧ [P(k) ⇒ P(k+1)] → ∀n: P(n)<br />
+✅ <strong>Common Mistakes:</strong> Converse error, quantifier order, vacuous truth</li>
+</ul>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Logic là ngôn ngữ của toán học—hiểu logic = hiểu chứng minh</li>
+  <li>Mỗi kỹ thuật chứng minh có điểm mạnh riêng</li>
+  <li>Quantifiers phải được sắp xếp cẩn thận</li>
+  <li>Practice là chìa khóa: làm nhiều bài tập!</li>
+</ul>
+
+<p><strong>Connection đến topology:</strong></p>
+<ul>
+  <li>Mọi định nghĩa topology đều có cấu trúc quantifier phức tạp</li>
+  <li>Proof by contradiction rất phổ biến (compactness, connectedness)</li>
+  <li>Induction dùng cho các construction quy nạp (CW complexes)</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Trong Lecture 00.03, chúng ta sẽ học về <strong>Real Numbers và Euclidean Space</strong>—chuẩn bị cho việc hiểu topology trên ℝⁿ, ví dụ cụ thể đầu tiên về không gian tô-pô.</p>
+
+<hr />
+
+<p><em>“A mathematician is a device for turning coffee into theorems.” — Paul Erdős</em></p>
+
+<p>🎯 <strong>Hãy practice chứng minh mỗi ngày! Logic như muscle: càng luyện càng mạnh.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter00/00_01_Cartesian_Products_Zorns_Lemma/">Lecture 00.01: Cartesian Products and Zorn’s Lemma</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter00/00_03_Real_Numbers_Euclidean_Space/">Lecture 00.03: Real Numbers and Euclidean Space</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter0/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

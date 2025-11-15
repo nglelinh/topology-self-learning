@@ -1,0 +1,12 @@
+---
+layout: default
+title: Home
+lang: vi
+---
+
+{% assign page_list = site.categories.home | sort: "order" %}
+{% for page in page_list %}
+    {% if page.order %}
+        <p>{{page.content}}</p>
+    {% endif %}
+{% endfor %}

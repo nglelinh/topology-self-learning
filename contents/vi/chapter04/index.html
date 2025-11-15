@@ -1,0 +1,247 @@
+---
+layout: page
+title: "Metric Spaces and Metrization"
+lang: vi
+lang-ref: topology-chapter04
+chapter: '04'
+permalink: /contents/vi/chapter04/
+---
+
+<div class="chapter-intro">
+  <h1>Chapter 04: Metric Spaces and Metrization</h1>
+  <p class="chapter-description">
+    Metric spaces là class đặc biệt của topological spaces với khái niệm "distance" (khoảng cách). Chapter này explore fundamental properties của metric spaces, completeness, Baire Category Theorem, equivalent metrics, uniform continuity, và function spaces. Chúng ta sẽ thấy metric spaces bridge giữa topology và analysis, providing powerful tools cho existence theorems, fixed point theorems, và functional analysis.
+  </p>
+  
+  <div class="learning-objectives">
+    <h3>🎯 Learning Objectives</h3>
+    <ul>
+      <li>Hiểu metric spaces và ba metric axioms</li>
+      <li>Master completeness và Cauchy sequences</li>
+      <li>Áp dụng Baire Category Theorem</li>
+      <li>Phân biệt equivalent và strongly equivalent metrics</li>
+      <li>Hiểu uniform continuity và Lipschitz maps</li>
+      <li>Áp dụng Banach Fixed Point Theorem</li>
+      <li>Work với function spaces: C([0,1]), ℓ^p, L^p</li>
+      <li>Understand Banach và Hilbert spaces</li>
+    </ul>
+  </div>
+  
+  <div class="prerequisites">
+    <h3>📚 Prerequisites</h3>
+    <p>Chapter 00-03: Topological spaces, continuous functions, connectedness, compactness, separation axioms</p>
+  </div>
+</div>
+
+<div class="lectures-list">
+  <h2>📖 Lectures</h2>
+  
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter04/04_00_Metric_Spaces_Fundamentals/">
+        Lecture 04.00: Metric Spaces - Fundamentals
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Metric definition và axioms, examples (Euclidean, Manhattan, max, discrete), metric topology, open balls, convergence, Cauchy sequences, completeness, isometries, bounded sets
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">metric-spaces</span>
+      <span class="tag">distance</span>
+      <span class="tag">isometry</span>
+      <span class="tag">completeness</span>
+      <span class="tag">cauchy-sequences</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter04/04_01_Completeness_Baire_Category/">
+        Lecture 04.01: Completeness and Baire Category Theorem
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Complete spaces, examples (ℝⁿ, [a,b], C([0,1])), completion theorem, nowhere dense sets, meager và residual sets, Baire Category Theorem, applications đến functional analysis
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">completeness</span>
+      <span class="tag">baire-category</span>
+      <span class="tag">nowhere-dense</span>
+      <span class="tag">residual</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter04/04_02_Equivalent_Metrics_Uniform_Continuity/">
+        Lecture 04.02: Equivalent Metrics and Uniform Continuity
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Equivalent metrics, characterizations, examples trên ℝⁿ, strongly equivalent metrics, uniform continuity, Heine-Cantor theorem, Lipschitz maps, contraction mappings, Banach Fixed Point Theorem
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">equivalent-metrics</span>
+      <span class="tag">uniform-continuity</span>
+      <span class="tag">lipschitz</span>
+      <span class="tag">contraction</span>
+      <span class="tag">fixed-point</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter04/04_03_Product_Metrics_Function_Spaces/">
+        Lecture 04.03: Product Metrics and Function Spaces
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Product metrics (finite và infinite products), function spaces C([0,1]), uniform vs pointwise convergence, ℓ^p sequence spaces, L^p function spaces, normed vector spaces, Banach spaces, Hilbert spaces
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">product-metrics</span>
+      <span class="tag">function-spaces</span>
+      <span class="tag">uniform-convergence</span>
+      <span class="tag">banach-spaces</span>
+      <span class="tag">hilbert-spaces</span>
+    </p>
+  </div>
+</div>
+
+<div class="chapter-summary">
+  <h2>🎓 Chapter Summary</h2>
+  <p>
+    Chapter 04 introduced <strong>metric spaces</strong>—topological spaces equipped với distance function. Chúng ta learned:
+  </p>
+  <ul>
+    <li><strong>Metric axioms:</strong> Positive definite, symmetric, triangle inequality</li>
+    <li><strong>Examples:</strong> Euclidean, Manhattan, max, discrete, L^p metrics</li>
+    <li><strong>Completeness:</strong> Cauchy sequences converge—"no holes"</li>
+    <li><strong>Baire Category Theorem:</strong> Complete spaces = second category</li>
+    <li><strong>Equivalent metrics:</strong> Different metrics, same topology</li>
+    <li><strong>Uniform continuity:</strong> δ independent của x</li>
+    <li><strong>Banach Fixed Point:</strong> Contractions have unique fixed points</li>
+    <li><strong>Function spaces:</strong> C([0,1]), ℓ^p, L^p—infinite-dimensional spaces</li>
+    <li><strong>Banach spaces:</strong> Complete normed vector spaces</li>
+    <li><strong>Hilbert spaces:</strong> Complete inner product spaces</li>
+  </ul>
+  
+  <h3>Key Theorems</h3>
+  <ul>
+    <li><strong>Completeness của ℝⁿ:</strong> Euclidean space complete</li>
+    <li><strong>Baire Category Theorem:</strong> Complete metric space ≠ countable union nowhere dense</li>
+    <li><strong>Heine-Cantor:</strong> Continuous trên compact ⇒ uniformly continuous</li>
+    <li><strong>Banach Fixed Point:</strong> Contraction trên complete space has unique fixed point</li>
+    <li><strong>Riesz-Fischer:</strong> L^p complete</li>
+  </ul>
+  
+  <h3>Applications</h3>
+  <ul>
+    <li><strong>Analysis:</strong> Fixed point theorems, existence proofs</li>
+    <li><strong>Differential Equations:</strong> ODEs, PDEs via Banach Fixed Point</li>
+    <li><strong>Functional Analysis:</strong> Banach và Hilbert spaces foundation</li>
+    <li><strong>Quantum Mechanics:</strong> L² wave functions</li>
+    <li><strong>Machine Learning:</strong> Distance metrics, RKHS</li>
+  </ul>
+</div>
+
+<div class="navigation-links">
+  <p>
+    <strong>Previous Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter03/">Chapter 03: Separation Axioms and Countability</a><br>
+    <strong>Next Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter05/">Chapter 05: Quotient Spaces and Surfaces</a>
+  </p>
+</div>
+
+<style>
+.chapter-intro {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.chapter-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learning-objectives, .prerequisites {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.learning-objectives h3, .prerequisites h3 {
+  color: #2c5aa0;
+  margin-top: 0;
+}
+
+.lectures-list {
+  margin-top: 30px;
+}
+
+.lecture-item {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4CAF50;
+}
+
+.lecture-item h3 {
+  margin-top: 0;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a {
+  text-decoration: none;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a:hover {
+  color: #4CAF50;
+}
+
+.lecture-description {
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.lecture-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.chapter-summary {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.chapter-summary h2 {
+  color: #856404;
+  margin-top: 0;
+}
+
+.navigation-links {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e9;
+  border-radius: 10px;
+}
+</style>
+

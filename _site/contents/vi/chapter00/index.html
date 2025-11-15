@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Foundations and Set-Theoretic Topology &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item active" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>00. Foundations and Set-Theoretic Topology</h1>
+
+
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p><strong>Set Theory, Functions, and Relations</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Chào mừng bạn đến với bài giảng đầu tiên trong hành trình khám phá Tô-pô học! Trước khi chúng ta có thể hiểu được những khái niệm kỳ diệu của topology—nơi mà cái cốc cà phê và cái bánh donut được coi là “giống nhau”—chúng ta cần xây dựng nền móng vững chắc từ lý thuyết tập hợp.</p>
+
+<p>Tô-pô học là nghiên cứu về các tính chất của không gian mà không thay đổi dưới các phép biến dạng liên tục. Nhưng để định nghĩa chính xác “không gian”, “liên tục”, và “không thay đổi”, chúng ta cần ngôn ngữ của lý thuyết tập hợp. Đây không chỉ là formalism khô khan—lý thuyết tập hợp là cách toán học hiện đại tổ chức và suy nghĩ về mọi thứ.</p>
+
+<p><strong>Tại sao bài này quan trọng?</strong> Lý thuyết tập hợp không chỉ là một khởi đầu technical mà còn là bối cảnh conceptual cho toàn bộ topology. Tập hợp đóng vai trò như “nguyên tử” của toán học hiện đại—mọi đối tượng toán học, từ số tự nhiên đến không gian tô-pô phức tạp nhất, đều được xây dựng từ tập hợp. Hàm số là cầu nối giữa các không gian, cho phép chúng ta so sánh, kết nối và hiểu mối quan hệ giữa chúng. Quan hệ tương đương mở ra cách tư duy powerful về việc “gán nhận” các phần tử để tạo ra không gian mới—đây chính là ý tưởng behind quotient spaces, một trong những construction quan trọng nhất trong topology. Cuối cùng, cardinality sẽ giúp chúng ta phân biệt các “loại vô hạn” khác nhau, một insight sâu sắc sẽ xuất hiện lại khi ta nghiên cứu về countability axioms và separability.</p>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-tập-hợp">Câu chuyện về Tập hợp</h3>
+
+<p>Hãy tưởng tượng bạn đang đứng trong một căn phòng chứa đầy những vật thể: sách, cốc, bút, và đồ nội thất. Một <strong>tập hợp</strong> (set) đơn giản là một “bộ sưu tập” các vật thể mà bạn quyết định nhóm lại với nhau theo một tiêu chí nào đó. Bạn có thể tạo tập hợp S₁ gồm tất cả sách trên kệ, hoặc S₂ gồm tất cả vật màu đỏ, hay S₃ chứa những vật bạn có thể cầm bằng một tay. Điều kỳ diệu là trong toán học, chúng ta có thể định nghĩa nghiêm ngặt những “bộ sưu tập” này và xây dựng toàn bộ tòa nhà của toán học từ chúng. Mọi cấu trúc toán học—từ số tự nhiên, đến hàm số, đến không gian vô hạn chiều—cuối cùng đều được reduce về những câu hỏi về membership trong các tập hợp.</p>
+
+<h3 id="nghịch-lý-russell-lời-cảnh-báo">Nghịch lý Russell: Lời cảnh báo</h3>
+
+<p>Nhưng không phải mọi “bộ sưu tập” đều là tập hợp hợp lệ. Năm 1901, Bertrand Russell đã phát hiện ra một nghịch lý đáng sợ:</p>
+
+<blockquote>
+  <p><strong>Xét tập hợp R của tất cả các tập hợp không chứa chính nó.</strong><br />
+Câu hỏi: R có chứa chính nó không?</p>
+</blockquote>
+
+<p>Hãy thử trả lời câu hỏi này. Nếu R ∈ R (R chứa chính nó), thì theo định nghĩa của R, nó chỉ chứa những tập hợp không chứa chính nó, do đó R không nên chứa chính nó—mâu thuẫn! Ngược lại, nếu R ∉ R (R không chứa chính nó), thì R thỏa mãn tiêu chí để được membership trong R (là một tập hợp không chứa chính nó), vậy R phải chứa chính nó—lại mâu thuẫn! Chúng ta rơi vào deadlock logic, không có cách nào thoát ra.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Russell%27s_paradox.svg/400px-Russell%27s_paradox.svg.png" alt="Russell's Paradox illustration" /><br />
+<em>Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Russell%27s_paradox.svg">Wikimedia Commons</a></em></p>
+
+<p>Nghịch lý này không phải là trò chơi chữ clever—nó là một catastrophe cho nền móng toán học! Nó cho thấy rằng chúng ta không thể naive định nghĩa tập hợp như “bất kỳ bộ sưu tập nào ta nghĩ ra được”. Naive set theory của Cantor và Frege, dù trực quan và powerful, chứa đựng contradictions ở bên trong. Để tránh những nghịch lý như vậy, toán học hiện đại đã phải rebuild lý thuyết tập hợp từ đầu, sử dụng một hệ thống <strong>tiên đề</strong> (axioms) cẩn thận để đảm bảo consistency. Đây là một trong những moments quan trọng nhất trong lịch sử toán học—khi chúng ta nhận ra rằng even những khái niệm “hiển nhiên” nhất cũng cần phải được formalize một cách rigorous.</p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-tiên-đề-zermelo-fraenkel-zf">1. Tiên đề Zermelo-Fraenkel (ZF)</h3>
+
+<p>Toán học hiện đại sử dụng hệ tiên đề <strong>ZF</strong> (hoặc ZFC với Axiom of Choice) để định nghĩa tập hợp. Dưới đây là một số tiên đề quan trọng:</p>
+
+<p><strong>Tiên đề Extensionality (Tính mở rộng):</strong><br />
+Hai tập hợp bằng nhau khi và chỉ khi chúng có cùng các phần tử.</p>
+
+\[\forall A, B: (A = B) \iff (\forall x: x \in A \iff x \in B)\]
+
+<p><strong>Trực giác:</strong> Tiên đề này nói rằng một tập hợp hoàn toàn được xác định bởi các phần tử của nó, không quan trọng “cách” bạn mô tả chúng. Đây là một principle fundamental: hai tập hợp identical about membership thì identical as mathematical objects. Điều này có nghĩa là {1, 2, 3} và {3, 1, 2} là cùng một tập hợp vì chúng chứa chính xác cùng các phần tử, dù được liệt kê theo thứ tự khác nhau. Tương tự, {1, 2, 2, 3} và {1, 2, 3} là giống nhau vì sự “trùng lặp” không có ý nghĩa trong tập hợp—một phần tử hoặc là member, hoặc là không, không có khái niệm “xuất hiện nhiều lần”.</p>
+
+<p><strong>Tiên đề Pairing (Ghép đôi):</strong><br />
+Với hai tập hợp A và B bất kỳ, tồn tại tập hợp {A, B}.</p>
+
+\[\forall A, B: \exists C: \forall x: (x \in C \iff (x = A \lor x = B))\]
+
+<p><strong>Tiên đề Union (Hợp):</strong><br />
+Với một tập hợp các tập hợp, tồn tại tập hợp chứa tất cả phần tử của các tập hợp đó.</p>
+
+\[\forall \mathcal{F}: \exists U: \forall x: (x \in U \iff \exists A \in \mathcal{F}: x \in A)\]
+
+<p><strong>Tiên đề Power Set (Tập hợp lũy thừa):</strong><br />
+Với mọi tập hợp A, tồn tại tập hợp P(A) chứa tất cả các tập con của A.</p>
+
+\[\forall A: \exists P: \forall X: (X \in P \iff X \subseteq A)\]
+
+<p><strong>Ví dụ:</strong> Nếu A = {1, 2}, thì:
+\(\mathcal{P}(A) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}\)</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hasse_diagram_of_powerset_of_3.svg/300px-Hasse_diagram_of_powerset_of_3.svg.png" alt="Power set visualization" /><br />
+<em>Hasse diagram của P({1,2,3}) - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Hasse_diagram_of_powerset_of_3.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="2-hàm-số-functions">2. Hàm số (Functions)</h3>
+
+<p>Trong topology, hàm số (hay ánh xạ) là cách chúng ta so sánh và kết nối các không gian với nhau.</p>
+
+<p><strong>Định nghĩa (Hàm số):</strong><br />
+Một <strong>hàm số</strong> từ tập A đến tập B là một quy tắc f gán cho mỗi phần tử của A đúng một phần tử của B. Ký hiệu: f: A → B, trong đó A được gọi là domain (miền xác định), B là codomain (miền giá trị), và với mỗi a ∈ A, ta có f(a) ∈ B.</p>
+
+<p><strong>Định nghĩa hình thức:</strong> Một hàm f: A → B là một tập con của A × B sao cho:
+\(\forall a \in A: \exists! b \in B: (a, b) \in f\)</p>
+
+<p><strong>Tại sao định nghĩa này quan trọng?</strong> Định nghĩa hình thức này nói rằng một hàm không phải là một “quy tắc magic” mà là một set of ordered pairs thỏa mãn constraint đặc biệt: mỗi element trong A xuất hiện đúng một lần ở vị trí đầu tiên. Điều này đảm bảo tính deterministic—mỗi input có đúng một output. Tuy nhiên, constraint này không symmetrical: nhiều inputs khác nhau có thể map đến cùng một output (ví dụ f(2) = f(-2) = 4 trong hàm f(x) = x²), nhưng một input không thể có nhiều outputs. Asymmetry này là cốt lõi của khái niệm function.</p>
+
+<h4 id="các-loại-hàm">Các Loại Hàm</h4>
+
+<p><strong>Injective (Đơn ánh - One-to-one):</strong><br />
+Các phần tử khác nhau trong A được ánh xạ đến các phần tử khác nhau trong B.</p>
+
+\[\forall a_1, a_2 \in A: (f(a_1) = f(a_2)) \implies (a_1 = a_2)\]
+
+<p><strong>Ví dụ:</strong> f: ℝ → ℝ, f(x) = 2x + 1 là injective.</p>
+
+<p><strong>Surjective (Toàn ánh - Onto):</strong><br />
+Mọi phần tử trong B đều là ảnh của ít nhất một phần tử trong A.</p>
+
+\[\forall b \in B: \exists a \in A: f(a) = b\]
+
+<p><strong>Ví dụ:</strong> f: ℝ → ℝ, f(x) = x³ là surjective.</p>
+
+<p><strong>Bijective (Song ánh):</strong><br />
+Vừa injective vừa surjective. Có thể “đảo ngược” hoàn hảo.</p>
+
+\[f \text{ is bijective} \iff f \text{ is injective and surjective}\]
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Injective_composition.svg/500px-Injective_composition.svg.png" alt="Function types visualization" /><br />
+<em>Các loại hàm - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Injective_composition.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao những phân loại này quan trọng trong topology?</strong> Sự phân biệt giữa injective, surjective, và bijective không chỉ là technical classification mà reflect những properties geometric sâu sắc. <strong>Homeomorphism</strong>, khái niệm trung tâm của topology, chính là một bijection đặc biệt—nó không chỉ là bijection thuần túy mà còn preserve cấu trúc topological theo cả hai chiều. Injective maps bảo toàn tính “phân biệt”—nếu hai điểm khác nhau ở không gian nguồn, chúng vẫn khác nhau ở không gian đích, không bị “collapse” vào nhau. Điều này crucial khi ta muốn embed một không gian vào không gian khác. Ngược lại, surjective maps đảm bảo rằng ta “cover” toàn bộ không gian đích, không để sót bất kỳ điểm nào—property này quan trọng khi ta nghiên cứu quotient maps và covering spaces.</p>
+
+<hr />
+
+<h3 id="3-quan-hệ-relations">3. Quan hệ (Relations)</h3>
+
+<p><strong>Định nghĩa (Quan hệ):</strong><br />
+Một <strong>quan hệ</strong> R trên tập A là một tập con của A × A. Ký hiệu: a R b có nghĩa là (a, b) ∈ R.</p>
+
+<p>Quan hệ là cách toán học formalize các “connections” giữa các elements. Ví dụ, quan hệ <strong>≤</strong> trên ℝ nắm bắt khái niệm “ordering”, quan hệ <strong>=</strong> mô tả “identity”, và một quan hệ như “là anh em với” trên tập người có thể được formalized as a subset of (người × người). Sự khác biệt giữa quan hệ và hàm là quan hệ không yêu cầu mỗi element trong A phải liên kết với đúng một element khác—một element có thể không liên kết với ai, hoặc liên kết với nhiều elements khác.</p>
+
+<h4 id="quan-hệ-tương-đương">Quan hệ Tương đương</h4>
+
+<p><strong>Định nghĩa (Quan hệ tương đương):</strong><br />
+Một quan hệ ∼ trên A là <strong>tương đương</strong> nếu nó thỏa mãn ba tính chất: (1) <strong>Phản xạ (Reflexive):</strong> ∀a ∈ A: a ∼ a; (2) <strong>Đối xứng (Symmetric):</strong> ∀a,b ∈ A: (a ∼ b) ⇒ (b ∼ a); (3) <strong>Bắc cầu (Transitive):</strong> ∀a,b,c ∈ A: (a ∼ b) ∧ (b ∼ c) ⇒ (a ∼ c).</p>
+
+<p>Tại sao ba properties này lại đặc biệt? Chúng capture ý tưởng intuitive của “giống nhau theo một cách nào đó”. Reflexivity nói rằng mọi object “giống chính nó”—điều này nghe có vẻ trivial nhưng essential for consistency. Symmetry đảm bảo rằng nếu a giống b thì b cũng giống a—không có hierarchy hay direction trong mối quan hệ này. Transitivity cho phép ta “chain” các similarities: nếu a giống b và b giống c, thì a phải giống c. Ba axioms này together tạo nên một notion of “sameness” mathematically precise.</p>
+
+<p>Xét ví dụ <strong>đồng dư modulo n</strong>: hai số a và b tương đương nếu (a - b) chia hết cho n. Đây là quan hệ tương đương vì: (1) a - a = 0 luôn chia hết cho n (reflexive); (2) nếu a - b chia hết cho n thì b - a = -(a-b) cũng chia hết cho n (symmetric); (3) nếu a - b và b - c chia hết cho n thì a - c = (a-b) + (b-c) cũng chia hết cho n (transitive). Một ví dụ geometric là quan hệ <strong>song song</strong> giữa các đường thẳng (bao gồm trùng nhau): hai đường thẳng “tương đương” nếu chúng có cùng hướng. Trong topology, <strong>homeomorphism</strong> là một equivalence relation giữa các không gian—hai không gian “topologically equivalent” nếu có một bijection liên tục với inverse liên tục giữa chúng.</p>
+
+<p><strong>Lớp tương đương (Equivalence class):</strong><br />
+Với a ∈ A, lớp tương đương của a là:
+\([a] = \{x \in A : x \sim a\}\)</p>
+
+<p><strong>Phân hoạch (Partition):</strong><br />
+Các lớp tương đương chia A thành các tập con rời nhau, không rỗng, có hợp là A.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Equivalence_relation_on_set.svg/400px-Equivalence_relation_on_set.svg.png" alt="Equivalence classes visualization" /><br />
+<em>Phân hoạch bởi quan hệ tương đương - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Equivalence_relation_on_set.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao quan trọng trong topology?</strong><br />
+Quan hệ tương đương dẫn đến <strong>không gian thương</strong> (quotient spaces)—một cách mạnh mẽ để xây dựng không gian mới từ không gian cũ bằng cách “gán nhận” các điểm.</p>
+
+<hr />
+
+<h3 id="4-lực-lượng-cardinality">4. Lực lượng (Cardinality)</h3>
+
+<p>Một trong những khám phá vĩ đại nhất của Georg Cantor là: <strong>không phải tất cả vô hạn đều bằng nhau!</strong></p>
+
+<p><strong>Định nghĩa (Lực lượng):</strong><br />
+Hai tập A và B có <strong>cùng lực lượng</strong> (same cardinality) nếu tồn tại một bijection f: A → B.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Ký hiệu:</td>
+      <td>A</td>
+      <td>=</td>
+      <td>B</td>
+      <td>hoặc A ∼ B.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Trực giác:</strong> Hai tập “cùng kích thước” nếu ta có thể “đếm” chúng bằng cách ghép đôi 1-1.</p>
+
+<h4 id="các-loại-vô-hạn">Các Loại Vô hạn</h4>
+
+<p><strong>Countable (Đếm được):</strong><br />
+Một tập A là <strong>countable</strong> nếu |A| = |ℕ| (có bijection với tập số tự nhiên).</p>
+
+<p><strong>Ví dụ về tập countable:</strong> Tập số nguyên <strong>ℤ</strong> = {…, -2, -1, 0, 1, 2, …} là countable dù nó “lớn hơn” ℕ về mặt intuitive. Tại sao? Vì ta có thể tìm được một bijection tường minh: định nghĩa f(n) = n/2 nếu n chẵn, và f(n) = -(n+1)/2 nếu n lẻ. Bijection này ánh xạ 0↦0, 1↦-1, 2↦1, 3↦-2, 4↦2, … coverage tất cả integers. Một kết quả surprising hơn là tập số hữu tỉ <strong>ℚ</strong> cũng countable! Cantor đã chứng minh điều này bằng phương pháp “đường chéo” clever: sắp xếp tất cả phân số theo tổng (tử + mẫu), rồi đếm theo đường zigzag. Kết quả này counterintuitive vì ℚ là dense trong ℝ (giữa hai số hữu tỉ bất kỳ luôn có vô số số hữu tỉ khác), nhưng vẫn “chỉ” countable!</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Diagonal_argument.svg/500px-Diagonal_argument.svg.png" alt="Cantor's diagonal argument for rationals" /><br />
+<em>Chứng minh ℚ đếm được - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Diagonal_argument.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Uncountable (Không đếm được):</strong><br />
+Một tập là <strong>uncountable</strong> nếu nó không countable—không có bijection với ℕ.</p>
+
+<p><strong>Định lý (Cantor):</strong><br />
+<strong>ℝ</strong> (số thực) là uncountable.</p>
+
+<p><strong>Chứng minh (sketch):</strong> Giả sử ℝ countable, liệt kê tất cả số thực:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r₁ = 0.a₁₁ a₁₂ a₁₃ ...
+r₂ = 0.a₂₁ a₂₂ a₂₃ ...
+r₃ = 0.a₃₁ a₃₂ a₃₃ ...
+...
+</code></pre></div></div>
+
+<p>Xây dựng số mới: x = 0.b₁ b₂ b₃ … với bᵢ ≠ aᵢᵢ.<br />
+Khi đó x ∉ {r₁, r₂, r₃, …} → mâu thuẫn!</p>
+
+<p><strong>Kết luận quan trọng:</strong>
+\(|\mathbb{N}| &lt; |\mathbb{R}|\)</p>
+
+<p>Có “nhiều loại vô hạn” khác nhau!</p>
+
+<p><strong>Cardinality trong topology:</strong> Những khái niệm về countability này không chỉ là abstract curiosities—chúng xuất hiện everywhere trong topology và có ý nghĩa geometric deep. Một không gian được gọi là <strong>separable</strong> nếu nó chứa một countable dense subset, nghĩa là có một tập đếm được mà mỗi open set đều chứa ít nhất một điểm từ tập này. Ví dụ, ℝ là separable vì ℚ (countable) dense trong ℝ. Một không gian là <strong>first countable</strong> nếu mỗi điểm có một countable basis of neighborhoods—property này cho phép ta sử dụng sequences để describe continuity. Một không gian là <strong>second countable</strong> nếu toàn bộ topology có một countable basis—điều này stronger hơn first countable và có nhiều consequences powerful, bao gồm metrization theorems. Ba khái niệm này form một hierarchy quan trọng trong classification of topological spaces.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+<ol>
+  <li>
+    <p><strong>Georg Cantor</strong> - <em>“Über eine Eigenschaft des Inbegriffes aller reellen algebraischen Zahlen”</em> (1874)<br />
+<em>Bài báo chứng minh ℝ uncountable - khởi đầu lý thuyết tập hợp hiện đại</em></p>
+  </li>
+  <li>
+    <p><strong>Bertrand Russell</strong> - <em>“Letter to Frege”</em> (1902)<br />
+<em>Giới thiệu nghịch lý Russell, dẫn đến cuộc khủng hoảng nền móng toán học</em></p>
+  </li>
+  <li>
+    <p><strong>Ernst Zermelo</strong> - <em>“Untersuchungen über die Grundlagen der Mengenlehre I”</em> (1908)<br />
+<em>Tiên đề hóa lý thuyết tập hợp, tránh các nghịch lý</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>Chapter 1: Set Theory and Logic</strong><br />
+<em>Giới thiệu ngắn gọn nhưng đầy đủ về nền tảng tập hợp cho topology</em></p>
+  </li>
+  <li>
+    <p><strong>Herbert B. Enderton</strong> - <em>Elements of Set Theory</em> (1977)<br />
+<em>Giáo trình chi tiết về lý thuyết tập hợp tiên đề</em></p>
+  </li>
+  <li>
+    <p><strong>Paul R. Halmos</strong> - <em>Naive Set Theory</em> (1960)<br />
+<em>Approach trực quan, dễ đọc về lý thuyết tập hợp</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="physics">Physics</h3>
+<p><strong>Quantum Mechanics:</strong> Các trạng thái lượng tử được mô tả trong Hilbert spaces—không gian vô hạn chiều với cấu trúc tô-pô phức tạp. Hiểu về cardinality giúp ta phân biệt discrete spectrum vs continuous spectrum.</p>
+
+<h3 id="computer-science">Computer Science</h3>
+<p><strong>Computability Theory:</strong> Turing đã chứng minh rằng tập các hàm computable là countable, nhưng tập tất cả các hàm ℕ → ℕ là uncountable. Do đó, “hầu hết” các hàm không thể tính được!</p>
+
+<h3 id="data-science">Data Science</h3>
+<p><strong>Network Analysis:</strong> Graph theory sử dụng quan hệ tương đương để nhóm các nodes thành communities. Equivalence classes tương ứng với các connected components.</p>
+
+<h3 id="ví-dụ-thực-tế">Ví dụ Thực tế</h3>
+<p><strong>GPS Navigation:</strong> Khi tính đường đi ngắn nhất, ta sử dụng equivalence relation “cùng kết nối đến điểm A”. Các lớp tương đương là các vùng có thể tiếp cận được từ A.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="conceptual-questions">Conceptual Questions</h3>
+
+<ol>
+  <li>
+    <p><strong>Vẽ diagram minh họa:</strong><br />
+Vẽ Venn diagrams cho hai hàm f: A → B và g: A → B, trong đó f là injective nhưng không surjective, còn g là surjective nhưng không injective. Giải thích tại sao.</p>
+  </li>
+  <li><strong>Tìm quan hệ tương đương:</strong><br />
+Trên tập hợp các điểm trong mặt phẳng ℝ², xét quan hệ: “hai điểm ∼ nếu chúng có cùng khoảng cách đến gốc tọa độ”.
+    <ul>
+      <li>Chứng minh đây là quan hệ tương đương.</li>
+      <li>Mô tả hình học các lớp tương đương.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Cardinality puzzle:</strong><br />
+Chứng minh rằng |ℕ × ℕ| = |ℕ| bằng cách xây dựng một bijection tường minh.<br />
+(<em>Hint:</em> Sử dụng phương pháp “đường chéo” của Cantor)</p>
+  </li>
+  <li>
+    <p><strong>Power set cardinality:</strong><br />
+Nếu |A| = n (hữu hạn), chứng minh rằng |𝒫(A)| = 2ⁿ.<br />
+Tại sao ký hiệu 2^A được dùng cho tập hợp lũy thừa?</p>
+  </li>
+  <li><strong>Topology preview:</strong><br />
+Trong mặt phẳng ℝ², xét quan hệ: “hai hình ∼ nếu có thể biến dạng liên tục từ hình này sang hình kia mà không cắt hay dán”.
+    <ul>
+      <li>Đây có phải là quan hệ tương đương không?</li>
+      <li>Tam giác và hình vuông có tương đương không?</li>
+      <li>Hình tròn và hình chữ “8” có tương đương không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="reflection-questions">Reflection Questions</h3>
+
+<ol>
+  <li>
+    <p><strong>Philosophical:</strong><br />
+Nghịch lý Russell cho thấy gì về việc định nghĩa các khái niệm toán học? Tại sao chúng ta cần tiên đề?</p>
+  </li>
+  <li>
+    <p><strong>Historical context:</strong><br />
+Tìm hiểu về “cuộc khủng hoảng nền móng” (foundational crisis) trong toán học đầu thế kỷ 20. Các tiên đề ZF đã giải quyết vấn đề như thế nào?</p>
+  </li>
+  <li>
+    <p><strong>Big picture:</strong><br />
+Tại sao topology cần lý thuyết tập hợp? Những khái niệm nào trong bài này bạn nghĩ sẽ quan trọng nhất cho các bài giảng sau?</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §1–2 (Set Theory fundamentals)</li>
+  <li><strong>Enderton, Elements of Set Theory:</strong> Chapters 1–3 (Rigorous treatment)</li>
+  <li><strong>Hrbacek &amp; Jech, Introduction to Set Theory:</strong> Chapter 1 (Modern approach)</li>
+  <li><strong>Morris, Topology Without Tears:</strong> Chapter 1, §1.1 (Gentle introduction)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta đã xây dựng nền móng essential cho toàn bộ journey topology phía trước. Chúng ta bắt đầu với <strong>lý thuyết tập hợp</strong>, nơi Bertrand Russell’s paradox cảnh báo chúng ta rằng naive intuition không đủ—chúng ta cần hệ tiên đề ZF rigorous để avoid contradictions. Tiếp theo, chúng ta học về <strong>hàm số</strong> và ba classifications quan trọng (injective, surjective, bijective) mà sẽ reappear liên tục trong topology như embeddings, quotient maps, và homeomorphisms. <strong>Quan hệ tương đương</strong> mở ra powerful paradigm về việc nhóm elements theo “sameness”, dẫn đến equivalence classes và partition—ideas này fundamental cho quotient topology. Cuối cùng, <strong>cardinality</strong> tiết lộ rằng infinity không phải là monolithic: có nhiều “sizes” của vô hạn, với countable (như ℕ, ℤ, ℚ) nhỏ hơn uncountable (như ℝ).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Core insights từ bài này:</strong> Tập hợp là “atomic building blocks” của toán học hiện đại, nhưng phải được formalized carefully qua axioms. Bijections cung cấp precise way để compare “sizes” của sets, even infinite ones. Equivalence relations capture notion of “sameness” và form foundation cho quotient constructions. Và perhaps most surprisingly, not all infinities are equal—</td>
+      <td>ℕ</td>
+      <td>&lt;</td>
+      <td>ℝ</td>
+      <td>reveals một hierarchy of infinite cardinalities mà sẽ inform nhiều distinctions trong topology.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Tiếp theo:</strong> Trong Lecture 00.01, chúng ta sẽ học về <strong>Tích Cartesian</strong> và <strong>Bổ đề Zorn</strong>—công cụ mạnh mẽ để chứng minh sự tồn tại của các đối tượng tô-pô.</p>
+
+<hr />
+
+<p><em>“In mathematics, you don’t understand things. You just get used to them.” — John von Neumann</em></p>
+
+<p>🎯 <strong>Hãy làm bài tập và vẽ nhiều hình! Topology là môn học hình học.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Next:</strong> <a href="/contents/vi/topology-chapter00/00_01_Cartesian_Products_Zorns_Lemma/">Lecture 00.01: Cartesian Products and Zorn’s Lemma</a></p>
+
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/00_01_Cartesian_Products_Zorns_Lemma/">Lecture 00.01: Cartesian Products and Zorn's Lemma</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/00_02_Logic_Mathematical_Proofs/">Lecture 00.02: Logic and Mathematical Proofs</a>
+      
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/00_03_Real_Numbers_Euclidean_Space/">Lecture 00.03: Real Numbers and Euclidean Space</a>
+      
+    </li>
+  
+  
+
+</ul>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

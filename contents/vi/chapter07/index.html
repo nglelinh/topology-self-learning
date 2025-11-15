@@ -1,0 +1,253 @@
+---
+layout: page
+title: "Homology Theory"
+lang: vi
+lang-ref: topology-chapter07
+chapter: '07'
+permalink: /contents/vi/chapter07/
+---
+
+<div class="chapter-intro">
+  <h1>Chapter 07: Homology Theory</h1>
+  <p class="chapter-description">
+    <strong>Homology theory</strong> là một trong những công cụ powerful nhất trong algebraic topology. While fundamental group π₁ detects "1-dimensional holes" (loops), homology groups H_n detect holes of all dimensions. Homology is computable, functorial, và provides complete algebraic invariants cho nhiều spaces. Chapter này introduces simplicial và singular homology, computational techniques (Mayer-Vietoris), và cohomology với cup product structure.
+  </p>
+  
+  <div class="learning-objectives">
+    <h3>🎯 Learning Objectives</h3>
+    <ul>
+      <li>Understand chain complexes và boundary operators</li>
+      <li>Define simplicial và singular homology</li>
+      <li>Compute H_n(X) cho standard spaces</li>
+      <li>Apply Mayer-Vietoris sequence</li>
+      <li>Understand Euler characteristic via homology</li>
+      <li>Work with cohomology và cup product</li>
+      <li>Connect homology với topology</li>
+      <li>Apply homology to classification problems</li>
+    </ul>
+  </div>
+  
+  <div class="prerequisites">
+    <h3>📚 Prerequisites</h3>
+    <p>Chapters 00-06: Topological spaces, fundamental group. Basic algebra (groups, exact sequences) helpful.</p>
+  </div>
+</div>
+
+<div class="lectures-list">
+  <h2>📖 Lectures</h2>
+  
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter07/07_00_Simplicial_Homology/">
+        Lecture 07.00: Simplicial Homology
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Simplices (vertices, edges, triangles), simplicial complexes, chain groups C_n, boundary operator ∂, chain complex, homology groups H_n = ker(∂)/im(∂), cycles và boundaries, Betti numbers
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">simplicial-homology</span>
+      <span class="tag">chain-complex</span>
+      <span class="tag">boundary-operator</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter07/07_01_Singular_Homology/">
+        Lecture 07.01: Singular Homology
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Singular simplices σ: Δⁿ → X, singular chain complex, singular homology H_n(X), functoriality (induced maps), homotopy invariance (X ≃ Y ⇒ H_*(X) ≅ H_*(Y)), advantages over simplicial
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">singular-homology</span>
+      <span class="tag">functoriality</span>
+      <span class="tag">homotopy-invariance</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter07/07_02_Homology_Computations/">
+        Lecture 07.02: Homology Computations
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Standard computations (H_*(point), H_*(Sⁿ), H_*(T²), H_*(surfaces)), Euler characteristic χ = Σ(-1)ⁿ rank(H_n), Betti numbers, relationship với V-E+F formula, examples và techniques
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">homology-computations</span>
+      <span class="tag">euler-characteristic</span>
+      <span class="tag">betti-numbers</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter07/07_03_Mayer_Vietoris/">
+        Lecture 07.03: Mayer-Vietoris Sequence
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Long exact sequence for X = A ∪ B, connecting homomorphism ∂, diagram chasing, applications (computing H_*(Sⁿ) recursively, surfaces), comparison với Van Kampen for π₁
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">mayer-vietoris</span>
+      <span class="tag">exact-sequence</span>
+      <span class="tag">computational-tool</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter07/07_04_Cohomology_Introduction/">
+        Lecture 07.04: Cohomology - Introduction
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Cohomology Hⁿ(X) = Hom(H_n, G), cochain complex, coboundary operator δ, cup product ∪: Hᵖ × Hᵍ → Hᵖ⁺ᵍ, ring structure, Universal Coefficient Theorem, Poincaré duality for manifolds
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">cohomology</span>
+      <span class="tag">cup-product</span>
+      <span class="tag">ring-structure</span>
+      <span class="tag">poincare-duality</span>
+    </p>
+  </div>
+</div>
+
+<div class="chapter-summary">
+  <h2>🎓 Chapter Summary</h2>
+  <p>
+    Chapter 07 introduced <strong>homology và cohomology</strong>—powerful algebraic invariants:
+  </p>
+  <ul>
+    <li><strong>Chain Complex:</strong> C_n → C_(n-1) với ∂∘∂ = 0</li>
+    <li><strong>Homology:</strong> H_n = ker(∂_n) / im(∂_(n+1))</li>
+    <li><strong>Simplicial:</strong> From triangulations</li>
+    <li><strong>Singular:</strong> Works for any space, homotopy invariant</li>
+    <li><strong>Computations:</strong> H_*(Sⁿ) = ℤ (k=0,n), 0 (else)</li>
+    <li><strong>Mayer-Vietoris:</strong> Compute from pieces</li>
+    <li><strong>Cohomology:</strong> Dual với additional structure (cup product)</li>
+  </ul>
+  
+  <h3>Key Results</h3>
+  <ul>
+    <li><strong>Homotopy Invariance:</strong> X ≃ Y ⇒ H_*(X) ≅ H_*(Y)</li>
+    <li><strong>Euler Characteristic:</strong> χ = Σ(-1)ⁿ rank(H_n)</li>
+    <li><strong>Mayer-Vietoris:</strong> Long exact sequence for unions</li>
+    <li><strong>Universal Coefficient:</strong> Relates H^n với H_n</li>
+    <li><strong>Poincaré Duality:</strong> H^k(M) ≅ H_(n-k)(M) for manifolds</li>
+  </ul>
+  
+  <h3>Applications</h3>
+  <ul>
+    <li><strong>Classification:</strong> Distinguish spaces via homology groups</li>
+    <li><strong>Fixed Points:</strong> Lefschetz theorem</li>
+    <li><strong>Vector Fields:</strong> Hairy ball theorem</li>
+    <li><strong>Data Analysis:</strong> Persistent homology (TDA)</li>
+  </ul>
+</div>
+
+<div class="navigation-links">
+  <p>
+    <strong>Previous Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter06/">Chapter 06: Fundamental Group and Covering Spaces</a><br>
+    <strong>Next Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter08/">Chapter 08: Advanced Topics</a>
+  </p>
+</div>
+
+<style>
+.chapter-intro {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.chapter-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learning-objectives, .prerequisites {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.learning-objectives h3, .prerequisites h3 {
+  color: #2c5aa0;
+  margin-top: 0;
+}
+
+.lectures-list {
+  margin-top: 30px;
+}
+
+.lecture-item {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4CAF50;
+}
+
+.lecture-item h3 {
+  margin-top: 0;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a {
+  text-decoration: none;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a:hover {
+  color: #4CAF50;
+}
+
+.lecture-description {
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.lecture-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.chapter-summary {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.chapter-summary h2 {
+  color: #856404;
+  margin-top: 0;
+}
+
+.navigation-links {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e9;
+  border-radius: 10px;
+}
+</style>
+

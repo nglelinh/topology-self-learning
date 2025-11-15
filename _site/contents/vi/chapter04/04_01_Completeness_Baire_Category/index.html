@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 04.01: Completeness and Baire Category Theorem &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 04.01: Completeness and Baire Category Theorem
+    
+  </h1>
+  <p><strong>Completeness and Baire Category Theorem</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Completeness là một trong những khái niệm quan trọng nhất trong giải tích và tô-pô học. Trực giác đằng sau completeness là đơn giản nhưng sâu sắc: một không gian metric là complete nếu nó “không có lỗ hổng”—mọi dãy Cauchy (những dãy mà các phần tử gần nhau tùy ý) đều hội tụ đến một điểm trong không gian. Điều này đảm bảo rằng không gian không có “điểm thiếu”—mọi điểm mà chúng ta mong đợi tồn tại đều thực sự tồn tại.</p>
+
+<p>Định lý Baire Category là một trong những định lý đẹp và mạnh mẽ nhất trong tô-pô học. Nó phát biểu rằng một complete metric space không thể được viết thành hợp đếm được của các tập nowhere dense. Nghe có vẻ kỹ thuật? Nhưng các hệ quả của nó rất sâu sắc! Định lý này cho chúng ta biết rằng complete metric spaces là “lớn” theo một nghĩa nhất định—chúng không thể được phân tích thành các phần “nhỏ” theo nghĩa Baire.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Cauchy_sequence_illustration.svg/500px-Cauchy_sequence_illustration.svg.png" alt="Complete vs incomplete space visualization" /><br />
+<em>Dãy Cauchy trong complete space hội tụ - Nguồn: Wikimedia Commons</em></p>
+
+<p>Tại sao completeness và định lý Baire lại quan trọng đến vậy? Thứ nhất, các định lý điểm bất động như định lý Banach và định lý Brouwer đều cần completeness để hoạt động—chúng đảm bảo rằng các dãy lặp hội tụ đến điểm bất động. Thứ hai, trong giải tích hàm, các Banach spaces được định nghĩa chính xác là các không gian định chuẩn complete—đây là nền tảng của toàn bộ lĩnh vực giải tích hàm. Thứ ba, nhiều định lý tồn tại trong giải tích dựa vào định lý Baire để chứng minh sự tồn tại của các đối tượng “generic”—những đối tượng có các tính chất đặc biệt mà hầu hết các đối tượng đều có. Cuối cùng, định lý Baire cho chúng ta những kết quả phản trực giác: một tập có thể dense (dày đặc) nhưng lại meager (nhỏ theo nghĩa Baire), như trường hợp của $\mathbb{Q}$ trong $\mathbb{R}$.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của completeness và định lý Baire Category. Chúng ta bắt đầu với định nghĩa của complete spaces và các ví dụ quan trọng như $\mathbb{R}^n$, các khoảng đóng, và các không gian hàm. Chúng ta sẽ nghiên cứu các tính chất của complete spaces, bao gồm cách completeness được bảo toàn bởi các không gian con đóng. Chúng ta sẽ khám phá khái niệm completion—mọi metric space đều có một completion duy nhất (lên đến isometry), giống như cách $\mathbb{R}$ là completion của $\mathbb{Q}$. Chúng ta sẽ định nghĩa các tập nowhere dense và các khái niệm meager và residual. Cuối cùng, chúng ta sẽ phát biểu và chứng minh định lý Baire Category, và khám phá các ứng dụng của nó trong giải tích hàm và các định lý tồn tại.</p>
+
+<hr />
+
+<h2 id="-complete-metric-spaces">🔍 Complete Metric Spaces</h2>
+
+<h3 id="1-definition-và-first-properties">1. Definition và First Properties</h3>
+
+<p>Trước khi định nghĩa completeness, chúng ta cần nhắc lại khái niệm về dãy Cauchy. Một dãy $(x_n)$ trong metric space $(X, d)$ được gọi là <strong>Cauchy</strong> nếu các phần tử của nó gần nhau tùy ý khi chỉ số đủ lớn. Chính xác hơn, $(x_n)$ là Cauchy nếu:</p>
+
+\[\forall \varepsilon &gt; 0: \exists N \in \mathbb{N}: \forall m,n \geq N: d(x_m, x_n) &lt; \varepsilon\]
+
+<p>Trực giác đằng sau khái niệm này là: một dãy Cauchy là một dãy mà các phần tử của nó “muốn hội tụ”—chúng gần nhau tùy ý—nhưng điểm giới hạn có thể không tồn tại trong không gian.</p>
+
+<p><strong>Định nghĩa (Complete Metric Space):</strong><br />
+Một metric space $(X, d)$ được gọi là <strong>complete</strong> nếu mọi dãy Cauchy trong $X$ đều hội tụ đến một điểm trong $X$.</p>
+
+<p>Trực giác đằng sau completeness là “không có lỗ hổng”—mọi điểm mà chúng ta mong đợi tồn tại (như giới hạn của một dãy Cauchy) đều thực sự tồn tại trong không gian. Đây là một tính chất quan trọng đảm bảo rằng không gian không có “điểm thiếu”.</p>
+
+<p>Một kết quả cơ bản là mọi dãy hội tụ đều là Cauchy. Điều này có nghĩa là nếu $x_n \to x$, thì với mọi $\varepsilon &gt; 0$, tồn tại $N$ sao cho với mọi $n \geq N$, ta có $d(x_n, x) &lt; \varepsilon/2$. Khi đó, với mọi $m, n \geq N$, ta có:</p>
+
+\[d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) &lt; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\]
+
+<p>Vậy $(x_n)$ là Cauchy. Tuy nhiên, điều ngược lại không đúng trong trường hợp tổng quát—một dãy Cauchy không nhất thiết phải hội tụ. Nhưng nếu không gian là complete, thì mọi dãy Cauchy đều hội tụ—đây chính là định nghĩa của completeness.</p>
+
+<hr />
+
+<h3 id="2-examples-của-complete-spaces">2. Examples của Complete Spaces</h3>
+
+<p>Một trong những ví dụ quan trọng nhất của complete space là không gian Euclid $\mathbb{R}^n$ với metric Euclid thông thường. Định lý phát biểu rằng $(\mathbb{R}^n, d_2)$ là complete. Ý tưởng chứng minh là như sau: nếu $(x_n)$ là một dãy Cauchy trong $\mathbb{R}^n$, thì mỗi tọa độ của nó là một dãy Cauchy trong $\mathbb{R}$. Vì $\mathbb{R}$ là complete (theo tiên đề completeness của số thực), mỗi tọa độ hội tụ. Do đó, giới hạn $x = (\lim x_1^n, \ldots, \lim x_n^n)$ tồn tại và $x_n \to x$ trong $\mathbb{R}^n$. Điều quan trọng là completeness của $\mathbb{R}$ là nền tảng cho tất cả các kết quả này—đây là một trong những lý do tại sao chúng ta cần số thực thay vì chỉ số hữu tỉ.</p>
+
+<p>Một ví dụ quan trọng khác là khoảng đóng $[a,b]$. Định lý phát biểu rằng khoảng đóng bị chặn $[a,b]$ là complete. Chứng minh như sau: nếu $(x_n)$ là một dãy Cauchy trong $[a,b] \subseteq \mathbb{R}$, thì vì $\mathbb{R}$ là complete, $x_n \to x \in \mathbb{R}$. Vì $[a,b]$ là đóng trong $\mathbb{R}$, ta có $x \in [a,b]$. Nguyên lý tổng quát là: một tập con đóng của một complete space là complete.</p>
+
+<p>Tuy nhiên, không phải mọi không gian đều complete. Ví dụ, khoảng mở $(0,1)$ không complete. Một phản ví dụ là dãy $x_n = 1/n$ là Cauchy trong $(0,1)$, nhưng $\lim x_n = 0 \notin (0,1)$. Bài học ở đây là các khoảng mở không complete vì chúng thiếu các điểm đầu mút.</p>
+
+<p>Một ví dụ quan trọng khác về không gian không complete là $\mathbb{Q}$—tập hợp các số hữu tỉ. Chúng ta có thể xây dựng một dãy các số hữu tỉ hội tụ đến $\sqrt{2}$. Dãy này là Cauchy trong $\mathbb{Q}$, nhưng giới hạn $\sqrt{2} \notin \mathbb{Q}$. Vậy $\mathbb{Q}$ không complete. Về mặt lịch sử, completeness của $\mathbb{R}$ chính là lý do tại sao chúng ta “cần” số thực—chúng ta cần một không gian complete để làm việc với giải tích.</p>
+
+<p>Một ví dụ quan trọng trong giải tích hàm là không gian các hàm liên tục $C([0,1], \mathbb{R})$ với uniform metric (supremum norm):</p>
+
+\[d_\infty(f,g) = \sup_{x \in [0,1]} |f(x) - g(x)|\]
+
+<p>Định lý phát biểu rằng $(C([0,1]), d_\infty)$ là complete. Ý tưởng chứng minh: nếu $(f_n)$ là một dãy Cauchy, thì nó là uniformly Cauchy. Điều này có nghĩa là với mỗi $x$, dãy $(f_n(x))$ là Cauchy trong $\mathbb{R}$, và vì $\mathbb{R}$ là complete, giới hạn $f(x) = \lim f_n(x)$ tồn tại. Hơn nữa, sự hội tụ đều bảo toàn tính liên tục, vì vậy $f$ là liên tục và $f_n \to f$ đều. Completeness là nền tảng trong giải tích hàm.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Cuối cùng, các không gian $\ell^p$ là complete cho mọi $p \geq 1$. Đây là các không gian các dãy $(x_n)$ với $\sum</td>
+      <td>x_n</td>
+      <td>^p &lt; \infty$ và metric:</td>
+    </tr>
+  </tbody>
+</table>
+
+\[d((x_n), (y_n)) = \left(\sum_{n=1}^\infty |x_n - y_n|^p\right)^{1/p}\]
+
+<p>Chứng minh là không tầm thường và sử dụng bất đẳng thức Minkowski và định lý hội tụ đơn điệu. Tầm quan trọng của các không gian này là chúng tạo thành nền tảng cho giải tích hàm—các Banach spaces.</p>
+
+<hr />
+
+<h3 id="3-properties-của-complete-spaces">3. Properties của Complete Spaces</h3>
+
+<p><strong>Định lý 1 (Closed Subspace):</strong><br />
+Y ⊆ X closed, X complete ⇒ Y complete (với induced metric).</p>
+
+<p><strong>Proof:</strong><br />
+(yₙ) Cauchy in Y ⇒ Cauchy in X ⇒ yₙ → x ∈ X.<br />
+Y closed ⇒ x ∈ Y. ✓</p>
+
+<p><strong>Corollary:</strong> [a,b] complete vì closed in ℝ.</p>
+
+<hr />
+
+<p><strong>Định lý 2 (Converse):</strong><br />
+Y ⊆ X, Y complete, X complete ⇒ Y closed trong X.</p>
+
+<p><strong>Proof:</strong><br />
+Cho x ∈ cl(Y). ∃ sequence yₙ ∈ Y: yₙ → x.<br />
+Convergent ⇒ Cauchy.<br />
+Y complete ⇒ yₙ → y ∈ Y.<br />
+Limits unique ⇒ x = y ∈ Y.<br />
+Vậy cl(Y) = Y. ✓</p>
+
+<p><strong>Ý nghĩa:</strong> Y complete ⟺ Y closed (trong complete space).</p>
+
+<hr />
+
+<p><strong>Định lý 3 (Nested Closed Sets):</strong><br />
+X complete, F₁ ⊇ F₂ ⊇ F₃ ⊇ … closed nonempty với diam(Fₙ) → 0.<br />
+Thì ⋂Fₙ = {exactly one point}.</p>
+
+<p><strong>Proof:</strong><br />
+Chọn xₙ ∈ Fₙ. diam(Fₙ) → 0 ⇒ (xₙ) Cauchy.<br />
+X complete ⇒ xₙ → x.<br />
+∀n: tail {xₙ, xₙ₊₁, …} ⊆ Fₙ, Fₙ closed ⇒ x ∈ Fₙ.<br />
+Vậy x ∈ ⋂Fₙ.<br />
+diam → 0 ⇒ unique. ✓</p>
+
+<p><strong>Application:</strong> Fixed point theorems, existence proofs.</p>
+
+<hr />
+
+<h3 id="4-completion-của-metric-spaces">4. Completion của Metric Spaces</h3>
+
+<p><strong>Idea:</strong> Mọi incomplete metric space có “completion”—complete space chứa X dense.</p>
+
+<p><strong>Ví dụ:</strong> Completion của ℚ = ℝ.</p>
+
+<p><strong>Định lý (Completion Theorem):</strong><br />
+Mọi metric space (X, d) có <strong>completion</strong> ((\overline{X}), (\overline{d})) unique up to isometry:</p>
+<ul>
+  <li>(\overline{X}) complete metric space</li>
+  <li>X ⊆ (\overline{X}) isometrically</li>
+  <li>X dense trong (\overline{X})</li>
+</ul>
+
+<p><strong>Construction:</strong><br />
+(\overline{X}) = equivalence classes của Cauchy sequences trong X.<br />
+Two sequences equivalent if distance → 0.</p>
+
+<p><strong>Proof:</strong> Technical nhưng straightforward. See Munkres §43.</p>
+
+<p><strong>Example:</strong></p>
+<ul>
+  <li>Completion của ℚ = ℝ</li>
+  <li>Completion của (0,1) = [0,1]</li>
+  <li>Completion của C([0,1]) với L¹ = L¹([0,1])</li>
+</ul>
+
+<p><strong>Uniqueness:</strong> Up to isometry preserving X.</p>
+
+<hr />
+
+<h2 id="-nowhere-dense-sets-và-baire-category">🎯 Nowhere Dense Sets và Baire Category</h2>
+
+<h3 id="1-nowhere-dense-sets">1. Nowhere Dense Sets</h3>
+
+<p>Khái niệm nowhere dense là một cách để đo lường “độ nhỏ” của một tập hợp theo nghĩa tô-pô. Một tập hợp được gọi là nowhere dense nếu closure của nó không chứa bất kỳ tập mở nào—nghĩa là nó không “dày đặc” ở bất kỳ đâu.</p>
+
+<p><strong>Định nghĩa (Nowhere Dense):</strong><br />
+Một tập hợp $A \subseteq X$ được gọi là <strong>nowhere dense</strong> nếu $\text{int}(\text{cl}(A)) = \emptyset$.</p>
+
+<p>Nói bằng lời, closure của $A$ không chứa bất kỳ tập mở nào. Điều này tương đương với việc $\text{cl}(A)$ không có interior points—không có điểm nào trong closure có một lân cận mở hoàn toàn nằm trong closure. Trực giác là $A$ được “trải mỏng”—nó không “dày” ở bất kỳ đâu trong không gian.</p>
+
+<hr />
+
+<p><strong>Examples:</strong></p>
+
+<p><strong>Example 1:</strong> {0} nowhere dense trong ℝ.<br />
+cl({0}) = {0}, int({0}) = ∅. ✓</p>
+
+<p><strong>Example 2:</strong> ℕ nowhere dense trong ℝ.<br />
+cl(ℕ) = ℕ, int(ℕ) = ∅. ✓</p>
+
+<p><strong>Example 3:</strong> Cantor set nowhere dense trong [0,1].<br />
+C compact, totally disconnected, perfect, measure zero.<br />
+cl(C) = C, int(C) = ∅. ✓</p>
+
+<p><strong>Example 4:</strong> [0,1] NOT nowhere dense trong ℝ.<br />
+int(cl([0,1])) = int([0,1]) = (0,1) ≠ ∅. ✗</p>
+
+<p><strong>Example 5:</strong> ℚ NOT nowhere dense trong ℝ.<br />
+cl(ℚ) = ℝ, int(ℝ) = ℝ ≠ ∅. ✗<br />
+(ℚ dense!)</p>
+
+<hr />
+
+<p><strong>Proposition:</strong><br />
+A nowhere dense ⟺ X \ cl(A) dense.</p>
+
+<p><strong>Proof:</strong><br />
+A nowhere dense ⟺ int(cl(A)) = ∅ ⟺ cl(A) không chứa open ball nào ⟺ mọi open ball intersects X \ cl(A) ⟺ X \ cl(A) dense. ✓</p>
+
+<p><strong>Trực giác:</strong> Complement của nowhere dense = dense!</p>
+
+<hr />
+
+<h3 id="2-category-và-meager-sets">2. Category và Meager Sets</h3>
+
+<p>Khái niệm category là một cách để phân loại các tập hợp theo “độ lớn” của chúng trong không gian tô-pô. Một tập hợp được gọi là meager (hay first category) nếu nó có thể được viết thành hợp đếm được của các tập nowhere dense—nghĩa là nó là “nhỏ” theo nghĩa Baire.</p>
+
+<p><strong>Định nghĩa (Meager/First Category):</strong><br />
+Một tập hợp $A$ được gọi là <strong>meager</strong> (hay <strong>first category</strong>) nếu $A = \bigcup A_n$ với mỗi $A_n$ là nowhere dense.</p>
+
+<p><strong>Định nghĩa (Nonmeager/Second Category):</strong><br />
+Một tập hợp $A$ được gọi là <strong>nonmeager</strong> (hay <strong>second category</strong>) nếu nó không meager.</p>
+
+<p><strong>Định nghĩa (Residual/Comeager):</strong><br />
+Một tập hợp $A$ được gọi là <strong>residual</strong> (hay <strong>comeager</strong>) nếu $X \setminus A$ là meager.</p>
+
+<p>Trực giác đằng sau các khái niệm này là: meager = “nhỏ” (hợp đếm được của các tập mỏng), trong khi residual = “lớn” (phần bù là meager). Điều quan trọng cần lưu ý là thuật ngữ “category” ở đây không liên quan đến category theory—đây là một thuật ngữ lịch sử từ công trình của Baire.</p>
+
+<hr />
+
+<p><strong>Examples:</strong></p>
+
+<p><strong>Example 1:</strong> Countable sets meager trong ℝ.<br />
+ℚ = ⋃{rₙ}, mỗi {rₙ} nowhere dense ⇒ ℚ meager. ✓</p>
+
+<p><strong>Example 2:</strong> Cantor set meager trong [0,1].<br />
+C nowhere dense ⇒ meager. ✓</p>
+
+<p><strong>Example 3:</strong> ℝ \ ℚ residual trong ℝ.<br />
+ℚ meager ⇒ ℝ \ ℚ residual. ✓</p>
+
+<p><strong>Surprise:</strong> ℚ dense nhưng meager!<br />
+ℝ \ ℚ measure-theoretically full (measure = ℝ), also residual!</p>
+
+<p><strong>Lesson:</strong> “Large” có nhiều meanings: dense, full measure, residual.</p>
+
+<hr />
+
+<h3 id="3-baire-category-theorem">3. Baire Category Theorem</h3>
+
+<p><strong>Định lý (Baire Category Theorem - Version 1):</strong><br />
+Cho (X, d) complete metric space.<br />
+Nếu U₁, U₂, U₃, … open dense trong X, thì:</p>
+
+\[\bigcap_{n=1}^\infty U_n \text{ dense trong } X\]
+
+<p><strong>Nói bằng lời:</strong> Countable intersection của open dense sets = dense.</p>
+
+<p><strong>Trực giác:</strong> “Large sets stay large even after countable intersections.”</p>
+
+<hr />
+
+<p><strong>Định lý (Baire Category Theorem - Version 2):</strong><br />
+Complete metric space X không thể viết được thành countable union của nowhere dense sets.</p>
+
+<p><strong>Equivalent formulation:</strong> Complete metric space = second category (nonmeager).</p>
+
+<p><strong>Proof của Version 1 ⇒ Version 2:</strong><br />
+Giả sử X = ⋃ Aₙ, Aₙ nowhere dense.<br />
+Uₙ = X \ cl(Aₙ) open dense (by proposition).<br />
+⋂Uₙ dense ⇒ ⋂Uₙ ≠ ∅.<br />
+Nhưng ⋂Uₙ = X \ ⋃cl(Aₙ) ⊆ X \ ⋃Aₙ = ∅. Contradiction! ✓</p>
+
+<hr />
+
+<p><strong>Proof của Baire Category Theorem (Version 1):</strong></p>
+
+<p><strong>Given:</strong> X complete, U₁, U₂, … open dense.<br />
+<strong>Goal:</strong> ⋂Uₙ dense, i.e., ⋂Uₙ ∩ V ≠ ∅ ∀ open V ≠ ∅.</p>
+
+<p><strong>Construction:</strong><br />
+Cho V open ≠ ∅.</p>
+
+<p><strong>Step 1:</strong> U₁ dense ⇒ U₁ ∩ V ≠ ∅, open.<br />
+Choose open ball B₁ = B(x₁, r₁) ⊆ U₁ ∩ V với r₁ &lt; 1.</p>
+
+<p><strong>Step 2:</strong> U₂ dense ⇒ U₂ ∩ B₁ ≠ ∅, open.<br />
+Choose B₂ = B(x₂, r₂) ⊆ U₂ ∩ B₁ với r₂ &lt; 1/2.</p>
+
+<p><strong>Induction:</strong> Bₙ = B(xₙ, rₙ) ⊆ Uₙ ∩ Bₙ₋₁ với rₙ &lt; 1/n.</p>
+
+<p><strong>Claim:</strong> (xₙ) Cauchy.<br />
+xₙ, xₘ ∈ Bₙ (m &gt; n) ⇒ d(xₙ, xₘ) &lt; 2rₙ &lt; 2/n → 0. ✓</p>
+
+<p><strong>X complete ⇒ xₙ → x ∈ X.</strong></p>
+
+<p><strong>Claim:</strong> x ∈ cl(Bₙ) ∀n.<br />
+Tail {xₙ, xₙ₊₁, …} ⊆ Bₙ ⊆ cl(Bₙ). ✓</p>
+
+<p><strong>rₙ → 0 ⇒ cl(Bₙ) = {x} eventually?</strong><br />
+No! Nhưng x ∈ cl(Bₙ) ⊆ cl(Uₙ ∩ V).<br />
+Uₙ, V open ⇒ x ∈ Uₙ ∩ V.</p>
+
+<p><strong>Vậy x ∈ (⋂Uₙ) ∩ V. ✓</strong></p>
+
+<p><strong>Conclusion:</strong> ⋂Uₙ dense. ✓ QED</p>
+
+<hr />
+
+<p><strong>Remark:</strong> Proof constructive—actually finds point in intersection!</p>
+
+<hr />
+
+<h3 id="4-applications-của-baire-category-theorem">4. Applications của Baire Category Theorem</h3>
+
+<p><strong>Application 1: Existence của Continuous Nowhere Differentiable Functions</strong></p>
+
+<p><strong>Định lý (Banach):</strong><br />
+“Most” continuous functions [0,1] → ℝ nowhere differentiable.</p>
+
+<p><strong>Precise:</strong> {f ∈ C([0,1]) : f nowhere differentiable} residual.</p>
+
+<p><strong>Proof idea:</strong> Baire Category + C([0,1]) complete.</p>
+
+<p><strong>Remark:</strong> Counterintuitive! “Typical” function NOT differentiable.</p>
+
+<hr />
+
+<p><strong>Application 2: Irrationality “Typical”</strong></p>
+
+<p><strong>Fact:</strong> ℝ \ ℚ residual trong ℝ.<br />
+Vậy “almost all” real numbers irrational (trong Baire sense).</p>
+
+<p><strong>Note:</strong> Also true measure-theoretically (ℚ measure zero).</p>
+
+<hr />
+
+<p><strong>Application 3: Hint at Open Mapping Theorem</strong></p>
+
+<p><strong>Định lý (Open Mapping Theorem - functional analysis):</strong><br />
+T: X → Y continuous linear surjection giữa Banach spaces ⇒ T open.</p>
+
+<p><strong>Proof sử dụng Baire Category Theorem crucially.</strong></p>
+
+<p><strong>Sketch:</strong><br />
+Y = ⋃ T(Bₙ(0)). Baire ⇒ some T(Bₙ(0)) has interior ⇒ T open on origin ⇒ T open everywhere. ✓</p>
+
+<hr />
+
+<p><strong>Application 4: Principle of Uniform Boundedness</strong></p>
+
+<p><strong>Định lý (Banach-Steinhaus):</strong><br />
+{Tₙ} linear operators pointwise bounded ⇒ uniformly bounded.</p>
+
+<p><strong>Proof:</strong> Baire Category.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>René Baire</strong> - <em>“Sur les fonctions de variables réelles”</em> (1899)<br />
+<em>Introduced category notion, proved Baire Category Theorem</em></p>
+  </li>
+  <li>
+    <p><strong>Stefan Banach</strong> - <em>“Sur les opérations dans les ensembles abstraits”</em> (1922)<br />
+<em>Banach spaces, completeness</em></p>
+  </li>
+  <li>
+    <p><strong>Maurice Fréchet</strong> - <em>“Sur quelques points du calcul fonctionnel”</em> (1906)<br />
+<em>Metric spaces</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§27, §48: Baire Category</strong></p>
+  </li>
+  <li>
+    <p><strong>Walter Rudin</strong> - <em>Principles of Mathematical Analysis</em>, <strong>Chapter 3</strong><br />
+<em>Complete spaces</em></p>
+  </li>
+  <li>
+    <p><strong>John C. Oxtoby</strong> - <em>Measure and Category</em>, 1971<br />
+<em>Deep study of category vs measure</em></p>
+  </li>
+  <li>
+    <p><strong>Michael Reed &amp; Barry Simon</strong> - <em>Functional Analysis</em>, <strong>Chapter 1</strong><br />
+<em>Baire’s theorem applications</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="functional-analysis">Functional Analysis</h3>
+<p><strong>Banach Spaces:</strong> Complete normed vector spaces. Baire ⇒ Open Mapping, Closed Graph, Uniform Boundedness.</p>
+
+<h3 id="real-analysis">Real Analysis</h3>
+<p><strong>Existence Proofs:</strong> Baire shows certain objects “generic” (continuous nowhere differentiable functions).</p>
+
+<h3 id="descriptive-set-theory">Descriptive Set Theory</h3>
+<p><strong>Polish Spaces:</strong> Complete separable metric spaces. Baire Category fundamental tool.</p>
+
+<h3 id="differential-equations">Differential Equations</h3>
+<p><strong>Fixed Point Theorems:</strong> Banach Fixed Point Theorem requires completeness. Solve ODEs, PDEs.</p>
+
+<h3 id="probability-theory">Probability Theory</h3>
+<p><strong>Kolmogorov:</strong> Completion of probability spaces ensures measurability.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="completeness">Completeness</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Completeness:</strong><br />
+Chứng minh chi tiết [0,1] complete.</p>
+  </li>
+  <li>
+    <p><strong>Not Complete:</strong><br />
+Chứng minh (0,1) không complete bằng explicit Cauchy sequence.</p>
+  </li>
+  <li>
+    <p><strong>Closed Subspace:</strong><br />
+Chứng minh: Y closed in complete X ⇒ Y complete.</p>
+  </li>
+  <li>
+    <p><strong>Completion:</strong><br />
+Tìm completion của ℚ ∩ [0,1].</p>
+  </li>
+</ol>
+
+<h3 id="cauchy-sequences">Cauchy Sequences</h3>
+
+<ol>
+  <li>
+    <p><strong>Cauchy:</strong><br />
+xₙ = Σᵢ₌₁ⁿ 1/i!. Chứng minh (xₙ) Cauchy trong ℝ.</p>
+  </li>
+  <li>
+    <p><strong>Not Cauchy:</strong><br />
+Cho example sequence không Cauchy.</p>
+  </li>
+  <li>
+    <p><strong>Product:</strong><br />
+X, Y complete ⇒ X × Y complete (product metric)?</p>
+  </li>
+</ol>
+
+<h3 id="nowhere-dense">Nowhere Dense</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Nowhere Dense:</strong><br />
+ℕ nowhere dense trong ℝ. Chứng minh.</p>
+  </li>
+  <li>
+    <p><strong>Cantor Set:</strong><br />
+Cantor set C nowhere dense, measure zero, nhưng uncountable, perfect. Sketch construction.</p>
+  </li>
+  <li>
+    <p><strong>Dense but Meager:</strong><br />
+ℚ dense và meager trong ℝ. Explain paradox.</p>
+  </li>
+</ol>
+
+<h3 id="baire-category-theorem">Baire Category Theorem</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply Baire:</strong><br />
+ℝ không thể viết thành countable union của countable sets. Chứng minh bằng Baire.</p>
+  </li>
+  <li>
+    <p><strong>Irrationals Residual:</strong><br />
+ℝ \ ℚ residual. Explicit proof.</p>
+  </li>
+  <li>
+    <p><strong>Continuous Nowhere Differentiable:</strong><br />
+Research proof sketch (Banach’s theorem) về existence.</p>
+  </li>
+</ol>
+
+<h3 id="applications">Applications</h3>
+
+<ol>
+  <li>
+    <p><strong>Fixed Point:</strong><br />
+Banach Fixed Point Theorem: f: X → X contraction trên complete X ⇒ unique fixed point.<br />
+Sketch proof.</p>
+  </li>
+  <li>
+    <p><strong>Nested Sets:</strong><br />
+Áp dụng nested closed sets theorem: solve equation bằng successive approximations.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Locally Compact:</strong><br />
+Locally compact Hausdorff space cũng satisfy Baire Category Theorem (không cần complete!).<br />
+Example: ℝⁿ, manifolds.</p>
+  </li>
+  <li>
+    <p><strong>Countable vs Meager:</strong><br />
+Countable set meager, nhưng meager set có thể uncountable (Cantor set).<br />
+Explain sizes.</p>
+  </li>
+  <li>
+    <p><strong>Open Mapping:</strong><br />
+Research Open Mapping Theorem statement và proof sketch using Baire.</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Completeness Matters:</strong><br />
+Explain tại sao completeness crucial trong analysis.</p>
+  </li>
+  <li>
+    <p><strong>Baire’s Surprise:</strong><br />
+Baire Category Theorem counterintuitive: ℚ dense nhưng “small” (meager), ℝ\ℚ “large” (residual).<br />
+Reconcile intuition.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §48 (Baire Category)</li>
+  <li><strong>Rudin, PMA:</strong> Chapter 3 (Completeness)</li>
+  <li><strong>Oxtoby:</strong> <em>Measure and Category</em> (comprehensive)</li>
+  <li><strong>Kelley:</strong> <em>General Topology</em> (Baire in general spaces)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá các khái niệm cơ bản của completeness và định lý Baire Category. Một complete space là một không gian metric trong đó mọi dãy Cauchy đều hội tụ—đây là tính chất “không có lỗ hổng” đảm bảo rằng mọi điểm mà chúng ta mong đợi tồn tại đều thực sự tồn tại. Các ví dụ quan trọng của complete spaces bao gồm $\mathbb{R}^n$, các khoảng đóng $[a,b]$, không gian các hàm liên tục $C([0,1])$ với uniform metric, và các không gian $\ell^p$. Một kết quả quan trọng là mọi metric space đều có một completion duy nhất (lên đến isometry)—một cách để “điền đầy các lỗ hổng” trong không gian.</p>
+
+<p>Một tập hợp nowhere dense là một tập hợp mà closure của nó không chứa bất kỳ tập mở nào—nó được “trải mỏng” trong không gian. Một tập hợp meager là hợp đếm được của các tập nowhere dense—nó là “nhỏ” theo nghĩa Baire. Một tập hợp residual là phần bù của một tập meager—nó là “lớn” theo nghĩa Baire. Định lý Baire Category phát biểu rằng một complete metric space không thể được viết thành hợp đếm được của các tập nowhere dense—nó là “lớn” (second category). Định lý này có nhiều ứng dụng quan trọng trong các định lý tồn tại và giải tích hàm.</p>
+
+<p>Điểm chính của bài học là completeness tương đương với “không có lỗ hổng”—mọi dãy Cauchy đều hội tụ. Định lý Baire cho chúng ta biết rằng complete space là “lớn” (second category)—nó không thể được phân tích thành các phần “nhỏ”. Một kết quả phản trực giác là $\mathbb{Q}$ là dense nhưng lại meager—nó dày đặc nhưng “nhỏ” theo nghĩa Baire. Định lý Baire là quan trọng trong giải tích hàm—nó là công cụ chính trong các chứng minh của Open Mapping Theorem và Uniform Boundedness Principle. Cuối cùng, $\mathbb{R} \setminus \mathbb{Q}$ là residual—”hầu hết” các số thực là vô tỉ theo nghĩa Baire.</p>
+
+<p>Trong thực tế, chúng ta kiểm tra completeness khi làm việc với các định lý điểm bất động—chúng cần completeness để đảm bảo sự hội tụ. Định lý Baire cho chúng ta biết về các tính chất “generic”—những tính chất mà hầu hết các đối tượng đều có. Completeness được bảo toàn bởi các không gian con đóng—một tập con đóng của một complete space là complete. Completion là một construction phổ quát—mọi metric space đều có một completion duy nhất.</p>
+
+<p><strong>Tiếp theo:</strong> Lecture 04.02 về <strong>Equivalent Metrics và Uniform Continuity</strong>!</p>
+
+<hr />
+
+<p><em>“The Baire Category Theorem is the soul of analysis.”</em> — Anonymous</p>
+
+<p>🎯 <strong>Master completeness! It’s the foundation of functional analysis.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter04/04_00_Metric_Spaces_Fundamentals/">Lecture 04.00: Metric Spaces Fundamentals</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter04/04_02_Equivalent_Metrics_Uniform_Continuity/">Lecture 04.02: Equivalent Metrics and Uniform Continuity</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter4/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

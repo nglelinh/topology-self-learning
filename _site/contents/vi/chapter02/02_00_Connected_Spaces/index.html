@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 02.00: Connected Spaces &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 02.00: Connected Spaces
+    
+  </h1>
+  <p><strong>Connected Spaces</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Chào mừng đến Chapter 02! Chúng ta đã học <strong>định nghĩa</strong> topology và <strong>morphisms</strong> (continuous functions). Giờ đây chúng ta nghiên cứu <strong>properties</strong> của topological spaces.</p>
+
+<p>Hai tính chất quan trọng nhất:</p>
+<ol>
+  <li><strong>Connectedness</strong> (tính liên thông) — Chapter này</li>
+  <li><strong>Compactness</strong> (tính compact) — Lecture tiếp theo</li>
+</ol>
+
+<p><strong>Câu hỏi trực quan:</strong> Khi nào một không gian là “one piece” (một mảnh)?</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>Interval [0,1]: <strong>connected</strong> (không thể chia thành hai phần rời nhau)</li>
+  <li>[0,1] ∪ [2,3]: <strong>disconnected</strong> (hai mảnh riêng biệt)</li>
+  <li>Circle S¹: <strong>connected</strong> (một đường cong liền)</li>
+  <li>Two circles: <strong>disconnected</strong></li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Connected_and_disconnected_spaces.svg/500px-Connected_and_disconnected_spaces.svg.png" alt="Connected vs Disconnected" /><br />
+<em>Connected (trái) vs Disconnected (phải) - Nguồn concept</em></p>
+
+<p><strong>Connectedness = không thể “chia nhỏ”</strong></p>
+
+<p><strong>Trong bài này:</strong></p>
+<ul>
+  <li>Định nghĩa chính thức của <strong>connected</strong></li>
+  <li>Các đặc trưng tương đương (via separation)</li>
+  <li><strong>Path-connectedness</strong>: Connected qua “đường đi”</li>
+  <li><strong>Connected components</strong>: Phân hoạch space thành “mảnh”</li>
+  <li>Ứng dụng: Intermediate Value Theorem</li>
+</ul>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+<ul>
+  <li>Connected spaces = “cannot be separated”</li>
+  <li>Nhiều theorems cần connectedness (IVT, Fixed Point, etc.)</li>
+  <li>Path-connectedness = stronger notion, dễ work hơn</li>
+  <li>Components = topological invariants</li>
+</ul>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-chia-cắt">Câu chuyện về Chia cắt</h3>
+
+<p>Tưởng tượng bạn có một <strong>piece of rope</strong> (dây thừng). Rope này “connected” vì nó là một mảnh duy nhất.</p>
+
+<p><strong>Làm sao “disconnect” rope?</strong><br />
+→ <strong>Cut</strong> (cắt) nó! Sau khi cắt → hai pieces riêng biệt.</p>
+
+<p><strong>Trong topology:</strong><br />
+“Cutting” = tìm hai open sets U, V sao cho:</p>
+<ul>
+  <li>U ∪ V = X (cover toàn bộ)</li>
+  <li>U ∩ V = ∅ (disjoint)</li>
+  <li>U, V ≠ ∅ (cả hai non-empty)</li>
+</ul>
+
+<p>Nếu tìm được → <strong>disconnected</strong>.<br />
+Nếu không tìm được → <strong>connected</strong>!</p>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+
+<p>[0,1] ∪ [2,3]:</p>
+<ul>
+  <li>U = (-1, 1.5) ∩ X = [0,1]</li>
+  <li>V = (1.5, 4) ∩ X = [2,3]</li>
+  <li>U, V open (trong subspace topology), disjoint, non-empty</li>
+  <li>→ Disconnected!</li>
+</ul>
+
+<p>[0,2]:</p>
+<ul>
+  <li>Không thể tìm được separation như vậy</li>
+  <li>→ Connected!</li>
+</ul>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-connected-spaces">1. Connected Spaces</h3>
+
+<p><strong>Định nghĩa (Disconnected):</strong><br />
+Topological space X là <strong>disconnected</strong> nếu tồn tại U, V ∈ 𝜏 (open) sao cho:</p>
+<ol>
+  <li>U, V ≠ ∅ (non-empty)</li>
+  <li>U ∩ V = ∅ (disjoint)</li>
+  <li>U ∪ V = X (cover space)</li>
+</ol>
+
+<p>Khi đó, {U, V} gọi là <strong>separation</strong> (phân ly) của X.</p>
+
+<p><strong>Định nghĩa (Connected):</strong><br />
+X là <strong>connected</strong> nếu X <strong>không</strong> disconnected.</p>
+
+<p><strong>Nói bằng lời:</strong> Không tồn tại separation.</p>
+
+<p><strong>Ví dụ 1: Interval</strong></p>
+
+<p>[0,1] connected trong ℝ.</p>
+
+<p><strong>Proof (sketch):</strong> Giả sử (phản chứng) ∃ separation {U, V}.<br />
+Không mất tổng quát, giả sử 0 ∈ U.<br />
+Xét s = sup(U ∩ [0,1]) ∈ [0,1].</p>
+
+<p>Nếu s ∈ U: U open → ∃ε: (s-ε, s+ε) ⊆ U → s không phải sup, mâu thuẫn.<br />
+Nếu s ∈ V: V open → ∃ε: (s-ε, s+ε) ⊆ V → contradiction với s = sup(U).<br />
+Nếu s ∉ U ∪ V: contradiction với U ∪ V = X. ∎</p>
+
+<p><strong>Ví dụ 2: ℚ (rationals)</strong></p>
+
+<p>ℚ <strong>disconnected</strong> trong ℝ!</p>
+
+<p><strong>Proof:</strong><br />
+U = ℚ ∩ (-∞, √2), V = ℚ ∩ (√2, ∞).<br />
+U, V open trong subspace topology, disjoint, non-empty, U ∪ V = ℚ. ✓</p>
+
+<p><strong>Ví dụ 3: Discrete Topology</strong></p>
+
+<p>Mọi space &gt; 1 điểm với discrete topology <strong>disconnected</strong>.</p>
+
+<p><strong>Proof:</strong> Cho x ≠ y. U = {x}, V = X \ {x} là separation. ✓</p>
+
+<p><strong>Ví dụ 4: Trivial Topology</strong></p>
+
+<p>Mọi space với trivial topology <strong>connected</strong>.</p>
+
+<p><strong>Proof:</strong> Chỉ có ∅, X là open → không thể tìm separation. ✓</p>
+
+<hr />
+
+<h3 id="2-equivalent-characterizations">2. Equivalent Characterizations</h3>
+
+<p><strong>Định lý (Equivalent Definitions):</strong><br />
+Các phát biểu sau <strong>tương đương</strong>:</p>
+
+<p><strong>(1)</strong> X connected</p>
+
+<p><strong>(2)</strong> Chỉ có ∅ và X vừa open vừa closed (clopen)</p>
+
+<p><strong>(3)</strong> Không tồn tại continuous surjection f: X → {0,1} (discrete topology)</p>
+
+<p><strong>(4)</strong> Mọi continuous f: X → {0,1} là constant</p>
+
+<p><strong>Chứng minh:</strong></p>
+
+<p><strong>(1 ⇒ 2):</strong><br />
+Giả sử A ⊆ X clopen, A ≠ ∅, X.<br />
+Khi đó U = A open, V = X \ A open (vì A closed).<br />
+U ∩ V = ∅, U ∪ V = X, U,V ≠ ∅ → separation, mâu thuẫn với (1)!</p>
+
+<p><strong>(2 ⇒ 3):</strong><br />
+Giả sử ∃f: X → {0,1} continuous surjection.<br />
+f⁻¹({0}) clopen (vì {0} clopen trong {0,1}).<br />
+f surjective → f⁻¹({0}) ≠ ∅, X.<br />
+Mâu thuẫn với (2)!</p>
+
+<p><strong>(3 ⇒ 4):</strong> Trivial.</p>
+
+<p><strong>(4 ⇒ 1):</strong><br />
+Giả sử {U, V} separation của X.<br />
+Define f: X → {0,1}: f(U) = 0, f(V) = 1.<br />
+f continuous (vì f⁻¹({0}) = U open, f⁻¹({1}) = V open).<br />
+f không constant, mâu thuẫn với (4)! ∎</p>
+
+<p><strong>Ứng dụng practical:</strong><br />
+Để chứng minh X connected, dùng characterization (2): tìm tất cả clopen sets.</p>
+
+<hr />
+
+<h3 id="3-properties-of-connected-spaces">3. Properties of Connected Spaces</h3>
+
+<p><strong>Định lý (Continuous Image):</strong><br />
+Nếu f: X → Y continuous và X connected, thì f(X) connected.</p>
+
+<p><strong>Trực giác:</strong> Continuity preserves connectedness.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Giả sử (phản chứng) f(X) disconnected với separation {U, V}.<br />
+f⁻¹(U), f⁻¹(V) open (f continuous), disjoint, non-empty (f surjection lên f(X)).<br />
+f⁻¹(U) ∪ f⁻¹(V) = X → separation của X, mâu thuẫn! ∎</p>
+
+<p><strong>Hệ quả quan trọng:</strong><br />
+<strong>Connectedness là topological property!</strong></p>
+
+<p>X ≅ Y và X connected → Y connected.</p>
+
+<p><strong>Ứng dụng:</strong> Để chứng minh Y connected, tìm X connected với continuous surjection f: X → Y.</p>
+
+<hr />
+
+<p><strong>Định lý (Union of Connected Spaces):</strong><br />
+Cho {Aα}α∈I họ connected subspaces của X.<br />
+Nếu ⋂α Aα ≠ ∅ (có điểm chung), thì ⋃α Aα connected.</p>
+
+<p><strong>Trực giác:</strong> Các connected pieces “overlap” → union connected.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Connected_union.svg/400px-Connected_union.svg.png" alt="Union of connected spaces" /><br />
+<em>Union của connected spaces qua intersection - Nguồn concept</em></p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho A = ⋃Aα, x₀ ∈ ⋂Aα.<br />
+Giả sử (phản chứng) f: A → {0,1} continuous non-constant.<br />
+Không mất tổng quát, f(x₀) = 0.<br />
+Mỗi fα = f|_{Aα} continuous, fα(x₀) = 0.<br />
+Aα connected → fα constant → fα ≡ 0.<br />
+→ f ≡ 0 trên A, mâu thuẫn! ∎</p>
+
+<p><strong>Hệ quả:</strong><br />
+Nếu A connected và A ⊆ B ⊆ cl(A), thì B connected.</p>
+
+<p><strong>Chứng minh:</strong> A và cl(A) cùng intersect A → A ∪ cl(A) = cl(A) connected. ∎</p>
+
+<hr />
+
+<p><strong>Định lý (Product of Connected Spaces):</strong><br />
+Nếu X, Y connected, thì X × Y connected (product topology).</p>
+
+<p><strong>Chứng minh (sketch):</strong><br />
+Fix x₀ ∈ X, y₀ ∈ Y.</p>
+<ul>
+  <li>Slice {x₀} × Y ≅ Y connected</li>
+  <li>Slice X × {y} ≅ X connected với mọi y</li>
+  <li>Tất cả slices X × {y} intersect tại (x₀, y)</li>
+  <li>→ ⋃_y (X × {y}) = X × Y connected ✓</li>
+</ul>
+
+<hr />
+
+<h3 id="4-connected-subspaces-of-ℝ">4. Connected Subspaces of ℝ</h3>
+
+<p><strong>Định lý (Characterization on ℝ):</strong><br />
+A ⊆ ℝ connected ⟺ A là <strong>interval</strong> (có thể unbounded).</p>
+
+<p><strong>Intervals:</strong></p>
+<ul>
+  <li>Bounded: [a,b], (a,b), [a,b), (a,b]</li>
+  <li>Unbounded: [a,∞), (a,∞), (-∞,b], (-∞,b), ℝ</li>
+</ul>
+
+<p><strong>Chứng minh (⇐):</strong><br />
+Đã chứng minh [0,1] connected.<br />
+Mọi interval homeomorphic với [0,1], (-∞,∞), [0,∞), hoặc (-∞,0] → connected. ✓</p>
+
+<p><strong>Chứng minh (⇒):</strong><br />
+Giả sử A connected, không phải interval.<br />
+Tồn tại a &lt; c &lt; b với a,b ∈ A nhưng c ∉ A.<br />
+U = A ∩ (-∞,c), V = A ∩ (c,∞) → separation → mâu thuẫn! ∎</p>
+
+<p><strong>Hệ quả quan trọng:</strong> ℝ connected, ℚ disconnected.</p>
+
+<hr />
+
+<h3 id="5-intermediate-value-theorem">5. Intermediate Value Theorem</h3>
+
+<p><strong>Định lý (Intermediate Value Theorem - IVT):</strong><br />
+Cho X connected, f: X → ℝ continuous.<br />
+Nếu x, y ∈ X với f(x) &lt; f(y), thì:</p>
+
+\[\forall r \in (f(x), f(y)): \exists z \in X: f(z) = r\]
+
+<p><strong>Nói bằng lời:</strong> f đạt mọi giá trị trung gian.</p>
+
+<p><strong>Chứng minh:</strong><br />
+f(X) connected (continuous image).<br />
+f(x), f(y) ∈ f(X) → (f(x), f(y)) ⊆ f(X) (vì f(X) là interval connected).<br />
+→ ∀r ∈ (f(x), f(y)): ∃z: f(z) = r. ∎</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Intermediate_value_theorem.svg/400px-Intermediate_value_theorem.svg.png" alt="Intermediate Value Theorem" /><br />
+<em>IVT illustration - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Intermediate_value_theorem.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Ứng dụng:</strong><br />
+Chứng minh phương trình có nghiệm!</p>
+
+<p><strong>Ví dụ:</strong> x³ - x + 1 = 0 có nghiệm trong (-2, 0).</p>
+
+<p>f(-2) = -5 &lt; 0, f(0) = 1 &gt; 0 → ∃c ∈ (-2,0): f(c) = 0 by IVT. ✓</p>
+
+<hr />
+
+<h3 id="6-path-connectedness">6. Path-Connectedness</h3>
+
+<p><strong>Định nghĩa (Path):</strong><br />
+<strong>Path</strong> trong X từ x đến y là continuous map:</p>
+
+\[\gamma: [0,1] \to X \quad \text{với } \gamma(0) = x, \gamma(1) = y\]
+
+<p><strong>Định nghĩa (Path-Connected):</strong><br />
+X là <strong>path-connected</strong> nếu với mọi x, y ∈ X, tồn tại path từ x đến y.</p>
+
+<p><strong>Trực giác:</strong> Có thể “đi” từ bất kỳ điểm nào đến điểm nào qua đường liên tục.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Path-connectedness.svg/400px-Path-connectedness.svg.png" alt="Path connected space" /><br />
+<em>Path-connected: có path giữa mọi hai điểm - Nguồn concept</em></p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>ℝⁿ</strong> path-connected: γ(t) = (1-t)x + ty (straight line)</li>
+  <li><strong>S¹</strong> path-connected: arc on circle</li>
+  <li><strong>[0,1] ∪ [2,3]</strong> KHÔNG path-connected: không có path từ [0,1] → [2,3]</li>
+</ul>
+
+<p><strong>Định lý (Path-Connected ⇒ Connected):</strong><br />
+Nếu X path-connected, thì X connected.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Fix x₀ ∈ X. Với mọi x ∈ X, ∃ path γ: [0,1] → X từ x₀ → x.<br />
+[0,1] connected → γ([0,1]) connected (continuous image).<br />
+{γ([0,1])}_{x ∈ X} họ connected spaces, tất cả contain x₀.<br />
+→ ⋃_x γ([0,1]) = X connected. ∎</p>
+
+<p><strong>Ngược lại KHÔNG đúng!</strong></p>
+
+<p><strong>反例 (Topologist’s Sine Curve):</strong></p>
+
+\[A = \{(x, \sin(1/x)) : 0 &lt; x \leq 1\} \cup \{(0,0)\} \subseteq \mathbb{R}^2\]
+
+<ul>
+  <li>A <strong>connected</strong> (closure của connected subspace)</li>
+  <li>A <strong>KHÔNG path-connected</strong> (không có continuous path từ (0,0) đến any point trên curve)</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Topologist%27s_sine_curve.svg/400px-Topologist%27s_sine_curve.svg.png" alt="Topologist's sine curve" /><br />
+<em>Topologist’s sine curve - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Topologist%27s_sine_curve.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="7-connected-components">7. Connected Components</h3>
+
+<p><strong>Định nghĩa (Connected Component):</strong><br />
+<strong>Connected component</strong> của x ∈ X là union của tất cả connected subspaces chứa x:</p>
+
+\[C_x = \bigcup \{A \subseteq X : x \in A, A \text{ connected}\}\]
+
+<p><strong>Định lý (Properties of Components):</strong></p>
+<ol>
+  <li>C_x connected (union theorem)</li>
+  <li>C_x closed</li>
+  <li>C_x ∩ C_y ≠ ∅ ⇒ C_x = C_y</li>
+  <li>X = ⋃_x C_x (disjoint union - partition)</li>
+</ol>
+
+<p><strong>Trực giác:</strong> Components = “maximal connected pieces” của X.</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p>[0,1] ∪ [2,3]:</p>
+<ul>
+  <li>C_x = [0,1] nếu x ∈ [0,1]</li>
+  <li>C_x = [2,3] nếu x ∈ [2,3]</li>
+  <li>Hai components</li>
+</ul>
+
+<p>ℚ (rationals):</p>
+<ul>
+  <li>Mỗi C_x = {x} (singleton)</li>
+  <li>ℚ có countably many components (totally disconnected!)</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Bernard Bolzano</strong> - <em>“Rein analytischer Beweis…”</em> (1817)<br />
+<em>Đầu tiên phát biểu IVT chặt chẽ</em></p>
+  </li>
+  <li>
+    <p><strong>Camille Jordan</strong> - <em>“Cours d’analyse”</em> (1893)<br />
+<em>Jordan curve theorem - connectedness</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Formalization của connectedness</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§23–24: Connected Spaces</strong><br />
+<em>Standard reference</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology Without Tears</em>, <strong>Chapter 9</strong><br />
+<em>Clear examples</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Willard</strong> - <em>General Topology</em>, <strong>Chapter 6</strong><br />
+<em>Comprehensive treatment</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="analysis---ivt-và-fixed-points">Analysis - IVT và Fixed Points</h3>
+<p><strong>Brouwer Fixed Point:</strong> Mọi continuous f: Dⁿ → Dⁿ có fixed point. Chứng minh dùng connectedness!</p>
+
+<h3 id="graph-theory---connectivity">Graph Theory - Connectivity</h3>
+<p><strong>Connected Graphs:</strong> Graph connected ⟺ underlying space connected (với topology thích hợp).</p>
+
+<h3 id="neuroscience---brain-networks">Neuroscience - Brain Networks</h3>
+<p><strong>Functional Connectivity:</strong> Brain regions form connected networks. Disconnection = neurological disorders.</p>
+
+<h3 id="economics---network-effects">Economics - Network Effects</h3>
+<p><strong>Market Networks:</strong> Connected markets allow price discovery. Disconnection → arbitrage opportunities.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="connected-spaces">Connected Spaces</h3>
+
+<ol>
+  <li><strong>Verify Connected:</strong><br />
+Các spaces sau connected không?
+    <ul>
+      <li>a) ℝ</li>
+      <li>b) ℚ</li>
+      <li>c) [0,1]</li>
+      <li>d) (0,1) ∪ (1,2)</li>
+    </ul>
+  </li>
+  <li><strong>Clopen Sets:</strong><br />
+Tìm tất cả clopen sets trong:
+    <ul>
+      <li>a) ℝ</li>
+      <li>b) [0,1] ∪ [2,3]</li>
+      <li>c) Discrete topology trên {1,2,3}</li>
+    </ul>
+  </li>
+  <li><strong>IVT Application:</strong><br />
+Chứng minh x⁵ + x = 1 có nghiệm trong (0,1).</li>
+</ol>
+
+<h3 id="path-connected">Path-Connected</h3>
+
+<ol>
+  <li><strong>Verify Path-Connected:</strong><br />
+Các spaces sau path-connected không?
+    <ul>
+      <li>a) ℝⁿ</li>
+      <li>b) S¹ (circle)</li>
+      <li>c) [0,1] ∪ [2,3]</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Construct Path:</strong><br />
+X = ℝ² \ {origin}. Chứng minh X path-connected.</p>
+  </li>
+  <li><strong>Topologist’s Sine Curve:</strong><br />
+A = {(x, sin(1/x)) : 0 &lt; x ≤ 1} ∪ {(0,0)}.<br />
+Chứng minh A connected nhưng không path-connected.</li>
+</ol>
+
+<h3 id="components">Components</h3>
+
+<ol>
+  <li><strong>Find Components:</strong><br />
+Tìm connected components của:
+    <ul>
+      <li>a) ℚ</li>
+      <li>b) [0,1] ∪ [2,3] ∪ {5}</li>
+      <li>c) ℝ \ ℤ</li>
+    </ul>
+  </li>
+  <li><strong>Components Properties:</strong><br />
+Chứng minh: Connected components luôn closed.</li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Products:</strong><br />
+Chứng minh: Nếu X, Y connected thì X × Y connected.</p>
+  </li>
+  <li>
+    <p><strong>Continuous Image:</strong><br />
+Cho f: X → Y continuous, X connected.<br />
+Chứng minh f(X) connected.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §23–25 (Connected Spaces, Components)</li>
+  <li><strong>Morris, Topology Without Tears:</strong> Chapter 9</li>
+  <li><strong>Hatcher, Algebraic Topology:</strong> §0 (Path-connectedness)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>✅ <strong>Connected:</strong> Không thể chia thành hai open sets disjoint<br />
+✅ <strong>Characterizations:</strong> Via clopen sets, continuous maps<br />
+✅ <strong>Continuous Image:</strong> f(connected) = connected<br />
+✅ <strong>IVT:</strong> Connected spaces → intermediate values<br />
+✅ <strong>Path-Connected:</strong> Stronger notion, implies connected<br />
+✅ <strong>Components:</strong> Maximal connected pieces</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Connectedness = “one piece”</li>
+  <li>IVT là hệ quả topology</li>
+  <li>Path-connected ⇒ connected (ngược lại sai!)</li>
+  <li>Components = partition X</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Lecture 02.01 về <strong>Applications of Connectedness</strong> với nhiều theorems và examples hơn!</p>
+
+<hr />
+
+<p><em>“Connected spaces cannot be separated.”</em> — Topology wisdom</p>
+
+<p>🎯 <strong>Visualize connectedness! Vẽ paths và separations.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter01/">Chapter 01: Topological Spaces</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter02/02_01_Applications_Connectedness/">Lecture 02.01: Applications of Connectedness</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter2/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

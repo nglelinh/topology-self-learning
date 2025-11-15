@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 04.02: Equivalent Metrics and Uniform Continuity &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 04.02: Equivalent Metrics and Uniform Continuity
+    
+  </h1>
+  <p><strong>Equivalent Metrics and Uniform Continuity</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Một không gian có thể có nhiều metrics khác nhau, nhưng chúng có thể tạo ra cùng một topology. Đây là khái niệm về các metric tương đương—các metric khác nhau nhưng cùng một topology. Điều này có nghĩa là mặc dù cách đo khoảng cách có thể khác nhau, cấu trúc tô-pô cơ bản vẫn giữ nguyên—các tập mở, các dãy hội tụ, và các hàm liên tục đều giống nhau.</p>
+
+<p>Uniform continuity là một sự tăng cường của tính liên tục: $\delta$ không phụ thuộc vào điểm $x$. Điều này có những hệ quả sâu sắc—nó cho phép chúng ta kiểm soát sự biến thiên của hàm một cách đồng đều trên toàn bộ miền, không chỉ tại từng điểm riêng lẻ. Điều này đặc biệt quan trọng khi làm việc với các hàm trên các không gian compact hoặc khi cần mở rộng các hàm từ một tập dày đặc.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Nonuniform_continuity.svg/500px-Nonuniform_continuity.svg.png" alt="Uniform continuity visualization" /><br />
+<em>Liên tục nhưng không liên tục đều - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Nonuniform_continuity.svg">Wikimedia Commons</a></em></p>
+
+<p>Các contraction mappings là trường hợp đặc biệt của uniform continuity, dẫn đến định lý điểm bất động mạnh mẽ của Banach. Một contraction mapping là một ánh xạ làm giảm khoảng cách giữa các điểm—nó “co lại” không gian. Định lý Banach cho chúng ta biết rằng mọi contraction mapping trên một không gian metric complete đều có một điểm bất động duy nhất, và chúng ta có thể tìm điểm này bằng cách lặp lại ánh xạ từ một điểm bất kỳ.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá các khái niệm về equivalent metrics và uniform continuity. Chúng ta bắt đầu với định nghĩa của equivalent metrics và các cách đặc trưng chúng—bằng cách sử dụng ánh xạ đồng nhất, sự hội tụ của dãy, hoặc các quả cầu mở. Chúng ta sẽ nghiên cứu các ví dụ quan trọng như các metric trên $\mathbb{R}^n$ và các ví dụ về các metric không tương đương. Chúng ta sẽ định nghĩa uniform continuity và khám phá mối quan hệ của nó với tính liên tục thông thường. Chúng ta sẽ nghiên cứu định lý Heine-Cantor, cho chúng ta biết rằng mọi hàm liên tục trên một không gian compact đều liên tục đều. Chúng ta sẽ khám phá Lipschitz continuity—một dạng continuity định lượng mạnh hơn uniform continuity. Cuối cùng, chúng ta sẽ nghiên cứu contraction mappings và định lý điểm bất động Banach, cùng với các ứng dụng của chúng trong việc giải phương trình và các phương trình vi phân.</p>
+
+<p>Tại sao những khái niệm này lại quan trọng? Thứ nhất, việc chọn metric là quan trọng—các metric khác nhau có thể dẫn đến các tính chất khác nhau, ngay cả khi chúng tương đương về mặt tô-pô. Thứ hai, các định lý điểm bất động là cơ bản trong giải tích—chúng cho phép chúng ta chứng minh sự tồn tại và tính duy nhất của nghiệm cho nhiều loại phương trình. Thứ ba, các định lý này có ứng dụng quan trọng trong các phương trình vi phân thường và đạo hàm riêng—chúng đảm bảo sự tồn tại và tính duy nhất của nghiệm. Cuối cùng, trong giải tích số, các phương pháp lặp hội tụ nhờ các tính chất contraction—đây là cơ sở cho nhiều thuật toán số học.</p>
+
+<hr />
+
+<h2 id="-equivalent-metrics">🎯 Equivalent Metrics</h2>
+
+<h3 id="1-definition-và-characterizations">1. Definition và Characterizations</h3>
+
+<p><strong>Định nghĩa (Equivalent Metrics):</strong><br />
+Hai metrics d₁, d₂ trên X <strong>equivalent</strong> (hay <strong>topologically equivalent</strong>) nếu chúng induce cùng topology:</p>
+
+\[\tau_{d_1} = \tau_{d_2}\]
+
+<p><strong>Notation:</strong> d₁ ~ d₂.</p>
+
+<p><strong>Trực giác:</strong> Same open sets, same convergent sequences, same continuous functions.</p>
+
+<hr />
+
+<p><strong>Proposition (Characterization bằng Identity Map):</strong><br />
+d₁ ~ d₂ ⟺ id: (X, d₁) → (X, d₂) homeomorphism.</p>
+
+<p><strong>Proof:</strong><br />
+id homeomorphism ⟺ id, id⁻¹ continuous ⟺ τd₁ = τd₂. ✓</p>
+
+<hr />
+
+<p><strong>Proposition (Characterization bằng Convergence):</strong><br />
+d₁ ~ d₂ ⟺ mọi sequence:</p>
+
+\[x_n \xrightarrow{d_1} x \iff x_n \xrightarrow{d_2} x\]
+
+<p><strong>Proof (⇒):</strong><br />
+τd₁ = τd₂ ⇒ same closed sets ⇒ same convergent sequences. ✓</p>
+
+<p><strong>Proof (⇐):</strong><br />
+Convergence characterizes closed sets (first countable) ⇒ same closed sets ⇒ same topology. ✓</p>
+
+<hr />
+
+<p><strong>Proposition (Characterization bằng Open Balls):</strong><br />
+d₁ ~ d₂ ⟺ ∀x, r₁ &gt; 0: ∃r₂ &gt; 0: Bd₂(x, r₂) ⊆ Bd₁(x, r₁)<br />
+và ngược lại.</p>
+
+<p><strong>Proof:</strong> Basis cho topology. ✓</p>
+
+<p><strong>Practical:</strong> Check balls contain each other.</p>
+
+<hr />
+
+<h3 id="2-examples-trên-ℝⁿ">2. Examples trên ℝⁿ</h3>
+
+<p><strong>Theorem (Equivalence trên ℝⁿ):</strong><br />
+Trên ℝⁿ, các metrics sau <strong>equivalent</strong>:</p>
+
+<p><strong>(1) Euclidean:</strong> d₂(x,y) = (Σ(xᵢ - yᵢ)²)^(1/2)</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>(2) Manhattan:</strong> d₁(x,y) = Σ</td>
+      <td>xᵢ - yᵢ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>(3) Maximum:</strong> d∞(x,y) = maxᵢ</td>
+      <td>xᵢ - yᵢ</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Proof:</strong><br />
+Chứng minh d∞ ≤ d₂ ≤ d₁ ≤ n·d∞.</p>
+
+<p><strong>Step 1:</strong> d∞ ≤ d₂.<br />
+maxᵢ |xᵢ - yᵢ| ≤ (Σ(xᵢ - yᵢ)²)^(1/2). ✓</p>
+
+<p><strong>Step 2:</strong> d₂ ≤ d₁.<br />
+(Σ(xᵢ - yᵢ)²)^(1/2) ≤ Σ|xᵢ - yᵢ| (drop squares). ✓</p>
+
+<p><strong>Step 3:</strong> d₁ ≤ n·d∞.<br />
+Σ|xᵢ - yᵢ| ≤ n · maxᵢ |xᵢ - yᵢ|. ✓</p>
+
+<p><strong>Conclusion:</strong> d∞ ≤ d₂ ≤ d₁ ≤ n·d∞ ⇒ equivalent. ✓</p>
+
+<p><strong>Remark:</strong> Constants depend on n, nhưng equivalence holds.</p>
+
+<hr />
+
+<p><strong>Corollary:</strong><br />
+Mọi Lᵖ metric trên ℝⁿ (p ≥ 1) equivalent.</p>
+
+<p><strong>Proof:</strong> Similar inequalities.</p>
+
+<p><strong>Consequence:</strong> Topology của ℝⁿ well-defined (independent của choice metric).</p>
+
+<hr />
+
+<h3 id="3-examples-not-equivalent">3. Examples NOT Equivalent</h3>
+
+<p><strong>Example 1: Discrete vs Euclidean trên ℝ</strong></p>
+
+<p><strong>Discrete metric:</strong>
+\(d_{\text{disc}}(x,y) = \begin{cases}
+0 &amp; x = y \\
+1 &amp; x \neq y
+\end{cases}\)</p>
+
+<p><strong>Claim:</strong> d_disc ≁ d_Euclidean trên ℝ.</p>
+
+<p><strong>Proof:</strong><br />
+{x} open trong (ℝ, d_disc) nhưng không open trong (ℝ, d_Euclidean). ✓</p>
+
+<p><strong>Lesson:</strong> Discrete metric induces discrete topology, very different!</p>
+
+<hr />
+
+<p><strong>Example 2: Different Function Space Metrics</strong></p>
+
+<p><strong>Trên C([0,1]):</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>(1) Uniform metric:</strong> d∞(f,g) = sup</td>
+      <td>f(x) - g(x)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>(2) L¹ metric:</strong> d₁(f,g) = ∫</td>
+      <td>f(x) - g(x)</td>
+      <td>dx</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Claim:</strong> d∞ ≁ d₁.</p>
+
+<p><strong>Proof:</strong><br />
+Sequence fₙ(x) = xⁿ:</p>
+<ul>
+  <li>d₁(fₙ, 0) = ∫₀¹ xⁿ dx = 1/(n+1) → 0 (converge trong L¹)</li>
+  <li>d∞(fₙ, 0) = 1 ∀n (không converge uniformly)</li>
+</ul>
+
+<p>Vậy convergence khác ⇒ topology khác. ✓</p>
+
+<p><strong>Lesson:</strong> Metrics trên function spaces very sensitive!</p>
+
+<hr />
+
+<h3 id="4-strongly-equivalent-metrics">4. Strongly Equivalent Metrics</h3>
+
+<p><strong>Định nghĩa (Strongly Equivalent):</strong><br />
+d₁, d₂ <strong>strongly equivalent</strong> (hay <strong>uniformly equivalent</strong>) nếu ∃c₁, c₂ &gt; 0:</p>
+
+\[c_1 d_1(x,y) \leq d_2(x,y) \leq c_2 d_1(x,y) \quad \forall x,y\]
+
+<p><strong>Notation:</strong> d₁ ≈ d₂.</p>
+
+<p><strong>Trực giác:</strong> Metrics differ by constants only.</p>
+
+<hr />
+
+<p><strong>Theorem:</strong><br />
+Strongly equivalent ⇒ equivalent.</p>
+
+<p><strong>Proof:</strong> Inequalities ⇒ open balls contain each other. ✓</p>
+
+<p><strong>Converse sai:</strong> Equivalent ≠ strongly equivalent.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Example:</strong> d(x,y) =</td>
+      <td>x - y</td>
+      <td>và d’(x,y) = min(</td>
+      <td>x - y</td>
+      <td>, 1) trên ℝ equivalent nhưng không strongly equivalent.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><strong>Theorem:</strong><br />
+d₁ ≈ d₂ ⇒ same Cauchy sequences, same completeness.</p>
+
+<p><strong>Proof:</strong> Inequalities preserve Cauchy property. ✓</p>
+
+<p><strong>Contrast:</strong> Equivalent metrics có thể have different completeness!</p>
+
+<p><strong>Example:</strong> d và d’ = min(d, 1):</p>
+<ul>
+  <li>d ~ d’ (same topology)</li>
+  <li>d unbounded, d’ bounded</li>
+  <li>Completeness có thể differ</li>
+</ul>
+
+<hr />
+
+<h2 id="-uniform-continuity">🔄 Uniform Continuity</h2>
+
+<h3 id="1-definition-và-motivation">1. Definition và Motivation</h3>
+
+<p><strong>Nhắc lại (Continuity):</strong><br />
+f: (X, d_X) → (Y, d_Y) continuous tại x:</p>
+
+\[\forall \varepsilon &gt; 0: \exists \delta &gt; 0: d_X(x, x') &lt; \delta \Rightarrow d_Y(f(x), f(x')) &lt; \varepsilon\]
+
+<p><strong>Chú ý:</strong> δ phụ thuộc x và ε.</p>
+
+<hr />
+
+<p><strong>Định nghĩa (Uniform Continuity):</strong><br />
+f <strong>uniformly continuous</strong> nếu:</p>
+
+\[\forall \varepsilon &gt; 0: \exists \delta &gt; 0: \forall x, x' \in X: d_X(x, x') &lt; \delta \Rightarrow d_Y(f(x), f(x')) &lt; \varepsilon\]
+
+<p><strong>Khác biệt:</strong> δ chỉ phụ thuộc ε, <strong>không phụ thuộc x</strong>.</p>
+
+<p><strong>Trực giác:</strong> “Uniform control”—same δ works everywhere.</p>
+
+<hr />
+
+<p><strong>Theorem:</strong><br />
+Uniformly continuous ⇒ continuous.</p>
+
+<p><strong>Proof:</strong> Trivial (take δ uniform). ✓</p>
+
+<p><strong>Converse sai:</strong> Continuous ⇏ uniformly continuous.</p>
+
+<hr />
+
+<p><strong>Example 1: f(x) = x² trên ℝ</strong></p>
+
+<p><strong>Claim:</strong> f continuous nhưng không uniformly continuous.</p>
+
+<p><strong>Proof:</strong><br />
+Cho ε = 1.<br />
+Suppose ∃δ works uniformly.<br />
+Chọn x = 1/δ, x’ = x + δ/2.<br />
+Then |x - x’| = δ/2 &lt; δ, nhưng:
+\(|f(x') - f(x)| = |(x + \delta/2)^2 - x^2| = |x\delta + (\delta/2)^2| \approx x\delta = 1/\delta \cdot \delta = 1\)
+(Với x lớn, expression &gt; 1.) Contradiction! ✓</p>
+
+<p><strong>Lesson:</strong> Unbounded derivative ⇒ không uniformly continuous.</p>
+
+<hr />
+
+<p><strong>Example 2: f(x) = 1/x trên (0,1)</strong></p>
+
+<p><strong>Claim:</strong> f continuous nhưng không uniformly continuous.</p>
+
+<p><strong>Proof:</strong><br />
+xₙ = 1/n, x’ₙ = 1/(n+1).<br />
+|xₙ - x’ₙ| = 1/n - 1/(n+1) = 1/(n(n+1)) → 0.<br />
+Nhưng |f(xₙ) - f(x’ₙ)| = |n - (n+1)| = 1 ≠ 0.<br />
+Vậy không uniformly continuous. ✓</p>
+
+<p><strong>Lesson:</strong> Unbounded function trên bounded domain có thể fail.</p>
+
+<hr />
+
+<h3 id="2-uniform-continuity-trên-compact-spaces">2. Uniform Continuity trên Compact Spaces</h3>
+
+<p><strong>Theorem (Heine-Cantor):</strong><br />
+f: K → Y continuous, K compact ⇒ f uniformly continuous.</p>
+
+<p><strong>Proof:</strong><br />
+Cho ε &gt; 0.<br />
+∀x ∈ K: ∃δₓ: B(x, δₓ) ⊆ f⁻¹(B(f(x), ε/2)).<br />
+Cover K = ⋃ B(x, δₓ/2).<br />
+K compact ⇒ finite subcover: x₁, …, xₙ.<br />
+Chọn δ = min{δₓᵢ/2}.<br />
+∀x, x’ với d(x, x’) &lt; δ:<br />
+x ∈ B(xᵢ, δₓᵢ/2) cho some i.<br />
+x’ ∈ B(xᵢ, δₓᵢ) (triangle inequality).<br />
+Both f(x), f(x’) ∈ B(f(xᵢ), ε/2) ⇒ d(f(x), f(x’)) &lt; ε. ✓</p>
+
+<p><strong>Consequence:</strong> Continuous functions trên [a,b] uniformly continuous.</p>
+
+<p><strong>Remark:</strong> Compactness crucial!</p>
+
+<hr />
+
+<h3 id="3-extension-theorem">3. Extension Theorem</h3>
+
+<p><strong>Theorem (Extension of Uniform Continuous Functions):</strong><br />
+f: A → Y uniformly continuous, Y complete, A dense trong X ⇒ f extends uniquely đến continuous f̄: X → Y.</p>
+
+<p><strong>Proof sketch:</strong><br />
+Cho x ∈ X. A dense ⇒ ∃ sequence aₙ ∈ A: aₙ → x.<br />
+f uniformly continuous ⇒ f(aₙ) Cauchy.<br />
+Y complete ⇒ f(aₙ) converges.<br />
+Define f̄(x) = lim f(aₙ). (Independent của choice sequence.)<br />
+f̄ continuous, extends f. ✓</p>
+
+<p><strong>Application:</strong> Extend functions from ℚ to ℝ.</p>
+
+<hr />
+
+<h2 id="-lipschitz-continuity">📏 Lipschitz Continuity</h2>
+
+<h3 id="1-definition">1. Definition</h3>
+
+<p><strong>Định nghĩa (Lipschitz Continuous):</strong><br />
+f: X → Y <strong>Lipschitz continuous</strong> với <strong>Lipschitz constant</strong> L nếu:</p>
+
+\[d_Y(f(x), f(y)) \leq L \cdot d_X(x,y) \quad \forall x, y \in X\]
+
+<p><strong>Trực giác:</strong> Distance không increase quá L lần.</p>
+
+<p><strong>Notation:</strong> f is L-Lipschitz.</p>
+
+<hr />
+
+<p><strong>Theorem:</strong><br />
+Lipschitz ⇒ uniformly continuous ⇒ continuous.</p>
+
+<p><strong>Proof:</strong><br />
+Cho ε &gt; 0. Chọn δ = ε/L.<br />
+d_X(x,y) &lt; δ ⇒ d_Y(f(x), f(y)) ≤ L·d_X(x,y) &lt; L·δ = ε. ✓</p>
+
+<p><strong>Converse sai:</strong> Uniformly continuous ⇏ Lipschitz.</p>
+
+<p><strong>Example:</strong> f(x) = √x trên [0,1] uniformly continuous (compact), nhưng không Lipschitz (derivative unbounded tại 0).</p>
+
+<hr />
+
+<h3 id="2-examples">2. Examples</h3>
+
+<p><strong>Example 1:</strong> f(x) = 3x + 5 trên ℝ.<br />
+|f(x) - f(y)| = 3|x - y|. Lipschitz với L = 3. ✓</p>
+
+<p><strong>Example 2:</strong> f(x) = sin(x) trên ℝ.<br />
+|sin(x) - sin(y)| ≤ |x - y| (mean value theorem). Lipschitz với L = 1. ✓</p>
+
+<p><strong>Example 3:</strong> f(x) = x² trên [0, M].<br />
+|f(x) - f(y)| = |x - y| · |x + y| ≤ 2M |x - y|. Lipschitz với L = 2M. ✓<br />
+(Nhưng trên ℝ unbounded, không Lipschitz.)</p>
+
+<hr />
+
+<h3 id="3-contraction-mappings">3. Contraction Mappings</h3>
+
+<p><strong>Định nghĩa (Contraction):</strong><br />
+f: X → X là <strong>contraction</strong> (hay <strong>contraction mapping</strong>) nếu ∃ k &lt; 1:</p>
+
+\[d(f(x), f(y)) \leq k \cdot d(x,y) \quad \forall x,y\]
+
+<p><strong>Nói bằng lời:</strong> Lipschitz với constant k &lt; 1.</p>
+
+<p><strong>Trực giác:</strong> f “contracts” distances—điểm closer sau apply f.</p>
+
+<hr />
+
+<p><strong>Theorem (Banach Fixed Point Theorem):</strong><br />
+Cho (X, d) complete metric space, f: X → X contraction.<br />
+Thì ∃! x* ∈ X: f(x<em>) = x</em> (<strong>fixed point</strong>).</p>
+
+<p><strong>Moreover:</strong> ∀x₀ ∈ X, sequence xₙ₊₁ = f(xₙ) converges to x*.</p>
+
+<p><strong>Proof:</strong></p>
+
+<p><strong>Step 1 (Construct sequence):</strong><br />
+Chọn x₀ arbitrary. Define xₙ₊₁ = f(xₙ).</p>
+
+<p><strong>Step 2 (Cauchy):</strong><br />
+d(xₙ₊₁, xₙ) = d(f(xₙ), f(xₙ₋₁)) ≤ k·d(xₙ, xₙ₋₁) ≤ … ≤ kⁿ·d(x₁, x₀).</p>
+
+<p>Với m &gt; n:
+\(d(x_m, x_n) \leq d(x_m, x_{m-1}) + \cdots + d(x_{n+1}, x_n) \leq (k^{m-1} + \cdots + k^n) d(x_1, x_0)\)
+\(\leq k^n \frac{1}{1-k} d(x_1, x_0) \to 0\)
+Vậy (xₙ) Cauchy. ✓</p>
+
+<p><strong>Step 3 (Converge):</strong><br />
+X complete ⇒ xₙ → x* ∈ X.</p>
+
+<p><strong>Step 4 (Fixed point):</strong><br />
+f(x<em>) = f(lim xₙ) = lim f(xₙ) = lim xₙ₊₁ = x</em>. ✓</p>
+
+<p><strong>Step 5 (Uniqueness):</strong><br />
+Suppose f(y) = y.<br />
+d(x<em>, y) = d(f(x</em>), f(y)) ≤ k·d(x<em>, y).<br />
+k &lt; 1 ⇒ d(x</em>, y) = 0 ⇒ x* = y. ✓ QED</p>
+
+<hr />
+
+<p><strong>Corollary (Rate of Convergence):</strong></p>
+
+\[d(x_n, x^*) \leq \frac{k^n}{1-k} d(x_1, x_0)\]
+
+<p><strong>Remark:</strong> Exponential convergence!</p>
+
+<hr />
+
+<p><strong>Application: Solving Equations</strong></p>
+
+<p><strong>Problem:</strong> Solve g(x) = 0.</p>
+
+<p><strong>Rewrite:</strong> x = x - g(x) = f(x).</p>
+
+<p><strong>If f contraction trên complete space, ∃! solution.</strong></p>
+
+<p><strong>Example:</strong> Solve x = cos(x).<br />
+f(x) = cos(x) contraction trên [0,1]?<br />
+|f’(x)| = |sin(x)| ≤ sin(1) &lt; 1 ✓<br />
+Vậy unique fixed point x* ≈ 0.739. ✓</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Stefan Banach</strong> - <em>“Sur les opérations dans les ensembles abstraits”</em> (1922)<br />
+<em>Banach Fixed Point Theorem</em></p>
+  </li>
+  <li>
+    <p><strong>Eduard Heine</strong> &amp; <strong>Georg Cantor</strong> - <em>On uniform continuity</em> (1870s)<br />
+<em>Heine-Cantor theorem</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§20, §43</strong></p>
+  </li>
+  <li>
+    <p><strong>Walter Rudin</strong> - <em>Principles of Mathematical Analysis</em>, <strong>Chapter 4</strong><br />
+<em>Uniform continuity</em></p>
+  </li>
+  <li>
+    <p><strong>Serge Lang</strong> - <em>Real and Functional Analysis</em>, <strong>Chapter 1</strong><br />
+<em>Banach Fixed Point Theorem</em></p>
+  </li>
+  <li>
+    <p><strong>Michael Reed &amp; Barry Simon</strong> - <em>Functional Analysis</em>, <strong>Chapter 1</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="differential-equations">Differential Equations</h3>
+<p><strong>Picard-Lindelöf Theorem:</strong> Existence và uniqueness của ODEs via Banach Fixed Point Theorem.</p>
+
+<h3 id="numerical-analysis">Numerical Analysis</h3>
+<p><strong>Iterative Methods:</strong> Newton’s method, gradient descent converge khi local contraction.</p>
+
+<h3 id="economics">Economics</h3>
+<p><strong>Nash Equilibrium:</strong> Kakutani’s Fixed Point Theorem (generalization) proves existence.</p>
+
+<h3 id="image-processing">Image Processing</h3>
+<p><strong>Fractal Compression:</strong> Uses contraction mappings để encode images.</p>
+
+<h3 id="machine-learning">Machine Learning</h3>
+<p><strong>Training Algorithms:</strong> Convergence analysis uses contraction properties.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="equivalent-metrics">Equivalent Metrics</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Equivalence:</strong><br />
+Chứng minh chi tiết d₁, d₂, d∞ equivalent trên ℝ².</p>
+  </li>
+  <li>
+    <p><strong>Not Equivalent:</strong><br />
+d_disc và d_Euclidean không equivalent trên ℝ. Chứng minh bằng explicit open set.</p>
+  </li>
+  <li>
+    <p><strong>Strongly Equivalent:</strong><br />
+d(x,y) và 2d(x,y) strongly equivalent? Verify.</p>
+  </li>
+</ol>
+
+<h3 id="uniform-continuity">Uniform Continuity</h3>
+
+<ol>
+  <li>
+    <p><strong>Compute:</strong><br />
+f(x) = x³ uniformly continuous trên [-1, 1]? Trên ℝ?</p>
+  </li>
+  <li>
+    <p><strong>Heine-Cantor:</strong><br />
+Áp dụng Heine-Cantor: f(x) = 1/x continuous trên [1,2] ⇒ uniformly continuous.</p>
+  </li>
+  <li>
+    <p><strong>Counterexample:</strong><br />
+Tìm f continuous trên (0,1) nhưng không uniformly continuous.</p>
+  </li>
+</ol>
+
+<h3 id="lipschitz">Lipschitz</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Lipschitz:</strong><br />
+f(x) = |x| Lipschitz trên ℝ với L = 1.</p>
+  </li>
+  <li>
+    <p><strong>Not Lipschitz:</strong><br />
+f(x) = x² không Lipschitz trên ℝ. Prove.</p>
+  </li>
+  <li>
+    <p><strong>Bounded Derivative:</strong><br />
+f: [a,b] → ℝ differentiable, |f’| ≤ M ⇒ f Lipschitz với L = M.</p>
+  </li>
+</ol>
+
+<h3 id="banach-fixed-point">Banach Fixed Point</h3>
+
+<ol>
+  <li>
+    <p><strong>Apply Banach:</strong><br />
+f(x) = (x + 2)/3 contraction trên ℝ. Find fixed point.</p>
+  </li>
+  <li>
+    <p><strong>Solve Equation:</strong><br />
+x = e^(-x) has unique solution. Use Banach Fixed Point.</p>
+  </li>
+  <li>
+    <p><strong>Rate of Convergence:</strong><br />
+Trong bài 11, x₀ = 0. Compute x₁, x₂, x₃. Estimate x*.</p>
+  </li>
+</ol>
+
+<h3 id="applications">Applications</h3>
+
+<ol>
+  <li>
+    <p><strong>ODE:</strong><br />
+dy/dx = f(x,y), y(0) = y₀. Picard iteration: yₙ₊₁(x) = y₀ + ∫₀ˣ f(t, yₙ(t))dt.<br />
+Sketch proof convergence using Banach.</p>
+  </li>
+  <li>
+    <p><strong>Newton’s Method:</strong><br />
+xₙ₊₁ = xₙ - f(xₙ)/f’(xₙ). When contraction?</p>
+  </li>
+  <li>
+    <p><strong>Fractal:</strong><br />
+Sierpinski triangle defined by contraction mappings. Describe.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Extension Theorem:</strong><br />
+f: ℚ ∩ [0,1] → ℝ, f(x) = x². Extend to [0,1].</p>
+  </li>
+  <li>
+    <p><strong>Kakutani:</strong><br />
+Research Kakutani Fixed Point Theorem (set-valued maps).</p>
+  </li>
+  <li>
+    <p><strong>Brouwer:</strong><br />
+Brouwer Fixed Point Theorem (continuous f: Dⁿ → Dⁿ has fixed point).<br />
+Relation với Banach?</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Completeness?:</strong><br />
+Banach Fixed Point requires completeness. Example contraction trên incomplete space without fixed point?</p>
+  </li>
+  <li>
+    <p><strong>Applications:</strong><br />
+List 3 applications của Banach Fixed Point Theorem trong different fields.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §20, §43</li>
+  <li><strong>Rudin, PMA:</strong> Chapter 4</li>
+  <li><strong>Kreyszig:</strong> <em>Introductory Functional Analysis</em> (Banach spaces)</li>
+  <li><strong>Granas &amp; Dugundji:</strong> <em>Fixed Point Theory</em></li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá các khái niệm về equivalent metrics và uniform continuity. Các metric tương đương là những metric khác nhau nhưng tạo ra cùng một topology—chúng có cùng các tập mở, cùng các dãy hội tụ, và cùng các hàm liên tục. Trên $\mathbb{R}^n$, các metric $d_1$, $d_2$, và $d_\infty$ đều tương đương—đây là một kết quả quan trọng đảm bảo rằng topology của $\mathbb{R}^n$ được xác định rõ ràng, độc lập với việc chọn metric cụ thể. Các metric strongly equivalent là những metric khác nhau chỉ bởi các hằng số—chúng không chỉ tương đương về mặt tô-pô mà còn có cùng các dãy Cauchy và cùng tính completeness.</p>
+
+<p>Uniform continuity là một sự tăng cường của tính liên tục: $\delta$ không phụ thuộc vào điểm $x$, cho phép chúng ta kiểm soát sự biến thiên của hàm một cách đồng đều trên toàn bộ miền. Định lý Heine-Cantor cho chúng ta biết rằng mọi hàm liên tục trên một không gian compact đều liên tục đều—đây là một kết quả mạnh mẽ cho thấy tầm quan trọng của tính compact. Lipschitz continuity là một dạng continuity định lượng mạnh hơn uniform continuity—nó đảm bảo rằng khoảng cách giữa các ảnh không tăng quá $L$ lần khoảng cách giữa các điểm gốc. Một contraction mapping là một ánh xạ Lipschitz với hằng số $k &lt; 1$—nó “co lại” không gian. Định lý điểm bất động Banach phát biểu rằng mọi contraction mapping trên một không gian metric complete đều có một điểm bất động duy nhất, và chúng ta có thể tìm điểm này bằng cách lặp lại ánh xạ từ một điểm bất kỳ.</p>
+
+<p>Điểm chính của bài học là equivalent metrics tương đương với cùng topology—chúng có cùng cấu trúc tô-pô mặc dù cách đo khoảng cách khác nhau. Uniform continuity mạnh hơn continuity—nó đảm bảo kiểm soát đồng đều trên toàn bộ miền. Lipschitz continuity là mạnh nhất trong ba khái niệm—nó cung cấp một đánh giá định lượng về sự biến thiên của hàm. Định lý Banach rất mạnh mẽ—nó giải quyết các phương trình và phương trình vi phân bằng cách đảm bảo sự tồn tại và tính duy nhất của nghiệm. Completeness là quan trọng—định lý Banach yêu cầu không gian phải complete để đảm bảo sự hội tụ của dãy lặp.</p>
+
+<p>Trong thực tế, chúng ta kiểm tra tính compact để đảm bảo uniform continuity—định lý Heine-Cantor cho chúng ta biết rằng mọi hàm liên tục trên compact đều liên tục đều. Để áp dụng định lý Banach, chúng ta chọn một điểm ban đầu $x_0$, lặp lại ánh xạ, và dãy sẽ hội tụ theo cấp số nhân đến điểm bất động. Các ứng dụng của các khái niệm này có mặt ở khắp nơi: giải tích, giải tích số, và machine learning—chúng là công cụ cơ bản trong nhiều lĩnh vực toán học và khoa học.</p>
+
+<p><strong>Tiếp theo:</strong> Lecture 04.03 về <strong>Product Metrics và Function Spaces</strong>—các metric trên các không gian vô hạn chiều!</p>
+
+<hr />
+
+<p><em>“Fixed points are where iteration comes to rest.”</em> — Banach’s wisdom</p>
+
+<p>🎯 <strong>Master the contractions! They solve equations.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter04/04_01_Completeness_Baire_Category/">Lecture 04.01: Completeness and Baire Category</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter04/04_03_Product_Metrics_Function_Spaces/">Lecture 04.03: Product Metrics and Function Spaces</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter4/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+---
+alwaysApply: true
+---
+
+Generate detailed, intuitive, and visually supported Topology lecture notes for self-learning, guided by the structure and pedagogy of the most respected textbooks in the field.
+
+Each lecture must:
+
+Write in clear, concise, and didactic language.
+
+Prefer long-form paragraphs that explain why things work, not just what they do.
+
+Each topic should read like a mini-chapter, not a slide deck.
+
+Minimize bullet points — use them only for quick summaries or lists of tips.
+
+Prioritize conceptual understanding, followed by math intuition, and then practical examples.
+
+
+Prioritize intuition and geometric understanding before formalism,
+
+Align conceptually with Munkres, Morris, Adams & Franzosa, and Hatcher,
+
+Include visual illustrations from the web, and
+
+Reference fundamental papers and textbook chapters for deeper study.
+
+🧩 1. Lecture Structure
+
+Each lecture follows this format:
+
+1.1 Title and Overview
+
+Clear, descriptive title (e.g., Lecture 5: Compactness and Sequential Compactness).
+
+Overview paragraph describing the motivation and connection to previous topics.
+
+Introduce why this concept matters (geometry, analysis, or physics connection).
+
+Inspired by:
+Munkres — Chapter 2: Topological Spaces and Continuous Functions
+Morris — Chapter 3: Compactness
+
+1.2 Intuitive Explanation
+
+Begin with visual and real-world analogies (e.g., stretching, bending, gluing surfaces).
+
+Use stories (e.g., “how coffee cups and doughnuts are alike”) to ground abstract ideas.
+
+Avoid bulleted notes — write in flowing, narrative style that builds intuition step by step.
+
+Guidance from:
+
+Topology without Tears (Morris) — clear intuitive progression
+
+Introduction to Topology: Pure and Applied (Adams & Franzosa) — applied examples
+
+1.3 Formal Concepts and Definitions
+
+Present definitions formally, with math notation.
+
+Follow Munkres’ notation and structure for consistency.
+
+Whenever possible, include a short geometric interpretation after each definition.
+
+Use Markdown or LaTeX formatting for clarity.
+
+All math formula must use Latex
+
+Example:
+
+**Definition:**  
+A topological space (X, 𝜏) is *compact* if every open cover of X has a finite subcover.
+
+**Intuition:**  
+Compactness generalizes the notion of closed and bounded intervals — it ensures no “infinite spread.”
+
+
+Guided by:
+
+Munkres, Ch. 2–5
+
+Willard, General Topology for formal accuracy
+
+1.4 Visual Illustrations (Images Rule)
+
+The agent must automatically search for and attach images illustrating key ideas.
+
+Rules:
+
+Find 1–3 relevant images per major section (e.g., open sets, connectedness, compactness).
+
+Use open-license or educational sources (Wikipedia, Wikimedia Commons, Math blogs).
+
+Include the direct image URL and source attribution below it.
+
+Prefer diagrams, morph animations, and geometric surfaces over text-based figures.
+
+If no suitable image is found, insert a placeholder:
+
+[Image placeholder: “Example of compact space visualization”]
+
+
+Example:
+
+### Example: Homeomorphism
+A coffee mug and a doughnut are topologically equivalent (both have one hole).
+
+![Mug and doughnut equivalence](https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif)
+*Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif)*
+
+
+Visual inspiration:
+
+Adams & Franzosa — Ch. 1: Surfaces and Deformations
+
+Jänich — Topology (visual reasoning emphasis)
+
+1.5 Fundamental Papers & References
+
+Add a section:
+
+## 🧠 Fundamental Papers & References
+
+
+Include:
+
+2–5 key academic papers or classic texts connected to the lecture topic.
+
+Where possible, map them to textbook chapters.
+
+Example:
+
+## 🧠 Fundamental Papers & References
+- Henri Poincaré, *Analysis Situs*, 1895.  
+- James R. Munkres, *Topology*, 2nd Ed., Ch. 2–3.  
+- Sidney A. Morris, *Topology without Tears*, Ch. 3.  
+- Allen Hatcher, *Algebraic Topology*, §0.1–0.2.
+
+1.6 Applications and Cross-Disciplinary Links
+
+Add a section:
+
+## 🔗 Applications and Connections
+
+
+Explain how the topic appears in other domains:
+
+Physics → quantum topology, string theory surfaces
+
+Data science → topological data analysis
+
+Geometry → manifolds, curvature
+
+Give one short real-world example.
+
+Reference: Adams & Franzosa — Applied Topology Chapters
+
+1.7 Exercises and Reflections
+
+Each lecture ends with conceptual and drawing-based exercises (no programming required).
+
+## 🧩 Exercises
+1. Sketch two shapes that are homeomorphic and explain your reasoning.  
+2. Give an example of a space that is connected but not compact.  
+3. Why is compactness important in analysis and physics?
+
+
+Exercise inspiration:
+
+Topology without Tears (end-of-chapter problems)
+
+Viro, Ivanov, Netsvetaev – Elementary Topology: Problem Textbook

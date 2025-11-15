@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 06.01: The Fundamental Group &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 06.01: The Fundamental Group
+    
+  </h1>
+  <p><strong>π₁(X, x₀) - First Algebraic Invariant</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Trong lecture trước, chúng ta học về <strong>homotopy</strong>—continuous deformation. Giờ đây, chúng ta sẽ sử dụng homotopy để construct <strong>first algebraic invariant</strong> trong topology: <strong>fundamental group</strong>.</p>
+
+<p><strong>Ý tưởng cốt lõi:</strong></p>
+
+<blockquote>
+  <p><strong>Gán một NHÓM cho mỗi không gian có điểm cơ sở $(X, x_0)$.</strong><br />
+<strong>Các phần tử của nhóm = các lớp đồng luân của các vòng lặp tại $x_0$.</strong></p>
+</blockquote>
+
+<p>Đây là một bước cách mạng trong toán học, thay đổi cách chúng ta nghĩ về các không gian. <strong>Từ hình học đến đại số</strong>: chúng ta gán một đối tượng đại số (nhóm) cho một đối tượng hình học (không gian), cho phép chúng ta suy luận đại số về các vấn đề hình học. <strong>Khả năng tính toán</strong>: không giống như trực giác hình học mơ hồ, $\pi_1$ thường có thể tính toán được thông qua các thuật toán—chúng ta thực sự có thể tính toán nó! <strong>Sức mạnh</strong>: fundamental group phân biệt các không gian tô-pô khác nhau và chứng minh các định lý sâu sắc (định lý điểm cố định Brouwer, định lý đường cong Jordan). <strong>Tính phổ quát</strong>: các ứng dụng trải dài từ tô-pô học thuần túy qua vật lý (gauge theory, instantons) đến robotics (lập kế hoạch chuyển động, không gian cấu hình).</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Fundamental_group.svg/500px-Fundamental_group.svg.png" alt="Fundamental group visualization" /><br />
+<em>Loops trong space và group structure - Nguồn concept</em></p>
+
+<p><strong>Tại sao đây là một bước cách mạng?</strong></p>
+
+<p>Trước Poincaré (1895), tô-pô học chủ yếu dựa vào trực giác hình học và lập luận trực quan—mạnh mẽ nhưng thường không chính xác. <strong>Việc Poincaré giới thiệu fundamental group</strong> đã thay đổi mọi thứ, cung cấp công cụ đại số thực sự đầu tiên trong tô-pô học. Đột phá này <strong>mở ra cánh cửa cho tô-pô học đại số</strong>—một lĩnh vực hoàn chỉnh được xây dựng trên ý tưởng nghiên cứu các không gian thông qua các bất biến đại số. Nó <strong>cho phép các chứng minh chặt chẽ</strong> thay thế các hình ảnh mơ hồ bằng các lập luận chính xác. Fundamental group <strong>kết nối tô-pô học với lý thuyết nhóm</strong>, cho phép chúng ta sử dụng các công cụ đại số mạnh mẽ. Quan trọng nhất, nó <strong>dẫn đến một loạt các tổng quát hóa</strong>: homology groups, cohomology rings, higher homotopy groups $\pi_n$, K-theory—toàn bộ kho vũ khí của tô-pô học đại số hiện đại đều bắt nguồn từ ý tưởng đơn lẻ này.</p>
+
+<p>Trong bài học này, chúng ta xây dựng lý thuyết một cách có hệ thống từ đầu. <strong>Định nghĩa $\pi_1(X, x_0)$</strong> bắt đầu với các vòng lặp theo homotopy—một quan hệ tương đương trên các đường đi liên tục. <strong>Cấu trúc nhóm</strong> xuất hiện tự nhiên từ phép toán concatenation—”thực hiện vòng lặp $f$, sau đó vòng lặp $g$”. <strong>Xác minh</strong> chứng minh tất cả các tiên đề nhóm: phần tử đơn vị (vòng lặp hằng), phần tử nghịch đảo (đường đi ngược), và quan trọng là tính kết hợp (thứ tự hợp thành không quan trọng). <strong>Độc lập với điểm cơ sở</strong> cho thấy $\pi_1(X, x_0) \cong \pi_1(X, x_1)$ đối với $X$ path-connected—nhóm về cơ bản độc lập với việc chọn điểm cơ sở. <strong>Các ví dụ đầu tiên</strong> bao gồm $\mathbb{R}^n$ (nhóm tầm thường—contractible), $S^1$ (số nguyên $\mathbb{Z}$—winding number), các hình cầu cao hơn $S^n$ (tầm thường cho $n \geq 2$), và torus $T^2$ ($\mathbb{Z} \times \mathbb{Z}$—hai vòng lặp độc lập). <strong>Các tính chất</strong> như functoriality và homotopy invariance thiết lập $\pi_1$ như một bất biến tô-pô thực sự.</p>
+
+<p><strong>Tại sao đây là kiến thức cần thiết?</strong> $\pi_1$ là <strong>bất biến đại số đầu tiên</strong> mà hầu hết sinh viên gặp phải—một giới thiệu hoàn hảo về mặt sư phạm cho sức mạnh của tô-pô học đại số. Nó <strong>tương đối có thể tính toán được</strong> so với các higher homotopy groups $\pi_n$ vốn nổi tiếng là khó tính toán. <strong>Các ứng dụng</strong> rất rộng rãi: phân loại covering spaces, chứng minh các định lý điểm cố định, nghiên cứu lý thuyết nút nơi fundamental groups của các phần bù nút phân biệt các nút. Quan trọng nhất, $\pi_1$ phục vụ như một <strong>cánh cửa</strong> truyền cảm hứng cho toàn bộ hành trình tô-pô học đại số—một khi bạn thấy điều này hoạt động, bạn sẽ muốn nhiều hơn!</p>
+
+<hr />
+
+<h2 id="-construction-của-fundamental-group">🔄 Construction của Fundamental Group</h2>
+
+<h3 id="1-loops-và-path-homotopy-nhắc-lại">1. Loops và Path Homotopy (Nhắc lại)</h3>
+
+<p><strong>Định nghĩa (Loop):</strong><br />
+Một <strong>loop</strong> based tại $x_0 \in X$ là một ánh xạ liên tục:</p>
+
+\[\gamma: [0,1] \to X, \quad \gamma(0) = \gamma(1) = x_0\]
+
+<p><strong>Tập tất cả các loops tại $x_0$:</strong></p>
+
+\[\Omega(X, x_0) = \{\gamma: [0,1] \to X : \gamma(0) = \gamma(1) = x_0\}\]
+
+<p>Trực giác hình học là một loop là một đường đi khép kín—chúng ta bắt đầu tại điểm cơ sở $x_0$, đi vòng quanh không gian, và quay lại điểm xuất phát. Hãy tưởng tượng một con kiến bắt đầu tại $x_0$, đi vòng quanh không gian theo một đường đi liên tục, và quay lại đúng điểm xuất phát. Các loops là đối tượng cơ bản trong nghiên cứu fundamental group vì chúng nắm bắt cách không gian có thể được “quấn” hoặc “vòng lặp” xung quanh điểm cơ sở.</p>
+
+<hr />
+
+<p><strong>Path Homotopy (rel endpoints):</strong><br />
+Cho các loops $\gamma$, $\delta$ tại $x_0$. Chúng được gọi là <strong>path homotopic</strong> ($\gamma \simeq_p \delta$) nếu tồn tại một ánh xạ liên tục $F: [0,1] \times [0,1] \to X$ thỏa mãn $F(s, 0) = \gamma(s)$ và $F(s, 1) = \delta(s)$ cho mọi $s \in [0,1]$, và quan trọng là $F(0, t) = F(1, t) = x_0$ cho mọi $t \in [0,1]$ (basepoint được giữ cố định).</p>
+
+<p>Trực giác hình học là chúng ta có thể biến dạng liên tục loop $\gamma$ thành loop $\delta$ trong khi giữ điểm cơ sở $x_0$ được “dán chặt” tại vị trí của nó. Hãy tưởng tượng một sợi dây được căng giữa điểm cơ sở và chính nó tạo thành một vòng lặp—chúng ta có thể uốn cong và kéo giãn sợi dây này một cách liên tục, nhưng chúng ta không thể di chuyển điểm cơ sở. Điều kiện giữ điểm cơ sở cố định là rất quan trọng vì nó đảm bảo rằng khi chúng ta xét các lớp đồng luân của các loops, chúng ta có thể định nghĩa một phép toán nhóm một cách nhất quán.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Homotopy_of_loops.svg/400px-Homotopy_of_loops.svg.png" alt="Path homotopy loops" /><br />
+<em>Path homotopy giữa hai loops - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Homotopy_of_loops.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<p><strong>Homotopy Class:</strong><br />
+<strong>$[\gamma]$</strong> = homotopy class của loop $\gamma$ = tập tất cả các loops path homotopic với $\gamma$.</p>
+
+<p><strong>Quotient:</strong></p>
+
+\[\pi_1(X, x_0) = \Omega(X, x_0) / {\sim_p}\]
+
+<p>Đây là tập các homotopy classes của các loops tại $x_0$. Trực giác là chúng ta đồng nhất các loops có thể biến dạng liên tục thành nhau—từ quan điểm của fundamental group, các loops đồng luân được coi là “giống nhau”. Điều này cho phép chúng ta nghiên cứu các loops không phải từng cái một mà theo các lớp đồng luân của chúng, làm giảm đáng kể độ phức tạp của vấn đề.</p>
+
+<hr />
+
+<h3 id="2-group-operation-path-concatenation">2. Group Operation: Path Concatenation</h3>
+
+<p><strong>Định nghĩa (Concatenation):</strong><br />
+Cho các loops $\gamma$, $\delta$ tại $x_0$. <strong>Product loop</strong> $\gamma \cdot \delta$ được định nghĩa bằng cách đi qua $\gamma$ với tốc độ gấp đôi trong nửa đầu của khoảng thời gian, sau đó đi qua $\delta$ với tốc độ gấp đôi trong nửa sau:</p>
+
+\[(\gamma \cdot \delta)(t) = \begin{cases}
+\gamma(2t) &amp; 0 \leq t \leq 1/2 \\
+\delta(2t - 1) &amp; 1/2 \leq t \leq 1
+\end{cases}\]
+
+<p>Trực giác hình học là chúng ta đi qua $\gamma$ trước (với tốc độ gấp đôi, hoàn thành tại $t=1/2$), sau đó đi qua $\delta$ (với tốc độ gấp đôi, hoàn thành tại $t=1$). Reparametrization (thay đổi tốc độ) là cần thiết để đảm bảo rằng loop mới vẫn được định nghĩa trên khoảng $[0,1]$. Điều này cho phép chúng ta định nghĩa một phép toán trên các loops, và khi chúng ta xét các lớp đồng luân, phép toán này sẽ trở thành phép nhóm trong fundamental group.</p>
+
+<hr />
+
+<p><strong>Well-defined trên homotopy classes:</strong></p>
+
+<p><strong>Định lý:</strong> Nếu $\gamma \simeq_p \gamma’$ và $\delta \simeq_p \delta’$, thì $\gamma \cdot \delta \simeq_p \gamma’ \cdot \delta’$.</p>
+
+<p><strong>Chứng minh:</strong> Giả sử chúng ta có các homotopies $F_\gamma: \gamma \simeq \gamma’$ và $F_\delta: \delta \simeq \delta’$. Chúng ta có thể định nghĩa một homotopy $F_{\gamma \cdot \delta}$ từ $\gamma \cdot \delta$ đến $\gamma’ \cdot \delta’$ bằng cách nối các homotopies $F_\gamma$ và $F_\delta$ lại với nhau—chúng ta biến dạng $\gamma$ thành $\gamma’$ trong nửa đầu của khoảng thời gian, và biến dạng $\delta$ thành $\delta’$ trong nửa sau. Các chi tiết kỹ thuật xác minh tính liên tục của homotopy này. ✓</p>
+
+<p><strong>Hệ quả:</strong> Phép nhân được định nghĩa tốt trên các lớp đồng luân:</p>
+
+\[[\gamma] \cdot [\delta] = [\gamma \cdot \delta]\]
+
+<p>Điều này có nghĩa là phép toán concatenation không phụ thuộc vào việc chọn đại diện cụ thể của mỗi lớp đồng luân—nếu chúng ta thay thế $\gamma$ bằng một loop đồng luân với nó, kết quả sẽ không thay đổi.</p>
+
+<hr />
+
+<h3 id="3-group-axioms-verification">3. Group Axioms Verification</h3>
+
+<p><strong>Theorem:</strong> (π₁(X, x₀), ·) is a group.</p>
+
+<p><strong>Proof:</strong> Verify identity, inverses, associativity.</p>
+
+<hr />
+
+<p><strong>Identity Element:</strong></p>
+
+<p><strong>Constant loop:</strong> Định nghĩa $e_{x_0}(t) = x_0$ cho mọi $t \in [0,1]$. Đây là loop “không làm gì cả”—nó chỉ đứng yên tại điểm cơ sở.</p>
+
+<p><strong>Khẳng định:</strong> $[e_{x_0}]$ là phần tử đơn vị trong $\pi_1(X, x_0)$.</p>
+
+<p><strong>Chứng minh:</strong> Chúng ta cần chứng minh rằng $[\gamma] \cdot [e] = [\gamma]$ và $[e] \cdot [\gamma] = [\gamma]$ cho mọi loop $\gamma$.</p>
+
+<p><strong>Homotopy $\gamma \cdot e \simeq_p \gamma$:</strong></p>
+
+<p>Trực giác hình học là khi chúng ta nối một loop với constant loop, chúng ta có thể “co” phần constant lại để chỉ còn lại loop ban đầu. Chúng ta định nghĩa một homotopy $F(s,t)$ bằng cách thu nhỏ phần constant: tại $t=0$, chúng ta có $\gamma \cdot e$ với tốc độ bằng nhau; tại $t=1$, $\gamma$ chiếm toàn bộ khoảng $[0,1]$.</p>
+
+<p><strong>Rõ ràng:</strong>
+\(F(s,t) = \begin{cases}
+\gamma(2s/(1+t)) &amp; 0 \leq s \leq (1+t)/2 \\
+x_0 &amp; (1+t)/2 \leq s \leq 1
+\end{cases}\)</p>
+
+<p>Tại $t=0$: $\gamma \cdot e$. Tại $t=1$: $\gamma$ (reparametrized). ✓</p>
+
+<p>Tương tự, chúng ta có thể chứng minh $[e \cdot \gamma] = [\gamma]$ bằng cách co phần constant ở đầu. ✓</p>
+
+<hr />
+
+<p><strong>Inverses:</strong></p>
+
+<p><strong>Inverse loop:</strong> Cho một loop $\gamma$, chúng ta định nghĩa <strong>inverse loop</strong> $\gamma^{-1}$ bằng cách đảo ngược hướng: $\gamma^{-1}(t) = \gamma(1-t)$. Điều này có nghĩa là chúng ta đi ngược lại đường đi ban đầu.</p>
+
+<p><strong>Khẳng định:</strong> $[\gamma] \cdot [\gamma^{-1}] = [e]$.</p>
+
+<p><strong>Chứng minh:</strong> Loop $\gamma \cdot \gamma^{-1}$ đi qua $\gamma$ theo hướng thuận rồi đi ngược lại theo hướng ngược. Trực giác hình học là chúng ta có thể “co” loop này về constant loop bằng cách thu nhỏ nó liên tục từ các điểm đầu và cuối. Hãy tưởng tượng một sợi dây được căng giữa hai điểm—nếu chúng ta đi qua sợi dây theo cả hai hướng, chúng ta có thể thu nhỏ nó về một điểm bằng cách kéo từ cả hai đầu.</p>
+
+<p><strong>Homotopy $F(s,t)$:</strong></p>
+<ul>
+  <li>Tại $t=0$: $\gamma \cdot \gamma^{-1}(s)$</li>
+  <li>Thu nhỏ dần dần</li>
+  <li>Tại $t=1$: $e_{x_0}$</li>
+</ul>
+
+<p><strong>Rõ ràng:</strong> Kỹ thuật nhưng có thể hình dung—collapse loop từ các điểm đầu và cuối. ✓</p>
+
+<p>Tương tự, chúng ta có $[\gamma^{-1}] \cdot [\gamma] = [e]$. ✓</p>
+
+<hr />
+
+<p><strong>Associativity:</strong></p>
+
+<p><strong>Khẳng định:</strong> $([\gamma] \cdot [\delta]) \cdot [\varepsilon] = [\gamma] \cdot ([\delta] \cdot [\varepsilon])$.</p>
+
+<p><strong>Chứng minh:</strong> Cả hai vế đều bằng $[\gamma \cdot \delta \cdot \varepsilon]$ (đi qua cả ba loops). Sự khác biệt chỉ là cách reparametrization—cách chúng ta phân chia khoảng thời gian $[0,1]$ giữa ba loops. Ở vế trái, $\gamma$ chiếm $[0, 1/4]$, $\delta$ chiếm $[1/4, 1/2]$, và $\varepsilon$ chiếm $[1/2, 1]$. Ở vế phải, $\gamma$ chiếm $[0, 1/2]$, $\delta$ chiếm $[1/2, 3/4]$, và $\varepsilon$ chiếm $[3/4, 1]$. Chúng ta có thể xây dựng một homotopy $F$ reparametrizes một cách mượt mà giữa hai cách phân chia này, chứng minh rằng hai vế là đồng luân. ✓</p>
+
+<p><strong>Kết luận:</strong> $\pi_1(X, x_0)$ thỏa mãn tất cả các tiên đề nhóm! ✓ <strong>QED</strong></p>
+
+<hr />
+
+<h2 id="-first-examples">📊 First Examples</h2>
+
+<h3 id="1-pi_1mathbbrn--0-nhóm-tầm-thường">1. $\pi_1(\mathbb{R}^n) = 0$ (Nhóm Tầm thường)</h3>
+
+<p><strong>Định lý:</strong> $\mathbb{R}^n$ là simply connected: $\pi_1(\mathbb{R}^n, x_0) = {[e]}$.</p>
+
+<p><strong>Chứng minh:</strong><br />
+$\mathbb{R}^n$ là contractible—chúng ta có thể co toàn bộ không gian về một điểm. Bất kỳ loop $\gamma$ nào đều đồng luân với constant loop thông qua straight-line homotopy:</p>
+
+\[F(s,t) = (1-t)\gamma(s) + t x_0\]
+
+<p>Đây là một homotopy “đường thẳng”—tại mỗi thời điểm $t$, chúng ta di chuyển mỗi điểm trên loop $\gamma$ dọc theo đường thẳng từ vị trí ban đầu của nó đến điểm cơ sở $x_0$. Tính chất convex của $\mathbb{R}^n$ đảm bảo rằng đường thẳng này nằm hoàn toàn trong không gian. ✓</p>
+
+<p><strong>Hệ quả:</strong> $\mathbb{R}^n$ không có “lỗ” về mặt đại số—mọi loop đều có thể co lại về một điểm, phản ánh trong fundamental group tầm thường.</p>
+
+<hr />
+
+<h3 id="2-pi_1s1-cong-mathbbz-số-nguyên">2. $\pi_1(S^1) \cong \mathbb{Z}$ (Số Nguyên!)</h3>
+
+<p><strong>Định lý:</strong> $\pi_1(S^1, 1) \cong \mathbb{Z}$.</p>
+
+<p>Trực giác hình học là các loops trên hình tròn được phân loại bởi <strong>winding number</strong> $n \in \mathbb{Z}$—số lần chúng ta quấn quanh hình tròn. Hãy tưởng tượng một sợi dây được quấn quanh một cái cột—số lần quấn là một số nguyên, và đây chính là winding number. Một loop quấn một lần theo chiều ngược chiều kim đồng hồ có winding number $+1$, một loop quấn một lần theo chiều kim đồng hồ có winding number $-1$, và một loop không quấn quanh cột có winding number $0$.</p>
+
+<p><strong>Chứng minh outline:</strong>
+Chứng minh này sử dụng khái niệm covering space, mà chúng ta sẽ nghiên cứu chi tiết trong các bài học sau. Ý tưởng cơ bản là chúng ta có một covering map $p: \mathbb{R} \to S^1$ được định nghĩa bởi $p(t) = e^{2\pi it}$, ánh xạ đường thẳng thực lên hình tròn. Một loop $\gamma: [0,1] \to S^1$ có thể được “lift” lên một đường đi $\tilde{\gamma}: [0,1] \to \mathbb{R}$ trên đường thẳng thực. Sự khác biệt $\tilde{\gamma}(1) - \tilde{\gamma}(0)$ là một số nguyên, và đây chính là winding number của loop $\gamma$. Mỗi homotopy class $[\gamma]$ tương ứng với một số nguyên $n$, và phép toán concatenation tương ứng với phép cộng trong $\mathbb{Z}$.</p>
+
+<p><strong>Kết quả:</strong> $\pi_1(S^1) \cong \mathbb{Z}$! ✓</p>
+
+<p><strong>Generator:</strong> Loop $\gamma_1(t) = e^{2\pi it}$ (quấn một lần theo chiều ngược chiều kim đồng hồ) là một generator của nhóm—mọi loop khác đều có thể được biểu diễn như một bội số nguyên của loop này.</p>
+
+<p><strong>Ý nghĩa hình học:</strong> Hình tròn có “một lỗ”—được phản ánh trong $\pi_1 \cong \mathbb{Z}$. Đây là một trong những ví dụ quan trọng nhất trong tô-pô học đại số vì nó cho thấy cách fundamental group nắm bắt cấu trúc tô-pô của không gian.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Winding_number.svg/400px-Winding_number.svg.png" alt="S1 fundamental group" /><br />
+<em>Winding number around circle - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Winding_number.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="3-pi_1sn--0-cho-n-geq-2">3. $\pi_1(S^n) = 0$ cho $n \geq 2$</h3>
+
+<p><strong>Định lý:</strong> Các hình cầu cao hơn là simply connected.</p>
+
+<p><strong>Chứng minh sketch:</strong><br />
+Cho một loop $\gamma: S^1 \to S^n$. Ảnh $\gamma(S^1)$ của loop này là một tập compact một chiều trong không gian $n$-chiều, và do đó nó phải bỏ qua ít nhất một điểm $p$ (đây là một kết quả về dimension—một tập một chiều không thể phủ toàn bộ không gian $n$-chiều với $n \geq 2$). Không gian $S^n \setminus {p}$ đồng luân tương đương với $\mathbb{R}^n$, là contractible. Do đó, loop $\gamma$ có thể được factor qua một không gian contractible, nghĩa là $\gamma \simeq$ constant. ✓</p>
+
+<p><strong>Trực giác hình học:</strong> Các hình cầu cao hơn “quá lớn” về mặt chiều—mọi loop đều có thể được co lại về một điểm vì có đủ không gian để “tránh” các điểm. Điều này tương phản mạnh mẽ với trường hợp $S^1$, nơi các loops có thể bị “mắc kẹt” quanh hình tròn.</p>
+
+<p><strong>Sự tương phản:</strong> $S^1$ có $\pi_1 = \mathbb{Z}$, nhưng $S^2$ có $\pi_1 = 0$! Đây là một ví dụ tuyệt vời về cách topology phân biệt các chiều—fundamental group có thể phân biệt giữa các không gian có chiều khác nhau.</p>
+
+<hr />
+
+<h3 id="4-pi_1t2-cong-mathbbz-times-mathbbz-torus">4. $\pi_1(T^2) \cong \mathbb{Z} \times \mathbb{Z}$ (Torus)</h3>
+
+<p><strong>Định lý:</strong> $\pi_1(T^2) \cong \mathbb{Z} \times \mathbb{Z}$.</p>
+
+<p>Trực giác hình học là torus $T^2 = S^1 \times S^1$ có hai hướng độc lập để tạo thành loops: meridian (vòng quanh theo một hướng) và longitude (vòng quanh theo hướng khác, đi qua lỗ). Hãy tưởng tượng một torus như một chiếc bánh donut—chúng ta có thể quấn một sợi dây quanh “lỗ” của donut (meridian), hoặc quanh “thân” của donut (longitude), hoặc cả hai theo các tổ hợp khác nhau.</p>
+
+<p><strong>Generators:</strong></p>
+<ul>
+  <li>$\alpha$: Loop quanh meridian (một hướng)</li>
+  <li>$\beta$: Loop quanh longitude (hướng khác)</li>
+</ul>
+
+<p><strong>Relations:</strong> $\alpha$ và $\beta$ giao hoán với nhau (chúng ta có thể đi qua chúng theo bất kỳ thứ tự nào)—điều này phản ánh tính chất tích của torus $T^2 = S^1 \times S^1$.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Kết quả:</strong> $\pi_1(T^2) = \langle \alpha, \beta</td>
+      <td>\alpha\beta = \beta\alpha \rangle \cong \mathbb{Z} \times \mathbb{Z}$. ✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Xác minh:</strong> Chúng ta sẽ chứng minh kết quả này một cách chính thức bằng cách sử dụng định lý Seifert-van Kampen trong các bài học tiếp theo, nhưng trực giác hình học đã cho chúng ta một hiểu biết sâu sắc về cấu trúc của fundamental group của torus.</p>
+
+<hr />
+
+<h2 id="-basepoint-independence">🔗 Basepoint Independence</h2>
+
+<h3 id="1-basepoint-change-isomorphism">1. Basepoint Change Isomorphism</h3>
+
+<p><strong>Setup:</strong> Cho $X$ là path-connected. Cho $x_0$, $x_1 \in X$. Chọn một path $\alpha: [0,1] \to X$ với $\alpha(0) = x_0$ và $\alpha(1) = x_1$.</p>
+
+<p><strong>Định nghĩa ánh xạ $\beta_\alpha: \pi_1(X, x_0) \to \pi_1(X, x_1)$:</strong></p>
+
+\[\beta_\alpha([\gamma]) = [\alpha^{-1} \cdot \gamma \cdot \alpha]\]
+
+<p>Đây là <strong>conjugation bởi $\alpha$</strong>. Trực giác hình học là chúng ta bắt đầu tại $x_1$, đi theo $\alpha^{-1}$ (đường đi ngược của $\alpha$) để đến $x_0$, đi qua loop $\gamma$ tại $x_0$, sau đó quay lại $x_1$ qua $\alpha$. Kết quả là một loop based tại $x_1$!</p>
+
+<hr />
+
+<p><strong>Định lý:</strong> $\beta_\alpha$ là một group isomorphism.</p>
+
+<p><strong>Chứng minh:</strong> Chúng ta cần kiểm tra hai điều. Thứ nhất, $\beta_\alpha$ là một homomorphism—$\beta_\alpha([\gamma][\delta]) = \beta_\alpha([\gamma])\beta_\alpha([\delta])$, điều này có thể được kiểm tra bằng cách sử dụng tính chất của concatenation. Thứ hai, $\beta_\alpha$ là song ánh—nghịch đảo của nó là $\beta_{\alpha^{-1}}$, ánh xạ từ $\pi_1(X, x_1)$ về $\pi_1(X, x_0)$. ✓</p>
+
+<p><strong>Hệ quả:</strong> $\pi_1(X, x_0) \cong \pi_1(X, x_1)$ cho mọi $x_0$, $x_1$ (trong cùng một thành phần liên thông).</p>
+
+<hr />
+
+<p><strong>Cảnh báo:</strong> Isomorphism phụ thuộc vào việc chọn path $\alpha$!</p>
+
+<p>Các paths khác nhau $\alpha$, $\alpha’$ cho các isomorphisms khác nhau (chúng khác nhau bởi một inner automorphism). Điều này có nghĩa là mặc dù các nhóm là isomorphic, cách chúng ta xác định isomorphism phụ thuộc vào đường đi mà chúng ta chọn để kết nối hai điểm cơ sở.</p>
+
+<p><strong>Ký hiệu:</strong> Khi $X$ path-connected, chúng ta thường viết <strong>$\pi_1(X)$</strong> (bỏ qua basepoint).</p>
+
+<p><strong>Lưu ý:</strong> Đây là “up to isomorphism”—cấu trúc nhóm thực tế phụ thuộc vào basepoint và cách chọn path. Tuy nhiên, đối với các mục đích thực tế, chúng ta thường chỉ quan tâm đến isomorphism type của fundamental group, không phải cấu trúc nhóm cụ thể.</p>
+
+<hr />
+
+<h3 id="2-các-không-gian-không-path-connected">2. Các không gian không Path-Connected</h3>
+
+<p><strong>Nếu $X$ không path-connected:</strong></p>
+
+<p>$\pi_1(X, x_0)$ phụ thuộc hoàn toàn vào thành phần path-connected chứa $x_0$. Điều này có nghĩa là nếu chúng ta chọn các điểm cơ sở từ các thành phần liên thông khác nhau, chúng ta sẽ nhận được các fundamental groups khác nhau.</p>
+
+<p><strong>Định lý:</strong> $\pi_1(X, x_0) = \pi_1(C, x_0)$, trong đó $C$ là thành phần path-connected của $x_0$.</p>
+
+<p><strong>Hệ quả:</strong> Chúng ta phải nghiên cứu $\pi_1$ riêng biệt cho mỗi thành phần liên thông. Điều này có nghĩa là để hiểu đầy đủ fundamental group của một không gian không path-connected, chúng ta cần tính toán fundamental group của từng thành phần liên thông và sau đó kết hợp thông tin này lại với nhau.</p>
+
+<hr />
+
+<h2 id="-functoriality">🎯 Functoriality</h2>
+
+<h3 id="1-induced-homomorphism">1. Induced Homomorphism</h3>
+
+<p><strong>Setup:</strong> Cho $f: (X, x_0) \to (Y, y_0)$ là một ánh xạ liên tục (basepoint-preserving, nghĩa là $f(x_0) = y_0$).</p>
+
+<p><strong>Định nghĩa $f_*: \pi_1(X, x_0) \to \pi_1(Y, y_0)$:</strong></p>
+
+\[f_*([\gamma]) = [f \circ \gamma]\]
+
+<p>Trực giác hình học là chúng ta ánh xạ loop $\gamma$ trong $X$ thành loop $f \circ \gamma$ trong $Y$ bằng cách áp dụng ánh xạ $f$ lên mỗi điểm trên loop. Điều này có nghĩa là nếu chúng ta có một loop trong $X$, chúng ta có thể “đẩy” nó về $Y$ thông qua ánh xạ $f$, và kết quả là một loop trong $Y$.</p>
+
+<hr />
+
+<p><strong>Định lý:</strong> $f_*$ là một group homomorphism được định nghĩa tốt.</p>
+
+<p><strong>Chứng minh:</strong> Chúng ta cần kiểm tra hai điều. Thứ nhất, $f_<em>$ được định nghĩa tốt—nếu $\gamma \simeq_p \delta$, thì $f \circ \gamma \simeq_p f \circ \delta$ vì $f$ liên tục và do đó bảo toàn homotopy. Cụ thể, nếu chúng ta có một homotopy $F$ giữa $\gamma$ và $\delta$, thì $f \circ F$ là một homotopy giữa $f \circ \gamma$ và $f \circ \delta$. Thứ hai, $f_</em>$ là một homomorphism—$f_<em>([\gamma][\delta]) = [f \circ (\gamma \cdot \delta)] = [f \circ \gamma \cdot f \circ \delta] = f_</em>([\gamma])f_*([\delta])$, điều này có thể được kiểm tra bằng cách sử dụng tính chất của concatenation và composition. ✓</p>
+
+<hr />
+
+<p><strong>Các tính chất:</strong></p>
+
+<p><strong>Tính chất (1) - Identity:</strong> $(id_X)<em>* = id</em>{\pi_1(X,x_0)}$. Điều này có nghĩa là ánh xạ đồng nhất cảm ứng ánh xạ đồng nhất trên fundamental group—một kết quả tự nhiên và mong đợi.</p>
+
+<p><strong>Tính chất (2) - Composition:</strong> $(g \circ f)<em>* = g</em>* \circ f_*$. Điều này có nghĩa là composition của các ánh xạ cảm ứng composition của các homomorphisms—một tính chất quan trọng đảm bảo rằng fundamental group “tôn trọng” cấu trúc của các ánh xạ.</p>
+
+<p><strong>Hệ quả:</strong> $\pi_1$ là một <strong>functor</strong> từ phạm trù các pointed spaces với các basepoint-preserving maps đến phạm trù các groups với các homomorphisms. Đây là một khái niệm quan trọng trong category theory—fundamental group không chỉ là một cách gán một nhóm cho mỗi không gian, mà còn là một cách “tôn trọng” cấu trúc của các ánh xạ giữa các không gian.</p>
+
+<hr />
+
+<h3 id="2-homotopy-invariance">2. Homotopy Invariance</h3>
+
+<p><strong>Định lý:</strong> Nếu $f, g: (X, x_0) \to (Y, y_0)$ đồng luân (relative to basepoint), thì $f_* = g_*$.</p>
+
+<p><strong>Chứng minh:</strong> Giả sử chúng ta có một homotopy $F: X \times I \to Y$ kết nối $f$ và $g$. Homotopy này cảm ứng một homotopy giữa $f \circ \gamma$ và $g \circ \gamma$ cho mỗi loop $\gamma$—cụ thể, $F(\gamma(s), t)$ là một homotopy từ $f \circ \gamma$ đến $g \circ \gamma$. Do đó $[f \circ \gamma] = [g \circ \gamma]$ cho mọi loop $\gamma$, nghĩa là $f_* = g_*$. ✓</p>
+
+<hr />
+
+<p><strong>Hệ quả (Homotopy Invariance chính):</strong><br />
+Nếu $X \simeq Y$ đồng luân tương đương, thì $\pi_1(X) \cong \pi_1(Y)$.</p>
+
+<p><strong>Chứng minh:</strong> Giả sử chúng ta có một homotopy equivalence $f: X \to Y$ với homotopy inverse $g: Y \to X$ sao cho $g \circ f \simeq id_X$ và $f \circ g \simeq id_Y$. Khi đó $g_* \circ f_* = (g \circ f)<em>* = id</em>* = id$ và $f_* \circ g_* = id$, nghĩa là $f_<em>$ và $g_</em>$ là nghịch đảo của nhau, và do đó là các isomorphisms. ✓</p>
+
+<p><strong>Sức mạnh:</strong> $\pi_1$ là <strong>homotopy invariant</strong>—nó chỉ phụ thuộc vào homotopy type của không gian, không phụ thuộc vào chi tiết cụ thể của cấu trúc tô-pô! Đây là một tính chất cực kỳ mạnh mẽ cho phép chúng ta tính toán fundamental group bằng cách sử dụng homotopy equivalence để đơn giản hóa không gian.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Introduced fundamental group, revolutionized topology</em></p>
+  </li>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Cinquième complément à l’Analysis Situs”</em> (1904)<br />
+<em>Further developed fundamental group theory</em></p>
+  </li>
+  <li>
+    <p><strong>Max Dehn</strong> - <em>“Über die Topologie des dreidimensionalen Raumes”</em> (1910)<br />
+<em>Applications to 3-manifolds</em></p>
+  </li>
+  <li>
+    <p><strong>Emmy Noether</strong> - Group theory applications to topology (1920s)<br />
+<em>Algebraic foundations</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§52: Fundamental Group</strong></p>
+  </li>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§1.1: Basic Constructions</strong><br />
+<em>Best modern treatment, geometric intuition</em></p>
+  </li>
+  <li>
+    <p><strong>William S. Massey</strong> - <em>A Basic Course in Algebraic Topology</em>, <strong>Chapters 2-3</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter I-II</strong></p>
+  </li>
+  <li>
+    <p><strong>Joseph J. Rotman</strong> - <em>An Introduction to Algebraic Topology</em>, <strong>Chapter 7</strong></p>
+  </li>
+  <li>
+    <p><strong>Marvin J. Greenberg &amp; John R. Harper</strong> - <em>Algebraic Topology: A First Course</em>, <strong>Chapter 3</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="topology---distinguishing-spaces">Topology - Distinguishing Spaces</h3>
+
+<p>Fundamental group là một công cụ mạnh mẽ để phân biệt các không gian tô-pô. Ví dụ, $\pi_1(S^1) \cong \mathbb{Z} \neq 0 = \pi_1(S^2)$ chứng minh rằng $S^1 \not\cong S^2$—không tồn tại homeomorphism giữa hình tròn và hình cầu mặc dù cả hai đều compact và connected. Đây là một ví dụ tuyệt vời về cách fundamental group có thể phân biệt các không gian mà các tính chất tô-pô cơ bản không thể phân biệt được.</p>
+
+<h3 id="fixed-point-theorems---brouwer">Fixed Point Theorems - Brouwer</h3>
+
+<p>Định lý điểm cố định Brouwer phát biểu rằng mọi ánh xạ liên tục $f: D^2 \to D^2$ đều có ít nhất một điểm cố định. Chứng minh của định lý này sử dụng $\pi_1(S^1) \cong \mathbb{Z}$ một cách tinh tế—nếu $f$ không có điểm cố định, thì chúng ta có thể xây dựng một retraction $r: D^2 \to S^1$, điều này dẫn đến mâu thuẫn vì $\pi_1(D^2) = 0$ trong khi $\pi_1(S^1) = \mathbb{Z}$. Đây là một ứng dụng cổ điển của fundamental group trong giải tích.</p>
+
+<h3 id="covering-space-theory">Covering Space Theory</h3>
+
+<p>Covering spaces của một không gian $X$ được phân loại bởi các nhóm con của $\pi_1(X)$. Universal cover $\tilde{X}$ thỏa mãn $\pi_1(\tilde{X}) = 0$ và $X = \tilde{X}/\pi_1(X)$, nghĩa là không gian ban đầu có thể được xây dựng như một quotient của universal cover bởi fundamental group. Đây là một kết nối sâu sắc giữa fundamental group và covering spaces, và chúng ta sẽ nghiên cứu chi tiết trong các bài học sau.</p>
+
+<h3 id="complex-analysis---monodromy">Complex Analysis - Monodromy</h3>
+
+<p>Trong giải tích phức, các hàm đa trị như $\sqrt{z}$ và $\log z$ trở thành đơn trị trên universal cover của miền xác định của chúng. Monodromy là hành động của $\pi_1$ trên các giá trị hàm—khi chúng ta đi vòng quanh một điểm kỳ dị, giá trị của hàm có thể thay đổi, và cách thay đổi này được mã hóa bởi fundamental group. Đây là một ví dụ tuyệt vời về cách topology xuất hiện tự nhiên trong giải tích phức.</p>
+
+<h3 id="robotics---configuration-spaces">Robotics - Configuration Spaces</h3>
+
+<p>Trong robotics, không gian cấu hình của robot là không gian của tất cả các vị trí và hướng có thể của robot. Các paths trong không gian cấu hình tương ứng với các chuyển động của robot. Các homotopy classes tương ứng với các chiến lược về mặt tô-pô khác nhau—ví dụ, đi bên trái hoặc bên phải của một chướng ngại vật là hai homotopy classes khác nhau. $\pi_1(X)$ đại diện cho các chướng ngại vật cơ bản đối với chuyển động—nếu fundamental group không tầm thường, có những cách “về mặt tô-pô khác nhau” để robot có thể di chuyển.</p>
+
+<h3 id="physics---aharonov-bohm-effect">Physics - Aharonov-Bohm Effect</h3>
+
+<p>Trong cơ học lượng tử, hiệu ứng Aharonov-Bohm cho thấy rằng sự dịch chuyển pha của electron phụ thuộc vào $\pi_1$ của không gian cấu hình (loại trừ từ thông từ tính). Nếu $\pi_1$ không tầm thường, có thể có các hiệu ứng lượng tử quan sát được ngay cả khi đường đi cổ điển tránh trường. Đây là một ví dụ về cách topology xuất hiện trong vật lý lượng tử và cho thấy rằng fundamental group không chỉ là một khái niệm toán học trừu tượng mà còn có ý nghĩa vật lý sâu sắc.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="definition-và-basic-properties">Definition và Basic Properties</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Loop Concatenation:</strong><br />
+γ, δ loops at x₀. Verify γ · δ well-defined loop (continuous, based at x₀).</p>
+  </li>
+  <li>
+    <p><strong>Constant Loop Identity:</strong><br />
+Write explicit homotopy F: γ · e ≃_p γ. Verify F continuous và fixes basepoint.</p>
+  </li>
+  <li>
+    <p><strong>Inverse Loop:</strong><br />
+Prove [γ] · [γ⁻¹] = [e] by constructing explicit homotopy collapsing γ · γ⁻¹ to constant.</p>
+  </li>
+  <li>
+    <p><strong>Associativity Homotopy:</strong><br />
+Sketch homotopy showing (γ · δ) · ε ≃_p γ · (δ · ε). Describe reparametrization.</p>
+  </li>
+</ol>
+
+<h3 id="computing-π">Computing π₁</h3>
+
+<ol>
+  <li>
+    <p><strong>ℝⁿ Simply Connected:</strong><br />
+Prove any loop trong ℝⁿ homotopic to constant using straight-line homotopy F(s,t) = (1-t)γ(s) + tx₀.</p>
+  </li>
+  <li>
+    <p><strong>Disk D²:</strong><br />
+π₁(D²) = 0. Why? (Same proof as ℝ²—D² convex.)</p>
+  </li>
+  <li>
+    <p><strong>Annulus:</strong><br />
+A = {z ∈ ℂ : 1 ≤ |z| ≤ 2}. Compute π₁(A). (Answer: ≅ ℤ, same as S¹.)</p>
+  </li>
+  <li>
+    <p><strong>ℝ² \ {0}:</strong><br />
+ℝ² \ {0} ≃ S¹ ⇒ π₁(ℝ² \ {0}) ≅ ℤ. Geometric intuition.</p>
+  </li>
+  <li>
+    <p><strong>ℝ² \ {two points}:</strong><br />
+Intuitive argument: π₁(ℝ² \ {p,q}) ≅ ℤ * ℤ (free product). Will prove với Van Kampen.</p>
+  </li>
+</ol>
+
+<h3 id="basepoint-independence">Basepoint Independence</h3>
+
+<ol>
+  <li>
+    <p><strong>Basepoint Change:</strong><br />
+Path α from x₀ to x₁. Define β_α([γ]) = [α⁻¹ · γ · α]. Verify β_α homomorphism.</p>
+  </li>
+  <li>
+    <p><strong>Inverse Isomorphism:</strong><br />
+Prove β_{α⁻¹} is inverse của β_α, establishing isomorphism.</p>
+  </li>
+  <li>
+    <p><strong>Path Dependence:</strong><br />
+α, α’ two paths from x₀ to x₁. How do β_α và β_{α’} differ? (Differ by inner automorphism induced by loop α’ · α⁻¹.)</p>
+  </li>
+</ol>
+
+<h3 id="functoriality">Functoriality</h3>
+
+<ol>
+  <li>
+    <p><strong>Induced Homomorphism:</strong><br />
+f: S¹ → S¹, f(z) = z². Compute f_<em>: π₁(S¹) → π₁(S¹). (Answer: f_</em>(n) = 2n, multiplication by 2.)</p>
+  </li>
+  <li>
+    <p><strong>Composition:</strong><br />
+f: X → Y, g: Y → Z. Verify (g∘f)<em>* = g</em>* ∘ f_* carefully.</p>
+  </li>
+  <li>
+    <p><strong>Identity:</strong><br />
+Verify (id_X)<em>* = id</em>{π₁(X)}.</p>
+  </li>
+</ol>
+
+<h3 id="homotopy-invariance">Homotopy Invariance</h3>
+
+<ol>
+  <li>
+    <p><strong>Retraction:</strong><br />
+r: X → A retraction (r|<em>A = id). Show r</em>*: π₁(X) → π₁(A) surjective.</p>
+  </li>
+  <li>
+    <p><strong>Deformation Retract:</strong><br />
+A deformation retract của X. Prove i_*: π₁(A) → π₁(X) isomorphism (i = inclusion).</p>
+  </li>
+  <li>
+    <p><strong>Homotopy Equivalence:</strong><br />
+X ≃ Y. Prove π₁(X) ≅ π₁(Y) using functoriality.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Non-Abelian:</strong><br />
+π₁ generally non-abelian. Research example: π₁(figure-eight) = ℤ * ℤ (free product, non-abelian).</p>
+  </li>
+  <li>
+    <p><strong>Abelianization:</strong><br />
+π₁^{ab}(X) = π₁(X)/[π₁(X), π₁(X)] (abelianization). Relate to H₁(X) (will see: π₁^{ab} ≅ H₁).</p>
+  </li>
+  <li>
+    <p><strong>Higher Homotopy Groups:</strong><br />
+π_n(X) = [S^n, X] (homotopy classes của maps Sⁿ → X). π_n abelian for n ≥ 2. Research brief overview.</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Basepoint?:</strong><br />
+Tại sao cần basepoint x₀? (Concatenation requires common starting point. Basepoint provides group structure.)</p>
+  </li>
+  <li>
+    <p><strong>Geometric Intuition:</strong><br />
+Explain π₁(S¹) ≅ ℤ đến non-mathematician. Use winding number / wrapping string analogy.</p>
+  </li>
+  <li>
+    <p><strong>Applications:</strong><br />
+List three applications của π₁ trong different fields. Explain briefly.</p>
+  </li>
+  <li>
+    <p><strong>History:</strong><br />
+Research Poincaré’s motivation introducing π₁. Why revolutionary?</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, Algebraic Topology:</strong> §1.1 (Outstanding geometric treatment)</li>
+  <li><strong>Munkres, Topology:</strong> §52 (Rigorous, clear)</li>
+  <li><strong>Massey, Basic Course:</strong> Chapters 2-3 (Comprehensive)</li>
+  <li><strong>Armstrong, Basic Topology:</strong> Chapter 5 (Accessible)</li>
+  <li><strong>Stillwell, Classical Topology:</strong> Historical perspective</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài học này, chúng ta đã xây dựng <strong>fundamental group $\pi_1(X, x_0)$</strong>—bất biến đại số đầu tiên trong tô-pô học. Định nghĩa của $\pi_1(X, x_0)$ là tập các lớp đồng luân của các vòng lặp tại $x_0$—mỗi phần tử của nhóm đại diện cho một cách “đi vòng quanh” không gian và quay lại điểm xuất phát. Phép toán nhóm được định nghĩa bằng concatenation—$[\gamma] \cdot [\delta] = [\gamma \cdot \delta]$, nghĩa là “thực hiện vòng lặp $\gamma$, sau đó vòng lặp $\delta$”. Tất cả các tiên đề nhóm đều được xác minh: phần tử đơn vị là lớp của vòng lặp hằng $[e]$, phần tử nghịch đảo là $[\gamma^{-1}]$ (đường đi ngược), và quan trọng là tính kết hợp được thỏa mãn. Các ví dụ quan trọng bao gồm: $\pi_1(\mathbb{R}^n) = 0$ (nhóm tầm thường vì contractible), $\pi_1(S^1) \cong \mathbb{Z}$ (số nguyên tương ứng với winding number), $\pi_1(S^n) = 0$ cho $n \geq 2$ (simply connected), và $\pi_1(T^2) \cong \mathbb{Z}^2$ (hai vòng lặp độc lập). Tính độc lập với điểm cơ sở cho thấy $\pi_1(X, x_0) \cong \pi_1(X, x_1)$ đối với không gian path-connected—nhóm về cơ bản độc lập với việc chọn điểm cơ sở, thông qua conjugation. Functoriality cho phép mỗi ánh xạ liên tục $f: X \to Y$ cảm ứng một đồng cấu nhóm $f_*: \pi_1(X) \to \pi_1(Y)$. Homotopy invariance đảm bảo rằng nếu $X \simeq Y$, thì $\pi_1(X) \cong \pi_1(Y)$—đây là một tính chất quan trọng cho phép chúng ta tính toán fundamental group bằng cách sử dụng homotopy equivalence.</p>
+
+<p>Điểm chính của bài học là $\pi_1$ là một bất biến đại số được xây dựng từ dữ liệu hình học—chúng ta chuyển đổi các vòng lặp hình học thành các phần tử của một nhóm đại số. Nó có thể tính toán được cho nhiều không gian chuẩn—chúng ta có các kỹ thuật để tính toán fundamental group của các không gian phổ biến. Nó phân biệt các không gian—ví dụ, $S^1 \neq S^2$ vì $\pi_1(S^1) \cong \mathbb{Z}$ trong khi $\pi_1(S^2) = 0$. Nó là functorial và homotopy invariant—hai tính chất quan trọng đảm bảo rằng $\pi_1$ là một bất biến tô-pô thực sự. Nó tạo thành nền tảng cho lý thuyết covering spaces—fundamental group và covering spaces có mối quan hệ sâu sắc.</p>
+
+<p>Trực giác hình học đằng sau $\pi_1$ là các vòng lặp là các cách đi qua không gian—chúng ta bắt đầu tại điểm cơ sở, đi vòng quanh không gian, và quay lại điểm xuất phát. Homotopy là sự biến dạng bảo toàn điểm cơ sở—chúng ta có thể biến dạng một vòng lặp thành vòng lặp khác trong khi giữ điểm cơ sở cố định. Trực giác về winding number cho $S^1$ là chúng ta có thể quấn một vòng dây quanh hình tròn một số lần—số lần quấn này tương ứng với một số nguyên trong $\mathbb{Z}$. Các chiều cao hơn dẫn đến $\pi_1$ đơn giản hơn—$S^n$ là simply connected cho $n \geq 2$, nghĩa là mọi vòng lặp đều có thể co lại về một điểm.</p>
+
+<p>Trong thực tế, chúng ta kiểm tra tính path-connected để đảm bảo tính độc lập với điểm cơ sở—nếu không gian không path-connected, fundamental group có thể phụ thuộc vào thành phần liên thông mà điểm cơ sở nằm trong đó. Chúng ta sử dụng homotopy equivalence để đơn giản hóa các tính toán—nếu chúng ta có thể tìm thấy một không gian đồng luân tương đương đơn giản hơn, chúng ta có thể tính toán fundamental group dễ dàng hơn. Functoriality cho phép so sánh giữa các không gian—mỗi ánh xạ liên tục cảm ứng một đồng cấu nhóm, cho phép chúng ta nghiên cứu mối quan hệ giữa các không gian. $\pi_1$ được bảo toàn bởi deformation retracts—nếu $A$ là deformation retract của $X$, thì $\pi_1(A) \cong \pi_1(X)$.</p>
+
+<p><strong>Tiếp theo:</strong> Lecture 06.02 về <strong>Computing $\pi_1$</strong>—các kỹ thuật và ví dụ (chứng minh cho $S^1$, surfaces, các ứng dụng)!</p>
+
+<hr />
+
+<p><em>“The fundamental group is where algebra meets geometry.”</em> — Poincaré’s legacy</p>
+
+<p>🎯 <strong>Master π₁! It’s the first step into algebraic topology.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter06/06_00_Homotopy_Path_Homotopy/">Lecture 06.00: Homotopy</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter06/06_02_Computing_Fundamental_Group/">Lecture 06.02: Computing π₁</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter6/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

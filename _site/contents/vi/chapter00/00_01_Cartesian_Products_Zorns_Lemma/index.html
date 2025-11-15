@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 00.01: Cartesian Products and Zorn's Lemma &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 00.01: Cartesian Products and Zorn's Lemma
+    
+  </h1>
+  <p><strong>Cartesian Products and Zorn’s Lemma</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Trong bài trước, chúng ta đã học cách xây dựng các tập hợp cơ bản. Nhưng làm thế nào để tạo ra các không gian phức tạp từ các không gian đơn giản hơn? Câu trả lời là <strong>tích Cartesian</strong> (Cartesian product)—một trong những construction quan trọng nhất trong toán học.</p>
+
+<p>Hãy tưởng tượng: nếu bạn có một đường thẳng (ℝ) và muốn tạo ra một mặt phẳng (ℝ²), bạn lấy “tích” của hai đường thẳng. Nếu bạn có hai không gian tô-pô, bạn có thể tạo ra không gian tô-pô mới bằng cách “nhân” chúng với nhau. Đây chính là ý tưởng đằng sau product topology—một trong những công cụ mạnh nhất để xây dựng không gian phức tạp.</p>
+
+<p>Nhưng có một câu hỏi sâu xa hơn: <strong>Liệu ta luôn có thể “chọn” một phần tử từ mỗi tập hợp?</strong> Câu hỏi tưởng chừng đơn giản này dẫn đến một trong những tiên đề tranh cãi nhất trong toán học—<strong>Axiom of Choice</strong>—và công cụ mạnh mẽ <strong>Bổ đề Zorn</strong>.</p>
+
+<p><strong>Tại sao bài này quan trọng?</strong> Bài giảng này giới thiệu một trong những constructions fundamental nhất trong topology: <strong>product topology</strong>. Đây là cách chúng ta combine các không gian đơn giản để tạo ra không gian phức tạp, giống như cách ℝ² được tạo từ hai bản sao của ℝ. Nhưng construction này immediately raises một câu hỏi subtle: khi có vô hạn spaces, làm sao chúng ta “choose” elements from each one? Đây là lúc <strong>Axiom of Choice</strong> xuất hiện—một trong những tiên đề controversial nhất trong toán học, nhưng absolutely essential cho nhiều định lý topology. <strong>Bổ đề Zorn</strong> là một formulation equivalent mạnh mẽ của Axiom of Choice, providing công cụ để prove existence của maximal objects như bases for vector spaces, maximal ideals trong rings, và trong topology, bases cho topologies. Cuối cùng, <strong>Well-Ordering Principle</strong> (cũng equivalent với Axiom of Choice) là nền tảng cho transfinite induction—technique cho phép ta reason about uncountably infinite objects.</p>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-tích-cartesian">Câu chuyện về Tích Cartesian</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Hãy bắt đầu với một ví dụ quen thuộc. Giả sử bạn đang thiết kế áo thun và có tập màu sắc C = {đỏ, xanh, vàng} và tập kích cỡ S = {nhỏ, vừa, lớn}. Bạn muốn tạo ra tất cả các combinations có thể—mỗi màu với mỗi size. Đây chính là tích Cartesian: C × S = {(đỏ, nhỏ), (đỏ, vừa), (đỏ, lớn), (xanh, nhỏ), (xanh, vừa), (xanh, lớn), …}, giving tổng cộng</td>
+      <td>C × S</td>
+      <td>= 3 × 3 = 9 possibilities.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Geometric visualization</strong> giúp ta hiểu deeper: nếu ta đặt C trên trục hoành và S trên trục tung, thì C × S chính là tất cả các điểm trên một “lưới” 3×3. Đây exactly là cách mà mặt phẳng ℝ² được construct từ hai đường thẳng ℝ—mỗi điểm (x, y) trong mặt phẳng là một ordered pair với x từ axis đầu tiên và y từ axis thứ hai.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cartesian_Product_qtl1.svg/400px-Cartesian_Product_qtl1.svg.png" alt="Cartesian product visualization" /><br />
+<em>Tích Cartesian của hai tập hợp - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Cartesian_Product_qtl1.svg">Wikimedia Commons</a></em></p>
+
+<h3 id="từ-hữu-hạn-đến-vô-hạn">Từ Hữu hạn đến Vô hạn</h3>
+
+<p><strong>Câu hỏi:</strong> Nếu tôi có <strong>vô hạn</strong> tập hợp {A₁, A₂, A₃, …}, làm sao tạo ra tích của chúng?</p>
+
+<p>Đây là lúc mọi thứ trở nên phức tạp—và kỳ diệu—vì chúng ta cần <strong>Axiom of Choice</strong>.</p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-ordered-pairs-và-cartesian-product">1. Ordered Pairs và Cartesian Product</h3>
+
+<p><strong>Định nghĩa (Ordered Pair - Cặp có thứ tự):</strong><br />
+Cặp có thứ tự (a, b) được định nghĩa (theo Kuratowski) là:</p>
+
+\[(a, b) := \{\{a\}, \{a, b\}\}\]
+
+<p><strong>Tính chất quan trọng:</strong>
+\((a, b) = (c, d) \iff (a = c) \land (b = d)\)</p>
+
+<p><strong>Trực giác:</strong> Thứ tự quan trọng: (1, 2) ≠ (2, 1).</p>
+
+<p><strong>Định nghĩa (Cartesian Product - Tích Cartesian):</strong><br />
+Với hai tập A và B, tích Cartesian là:</p>
+
+\[A \times B = \{(a, b) : a \in A, b \in B\}\]
+
+<p><strong>Ví dụ cụ thể:</strong> ℝ × ℝ = ℝ² gives us the familiar plane; ℝ × ℝ × ℝ = ℝ³ constructs three-dimensional space; và {0,1} × {0,1} = {(0,0), (0,1), (1,0), (1,1)} là tập 4 phần tử representing tất cả bit-pairs.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Tính chất quan trọng của Cartesian product:</strong> Thứ nhất, nó không giao hoán—A × B khác B × A (trừ khi A = B) vì (a,b) ≠ (b,a) when a ≠ b. Order matters! Thứ hai, cardinality của product là product của cardinalities:</td>
+      <td>A × B</td>
+      <td>=</td>
+      <td>A</td>
+      <td>·</td>
+      <td>B</td>
+      <td>khi finite, và điều này extends sang infinite case (with appropriate definitions). Thứ ba, mọi product với empty set đều empty: A × ∅ = ∅, reflecting rằng không có cách nào form ordered pair khi một trong hai components không có elements.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="2-arbitrary-products-tích-tùy-ý">2. Arbitrary Products (Tích Tùy ý)</h3>
+
+<p><strong>Vấn đề:</strong> Làm sao định nghĩa tích của vô hạn tập hợp?</p>
+
+<p>Giả sử có họ tập hợp {Aᵢ : i ∈ I} với I là tập chỉ số (index set).</p>
+
+<p><strong>Cách tiếp cận ngây thơ:</strong> “Chọn một phần tử từ mỗi Aᵢ”…</p>
+
+<p><strong>Nhưng:</strong> Làm sao “chọn” khi có vô hạn tập hợp?</p>
+
+<p><strong>Định nghĩa (Product of indexed family):</strong><br />
+Tích Cartesian của họ {Aᵢ}ᵢ∈I là:</p>
+
+\[\prod_{i \in I} A_i = \left\{ f: I \to \bigcup_{i \in I} A_i \; \middle| \; \forall i \in I: f(i) \in A_i \right\}\]
+
+<p><strong>Trực giác:</strong> Mỗi phần tử của tích là một <strong>hàm lựa chọn</strong> (choice function) gán cho mỗi chỉ số i một phần tử từ Aᵢ.</p>
+
+<p><strong>Ví dụ về infinite products:</strong> ℝ^ℕ (product của countably nhiều copies của ℝ) là tập tất cả infinite sequences of real numbers—mỗi sequence (x₁, x₂, x₃, …) là một choice function chọn xᵢ ∈ ℝ cho mỗi index i ∈ ℕ. Similarly, {0,1}^ℕ là tập tất cả infinite binary sequences, forming a fundamental object trong topology known as the Cantor space.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Binary_tree_structure.svg/400px-Binary_tree_structure.svg.png" alt="Infinite product visualization" /><br />
+<em>Cây nhị phân biểu diễn {0,1}^ℕ - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Binary_tree_structure.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="3-axiom-of-choice-ac">3. Axiom of Choice (AC)</h3>
+
+<p><strong>Phát biểu (Informal):</strong><br />
+Cho một họ các tập hợp không rỗng {Aᵢ}ᵢ∈I. Luôn tồn tại một “choice function” chọn đúng một phần tử từ mỗi Aᵢ.</p>
+
+<p><strong>Phát biểu (Formal):</strong></p>
+
+\[\forall \mathcal{F}: \left(\emptyset \notin \mathcal{F}\right) \implies \exists f: \mathcal{F} \to \bigcup \mathcal{F} \text{ sao cho } \forall A \in \mathcal{F}: f(A) \in A\]
+
+<p><strong>Trực giác:</strong> Nếu bạn có vô hạn cặp giày, bạn có thể chọn một chiếc từ mỗi cặp (chọn chiếc trái). Nhưng nếu bạn có vô hạn cặp tất (không phân biệt trái phải), làm sao bạn “chọn” một chiếc từ mỗi cặp mà không có quy tắc?</p>
+
+<p><strong>Ví dụ nổi tiếng của Bertrand Russell</strong> illuminate khi nào AC cần và không cần. Consider vô hạn pairs of shoes: bạn có thể choose một shoe from each pair mà không cần AC bằng cách simply chọn “chiếc trái” từ mỗi cặp—đây là một explicit rule. Nhưng với vô hạn pairs of socks (giả sử indistinguishable), không có “rule” nào để pick one sock from each pair. Bạn cần AC để assert rằng such a choice function exists, dù bạn không thể construct nó explicitly. Đây là điểm subtle: AC doesn’t tell you <em>how</em> to choose, nó chỉ assert that a choice <em>can</em> be made.</p>
+
+<p><strong>Hệ quả quan trọng:</strong></p>
+
+<p><strong>Định lý:</strong><br />
+Với họ không rỗng {Aᵢ}ᵢ∈I, nếu mỗi Aᵢ ≠ ∅, thì:</p>
+
+\[\prod_{i \in I} A_i \neq \emptyset \iff \text{Axiom of Choice}\]
+
+<p><strong>Tại sao Axiom of Choice quan trọng trong topology?</strong> Nhiều định lý fundamental trong topology absolutely require AC. <strong>Tychonoff’s Theorem</strong> states rằng arbitrary product của compact spaces là compact—đây là một trong những theorems central nhất trong topology, và nó equivalent với AC! Không có AC, ta không thể prove theorem này for uncountable products. <strong>Basis Theorem</strong> trong linear algebra (every vector space has a basis) cũng requires AC khi không gian vô hạn chiều. Trong topology, <strong>Stone-Čech compactification</strong>—cách canonical để embed một completely regular space vào một compact space—existence của nó cần AC. Những results này không phải là technical curiosities; chúng là workhorses của modern topology và analysis.</p>
+
+<hr />
+
+<h3 id="4-zorns-lemma">4. Zorn’s Lemma</h3>
+
+<p><strong>Định nghĩa (Partially Ordered Set - Poset):</strong><br />
+Một <strong>poset</strong> (A, ≤) là tập A cùng với quan hệ ≤ thỏa mãn:</p>
+<ol>
+  <li><strong>Reflexive:</strong> a ≤ a</li>
+  <li><strong>Antisymmetric:</strong> (a ≤ b) ∧ (b ≤ a) ⇒ (a = b)</li>
+  <li><strong>Transitive:</strong> (a ≤ b) ∧ (b ≤ c) ⇒ (a ≤ c)</li>
+</ol>
+
+<p><strong>Ví dụ về posets:</strong> Real numbers với usual ordering (ℝ, ≤) form một poset where transitivity và antisymmetry hold. Power set 𝒫(X) với set inclusion (𝒫(X), ⊆) là another poset—two sets A, B satisfy A ⊆ B and B ⊆ A exactly when A = B. Đặc biệt relevant cho topology là collection của tất cả topologies trên một fixed set X, ordered by inclusion: topology τ₁ ⊆ τ₂ means τ₁ is coarser (has fewer open sets) than τ₂.</p>
+
+<p><strong>Định nghĩa (Chain - Xích):</strong><br />
+Một <strong>chain</strong> (hoặc totally ordered subset) trong poset (A, ≤) là tập con C ⊆ A sao cho mọi a, b ∈ C đều so sánh được: a ≤ b hoặc b ≤ a.</p>
+
+<p><strong>Định nghĩa (Upper Bound - Cận trên):</strong><br />
+Phần tử u ∈ A là <strong>upper bound</strong> của C nếu ∀c ∈ C: c ≤ u.</p>
+
+<p><strong>Định nghĩa (Maximal Element - Phần tử cực đại):</strong><br />
+Phần tử m ∈ A là <strong>maximal</strong> nếu không tồn tại a ∈ A với m &lt; a.</p>
+
+<p><strong>Chú ý:</strong> Maximal ≠ Maximum! Có thể có nhiều maximal elements.</p>
+
+<p><strong>Bổ đề Zorn (Zorn’s Lemma):</strong></p>
+
+<blockquote>
+  <p><strong>Nếu mọi chain trong poset (A, ≤) đều có upper bound, thì A có ít nhất một phần tử maximal.</strong></p>
+</blockquote>
+
+\[\left(\forall \text{ chain } C \subseteq A: \exists u \in A: \forall c \in C: c \leq u\right) \implies \exists m \in A: m \text{ is maximal}\]
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Hasse_diagram_of_powerset_of_3.svg/300px-Hasse_diagram_of_powerset_of_3.svg.png" alt="Zorn's Lemma visualization" /><br />
+<em>Hasse diagram minh họa maximal elements - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Hasse_diagram_of_powerset_of_3.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Trực giác:</strong> Nếu bạn có thể “leo lên” dọc theo mọi “đường mòn” (chain) và luôn có “đỉnh tạm thời”, thì phải tồn tại một “đỉnh cuối cùng” mà bạn không thể leo cao hơn.</p>
+
+<hr />
+
+<h3 id="5-equivalence-ac--zorn--wop">5. Equivalence: AC ⟺ Zorn ⟺ WOP</h3>
+
+<p>Ba phát biểu sau đây <strong>tương đương</strong> (trong ZF):</p>
+
+<ol>
+  <li><strong>Axiom of Choice (AC)</strong></li>
+  <li><strong>Zorn’s Lemma (ZL)</strong></li>
+  <li><strong>Well-Ordering Principle (WOP):</strong> Mọi tập hợp đều có thể well-ordered.</li>
+</ol>
+
+<p><strong>Định nghĩa (Well-ordered):</strong><br />
+Một tập A với quan hệ thứ tự ≤ là <strong>well-ordered</strong> nếu mọi tập con không rỗng của A đều có phần tử nhỏ nhất.</p>
+
+<p><strong>Ví dụ về well-ordering:</strong> Natural numbers (ℕ, ≤) are well-ordered—every non-empty subset has a least element, which là why induction works! Integers (ℤ, ≤) are NOT well-ordered vì ℤ itself không có phần tử nhỏ nhất (goes to -∞). Similarly, real numbers (ℝ, ≤) are not well-ordered; for instance, open interval (0,1) có không smallest element.</p>
+
+<p><strong>Well-Ordering Principle:</strong><br />
+Tồn tại một quan hệ thứ tự trên ℝ (khác ≤ thông thường) sao cho (ℝ, ≼) well-ordered!</p>
+
+<p><strong>Triết học:</strong> WOP có vẻ “ngược” với trực giác, nhưng nó tương đương với AC—một công cụ chúng ta sử dụng mỗi ngày.</p>
+
+<hr />
+
+<h3 id="6-ứng-dụng-trong-topology">6. Ứng dụng trong Topology</h3>
+
+<p><strong>Ứng dụng 1: Tồn tại Basis</strong></p>
+
+<p><strong>Định lý:</strong><br />
+Mọi không gian tô-pô có một basis.</p>
+
+<p><strong>Chứng minh (sketch):</strong> Dùng Zorn’s Lemma trên poset của các họ tập mở với quan hệ bao hàm. Mọi chain có upper bound (là hợp của chain). Do đó tồn tại basis maximal.</p>
+
+<p><strong>Ứng dụng 2: Tychonoff’s Theorem</strong></p>
+
+<p><strong>Định lý Tychonoff:</strong><br />
+Tích tùy ý các không gian compact là compact (trong product topology).</p>
+
+<p><strong>Chú ý:</strong> Chứng minh CẦN Axiom of Choice! Thực tế, Tychonoff’s Theorem tương đương với AC.</p>
+
+<p><strong>Ứng dụng 3: Hausdorff Maximal Principle</strong></p>
+
+<p><strong>Định lý:</strong><br />
+Mọi chain trong poset có thể mở rộng thành maximal chain.</p>
+
+<p><strong>Ý nghĩa:</strong> Trong topology, dùng để chứng minh sự tồn tại của ultrafilters, compactifications, etc.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Ernst Zermelo</strong> - <em>“Beweis, daß jede Menge wohlgeordnet werden kann”</em> (1904)<br />
+<em>Chứng minh đầu tiên của Well-Ordering Theorem (và ngầm định AC)</em></p>
+  </li>
+  <li>
+    <p><strong>Max Zorn</strong> - <em>“A Remark on Method in Transfinite Algebra”</em> (1935)<br />
+<em>Giới thiệu “Zorn’s Lemma” - công cụ thay thế cho transfinite induction</em></p>
+  </li>
+  <li>
+    <p><strong>Kurt Gödel</strong> - <em>“The Consistency of the Axiom of Choice”</em> (1938)<br />
+<em>Chứng minh AC consistent với ZF</em></p>
+  </li>
+  <li>
+    <p><strong>Paul Cohen</strong> - <em>“The Independence of the Continuum Hypothesis”</em> (1963)<br />
+<em>Chứng minh AC độc lập với ZF (Fields Medal!)</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§9: Infinite Sets and Axiom of Choice</strong><br />
+<em>Trình bày rõ ràng về AC và product topology</em></p>
+  </li>
+  <li>
+    <p><strong>Thomas Jech</strong> - <em>The Axiom of Choice</em> (1973)<br />
+<em>Monograph toàn diện về AC và các hệ quả</em></p>
+  </li>
+  <li>
+    <p><strong>Kelley, John L.</strong> - <em>General Topology</em> (1955), <strong>Chapter 0</strong><br />
+<em>Classic treatment của choice principles</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="physics---quantum-mechanics">Physics - Quantum Mechanics</h3>
+<p><strong>Fock Spaces:</strong> Trong quantum field theory, ta xây dựng không gian Fock bằng cách lấy tổng trực tiếp của các tensor products. AC đảm bảo basis tồn tại cho các không gian vô hạn chiều này.</p>
+
+<h3 id="functional-analysis">Functional Analysis</h3>
+<p><strong>Hahn-Banach Theorem:</strong> Một trong những định lý quan trọng nhất trong giải tích hàm, chứng minh CẦN Axiom of Choice (hoặc Zorn’s Lemma).</p>
+
+<h3 id="algebra">Algebra</h3>
+<p><strong>Basis of Vector Spaces:</strong> Mọi không gian vector có basis—điều này cần Zorn’s Lemma! Không có AC, có thể tồn tại không gian vector không có basis.</p>
+
+<h3 id="computer-science">Computer Science</h3>
+<p><strong>Banach-Tarski Paradox:</strong> Sử dụng AC, có thể “chia” một quả bóng thành 5 mảnh và “lắp ráp” lại thành 2 quả bóng giống hệt quả ban đầu! (Không thể thực hiện trong thực tế vì các mảnh không đo được)</p>
+
+<h3 id="real-world-example">Real-World Example</h3>
+<p><strong>Database Joins:</strong> Khi join hai bảng trong database, ta thực hiện Cartesian product của các rows. Số lượng kết quả = |Table1| × |Table2|. Product topology là phiên bản tô-pô của khái niệm này.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="conceptual-questions">Conceptual Questions</h3>
+
+<ol>
+  <li><strong>Visualize Products:</strong><br />
+Vẽ hình minh họa [0,1] × [0,1] (hình vuông đơn vị) và S¹ × [0,1] (cylinder).
+    <ul>
+      <li>Mô tả topology trên các không gian này.</li>
+      <li>S¹ × S¹ trông như thế nào? (Hint: Torus!)</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Cardinality of Products:</strong><br />
+Chứng minh rằng |ℝ × ℝ| = |ℝ| bằng cách xây dựng bijection tường minh.<br />
+(<em>Hint:</em> Cantor’s “interleaving” trick)</p>
+  </li>
+  <li><strong>Choice Function:</strong><br />
+Cho họ tập hợp {{1}, {1,2}, {1,2,3}, …}.
+    <ul>
+      <li>Viết tường minh một choice function.</li>
+      <li>Điều này có cần Axiom of Choice không? Tại sao?</li>
+    </ul>
+  </li>
+  <li><strong>Zorn’s Lemma Application:</strong><br />
+Xét poset (𝒫(ℕ), ⊆) của tất cả tập con của ℕ.
+    <ul>
+      <li>Liệt kê một chain trong poset này.</li>
+      <li>Upper bound của chain đó là gì?</li>
+      <li>Các maximal elements là gì?</li>
+    </ul>
+  </li>
+  <li><strong>Well-Ordering Challenge:</strong><br />
+Giả sử (ℝ, ≼) well-ordered.
+    <ul>
+      <li>Nếu x₀ là phần tử nhỏ nhất, x₀ là số nào?</li>
+      <li>Successor của x₀ (nếu có) là gì?</li>
+      <li>Điều này có phù hợp với trực giác về ℝ không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="advanced-problems">Advanced Problems</h3>
+
+<ol>
+  <li><strong>Countable vs Uncountable Products:</strong>
+    <ul>
+      <li>Chứng minh: Nếu mỗi Aᵢ có ít nhất 2 phần tử, thì ∏ᵢ₌₁^∞ Aᵢ là uncountable.</li>
+      <li>Kết luận gì về {0,1}^ℕ?</li>
+    </ul>
+  </li>
+  <li><strong>Topology Preview:</strong><br />
+Trong ℝ² = ℝ × ℝ, xét tập U = {(x,y) : x² + y² &lt; 1} (đĩa mở).
+    <ul>
+      <li>U có dạng A × B với A, B ⊆ ℝ không?</li>
+      <li>Điều này gợi ý gì về cách xây dựng “open sets” trong product topology?</li>
+    </ul>
+  </li>
+  <li><strong>AC Independence:</strong><br />
+Tìm hiểu về “Dedekind-finite sets”—các tập hợp không song ánh với tập con thực sự của chính nó.
+    <ul>
+      <li>Trong ZF (không có AC), có thể tồn tại Dedekind-finite nhưng vô hạn!</li>
+      <li>Điều này có thể xảy ra với AC không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="reflection-questions">Reflection Questions</h3>
+
+<ol>
+  <li><strong>Philosophical Debate:</strong><br />
+Một số toán học gia từ chối Axiom of Choice vì nó “non-constructive”.
+    <ul>
+      <li>Tại sao AC được coi là “không xây dựng”?</li>
+      <li>Bạn có nghĩ chúng ta nên chấp nhận AC không? Tại sao?</li>
+    </ul>
+  </li>
+  <li><strong>Big Picture:</strong><br />
+So sánh AC, Zorn’s Lemma, và Well-Ordering Principle.
+    <ul>
+      <li>Phát biểu nào “trực quan” nhất?</li>
+      <li>Phát biểu nào hữu ích nhất trong topology?</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §9 (Infinite Sets and AC)</li>
+  <li><strong>Kelley, General Topology:</strong> Chapter 0 (Preliminaries on Set Theory)</li>
+  <li><strong>Halmos, Naive Set Theory:</strong> §15–16 (Axiom of Choice)</li>
+  <li><strong>Jech, The Axiom of Choice:</strong> Chapters 1–3 (Comprehensive treatment)</li>
+  <li><strong>Herrlich, Axiom of Choice (Lecture Notes in Math):</strong> Modern perspective</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta đã khám phá:</p>
+
+<p>✅ <strong>Cartesian Product:</strong> Công cụ xây dựng không gian mới từ không gian cũ<br />
+✅ <strong>Infinite Products:</strong> Cần choice functions để định nghĩa<br />
+✅ <strong>Axiom of Choice:</strong> Tiên đề mạnh mẽ nhưng controversial<br />
+✅ <strong>Zorn’s Lemma:</strong> Công cụ chứng minh sự tồn tại<br />
+✅ <strong>Equivalence:</strong> AC ⟺ Zorn ⟺ Well-Ordering Principle</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Tích Cartesian là nền tảng của product topology</li>
+  <li>AC tưởng chừng “hiển nhiên” nhưng có hệ quả sâu sắc</li>
+  <li>Zorn’s Lemma là công cụ powerful để chứng minh tồn tại maximal objects</li>
+  <li>Ba phát biểu AC, Zorn, WOP tương đương—chọn cái nào tiện cho bài toán</li>
+</ul>
+
+<p><strong>Connection đến topology:</strong></p>
+<ul>
+  <li>Product topology: ℝⁿ, tori, infinite-dimensional spaces</li>
+  <li>Tychonoff’s Theorem: Compact × Compact = Compact</li>
+  <li>Basis existence: Mọi topology có basis</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Trong Lecture 00.02, chúng ta sẽ học về <strong>Logic và Proof Techniques</strong>—cách lập luận chặt chẽ trong toán học, nền tảng để hiểu các chứng minh tô-pô phức tạp.</p>
+
+<hr />
+
+<p><em>“The Axiom of Choice is obviously true, the Well-Ordering Principle obviously false, and who can tell about Zorn’s Lemma?”</em> — Jerry Bona</p>
+
+<p>🎯 <strong>Hãy vẽ Cartesian products và suy nghĩ về infinity!</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter00/00_00_Set_Theory_Functions_Relations/">Lecture 00.00: Set Theory, Functions, and Relations</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter00/00_02_Logic_Mathematical_Proofs/">Lecture 00.02: Logic and Mathematical Proofs</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter0/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

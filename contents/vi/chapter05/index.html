@@ -1,0 +1,248 @@
+---
+layout: page
+title: "Quotient Spaces and Surfaces"
+lang: vi
+lang-ref: topology-chapter05
+chapter: '05'
+permalink: /contents/vi/chapter05/
+---
+
+<div class="chapter-intro">
+  <h1>Chapter 05: Quotient Spaces and Surfaces</h1>
+  <p class="chapter-description">
+    Quotient topology là một trong những constructions powerful nhất trong topology—cách "glue things together" hay "identify points". Chapter này explores quotient spaces, classification of compact surfaces (một trong những achievements đẹp nhất của topology), CW complexes (framework để build spaces from cells), và group actions (formalizing symmetry). Những công cụ này essential cho algebraic topology và differential geometry.
+  </p>
+  
+  <div class="learning-objectives">
+    <h3>🎯 Learning Objectives</h3>
+    <ul>
+      <li>Master quotient topology và universal property</li>
+      <li>Understand surface classification theorem</li>
+      <li>Compute Euler characteristic và genus</li>
+      <li>Build spaces using CW complexes</li>
+      <li>Work với group actions và orbit spaces</li>
+      <li>Apply quotient constructions (S¹, T², ℝP^n)</li>
+      <li>Understand orientability và topological invariants</li>
+      <li>Connect với covering space theory</li>
+    </ul>
+  </div>
+  
+  <div class="prerequisites">
+    <h3>📚 Prerequisites</h3>
+    <p>Chapters 00-04: Topological spaces, continuous functions, compactness, metric spaces</p>
+  </div>
+</div>
+
+<div class="lectures-list">
+  <h2>📖 Lectures</h2>
+  
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter05/05_00_Quotient_Topology_Construction/">
+        Lecture 05.00: Quotient Topology and Construction
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Equivalence relations, quotient set và topology, universal property, quotient maps, examples (circle from [0,1], torus from square, ℝP^n, collapsing subspaces), properties (Hausdorff conditions)
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">quotient-topology</span>
+      <span class="tag">equivalence-relations</span>
+      <span class="tag">quotient-map</span>
+      <span class="tag">identification</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter05/05_01_Classification_Surfaces/">
+        Lecture 05.01: Classification of Compact Surfaces
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Surfaces (2-manifolds), examples (sphere, torus, genus g surfaces, ℝP², Klein bottle), orientability, Euler characteristic χ, genus, classification theorem (complete list), fundamental polygons, Gauss-Bonnet connection
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">surfaces</span>
+      <span class="tag">classification</span>
+      <span class="tag">euler-characteristic</span>
+      <span class="tag">orientability</span>
+      <span class="tag">genus</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter05/05_02_CW_Complexes/">
+        Lecture 05.02: CW Complexes
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> n-cells (disks D^n), attaching cells, CW complex definition (inductive construction), examples (spheres, tori, projective spaces, graphs), skeletons, cellular homology, chain complex, computations
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">cw-complexes</span>
+      <span class="tag">cell-attachment</span>
+      <span class="tag">cellular-homology</span>
+      <span class="tag">simplicial-complexes</span>
+    </p>
+  </div>
+
+  <div class="lecture-item">
+    <h3>
+      <a href="{{ site.baseurl }}/contents/vi/chapter05/05_03_Group_Actions_Orbit_Spaces/">
+        Lecture 05.03: Group Actions and Orbit Spaces
+      </a>
+    </h3>
+    <p class="lecture-description">
+      <strong>Topics:</strong> Group actions definition, orbits và stabilizers, orbit space X/G, free actions, properly discontinuous actions, fundamental domains, applications (covering spaces, deck transformations, Lie groups, homogeneous spaces G/H)
+    </p>
+    <p class="lecture-tags">
+      <span class="tag">group-actions</span>
+      <span class="tag">orbit-spaces</span>
+      <span class="tag">quotient-by-group</span>
+      <span class="tag">covering-spaces</span>
+      <span class="tag">symmetry</span>
+    </p>
+  </div>
+</div>
+
+<div class="chapter-summary">
+  <h2>🎓 Chapter Summary</h2>
+  <p>
+    Chapter 05 introduced <strong>quotient topology</strong> và applications—powerful tools để construct và classify spaces:
+  </p>
+  <ul>
+    <li><strong>Quotient topology:</strong> U open ⟺ π⁻¹(U) open—finest topology making projection continuous</li>
+    <li><strong>Universal property:</strong> f: X/~ → Y continuous ⟺ f ∘ π continuous</li>
+    <li><strong>Examples:</strong> S¹ = [0,1]/(0~1), T² = square với edges glued, ℝP^n = S^n với antipodal identified</li>
+    <li><strong>Surface classification:</strong> All compact connected surfaces = {S², Σ_g, ℝP²^#k}</li>
+    <li><strong>Invariants:</strong> Euler characteristic χ, orientability, genus g</li>
+    <li><strong>Formula:</strong> χ = 2 - 2g (orientable), χ = 2 - k (non-orientable)</li>
+    <li><strong>CW complexes:</strong> Build spaces by attaching cells D^n inductively</li>
+    <li><strong>Cellular homology:</strong> Compute H_n directly from cell structure</li>
+    <li><strong>Group actions:</strong> G × X → X, orbit space X/G</li>
+    <li><strong>Free + properly discontinuous:</strong> Nice quotients, covering spaces</li>
+  </ul>
+  
+  <h3>Key Theorems</h3>
+  <ul>
+    <li><strong>Universal Property:</strong> Quotient topology characterized by maps from quotient</li>
+    <li><strong>Surface Classification:</strong> Complete classification by χ và orientability</li>
+    <li><strong>Euler Formula:</strong> χ = V - E + F (triangulation), χ = 2 - 2g (genus g)</li>
+    <li><strong>Gauss-Bonnet:</strong> ∫∫K dA = 2πχ (curvature ↔ topology)</li>
+    <li><strong>Whitehead Theorem:</strong> CW approximation, homotopy equivalence</li>
+    <li><strong>Orbit-Stabilizer:</strong> |G · x| · |G_x| = |G|</li>
+  </ul>
+  
+  <h3>Applications</h3>
+  <ul>
+    <li><strong>Algebraic Topology:</strong> CW complexes framework, cellular homology</li>
+    <li><strong>Differential Geometry:</strong> Surfaces, Gauss-Bonnet, homogeneous spaces</li>
+    <li><strong>Covering Spaces:</strong> X̃/π₁(X) = X (universal cover quotient)</li>
+    <li><strong>Lie Groups:</strong> Homogeneous spaces G/H (spheres, projective spaces)</li>
+    <li><strong>Physics:</strong> Gauge theory (principal bundles), symmetry</li>
+    <li><strong>Crystallography:</strong> Space groups, wallpaper groups</li>
+  </ul>
+</div>
+
+<div class="navigation-links">
+  <p>
+    <strong>Previous Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter04/">Chapter 04: Metric Spaces and Metrization</a><br>
+    <strong>Next Chapter:</strong> <a href="{{ site.baseurl }}/contents/vi/topology-chapter06/">Chapter 06: Fundamental Group and Covering Spaces</a>
+  </p>
+</div>
+
+<style>
+.chapter-intro {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.chapter-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learning-objectives, .prerequisites {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.learning-objectives h3, .prerequisites h3 {
+  color: #2c5aa0;
+  margin-top: 0;
+}
+
+.lectures-list {
+  margin-top: 30px;
+}
+
+.lecture-item {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4CAF50;
+}
+
+.lecture-item h3 {
+  margin-top: 0;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a {
+  text-decoration: none;
+  color: #2c5aa0;
+}
+
+.lecture-item h3 a:hover {
+  color: #4CAF50;
+}
+
+.lecture-description {
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.lecture-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.chapter-summary {
+  background-color: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.chapter-summary h2 {
+  color: #856404;
+  margin-top: 0;
+}
+
+.navigation-links {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e9;
+  border-radius: 10px;
+}
+</style>
+

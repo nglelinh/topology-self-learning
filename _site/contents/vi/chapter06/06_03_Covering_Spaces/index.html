@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 06.03: Covering Spaces Theory &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 06.03: Covering Spaces Theory
+    
+  </h1>
+  <p><strong>p: X̃ → X - Local Homeomorphisms</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p><strong>Covering spaces</strong> là một trong những khái niệm đẹp và mạnh mẽ nhất trong topology. Chúng cung cấp:</p>
+
+<blockquote>
+  <p><strong>Local simplicity describing global complexity.</strong></p>
+</blockquote>
+
+<p><strong>Ý tưởng:</strong> Không gian $\tilde{X}$ “covers” $X$—về mặt địa phương trông giống như nhiều bản sao của $X$ được xếp chồng lên nhau, nhưng về mặt toàn cục có thể rất khác biệt (đơn giản hơn!).</p>
+
+<p><strong>Tại sao đây là một cuộc cách mạng?</strong> Poincaré và các nhà toán học đầu thế kỷ 20 đã có những khám phá đáng kinh ngạc. Họ phát hiện ra rằng <strong>thông tin địa phương</strong> được mã hóa trong các lân cận evenly covered, kết hợp với <strong>global connectivity</strong>, hoàn toàn xác định cấu trúc covering space. <strong>Universal cover</strong> $\tilde{X}$ xuất hiện như một không gian simply connected tiết lộ mọi thứ về base space $X$—tất cả độ phức tạp được “mở ra”. Đáng chú ý nhất, <strong>$\pi_1(X)$ hoạt động như một symmetry group</strong> của universal cover, với mỗi loop tương ứng với một deck transformation. Điều này đạt đến đỉnh cao trong <strong>Classification Theorem</strong>: tất cả các coverings của $X$ được phân loại hoàn toàn bởi các subgroups của $\pi_1(X)$, thiết lập một kết nối sâu sắc giữa topology và lý thuyết nhóm.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Covering_space.svg/500px-Covering_space.svg.png" alt="Covering space visualization" /><br />
+<em>Covering space: multiple sheets over base - Nguồn concept</em></p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá lý thuyết phong phú này một cách có hệ thống. Bắt đầu với <strong>định nghĩa</strong> chính xác sử dụng evenly covered neighborhoods—điều kiện đảm bảo local triviality. Chúng ta sẽ khám phá các <strong>ví dụ</strong> chuẩn: đường thẳng thực $\mathbb{R}$ covering hình tròn $S^1$ (infinite-sheeted), các hình cầu $S^n$ covering các projective spaces $\mathbb{R}P^n$ (double cover), và các multi-sheeted coverings tiết lộ cấu trúc sâu hơn. <strong>Lifting theorems</strong> chứng minh rằng paths và homotopies lift một cách duy nhất khi cho basepoint, cho phép các kỹ thuật tính toán mạnh mẽ. <strong>Universal cover</strong> $\tilde{X}$ xuất hiện như một không gian simply connected với tính chất đẹp $X = \tilde{X}/\pi_1(X)$. <strong>Deck transformations</strong> tạo thành symmetry group $\text{Aut}(\tilde{X}/X)$ tác động lên covering space. Viên ngọc quý là <strong>Classification Theorem</strong> thiết lập một song ánh: coverings $\leftrightarrow$ subgroups của $\pi_1$.</p>
+
+<p>Các ứng dụng trải dài khắp toán học: Tính toán $\pi_1$ (công cụ chính của chúng ta từ bài học trước!), Riemann surfaces trong giải tích phức nơi các hàm đa trị trở thành đơn trị trên covers, sự tương tự đáng chú ý với Galois theory (coverings:topology :: field extensions:algebra), và các ứng dụng vật lý trong gauge theory và instantons nơi topology gặp quantum field theory.</p>
+
+<p><strong>Tại sao đây là kiến thức cơ bản?</strong> Covering spaces cung cấp <strong>công cụ tính toán mạnh mẽ nhất</strong> cho fundamental groups—nhiều tính toán $\pi_1$ không thể thực hiện được nếu không có chúng. <strong>Universal cover</strong> đơn giản hóa các vấn đề một cách có hệ thống bằng cách “mở ra” độ phức tạp. Lý thuyết sở hữu vẻ đẹp hiếm có của <strong>complete classification</strong>—chúng ta hiểu TẤT CẢ các coverings thông qua lý thuyết nhóm. <strong>Các ứng dụng rộng rãi</strong> từ giải tích (Riemann surfaces) qua đại số (Galois connection) đến hình học và vật lý chứng minh tính phổ quát của các ý tưởng.</p>
+
+<hr />
+
+<h2 id="-definition-của-covering-space">🎯 Definition của Covering Space</h2>
+
+<h3 id="1-evenly-covered-neighborhoods">1. Evenly Covered Neighborhoods</h3>
+
+<p><strong>Định nghĩa (Covering Space):</strong><br />
+$p: \tilde{X} \to X$ là một <strong>covering space</strong> (hay <strong>covering projection</strong>) nếu:</p>
+
+<p><strong>$\forall x \in X$: $\exists$ open neighborhood $U$ của $x$ (“evenly covered”):</strong></p>
+
+\[p^{-1}(U) = \bigsqcup_{\alpha \in A} V_\alpha\]
+
+<table>
+  <tbody>
+    <tr>
+      <td>trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint và open trong $\tilde{X}$, và quan trọng là **$p</td>
+      <td><em>{V</em>\alpha}: V_\alpha \to U$ là homeomorphism** cho mọi $\alpha$—mỗi sheet ánh xạ hoàn hảo lên $U$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Thuật ngữ:</strong> $\tilde{X}$ là <strong>covering space</strong> (hoặc total space) nằm “phía trên”, $X$ là <strong>base space</strong> “phía dưới”, $p$ là <strong>covering map</strong> (hoặc projection) kết nối chúng, và $V_\alpha$ là các <strong>sheets over $U$</strong>—mỗi cái là một bản sao homeomorphic của $U$ được xếp chồng trong $\tilde{X}$.</p>
+
+<p><strong>Trực giác:</strong> Về mặt địa phương, $\tilde{X}$ trông giống như nhiều bản sao disjoint của $X$ được xếp chồng lên nhau. Projection $p$ “collapse” các sheets xuống. Hãy tưởng tượng một cuốn sách với nhiều trang—mỗi trang là một sheet, và projection là cách chúng ta “ép” các trang lại với nhau để tạo thành một trang duy nhất.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Covering_map.svg/400px-Covering_map.svg.png" alt="Evenly covered neighborhood" /><br />
+<em>Evenly covered neighborhood - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Covering_map.svg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h3 id="2-key-properties">2. Key Properties</h3>
+
+<p><strong>Định lý:</strong> Covering map $p: \tilde{X} \to X$ có các tính chất sau:</p>
+<ol>
+  <li><strong>Continuous</strong> (theo định nghĩa)</li>
+  <li><strong>Surjective</strong> (covers toàn bộ $X$—mọi điểm trong $X$ đều có ít nhất một preimage trong $\tilde{X}$)</li>
+  <li><strong>Open map</strong> (ảnh của các tập mở là tập mở—điều này đảm bảo rằng covering map “bảo toàn” topology)</li>
+  <li><strong>Local homeomorphism</strong> (về mặt địa phương là homeomorphism—mỗi điểm có một lân cận được ánh xạ homeomorphically)</li>
+</ol>
+
+<p><strong>Chứng minh:</strong> Bài tập—sử dụng tính chất evenly covered. ✓</p>
+
+<p><strong>Quan trọng:</strong> Covering map KHÔNG nhất thiết phải là homeomorphism toàn cục! Đây là một điểm quan trọng—mặc dù về mặt địa phương covering map là homeomorphism, nhưng về mặt toàn cục nó có thể không phải là song ánh hoặc không có nghịch đảo liên tục. Ví dụ, $\mathbb{R} \to S^1$ là covering map nhưng không phải là homeomorphism vì nó không phải là song ánh.</p>
+
+<hr />
+
+<h2 id="-standard-examples">📊 Standard Examples</h2>
+
+<h3 id="example-1-ℝ--s-universal-cover-of-circle">Example 1: ℝ → S¹ (Universal Cover of Circle)</h3>
+
+<p><strong>Định nghĩa:</strong> $p: \mathbb{R} \to S^1$, $p(t) = e^{2\pi it}$.</p>
+
+<p><strong>Xác minh covering:</strong></p>
+<ul>
+  <li><strong>Surjective:</strong> Mọi điểm $z \in S^1 = e^{i\theta} = p(\theta/(2\pi))$ đều có preimage trên đường thẳng thực. ✓</li>
+  <li><strong>Evenly covered:</strong> Cho $z = e^{i\theta}$, lấy $U = S^1 \setminus {-z}$ (complement của điểm đối cực).<br />
+$p^{-1}(U) = \bigcup_{n \in \mathbb{Z}} (\theta/(2\pi) - 1/2 + n, \theta/(2\pi) + 1/2 + n)$ (các khoảng disjoint).<br />
+Mỗi khoảng homeomorphic với $U$. ✓</li>
+</ul>
+
+<p><strong>Trực giác hình học:</strong> $\mathbb{R}$ = infinite helix quấn quanh hình tròn. Hãy tưởng tượng một đường thẳng được quấn quanh một hình tròn vô số lần—mỗi điểm trên hình tròn có vô số preimages trên đường thẳng, cách nhau một khoảng nguyên.</p>
+
+<p><strong>Sheets:</strong> Countably many (indexed by $\mathbb{Z}$)—mỗi số nguyên tương ứng với một “vòng quấn” của đường thẳng quanh hình tròn.</p>
+
+<p><strong>Đây là UNIVERSAL COVER của $S^1$!</strong> Universal cover là covering space đơn giản nhất—nó có fundamental group tầm thường và có thể được sử dụng để tính toán fundamental group của base space.</p>
+
+<hr />
+
+<h3 id="example-2-z--zn-on-s">Example 2: z ↦ z^n on S¹</h3>
+
+<p><strong>Định nghĩa:</strong> $p: S^1 \to S^1$, $p(z) = z^n$ ($n \geq 2$).</p>
+
+<p><strong>Xác minh covering:</strong></p>
+<ul>
+  <li>Cho $z_0 \in S^1$, lấy $U = S^1 \setminus {-z_0}$.</li>
+  <li>$p^{-1}(U) = n$ disjoint arcs, mỗi arc được ánh xạ homeomorphically lên $U$.</li>
+</ul>
+
+<p><strong>Sheets:</strong> $n$ sheets ($n$-fold covering)—mỗi điểm trên hình tròn có $n$ preimages, tương ứng với $n$ căn bậc $n$ của số phức.</p>
+
+<p><strong>Deck transformations:</strong> Rotations bởi $2\pi k/n$, $k = 0, \ldots, n-1$. Đây là các phép quay quanh hình tròn một góc $2\pi k/n$—chúng là các symmetries của covering space giữ nguyên base space.</p>
+
+<hr />
+
+<h3 id="example-3-sn--ℝpn-antipodal-quotient">Example 3: S^n → ℝP^n (Antipodal Quotient)</h3>
+
+<p><strong>Định nghĩa:</strong> $p: S^n \to \mathbb{R}P^n$, quotient map $x \sim -x$.</p>
+
+<p><strong>Xác minh covering:</strong></p>
+<ul>
+  <li>$\mathbb{R}P^n$ = các đường thẳng đi qua gốc tọa độ trong $\mathbb{R}^{n+1}$.</li>
+  <li>Mỗi đường thẳng cắt $S^n$ tại hai điểm đối cực.</li>
+  <li>Evenly covered: Chọn các lân cận nhỏ tránh các đồng nhất đối cực.</li>
+</ul>
+
+<p><strong>Sheets:</strong> 2 sheets (2-fold covering)—mỗi điểm trên projective space có hai preimages trên hình cầu, tương ứng với hai điểm đối cực.</p>
+
+<p><strong>Đây là universal cover của $\mathbb{R}P^n$!</strong> (Vì $\pi_1(S^n) = 0$.) Điều này có nghĩa là hình cầu là covering space đơn giản nhất của projective space—nó có fundamental group tầm thường và có thể được sử dụng để tính toán fundamental group của projective space.</p>
+
+<hr />
+
+<h3 id="example-4-ℝ--t-torus">Example 4: ℝ² → T² (Torus)</h3>
+
+<p><strong>Định nghĩa:</strong> $p: \mathbb{R}^2 \to T^2$, $p(x,y) = (e^{2\pi ix}, e^{2\pi iy})$.</p>
+
+<p><strong>Quotient:</strong> Đồng nhất $\mathbb{R}^2$ bởi lattice $\mathbb{Z}^2$ (translate bởi các số nguyên).</p>
+
+<p><strong>Xác minh covering:</strong></p>
+<ul>
+  <li>$T^2 = \mathbb{R}^2/\mathbb{Z}^2$ (hình vuông với các cạnh đối diện được dán lại).</li>
+  <li>Evenly covered: Các lân cận đủ nhỏ tránh các phép tịnh tiến lattice.</li>
+</ul>
+
+<p><strong>Sheets:</strong> Countably infinite (indexed by $\mathbb{Z}^2$)—mỗi điểm trên torus có vô số preimages trên mặt phẳng, tương ứng với các điểm trong lattice $\mathbb{Z}^2$.</p>
+
+<p><strong>Universal cover của torus!</strong> Mặt phẳng là covering space đơn giản nhất của torus—nó có fundamental group tầm thường và có thể được sử dụng để tính toán fundamental group của torus.</p>
+
+<hr />
+
+<h3 id="example-5-figure-eight-universal-cover">Example 5: Figure-Eight Universal Cover</h3>
+
+<p><strong>$X = S^1 \vee S^1$</strong> (hai hình tròn được nối tại một điểm).</p>
+
+<p><strong>Universal cover $\tilde{X}$:</strong> Infinite tree (Cayley graph của free group $\mathbb{Z} * \mathbb{Z}$).</p>
+
+<p><strong>Mỗi vertex:</strong> có 4 edges (branching)—mỗi đỉnh có bốn nhánh, tương ứng với bốn hướng có thể đi từ điểm đó.</p>
+
+<p><strong>Sheets:</strong> Countably infinite, nhưng cấu trúc = tree (simply connected). Đây là một ví dụ tuyệt vời về cách universal cover có thể rất khác biệt về mặt topology so với base space—base space là hai hình tròn được nối tại một điểm, nhưng universal cover là một cây vô hạn!</p>
+
+<p><strong>Điều này chứng minh:</strong> Universal cover có thể rất khác biệt về mặt topology so với base space! Đây là một khám phá quan trọng—mặc dù về mặt địa phương universal cover trông giống như base space, nhưng về mặt toàn cục nó có thể có cấu trúc hoàn toàn khác.</p>
+
+<hr />
+
+<h2 id="-lifting-properties">🔼 Lifting Properties</h2>
+
+<h3 id="1-path-lifting-theorem">1. Path Lifting Theorem</h3>
+
+<p><strong>Định lý (Path Lifting):</strong><br />
+Cho $p: \tilde{X} \to X$ là covering, $\gamma: [0,1] \to X$ là một path, và $\tilde{x}_0 \in p^{-1}(\gamma(0))$.</p>
+
+<p>Khi đó tồn tại duy nhất một <strong>lift</strong> $\tilde{\gamma}: [0,1] \to \tilde{X}$ sao cho:</p>
+<ul>
+  <li>$p \circ \tilde{\gamma} = \gamma$ ($\tilde{\gamma}$ projects down to $\gamma$)</li>
+  <li>$\tilde{\gamma}(0) = \tilde{x}_0$ (bắt đầu tại điểm được chỉ định)</li>
+</ul>
+
+<p><strong>Tính duy nhất là quan trọng:</strong> Cho điểm bắt đầu, lift là duy nhất! Điều này có nghĩa là nếu chúng ta chọn một điểm bắt đầu trên covering space, thì có đúng một cách để lift path lên covering space.</p>
+
+<p><strong>Chứng minh sketch:</strong></p>
+<ul>
+  <li>Phân chia $[0,1]$ thành các khoảng nhỏ</li>
+  <li>Mỗi khoảng: $\gamma$ ánh xạ vào một evenly covered neighborhood</li>
+  <li>Lift từng phần một bằng cách sử dụng local homeomorphisms</li>
+  <li>Dán lại với nhau một cách liên tục</li>
+  <li>Tính duy nhất: Hai lifts đồng ý tại một điểm thì đồng ý ở mọi nơi (connectedness)</li>
+</ul>
+
+<p>✓</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Covering_space_path_lifting.svg/400px-Covering_space_path_lifting.svg.png" alt="Path lifting" /><br />
+<em>Path lifting uniquely - Nguồn concept</em></p>
+
+<hr />
+
+<p><strong>Ứng dụng cho $\pi_1$:</strong></p>
+
+<p><strong>Định lý:</strong> Cho $\gamma, \delta: [0,1] \to X$ là các paths từ $x_0$ đến $x_1$, và $\gamma \simeq_p \delta$.</p>
+
+<p>Các lifts $\tilde{\gamma}$, $\tilde{\delta}$ bắt đầu tại cùng một điểm $\tilde{x}_0 \in p^{-1}(x_0)$ có <strong>cùng điểm cuối</strong>.</p>
+
+<p><strong>Chứng minh:</strong> Homotopy lifting (phần tiếp theo). ✓</p>
+
+<p><strong>Hệ quả:</strong> Homotopy class $[\gamma]$ xác định điểm cuối của lift!<br />
+Đây chính là CÁCH chúng ta tính toán $\pi_1(S^1) \cong \mathbb{Z}$—winding number xuất hiện tự nhiên như sự khác biệt giữa các điểm cuối của lift.</p>
+
+<hr />
+
+<h3 id="2-homotopy-lifting-theorem">2. Homotopy Lifting Theorem</h3>
+
+<p><strong>Định lý (Homotopy Lifting):</strong><br />
+Cho $p: \tilde{X} \to X$ là covering, $F: [0,1] \times [0,1] \to X$ là một homotopy.</p>
+
+<p>Cho lift $\tilde{F}_0: [0,1] \to \tilde{X}$ của $F(\cdot, 0)$, tồn tại duy nhất một lift $\tilde{F}: [0,1] \times [0,1] \to \tilde{X}$:</p>
+<ul>
+  <li>$p \circ \tilde{F} = F$ (projects down)</li>
+  <li>$\tilde{F}(s, 0) = \tilde{F}_0(s)$ (đồng ý tại $t=0$)</li>
+</ul>
+
+<p><strong>Trực giác hình học:</strong> Homotopies lift một cách duy nhất! Điều này có nghĩa là nếu chúng ta có một homotopy giữa hai paths, chúng ta có thể lift toàn bộ homotopy lên covering space một cách duy nhất.</p>
+
+<p><strong>Chứng minh:</strong> Tương tự như path lifting, sử dụng cấu trúc tích. ✓</p>
+
+<hr />
+
+<p><strong>Hệ quả (Homotopy Invariance):</strong></p>
+
+<p><strong>Nếu $\gamma \simeq_p \delta$ (path homotopic), các lifts $\tilde{\gamma}$, $\tilde{\delta}$ từ cùng điểm bắt đầu KẾT THÚC tại cùng một điểm.</strong></p>
+
+<p><strong>Đây là CHÌA KHÓA:</strong> Covering spaces phát hiện homotopy! Đây là một khám phá quan trọng—covering spaces có thể phân biệt giữa các paths đồng luân và không đồng luân bằng cách xem xét các điểm cuối của các lifts của chúng.</p>
+
+<hr />
+
+<h3 id="3-lifting-criterion">3. Lifting Criterion</h3>
+
+<p><strong>Định lý (Lifting Criterion):</strong><br />
+Cho $p: \tilde{X} \to X$ là covering, $f: Y \to X$ liên tục, $f(y_0) = x_0$, và $\tilde{x}_0 \in p^{-1}(x_0)$.</p>
+
+<p>Lift $\tilde{f}: Y \to \tilde{X}$ ($\tilde{f}(y_0) = \tilde{x}_0$, $p \circ \tilde{f} = f$) tồn tại $\Longleftrightarrow$:</p>
+
+\[f_*(\pi_1(Y, y_0)) \subseteq p_*(\pi_1(\tilde{X}, \tilde{x}_0))\]
+
+<p><strong>Bằng lời:</strong> $f$ lifts $\Longleftrightarrow$ $f_<em>$ ánh xạ $\pi_1(Y)$ vào subgroup $p_</em>(\pi_1(\tilde{X}))$.</p>
+
+<p><strong>Mạnh mẽ:</strong> Giảm câu hỏi về lifting xuống đại số (subgroup inclusion)! Đây là một kết quả cực kỳ mạnh mẽ—nó cho phép chúng ta quyết định xem một ánh xạ có thể được lift lên covering space hay không bằng cách kiểm tra một điều kiện đại số đơn giản về fundamental groups.</p>
+
+<hr />
+
+<h2 id="-universal-covering-space">🌟 Universal Covering Space</h2>
+
+<h3 id="1-definition">1. Definition</h3>
+
+<p><strong>Định nghĩa (Universal Cover):</strong><br />
+$\tilde{X}$ là <strong>universal covering space</strong> của $X$ nếu:</p>
+<ol>
+  <li>$p: \tilde{X} \to X$ là covering space</li>
+  <li><strong>$\tilde{X}$ simply connected:</strong> $\pi_1(\tilde{X}) = {e}$</li>
+</ol>
+
+<p><strong>“Universal”:</strong> $\tilde{X}$ = “most general” covering—tất cả các coverings khác đều là quotients của $\tilde{X}$. Đây là một tính chất đẹp—universal cover là covering space đơn giản nhất, và mọi covering space khác đều có thể được xây dựng như một quotient của universal cover.</p>
+
+<hr />
+
+<h3 id="2-existence">2. Existence</h3>
+
+<p><strong>Theorem (Existence of Universal Cover):</strong><br />
+X has universal cover if X:</p>
+<ol>
+  <li><strong>Path-connected</strong></li>
+  <li><strong>Locally path-connected</strong></li>
+  <li><strong>Semilocally simply connected:</strong> ∀x: ∃U neighborhood: loops trong U contractible trong X</li>
+</ol>
+
+<p><strong>Most “nice” spaces satisfy these!</strong></p>
+
+<p><strong>Examples satisfying:</strong></p>
+<ul>
+  <li>Manifolds ✓</li>
+  <li>CW complexes ✓</li>
+  <li>Most spaces we care about ✓</li>
+</ul>
+
+<p><strong>Counterexample:</strong> Hawaiian earring (infinite wedge shrinking circles) NOT semilocally simply connected.</p>
+
+<hr />
+
+<h3 id="3-uniqueness">3. Uniqueness</h3>
+
+<p><strong>Theorem (Uniqueness):</strong><br />
+Universal covers X̃₁, X̃₂ of X are <strong>isomorphic</strong> (as covering spaces).</p>
+
+<p><strong>Meaning:</strong> Unique up to covering space isomorphism.</p>
+
+<p><strong>Notation:</strong> Often write “<strong>the</strong> universal cover” X̃.</p>
+
+<hr />
+
+<h3 id="4-examples-revisited">4. Examples Revisited</h3>
+
+<p><strong>ℝ → S¹:</strong></p>
+<ul>
+  <li>ℝ simply connected ✓</li>
+  <li>ℝ = universal cover of S¹</li>
+</ul>
+
+<p><strong>ℝ² → T²:</strong></p>
+<ul>
+  <li>ℝ² simply connected ✓</li>
+  <li>ℝ² = universal cover of T²</li>
+</ul>
+
+<p><strong>S^n → ℝP^n:</strong></p>
+<ul>
+  <li>S^n simply connected (n ≥ 2) ✓</li>
+  <li>S^n = universal cover of ℝP^n</li>
+</ul>
+
+<p><strong>Tree → Figure-eight:</strong></p>
+<ul>
+  <li>Tree simply connected (contractible) ✓</li>
+  <li>Tree = universal cover of S¹ ∨ S¹</li>
+</ul>
+
+<hr />
+
+<h2 id="-deck-transformations">🔄 Deck Transformations</h2>
+
+<h3 id="1-definition-1">1. Definition</h3>
+
+<p><strong>Định nghĩa (Deck Transformation):</strong><br />
+p: X̃ → X covering. <strong>Deck transformation</strong> (hay <strong>covering automorphism</strong>) là homeomorphism f: X̃ → X̃ such that:</p>
+
+\[p \circ f = p\]
+
+<p><strong>Geometric:</strong> f permutes sheets, preserving projection.</p>
+
+<p><strong>Set:</strong> Aut(X̃/X) = {deck transformations} = <strong>deck transformation group</strong>.</p>
+
+<hr />
+
+<h3 id="2-group-structure">2. Group Structure</h3>
+
+<p><strong>Theorem:</strong> Aut(X̃/X) is group under composition.</p>
+
+<p><strong>Proof:</strong></p>
+<ul>
+  <li><strong>Identity:</strong> id_{X̃} deck transformation ✓</li>
+  <li><strong>Composition:</strong> f, g deck ⇒ f ∘ g deck ✓</li>
+  <li><strong>Inverses:</strong> f deck, homeomorphism ⇒ f^(-1) deck ✓</li>
+</ul>
+
+<hr />
+
+<h3 id="3-universal-cover-case">3. Universal Cover Case</h3>
+
+<p><strong>Theorem (Main Result):</strong><br />
+X̃ universal cover of X, X path-connected, locally path-connected.</p>
+
+<p>Then:</p>
+
+\[\text{Aut}(\tilde{X}/X) \cong \pi_1(X)\]
+
+<p><strong>Profound:</strong> π₁(X) = symmetry group of universal cover!</p>
+
+<p><strong>Proof sketch:</strong></p>
+<ul>
+  <li>Each [γ] ∈ π₁(X, x₀) defines deck transformation</li>
+  <li>Lift γ uniquely, endpoint = f_{[γ]}(x̃₀)</li>
+  <li>f_{[γ]} extends to entire X̃ (by lifting)</li>
+  <li>Map [γ] ↦ f_{[γ]} is isomorphism</li>
+</ul>
+
+<p>✓</p>
+
+<hr />
+
+<p><strong>Consequence:</strong></p>
+
+\[X = \tilde{X} / \pi_1(X)\]
+
+<p><strong>X is quotient of universal cover by π₁ action!</strong></p>
+
+<p><strong>Examples:</strong></p>
+<ul>
+  <li>S¹ = ℝ/ℤ (ℤ = translations)</li>
+  <li>T² = ℝ²/ℤ² (ℤ² = lattice translations)</li>
+  <li>ℝP^n = S^n/(ℤ/2ℤ) (ℤ/2ℤ = antipodal map)</li>
+</ul>
+
+<hr />
+
+<h3 id="4-computing-deck-transformations">4. Computing Deck Transformations</h3>
+
+<p><strong>Example 1: ℝ → S¹</strong></p>
+
+<p>Deck transformations: f_n: ℝ → ℝ, f_n(t) = t + n (n ∈ ℤ).</p>
+
+<p>Aut(ℝ/S¹) = {f_n : n ∈ ℤ} ≅ ℤ ≅ π₁(S¹). ✓</p>
+
+<hr />
+
+<p><strong>Example 2: S² → ℝP²</strong></p>
+
+<p>Deck transformation: f: S² → S², f(x) = -x (antipodal).</p>
+
+<p>Aut(S²/ℝP²) = {id, f} ≅ ℤ/2ℤ ≅ π₁(ℝP²). ✓</p>
+
+<hr />
+
+<h2 id="-classification-of-coverings">📋 Classification of Coverings</h2>
+
+<h3 id="1-correspondence-theorem">1. Correspondence Theorem</h3>
+
+<p><strong>Theorem (Classification of Coverings):</strong><br />
+X path-connected, locally path-connected, semilocally simply connected.</p>
+
+<p><strong>Bijection:</strong></p>
+
+\[\{\text{Coverings of } X\} / \text{isomorphism} \leftrightarrow \{\text{Subgroups of } \pi_1(X)\} / \text{conjugacy}\]
+
+<p><strong>Specifically:</strong> Covering p: X̃ → X ↔ subgroup p_*(π₁(X̃)) ≤ π₁(X).</p>
+
+<p><strong>Universal cover:</strong> Corresponds to trivial subgroup {e}.</p>
+
+<p><strong>Beautiful:</strong> Topology (coverings) ↔ Algebra (subgroups)!</p>
+
+<hr />
+
+<h3 id="2-normal-coverings">2. Normal Coverings</h3>
+
+<p><strong>Định nghĩa:</strong> Covering p: X̃ → X <strong>normal</strong> (hay <strong>regular</strong>) if p_*(π₁(X̃)) is <strong>normal subgroup</strong> of π₁(X).</p>
+
+<p><strong>Theorem:</strong> Normal covering ⟺ Aut(X̃/X) acts transitively on fibers.</p>
+
+<p><strong>Example:</strong> Universal cover always normal (trivial subgroup normal).</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
+<em>Introduced covering spaces implicitly</em></p>
+  </li>
+  <li>
+    <p><strong>Hermann Weyl</strong> - <em>“Die Idee der Riemannschen Fläche”</em> (1913)<br />
+<em>Riemann surfaces as covering spaces</em></p>
+  </li>
+  <li>
+    <p><strong>Heinz Hopf</strong> - <em>“Fundamentalgruppe und zweite Bettische Gruppe”</em> (1941)<br />
+<em>Covering space theory systematized</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§1.3: Covering Spaces</strong><br />
+<em>Outstanding modern treatment, geometric and rigorous</em></p>
+  </li>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, <strong>§53-54: Covering Spaces</strong><br />
+<em>Classic careful treatment</em></p>
+  </li>
+  <li>
+    <p><strong>William S. Massey</strong> - <em>Algebraic Topology</em>, <strong>Chapters 5-6</strong></p>
+  </li>
+  <li>
+    <p><strong>Edwin Spanier</strong> - <em>Algebraic Topology</em>, <strong>Chapter 2</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter II</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="complex-analysis---riemann-surfaces">Complex Analysis - Riemann Surfaces</h3>
+<p><strong>Multi-valued Functions:</strong> √z, log z single-valued on universal cover. Monodromy = deck transformations. Riemann surfaces = coverings of ℂ or ℂP¹.</p>
+
+<h3 id="galois-theory-analogy">Galois Theory Analogy</h3>
+<p><strong>Covering Spaces ↔ Field Extensions:</strong> Deck transformations ↔ Galois group. Classification theorem ↔ Fundamental theorem of Galois theory. Beautiful parallel!</p>
+
+<h3 id="differential-geometry---riemannian-coverings">Differential Geometry - Riemannian Coverings</h3>
+<p><strong>Metric Lifts:</strong> Riemannian metric on X lifts to X̃. Geodesics lift to geodesics. Universal cover studies local geometry.</p>
+
+<h3 id="physics---gauge-theory">Physics - Gauge Theory</h3>
+<p><strong>Principal Bundles:</strong> U(1) bundles = circle bundles. Covering theory = abelian case. Instantons classified using covering spaces.</p>
+
+<h3 id="number-theory---modular-forms">Number Theory - Modular Forms</h3>
+<p><strong>Modular Curve:</strong> ℍ/SL₂(ℤ) (upper half-plane quotient). ℍ = universal cover. Deck transformations = modular group.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="definition-và-basic-properties">Definition và Basic Properties</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Covering:</strong><br />
+p: ℝ → S¹, p(t) = e^(2πit). Prove p is covering map với explicit evenly covered neighborhoods.</p>
+  </li>
+  <li>
+    <p><strong>Not Covering:</strong><br />
+f: [0,1) → S¹, f(t) = e^(2πit). Why NOT covering? (Not surjective.)</p>
+  </li>
+  <li>
+    <p><strong>Sheets Count:</strong><br />
+p: S¹ → S¹, p(z) = z³. How many sheets? Describe fiber p^(-1)(1).</p>
+  </li>
+</ol>
+
+<h3 id="lifting">Lifting</h3>
+
+<ol>
+  <li>
+    <p><strong>Path Lifting:</strong><br />
+p: ℝ → S¹. γ(t) = e^(4πit) (wind twice). Lift starting at 0 ∈ ℝ. Find γ̃(1).</p>
+  </li>
+  <li>
+    <p><strong>Homotopy Lifting:</strong><br />
+Homotopy F: [0,1]² → S¹ connecting two loops. Explain how F lifts to ℝ.</p>
+  </li>
+  <li>
+    <p><strong>Lifting Criterion:</strong><br />
+Can constant map f: S² → S¹ lift to ℝ? Use lifting criterion (π₁(S²) = 0).</p>
+  </li>
+</ol>
+
+<h3 id="universal-cover">Universal Cover</h3>
+
+<ol>
+  <li>
+    <p><strong>ℝ² → T²:</strong><br />
+Prove ℝ² simply connected. Verify ℝ² = universal cover of T².</p>
+  </li>
+  <li>
+    <p><strong>S² → ℝP²:</strong><br />
+Verify S² simply connected (n=2). Why is S² universal cover of ℝP²?</p>
+  </li>
+  <li>
+    <p><strong>Figure-Eight:</strong><br />
+Universal cover của S¹ ∨ S¹ = infinite tree. Sketch structure. Why simply connected?</p>
+  </li>
+</ol>
+
+<h3 id="deck-transformations">Deck Transformations</h3>
+
+<ol>
+  <li>
+    <p><strong>ℝ → S¹:</strong><br />
+Deck transformations = translations. Prove f_n(t) = t + n deck transformation.</p>
+  </li>
+  <li>
+    <p><strong>Composition:</strong><br />
+Verify Aut(ℝ/S¹) ≅ ℤ explicitly. What is generator?</p>
+  </li>
+  <li>
+    <p><strong>Antipodal:</strong><br />
+S^n → ℝP^n. Deck transformation f(x) = -x. Verify p ∘ f = p.</p>
+  </li>
+</ol>
+
+<h3 id="classification">Classification</h3>
+
+<ol>
+  <li>
+    <p><strong>Subgroups ↔ Coverings:</strong><br />
+π₁(S¹) = ℤ. List all subgroups. What coverings do they correspond to?</p>
+  </li>
+  <li>
+    <p><strong>n-fold Cover:</strong><br />
+p: S¹ → S¹, p(z) = z^n. What subgroup of ℤ corresponds to this covering?</p>
+  </li>
+  <li>
+    <p><strong>Normal Covering:</strong><br />
+Universal cover always normal covering. Why? (Trivial subgroup normal.)</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Monodromy:</strong><br />
+Research monodromy action: π₁(X) acts on fiber p^(-1)(x₀). Relate to deck transformations.</p>
+  </li>
+  <li>
+    <p><strong>Galois Correspondence:</strong><br />
+Read about analogy: Covering spaces ↔ Galois theory. List parallels.</p>
+  </li>
+  <li>
+    <p><strong>Hawaiian Earring:</strong><br />
+Hawaiian earring (⋁_{n=1}^∞ S¹_n shrinking) has NO universal cover. Why? (Not semilocally simply connected.)</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why “Universal”?:</strong><br />
+Explain why universal cover is “universal” (all coverings factor through it).</p>
+  </li>
+  <li>
+    <p><strong>Geometric Intuition:</strong><br />
+Explain covering spaces đến non-mathematician using real-world analogy (multi-story parking garage?).</p>
+  </li>
+  <li>
+    <p><strong>Applications:</strong><br />
+List three applications of covering space theory in different fields.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, §1.3:</strong> Best modern treatment, geometric</li>
+  <li><strong>Munkres, §53-54:</strong> Careful, rigorous</li>
+  <li><strong>Massey, Chapters 5-6:</strong> Comprehensive</li>
+  <li><strong>Bredon, Chapter II:</strong> Advanced perspective</li>
+  <li><strong>Spanier, Chapter 2:</strong> Encyclopedic</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài này, chúng ta học <strong>covering space theory</strong>—powerful tool trong algebraic topology:</p>
+
+<p>✅ <strong>Definition:</strong> p: X̃ → X với evenly covered neighborhoods<br />
+✅ <strong>Examples:</strong> ℝ → S¹, S^n → ℝP^n, ℝ² → T², tree → figure-eight<br />
+✅ <strong>Path Lifting:</strong> Unique lift given starting point<br />
+✅ <strong>Homotopy Lifting:</strong> Homotopies lift uniquely<br />
+✅ <strong>Universal Cover:</strong> X̃ simply connected, exists under mild conditions<br />
+✅ <strong>Deck Transformations:</strong> Aut(X̃/X) ≅ π₁(X) (universal cover case)<br />
+✅ <strong>Classification:</strong> Coverings ↔ subgroups of π₁(X)</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Covering spaces = local simplicity + global complexity</li>
+  <li>Lifting theorems = powerful computational tools</li>
+  <li>Universal cover = simplest covering (simply connected)</li>
+  <li>π₁(X) = symmetry group of universal cover</li>
+  <li>Classification theorem = topology ↔ algebra</li>
+</ul>
+
+<p><strong>Geometric intuition:</strong></p>
+<ul>
+  <li>Multiple sheets stacked over base</li>
+  <li>Projection locally homeomorphic</li>
+  <li>Homotopy detected by lifting</li>
+  <li>Universal cover “unravels” space</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Compute π₁ via covering spaces (most powerful method)</li>
+  <li>Universal cover simplifies many problems</li>
+  <li>Classification theorem reduces topology to algebra</li>
+  <li>Deck transformations reveal symmetries</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Lecture 06.04 về <strong>Seifert-Van Kampen Theorem</strong>—compute π₁ from pieces!</p>
+
+<hr />
+
+<p><em>“Covering spaces: where local meets global, and geometry becomes algebra.”</em></p>
+
+<p>🎯 <strong>Master covering spaces! They’re the key to algebraic topology.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter06/06_02_Computing_Fundamental_Group/">Lecture 06.02: Computing π₁</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter06/06_04_Van_Kampen_Theorem/">Lecture 06.04: Van Kampen’s Theorem</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter6/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

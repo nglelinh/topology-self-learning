@@ -1,0 +1,260 @@
+---
+layout: page
+title: "Connectedness and Compactness"
+lang: vi
+lang-ref: topology-chapter02
+chapter: '02'
+permalink: /contents/vi/chapter02/
+---
+
+<div class="chapter-intro">
+  <h1>🔗 Chapter 02: Connectedness and Compactness</h1>
+  <h2>Tính Liên thông và Tính Compact</h2>
+  
+  <p class="chapter-description">
+    Hai topological properties quan trọng nhất! Connectedness = "không thể chia thành pieces," 
+    compactness = "behaves like finite sets." Fundamental cho analysis, geometry, và applications.
+  </p>
+
+  <div class="learning-objectives">
+    <h3>🎯 Mục tiêu Học tập</h3>
+    <ul>
+      <li>Hiểu connected spaces và components</li>
+      <li>Thành thạo compact spaces—Heine-Borel theorem</li>
+      <li>Nắm vững local compactness và compactification</li>
+      <li>Applications trong analysis (extreme value theorem, uniform continuity)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="lecture-list">
+  <h2>📚 Danh sách Bài giảng</h2>
+
+  <div class="lecture-card">
+    <div class="lecture-header">
+      <span class="lecture-number">Lecture 02.00</span>
+      <span class="lecture-status completed">✅ Hoàn thành</span>
+    </div>
+    <h3><a href="/contents/vi/chapter02/02_00_Connected_Spaces/">Connected Spaces</a></h3>
+    <p class="lecture-summary">
+      Định nghĩa connected space (không thể write as disjoint union của open sets), 
+      path-connected spaces, connected components, và applications như Intermediate Value Theorem.
+    </p>
+    <div class="lecture-tags">
+      <span class="tag">Connectedness</span>
+      <span class="tag">Path-Connected</span>
+      <span class="tag">Components</span>
+      <span class="tag">IVT</span>
+    </div>
+  </div>
+
+  <div class="lecture-card">
+    <div class="lecture-header">
+      <span class="lecture-number">Lecture 02.01</span>
+      <span class="lecture-status completed">✅ Hoàn thành</span>
+    </div>
+    <h3><a href="/contents/vi/chapter02/02_01_Compact_Spaces/">Compact Spaces and Heine-Borel</a></h3>
+    <p class="lecture-summary">
+      Compact spaces (every open cover has finite subcover), Heine-Borel theorem (compact ⇔ closed & bounded trong ℝⁿ), 
+      properties của compact spaces, và applications trong analysis.
+    </p>
+    <div class="lecture-tags">
+      <span class="tag">Compactness</span>
+      <span class="tag">Heine-Borel</span>
+      <span class="tag">Finite Subcover</span>
+      <span class="tag">Analysis</span>
+    </div>
+  </div>
+
+  <div class="lecture-card">
+    <div class="lecture-header">
+      <span class="lecture-number">Lecture 02.02</span>
+      <span class="lecture-status completed">✅ Hoàn thành</span>
+    </div>
+    <h3><a href="/contents/vi/chapter02/02_02_Local_Compactness_Compactification/">Local Compactness and Compactification</a></h3>
+    <p class="lecture-summary">
+      Locally compact spaces, one-point compactification (Alexandroff), Stone-Čech compactification, 
+      và applications. Cách "complete" non-compact spaces.
+    </p>
+    <div class="lecture-tags">
+      <span class="tag">Local Compactness</span>
+      <span class="tag">Compactification</span>
+      <span class="tag">Alexandroff</span>
+      <span class="tag">Stone-Čech</span>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-summary">
+  <h2>💡 Tóm tắt Chapter</h2>
+  <p>
+    Chapter 02 introduced two fundamental topological properties:
+  </p>
+  <ul>
+    <li><strong>Connectedness:</strong> Space không thể chia thành disjoint open pieces. IVT = application!</li>
+    <li><strong>Compactness:</strong> Every open cover has finite subcover. "Finite-like" behavior.</li>
+    <li><strong>Heine-Borel:</strong> Trong ℝⁿ, compact ⇔ closed & bounded (beautiful characterization!)</li>
+    <li><strong>Local compactness:</strong> Each point has compact neighborhood. ℝⁿ locally compact.</li>
+    <li><strong>Compactification:</strong> Add "point at infinity" to complete non-compact spaces.</li>
+  </ul>
+  <p>
+    Hai properties này appear everywhere trong topology, analysis, geometry, và physics. 
+    Tiếp theo: <strong>separation axioms</strong>—distinguishing points and sets!
+  </p>
+</div>
+
+<div class="navigation-buttons">
+  <a href="/contents/vi/topology-chapter01/" class="btn btn-prev">
+    ← Previous: Topological Spaces
+  </a>
+  <a href="/contents/vi/topology-chapter03/" class="btn btn-next">
+    Next Chapter: Separation Axioms →
+  </a>
+</div>
+
+<style>
+.chapter-intro {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.chapter-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.learning-objectives {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.lecture-list {
+  margin: 2rem 0;
+}
+
+.lecture-card {
+  background: #f8f9fa;
+  border-left: 4px solid #f5576c;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lecture-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.lecture-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.lecture-number {
+  font-weight: bold;
+  color: #f5576c;
+  font-size: 0.9rem;
+}
+
+.lecture-status {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.lecture-status.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.lecture-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.lecture-card h3 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.lecture-card h3 a:hover {
+  color: #f5576c;
+}
+
+.lecture-summary {
+  color: #666;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.lecture-tags {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.chapter-summary {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 5px;
+}
+
+.navigation-buttons {
+  text-align: center;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-prev {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-prev:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
+}
+
+.btn-next {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+}
+</style>
+

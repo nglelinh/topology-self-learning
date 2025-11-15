@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 01.01: Basis and Subbasis for a Topology &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 01.01: Basis and Subbasis for a Topology
+    
+  </h1>
+  <p><strong>Basis and Subbasis for a Topology</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Trong bài trước, chúng ta đã định nghĩa topology như một họ các open sets thỏa mãn ba axioms. Nhưng việc <strong>kiểm tra</strong> tất cả axioms cho một họ lớn các tập hợp có thể rất phức tạp.</p>
+
+<p>Hãy tưởng tượng: Trong ℝ với Euclidean topology, có <strong>vô số</strong> open sets (mọi hợp của các khoảng mở). Làm sao chúng ta mô tả topology này một cách compact?</p>
+
+<p><strong>Ý tưởng:</strong> Giống như trong đại số tuyến tính, một không gian vector được sinh bởi một <strong>basis</strong>, một topology cũng có thể được sinh bởi một họ nhỏ hơn gọi là <strong>basis</strong>.</p>
+
+<p><strong>Ví dụ:</strong> Trong ℝ, thay vì liệt kê tất cả open sets, ta chỉ cần nói: “Tất cả các khoảng mở (a, b) là basis”. Mọi open set khác đều là hợp của các khoảng này!</p>
+
+<p><strong>Trong bài này:</strong></p>
+<ul>
+  <li><strong>Basis for a topology</strong>: Định nghĩa và tiêu chuẩn</li>
+  <li><strong>Standard basis</strong> cho ℝⁿ</li>
+  <li><strong>Subbasis</strong>: Họ nhỏ hơn nữa sinh ra topology</li>
+  <li><strong>Generated topology</strong>: Cách tạo topology từ basis/subbasis</li>
+  <li><strong>Comparing bases</strong>: Khi nào hai bases sinh cùng topology?</li>
+</ul>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+<ul>
+  <li>Basis đơn giản hóa việc work với topology</li>
+  <li>Nhiều topologies được định nghĩa qua basis</li>
+  <li>Continuity dễ check hơn với basis</li>
+  <li>Product topology được định nghĩa qua basis</li>
+</ul>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-building-blocks">Câu chuyện về Building Blocks</h3>
+
+<p>Hãy nghĩ về <strong>LEGO</strong>. Bạn không cần vô số mảnh LEGO độc nhất để xây mọi thứ. Bạn chỉ cần một số “basic pieces” (cơ bản), và ghép chúng lại theo nhiều cách khác nhau để tạo ra structures phức tạp.</p>
+
+<p><strong>Topology hoạt động tương tự!</strong></p>
+
+<ul>
+  <li><strong>Basic pieces</strong> = Basis elements (ví dụ: khoảng mở (a,b) trong ℝ)</li>
+  <li><strong>Complex structures</strong> = Arbitrary open sets (hợp của basis elements)</li>
+  <li><strong>Construction rule</strong> = “Take unions”</li>
+</ul>
+
+<p><strong>Ví dụ cụ thể trong ℝ:</strong></p>
+
+<p>Muốn mô tả open set U = (0, 1) ∪ (2, 5) ∪ (7, 10)?</p>
+<ul>
+  <li>Không cần định nghĩa U riêng!</li>
+  <li>Chỉ cần: U là <strong>hợp</strong> của ba basis elements: (0,1), (2,5), (7,10)</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lego_Color_Bricks.jpg/400px-Lego_Color_Bricks.jpg" alt="LEGO analogy for basis" /><br />
+<em>LEGO blocks như basis elements - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Lego_Color_Bricks.jpg">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-basis-for-a-topology">1. Basis for a Topology</h3>
+
+<p><strong>Định nghĩa (Basis):</strong><br />
+Cho (X, 𝜏) là topological space. Một họ ℬ ⊆ 𝜏 là <strong>basis</strong> cho 𝜏 nếu:</p>
+
+\[\forall U \in \tau: U = \bigcup_{\alpha \in I} B_\alpha \quad \text{với } B_\alpha \in \mathcal{B}\]
+
+<p><strong>Nói cách khác:</strong> Mọi open set đều là hợp của các basis elements.</p>
+
+<p><strong>Phát biểu tương đương:</strong><br />
+ℬ là basis nếu với mọi x ∈ U ∈ 𝜏, tồn tại B ∈ ℬ sao cho x ∈ B ⊆ U.</p>
+
+<p><strong>Trực giác:</strong> Mọi điểm trong mọi open set đều có một basis element “bao quanh” nó.</p>
+
+<p><strong>Ví dụ 1: Standard basis cho ℝ</strong></p>
+
+\[\mathcal{B} = \{(a, b) : a, b \in \mathbb{R}, a &lt; b\}\]
+
+<p>(Tất cả các khoảng mở)</p>
+
+<p><strong>Kiểm tra:</strong> Mọi open set trong ℝ (Euclidean topology) đều là hợp của các khoảng mở ✓</p>
+
+<p><strong>Ví dụ 2: Alternative basis cho ℝ</strong></p>
+
+\[\mathcal{B}' = \{(a, b) : a, b \in \mathbb{Q}, a &lt; b\}\]
+
+<p>(Các khoảng mở với endpoints hữu tỉ)</p>
+
+<p><strong>Surprise!</strong> ℬ’ cũng là basis cho Euclidean topology trên ℝ!</p>
+
+<p><strong>Tại sao?</strong> Vì ℚ dense trong ℝ: mọi khoảng (a,b) (a,b ∈ ℝ) đều là hợp của các khoảng (r,s) với r,s ∈ ℚ.</p>
+
+<p><strong>Kết luận quan trọng:</strong> Một topology có thể có <strong>nhiều bases khác nhau</strong>!</p>
+
+<hr />
+
+<h3 id="2-basis-criterion-tiêu-chuẩn-basis">2. Basis Criterion (Tiêu chuẩn Basis)</h3>
+
+<p><strong>Làm sao biết</strong> một họ tập hợp ℬ có thể là basis cho một topology nào đó?</p>
+
+<p><strong>Định lý (Basis Criterion):</strong><br />
+Họ ℬ các tập con của X là basis cho một topology trên X nếu và chỉ nếu:</p>
+
+<p><strong>(B1)</strong> ℬ phủ X:
+\(X = \bigcup_{B \in \mathcal{B}} B\)</p>
+
+<p><strong>(B2)</strong> “Intersection property”:
+\(\forall B_1, B_2 \in \mathcal{B}, \forall x \in B_1 \cap B_2: \exists B_3 \in \mathcal{B}: x \in B_3 \subseteq B_1 \cap B_2\)</p>
+
+<p><strong>Trực giác (B2):</strong> Nếu hai basis elements giao nhau, giao đó phải chứa basis elements nhỏ hơn.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Basis_for_a_Topology_%28Illustration%29.svg/500px-Basis_for_a_Topology_%28Illustration%29.svg.png" alt="Basis intersection property" /><br />
+<em>Intersection property của basis - Nguồn concept</em></p>
+
+<p><strong>Chứng minh (sketch):</strong></p>
+
+<p><strong>Necessity (⇒):</strong> Nếu ℬ là basis cho 𝜏:</p>
+<ul>
+  <li>(B1): X ∈ 𝜏, nên X là hợp của các B ∈ ℬ ✓</li>
+  <li>(B2): B₁ ∩ B₂ ∈ 𝜏 (vì 𝜏 closed under finite intersections), nên B₁ ∩ B₂ là hợp của các B₃ ∈ ℬ ✓</li>
+</ul>
+
+<p><strong>Sufficiency (⇐):</strong> Cho ℬ thỏa mãn (B1), (B2). Định nghĩa:
+\(\tau = \left\{U \subseteq X : U = \bigcup_{\alpha} B_\alpha, B_\alpha \in \mathcal{B}\right\}\)</p>
+
+<p>Cần chứng minh 𝜏 là topology. (Exercise!)</p>
+
+<p><strong>Ví dụ ứng dụng:</strong></p>
+
+<p><strong>Claim:</strong> ℬ = {[a, b) : a &lt; b} là basis cho một topology trên ℝ.</p>
+
+<p><strong>Kiểm tra:</strong></p>
+<ul>
+  <li>(B1): ℝ = ⋃ₙ [n, n+1) ✓</li>
+  <li>(B2): [a, b) ∩ [c, d) = [max(a,c), min(b,d))<br />
+Nếu không rỗng, đây lại là một [e, f) ∈ ℬ ✓</li>
+</ul>
+
+<p><strong>Kết luận:</strong> ℬ sinh ra một topology (gọi là <strong>lower limit topology</strong> trên ℝ).</p>
+
+<p><strong>Chú ý:</strong> Đây là topology <strong>khác</strong> với Euclidean topology!</p>
+
+<hr />
+
+<h3 id="3-comparing-bases">3. Comparing Bases</h3>
+
+<p><strong>Câu hỏi:</strong> Khi nào hai bases sinh ra <strong>cùng</strong> topology?</p>
+
+<p><strong>Định lý:</strong><br />
+ℬ và ℬ’ sinh cùng topology trên X ⟺</p>
+<ul>
+  <li>∀B ∈ ℬ, ∀x ∈ B: ∃B’ ∈ ℬ’: x ∈ B’ ⊆ B</li>
+  <li>∀B’ ∈ ℬ’, ∀x ∈ B’: ∃B ∈ ℬ: x ∈ B ⊆ B’</li>
+</ul>
+
+<p><strong>Trực giác:</strong> Mỗi basis element của ℬ “chứa” basis elements của ℬ’, và ngược lại.</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p>ℬ = {(a, b) : a,b ∈ ℝ}<br />
+ℬ’ = {(a, b) : a,b ∈ ℚ}</p>
+
+<p>Chúng sinh cùng Euclidean topology trên ℝ!</p>
+
+<p><strong>Ứng dụng quan trọng:</strong><br />
+ℬ’ <strong>countable</strong>, nên Euclidean topology trên ℝ có countable basis → ℝ là <strong>second countable</strong>!</p>
+
+<hr />
+
+<h3 id="4-standard-basis-for-ℝⁿ">4. Standard Basis for ℝⁿ</h3>
+
+<p><strong>Định nghĩa (Standard Basis for ℝⁿ):</strong></p>
+
+\[\mathcal{B} = \{(a_1, b_1) \times (a_2, b_2) \times \cdots \times (a_n, b_n) : a_i &lt; b_i\}\]
+
+<p>(Tất cả các “open rectangles” / “open boxes”)</p>
+
+<p><strong>Trong ℝ²:</strong><br />
+B = (a₁, b₁) × (a₂, b₂) = {(x, y) : a₁ &lt; x &lt; b₁, a₂ &lt; y &lt; b₂}</p>
+
+<p>Đây là <strong>hình chữ nhật</strong> (không chứa biên)!</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Open_rectangle.svg/300px-Open_rectangle.svg.png" alt="Open rectangle in R2" /><br />
+<em>Open rectangle là basis element trong ℝ² - Nguồn concept</em></p>
+
+<p><strong>Ví dụ open set trong ℝ²:</strong></p>
+
+<p>Open disk B((0,0), 1) = {(x,y) : x² + y² &lt; 1}</p>
+
+<p>Đây <strong>không phải</strong> open rectangle! Nhưng nó là <strong>hợp</strong> của vô số open rectangles:</p>
+
+\[B((0,0), 1) = \bigcup_{\text{rectangles } R \subseteq B((0,0),1)} R\]
+
+<p><strong>Alternative basis cho ℝⁿ:</strong></p>
+
+\[\mathcal{B}_{\text{balls}} = \{B(\mathbf{x}, r) : \mathbf{x} \in \mathbb{R}^n, r &gt; 0\}\]
+
+<p>(Tất cả các open balls)</p>
+
+<p><strong>Định lý:</strong> ℬ (rectangles) và ℬ_balls sinh <strong>cùng</strong> topology trên ℝⁿ (Euclidean topology)!</p>
+
+<p><strong>Chứng minh (sketch):</strong></p>
+<ul>
+  <li>Mỗi rectangle chứa một ball</li>
+  <li>Mỗi ball chứa rectangles</li>
+  <li>Apply comparison theorem ✓</li>
+</ul>
+
+<hr />
+
+<h3 id="5-subbasis-cơ-sở-con">5. Subbasis (Cơ sở Con)</h3>
+
+<p><strong>Đôi khi</strong> basis vẫn còn “lớn”. Ta muốn something nhỏ hơn nữa!</p>
+
+<p><strong>Định nghĩa (Subbasis):</strong><br />
+Một họ 𝒮 các tập con của X là <strong>subbasis</strong> cho topology 𝜏 nếu:</p>
+
+\[\mathcal{B} = \left\{\bigcap_{i=1}^n S_i : S_i \in \mathcal{S}, n \in \mathbb{N}\right\}\]
+
+<p>(Tất cả <strong>giao hữu hạn</strong> của các subbasis elements) là basis cho 𝜏.</p>
+
+<p><strong>Nói cách khác:</strong></p>
+<ul>
+  <li><strong>Subbasis</strong> → (take finite intersections) → <strong>Basis</strong> → (take arbitrary unions) → <strong>Topology</strong></li>
+</ul>
+
+<p><strong>Ví dụ 1: Standard subbasis cho ℝ</strong></p>
+
+\[\mathcal{S} = \{(a, \infty) : a \in \mathbb{R}\} \cup \{(-\infty, b) : b \in \mathbb{R}\}\]
+
+<p>(Tất cả “rays”: tia phải và tia trái)</p>
+
+<p><strong>Giao hữu hạn:</strong></p>
+<ul>
+  <li>(a, ∞) ∩ (-∞, b) = (a, b) nếu a &lt; b</li>
+  <li>(a₁, ∞) ∩ (a₂, ∞) = (max(a₁, a₂), ∞)</li>
+</ul>
+
+<p><strong>Kết quả:</strong> Basis sinh ra = {tất cả khoảng mở} = Standard basis cho ℝ!</p>
+
+<p><strong>Ví dụ 2: Product topology (preview)</strong></p>
+
+<p>Cho (X, 𝜏_X) và (Y, 𝜏_Y). Trên X × Y, xét:</p>
+
+\[\mathcal{S} = \{U \times Y : U \in \tau_X\} \cup \{X \times V : V \in \tau_Y\}\]
+
+<p>Subbasis này sinh ra <strong>product topology</strong> trên X × Y!</p>
+
+<p><strong>Tại sao dùng subbasis?</strong></p>
+<ul>
+  <li>Đơn giản hơn basis trong một số constructions</li>
+  <li>Order topology, product topology thường định nghĩa qua subbasis</li>
+  <li>Elegance: compact description</li>
+</ul>
+
+<hr />
+
+<h3 id="6-generated-topology">6. Generated Topology</h3>
+
+<p><strong>Định lý (Existence of Generated Topology):</strong><br />
+Cho 𝒮 là họ tùy ý các tập con của X. Tồn tại <strong>duy nhất</strong> topology 𝜏 trên X sao cho:</p>
+<ol>
+  <li>𝒮 ⊆ 𝜏 (mọi S ∈ 𝒮 đều open)</li>
+  <li>𝜏 là <strong>coarsest</strong> (thô nhất) topology thỏa mãn (1)</li>
+</ol>
+
+<p><strong>Ký hiệu:</strong> 𝜏 = ⟨𝒮⟩ (topology generated by 𝒮)</p>
+
+<p><strong>Construction:</strong></p>
+
+\[\tau = \left\{U \subseteq X : U = \bigcup_{\alpha} \left(\bigcap_{i=1}^{n_\alpha} S_{\alpha,i}\right), S_{\alpha,i} \in \mathcal{S}\right\}\]
+
+<p><strong>Nói bằng lời:</strong></p>
+<ol>
+  <li>Take finite intersections of subbasis elements → basis</li>
+  <li>Take arbitrary unions of basis elements → topology</li>
+</ol>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p>𝒮 = {(0, 1), (0.5, 1.5)} trên ℝ.</p>
+
+<p>Generated topology chứa:</p>
+<ul>
+  <li>(0, 1), (0.5, 1.5) (subbasis)</li>
+  <li>(0, 1) ∩ (0.5, 1.5) = (0.5, 1) (basis)</li>
+  <li>Mọi hợp của các tập trên</li>
+  <li>…</li>
+</ul>
+
+<p><strong>Chú ý:</strong> Generated topology thường <strong>không bằng</strong> Euclidean topology!</p>
+
+<hr />
+
+<h3 id="7-neighborhood-basis">7. Neighborhood Basis</h3>
+
+<p><strong>Định nghĩa (Neighborhood):</strong><br />
+Tập N ⊆ X là <strong>neighborhood</strong> của điểm x nếu tồn tại U ∈ 𝜏 với x ∈ U ⊆ N.</p>
+
+<p><strong>Trực giác:</strong> N chứa một open set xung quanh x.</p>
+
+<p><strong>Định nghĩa (Neighborhood Basis):</strong><br />
+Họ ℬₓ các neighborhoods của x là <strong>neighborhood basis</strong> tại x nếu:</p>
+
+\[\forall N \text{ neighborhood của } x: \exists B \in \mathcal{B}_x: B \subseteq N\]
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+
+\[\mathcal{B}_x = \{(x - 1/n, x + 1/n) : n \in \mathbb{N}\}\]
+
+<p>là neighborhood basis tại x.</p>
+
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+  <li><strong>Convergence:</strong> xₙ → x ⟺ với mọi B ∈ ℬₓ, tồn tại N sao cho ∀n ≥ N: xₙ ∈ B</li>
+  <li><strong>Continuity:</strong> f continuous tại x ⟺ với mọi neighborhood của f(x), preimage chứa neighborhood của x</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Định nghĩa neighborhood bases</em></p>
+  </li>
+  <li>
+    <p><strong>Pavel Alexandroff &amp; Heinz Hopf</strong> - <em>“Topologie I”</em> (1935)<br />
+<em>Systematic treatment of bases and subbases</em></p>
+  </li>
+  <li>
+    <p><strong>Nicolas Bourbaki</strong> - <em>“Éléments de mathématique: Topologie générale”</em> (1940)<br />
+<em>Modern axiomatic approach, bases and filters</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§13: Basis for a Topology</strong><br />
+<em>Clear exposition với nhiều examples</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology Without Tears</em>, <strong>Chapter 2, §2.2</strong><br />
+<em>Gentle introduction to bases</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Willard</strong> - <em>General Topology</em>, <strong>Chapter 2</strong><br />
+<em>Comprehensive treatment</em></p>
+  </li>
+  <li>
+    <p><strong>John L. Kelley</strong> - <em>General Topology</em>, <strong>Chapter 2</strong><br />
+<em>Nets và filters approach</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="computer-science---data-structures">Computer Science - Data Structures</h3>
+<p><strong>Spatial Indexing:</strong> Trong databases, “R-trees” sử dụng “bounding rectangles” (tương tự basis elements trong ℝⁿ) để organize spatial data hiệu quả.</p>
+
+<p><strong>Ví dụ:</strong> Google Maps sử dụng spatial indexing với basis-like structures để quickly find nearby locations.</p>
+
+<h3 id="analysis---topological-vector-spaces">Analysis - Topological Vector Spaces</h3>
+<p><strong>Normed Spaces:</strong> Trong functional analysis, topology thường defined qua basis của open balls. Convergence, continuity đều check qua basis elements.</p>
+
+<h3 id="differential-geometry---charts-and-atlases">Differential Geometry - Charts and Atlases</h3>
+<p><strong>Manifolds:</strong> Được định nghĩa locally giống ℝⁿ. “Charts” act như basis elements—cover space và có “overlap conditions” (tương tự intersection property).</p>
+
+<h3 id="physics---phase-space">Physics - Phase Space</h3>
+<p><strong>Classical Mechanics:</strong> Phase space có topology natural. Basis elements = “small regions” trong position-momentum space. Evolution preserves topology.</p>
+
+<h3 id="real-world-example">Real-World Example</h3>
+<p><strong>Weather Maps:</strong> Các vùng “high pressure”, “low pressure” có thể xem như basis elements. Union của chúng mô tả entire weather pattern (topology của atmospheric conditions).</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="understanding-bases">Understanding Bases</h3>
+
+<ol>
+  <li><strong>Verify Basis:</strong><br />
+Cho X = {a, b, c, d}. Các họ sau có phải là basis cho một topology không?
+    <ul>
+      <li>a) ℬ = {{a}, {b}, {c,d}, X}</li>
+      <li>b) ℬ = {{a,b}, {b,c}, {c,d}}</li>
+      <li>c) ℬ = {{a}, {a,b}, {a,b,c}, X}</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Generate Topology:</strong><br />
+X = {1, 2, 3}, ℬ = {{1}, {2,3}}.<br />
+Liệt kê tất cả open sets trong topology sinh bởi ℬ.</p>
+  </li>
+  <li><strong>Standard Basis:</strong><br />
+Chứng minh rằng ℬ = {(a, b) : a,b ∈ ℝ} thỏa mãn basis criterion (B1) và (B2).</li>
+</ol>
+
+<h3 id="comparing-bases">Comparing Bases</h3>
+
+<ol>
+  <li><strong>Same Topology?</strong><br />
+Trên ℝ, xét hai bases:
+    <ul>
+      <li>ℬ₁ = {(a, b) : a &lt; b}</li>
+      <li>ℬ₂ = {[a, b) : a &lt; b}</li>
+    </ul>
+
+    <p>Chúng có sinh cùng topology không? Tại sao?</p>
+  </li>
+  <li>
+    <p><strong>Rational Endpoints:</strong><br />
+Chứng minh rằng ℬ = {(r, s) : r,s ∈ ℚ, r &lt; s} là basis cho Euclidean topology trên ℝ.<br />
+(<em>Hint:</em> Sử dụng density của ℚ)</p>
+  </li>
+  <li><strong>Countable Basis:</strong><br />
+Chứng minh rằng ℝ với Euclidean topology có countable basis.<br />
+Điều này gợi ý gì về “size” của topology?</li>
+</ol>
+
+<h3 id="ℝⁿ-and-products">ℝⁿ and Products</h3>
+
+<ol>
+  <li><strong>Open Rectangles:</strong><br />
+Trong ℝ², vẽ các basis elements:
+    <ul>
+      <li>a) (0, 1) × (0, 1)</li>
+      <li>b) (-1, 2) × (0, 3)</li>
+      <li>c) Giao của (a) và (b)</li>
+    </ul>
+
+    <p>Giao có phải là basis element không?</p>
+  </li>
+  <li>
+    <p><strong>Open Disk:</strong><br />
+Open disk B((0,0), 1) trong ℝ² <strong>không phải</strong> open rectangle.<br />
+Chứng minh rằng nó <strong>là</strong> open set bằng cách biểu diễn như hợp của open rectangles.</p>
+  </li>
+  <li><strong>Different Metrics:</strong><br />
+Trong ℝ² với Manhattan metric d₁(x,y) = |x₁-y₁| + |x₂-y₂|:
+    <ul>
+      <li>a) Vẽ “open ball” B((0,0), 1) trong metric này</li>
+      <li>b) Nó có phải là open rectangle không?</li>
+      <li>c) Topology induced có bằng Euclidean topology không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="subbases">Subbases</h3>
+
+<ol>
+  <li><strong>Ray Subbasis:</strong><br />
+Trên ℝ, cho 𝒮 = {(a, ∞) : a ∈ ℝ} ∪ {(-∞, b) : b ∈ ℝ}.
+    <ul>
+      <li>a) Chứng minh 𝒮 là subbasis</li>
+      <li>b) Mô tả basis sinh từ 𝒮</li>
+      <li>c) So sánh với standard basis</li>
+    </ul>
+  </li>
+  <li><strong>Minimal Subbasis:</strong><br />
+X = {a, b, c}, 𝒮 = {{a,b}, {b,c}}.
+    <ul>
+      <li>a) Tìm basis sinh từ 𝒮</li>
+      <li>b) Liệt kê tất cả open sets trong topology sinh ra</li>
+      <li>c) Topology này có tên gọi đặc biệt không?</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Product Preview:</strong><br />
+Trên ℝ × ℝ, xét subbasis:<br />
+𝒮 = {(a,b) × ℝ : a&lt;b} ∪ {ℝ × (c,d) : c&lt;d}</p>
+
+    <p>Chứng minh rằng basis sinh ra = {(a,b) × (c,d)} = standard basis cho ℝ².</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li><strong>Lower Limit Topology:</strong><br />
+Topology sinh bởi ℬ = {[a, b) : a&lt;b} trên ℝ gọi là “lower limit topology” 𝜏_ℓ.
+    <ul>
+      <li>a) Chứng minh [0, 1) open trong 𝜏_ℓ</li>
+      <li>b) (0, 1) có open trong 𝜏_ℓ không?</li>
+      <li>c) So sánh 𝜏_ℓ với Euclidean topology 𝜏_E</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Finer Topology:</strong><br />
+Chứng minh: Nếu ℬ₁ ⊆ ℬ₂ (cả hai đều bases), thì topology sinh bởi ℬ₂ finer than topology sinh bởi ℬ₁.</p>
+  </li>
+  <li>
+    <p><strong>Neighborhood Basis:</strong><br />
+Trong metric space (X, d), chứng minh rằng:
+\(\mathcal{B}_x = \{B(x, 1/n) : n \in \mathbb{N}\}\)
+là neighborhood basis tại x.</p>
+  </li>
+  <li><strong>Characterize Topology:</strong><br />
+Chứng minh: Topology 𝜏 hoàn toàn determined bởi neighborhood bases tại mọi điểm.<br />
+(<em>Hint:</em> U open ⟺ U là neighborhood của mọi x ∈ U)</li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Finite Intersections?</strong><br />
+Trong subbasis definition, tại sao chỉ lấy <strong>finite</strong> intersections?<br />
+Điều gì xảy ra nếu allow infinite intersections?</p>
+  </li>
+  <li><strong>Bases vs Spanning Sets:</strong><br />
+So sánh “basis” trong topology với “basis” trong linear algebra.
+    <ul>
+      <li>Điểm giống: cả hai “span” entire structure</li>
+      <li>Điểm khác: linear independence có tương đương gì không?</li>
+    </ul>
+  </li>
+  <li><strong>Minimal Basis:</strong><br />
+Có tồn tại “minimal basis” (basis nhỏ nhất) cho một topology không?<br />
+So sánh với linear algebra.</li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §13 (Basis for a Topology), §15 (Product Topology)</li>
+  <li><strong>Morris, Topology Without Tears:</strong> Chapter 2.2–2.3 (Bases)</li>
+  <li><strong>Willard, General Topology:</strong> Chapter 2 (Bases and Subbases)</li>
+  <li><strong>Dugundji, Topology:</strong> Chapter II.2 (Bases and Subbases)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta học cách <strong>simplify</strong> việc work với topologies:</p>
+
+<p>✅ <strong>Basis:</strong> Họ tập hợp mà mọi open set là hợp của chúng<br />
+✅ <strong>Basis Criterion:</strong> (B1) phủ X, (B2) intersection property<br />
+✅ <strong>Standard Bases:</strong> ℝⁿ có basis từ open rectangles hoặc open balls<br />
+✅ <strong>Comparing Bases:</strong> Khi nào hai bases sinh cùng topology<br />
+✅ <strong>Subbasis:</strong> Họ nhỏ hơn, sinh basis qua finite intersections<br />
+✅ <strong>Generated Topology:</strong> Từ subbasis → basis → topology<br />
+✅ <strong>Neighborhood Basis:</strong> Local version của basis concept</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Basis = “building blocks” của topology</li>
+  <li>Một topology có thể có nhiều bases khác nhau</li>
+  <li>Basis giúp check continuity, convergence dễ hơn</li>
+  <li>Subbasis cho elegant constructions (product, order topology)</li>
+  <li>ℝⁿ có countable basis → second countable</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Khi định nghĩa topology: dùng basis (đơn giản hơn liệt kê tất cả open sets)</li>
+  <li>Khi so sánh topologies: so sánh bases</li>
+  <li>Khi chứng minh continuous: đủ check trên basis elements</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Trong Lecture 01.02, chúng ta sẽ học về <strong>Closed Sets, Closure, and Interior</strong>—các khái niệm dual của open sets, và các operators quan trọng nhất trong topology.</p>
+
+<hr />
+
+<p><em>“A basis is to topology what a basis is to a vector space—it spans the structure.”</em> — Topology wisdom</p>
+
+<p>🎯 <strong>Practice với nhiều bases khác nhau! Đây là key để mastery.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter01/01_00_Definition_Topology_Basic_Examples/">Lecture 01.00: Definition of Topology</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter01/01_02_Closed_Sets_Closure_Interior/">Lecture 01.02: Closed Sets, Closure, and Interior</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter1/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

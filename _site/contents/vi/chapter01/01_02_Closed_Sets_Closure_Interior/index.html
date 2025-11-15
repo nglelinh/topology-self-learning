@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 01.02: Closed Sets, Closure, and Interior &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 01.02: Closed Sets, Closure, and Interior
+    
+  </h1>
+  <p><strong>Closed Sets, Closure, and Interior</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Trong hai bài trước, chúng ta tập trung vào <strong>open sets</strong>—khái niệm primitive của topology. Nhưng toán học thường có tính <strong>duality</strong> (đối ngẫu): với mỗi khái niệm, có một “dual concept” equally important.</p>
+
+<p><strong>Open sets</strong> have natural dual: <strong>closed sets</strong>. From this duality emerge powerful <strong>operators</strong> transforming sets: <strong>Interior (int)</strong> captures “completely inside” part, <strong>Closure (cl)</strong> adds “boundary” to set, và <strong>Boundary (∂)</strong> marks “border” between inside and outside.</p>
+
+<p>These operators are <strong>most important tools</strong> trong entire topology! They appear everywhere. <strong>Density</strong> gets defined via closure: A dense exactly when cl(A) = X, meaning A’s closure fills entire space. <strong>Continuity</strong> has elegant characterization: f continuous if and only if preimages of closed sets are closed. <strong>Point classification</strong> (interior points, boundary points, limit points) relies completely on these operators, providing vocabulary for discussing “position” in abstract spaces.</p>
+
+<p><strong>Trong bài này</strong> we systematically develop dual theory. <strong>Closed sets</strong> với their axioms mirror open set axioms beautifully. <strong>Closure operator</strong> cl(·) emerges with rich properties and geometric intuition—it “completes” a set by adding limit points. <strong>Interior operator</strong> int(·) reveals itself as perfect dual của closure, stripping away boundary. <strong>Boundary</strong> ∂ precisely captures “border” between inside và outside. <strong>Limit points</strong> versus <strong>isolated points</strong> dichotomy classifies how points relate to their sets. <strong>Dense sets</strong> concept (like ℚ trong ℝ) captures “everywhere presence” through closure.</p>
+
+<p><strong>Tại sao absolutely essential?</strong> Closure and interior provide language for <strong>approximation</strong>—fundamental idea threading through analysis and topology. <strong>Limit points</strong> form foundation for convergence theory, enabling us to discuss “approaching” without explicit sequences. <strong>Dense sets</strong> are key (ℚ dense trong ℝ means rationals approximate any real), appearing trong separability, Baire category theorem, và Stone-Weierstrass. These operators <strong>define</strong> many topological properties: regularity, normality, separability all formulated using closure and interior.</p>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-ranh-giới">Câu chuyện về Ranh giới</h3>
+
+<p>Hãy tưởng tượng một <strong>vùng đất</strong> trên bản đồ. Vùng này có:</p>
+<ul>
+  <li><strong>Interior</strong> (phần trong): Tất cả điểm “hoàn toàn bên trong”—đi một chút mọi hướng vẫn ở trong vùng</li>
+  <li><strong>Boundary</strong> (biên giới): Đường viền—một bước ra ngoài, một bước vào trong</li>
+  <li><strong>Exterior</strong> (phần ngoài): Tất cả điểm hoàn toàn bên ngoài</li>
+  <li><strong>Closure</strong> (bao đóng): Interior + Boundary = “vùng đất cộng với biên”</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Interior_Boundary_Exterior.svg/500px-Interior_Boundary_Exterior.svg.png" alt="Interior, Boundary, Exterior" /><br />
+<em>Interior (xanh), Boundary (đỏ), Exterior (trắng) - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Interior_Boundary_Exterior.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Ví dụ cụ thể trong ℝ:</strong></p>
+
+<p>Xét A = [0, 1) (nửa khoảng)</p>
+
+<ul>
+  <li>
+    <p><strong>Interior:</strong> int(A) = (0, 1)<br />
+<em>Lý do:</em> Mọi điểm trong (0, 1) có một khoảng nhỏ xung quanh vẫn trong A.<br />
+Nhưng 0 không (mọi khoảng chứa 0 đều có điểm âm ∉ A).</p>
+  </li>
+  <li>
+    <p><strong>Boundary:</strong> ∂A = {0, 1}<br />
+<em>Lý do:</em> 0 và 1 là “điểm biên”—mọi neighborhood chứa cả điểm trong và ngoài A.</p>
+  </li>
+  <li>
+    <p><strong>Closure:</strong> cl(A) = [0, 1]<br />
+<em>Lý do:</em> Thêm điểm biên 1 vào A.</p>
+  </li>
+</ul>
+
+<p><strong>Observation quan trọng:</strong> Notice beautiful inclusion chain: int(A) ⊆ A ⊆ cl(A). Interior is “largest open set inside A”, A itself sits in middle, và closure is “smallest closed set containing A”.</p>
+<ul>
+  <li>A open ⟺ A = int(A)</li>
+  <li>A closed ⟺ A = cl(A)</li>
+  <li>∂A = cl(A) \ int(A)</li>
+</ul>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-closed-sets-tập-đóng">1. Closed Sets (Tập Đóng)</h3>
+
+<p><strong>Định nghĩa (Closed Set):</strong><br />
+Trong topological space (X, 𝜏), tập F ⊆ X là <strong>closed</strong> nếu complement của nó open:</p>
+
+\[F \text{ closed} \iff X \setminus F \in \tau\]
+
+<p><strong>Ví dụ trong ℝ (Euclidean topology):</strong></p>
+<ul>
+  <li><strong>[a, b]</strong> closed (complement = (-∞,a) ∪ (b,∞) open)</li>
+  <li><strong>{x}</strong> (singleton) closed (complement = ℝ \ {x} open)</li>
+  <li><strong>ℕ</strong> closed</li>
+  <li><strong>Cantor set</strong> closed</li>
+</ul>
+
+<p><strong>Dual Axioms for Closed Sets:</strong></p>
+
+<p><strong>Định lý:</strong> Họ tất cả closed sets thỏa mãn:</p>
+
+<p><strong>(C1)</strong> ∅ và X closed</p>
+
+<p><strong>(C2)</strong> <strong>Giao tùy ý</strong> closed sets là closed:
+\(\{F_\alpha\}_{\alpha \in I} \text{ closed} \implies \bigcap_{\alpha \in I} F_\alpha \text{ closed}\)</p>
+
+<p><strong>(C3)</strong> <strong>Hợp hữu hạn</strong> closed sets là closed:
+\(F_1, \ldots, F_n \text{ closed} \implies F_1 \cup \cdots \cup F_n \text{ closed}\)</p>
+
+<p><strong>Chứng minh:</strong> Dùng De Morgan’s laws:</p>
+<ul>
+  <li>X \ (⋂Fα) = ⋃(X \ Fα) ∈ 𝜏 (arbitrary unions of open sets)</li>
+  <li>X \ (F₁ ∪ … ∪ Fₙ) = (X\F₁) ∩ … ∩ (X\Fₙ) ∈ 𝜏 (finite intersections) ∎</li>
+</ul>
+
+<p><strong>Comparison với Open Sets:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Open Sets</th>
+      <th>Closed Sets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>∅, X open</td>
+      <td>∅, X closed</td>
+    </tr>
+    <tr>
+      <td>Arbitrary unions</td>
+      <td>Arbitrary <strong>intersections</strong></td>
+    </tr>
+    <tr>
+      <td>Finite intersections</td>
+      <td>Finite <strong>unions</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Chú ý quan trọng:</strong></p>
+<ul>
+  <li>“Not open” ≠ “closed”</li>
+  <li>“Not closed” ≠ “open”</li>
+  <li>Một tập có thể vừa open vừa closed: <strong>clopen</strong></li>
+  <li>Một tập có thể không open không closed: ví dụ [0,1) trong ℝ</li>
+</ul>
+
+<hr />
+
+<h3 id="2-closure-operator-toán-tử-bao-đóng">2. Closure Operator (Toán tử Bao đóng)</h3>
+
+<p><strong>Định nghĩa (Closure):</strong><br />
+Cho A ⊆ X. <strong>Closure</strong> của A là giao của tất cả closed sets chứa A:</p>
+
+\[\overline{A} = \text{cl}(A) = \bigcap \{F : F \text{ closed}, A \subseteq F\}\]
+
+<p><strong>Trực giác:</strong> cl(A) là <strong>smallest closed set</strong> containing A.</p>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+<ul>
+  <li>cl((0,1)) = [0,1]</li>
+  <li>cl([0,1]) = [0,1] (đã closed)</li>
+  <li>cl(ℚ) = ℝ (vì ℚ dense)</li>
+  <li>cl({1/n : n ∈ ℕ}) = {1/n} ∪ {0}</li>
+</ul>
+
+<p><strong>Định lý (Properties of Closure):</strong></p>
+
+<p>Closure operator thỏa mãn bốn <strong>Kuratowski closure axioms</strong>:</p>
+
+<p><strong>(K1) Extensivity:</strong> 
+\(A \subseteq \overline{A}\)</p>
+
+<p><strong>(K2) Idempotence:</strong>
+\(\overline{\overline{A}} = \overline{A}\)</p>
+
+<p><strong>(K3) Preservation of unions:</strong>
+\(\overline{A \cup B} = \overline{A} \cup \overline{B}\)</p>
+
+<p><strong>(K4) Normality:</strong>
+\(\overline{\emptyset} = \emptyset\)</p>
+
+<p><strong>Chứng minh:</strong></p>
+
+<p><strong>(K1):</strong> cl(A) là closed set chứa A, nên A ⊆ cl(A) ✓</p>
+
+<p><strong>(K2):</strong> cl(A) closed, nên cl(cl(A)) = cl(A) ✓</p>
+
+<p><strong>(K3):</strong></p>
+<ul>
+  <li>cl(A) ∪ cl(B) closed (finite union of closed sets)</li>
+  <li>A ∪ B ⊆ cl(A) ∪ cl(B)</li>
+  <li>cl(A ∪ B) ⊆ cl(A) ∪ cl(B) (minimality)</li>
+  <li>Ngược lại: A ⊆ A ∪ B ⇒ cl(A) ⊆ cl(A ∪ B), tương tự cl(B) ⊆ cl(A ∪ B)</li>
+  <li>⇒ cl(A) ∪ cl(B) ⊆ cl(A ∪ B) ✓</li>
+</ul>
+
+<p><strong>(K4):</strong> Trivial: ∅ closed, nên cl(∅) = ∅ ✓</p>
+
+<p><strong>Fact kỳ diệu (Kuratowski):</strong><br />
+Có thể <strong>định nghĩa topology</strong> bằng một operator cl: 𝒫(X) → 𝒫(X) thỏa mãn (K1)–(K4)!</p>
+
+<p>Sau đó: F closed ⟺ F = cl(F).</p>
+
+<hr />
+
+<h3 id="3-limit-points-điểm-tụ">3. Limit Points (Điểm Tụ)</h3>
+
+<p><strong>Định nghĩa (Limit Point):</strong><br />
+Điểm x ∈ X là <strong>limit point</strong> (accumulation point) của A ⊆ X nếu:</p>
+
+\[\forall U \in \tau, x \in U: (U \cap A) \setminus \{x\} \neq \emptyset\]
+
+<p><strong>Nói bằng lời:</strong> Mọi neighborhood của x chứa ít nhất một điểm của A <strong>khác x</strong>.</p>
+
+<p><strong>Trực giác:</strong> x là “điểm tụ” của A = điểm có các điểm của A “tụ lại gần” nó.</p>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+
+<ol>
+  <li><strong>A = (0, 1)</strong>
+    <ul>
+      <li>Mọi x ∈ [0, 1] là limit points của A</li>
+      <li>Ví dụ: 0 là limit point (vì mọi (0-ε, 0+ε) chứa điểm của (0,1))</li>
+      <li>Điểm ngoài [0,1] không phải limit points</li>
+    </ul>
+  </li>
+  <li><strong>A = {1/n : n ∈ ℕ}</strong>
+    <ul>
+      <li>0 là limit point (unique!)</li>
+      <li>Mọi 1/n <strong>không phải</strong> limit points (có neighborhood chỉ chứa chính nó)</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Limit_point_illustration.svg/400px-Limit_point_illustration.svg.png" alt="Limit points visualization" /><br />
+<em>Limit points của một tập - Nguồn concept</em></p>
+
+<p><strong>Định nghĩa (Isolated Point):</strong><br />
+Điểm x ∈ A là <strong>isolated point</strong> nếu nó <strong>không phải</strong> limit point của A.</p>
+
+<p>Tương đương: ∃ neighborhood U của x sao cho U ∩ A = {x}.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li>Trong A = {1/n : n ∈ ℕ}, mỗi 1/n là isolated</li>
+  <li>Trong A = (0,1), không có isolated points</li>
+  <li>Trong A = {0} ∪ (1,2), điểm 0 isolated</li>
+</ul>
+
+<p><strong>Ký hiệu:</strong> A’ = tập tất cả limit points của A (derived set)</p>
+
+<p><strong>Định lý (Closure via Limit Points):</strong>
+\(\overline{A} = A \cup A'\)</p>
+
+<p><strong>Trực giác:</strong> Closure = điểm gốc + điểm tụ.</p>
+
+<p><strong>Chứng minh (sketch):</strong></p>
+
+<p><strong>(⊆):</strong> Cho x ∈ cl(A). Nếu x ∉ A, cần chứng minh x ∈ A’.<br />
+Giả sử (phản chứng) x không phải limit point.<br />
+Tồn tại U ∋ x với U ∩ A = ∅ hoặc {x}.<br />
+Nếu U ∩ A = ∅: A ⊆ X \ U (closed), nên cl(A) ⊆ X \ U ⇒ x ∉ cl(A), mâu thuẫn.</p>
+
+<p><strong>(⊇):</strong> A ⊆ cl(A) rõ ràng. Cần A’ ⊆ cl(A).<br />
+Cho x ∈ A’. Mọi closed F ⊇ A phải chứa x (vì nếu x ∉ F, thì U = X \ F là neighborhood của x với U ∩ A = ∅, mâu thuẫn với x ∈ A’). ∎</p>
+
+<hr />
+
+<h3 id="4-interior-operator-toán-tử-phần-trong">4. Interior Operator (Toán tử Phần trong)</h3>
+
+<p><strong>Định nghĩa (Interior):</strong><br />
+<strong>Interior</strong> của A là hợp của tất cả open sets chứa trong A:</p>
+
+\[A° = \text{int}(A) = \bigcup \{U \in \tau : U \subseteq A\}\]
+
+<p><strong>Trực giác:</strong> int(A) là <strong>largest open set</strong> contained in A.</p>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+<ul>
+  <li>int([0,1]) = (0,1)</li>
+  <li>int((0,1)) = (0,1) (đã open)</li>
+  <li>int(ℚ) = ∅ (không có open interval trong ℚ)</li>
+  <li>int({x}) = ∅ (singleton không chứa open set nào)</li>
+</ul>
+
+<p><strong>Định lý (Properties of Interior):</strong></p>
+
+<p><strong>(I1) Restrictivity:</strong>
+\(\text{int}(A) \subseteq A\)</p>
+
+<p><strong>(I2) Idempotence:</strong>
+\(\text{int}(\text{int}(A)) = \text{int}(A)\)</p>
+
+<p><strong>(I3) Preservation of intersections:</strong>
+\(\text{int}(A \cap B) = \text{int}(A) \cap \text{int}(B)\)</p>
+
+<p><strong>(I4) Normality:</strong>
+\(\text{int}(X) = X\)</p>
+
+<p><strong>Dual Relationship với Closure:</strong></p>
+
+<p><strong>Định lý:</strong>
+\(\text{int}(A) = X \setminus \overline{X \setminus A}\)</p>
+
+\[\overline{A} = X \setminus \text{int}(X \setminus A)\]
+
+<p><strong>Chứng minh:</strong><br />
+int(A) = largest open ⊆ A<br />
+     = X \ (smallest closed ⊇ (X \ A))<br />
+     = X \ cl(X \ A) ✓</p>
+
+<p><strong>Trực giác:</strong> Interior và closure là <strong>dual operators</strong>.</p>
+
+<hr />
+
+<h3 id="5-boundary-biên">5. Boundary (Biên)</h3>
+
+<p><strong>Định nghĩa (Boundary):</strong><br />
+<strong>Boundary</strong> (frontier) của A là:</p>
+
+\[\partial A = \overline{A} \setminus \text{int}(A)\]
+
+<p><strong>Phát biểu tương đương:</strong>
+\(\partial A = \overline{A} \cap \overline{X \setminus A}\)</p>
+
+<p><strong>Trực giác:</strong> Điểm x ∈ ∂A nếu:</p>
+<ul>
+  <li>Mọi neighborhood của x chứa cả điểm trong A và điểm ngoài A</li>
+</ul>
+
+<p><strong>Ví dụ trong ℝ:</strong></p>
+<ul>
+  <li>∂([0,1]) = {0, 1}</li>
+  <li>∂((0,1)) = {0, 1}</li>
+  <li>∂(ℚ) = ℝ (mọi số thực là boundary!)</li>
+  <li>∂(∅) = ∅</li>
+</ul>
+
+<p><strong>Tính chất:</strong></p>
+
+<p><strong>Định lý (Partition of Space):</strong><br />
+Với mọi A ⊆ X:
+\(X = \text{int}(A) \sqcup \partial A \sqcup \text{int}(X \setminus A)\)</p>
+
+<p>(Disjoint union - phân hoạch không gian thành ba phần)</p>
+
+<p><strong>Chứng minh:</strong> Exercise sử dụng definitions.</p>
+
+<p><strong>Định lý (Boundary Properties):</strong></p>
+<ol>
+  <li>∂A = ∂(X \ A) (boundary đối xứng)</li>
+  <li>∂A = ∅ ⟺ A vừa open vừa closed (clopen)</li>
+  <li>A closed ⟺ ∂A ⊆ A</li>
+  <li>A open ⟺ ∂A ⊆ (X \ A)</li>
+</ol>
+
+<hr />
+
+<h3 id="6-dense-sets-tập-trù-mật">6. Dense Sets (Tập Trù mật)</h3>
+
+<p><strong>Định nghĩa (Dense):</strong><br />
+Tập A ⊆ X là <strong>dense</strong> trong X nếu:</p>
+
+\[\overline{A} = X\]
+
+<p><strong>Phát biểu tương đương:</strong></p>
+<ul>
+  <li>Mọi non-empty open set giao với A</li>
+  <li>Mọi điểm x ∈ X là limit point của A hoặc thuộc A</li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>ℚ dense trong ℝ:</strong> Mọi khoảng mở chứa số hữu tỉ</li>
+  <li><strong>ℝ \ ℚ (irrational) dense trong ℝ:</strong> Mọi khoảng mở chứa số vô tỉ</li>
+  <li><strong>(0,1) dense trong [0,1]:</strong> cl((0,1)) = [0,1]</li>
+  <li><strong>{0,1} không dense trong ℝ:</strong> cl({0,1}) = {0,1} ≠ ℝ</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Dense_set_rationals.svg/400px-Dense_set_rationals.svg.png" alt="Dense set illustration" /><br />
+<em>ℚ dense trong ℝ - Nguồn concept</em></p>
+
+<p><strong>Định nghĩa (Nowhere Dense):</strong><br />
+A là <strong>nowhere dense</strong> nếu int(cl(A)) = ∅.</p>
+
+<p><strong>Trực giác:</strong> A “thin” đến mức closure của nó cũng không chứa open set nào.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<ul>
+  <li><strong>ℕ nowhere dense trong ℝ:</strong> int(cl(ℕ)) = int(ℕ) = ∅</li>
+  <li><strong>Cantor set nowhere dense:</strong> int(Cantor) = ∅</li>
+  <li><strong>{1/n : n ∈ ℕ} nowhere dense</strong></li>
+</ul>
+
+<p><strong>Ứng dụng quan trọng:</strong></p>
+
+<p><strong>Định lý Baire (Preview):</strong><br />
+Trong complete metric space, hợp countable các nowhere dense sets có interior rỗng.</p>
+
+<p><strong>Hệ quả:</strong> ℝ không thể viết như hợp countable các nowhere dense sets.<br />
+→ ℝ “large” theo nghĩa topology!</p>
+
+<hr />
+
+<h3 id="7-characterizations-of-closure">7. Characterizations of Closure</h3>
+
+<p><strong>Định lý (Equivalent Definitions):</strong><br />
+Các phát biểu sau <strong>tương đương</strong>:</p>
+
+<ol>
+  <li>x ∈ cl(A)</li>
+  <li>Mọi neighborhood của x giao với A</li>
+  <li>Mọi open set chứa x giao với A</li>
+  <li>x ∈ A hoặc x là limit point của A</li>
+</ol>
+
+<p><strong>Chứng minh:</strong></p>
+
+<p><strong>(1 ⇒ 2):</strong> Giả sử (phản chứng) ∃ neighborhood N của x với N ∩ A = ∅.<br />
+Tồn tại U ∈ 𝜏 với x ∈ U ⊆ N.<br />
+Khi đó X \ U closed, A ⊆ X \ U, nên cl(A) ⊆ X \ U.<br />
+Nhưng x ∈ cl(A) và x ∈ U → mâu thuẫn!</p>
+
+<p><strong>(2 ⇒ 3):</strong> Trivial (mọi open set chứa x là neighborhood).</p>
+
+<p><strong>(3 ⇒ 4):</strong> Nếu x ∈ A, done. Nếu x ∉ A:<br />
+Mọi U ∋ x có U ∩ A ≠ ∅.<br />
+Vì x ∉ A, nên U ∩ A chứa điểm ≠ x.<br />
+→ x là limit point.</p>
+
+<p><strong>(4 ⇒ 1):</strong> cl(A) = A ∪ A’, nên x ∈ cl(A). ∎</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Kazimierz Kuratowski</strong> - <em>“Sur l’opération Ā de l’Analysis Situs”</em> (1922)<br />
+<em>Định nghĩa topology qua closure operator (Kuratowski closure axioms)</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Limit points và derived sets</em></p>
+  </li>
+  <li>
+    <p><strong>René-Louis Baire</strong> - <em>“Sur les fonctions de variables réelles”</em> (1899)<br />
+<em>Baire category theorem, nowhere dense sets</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§17: Closed Sets and Limit Points</strong><br />
+<em>Standard reference</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology Without Tears</em>, <strong>Chapter 3</strong><br />
+<em>Clear exposition với examples</em></p>
+  </li>
+  <li>
+    <p><strong>John L. Kelley</strong> - <em>General Topology</em>, <strong>Chapter 2</strong><br />
+<em>Comprehensive treatment</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Willard</strong> - <em>General Topology</em>, <strong>Chapter 2</strong><br />
+<em>Rigorous approach</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="analysis---completeness">Analysis - Completeness</h3>
+<p><strong>Cauchy Sequences:</strong> Trong metric space, sequence hội tụ ⟺ limit point của {xₙ} exists và unique. Closure operations capture convergence behavior.</p>
+
+<h3 id="numerical-analysis---approximation">Numerical Analysis - Approximation</h3>
+<p><strong>Rational Approximation:</strong> ℚ dense trong ℝ có nghĩa: mọi số thực có thể xấp xỉ tùy ý gần bởi số hữu tỉ. Computers dùng floating-point (subset của ℚ) để approximate reals.</p>
+
+<h3 id="data-science---clustering">Data Science - Clustering</h3>
+<p><strong>DBSCAN Algorithm:</strong> Sử dụng khái niệm “density” (tương tự dense sets) để cluster data points. Core points = interior, border points = boundary.</p>
+
+<h3 id="computer-graphics---edge-detection">Computer Graphics - Edge Detection</h3>
+<p><strong>Boundary Detection:</strong> Trong image processing, detecting edges = tìm ∂(region). Algorithms như Canny edge detector dựa trên topology concepts.</p>
+
+<h3 id="real-world-example">Real-World Example</h3>
+<p><strong>Coastline Paradox:</strong> Độ dài coastline phụ thuộc vào measurement resolution. Topologically, coastline = boundary between land và sea, nhưng “fractional dimension” (fractal geometry) enters!</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="closed-sets">Closed Sets</h3>
+
+<ol>
+  <li><strong>Verify Closed:</strong><br />
+Trong ℝ (Euclidean topology), các tập sau closed không?
+    <ul>
+      <li>a) [0, 1]</li>
+      <li>b) {1/n : n ∈ ℕ}</li>
+      <li>c) ℚ</li>
+      <li>d) {x ∈ ℝ : sin(x) = 0}</li>
+    </ul>
+  </li>
+  <li><strong>Clopen Sets:</strong><br />
+Tìm tất cả clopen sets (vừa open vừa closed) trong:
+    <ul>
+      <li>a) ℝ với Euclidean topology</li>
+      <li>b) Discrete topology</li>
+      <li>c) Trivial topology</li>
+    </ul>
+  </li>
+  <li><strong>Arbitrary Intersections:</strong><br />
+Cho Fₙ = [1/n, 1] trong ℝ (n ∈ ℕ).
+    <ul>
+      <li>a) Mỗi Fₙ có closed không?</li>
+      <li>b) Tính ⋂ₙ₌₁^∞ Fₙ</li>
+      <li>c) Giao này có closed không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="closure">Closure</h3>
+
+<ol>
+  <li><strong>Compute Closure:</strong><br />
+Trong ℝ, tìm cl(A):
+    <ul>
+      <li>a) A = (0, 1) ∪ {2}</li>
+      <li>b) A = {1 + 1/n : n ∈ ℕ}</li>
+      <li>c) A = {x ∈ ℚ : 0 &lt; x &lt; √2}</li>
+      <li>d) A = ℤ</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Kuratowski Axioms:</strong><br />
+Chứng minh rằng cl(A ∩ B) ⊆ cl(A) ∩ cl(B).<br />
+Cho ví dụ khi bất đẳng thức nghiêm ngặt.</p>
+  </li>
+  <li><strong>Closure in Discrete:</strong><br />
+Trong discrete topology, tính cl(A) với A tùy ý.</li>
+</ol>
+
+<h3 id="interior">Interior</h3>
+
+<ol>
+  <li><strong>Compute Interior:</strong><br />
+Trong ℝ, tìm int(A):
+    <ul>
+      <li>a) A = [0, 1]</li>
+      <li>b) A = ℚ</li>
+      <li>c) A = [0, 1] ∪ [2, 3]</li>
+      <li>d) A = {1/n : n ∈ ℕ}</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Interior vs Closure:</strong><br />
+Chứng minh: int(A) = X \ cl(X \ A).</p>
+  </li>
+  <li><strong>Open Iff Interior:</strong><br />
+Chứng minh: A open ⟺ A = int(A).</li>
+</ol>
+
+<h3 id="limit-points">Limit Points</h3>
+
+<ol>
+  <li><strong>Find Limit Points:</strong><br />
+Trong ℝ, tìm tập limit points A’ của:
+    <ul>
+      <li>a) A = (0, 1)</li>
+      <li>b) A = {1/n : n ∈ ℕ}</li>
+      <li>c) A = ℚ</li>
+      <li>d) A = Cantor set</li>
+    </ul>
+  </li>
+  <li><strong>Isolated Points:</strong><br />
+Tập A ⊆ ℝ với mọi điểm là isolated (không có limit points).
+    <ul>
+      <li>a) Cho ví dụ A infinite</li>
+      <li>b) A có thể uncountable không?</li>
+    </ul>
+  </li>
+  <li><strong>Closure Formula:</strong><br />
+Chứng minh: cl(A) = A ∪ A’ (A’ = limit points).</li>
+</ol>
+
+<h3 id="boundary">Boundary</h3>
+
+<ol>
+  <li><strong>Compute Boundary:</strong><br />
+Trong ℝ, tìm ∂A:
+    <ul>
+      <li>a) A = [0, 1)</li>
+      <li>b) A = ℚ</li>
+      <li>c) A = {0} ∪ (1, 2)</li>
+      <li>d) A = Cantor set</li>
+    </ul>
+  </li>
+  <li><strong>Boundary Properties:</strong><br />
+Chứng minh:
+    <ul>
+      <li>a) ∂A = ∂(X \ A)</li>
+      <li>b) ∂A closed</li>
+      <li>c) ∂(∂A) ⊆ ∂A</li>
+    </ul>
+  </li>
+  <li><strong>Partition:</strong><br />
+Chứng minh: X = int(A) ⊔ ∂A ⊔ int(X \ A) (disjoint union).</li>
+</ol>
+
+<h3 id="dense-sets">Dense Sets</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Dense:</strong><br />
+Chứng minh ℚ dense trong ℝ.<br />
+(<em>Hint:</em> Mọi (a,b) chứa số hữu tỉ—Archimedean property)</p>
+  </li>
+  <li>
+    <p><strong>Irrationals Dense:</strong><br />
+Chứng minh ℝ \ ℚ (irrational) cũng dense trong ℝ.</p>
+  </li>
+  <li>
+    <p><strong>Nowhere Dense:</strong><br />
+Chứng minh ℕ nowhere dense trong ℝ.</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li><strong>Cantor Set:</strong><br />
+Cantor set C có tính chất:
+    <ul>
+      <li>closed: ✓</li>
+      <li>nowhere dense: ✓</li>
+      <li>uncountable: ✓</li>
+    </ul>
+
+    <p>Chứng minh rằng ∂C = C (boundary = chính nó).</p>
+  </li>
+  <li><strong>Baire Category:</strong><br />
+ℝ = ℚ ∪ (ℝ \ ℚ).
+    <ul>
+      <li>ℚ có dense</li>
+      <li>ℝ \ ℚ có dense</li>
+    </ul>
+
+    <p>Có thể viết ℝ = A ∪ B với A, B đều <strong>không</strong> dense không?</p>
+  </li>
+  <li><strong>Separation:</strong><br />
+Cho A, B ⊆ X disjoint với cl(A) ∩ B = ∅ và A ∩ cl(B) = ∅.<br />
+Chứng minh tồn tại U, V ∈ 𝜏 disjoint với A ⊆ U, B ⊆ V.<br />
+(<em>Preview:</em> Normal spaces)</li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li><strong>Dual Concepts:</strong><br />
+So sánh duality:
+    <ul>
+      <li>Open ⟷ Closed</li>
+      <li>Interior ⟷ Closure</li>
+      <li>Union ⟷ Intersection</li>
+    </ul>
+
+    <p>Giải thích tại sao duality này “natural”.</p>
+  </li>
+  <li><strong>Topology from Closure:</strong><br />
+Nếu operator cl: 𝒫(X) → 𝒫(X) thỏa mãn Kuratowski axioms (K1)–(K4), có thể reconstruct topology không? Làm thế nào?</li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §17 (Closed Sets and Limit Points), §18 (Continuous Functions)</li>
+  <li><strong>Morris, Topology Without Tears:</strong> Chapter 3 (Limit Points)</li>
+  <li><strong>Willard, General Topology:</strong> Chapter 2 (Convergence and Closure)</li>
+  <li><strong>Kuratowski, Topology Vol. I:</strong> Chapter I (Closure and Interior)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài giảng này, chúng ta học về các <strong>operators</strong> quan trọng nhất:</p>
+
+<p>✅ <strong>Closed Sets:</strong> Dual của open sets, axioms (C1)–(C3)<br />
+✅ <strong>Closure cl(·):</strong> Smallest closed set containing A<br />
+✅ <strong>Kuratowski Axioms:</strong> (K1) Extensivity, (K2) Idempotence, (K3) Unions, (K4) Normality<br />
+✅ <strong>Limit Points:</strong> Điểm có các điểm của A “tụ lại gần”<br />
+✅ <strong>Interior int(·):</strong> Largest open set in A, dual của closure<br />
+✅ <strong>Boundary ∂:</strong> cl(A) \ int(A), “ranh giới”<br />
+✅ <strong>Dense Sets:</strong> cl(A) = X, “everywhere” trong space</p>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Closure và interior là <strong>dual operators</strong>: int(A) = X \ cl(X \ A)</li>
+  <li>Closure = original set + limit points: cl(A) = A ∪ A’</li>
+  <li>Boundary = điểm mà mọi neighborhood intersects cả inside và outside</li>
+  <li>Dense sets: ℚ và ℝ\ℚ đều dense trong ℝ</li>
+  <li>Operators này satisfy nice axioms (Kuratowski, etc.)</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Để chứng minh A closed: chứng minh A = cl(A) hoặc complement open</li>
+  <li>Để chứng minh x ∈ cl(A): chứng minh mọi neighborhood của x giao A</li>
+  <li>Dense sets key trong approximation theory</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Trong Lecture 01.03, chúng ta học về <strong>Continuous Functions và Homeomorphisms</strong>—cách ánh xạ giữa các topological spaces, và định nghĩa “topological equivalence”.</p>
+
+<hr />
+
+<p><em>“Closure is the smallest closed set; interior is the largest open set. Between them lies the boundary.”</em> — Topology wisdom</p>
+
+<p>🎯 <strong>Làm nhiều bài tập tính closure, interior, boundary! Đây là skills cần thiết.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter01/01_01_Basis_Subbasis/">Lecture 01.01: Basis and Subbasis</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter01/01_03_Continuous_Functions_Homeomorphisms/">Lecture 01.03: Continuous Functions and Homeomorphisms</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter1/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

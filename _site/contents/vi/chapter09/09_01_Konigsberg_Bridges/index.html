@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology
+    
+  </h1>
+  <p><strong>Bài Toán Cổ Điển Mở Đầu Cho Topology và Graph Theory</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Vào thế kỷ 18, tại thành phố Königsberg (nay là Kaliningrad, Nga), có một bài toán thú vị đã làm đau đầu nhiều người trong nhiều năm. Thành phố được chia thành bốn phần bởi sông Pregel, và có bảy cây cầu nối các phần này với nhau. Câu hỏi là: <strong>Liệu có thể đi dạo qua tất cả bảy cây cầu, mỗi cây cầu chỉ đi qua đúng một lần, và quay trở lại điểm xuất phát không?</strong></p>
+
+<p>Nhiều người đã cố gắng giải bài toán này, nhưng không ai thành công. Cho đến khi nhà toán học vĩ đại <strong>Leonhard Euler</strong> (1707-1783) chứng minh rằng điều này là <strong>không thể</strong>. Nhưng quan trọng hơn, Euler không chỉ giải bài toán này—ông đã tạo ra một nhánh toán học hoàn toàn mới: <strong>graph theory</strong> (lý thuyết đồ thị), và đây cũng là khởi đầu của topology hiện đại.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá bài toán bảy cây cầu ở Königsberg, cách Euler giải nó, và tại sao giải pháp của ông lại quan trọng đến vậy. Chúng ta sẽ học về khái niệm <strong>đường đi Euler</strong>—một đường đi qua tất cả các cạnh của một đồ thị, mỗi cạnh chỉ đi qua đúng một lần. Chúng ta cũng sẽ khám phá cách bài toán này liên quan đến topology và tính liên thông.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/7_bridges.svg/500px-7_bridges.svg.png" alt="Seven Bridges of Königsberg" /><br />
+<em>Bảy cây cầu ở Königsberg - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:7_bridges.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Bài toán bảy cây cầu không chỉ là một bài toán thú vị—nó là nền tảng của graph theory và topology hiện đại. Hiểu được cách giải bài toán này giúp chúng ta hiểu các khái niệm cơ bản về tính liên thông và cách các nhà toán học phân tích các cấu trúc phức tạp.</p>
+
+<hr />
+
+<h2 id="️-bài-toán-bảy-cây-cầu">🗺️ Bài Toán Bảy Cây Cầu</h2>
+
+<h3 id="bối-cảnh-lịch-sử">Bối cảnh lịch sử</h3>
+
+<p>Vào thế kỷ 18, Königsberg là một thành phố quan trọng ở Đông Phổ (nay là Kaliningrad, Nga). Thành phố được chia thành bốn phần bởi sông Pregel:</p>
+
+<ul>
+  <li><strong>Phần A:</strong> Đảo Kneiphof</li>
+  <li><strong>Phần B:</strong> Bờ trái của sông</li>
+  <li><strong>Phần C:</strong> Bờ phải của sông</li>
+  <li><strong>Phần D:</strong> Một phần khác của bờ trái</li>
+</ul>
+
+<p>Có <strong>bảy cây cầu</strong> nối các phần này với nhau:</p>
+<ul>
+  <li>Cầu 1: Nối A và B</li>
+  <li>Cầu 2: Nối A và B</li>
+  <li>Cầu 3: Nối A và C</li>
+  <li>Cầu 4: Nối A và D</li>
+  <li>Cầu 5: Nối B và C</li>
+  <li>Cầu 6: Nối B và D</li>
+  <li>Cầu 7: Nối C và D</li>
+</ul>
+
+<h3 id="câu-hỏi">Câu hỏi</h3>
+
+<p><strong>Liệu có thể đi dạo qua tất cả bảy cây cầu, mỗi cây cầu chỉ đi qua đúng một lần, và quay trở lại điểm xuất phát không?</strong></p>
+
+<p>Nhiều người đã cố gắng tìm một đường đi như vậy, nhưng không ai thành công. Họ đã thử nhiều điểm xuất phát khác nhau, nhiều đường đi khác nhau, nhưng luôn luôn có ít nhất một cây cầu chưa được đi qua hoặc một cây cầu được đi qua nhiều lần.</p>
+
+<hr />
+
+<h2 id="-giải-pháp-của-euler">🧮 Giải Pháp của Euler</h2>
+
+<h3 id="cách-tiếp-cận-của-euler">Cách tiếp cận của Euler</h3>
+
+<p>Thay vì cố gắng tìm một đường đi cụ thể, Euler đã nghĩ về bài toán theo một cách hoàn toàn mới. Ông nhận ra rằng:</p>
+
+<ol>
+  <li>
+    <p><strong>Hình dạng cụ thể của các phần không quan trọng</strong>—chỉ có cách các cây cầu kết nối các phần mới quan trọng.</p>
+  </li>
+  <li>
+    <p><strong>Điểm xuất phát không quan trọng</strong>—nếu có một đường đi như vậy, nó sẽ hoạt động từ bất kỳ điểm nào.</p>
+  </li>
+  <li>
+    <p><strong>Số lượng cây cầu nối với mỗi phần là quan trọng</strong>—đây là chìa khóa để giải bài toán.</p>
+  </li>
+</ol>
+
+<h3 id="phân-tích-của-euler">Phân tích của Euler</h3>
+
+<p>Euler nhận ra rằng nếu bạn muốn đi qua tất cả các cây cầu và quay trở lại điểm xuất phát, thì:</p>
+
+<p><strong>Quy tắc cơ bản:</strong></p>
+<ul>
+  <li>Mỗi khi bạn đi vào một phần, bạn phải đi ra khỏi nó.</li>
+  <li>Điều này có nghĩa là số lượng cây cầu nối với mỗi phần phải là <strong>số chẵn</strong> (vì bạn đi vào và đi ra).</li>
+</ul>
+
+<p><strong>Tại sao phải là số chẵn?</strong></p>
+
+<p>Hãy tưởng tượng bạn đang đi dạo:</p>
+<ul>
+  <li><strong>Bắt đầu tại một phần:</strong> Bạn bắt đầu tại một phần nào đó (ví dụ phần A)</li>
+  <li><strong>Đi qua một cây cầu:</strong> Bạn đi vào một phần khác (ví dụ phần B)</li>
+  <li><strong>Đi qua cây cầu khác:</strong> Bạn đi ra khỏi phần B và vào một phần khác</li>
+  <li><strong>Quay trở lại:</strong> Để quay trở lại điểm xuất phát, bạn phải đi qua một số chẵn các cây cầu từ mỗi phần</li>
+</ul>
+
+<p>Nếu một phần có số lẻ các cây cầu, bạn sẽ “mắc kẹt” ở đó—bạn đi vào nhưng không thể đi ra để quay trở lại điểm xuất phát!</p>
+
+<p><strong>Kiểm tra với Königsberg:</strong></p>
+
+<p>Hãy đếm số lượng cây cầu nối với mỗi phần:</p>
+<ul>
+  <li><strong>Phần A:</strong> Có 5 cây cầu nối với nó (cầu 1, 2, 3, 4) → <strong>Số lẻ</strong> ❌</li>
+  <li><strong>Phần B:</strong> Có 3 cây cầu nối với nó (cầu 1, 2, 5, 6) → <strong>Số lẻ</strong> ❌</li>
+  <li><strong>Phần C:</strong> Có 3 cây cầu nối với nó (cầu 3, 5, 7) → <strong>Số lẻ</strong> ❌</li>
+  <li><strong>Phần D:</strong> Có 3 cây cầu nối với nó (cầu 4, 6, 7) → <strong>Số lẻ</strong> ❌</li>
+</ul>
+
+<p><strong>Kết luận:</strong> Vì tất cả các phần đều có số lượng cây cầu nối với chúng là số lẻ, nên <strong>không thể</strong> có một đường đi như vậy!</p>
+
+<p><strong>Liên hệ với phần chính:</strong> Phân tích này cho thấy tại sao bài toán không thể giải được—không phải vì Königsberg quá phức tạp, mà vì cấu trúc cơ bản của mạng lưới cây cầu vi phạm điều kiện cần thiết để có chu trình Euler. Đây là một ví dụ tuyệt vời về cách topology giúp chúng ta hiểu các vấn đề thực tế!</p>
+
+<h3 id="định-lý-của-euler">Định lý của Euler</h3>
+
+<p>Euler đã chứng minh một định lý tổng quát hơn:</p>
+
+<p><strong>Định lý:</strong> Một đồ thị có một <strong>chu trình Euler</strong> (đường đi qua tất cả các cạnh và quay trở lại điểm xuất phát) nếu và chỉ nếu:</p>
+<ol>
+  <li>Đồ thị là <strong>liên thông</strong> (có thể đi từ bất kỳ điểm nào đến bất kỳ điểm nào khác).</li>
+  <li>Tất cả các đỉnh đều có <strong>bậc chẵn</strong> (số lượng cạnh nối với mỗi đỉnh là số chẵn).</li>
+</ol>
+
+<p>Trong trường hợp của Königsberg, điều kiện thứ hai không được thỏa mãn—tất cả các phần đều có số lượng cây cầu nối với chúng là số lẻ.</p>
+
+<hr />
+
+<h2 id="-graph-theory-và-topology">🔗 Graph Theory và Topology</h2>
+
+<h3 id="đồ-thị-là-gì">Đồ thị là gì?</h3>
+
+<p>Euler đã tạo ra khái niệm <strong>đồ thị</strong> (graph)—một cách biểu diễn toán học của các mối quan hệ. Một đồ thị bao gồm:</p>
+
+<ul>
+  <li><strong>Đỉnh (vertices):</strong> Các điểm hoặc nút</li>
+  <li><strong>Cạnh (edges):</strong> Các đường nối các đỉnh</li>
+</ul>
+
+<p>Trong bài toán Königsberg:</p>
+<ul>
+  <li><strong>Đỉnh:</strong> Các phần của thành phố (A, B, C, D)</li>
+  <li><strong>Cạnh:</strong> Các cây cầu</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Konigsberg_bridges.png/500px-Konigsberg_bridges.png" alt="Graph representation of Königsberg bridges" /><br />
+<em>Biểu diễn đồ thị của bài toán bảy cây cầu - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Konigsberg_bridges.png">Wikimedia Commons</a></em></p>
+
+<h3 id="tại-sao-đây-là-topology">Tại sao đây là topology?</h3>
+
+<p>Bài toán bảy cây cầu liên quan đến topology vì:</p>
+
+<ol>
+  <li>
+    <p><strong>Hình dạng cụ thể không quan trọng:</strong> Euler nhận ra rằng hình dạng cụ thể của các phần thành phố không quan trọng—chỉ có cách các cây cầu kết nối chúng mới quan trọng. Đây là một khái niệm cơ bản của topology—chúng ta quan tâm đến cấu trúc, không phải hình dạng cụ thể.</p>
+  </li>
+  <li>
+    <p><strong>Tính liên thông:</strong> Bài toán liên quan đến việc có thể đi từ điểm này đến điểm khác—một khái niệm topology cơ bản.</p>
+  </li>
+  <li>
+    <p><strong>Bất biến:</strong> Số lượng cây cầu nối với mỗi phần là một “bất biến”—nó không thay đổi khi chúng ta thay đổi hình dạng của các phần.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-đường-đi-euler-và-chu-trình-euler">🎯 Đường đi Euler và Chu trình Euler</h2>
+
+<h3 id="đường-đi-euler">Đường đi Euler</h3>
+
+<p>Một <strong>đường đi Euler</strong> là một đường đi qua tất cả các cạnh của đồ thị, mỗi cạnh chỉ đi qua đúng một lần. Không giống như chu trình Euler, đường đi Euler không cần quay trở lại điểm xuất phát.</p>
+
+<p><strong>Định lý:</strong> Một đồ thị có một đường đi Euler nếu và chỉ nếu:</p>
+<ol>
+  <li>Đồ thị là liên thông (có thể đi từ bất kỳ đỉnh nào đến bất kỳ đỉnh nào khác).</li>
+  <li>Có đúng <strong>hai đỉnh có bậc lẻ</strong> (các đỉnh đầu và cuối của đường đi).</li>
+</ol>
+
+<p><strong>Giải thích ý nghĩa:</strong></p>
+
+<p><strong>Tại sao cần liên thông?</strong></p>
+<ul>
+  <li>Nếu đồ thị không liên thông, bạn không thể đi từ một phần này sang phần khác</li>
+  <li>Do đó không thể đi qua tất cả các cạnh</li>
+</ul>
+
+<p><strong>Tại sao cần đúng hai đỉnh có bậc lẻ?</strong></p>
+<ul>
+  <li>Đỉnh đầu tiên: Bạn bắt đầu tại đây, nên bạn đi ra một lần (không đi vào) → bậc lẻ</li>
+  <li>Đỉnh cuối cùng: Bạn kết thúc tại đây, nên bạn đi vào một lần (không đi ra) → bậc lẻ</li>
+  <li>Các đỉnh trung gian: Bạn đi vào và đi ra → bậc chẵn</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Điều kiện này giải thích tại sao Königsberg không có đường đi Euler—có đến 4 đỉnh có bậc lẻ (tất cả các phần A, B, C, D), trong khi chỉ cần 2 đỉnh có bậc lẻ!</p>
+
+<h3 id="chu-trình-euler">Chu trình Euler</h3>
+
+<p>Một <strong>chu trình Euler</strong> là một đường đi Euler quay trở lại điểm xuất phát.</p>
+
+<p><strong>Định lý:</strong> Một đồ thị có một chu trình Euler nếu và chỉ nếu:</p>
+<ol>
+  <li>Đồ thị là liên thông.</li>
+  <li>Tất cả các đỉnh đều có <strong>bậc chẵn</strong>.</li>
+</ol>
+
+<p><strong>Giải thích ý nghĩa:</strong></p>
+
+<p><strong>Tại sao tất cả các đỉnh phải có bậc chẵn?</strong></p>
+<ul>
+  <li>Vì bạn quay trở lại điểm xuất phát, bạn phải đi vào và đi ra khỏi mỗi đỉnh một số chẵn lần</li>
+  <li>Điều này có nghĩa là mỗi đỉnh phải có số chẵn các cạnh nối với nó</li>
+</ul>
+
+<p><strong>Tại sao cần liên thông?</strong></p>
+<ul>
+  <li>Tương tự như đường đi Euler, bạn cần có thể đi từ mọi điểm đến mọi điểm khác</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Đây chính là điều kiện mà Königsberg vi phạm—tất cả các phần đều có số lẻ các cây cầu, nên không thể có chu trình Euler. Để có chu trình Euler, bạn cần xây thêm ít nhất một cây cầu nữa để làm cho tất cả các phần đều có số chẵn các cây cầu!</p>
+
+<h3 id="ví-dụ-phân-tích-một-đồ-thị-đơn-giản">Ví dụ: Phân tích một đồ thị đơn giản</h3>
+
+<p>Hãy xem xét một đồ thị đơn giản hơn:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A
+   / \
+  B---C
+   \ /
+    D
+</code></pre></div></div>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/6n-graph.svg/300px-6n-graph.svg.png" alt="Simple graph example" /><br />
+<em>Ví dụ về một đồ thị đơn giản - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:6n-graph.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Phân tích bậc của các đỉnh:</strong></p>
+
+<ul>
+  <li><strong>Đỉnh A:</strong> Bậc 2 (chẵn) ✓ - nối với B và C</li>
+  <li><strong>Đỉnh B:</strong> Bậc 3 (lẻ) ✗ - nối với A, C, và D</li>
+  <li><strong>Đỉnh C:</strong> Bậc 3 (lẻ) ✗ - nối với A, B, và D</li>
+  <li><strong>Đỉnh D:</strong> Bậc 2 (chẵn) ✓ - nối với B và C</li>
+</ul>
+
+<p><strong>Kết luận:</strong></p>
+
+<p>Vì có đúng <strong>hai đỉnh có bậc lẻ</strong> (B và C), đồ thị này có một <strong>đường đi Euler</strong> (bắt đầu từ B, kết thúc ở C), nhưng không có <strong>chu trình Euler</strong>.</p>
+
+<p><strong>Tại sao?</strong></p>
+
+<ul>
+  <li><strong>Đường đi Euler:</strong> Bạn có thể bắt đầu tại B (bậc lẻ) và kết thúc tại C (bậc lẻ)
+    <ul>
+      <li>Ví dụ: B → A → C → B → D → C</li>
+      <li>Đi qua tất cả các cạnh đúng một lần</li>
+    </ul>
+  </li>
+  <li><strong>Chu trình Euler:</strong> Không thể vì có đỉnh có bậc lẻ
+    <ul>
+      <li>Để có chu trình Euler, tất cả các đỉnh phải có bậc chẵn</li>
+      <li>Ở đây có hai đỉnh có bậc lẻ (B và C)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Ví dụ này minh họa sự khác biệt giữa đường đi Euler và chu trình Euler. Königsberg không có cả hai vì có quá nhiều đỉnh có bậc lẻ (4 đỉnh thay vì 0 hoặc 2). Để Königsberg có chu trình Euler, bạn cần xây thêm cây cầu để làm cho tất cả các phần đều có số chẵn các cây cầu!</p>
+
+<hr />
+
+<h2 id="-ứng-dụng-trong-cuộc-sống">🔗 Ứng dụng trong Cuộc sống</h2>
+
+<h3 id="mạng-lưới-giao-thông">Mạng lưới giao thông</h3>
+
+<p>Bài toán bảy cây cầu có nhiều ứng dụng trong thực tế:</p>
+
+<ul>
+  <li>
+    <p><strong>Lập kế hoạch tuyến đường:</strong> Các công ty vận chuyển sử dụng graph theory để tìm tuyến đường hiệu quả nhất.</p>
+  </li>
+  <li>
+    <p><strong>Mạng lưới giao thông:</strong> Các nhà quy hoạch đô thị sử dụng graph theory để thiết kế mạng lưới giao thông tối ưu.</p>
+  </li>
+</ul>
+
+<h3 id="mạch-điện">Mạch điện</h3>
+
+<ul>
+  <li><strong>Mạch điện:</strong> Các kỹ sư điện sử dụng graph theory để phân tích mạch điện và tìm đường đi của dòng điện.</li>
+</ul>
+
+<h3 id="mạng-lưới-internet">Mạng lưới internet</h3>
+
+<ul>
+  <li><strong>Mạng lưới:</strong> Graph theory được sử dụng để phân tích và tối ưu hóa mạng lưới internet, mạng xã hội, và các hệ thống mạng khác.</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Leonhard Euler</strong> - <em>“Solutio problematis ad geometriam situs pertinentis”</em> (1736)<br />
+<em>Bài báo gốc của Euler về bài toán bảy cây cầu—khởi đầu của graph theory và topology</em></p>
+  </li>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Nền tảng của topology hiện đại</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ul>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., Ch. 1<br />
+<em>Tính liên thông trong topology</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology without Tears</em>, Ch. 3<br />
+<em>Giải thích trực quan về tính liên thông</em></p>
+  </li>
+  <li>
+    <p><strong>Reinhard Diestel</strong> - <em>Graph Theory</em>, 4th Ed., Ch. 1<br />
+<em>Graph theory và đường đi Euler</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="trong-toán-học">Trong toán học</h3>
+
+<p>Bài toán bảy cây cầu là khởi đầu của:</p>
+<ul>
+  <li><strong>Graph theory:</strong> Nghiên cứu các đồ thị và các tính chất của chúng</li>
+  <li><strong>Topology:</strong> Nghiên cứu các tính chất không thay đổi khi biến dạng liên tục</li>
+  <li><strong>Combinatorics:</strong> Nghiên cứu các cách sắp xếp và đếm</li>
+</ul>
+
+<h3 id="trong-khoa-học-máy-tính">Trong khoa học máy tính</h3>
+
+<ul>
+  <li><strong>Thuật toán:</strong> Nhiều thuật toán trong khoa học máy tính dựa trên graph theory</li>
+  <li><strong>Mạng lưới:</strong> Phân tích và tối ưu hóa mạng lưới</li>
+  <li><strong>Trí tuệ nhân tạo:</strong> Graph theory được sử dụng trong machine learning và AI</li>
+</ul>
+
+<h3 id="trong-khoa-học-xã-hội">Trong khoa học xã hội</h3>
+
+<ul>
+  <li><strong>Mạng xã hội:</strong> Phân tích mạng xã hội sử dụng graph theory</li>
+  <li><strong>Kinh tế:</strong> Phân tích mạng lưới kinh tế và thương mại</li>
+  <li><strong>Sinh học:</strong> Phân tích mạng lưới sinh học và hệ sinh thái</li>
+</ul>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Thử nghiệm:</strong> Hãy vẽ một bản đồ đơn giản với các cây cầu và thử tìm một đường đi Euler hoặc chu trình Euler.</p>
+  </li>
+  <li>
+    <p><strong>Phân tích:</strong> Tại sao trong bài toán Königsberg, không thể có một đường đi Euler (ngay cả khi không quay trở lại điểm xuất phát)?</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Hãy nghĩ về một ứng dụng của graph theory trong cuộc sống hàng ngày của bạn.</p>
+  </li>
+  <li>
+    <p><strong>Tạo bài toán:</strong> Hãy tạo một bài toán tương tự với các cây cầu và các phần khác nhau. Liệu có thể giải được không?</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-thực-tế">Thử nghiệm thực tế</h3>
+
+<ol>
+  <li>
+    <p><strong>Vẽ đồ thị:</strong> Hãy vẽ đồ thị của bài toán Königsberg và đếm bậc của mỗi đỉnh.</p>
+  </li>
+  <li>
+    <p><strong>Tìm đường đi:</strong> Hãy thử tìm một đường đi Euler trong một đồ thị đơn giản hơn.</p>
+  </li>
+  <li>
+    <p><strong>Thiết kế:</strong> Hãy thiết kế một mạng lưới giao thông đơn giản và phân tích xem có thể tạo một tuyến đường đi qua tất cả các con đường không.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá:</p>
+
+<ul>
+  <li>
+    <p><strong>Bài toán bảy cây cầu:</strong> Một bài toán cổ điển đã làm đau đầu nhiều người trong nhiều năm.</p>
+  </li>
+  <li>
+    <p><strong>Giải pháp của Euler:</strong> Euler đã chứng minh rằng bài toán không thể giải được bằng cách phân tích số lượng cây cầu nối với mỗi phần.</p>
+  </li>
+  <li>
+    <p><strong>Graph theory:</strong> Bài toán này đã mở đầu cho graph theory—một nhánh toán học quan trọng.</p>
+  </li>
+  <li>
+    <p><strong>Topology:</strong> Bài toán liên quan đến topology vì nó quan tâm đến cấu trúc, không phải hình dạng cụ thể.</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Graph theory có nhiều ứng dụng trong cuộc sống hàng ngày, từ mạng lưới giao thông đến mạng lưới internet.</p>
+  </li>
+</ul>
+
+<p>Bài toán bảy cây cầu không chỉ là một bài toán thú vị—nó là nền tảng của nhiều nhánh toán học hiện đại. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter9/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

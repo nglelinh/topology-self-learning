@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 03.00: Separation Axioms - T₀, T₁, T₂ (Hausdorff) &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 03.00: Separation Axioms - T₀, T₁, T₂ (Hausdorff)
+    
+  </h1>
+  <p><strong>Separation Axioms - T₀, T₁, T₂ (Hausdorff)</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Chúng ta đã học về compact và connected spaces—hai tính chất “global” quan trọng. Giờ đây chúng ta nghiên cứu <strong>separation axioms</strong>—các điều kiện về cách mà các điểm hoặc tập hợp có thể được “tách rời” bởi open sets.</p>
+
+<p><strong>Câu hỏi động lực:</strong><br />
+Trong một topological space, làm sao để “distinguish” (phân biệt) hai điểm khác nhau?</p>
+
+<p><strong>Ví dụ trực quan:</strong></p>
+<ul>
+  <li>
+    <p><strong>Trivial topology</strong> trên {a, b}: Chỉ có ∅ và {a,b} là open<br />
+→ <strong>Không thể</strong> tách a và b bởi open sets!</p>
+  </li>
+  <li>
+    <p><strong>Discrete topology</strong>: Mọi subset open<br />
+→ Có thể tách hoàn toàn: {a} và {b} là open disjoint sets</p>
+  </li>
+  <li>
+    <p><strong>Euclidean ℝ</strong>: Với x ≠ y, luôn có open balls B(x,ε), B(y,δ) disjoint<br />
+→ Có thể tách rời hoàn toàn</p>
+  </li>
+</ul>
+
+<p><strong>Separation axioms</strong> formalize mức độ “separability” này qua hierarchy:</p>
+
+\[T_0 \subset T_1 \subset T_2 \subset T_3 \subset T_{3.5} \subset T_4\]
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Separation_axioms.svg/500px-Separation_axioms.svg.png" alt="Separation axioms hierarchy" /><br />
+<em>Hierarchy của separation axioms - Nguồn concept</em></p>
+
+<p><strong>Trong bài này:</strong></p>
+<ul>
+  <li><strong>T₀ (Kolmogorov)</strong>: Điểm có thể distinguish topologically</li>
+  <li><strong>T₁ (Fréchet)</strong>: Singletons closed</li>
+  <li><strong>T₂ (Hausdorff)</strong>: Điểm có disjoint neighborhoods</li>
+  <li>Examples và counterexamples</li>
+  <li>Importance trong topology</li>
+</ul>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+<ul>
+  <li>Hausdorff = “standard” assumption trong topology</li>
+  <li>Limits unique trong Hausdorff spaces</li>
+  <li>Compact subsets closed (trong Hausdorff)</li>
+  <li>Metrizable spaces luôn Hausdorff</li>
+</ul>
+
+<hr />
+
+<h2 id="-từ-trực-giác-đến-hình-thức">🎯 Từ Trực giác đến Hình thức</h2>
+
+<h3 id="câu-chuyện-về-tách-biệt">Câu chuyện về Tách biệt</h3>
+
+<p>Tưởng tượng bạn có hai người: <strong>Alice</strong> và <strong>Bob</strong>.</p>
+
+<p><strong>Level 0 (Trivial):</strong> Không có cách nào distinguish Alice và Bob<br />
+→ Giống như trivial topology</p>
+
+<p><strong>Level 1 (T₀ - Kolmogorov):</strong> Có ít nhất một neighborhood của Alice không chứa Bob, hoặc ngược lại<br />
+→ “Asymmetric” separation</p>
+
+<p><strong>Level 2 (T₁ - Fréchet):</strong> Alice có neighborhood không chứa Bob <strong>VÀ</strong> Bob có neighborhood không chứa Alice<br />
+→ “Symmetric” nhưng neighborhoods có thể overlap</p>
+
+<p><strong>Level 3 (T₂ - Hausdorff):</strong> Alice và Bob có <strong>completely disjoint</strong> neighborhoods<br />
+→ “Complete separation”</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/T0-T2_spaces.svg/600px-T0-T2_spaces.svg.png" alt="T0 T1 T2 illustration" /><br />
+<em>T₀, T₁, T₂ spaces minh họa - Nguồn concept</em></p>
+
+<hr />
+
+<h2 id="-định-nghĩa-hình-thức">📐 Định nghĩa Hình thức</h2>
+
+<h3 id="1-t-spaces-kolmogorov">1. T₀ Spaces (Kolmogorov)</h3>
+
+<p><strong>Định nghĩa (T₀ Space):</strong><br />
+X là <strong>T₀</strong> (Kolmogorov) nếu với mọi x ≠ y ∈ X, tồn tại open set U chứa một điểm nhưng không chứa điểm kia.</p>
+
+\[\forall x \neq y: \exists U \in \tau: (x \in U \land y \notin U) \lor (y \in U \land x \notin U)\]
+
+<p><strong>Trực giác:</strong> Topology có thể “distinguish” hai điểm khác nhau.</p>
+
+<p><strong>Ví dụ 1: Sierpiński Space</strong></p>
+
+<p>X = {0, 1}, τ = {∅, {0}, {0,1}}</p>
+
+<ul>
+  <li>U = {0} chứa 0 nhưng không chứa 1</li>
+  <li>→ T₀ space ✓</li>
+  <li>Nhưng không có open set chứa 1 mà không chứa 0</li>
+  <li>→ Không symmetric!</li>
+</ul>
+
+<p><strong>Ví dụ 2: Discrete Topology</strong></p>
+
+<p>Mọi space với discrete topology là T₀ (thực ra là T₂!).</p>
+
+<p><strong>Non-example: Trivial Topology</strong></p>
+
+<p>X = {a, b}, τ = {∅, X}</p>
+
+<ul>
+  <li>Mọi open set chứa a cũng chứa b</li>
+  <li>→ Không T₀ ✗</li>
+</ul>
+
+<p><strong>Ví dụ 3: Cofinite Topology trên Infinite Set</strong></p>
+
+<p>X infinite, τ = cofinite topology</p>
+
+<ul>
+  <li>Với x ≠ y: U = X \ {y} open, chứa x, không chứa y</li>
+  <li>→ T₀ ✓</li>
+</ul>
+
+<hr />
+
+<h3 id="2-t-spaces-fréchet">2. T₁ Spaces (Fréchet)</h3>
+
+<p><strong>Định nghĩa (T₁ Space):</strong><br />
+X là <strong>T₁</strong> (Fréchet) nếu với mọi x ≠ y, mỗi điểm có neighborhood không chứa điểm kia.</p>
+
+\[\forall x \neq y: \exists U, V \in \tau: (x \in U, y \notin U) \land (y \in V, x \notin V)\]
+
+<p><strong>Phát biểu tương đương:</strong><br />
+X là T₁ ⟺ Mọi singleton {x} là <strong>closed</strong>.</p>
+
+<p><strong>Chứng minh:</strong></p>
+
+<p><strong>(⇒)</strong> Giả sử X là T₁, cần chứng minh {x} closed.<br />
+Tương đương: X \ {x} open.<br />
+Với mọi y ∈ X \ {x}, tồn tại Uᵧ ∋ y với x ∉ Uᵧ (T₁ property).<br />
+X \ {x} = ⋃_{y≠x} Uᵧ open. ✓</p>
+
+<p><strong>(⇐)</strong> Giả sử mọi {x} closed.<br />
+X \ {x} open ∋ y với mọi y ≠ x.<br />
+Tương tự X \ {y} open ∋ x.<br />
+→ T₁. ✓</p>
+
+<p><strong>Ví dụ 1: Euclidean ℝ</strong></p>
+
+<p>ℝ là T₁: {x} closed với mọi x.</p>
+
+<p><strong>Ví dụ 2: Cofinite Topology</strong></p>
+
+<p>X infinite, cofinite topology là T₁:</p>
+<ul>
+  <li>{x} finite → X \ {x} cofinite → open</li>
+  <li>→ {x} closed ✓</li>
+</ul>
+
+<p><strong>Non-example: Sierpiński Space</strong></p>
+
+<p>{0,1} với τ = {∅, {0}, {0,1}}</p>
+<ul>
+  <li>{1} không closed (X \ {1} = {0} không open)</li>
+  <li>→ Không T₁ ✗</li>
+</ul>
+
+<p><strong>Định lý (T₁ ⇒ T₀):</strong><br />
+Mọi T₁ space là T₀.</p>
+
+<p><strong>Chứng minh:</strong> Trivial từ definitions. ∎</p>
+
+<hr />
+
+<h3 id="3-t-spaces-hausdorff">3. T₂ Spaces (Hausdorff)</h3>
+
+<p><strong>Định nghĩa (Hausdorff Space):</strong><br />
+X là <strong>T₂</strong> (Hausdorff) nếu với mọi x ≠ y, tồn tại <strong>disjoint</strong> open neighborhoods.</p>
+
+\[\forall x \neq y: \exists U, V \in \tau: x \in U, y \in V, U \cap V = \emptyset\]
+
+<p><strong>Trực giác:</strong> Hai điểm khác nhau có thể “completely separated” bởi open sets.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Hausdorff_space.svg/400px-Hausdorff_space.svg.png" alt="Hausdorff property" /><br />
+<em>Hausdorff property: disjoint neighborhoods - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Hausdorff_space.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Ví dụ 1: Metric Spaces</strong></p>
+
+<p><strong>Định lý:</strong> Mọi metric space là Hausdorff.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho x ≠ y trong (X, d).<br />
+Đặt ε = d(x,y)/2 &gt; 0.<br />
+U = B(x, ε), V = B(y, ε).<br />
+U ∩ V = ∅ (triangle inequality). ✓</p>
+
+<p><strong>Hệ quả:</strong> ℝⁿ với Euclidean metric là Hausdorff.</p>
+
+<p><strong>Ví dụ 2: Discrete Topology</strong></p>
+
+<p>Discrete topology trên bất kỳ set nào là Hausdorff.<br />
+U = {x}, V = {y} disjoint.</p>
+
+<p><strong>Non-example 1: Cofinite Topology (Infinite)</strong></p>
+
+<p>X infinite, cofinite topology <strong>không</strong> Hausdorff!</p>
+
+<p><strong>Proof:</strong><br />
+Cho x ≠ y, U, V open chứa x, y.<br />
+U = X \ A, V = X \ B với A, B finite.<br />
+U ∩ V = X \ (A ∪ B) còn lại infinite ≠ ∅. ✗</p>
+
+<p><strong>Non-example 2: Trivial Topology</strong></p>
+
+<p>Trivial topology không Hausdorff (chỉ có X là open set chứa bất kỳ điểm nào).</p>
+
+<p><strong>Định lý (T₂ ⇒ T₁):</strong><br />
+Mọi Hausdorff space là T₁.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho x ≠ y. Hausdorff → ∃U ∋ x, V ∋ y disjoint.<br />
+U không chứa y, V không chứa x.<br />
+→ T₁. ✓</p>
+
+<p><strong>Hierarchy:</strong>
+\(\text{Hausdorff (T₂)} \implies \text{Fréchet (T₁)} \implies \text{Kolmogorov (T₀)}\)</p>
+
+<hr />
+
+<h3 id="4-properties-of-hausdorff-spaces">4. Properties of Hausdorff Spaces</h3>
+
+<p><strong>Định lý (Limits Unique):</strong><br />
+Trong Hausdorff space, nếu sequence hội tụ, limit là <strong>unique</strong>.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Giả sử xₙ → x và xₙ → y với x ≠ y.<br />
+Hausdorff → ∃U ∋ x, V ∋ y disjoint.<br />
+xₙ → x → ∃N₁: ∀n ≥ N₁: xₙ ∈ U.<br />
+xₙ → y → ∃N₂: ∀n ≥ N₂: xₙ ∈ V.<br />
+Cho n ≥ max{N₁, N₂}: xₙ ∈ U ∩ V = ∅. Mâu thuẫn! ∎</p>
+
+<p><strong>Ý nghĩa:</strong> Hausdorff condition đảm bảo uniqueness của limits—essential cho analysis!</p>
+
+<p><strong>Định lý (Compact Subsets Closed):</strong><br />
+Trong Hausdorff space, mọi compact subset là closed.</p>
+
+<p><strong>Chứng minh:</strong><br />
+Cho K ⊆ X compact, cần chứng minh X \ K open.<br />
+Cho x ∈ X \ K. Với mọi y ∈ K:</p>
+<ul>
+  <li>Hausdorff → ∃Uᵧ ∋ x, Vᵧ ∋ y disjoint.<br />
+{Vᵧ}ᵧ∈K open cover của K.<br />
+K compact → ∃ finite subcover V_{y₁}, …, V_{yₙ}.<br />
+U = U_{y₁} ∩ … ∩ U_{yₙ} neighborhood của x.<br />
+U ∩ K = ∅ (vì U ∩ Vᵧᵢ = ∅).<br />
+→ X \ K open. ✓</li>
+</ul>
+
+<p><strong>Chú ý:</strong> Điều này <strong>sai</strong> trong non-Hausdorff spaces!</p>
+
+<p><strong>Định lý (Diagonal Closed):</strong><br />
+X Hausdorff ⟺ Diagonal Δ = {(x,x) : x ∈ X} closed trong X × X.</p>
+
+<p><strong>Chứng minh:</strong> Exercise (sử dụng product topology).</p>
+
+<hr />
+
+<h3 id="5-examples-và-counterexamples">5. Examples và Counterexamples</h3>
+
+<p><strong>Summary Table:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Space</th>
+      <th>T₀</th>
+      <th>T₁</th>
+      <th>T₂ (Hausdorff)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Discrete</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Trivial (≥2 pts)</td>
+      <td>✗</td>
+      <td>✗</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td>Cofinite (infinite)</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td>Sierpiński {0,1}</td>
+      <td>✓</td>
+      <td>✗</td>
+      <td>✗</td>
+    </tr>
+    <tr>
+      <td>ℝⁿ (Euclidean)</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Metric spaces</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Pathological Example:</strong></p>
+
+<p><strong>Zariski Topology trên ℂⁿ:</strong><br />
+Closed sets = algebraic varieties (zero sets của polynomials).</p>
+<ul>
+  <li>T₀: ✓</li>
+  <li>T₁: ✓ (points are varieties)</li>
+  <li>T₂: ✗ (open sets “too large”—any two non-empty open sets intersect!)</li>
+</ul>
+
+<p><strong>Importance:</strong> Algebraic geometry uses non-Hausdorff topology!</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-papers">Classic Papers</h3>
+
+<ol>
+  <li>
+    <p><strong>Felix Hausdorff</strong> - <em>“Grundzüge der Mengenlehre”</em> (1914)<br />
+<em>Định nghĩa Hausdorff spaces (original T₂ axiom)</em></p>
+  </li>
+  <li>
+    <p><strong>Andrey Kolmogorov</strong> - <em>“Zur Begründung der projektiven Geometrie”</em> (1932)<br />
+<em>T₀ axiom trong projective geometry</em></p>
+  </li>
+  <li>
+    <p><strong>Maurice Fréchet</strong> - <em>“Sur quelques points du calcul fonctionnel”</em> (1906)<br />
+<em>Early work liên quan đến T₁ condition</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed., <strong>§31–32: Separation Axioms</strong><br />
+<em>Clear systematic treatment</em></p>
+  </li>
+  <li>
+    <p><strong>Stephen Willard</strong> - <em>General Topology</em>, <strong>Chapter 4</strong><br />
+<em>Comprehensive coverage</em></p>
+  </li>
+  <li>
+    <p><strong>John L. Kelley</strong> - <em>General Topology</em>, <strong>Chapter 3</strong><br />
+<em>Advanced perspective</em></p>
+  </li>
+  <li>
+    <p><strong>Ryszard Engelking</strong> - <em>General Topology</em>, <strong>Chapter 1</strong><br />
+<em>Encyclopedia-level detail</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="analysis---uniqueness-of-limits">Analysis - Uniqueness of Limits</h3>
+<p><strong>Convergence:</strong> Trong metric spaces (Hausdorff), limits unique. Foundation cho calculus, functional analysis.</p>
+
+<h3 id="algebraic-geometry---non-hausdorff-topology">Algebraic Geometry - Non-Hausdorff Topology</h3>
+<p><strong>Zariski Topology:</strong> Schemes trong algebraic geometry often non-Hausdorff. Generic points không có disjoint neighborhoods.</p>
+
+<h3 id="physics---quantum-mechanics">Physics - Quantum Mechanics</h3>
+<p><strong>State Space:</strong> Hilbert space với weak topology (not Hausdorff). Physical observables correspond to closed operators.</p>
+
+<h3 id="computer-science---domain-theory">Computer Science - Domain Theory</h3>
+<p><strong>Scott Topology:</strong> Trên partially ordered sets, often T₀ but not T₁. Used trong semantics của programming languages.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="t-spaces">T₀ Spaces</h3>
+
+<ol>
+  <li><strong>Verify T₀:</strong><br />
+Các spaces sau có T₀ không?
+    <ul>
+      <li>a) {a,b,c} với τ = {∅, {a}, {a,b}, X}</li>
+      <li>b) ℕ với cofinite topology</li>
+      <li>c) {0,1} với τ = {∅, {0}, X}</li>
+    </ul>
+  </li>
+  <li><strong>Sierpiński:</strong><br />
+Chứng minh Sierpiński space {0,1} với τ = {∅, {0}, X} là T₀ nhưng không T₁.</li>
+</ol>
+
+<h3 id="t-spaces-1">T₁ Spaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Singleton Closed:</strong><br />
+Chứng minh: X là T₁ ⟺ mọi singleton closed.</p>
+  </li>
+  <li>
+    <p><strong>Cofinite T₁:</strong><br />
+Chứng minh cofinite topology trên infinite set là T₁.</p>
+  </li>
+  <li>
+    <p><strong>Finite T₁:</strong><br />
+Nếu X finite và T₁, chứng minh X có discrete topology.</p>
+  </li>
+</ol>
+
+<h3 id="hausdorff-spaces">Hausdorff Spaces</h3>
+
+<ol>
+  <li>
+    <p><strong>Metric Hausdorff:</strong><br />
+Chứng minh chi tiết: mọi metric space là Hausdorff.</p>
+  </li>
+  <li>
+    <p><strong>Limits Unique:</strong><br />
+Cho ví dụ non-Hausdorff space với sequence hội tụ đến nhiều limits.</p>
+  </li>
+  <li>
+    <p><strong>Compact Closed:</strong><br />
+Trong ℝ với cofinite topology:</p>
+    <ul>
+      <li>a) [0,1] có compact không?</li>
+      <li>b) [0,1] có closed không?</li>
+      <li>c) Có vi phạm “compact → closed” không?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="properties">Properties</h3>
+
+<ol>
+  <li>
+    <p><strong>Product:</strong><br />
+Nếu X, Y Hausdorff, chứng minh X × Y Hausdorff.</p>
+  </li>
+  <li>
+    <p><strong>Subspace:</strong><br />
+Nếu X Hausdorff, A ⊆ X, chứng minh A (subspace topology) Hausdorff.</p>
+  </li>
+  <li>
+    <p><strong>Continuous Image:</strong><br />
+Cho f: X → Y continuous surjection, X Hausdorff.<br />
+Y có nhất thiết Hausdorff không? Counterexample?</p>
+  </li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Diagonal:</strong><br />
+Chứng minh: X Hausdorff ⟺ Δ = {(x,x)} closed trong X × X.</p>
+  </li>
+  <li><strong>Completely Hausdorff:</strong><br />
+X là <strong>completely Hausdorff</strong> nếu với x ≠ y, ∃f: X → [0,1] continuous với f(x) = 0, f(y) = 1.
+    <ul>
+      <li>Chứng minh: completely Hausdorff ⇒ Hausdorff</li>
+      <li>ℝ có completely Hausdorff không?</li>
+    </ul>
+  </li>
+  <li><strong>Zariski Topology:</strong><br />
+Tìm hiểu Zariski topology trên ℂ.<br />
+Tại sao nó T₁ nhưng không T₂?</li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Why Hausdorff?</strong><br />
+Liệt kê 5 lý do tại sao Hausdorff condition “standard” trong topology.</p>
+  </li>
+  <li>
+    <p><strong>Non-Hausdorff Examples:</strong><br />
+Tìm 3 ví dụ “natural” non-Hausdorff spaces trong toán học.</p>
+  </li>
+  <li>
+    <p><strong>Hierarchy:</strong><br />
+Tại sao T₂ ⇒ T₁ ⇒ T₀ nhưng không ngược lại?<br />
+Cho examples chứng minh implications không reverse.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Munkres, Topology:</strong> §31–32 (Separation Axioms)</li>
+  <li><strong>Willard, General Topology:</strong> Chapter 4 (Separation Axioms)</li>
+  <li><strong>Engelking, General Topology:</strong> Chapter 1.5 (Separation Properties)</li>
+  <li><strong>Steen &amp; Seebach:</strong> <em>Counterexamples in Topology</em> (Encyclopedia của examples!)</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p>Trong bài này, chúng ta học về <strong>separation axioms</strong>—hierarchy của conditions về “separability”:</p>
+
+<p>✅ <strong>T₀ (Kolmogorov):</strong> Topology distinguish hai điểm khác nhau<br />
+✅ <strong>T₁ (Fréchet):</strong> Singletons closed ⟺ symmetric separation<br />
+✅ <strong>T₂ (Hausdorff):</strong> Disjoint neighborhoods ⟺ complete separation<br />
+✅ <strong>Hierarchy:</strong> T₂ ⇒ T₁ ⇒ T₀ (không reverse!)<br />
+✅ <strong>Hausdorff Properties:</strong></p>
+<ul>
+  <li>Limits unique</li>
+  <li>Compact subsets closed</li>
+  <li>Diagonal closed</li>
+</ul>
+
+<p><strong>Điểm chính:</strong></p>
+<ul>
+  <li>Hausdorff = “standard” assumption (metric spaces, manifolds)</li>
+  <li>Non-Hausdorff có ứng dụng (algebraic geometry, domain theory)</li>
+  <li>T₁ ⟺ points closed</li>
+  <li>Separation về “distinguishing” points topologically</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Nếu working với metric spaces → automatically Hausdorff</li>
+  <li>Check Hausdorff để ensure limits unique</li>
+  <li>Non-Hausdorff spaces = special, careful reasoning needed!</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Lecture 03.01 về <strong>T₃ (Regular) và T₄ (Normal) Spaces</strong>—stronger separation conditions, Urysohn’s Lemma, Tietze Extension Theorem!</p>
+
+<hr />
+
+<p><em>“Hausdorff spaces are to topology what metric spaces are to geometry.”</em> — Standard analogy</p>
+
+<p>🎯 <strong>Distinguish the distinctions! Understand the hierarchy T₀ ⊂ T₁ ⊂ T₂.</strong> 🎯</p>
+
+<hr />
+
+<p><strong>Previous Chapter:</strong> <a href="/contents/vi/topology-chapter02/">Chapter 02: Connectedness and Compactness</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter03/03_01_Regular_Normal_Spaces/">Lecture 03.01: Regular and Normal Spaces</a></p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter3/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

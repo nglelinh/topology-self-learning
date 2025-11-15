@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 07.03: Mayer-Vietoris Sequence &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 07.03: Mayer-Vietoris Sequence
+    
+  </h1>
+  <p><strong>Divide and Conquer for Homology</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Chúng ta đã biết:</p>
+<ul>
+  <li><strong>Van Kampen:</strong> Tính toán $\pi_1(X)$ từ decomposition $X = A \cup B$—một công cụ mạnh mẽ để tính toán fundamental group</li>
+  <li><strong>Cellular homology:</strong> Cho CW complexes—một phương pháp tính toán homology cho các không gian có cấu trúc CW</li>
+</ul>
+
+<p><strong>Cần gì nữa?</strong> Một phương pháp tổng quát cho arbitrary spaces! Chúng ta cần một công cụ có thể tính toán homology của bất kỳ không gian nào, không chỉ các CW complexes.</p>
+
+<blockquote>
+  <p><strong>Mayer-Vietoris Sequence = “Van Kampen cho homology”</strong></p>
+</blockquote>
+
+<p><strong>Ý tưởng chính:</strong> $X = A \cup B$ (cover) ⇒ long exact sequence liên kết:</p>
+<ul>
+  <li>$H_n(A \cap B)$—homology của intersection</li>
+  <li>$H_n(A) \oplus H_n(B)$—tổng trực tiếp của homology của các phần</li>
+  <li>$H_n(X)$—homology của không gian tổng thể</li>
+</ul>
+
+<p><strong>Cách mạng vì:</strong></p>
+<ul>
+  <li><strong>Universal:</strong> Hoạt động cho mọi không gian $X$, mọi decomposition—không cần cấu trúc đặc biệt</li>
+  <li><strong>Powerful:</strong> Giảm không gian phức tạp $X$ xuống các phần đơn giản hơn—chia để trị</li>
+  <li><strong>Systematic:</strong> Thuật toán qua exact sequences—một phương pháp có hệ thống để tính toán</li>
+  <li><strong>Inductive:</strong> Tính toán $H_n$ từ $H_{n-1}$ (connecting homomorphism)—cho phép tính toán quy nạp</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mayer-Vietoris.svg/500px-Mayer-Vietoris.svg.png" alt="Mayer-Vietoris decomposition" /><br />
+<em>Decomposing space for Mayer-Vietoris - Nguồn concept</em></p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá Mayer-Vietoris sequence một cách có hệ thống. Chúng ta sẽ nghiên cứu <strong>Exact sequences</strong>—nền tảng đại số cho lý thuyết này. Chúng ta sẽ học <strong>Mayer-Vietoris theorem</strong>—phát biểu và chứng minh sketch. Chúng ta sẽ tìm hiểu <strong>Connecting homomorphism $\partial$</strong>—ý nghĩa hình học của nó. Chúng ta sẽ xem xét các <strong>ví dụ</strong> cụ thể như $S^n$, $T^2$, surfaces, $\mathbb{R}P^n$—những ví dụ này cho thấy sức mạnh của phương pháp. Chúng ta sẽ học về <strong>Snake Lemma</strong>—kỹ thuật chứng minh quan trọng. Cuối cùng, chúng ta sẽ xem xét các <strong>ứng dụng</strong> trong tính toán có hệ thống.</p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Đây là <strong>công cụ tính toán linh hoạt nhất</strong>—Mayer-Vietoris sequence có thể được áp dụng cho nhiều loại không gian khác nhau. Nó <strong>bổ sung</strong> cho cellular homology (hoạt động mà không cần cấu trúc CW)—đây là một công cụ bổ sung mạnh mẽ. Nó <strong>chứng minh các định lý</strong> (không chỉ các ví dụ)—cho phép chúng ta chứng minh các kết quả tổng quát. Cuối cùng, nó là <strong>nền tảng</strong> cho spectral sequences (advanced)—một công cụ nâng cao trong topology đại số.</p>
+
+<hr />
+
+<h2 id="-exact-sequences-review">🔗 Exact Sequences Review</h2>
+
+<h3 id="1-definition">1. Definition</h3>
+
+<p><strong>Định nghĩa (Exact Sequence):</strong><br />
+Một dãy các abelian groups và các homomorphisms:</p>
+
+\[\cdots \to A_{n+1} \xrightarrow{f_{n+1}} A_n \xrightarrow{f_n} A_{n-1} \to \cdots\]
+
+<p>là <strong>exact</strong> nếu:</p>
+
+\[\text{im}(f_{n+1}) = \ker(f_n) \quad \forall n\]
+
+<p><strong>“Output của map trước = kernel của map sau.”</strong> Trực giác hình học là một exact sequence là một dãy các groups và maps sao cho image của mỗi map bằng kernel của map tiếp theo—điều này đảm bảo rằng thông tin được “bảo toàn” qua dãy.</p>
+
+<hr />
+
+<p><strong>Các ví dụ:</strong></p>
+
+<p><strong>Short exact sequence:</strong></p>
+
+\[0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0\]
+
+<p>Exactness ngụ ý:</p>
+<ul>
+  <li>$f$ injective ($\ker f = 0$)—$f$ là đơn ánh</li>
+  <li>$g$ surjective ($\text{im } g = C$)—$g$ là toàn ánh</li>
+  <li>$\text{im } f = \ker g$ (middle exactness)—image của $f$ bằng kernel của $g$</li>
+</ul>
+
+<p><strong>Trực giác:</strong> $B$ “kết hợp” $A$ và $C$. Điều này có nghĩa là $B$ có thể được hiểu như một cách kết hợp $A$ và $C$ lại với nhau, với $A$ được nhúng vào $B$ và $B$ được ánh xạ lên $C$.</p>
+
+<hr />
+
+<p><strong>Split exact sequence:</strong><br />
+Tồn tại section $s: C \to B$ với $g \circ s = id$.</p>
+
+<p>Khi đó: $B \cong A \oplus C$ (direct sum). Đây là một trường hợp đặc biệt—nếu exact sequence “split”, thì $B$ là tổng trực tiếp của $A$ và $C$.</p>
+
+<hr />
+
+<h3 id="2-long-exact-sequence">2. Long Exact Sequence</h3>
+
+<p><strong>Chain complexes:</strong><br />
+C_•: … → C_{n+1} → C_n → C_{n-1} → …</p>
+
+<p>Short exact sequence of chain complexes induces <strong>long exact sequence in homology:</strong></p>
+
+\[\cdots \to H_n(A) \to H_n(B) \to H_n(C) \xrightarrow{\partial} H_{n-1}(A) \to \cdots\]
+
+<p><strong>Connecting homomorphism ∂</strong> = key!</p>
+
+<hr />
+
+<h2 id="-mayer-vietoris-theorem">🎯 Mayer-Vietoris Theorem</h2>
+
+<h3 id="1-statement">1. Statement</h3>
+
+<p><strong>Định lý (Mayer-Vietoris):</strong><br />
+Cho $X$ là topological space, $A$, $B$ là các open subsets với $X = A \cup B$.</p>
+
+<p><strong>Long exact sequence:</strong></p>
+
+\[\cdots \to H_n(A \cap B) \xrightarrow{\phi_n} H_n(A) \oplus H_n(B) \xrightarrow{\psi_n} H_n(X) \xrightarrow{\partial_n} H_{n-1}(A \cap B) \to \cdots\]
+
+<p><strong>Các maps:</strong></p>
+<ul>
+  <li><strong>$\phi_n([c]) = ([c], -[c])$</strong> (include trong $A$ và $B$ với dấu)—map này nhúng homology của intersection vào tổng trực tiếp của homology của các phần, với dấu trừ để đảm bảo exactness</li>
+  <li><strong>$\psi_n([a], [b]) = [a] + [b]$</strong> (sum trong $X$)—map này cộng các homology classes từ các phần để tạo thành homology class trong không gian tổng thể</li>
+  <li><strong>$\partial_n$ = connecting homomorphism</strong> (sẽ được giải thích)—map này liên kết homology ở chiều $n$ với homology ở chiều $n-1$</li>
+</ul>
+
+<hr />
+
+<p><strong>Exactness:</strong> Tại mỗi vị trí, image = kernel. Điều này đảm bảo rằng dãy là exact—thông tin được “bảo toàn” qua dãy.</p>
+
+<p><strong>Giải thích:</strong> Liên kết homology của:</p>
+<ul>
+  <li><strong>$A \cap B$:</strong> Vùng overlap—phần giao của hai tập mở</li>
+  <li><strong>$A \oplus B$:</strong> Tổng trực tiếp (các phần riêng biệt)—homology của các phần được xem xét riêng biệt</li>
+  <li><strong>$X = A \cup B$:</strong> Toàn bộ không gian—homology của không gian tổng thể</li>
+</ul>
+
+<hr />
+
+<h3 id="2-connecting-homomorphism-">2. Connecting Homomorphism ∂</h3>
+
+<p><strong>Xây dựng hình học:</strong></p>
+
+<p>Lấy $[\alpha] \in H_n(X)$.</p>
+
+<p><strong>Bước 1:</strong> Biểu diễn $\alpha$ = chain trong $X$.</p>
+
+<p><strong>Bước 2:</strong> Subdivide: viết $\alpha = a + b$ ($a$ trong $A$, $b$ trong $B$).<br />
+Không duy nhất, nhưng $\partial\alpha = 0$ trong $X$. Trực giác hình học là chúng ta chia chain thành hai phần, mỗi phần nằm trong một tập mở.</p>
+
+<p><strong>Bước 3:</strong> $\partial a = -\partial b$ (trong $A \cap B$).<br />
+(Vì $\partial(a+b) = 0$ trong $X$) Điều này có nghĩa là boundaries của các phần triệt tiêu lẫn nhau trong intersection.</p>
+
+<p><strong>Bước 4:</strong> $\partial([\alpha]) = [\partial a] \in H_{n-1}(A \cap B)$.</p>
+
+<p><strong>Điểm quan trọng:</strong> Mặc dù $\alpha$ đóng, các phần $a$, $b$ KHÔNG đóng, nhưng boundaries tương thích! Đây là điểm quan trọng—connecting homomorphism đo lường cách các phần không đóng một cách riêng biệt, nhưng boundaries của chúng tương thích trong intersection.</p>
+
+<hr />
+
+<p><strong>Trực giác:</strong> $\partial$ đo lường “cách các phần không đóng một cách riêng biệt.” Đây là ý nghĩa hình học của connecting homomorphism—nó đo lường cách một cycle trong không gian tổng thể được “chia” thành các phần trong các tập mở, và cách các boundaries của các phần này tương tác trong intersection.</p>
+
+<hr />
+
+<h2 id="-examples">🧮 Examples</h2>
+
+<h3 id="example-1-computing-h_ns">Example 1: Computing H_n(S²)</h3>
+
+<p><strong>Decomposition:</strong><br />
+S² = U ∪ V where:</p>
+<ul>
+  <li>U = northern hemisphere + equator (≃ D² contractible)</li>
+  <li>V = southern hemisphere + equator (≃ D² contractible)</li>
+  <li>U ∩ V = equator (≃ S¹)</li>
+</ul>
+
+<p><strong>Homology:</strong></p>
+<ul>
+  <li>H_n(U) = H_n(V) = 0 (n &gt; 0), H₀ = ℤ</li>
+  <li>H_n(U ∩ V) = H_n(S¹) = ℤ (n=0,1), 0 else</li>
+</ul>
+
+<hr />
+
+<p><strong>Mayer-Vietoris (n=2):</strong></p>
+
+\[H_2(U) \oplus H_2(V) \to H_2(S^2) \xrightarrow{\partial} H_1(U \cap V)\]
+
+\[0 \to H_2(S^2) \xrightarrow{\partial} \mathbb{Z}\]
+
+<p>Exactness: ∂ must be 0 (to have ker ∂ = H₂(S²)).</p>
+
+<p>Next term: H₁(U) ⊕ H₁(V) = 0.</p>
+
+<p>Exactness: im ∂ = 0.</p>
+
+<p><strong>Conclusion:</strong> H₂(S²) ≅ ℤ. ✓</p>
+
+<hr />
+
+<p><strong>Mayer-Vietoris (n=1):</strong></p>
+
+\[H_1(S^1) \to H_1(U) \oplus H_1(V) \to H_1(S^2) \to H_0(S^1)\]
+
+\[\mathbb{Z} \to 0 \to H_1(S^2) \to \mathbb{Z}\]
+
+<p>Exactness: H₁(S²) = 0. ✓</p>
+
+<p><strong>Result:</strong> H₀(S²) = ℤ, H₁ = 0, H₂ = ℤ. ✓</p>
+
+<hr />
+
+<h3 id="example-2-computing-h_nsⁿ-inductively">Example 2: Computing H_n(Sⁿ) Inductively</h3>
+
+<p><strong>Induction:</strong></p>
+
+<p><strong>Base:</strong> H_*(S⁰) known.</p>
+
+<p><strong>Step:</strong> Assume H_*(Sⁿ⁻¹) known. Decompose Sⁿ as above.</p>
+
+<p><strong>Mayer-Vietoris:</strong><br />
+H_n(Sⁿ) → H_{n-1}(Sⁿ⁻¹).</p>
+
+<p>Careful analysis của exact sequence ⇒ H_n(Sⁿ) ≅ ℤ. ✓</p>
+
+<p><strong>Recursive algorithm!</strong></p>
+
+<hr />
+
+<h3 id="example-3-torus-t">Example 3: Torus T²</h3>
+
+<p><strong>Decomposition:</strong><br />
+T² = S¹ × S¹.</p>
+
+<p>Alternative: T² = (solid torus) ∪ (solid torus).</p>
+
+<p><strong>Choose:</strong> A = T² \ {meridian disk}, B = T² \ {longitudinal disk}.<br />
+Both ≃ S¹ (deformation retract).<br />
+A ∩ B ≃ S¹ ∨ S¹.</p>
+
+<p><strong>Mayer-Vietoris (n=2):</strong></p>
+
+\[H_2(A) \oplus H_2(B) \to H_2(T^2) \to H_1(A \cap B)\]
+
+\[0 \to H_2(T^2) \to \mathbb{Z}^2\]
+
+<p>Analysis: H₂(T²) ≅ ℤ. ✓</p>
+
+<p><strong>Similar for H₁:</strong> Get ℤ². ✓</p>
+
+<hr />
+
+<h3 id="example-4-computing-h_nℝp">Example 4: Computing H_n(ℝP²)</h3>
+
+<p><strong>Decomposition:</strong><br />
+ℝP² = D² với antipodal boundary identification.</p>
+
+<p>Let:</p>
+<ul>
+  <li>A = interior (≃ ℝ² contractible)</li>
+  <li>B = neighborhood of boundary (≃ Möbius strip)</li>
+  <li>A ∩ B ≃ S¹</li>
+</ul>
+
+<p><strong>Mayer-Vietoris reveals:</strong> H₁(ℝP²) = ℤ/2ℤ (torsion!).</p>
+
+<hr />
+
+<h2 id="-proof-sketch">🔍 Proof Sketch</h2>
+
+<h3 id="1-short-exact-sequence-của-chain-complexes">1. Short Exact Sequence của Chain Complexes</h3>
+
+<p><strong>Chain groups:</strong></p>
+
+\[C_n(A \cap B) \xrightarrow{\alpha} C_n(A) \oplus C_n(B) \xrightarrow{\beta} C_n(X)\]
+
+<p><strong>Maps:</strong></p>
+<ul>
+  <li>α(c) = (i_A(c), -i_B(c)) (include with sign)</li>
+  <li>β(a, b) = j_A(a) + j_B(b) (sum)</li>
+</ul>
+
+<p><strong>Exactness:</strong> Verify im α = ker β (subdivision argument).</p>
+
+<hr />
+
+<h3 id="2-snake-lemma">2. Snake Lemma</h3>
+
+<p><strong>Snake Lemma:</strong> Short exact sequence of chain complexes induces long exact sequence in homology với connecting homomorphism ∂.</p>
+
+<p><strong>Diagram chasing:</strong> Construct ∂ explicitly.</p>
+
+<hr />
+
+<h3 id="3-result">3. Result</h3>
+
+<p><strong>Long exact Mayer-Vietoris sequence.</strong> ✓</p>
+
+<p><strong>Full proof:</strong> See Hatcher §2.2 or Bredon Chapter IV.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Leopold Vietoris</strong> - <em>“Über den höheren Zusammenhang kompakter Räume”</em> (1927)<br />
+<em>Early formulation</em></p>
+  </li>
+  <li>
+    <p><strong>Walther Mayer</strong> - <em>“Über abstrakte Topologie”</em> (1929)<br />
+<em>General version</em></p>
+  </li>
+  <li>
+    <p><strong>Solomon Eilenberg, Norman Steenrod</strong> - <em>“Foundations of Algebraic Topology”</em> (1952)<br />
+<em>Modern systematic treatment</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ol>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em>, <strong>§2.2: Mayer-Vietoris Sequence</strong></p>
+  </li>
+  <li>
+    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em>, <strong>Chapter IV</strong></p>
+  </li>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Elements of Algebraic Topology</em>, <strong>Chapter 4</strong></p>
+  </li>
+  <li>
+    <p><strong>Edwin H. Spanier</strong> - <em>Algebraic Topology</em>, <strong>Chapter 4</strong></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications">🔗 Applications</h2>
+
+<h3 id="computational-topology">Computational Topology</h3>
+<p><strong>Algorithm:</strong> Decompose complicated space ⇒ compute homology inductively via Mayer-Vietoris.</p>
+
+<h3 id="robotics---motion-planning">Robotics - Motion Planning</h3>
+<p><strong>Configuration Space:</strong> Decompose complex configuration space. Compute homology to understand connectivity, holes, obstructions.</p>
+
+<h3 id="data-science---tda">Data Science - TDA</h3>
+<p><strong>Persistent Homology:</strong> Mayer-Vietoris enables efficient computation on large datasets. Union of patches ⇒ global homology.</p>
+
+<hr />
+
+<h2 id="-exercises">🧩 Exercises</h2>
+
+<h3 id="exact-sequences">Exact Sequences</h3>
+
+<ol>
+  <li>
+    <p><strong>Verify Exactness:</strong><br />
+0 → ℤ →^(×2) ℤ →^(mod 2) ℤ/2ℤ → 0. Check at each position.</p>
+  </li>
+  <li>
+    <p><strong>Split:</strong><br />
+When does 0 → A → B → C → 0 split? Give example and counterexample.</p>
+  </li>
+</ol>
+
+<h3 id="mayer-vietoris">Mayer-Vietoris</h3>
+
+<ol>
+  <li>
+    <p><strong>S²:</strong><br />
+Verify full Mayer-Vietoris sequence for S² = U ∪ V (hemispheres). Check all H_n.</p>
+  </li>
+  <li>
+    <p><strong>S³:</strong><br />
+Decompose S³ similar to S². Compute H_n(S³) = ℤ, 0, 0, ℤ.</p>
+  </li>
+</ol>
+
+<h3 id="computations">Computations</h3>
+
+<ol>
+  <li>
+    <p><strong>Figure-Eight:</strong><br />
+X = S¹ ∨ S¹. Decompose và use Mayer-Vietoris to get H₁ = ℤ².</p>
+  </li>
+  <li>
+    <p><strong>Genus 2 Surface:</strong><br />
+Compute H_n(Σ₂) via Mayer-Vietoris.</p>
+  </li>
+</ol>
+
+<h3 id="torus">Torus</h3>
+
+<ol>
+  <li><strong>Product:</strong><br />
+T² = S¹ × S¹. Try decomposition T² = (S¹ × D¹) ∪ (S¹ × D¹).<br />
+Use Mayer-Vietoris: H₁(T²) = ℤ².</li>
+</ol>
+
+<h3 id="advanced">Advanced</h3>
+
+<ol>
+  <li>
+    <p><strong>Klein Bottle:</strong><br />
+Compute H_n(Klein bottle) using Mayer-Vietoris.<br />
+(Answer: H₁ = ℤ ⊕ ℤ/2ℤ)</p>
+  </li>
+  <li>
+    <p><strong>ℝP³:</strong><br />
+Decompose và compute H_n.</p>
+  </li>
+  <li>
+    <p><strong>Complement:</strong><br />
+X = S³ \ (knot K). Use Mayer-Vietoris to relate H_n(X) to knot properties.</p>
+  </li>
+</ol>
+
+<h3 id="connecting-homomorphism">Connecting Homomorphism</h3>
+
+<ol>
+  <li>
+    <p><strong>Geometric Understanding:</strong><br />
+For S² decomposition, describe ∂: H₂(S²) → H₁(S¹) geometrically.</p>
+  </li>
+  <li>
+    <p><strong>Compute:</strong><br />
+Explicit element [α] ∈ H₂(S²), compute ∂([α]) step by step.</p>
+  </li>
+</ol>
+
+<h3 id="long-exact-sequence">Long Exact Sequence</h3>
+
+<ol>
+  <li>
+    <p><strong>Deduce Relations:</strong><br />
+From exactness at H₁(X) in Mayer-Vietoris, derive relation between ranks.</p>
+  </li>
+  <li>
+    <p><strong>Betti Numbers:</strong><br />
+Use Mayer-Vietoris to prove: β_n(X) ≤ β_n(A) + β_n(B) + β_{n-1}(A∩B).</p>
+  </li>
+</ol>
+
+<h3 id="applications">Applications</h3>
+
+<ol>
+  <li>
+    <p><strong>CW Complex:</strong><br />
+Compare Mayer-Vietoris vs cellular homology for T². Which easier?</p>
+  </li>
+  <li>
+    <p><strong>Union:</strong><br />
+X = union of two solid tori glued along boundary tori. Compute H_n(X).</p>
+  </li>
+</ol>
+
+<h3 id="reflection">Reflection</h3>
+
+<ol>
+  <li>
+    <p><strong>Van Kampen vs Mayer-Vietoris:</strong><br />
+Compare similarities and differences.</p>
+  </li>
+  <li>
+    <p><strong>Why Exact?:</strong><br />
+Explain why Mayer-Vietoris gives exact sequence (not just random maps).</p>
+  </li>
+  <li>
+    <p><strong>Connecting ∂:</strong><br />
+Why does ∂ decrease dimension by 1?</p>
+  </li>
+  <li>
+    <p><strong>Power:</strong><br />
+Give example where Mayer-Vietoris essential (can’t easily use cellular homology).</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-further-reading">📚 Further Reading</h2>
+
+<ul>
+  <li><strong>Hatcher, §2.2:</strong> Best modern exposition với detailed examples</li>
+  <li><strong>Bredon, Chapter IV:</strong> Comprehensive advanced treatment</li>
+  <li><strong>Munkres, Elements:</strong> Careful proofs</li>
+  <li><strong>Spanier:</strong> Encyclopedic reference</li>
+</ul>
+
+<hr />
+
+<h2 id="-summary">🎓 Summary</h2>
+
+<p><strong>Mayer-Vietoris = powerful computational tool:</strong></p>
+
+<p>✅ <strong>Decomposition:</strong> X = A ∪ B ⇒ relate homologies<br />
+✅ <strong>Long exact sequence:</strong> … → H_n(A∩B) → H_n(A)⊕H_n(B) → H_n(X) → …<br />
+✅ <strong>Connecting ∂:</strong> Measures how pieces fail to close<br />
+✅ <strong>Examples:</strong> Spheres, torus, surfaces systematically<br />
+✅ <strong>Inductive:</strong> Compute H_n from simpler spaces<br />
+✅ <strong>Universal:</strong> Works for any decomposition<br />
+✅ <strong>Foundation:</strong> Exact sequences central to algebraic topology</p>
+
+<p><strong>Key insight:</strong></p>
+<ul>
+  <li>Divide complex space into simple pieces</li>
+  <li>Exact sequence encodes gluing information</li>
+  <li>Inductively determine H_n(X)</li>
+  <li>Complements cellular homology (different perspective)</li>
+</ul>
+
+<p><strong>Practical wisdom:</strong></p>
+<ul>
+  <li>Choose decomposition with A, B, A∩B as simple as possible</li>
+  <li>Use contractible pieces when possible</li>
+  <li>Connecting homomorphism often vanishes (simplifies sequence)</li>
+  <li>Combine with homotopy equivalence for maximum power</li>
+</ul>
+
+<p><strong>Tiếp theo:</strong> Cohomology—dual theory with rich algebraic structure!</p>
+
+<hr />
+
+<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter07/07_02_Homology_Computations/">Lecture 07.02: Homology Computations</a><br />
+<strong>Next:</strong> <a href="/contents/vi/topology-chapter07/07_04_Cohomology_Introduction/">Lecture 07.04: Cohomology Introduction</a></p>
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter7/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>
