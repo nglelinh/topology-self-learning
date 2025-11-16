@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Bài 09.05: Topology của DNA - Xoắn và Nút"
+title: "Bài 09.06: Topology của DNA - Xoắn và Nút"
 lang: vi
-lang-ref: lecture-09-05
+lang-ref: lecture-09-06
 chapter: 9
-lecture: 5
+lecture: 6
 categories: [chapter09]
 tags: [knot-theory, DNA, sinh-học, topology-ứng-dụng]
 description: "Khám phá cách các nhà khoa học sử dụng topology và knot theory để nghiên cứu cấu trúc của DNA và các phân tử sinh học"

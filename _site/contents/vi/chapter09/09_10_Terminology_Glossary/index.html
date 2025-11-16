@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Bài 09.10: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Bài 09.10: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa
+    
+  </h1>
+  <p><strong>Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa</strong></p>
+
+<hr />
+
+<p><strong>Lưu ý về hiển thị công thức toán học:</strong> Tất cả các công thức toán học trong bảng được viết bằng LaTeX và sẽ được hiển thị đúng khi MathJax được load. Nếu công thức không hiển thị, vui lòng đảm bảo rằng MathJax đã được cấu hình đúng trong trang web.</p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Bài học này là một <strong>từ điển toàn diện</strong> tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology. Đây là một tài liệu tham khảo hữu ích để tra cứu nhanh các định nghĩa, ký hiệu, và khái niệm quan trọng.</p>
+
+<p><strong>Cách sử dụng:</strong></p>
+
+<ul>
+  <li><strong>Tra cứu nhanh:</strong> Sử dụng để tìm định nghĩa của một thuật ngữ cụ thể</li>
+  <li><strong>Ôn tập:</strong> Xem lại các khái niệm đã học theo từng chương</li>
+  <li><strong>Tham khảo:</strong> Sử dụng khi đọc các bài học khác để hiểu các thuật ngữ</li>
+</ul>
+
+<p><strong>Cấu trúc:</strong></p>
+
+<p>Các thuật ngữ được sắp xếp theo các chương và chủ đề chính, với bảng trình bày rõ ràng bao gồm:</p>
+<ul>
+  <li><strong>Thuật ngữ</strong> (tiếng Việt và tiếng Anh)</li>
+  <li><strong>Ký hiệu toán học</strong> (nếu có)</li>
+  <li><strong>Định nghĩa ngắn gọn</strong></li>
+  <li><strong>Chương xuất hiện</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="-chapter-00-foundations-and-set-theoretic-topology">📚 Chapter 00: Foundations and Set-Theoretic Topology</h2>
+
+<h3 id="lý-thuyết-tập-hợp">Lý Thuyết Tập Hợp</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tập hợp</strong> (Set)</td>
+      <td>$A$, $B$, $X$</td>
+      <td>Một collection các đối tượng phân biệt</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phần tử</strong> (Element)</td>
+      <td>$x \in A$</td>
+      <td>Một đối tượng thuộc tập hợp</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tập con</strong> (Subset)</td>
+      <td>$A \subseteq B$</td>
+      <td>Mọi phần tử của $A$ đều thuộc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tập rỗng</strong> (Empty Set)</td>
+      <td>$\emptyset$</td>
+      <td>Tập hợp không có phần tử nào</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Hợp</strong> (Union)</td>
+      <td>$A \cup B$</td>
+      <td>Tập tất cả phần tử thuộc $A$ hoặc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Giao</strong> (Intersection)</td>
+      <td>$A \cap B$</td>
+      <td>Tập tất cả phần tử thuộc cả $A$ và $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Hiệu</strong> (Difference)</td>
+      <td>$A \setminus B$</td>
+      <td>Tập các phần tử thuộc $A$ nhưng không thuộc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phần bù</strong> (Complement)</td>
+      <td>$A^c$</td>
+      <td>Tập tất cả phần tử không thuộc $A$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tích Descartes</strong> (Cartesian Product)</td>
+      <td>$A \times B$</td>
+      <td>Tập các cặp có thứ tự $(a,b)$ với $a \in A$, $b \in B$</td>
+      <td>00.01</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Lực lượng</strong> (Cardinality)</td>
+      <td>$</td>
+      <td>A</td>
+      <td>$, $\mathrm{card}(A)$</td>
+      <td>Số lượng phần tử của tập hợp</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đếm được</strong> (Countable)</td>
+      <td>$\aleph_0$</td>
+      <td>Có thể đặt tương ứng 1-1 với $\mathbb{N}$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Không đếm được</strong> (Uncountable)</td>
+      <td>$2^{\aleph_0}$</td>
+      <td>Không thể đặt tương ứng với $\mathbb{N}$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hàm-số-và-quan-hệ">Hàm Số và Quan Hệ</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm số</strong> (Function)</td>
+      <td>$f: A \to B$</td>
+      <td>Ánh xạ từ tập $A$ vào tập $B$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đơn ánh</strong> (Injective)</td>
+      <td>$f$ injective</td>
+      <td>$f(a_1) = f(a_2) \Rightarrow a_1 = a_2$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Toàn ánh</strong> (Surjective)</td>
+      <td>$f$ surjective</td>
+      <td>Mọi $b \in B$ đều có $a \in A$ sao cho $f(a) = b$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Song ánh</strong> (Bijective)</td>
+      <td>$f$ bijective</td>
+      <td>Vừa đơn ánh vừa toàn ánh</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Hàm ngược</strong> (Inverse Function)</td>
+      <td>$f^{-1}$</td>
+      <td>Hàm ngược của song ánh</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Quan hệ tương đương</strong> (Equivalence Relation)</td>
+      <td>$\sim$</td>
+      <td>Quan hệ phản xạ, đối xứng, bắc cầu</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lớp tương đương</strong> (Equivalence Class)</td>
+      <td>$[a]$</td>
+      <td>Tập tất cả phần tử tương đương với $a$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Phân hoạch</strong> (Partition)</td>
+      <td>-</td>
+      <td>Phân chia tập hợp thành các lớp tương đương</td>
+      <td>00.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tiên-đề-và-logic">Tiên Đề và Logic</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tiên đề chọn</strong> (Axiom of Choice)</td>
+      <td>AC</td>
+      <td>Có thể chọn một phần tử từ mỗi tập hợp</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Zorn</strong> (Zorn’s Lemma)</td>
+      <td>-</td>
+      <td>Mọi tập được sắp thứ tự bộ phận có phần tử tối đại</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Nguyên lý sắp thứ tự tốt</strong> (Well-Ordering Principle)</td>
+      <td>-</td>
+      <td>Mọi tập hợp đều có thể sắp thứ tự tốt</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Quy nạp toán học</strong> (Mathematical Induction)</td>
+      <td>-</td>
+      <td>Phương pháp chứng minh cho các số tự nhiên</td>
+      <td>00.02</td>
+    </tr>
+    <tr>
+      <td><strong>Phản chứng</strong> (Proof by Contradiction)</td>
+      <td>-</td>
+      <td>Giả sử phủ định để dẫn đến mâu thuẫn</td>
+      <td>00.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="số-thực-và-không-gian-euclid">Số Thực và Không Gian Euclid</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Số thực</strong> (Real Numbers)</td>
+      <td>$\mathbb{R}$</td>
+      <td>Tập hợp tất cả số thực</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian Euclid</strong> (Euclidean Space)</td>
+      <td>$\mathbb{R}^n$</td>
+      <td>Không gian $n$-chiều với metric Euclid</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Tính đầy đủ</strong> (Completeness)</td>
+      <td>-</td>
+      <td>Mọi dãy Cauchy đều hội tụ</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Cắt Dedekind</strong> (Dedekind Cut)</td>
+      <td>-</td>
+      <td>Cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$</td>
+      <td>00.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-01-topological-spaces-and-continuous-functions">📚 Chapter 01: Topological Spaces and Continuous Functions</h2>
+
+<h3 id="không-gian-tô-pô">Không Gian Tô-pô</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Không gian tô-pô</strong> (Topological Space)</td>
+      <td>$(X, \tau)$</td>
+      <td>Tập hợp $X$ với topology $\tau$</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology</strong></td>
+      <td>$\tau$</td>
+      <td>Họ các tập mở thỏa mãn ba tiên đề</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập mở</strong> (Open Set)</td>
+      <td>$U \in \tau$</td>
+      <td>Phần tử của topology</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập đóng</strong> (Closed Set)</td>
+      <td>$A$ closed</td>
+      <td>Phần bù của tập mở</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Topology tầm thường</strong> (Trivial Topology)</td>
+      <td>${\emptyset, X}$</td>
+      <td>Topology nhỏ nhất</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology rời rạc</strong> (Discrete Topology)</td>
+      <td>$\mathcal{P}(X)$</td>
+      <td>Topology lớn nhất (mọi tập đều mở)</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology hữu hạn bù</strong> (Cofinite Topology)</td>
+      <td>-</td>
+      <td>Tập mở là $\emptyset$ hoặc có phần bù hữu hạn</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology đếm được bù</strong> (Cocountable Topology)</td>
+      <td>-</td>
+      <td>Tập mở là $\emptyset$ hoặc có phần bù đếm được</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thô hơn</strong> (Coarser)</td>
+      <td>$\tau_1 \subseteq \tau_2$</td>
+      <td>Topology nhỏ hơn</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Mịn hơn</strong> (Finer)</td>
+      <td>$\tau_2 \supseteq \tau_1$</td>
+      <td>Topology lớn hơn</td>
+      <td>01.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cơ-sở-và-tiền-cơ-sở">Cơ Sở và Tiền Cơ Sở</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cơ sở</strong> (Basis)</td>
+      <td>$\mathcal{B}$</td>
+      <td>Họ tập mở sinh ra topology</td>
+      <td>01.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tiền cơ sở</strong> (Subbasis)</td>
+      <td>$\mathcal{S}$</td>
+      <td>Họ tập hợp sinh ra basis</td>
+      <td>01.01</td>
+    </tr>
+    <tr>
+      <td><strong>Cơ sở chuẩn</strong> (Standard Basis)</td>
+      <td>-</td>
+      <td>Cơ sở cho $\mathbb{R}^n$</td>
+      <td>01.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bao-đóng-và-phần-trong">Bao Đóng và Phần Trong</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bao đóng</strong> (Closure)</td>
+      <td>$\overline{A}$, $\mathrm{cl}(A)$</td>
+      <td>Tập đóng nhỏ nhất chứa $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Phần trong</strong> (Interior)</td>
+      <td>$A^\circ$, $\mathrm{int}(A)$</td>
+      <td>Tập mở lớn nhất chứa trong $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Biên</strong> (Boundary)</td>
+      <td>$\partial A$</td>
+      <td>$\overline{A} \setminus A^\circ$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm giới hạn</strong> (Limit Point)</td>
+      <td>-</td>
+      <td>Mọi lân cận đều chứa điểm khác của $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm cô lập</strong> (Isolated Point)</td>
+      <td>-</td>
+      <td>Có lân cận không chứa điểm khác của $A$</td>
+      <td>01.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hàm-liên-tục-và-đồng-phôi">Hàm Liên Tục và Đồng Phôi</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm liên tục</strong> (Continuous Function)</td>
+      <td>$f: X \to Y$</td>
+      <td>Ảnh ngược của tập mở là tập mở</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng phôi</strong> (Homeomorphism)</td>
+      <td>$f: X \cong Y$</td>
+      <td>Song ánh liên tục với hàm ngược liên tục</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Phép nhúng</strong> (Embedding)</td>
+      <td>$f: X \hookrightarrow Y$</td>
+      <td>Đồng phôi lên ảnh của nó</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Tương đương đồng luân</strong> (Homotopy Equivalence)</td>
+      <td>$X \simeq Y$</td>
+      <td>Tồn tại ánh xạ với đồng luân ngược</td>
+      <td>06.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="topology-con-và-tích">Topology Con và Tích</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Topology con</strong> (Subspace Topology)</td>
+      <td>$Y \subseteq X$</td>
+      <td>Topology cảm sinh trên tập con</td>
+      <td>01.04</td>
+    </tr>
+    <tr>
+      <td><strong>Topology tích</strong> (Product Topology)</td>
+      <td>$X \times Y$</td>
+      <td>Topology trên tích Descartes</td>
+      <td>01.04</td>
+    </tr>
+    <tr>
+      <td><strong>Hình chiếu</strong> (Projection)</td>
+      <td>$\pi_i: X_1 \times X_2 \to X_i$</td>
+      <td>Ánh xạ chiếu lên thành phần thứ $i$</td>
+      <td>01.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-02-connectedness-and-compactness">📚 Chapter 02: Connectedness and Compactness</h2>
+
+<h3 id="liên-thông">Liên Thông</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Liên thông</strong> (Connected)</td>
+      <td>-</td>
+      <td>Không thể phân thành hai tập mở rời nhau</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thành phần liên thông</strong> (Connected Component)</td>
+      <td>-</td>
+      <td>Tập liên thông lớn nhất chứa điểm</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Liên thông đường</strong> (Path-Connected)</td>
+      <td>-</td>
+      <td>Mọi hai điểm đều nối được bằng đường đi</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thành phần liên thông đường</strong> (Path Component)</td>
+      <td>-</td>
+      <td>Tập liên thông đường lớn nhất</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đường đi</strong> (Path)</td>
+      <td>$\gamma: [0,1] \to X$</td>
+      <td>Ánh xạ liên tục từ đoạn vào không gian</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Vòng lặp</strong> (Loop)</td>
+      <td>$\gamma: S^1 \to X$</td>
+      <td>Đường đi khép kín</td>
+      <td>06.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="compact">Compact</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Compact</strong></td>
+      <td>-</td>
+      <td>Mọi phủ mở đều có phủ con hữu hạn</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ mở</strong> (Open Cover)</td>
+      <td>${U_\alpha}$</td>
+      <td>Họ tập mở có hợp chứa không gian</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ con hữu hạn</strong> (Finite Subcover)</td>
+      <td>-</td>
+      <td>Phủ con có số phần tử hữu hạn</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Liên compact</strong> (Locally Compact)</td>
+      <td>-</td>
+      <td>Mọi điểm có lân cận compact</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa</strong> (Compactification)</td>
+      <td>$\hat{X}$</td>
+      <td>Không gian compact chứa $X$</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa một điểm</strong> (One-Point Compactification)</td>
+      <td>$X^*$</td>
+      <td>Thêm điểm vô cực</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa Stone-Čech</strong> (Stone-Čech Compactification)</td>
+      <td>$\beta X$</td>
+      <td>Compact hóa phổ quát</td>
+      <td>02.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-03-separation-axioms">📚 Chapter 03: Separation Axioms</h2>
+
+<h3 id="tiên-đề-tách">Tiên Đề Tách</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>T0-space</strong></td>
+      <td>-</td>
+      <td>Với mọi hai điểm, có tập mở chứa một điểm nhưng không chứa điểm kia</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>T1-space</strong></td>
+      <td>-</td>
+      <td>Mọi điểm đơn đều đóng</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>Hausdorff</strong> (T2)</td>
+      <td>-</td>
+      <td>Mọi hai điểm đều có lân cận rời nhau</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>Regular</strong> (T3)</td>
+      <td>-</td>
+      <td>Tập đóng và điểm không thuộc có lân cận rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Normal</strong> (T4)</td>
+      <td>-</td>
+      <td>Mọi hai tập đóng rời nhau có lân cận rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hoàn toàn chính quy</strong> (Completely Regular)</td>
+      <td>T3½</td>
+      <td>Regular và có hàm liên tục tách điểm và tập đóng</td>
+      <td>03.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tiên-đề-đếm-được">Tiên Đề Đếm Được</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đếm được thứ nhất</strong> (First Countable)</td>
+      <td>-</td>
+      <td>Mọi điểm có cơ sở lân cận đếm được</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Đếm được thứ hai</strong> (Second Countable)</td>
+      <td>-</td>
+      <td>Có cơ sở đếm được</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Separable</strong></td>
+      <td>-</td>
+      <td>Có tập con đếm được trù mật</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Lindelöf</strong></td>
+      <td>-</td>
+      <td>Mọi phủ mở đều có phủ con đếm được</td>
+      <td>03.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="định-lý-metrization">Định Lý Metrization</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metrizable</strong></td>
+      <td>-</td>
+      <td>Có thể định nghĩa metric sinh ra topology</td>
+      <td>03.03</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Urysohn Metrization</strong></td>
+      <td>-</td>
+      <td>T3 + Second countable $\Rightarrow$ Metrizable</td>
+      <td>03.03</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Urysohn</strong> (Urysohn’s Lemma)</td>
+      <td>-</td>
+      <td>Tồn tại hàm liên tục tách tập đóng rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Tietze Extension</strong></td>
+      <td>-</td>
+      <td>Hàm liên tục trên tập đóng có thể mở rộng</td>
+      <td>03.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-04-metric-spaces">📚 Chapter 04: Metric Spaces</h2>
+
+<h3 id="không-gian-metric">Không Gian Metric</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metric</strong> (Khoảng cách)</td>
+      <td>$d: X \times X \to \mathbb{R}$</td>
+      <td>Hàm khoảng cách thỏa mãn ba tiên đề</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Không gian metric</strong> (Metric Space)</td>
+      <td>$(X, d)$</td>
+      <td>Tập hợp với metric</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Quả cầu mở</strong> (Open Ball)</td>
+      <td>$B(x, r)$</td>
+      <td>${y : d(x,y) &lt; r}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Quả cầu đóng</strong> (Closed Ball)</td>
+      <td>$\overline{B}(x, r)$</td>
+      <td>${y : d(x,y) \leq r}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Metric Euclid</strong> (Euclidean Metric)</td>
+      <td>$d_2$</td>
+      <td>$\sqrt{\sum (x_i - y_i)^2}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Metric Manhattan</strong> (Manhattan Metric)</td>
+      <td>$d_1$</td>
+      <td>$\sum</td>
+      <td>x_i - y_i</td>
+      <td>$</td>
+      <td>04.00</td>
+    </tr>
+    <tr>
+      <td><strong>Metric Maximum</strong> (Maximum Metric)</td>
+      <td>$d_\infty$</td>
+      <td>$\max</td>
+      <td>x_i - y_i</td>
+      <td>$</td>
+      <td>04.00</td>
+    </tr>
+    <tr>
+      <td><strong>Metric rời rạc</strong> (Discrete Metric)</td>
+      <td>$d_{\mathrm{disc}}$</td>
+      <td>$d(x,y) = 1$ nếu $x \neq y$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tính-đầy-đủ-và-baire">Tính Đầy Đủ và Baire</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dãy Cauchy</strong> (Cauchy Sequence)</td>
+      <td>$(x_n)$</td>
+      <td>$\forall \epsilon &gt; 0, \exists N: m,n \geq N \Rightarrow d(x_m, x_n) &lt; \epsilon$</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đầy đủ</strong> (Complete)</td>
+      <td>-</td>
+      <td>Mọi dãy Cauchy đều hội tụ</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hoàn thiện</strong> (Completion)</td>
+      <td>$\hat{X}$</td>
+      <td>Không gian đầy đủ chứa $X$</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập không đâu trù mật</strong> (Nowhere Dense)</td>
+      <td>-</td>
+      <td>Phần trong của bao đóng rỗng</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập meager</strong> (Meager/First Category)</td>
+      <td>-</td>
+      <td>Hợp đếm được các tập không đâu trù mật</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập nonmeager</strong> (Nonmeager/Second Category)</td>
+      <td>-</td>
+      <td>Không phải meager</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Baire Category</strong></td>
+      <td>-</td>
+      <td>Không gian đầy đủ là nonmeager</td>
+      <td>04.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tính-liên-tục-đều">Tính Liên Tục Đều</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Liên tục đều</strong> (Uniformly Continuous)</td>
+      <td>-</td>
+      <td>$\forall \epsilon &gt; 0, \exists \delta &gt; 0: d(x,y) &lt; \delta \Rightarrow d(f(x), f(y)) &lt; \epsilon$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Lipschitz</strong></td>
+      <td>-</td>
+      <td>$d(f(x), f(y)) \leq L \cdot d(x,y)$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Hệ số Lipschitz</strong> (Lipschitz Constant)</td>
+      <td>$L$</td>
+      <td>Hằng số trong điều kiện Lipschitz</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Co rút</strong> (Contraction)</td>
+      <td>-</td>
+      <td>Lipschitz với $L &lt; 1$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý điểm cố định Banach</strong></td>
+      <td>-</td>
+      <td>Co rút trên không gian đầy đủ có điểm cố định duy nhất</td>
+      <td>04.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="metric-tích-và-không-gian-hàm">Metric Tích và Không Gian Hàm</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metric tích</strong> (Product Metric)</td>
+      <td>-</td>
+      <td>Metric trên tích các không gian metric</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian hàm</strong> (Function Space)</td>
+      <td>$C(X,Y)$</td>
+      <td>Tập các hàm liên tục</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Metric đều</strong> (Uniform Metric)</td>
+      <td>$d_\infty$</td>
+      <td>$\sup_{x \in X} d(f(x), g(x))$</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hội tụ đều</strong> (Uniform Convergence)</td>
+      <td>-</td>
+      <td>Hội tụ theo metric đều</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hội tụ điểm</strong> (Pointwise Convergence)</td>
+      <td>-</td>
+      <td>Hội tụ tại mỗi điểm</td>
+      <td>04.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-05-quotient-spaces">📚 Chapter 05: Quotient Spaces</h2>
+
+<h3 id="topology-thương">Topology Thương</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Quan hệ tương đương</strong> (Equivalence Relation)</td>
+      <td>$\sim$</td>
+      <td>Quan hệ phản xạ, đối xứng, bắc cầu</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập thương</strong> (Quotient Set)</td>
+      <td>$X/\sim$</td>
+      <td>Tập các lớp tương đương</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology thương</strong> (Quotient Topology)</td>
+      <td>-</td>
+      <td>Topology lớn nhất làm ánh xạ chiếu liên tục</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ chiếu</strong> (Projection Map)</td>
+      <td>$\pi: X \to X/\sim$</td>
+      <td>Ánh xạ gửi phần tử vào lớp tương đương</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ thương</strong> (Quotient Map)</td>
+      <td>$q: X \to Y$</td>
+      <td>Ánh xạ liên tục, mở, và toàn ánh</td>
+      <td>05.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="phân-loại-bề-mặt">Phân Loại Bề Mặt</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bề mặt</strong> (Surface)</td>
+      <td>-</td>
+      <td>2-manifold compact</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định hướng được</strong> (Orientable)</td>
+      <td>-</td>
+      <td>Có thể định hướng nhất quán</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Không định hướng được</strong> (Non-orientable)</td>
+      <td>-</td>
+      <td>Không thể định hướng</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Genus</strong></td>
+      <td>$g$</td>
+      <td>Số lỗ trong bề mặt</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đặc trưng Euler</strong> (Euler Characteristic)</td>
+      <td>$\chi$</td>
+      <td>$V - E + F$</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng liên thông</strong> (Connected Sum)</td>
+      <td>$#$</td>
+      <td>Phép toán ghép hai bề mặt</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đa giác cơ bản</strong> (Fundamental Polygon)</td>
+      <td>-</td>
+      <td>Biểu diễn bề mặt bằng đa giác</td>
+      <td>05.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="phức-cw">Phức CW</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Phức CW</strong> (CW Complex)</td>
+      <td>-</td>
+      <td>Không gian được xây dựng từ cells</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>n-cell</strong></td>
+      <td>$e^n$</td>
+      <td>Quả cầu mở $n$-chiều</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>Skeleton</strong></td>
+      <td>$X^n$</td>
+      <td>Phức con gồm các cells chiều $\leq n$</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ gắn</strong> (Attaching Map)</td>
+      <td>$\phi: S^{n-1} \to X^{n-1}$</td>
+      <td>Ánh xạ gắn $n$-cell vào skeleton</td>
+      <td>05.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tác-động-nhóm">Tác Động Nhóm</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tác động nhóm</strong> (Group Action)</td>
+      <td>$G \curvearrowright X$</td>
+      <td>Ánh xạ $G \times X \to X$ thỏa mãn tiên đề</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Quỹ đạo</strong> (Orbit)</td>
+      <td>$G \cdot x$</td>
+      <td>Tập ${g \cdot x : g \in G}$</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đẳng hướng</strong> (Stabilizer)</td>
+      <td>$G_x$</td>
+      <td>${g \in G : g \cdot x = x}$</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian quỹ đạo</strong> (Orbit Space)</td>
+      <td>$X/G$</td>
+      <td>Tập các quỹ đạo với topology thương</td>
+      <td>05.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-06-fundamental-group">📚 Chapter 06: Fundamental Group</h2>
+
+<h3 id="đồng-luân">Đồng Luân</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng luân</strong> (Homotopy)</td>
+      <td>$F: X \times [0,1] \to Y$</td>
+      <td>Biến dạng liên tục giữa hai ánh xạ</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng luân đường</strong> (Path Homotopy)</td>
+      <td>$\gamma \simeq_p \delta$</td>
+      <td>Đồng luân giữa các đường đi</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lớp đồng luân</strong> (Homotopy Class)</td>
+      <td>$[\gamma]$</td>
+      <td>Tập các đường đi đồng luân</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Co được</strong> (Contractible)</td>
+      <td>-</td>
+      <td>Đồng luân với điểm</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Rút đồng luân</strong> (Deformation Retract)</td>
+      <td>-</td>
+      <td>Rút liên tục về không gian con</td>
+      <td>06.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="nhóm-cơ-bản">Nhóm Cơ Bản</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nhóm cơ bản</strong> (Fundamental Group)</td>
+      <td>$\pi_1(X, x_0)$</td>
+      <td>Nhóm các lớp đồng luân của loops tại $x_0$</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm cơ sở</strong> (Basepoint)</td>
+      <td>$x_0$</td>
+      <td>Điểm cố định cho loops</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ghép nối</strong> (Concatenation)</td>
+      <td>$\gamma \cdot \delta$</td>
+      <td>Đi qua $\gamma$ rồi $\delta$</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đường đi ngược</strong> (Inverse Path)</td>
+      <td>$\gamma^{-1}$</td>
+      <td>Đi ngược lại đường đi</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Vòng lặp hằng</strong> (Constant Loop)</td>
+      <td>$e_{x_0}$</td>
+      <td>Vòng lặp không di chuyển</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Số vòng quay</strong> (Winding Number)</td>
+      <td>-</td>
+      <td>Số lần vòng quanh điểm</td>
+      <td>06.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="không-gian-phủ">Không Gian Phủ</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Không gian phủ</strong> (Covering Space)</td>
+      <td>$\tilde{X}$</td>
+      <td>Không gian phủ $X$</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ phủ</strong> (Covering Map)</td>
+      <td>$p: \tilde{X} \to X$</td>
+      <td>Ánh xạ phủ địa phương</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Lift</strong></td>
+      <td>$\tilde{f}$</td>
+      <td>Nâng ánh xạ lên không gian phủ</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ phổ quát</strong> (Universal Cover)</td>
+      <td>-</td>
+      <td>Phủ đơn liên</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Biến đổi Deck</strong> (Deck Transformation)</td>
+      <td>-</td>
+      <td>Tự đẳng cấu của không gian phủ</td>
+      <td>06.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="định-lý-van-kampen">Định Lý Van Kampen</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tích tự do</strong> (Free Product)</td>
+      <td>$G * H$</td>
+      <td>Tích tự do của hai nhóm</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tích tự do ghép</strong> (Amalgamated Free Product)</td>
+      <td>$G *_K H$</td>
+      <td>Tích tự do ghép qua nhóm con</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Seifert-Van Kampen</strong></td>
+      <td>-</td>
+      <td>Tính toán $\pi_1$ từ các phần</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng nêm</strong> (Wedge Sum)</td>
+      <td>$X \vee Y$</td>
+      <td>Ghép hai không gian tại một điểm</td>
+      <td>06.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-07-homology-theory">📚 Chapter 07: Homology Theory</h2>
+
+<h3 id="homology-đơn-hình">Homology Đơn Hình</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>n-đơn hình</strong> (n-Simplex)</td>
+      <td>$\sigma = [v_0, \ldots, v_n]$</td>
+      <td>Convex hull của $n+1$ điểm độc lập</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Mặt</strong> (Face)</td>
+      <td>$\partial_i \sigma$</td>
+      <td>Simplex con loại bỏ vertex $v_i$</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phức đơn hình</strong> (Simplicial Complex)</td>
+      <td>$K$</td>
+      <td>Tập các simplices đóng với mặt</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Thực hóa hình học</strong> (Geometric Realization)</td>
+      <td>$</td>
+      <td>K</td>
+      <td>$</td>
+      <td>Không gian tô-pô của phức</td>
+      <td>07.00</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm chuỗi</strong> (Chain Group)</td>
+      <td>$C_n(K)$</td>
+      <td>Nhóm abel tự do sinh bởi $n$-simplices</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Toán tử biên</strong> (Boundary Operator)</td>
+      <td>$\partial_n: C_n \to C_{n-1}$</td>
+      <td>Toán tử tính biên của simplex</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phức chuỗi</strong> (Chain Complex)</td>
+      <td>$(C_<em>, \partial_</em>)$</td>
+      <td>Dãy các nhóm và toán tử biên</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Chu trình</strong> (Cycle)</td>
+      <td>$Z_n = \ker(\partial_n)$</td>
+      <td>Phần tử có biên bằng 0</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Biên</strong> (Boundary)</td>
+      <td>$B_n = \mathrm{im}(\partial_{n+1})$</td>
+      <td>Phần tử là biên của phần tử khác</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đồng điều</strong> (Homology Group)</td>
+      <td>$H_n(K) = Z_n / B_n$</td>
+      <td>Chu trình modulo biên</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Số Betti</strong> (Betti Number)</td>
+      <td>$\beta_n = \mathrm{rank}(H_n)$</td>
+      <td>Hạng của nhóm đồng điều</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="homology-kỳ-dị">Homology Kỳ Dị</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đơn hình chuẩn</strong> (Standard Simplex)</td>
+      <td>$\Delta^n$</td>
+      <td>Simplex chuẩn trong $\mathbb{R}^{n+1}$</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tọa độ barycentric</strong> (Barycentric Coordinates)</td>
+      <td>$(t_0, \ldots, t_n)$</td>
+      <td>Tọa độ trong simplex</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ mặt</strong> (Face Map)</td>
+      <td>$\delta_i: \Delta^{n-1} \to \Delta^n$</td>
+      <td>Ánh xạ vào mặt thứ $i$</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ suy biến</strong> (Degeneracy Map)</td>
+      <td>$s_i: \Delta^{n+1} \to \Delta^n$</td>
+      <td>Ánh xạ suy biến</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>n-đơn hình kỳ dị</strong> (Singular n-Simplex)</td>
+      <td>$\sigma: \Delta^n \to X$</td>
+      <td>Ánh xạ liên tục từ simplex chuẩn</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm chuỗi kỳ dị</strong> (Singular Chain Group)</td>
+      <td>$C_n(X)$</td>
+      <td>Nhóm abel tự do sinh bởi singular simplices</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Homology kỳ dị</strong> (Singular Homology)</td>
+      <td>$H_n(X)$</td>
+      <td>Homology của phức chuỗi kỳ dị</td>
+      <td>07.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dãy-mayer-vietoris">Dãy Mayer-Vietoris</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dãy khớp</strong> (Exact Sequence)</td>
+      <td>-</td>
+      <td>Dãy với $\mathrm{im} = \ker$</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Dãy khớp ngắn</strong> (Short Exact Sequence)</td>
+      <td>$0 \to A \to B \to C \to 0$</td>
+      <td>Dãy khớp với 5 phần tử</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Dãy Mayer-Vietoris</strong></td>
+      <td>-</td>
+      <td>Dãy khớp dài tính $H_n$ từ các phần</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ nối</strong> (Connecting Homomorphism)</td>
+      <td>$\partial_*$</td>
+      <td>Ánh xạ nối trong dãy khớp</td>
+      <td>07.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="đồng-điều">Đồng Điều</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng điều</strong> (Cohomology)</td>
+      <td>$H^n(X)$</td>
+      <td>Đối ngẫu của homology</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đối chuỗi</strong> (Cochain Group)</td>
+      <td>$C^n(X)$</td>
+      <td>$\mathrm{Hom}(C_n(X), \mathbb{Z})$</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Toán tử đối biên</strong> (Coboundary Operator)</td>
+      <td>$\delta: C^n \to C^{n+1}$</td>
+      <td>Đối ngẫu của toán tử biên</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tích cúp</strong> (Cup Product)</td>
+      <td>$\cup$</td>
+      <td>Phép nhân trong cohomology</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Vành đồng điều</strong> (Cohomology Ring)</td>
+      <td>$H^*(X)$</td>
+      <td>Cohomology với tích cúp</td>
+      <td>07.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-08-advanced-topics">📚 Chapter 08: Advanced Topics</h2>
+
+<h3 id="nhóm-đồng-luân-cao">Nhóm Đồng Luân Cao</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nhóm đồng luân n</strong> (n-th Homotopy Group)</td>
+      <td>$\pi_n(X, x_0)$</td>
+      <td>Nhóm các lớp đồng luân của ánh xạ $S^n \to X$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Bậc của ánh xạ</strong> (Degree of a Map)</td>
+      <td>$\deg(f)$</td>
+      <td>Số nguyên đặc trưng ánh xạ $S^n \to S^n$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Fibration Hopf</strong> (Hopf Fibration)</td>
+      <td>$S^3 \to S^2$</td>
+      <td>Fibration quan trọng</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Freudenthal Suspension</strong></td>
+      <td>-</td>
+      <td>Liên hệ $\pi_n$ và $\pi_{n+1}$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đồng luân ổn định</strong> (Stable Homotopy Groups)</td>
+      <td>$\pi_k^s$</td>
+      <td>Giới hạn của $\pi_{n+k}(S^n)$</td>
+      <td>08.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bó-sợi-và-bó-vectơ">Bó Sợi và Bó Vectơ</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bó sợi</strong> (Fiber Bundle)</td>
+      <td>$E \to B$</td>
+      <td>Không gian phủ địa phương với fiber</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Cơ sở</strong> (Base Space)</td>
+      <td>$B$</td>
+      <td>Không gian cơ sở</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng</strong> (Total Space)</td>
+      <td>$E$</td>
+      <td>Không gian tổng</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Sợi</strong> (Fiber)</td>
+      <td>$F$</td>
+      <td>Không gian sợi</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tầm thường địa phương</strong> (Locally Trivial)</td>
+      <td>-</td>
+      <td>Địa phương giống tích</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hàm chuyển tiếp</strong> (Transition Function)</td>
+      <td>-</td>
+      <td>Hàm chuyển đổi giữa các biểu đồ</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó vectơ</strong> (Vector Bundle)</td>
+      <td>-</td>
+      <td>Bó sợi với fiber là không gian vectơ</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó tiếp tuyến</strong> (Tangent Bundle)</td>
+      <td>$TM$</td>
+      <td>Bó vectơ của các vectơ tiếp tuyến</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó chuẩn</strong> (Normal Bundle)</td>
+      <td>$\nu(M)$</td>
+      <td>Bó vectơ của các vectơ pháp tuyến</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó chính</strong> (Principal Bundle)</td>
+      <td>-</td>
+      <td>Bó sợi với fiber là nhóm Lie</td>
+      <td>08.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lý-thuyết-morse">Lý Thuyết Morse</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm Morse</strong> (Morse Function)</td>
+      <td>$f: M \to \mathbb{R}$</td>
+      <td>Hàm với các điểm tới hạn không suy biến</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm tới hạn</strong> (Critical Point)</td>
+      <td>-</td>
+      <td>Điểm với $df = 0$</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Chỉ số</strong> (Index)</td>
+      <td>$\lambda$</td>
+      <td>Số giá trị riêng âm của Hessian</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Tập mức dưới</strong> (Sublevel Set)</td>
+      <td>$M^a$</td>
+      <td>${x : f(x) \leq a}$</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Morse</strong> (Morse Lemma)</td>
+      <td>-</td>
+      <td>Dạng chuẩn của hàm Morse tại điểm tới hạn</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Bất đẳng thức Morse</strong> (Morse Inequalities)</td>
+      <td>-</td>
+      <td>$c_k \geq \beta_k$</td>
+      <td>08.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="đa-tạp-tô-pô">Đa Tạp Tô-pô</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đa tạp tô-pô</strong> (Topological Manifold)</td>
+      <td>$M$</td>
+      <td>Không gian Hausdorff, đếm được thứ hai, địa phương Euclid</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Biểu đồ</strong> (Chart)</td>
+      <td>$(U, \phi)$</td>
+      <td>Mở $U$ với homeomorphism vào $\mathbb{R}^n$</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Atlas</strong></td>
+      <td>-</td>
+      <td>Tập các biểu đồ phủ đa tạp</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đa tạp trơn</strong> (Smooth Manifold)</td>
+      <td>-</td>
+      <td>Đa tạp với atlas trơn</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đa tạp có biên</strong> (Manifold with Boundary)</td>
+      <td>-</td>
+      <td>Đa tạp với biên</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hình cầu kỳ lạ</strong> (Exotic Sphere)</td>
+      <td>-</td>
+      <td>Đa tạp homeomorphic nhưng không diffeomorphic với $S^n$</td>
+      <td>08.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lý-thuyết-nút">Lý Thuyết Nút</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nút</strong> (Knot)</td>
+      <td>$K: S^1 \to \mathbb{R}^3$</td>
+      <td>Embedding của đường tròn vào không gian 3D</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nút không</strong> (Unknot)</td>
+      <td>-</td>
+      <td>Nút tầm thường (đường tròn)</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tương đương nút</strong> (Knot Equivalence)</td>
+      <td>-</td>
+      <td>Ambient isotopic</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phép biến đổi Reidemeister</strong> (Reidemeister Move)</td>
+      <td>RI, RII, RIII</td>
+      <td>Ba phép biến đổi cơ bản trên diagram</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Mặt Seifert</strong> (Seifert Surface)</td>
+      <td>$\Sigma$</td>
+      <td>Mặt có biên là nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Genus của nút</strong> (Knot Genus)</td>
+      <td>$g(K)$</td>
+      <td>Genus nhỏ nhất của Seifert surface</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm nút</strong> (Knot Group)</td>
+      <td>$\pi_1(S^3 \setminus K)$</td>
+      <td>Fundamental group của phần bù nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Alexander</strong> (Alexander Polynomial)</td>
+      <td>$\Delta_K(t)$</td>
+      <td>Đa thức bất biến của nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Conway</strong> (Conway Polynomial)</td>
+      <td>$\nabla_K(z)$</td>
+      <td>Đa thức với skein relation đơn giản</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Jones</strong> (Jones Polynomial)</td>
+      <td>$V_K(t)$</td>
+      <td>Đa thức bất biến lượng tử</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Chữ ký</strong> (Signature)</td>
+      <td>$\sigma(K)$</td>
+      <td>Số nguyên bất biến của nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nút slice</strong> (Slice Knot)</td>
+      <td>-</td>
+      <td>Nút là biên của đĩa trong $B^4$</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phần bù nút</strong> (Knot Complement)</td>
+      <td>$S^3 \setminus K$</td>
+      <td>Không gian thu được bằng cách loại bỏ nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phẫu thuật Dehn</strong> (Dehn Surgery)</td>
+      <td>-</td>
+      <td>Phương pháp tạo 3-manifold từ nút</td>
+      <td>08.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-09-topology-đại-chúng">📚 Chapter 09: Topology Đại Chúng</h2>
+
+<h3 id="khái-niệm-cơ-bản">Khái Niệm Cơ Bản</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng phôi</strong> (Homeomorphism)</td>
+      <td>$X \cong Y$</td>
+      <td>Song ánh liên tục với hàm ngược liên tục</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Biến dạng liên tục</strong> (Continuous Deformation)</td>
+      <td>-</td>
+      <td>Biến đổi không cắt hoặc dán</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lỗ</strong> (Hole)</td>
+      <td>-</td>
+      <td>Đặc trưng topology của không gian</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đồ thị</strong> (Graph)</td>
+      <td>$G = (V, E)$</td>
+      <td>Tập đỉnh và cạnh</td>
+      <td>09.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đường Euler</strong> (Euler Path)</td>
+      <td>-</td>
+      <td>Đường đi qua mỗi cạnh đúng một lần</td>
+      <td>09.01</td>
+    </tr>
+    <tr>
+      <td><strong>Mặt Möbius</strong> (Möbius Strip)</td>
+      <td>-</td>
+      <td>Mặt không định hướng với một mặt</td>
+      <td>09.02</td>
+    </tr>
+    <tr>
+      <td><strong>Định hướng</strong> (Orientability)</td>
+      <td>-</td>
+      <td>Tính chất có thể định hướng</td>
+      <td>09.02</td>
+    </tr>
+    <tr>
+      <td><strong>Đặc trưng Euler</strong> (Euler Characteristic)</td>
+      <td>$\chi = V - E + F$</td>
+      <td>Bất biến topology</td>
+      <td>09.03</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý bốn màu</strong> (Four Color Theorem)</td>
+      <td>-</td>
+      <td>Mọi bản đồ phẳng có thể tô bằng 4 màu</td>
+      <td>09.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phân tích dữ liệu tô-pô</strong> (TDA)</td>
+      <td>-</td>
+      <td>Phương pháp phân tích dữ liệu bằng topology</td>
+      <td>09.07</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng điều bền vững</strong> (Persistent Homology)</td>
+      <td>-</td>
+      <td>Homology theo tham số</td>
+      <td>09.07</td>
+    </tr>
+    <tr>
+      <td><strong>Giả thuyết Poincaré</strong> (Poincaré Conjecture)</td>
+      <td>-</td>
+      <td>Định lý về 3-manifold đơn liên</td>
+      <td>09.08</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-ký-hiệu-toán-học-thường-dùng">🎯 Ký Hiệu Toán Học Thường Dùng</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ký Hiệu</th>
+      <th>Ý Nghĩa</th>
+      <th>Ví Dụ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\mathbb{R}$</td>
+      <td>Số thực</td>
+      <td>$\mathbb{R}^n$ - không gian Euclid $n$-chiều</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{Z}$</td>
+      <td>Số nguyên</td>
+      <td>$\pi_1(S^1) \cong \mathbb{Z}$</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{Q}$</td>
+      <td>Số hữu tỉ</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{N}$</td>
+      <td>Số tự nhiên</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\emptyset$</td>
+      <td>Tập rỗng</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\in$</td>
+      <td>Thuộc về</td>
+      <td>$x \in A$</td>
+    </tr>
+    <tr>
+      <td>$\subseteq$</td>
+      <td>Tập con</td>
+      <td>$A \subseteq B$</td>
+    </tr>
+    <tr>
+      <td>$\cup$</td>
+      <td>Hợp</td>
+      <td>$A \cup B$</td>
+    </tr>
+    <tr>
+      <td>$\cap$</td>
+      <td>Giao</td>
+      <td>$A \cap B$</td>
+    </tr>
+    <tr>
+      <td>$\setminus$</td>
+      <td>Hiệu</td>
+      <td>$A \setminus B$</td>
+    </tr>
+    <tr>
+      <td>$\times$</td>
+      <td>Tích Descartes</td>
+      <td>$X \times Y$</td>
+    </tr>
+    <tr>
+      <td>$\cong$</td>
+      <td>Đẳng cấu</td>
+      <td>$X \cong Y$</td>
+    </tr>
+    <tr>
+      <td>$\simeq$</td>
+      <td>Tương đương đồng luân</td>
+      <td>$X \simeq Y$</td>
+    </tr>
+    <tr>
+      <td>$\to$</td>
+      <td>Ánh xạ</td>
+      <td>$f: X \to Y$</td>
+    </tr>
+    <tr>
+      <td>$\hookrightarrow$</td>
+      <td>Nhúng</td>
+      <td>$X \hookrightarrow Y$</td>
+    </tr>
+    <tr>
+      <td>$\partial$</td>
+      <td>Biên</td>
+      <td>$\partial A$, $\partial_n$</td>
+    </tr>
+    <tr>
+      <td>$\pi$</td>
+      <td>Ánh xạ chiếu hoặc số pi</td>
+      <td>$\pi: X \to X/\sim$, $\pi_1(X)$</td>
+    </tr>
+    <tr>
+      <td>$\sim$</td>
+      <td>Quan hệ tương đương</td>
+      <td>$x \sim y$</td>
+    </tr>
+    <tr>
+      <td>$S^n$</td>
+      <td>Hình cầu $n$-chiều</td>
+      <td>$S^1$ - đường tròn</td>
+    </tr>
+    <tr>
+      <td>$D^n$</td>
+      <td>Quả cầu đóng $n$-chiều</td>
+      <td>$D^2$ - đĩa</td>
+    </tr>
+    <tr>
+      <td>$B^n$</td>
+      <td>Quả cầu mở $n$-chiều</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$T^n$</td>
+      <td>Torus $n$-chiều</td>
+      <td>$T^2$ - torus</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{R}P^n$</td>
+      <td>Không gian xạ ảnh thực $n$-chiều</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{C}P^n$</td>
+      <td>Không gian xạ ảnh phức $n$-chiều</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-ghi-chú">📝 Ghi Chú</h2>
+
+<p><strong>Cách sử dụng bảng:</strong></p>
+
+<ol>
+  <li><strong>Tra cứu theo chương:</strong> Tìm thuật ngữ trong chương tương ứng</li>
+  <li><strong>Tra cứu theo ký hiệu:</strong> Sử dụng bảng ký hiệu để tìm ý nghĩa</li>
+  <li><strong>Tra cứu theo tên:</strong> Tìm kiếm theo tên tiếng Việt hoặc tiếng Anh</li>
+</ol>
+
+<p><strong>Lưu ý:</strong></p>
+
+<ul>
+  <li>Một số thuật ngữ xuất hiện ở nhiều chương khác nhau</li>
+  <li>Các định nghĩa ở đây là ngắn gọn, chi tiết hơn xem trong các bài học cụ thể</li>
+  <li>Ký hiệu có thể khác nhau tùy theo tài liệu, nhưng đã được chuẩn hóa trong khóa học này</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="tài-liệu-tham-khảo-chính">Tài Liệu Tham Khảo Chính</h3>
+
+<ol>
+  <li>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed.<br />
+<em>Giáo trình kinh điển về topology</em></p>
+  </li>
+  <li>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology without Tears</em><br />
+<em>Giáo trình dễ tiếp cận</em></p>
+  </li>
+  <li>
+    <p><strong>Colin Adams &amp; Robert Franzosa</strong> - <em>Introduction to Topology: Pure and Applied</em><br />
+<em>Kết hợp lý thuyết và ứng dụng</em></p>
+  </li>
+  <li>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em><br />
+<em>Giáo trình về topology đại số</em></p>
+  </li>
+  <li>
+    <p><strong>W.B. Raymond Lickorish</strong> - <em>An Introduction to Knot Theory</em><br />
+<em>Giáo trình về lý thuyết nút</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<p>Từ điển này tổng hợp các thuật ngữ từ toàn bộ khóa học topology, từ các khái niệm cơ bản nhất về tập hợp và không gian tô-pô đến các chủ đề nâng cao như lý thuyết nút và topology đại số. Việc hiểu và sử dụng đúng các thuật ngữ này là nền tảng quan trọng để nghiên cứu sâu hơn về topology và các ứng dụng của nó.</p>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Tra cứu:</strong> Hãy tìm định nghĩa của một thuật ngữ cụ thể mà bạn quan tâm.</p>
+  </li>
+  <li>
+    <p><strong>Phân loại:</strong> Hãy phân loại các thuật ngữ theo các nhóm: định nghĩa cơ bản, định lý, kỹ thuật tính toán, ứng dụng.</p>
+  </li>
+  <li>
+    <p><strong>Liên kết:</strong> Hãy tìm các thuật ngữ liên quan đến nhau và giải thích mối liên hệ giữa chúng.</p>
+  </li>
+  <li>
+    <p><strong>Mở rộng:</strong> Hãy tìm hiểu thêm về các thuật ngữ mà bạn chưa hiểu rõ từ các bài học tương ứng.</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-thực-tế">Thử nghiệm thực tế</h3>
+
+<ol>
+  <li>
+    <p><strong>Tạo từ điển cá nhân:</strong> Hãy tạo một từ điển riêng với các ví dụ và giải thích của bạn.</p>
+  </li>
+  <li>
+    <p><strong>Ôn tập:</strong> Sử dụng từ điển này để ôn tập lại các khái niệm đã học.</p>
+  </li>
+  <li>
+    <p><strong>Tham khảo:</strong> Sử dụng từ điển này khi đọc các bài học khác để hiểu các thuật ngữ mới.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Từ điển này là một công cụ tham khảo quan trọng cho toàn bộ khóa học topology. Nó tổng hợp:</p>
+
+<ul>
+  <li><strong>Hơn 200 thuật ngữ toán học</strong> từ các chương khác nhau</li>
+  <li><strong>Các ký hiệu toán học</strong> thường dùng</li>
+  <li><strong>Định nghĩa ngắn gọn</strong> cho mỗi thuật ngữ</li>
+  <li><strong>Tham chiếu chương</strong> để tìm hiểu chi tiết hơn</li>
+</ul>
+
+<p>Sử dụng từ điển này một cách hiệu quả sẽ giúp bạn nắm vững các khái niệm topology và áp dụng chúng trong nghiên cứu và ứng dụng thực tế!</p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter9/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

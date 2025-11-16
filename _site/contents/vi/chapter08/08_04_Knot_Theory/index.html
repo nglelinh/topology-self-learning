@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Lecture 08.04: Knot Theory - Lý Thuyết Nút &middot; Topology Self-Learning
+    
+  </title>
+
+  <link rel="stylesheet" href="/topology-self-learning/public/css/poole.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/syntax.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/lanyon.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/github-markdown.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/multilang.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/search.css">
+  <link rel="stylesheet" href="/topology-self-learning/public/css/content-boxes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Lunr.js for search functionality -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="http://localhost:4000/topology-self-learning/public/logo.png">
+  <link rel="shortcut icon" href="http://localhost:4000/topology-self-learning/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/topology-self-learning/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Khóa học Topology toàn diện cho sinh viên toán</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/">Trang chủ</a>
+
+    
+
+    
+    
+    
+    <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter00/">
+              00. Foundations and Set-Theoretic Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter01/">
+              01. Topological Spaces and Continuous Functions
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter02/">
+              02. Connectedness and Compactness
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter03/">
+              03. Separation Axioms and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter04/">
+              04. Metric Spaces and Metrization
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter05/">
+              05. Quotient Spaces and Surfaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter06/">
+              06. Fundamental Group and Covering Spaces
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter07/">
+              07. Homology Theory
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/">
+              08. Advanced Topics in Topology
+              
+            </a>
+          
+        
+      
+    
+      
+        
+          
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/">
+              09. Topology Đại Chúng
+              
+            </a>
+          
+        
+      
+    
+    
+    <!-- Nếu không có nội dung cho ngôn ngữ hiện tại, hiển thị thông báo -->
+    
+    
+    <span class="sidebar-nav-item">Currently v0.0.1</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2025. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/topology-self-learning/" title="Trang chủ">Tự học Tô-pô</a>
+            <small></small>
+          </h3>
+          <!-- Header Actions: Language Toggle and GitHub Link -->
+          <div class="header-actions">
+            <div class="language-toggle">
+              <a href="/topology-self-learning/" class="language-switch" title="Chuyển sang tiếng Anh">Chuyển sang tiếng Anh</a>
+            </div>
+            <a class="github-logo__wrapper" target="_blank" href="https://github.com/nglelinh/topology-self-learning" title="Github">
+             <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">
+    Lecture 08.04: Knot Theory - Lý Thuyết Nút
+    
+  </h1>
+  <p><strong>Knot Theory - Nghiên Cứu Về Các Nút Toán Học</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Knot theory là một nhánh quan trọng của topology nghiên cứu về các “nút” toán học—các đường cong khép kín trong không gian ba chiều. Mặc dù khái niệm về nút có vẻ đơn giản (chúng ta đều quen thuộc với các nút thắt trong dây), nhưng toán học đằng sau chúng lại cực kỳ phức tạp và sâu sắc.</p>
+
+<p>Một trong những câu hỏi cơ bản nhất trong knot theory là: <strong>Làm thế nào để chúng ta biết hai nút có “giống nhau” hay không?</strong> Đây là một câu hỏi khó hơn nhiều so với vẻ ngoài của nó. Hai nút có thể trông rất khác nhau nhưng lại là cùng một nút (có thể biến đổi thành nhau bằng cách kéo dãn và bóp méo), hoặc có thể trông giống nhau nhưng lại là các nút khác nhau.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá knot theory một cách chuyên sâu: định nghĩa toán học của nút, các bất biến knot (knot invariants) như Alexander polynomial và Jones polynomial, cách tính toán knot groups, và các phương pháp phân loại nút. Chúng ta cũng sẽ khám phá các kết nối với các lĩnh vực khác của toán học như topology đại số và hình học.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Knot_table.svg/800px-Knot_table.svg.png" alt="Knot table" /><br />
+<em>Bảng các nút toán học cơ bản - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Knot_table.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Knot theory không chỉ là một chủ đề toán học thú vị—nó có nhiều ứng dụng trong vật lý (đặc biệt là trong lý thuyết trường lượng tử), hóa học (cấu trúc phân tử), và sinh học (cấu trúc DNA và protein). Hiểu được knot theory giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều và các ứng dụng của nó.</p>
+
+<hr />
+
+<h2 id="-định-nghĩa-toán-học-của-nút">🎯 Định Nghĩa Toán Học của Nút</h2>
+
+<h3 id="nút-là-gì">Nút là gì?</h3>
+
+<p>Knot theory xem xét cụ thể các <strong>ánh xạ không tự cắt nhau</strong> (non-self-crossing mappings) từ một đường tròn vào không gian ba chiều, được coi như các nút với các đầu được buộc lại với nhau.</p>
+
+<p><strong>Định nghĩa chính xác:</strong></p>
+
+<p>Trong toán học, một <strong>nút</strong> (knot) là một embedding của đường tròn $S^1$ vào không gian ba chiều $\mathbb{R}^3$ (hoặc hình cầu ba chiều $S^3$). Cụ thể hơn:</p>
+
+<p>Một <strong>nút</strong> là một ánh xạ liên tục và đơn ánh (injective) $K: S^1 \to \mathbb{R}^3$ sao cho:</p>
+<ul>
+  <li>Ánh xạ ngược $K^{-1}: K(S^1) \to S^1$ cũng liên tục</li>
+  <li>Ánh xạ không tự cắt nhau—không có điểm nào trên đường cong tự cắt chính nó</li>
+  <li>Đường cong là khép kín—các đầu được “buộc lại với nhau”</li>
+</ul>
+
+<p><strong>Điều quan trọng:</strong></p>
+
+<ul>
+  <li><strong>Khép kín:</strong> Đường cong phải khép kín—không có điểm đầu và điểm cuối, các đầu được buộc lại với nhau</li>
+  <li><strong>Không tự cắt:</strong> Ánh xạ không được tự cắt chính nó—đây là yêu cầu cụ thể của knot theory</li>
+  <li><strong>Trong không gian 3D:</strong> Nút phải tồn tại trong không gian ba chiều (hoặc hình cầu ba chiều)</li>
+  <li><strong>Embedding:</strong> Ánh xạ phải là một embedding—một homeomorphism lên ảnh của nó</li>
+</ul>
+
+<p><strong>Tại sao “không tự cắt” quan trọng?</strong></p>
+
+<p>Yêu cầu không tự cắt nhau là điều làm cho knot theory trở nên thú vị. Nếu chúng ta cho phép tự cắt nhau, mọi đường cong khép kín đều có thể được biến đổi thành nhau, và không có gì để nghiên cứu. Yêu cầu không tự cắt nhau tạo ra sự phong phú và phức tạp của knot theory.</p>
+
+<h3 id="unknot-nút-không">Unknot (Nút Không)</h3>
+
+<p><strong>Unknot</strong> (còn gọi là trivial knot) là nút đơn giản nhất. Về mặt toán học, unknot chỉ đơn giản là <strong>ánh xạ đường tròn thành một đường tròn trong không gian</strong>—một embedding của $S^1$ vào $\mathbb{R}^3$ mà ảnh của nó là một đường tròn đơn giản trong không gian.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Unknot.svg/300px-Unknot.svg.png" alt="Unknot" /><br />
+<em>Unknot - nút đơn giản nhất - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Unknot.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Định nghĩa chính xác:</strong></p>
+
+<p>Unknot là ánh xạ $K: S^1 \to \mathbb{R}^3$ sao cho $K(S^1)$ là một đường tròn trong không gian ba chiều. Nói cách khác, unknot là ánh xạ đường tròn thành một đường tròn trong không gian—không có nút thắt nào.</p>
+
+<p><strong>Tương đương:</strong> Unknot là nút có thể được biến đổi thành một vòng tròn phẳng bằng cách kéo dãn và bóp méo (không cắt hoặc dán).</p>
+
+<p><strong>Tại sao gọi là “nút không”?</strong></p>
+
+<p>Mặc dù unknot trông giống một vòng tròn đơn giản, nó vẫn được coi là một nút vì định nghĩa toán học của nút chỉ yêu cầu một embedding của $S^1$ vào $\mathbb{R}^3$. Unknot là nút “tầm thường” nhất—nó không có nút thắt nào, chỉ đơn giản là ánh xạ đường tròn thành đường tròn trong không gian.</p>
+
+<h3 id="knot-equivalence-tương-đương-nút">Knot Equivalence (Tương Đương Nút)</h3>
+
+<p><strong>Định nghĩa tương đương:</strong></p>
+
+<p>Hai nút được coi là <strong>tương đương</strong> (equivalent) nếu một nút có thể được <strong>biến đổi liên tục</strong> thành nút kia trong khi vẫn giữ nó như một nút—nghĩa là:</p>
+<ul>
+  <li>Không giới thiệu sự gián đoạn (discontinuity)</li>
+  <li>Không để nó tự cắt qua chính nó (self-crossing)</li>
+  <li>Luôn duy trì tính chất là một embedding của $S^1$ vào $\mathbb{R}^3$</li>
+</ul>
+
+<p><strong>Ambient Isotopy:</strong></p>
+
+<p>Hai nút $K_1$ và $K_2$ là <strong>ambient isotopic</strong> nếu tồn tại một ánh xạ liên tục $H: \mathbb{R}^3 \times [0,1] \to \mathbb{R}^3$ sao cho:</p>
+<ul>
+  <li>$H(x, 0) = x$ cho mọi $x \in \mathbb{R}^3$</li>
+  <li>$H(K_1, 1) = K_2$</li>
+  <li>$H(\cdot, t)$ là một homeomorphism cho mọi $t \in [0,1]$</li>
+  <li>Quan trọng: $H(K_1, t)$ luôn là một nút (không tự cắt) cho mọi $t \in [0,1]$</li>
+</ul>
+
+<p>Nói cách khác, chúng ta có thể “kéo dãn” không gian xung quanh để biến đổi một nút thành nút kia, nhưng trong suốt quá trình biến đổi, đường cong luôn phải là một nút hợp lệ—không được tự cắt hoặc tạo ra sự gián đoạn.</p>
+
+<p><strong>Bài toán chuẩn của Knot Theory:</strong></p>
+
+<p><strong>Xác định xem hai nút có tương đương hay không</strong> là một bài toán chuẩn và cơ bản của knot theory. Đây là một trong những câu hỏi quan trọng nhất trong lĩnh vực này, và việc giải quyết nó đòi hỏi các công cụ toán học phức tạp như knot invariants.</p>
+
+<hr />
+
+<h2 id="-reidemeister-moves">🔄 Reidemeister Moves</h2>
+
+<h3 id="ba-phép-biến-đổi-cơ-bản">Ba Phép Biến Đổi Cơ Bản</h3>
+
+<p>Reidemeister moves là ba phép biến đổi cơ bản cho phép chúng ta biến đổi một diagram của nút (hình chiếu 2D của nút) mà không thay đổi loại nút:</p>
+
+<p><strong>Reidemeister Move I (RI):</strong></p>
+<ul>
+  <li>Xoắn hoặc tháo xoắn một vòng lặp</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Reidemeister_move_1.svg/300px-Reidemeister_move_1.svg.png" alt="Reidemeister move I" /><br />
+<em>Reidemeister Move I - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Reidemeister_move_1.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Reidemeister Move II (RII):</strong></p>
+<ul>
+  <li>Di chuyển một vòng lặp qua hoặc dưới một vòng lặp khác</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Reidemeister_move_2.svg/300px-Reidemeister_move_2.svg.png" alt="Reidemeister move II" /><br />
+<em>Reidemeister Move II - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Reidemeister_move_2.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Reidemeister Move III (RIII):</strong></p>
+<ul>
+  <li>Di chuyển một vòng lặp qua một điểm giao nhau</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Reidemeister_move_3.svg/300px-Reidemeister_move_3.svg.png" alt="Reidemeister move III" /><br />
+<em>Reidemeister Move III - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Reidemeister_move_3.svg">Wikimedia Commons</a></em></p>
+
+<h3 id="định-lý-reidemeister">Định Lý Reidemeister</h3>
+
+<p><strong>Định lý Reidemeister (1927):</strong></p>
+
+<p>Hai diagram của nút biểu diễn cùng một nút nếu và chỉ nếu một diagram có thể được biến đổi thành diagram kia bằng một chuỗi hữu hạn các Reidemeister moves.</p>
+
+<p><strong>Ý nghĩa:</strong></p>
+
+<p>Định lý này cho phép chúng ta làm việc với các diagram 2D của nút thay vì phải làm việc trực tiếp với các nút 3D phức tạp. Đây là một công cụ mạnh mẽ để nghiên cứu và phân loại nút.</p>
+
+<p><strong>Liên hệ với topology:</strong> Reidemeister moves tương ứng với các phép biến đổi topology của nút—chúng không thay đổi loại nút, chỉ thay đổi cách biểu diễn của nó.</p>
+
+<hr />
+
+<h2 id="-seifert-surfaces-mặt-seifert">🌊 Seifert Surfaces (Mặt Seifert)</h2>
+
+<h3 id="định-nghĩa-và-ý-nghĩa">Định Nghĩa và Ý Nghĩa</h3>
+
+<p>Một <strong>Seifert surface</strong> của một nút $K$ là một mặt có biên (compact, orientable surface) có biên là nút $K$. Nói cách khác, đây là một mặt hai chiều trong không gian ba chiều mà biên của nó chính là nút.</p>
+
+<p><strong>Định nghĩa chính xác:</strong></p>
+
+<p>Cho một nút $K$ trong $S^3$, một <strong>Seifert surface</strong> cho $K$ là một mặt có biên compact, orientable $\Sigma \subset S^3$ sao cho $\partial \Sigma = K$.</p>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+
+<p>Seifert surfaces là một công cụ mạnh mẽ trong knot theory vì:</p>
+<ul>
+  <li>Chúng liên kết nút (một đối tượng một chiều) với mặt (một đối tượng hai chiều)</li>
+  <li>Chúng cho phép chúng ta nghiên cứu tính chất của nút thông qua tính chất của mặt</li>
+  <li>Chúng được sử dụng để tính toán các bất biến như genus của nút</li>
+</ul>
+
+<h3 id="thuật-toán-xây-dựng-seifert-surface">Thuật Toán Xây Dựng Seifert Surface</h3>
+
+<p><strong>Thuật toán Seifert (1934):</strong></p>
+
+<p>Cho một knot diagram có định hướng (oriented), chúng ta có thể xây dựng một Seifert surface như sau:</p>
+
+<ol>
+  <li><strong>Định hướng nút:</strong> Gán một hướng cho nút (một trong hai chiều có thể)</li>
+  <li><strong>Thay thế crossings:</strong> Tại mỗi crossing, thay thế bằng hai vòng cung không cắt nhau theo cách phù hợp với định hướng</li>
+  <li><strong>Tạo các vòng tròn:</strong> Kết quả là một tập hợp các vòng tròn không cắt nhau trong mặt phẳng</li>
+  <li><strong>Gắn các đĩa:</strong> Gắn một đĩa cho mỗi vòng tròn</li>
+  <li><strong>Gắn các dải:</strong> Gắn các dải (bands) để kết nối các đĩa tại các vị trí của các crossings ban đầu</li>
+</ol>
+
+<p>Kết quả là một Seifert surface cho nút.</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p>Đối với trefoil knot, Seifert surface có thể được xây dựng từ ba vòng tròn và ba dải kết nối chúng.</p>
+
+<h3 id="genus-của-nút">Genus của Nút</h3>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p><strong>Genus</strong> của một nút $K$, ký hiệu $g(K)$, là genus nhỏ nhất của một Seifert surface cho $K$. Nói cách khác:
+\(g(K) = \min \{ g(\Sigma) : \Sigma \text{ là Seifert surface cho } K \}\)</p>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li>Unknot có genus = 0 (có thể có Seifert surface là một đĩa)</li>
+  <li>Trefoil có genus = 1</li>
+  <li>Genus là một bất biến của nút—các nút tương đương có cùng genus</li>
+</ul>
+
+<p><strong>Liên hệ với Euler Characteristic:</strong></p>
+
+<p>Nếu $\Sigma$ là một Seifert surface cho nút $K$ với genus $g$, thì:
+\(\chi(\Sigma) = 1 - 2g\)</p>
+
+<p>vì $\Sigma$ có một biên (đường tròn) và Euler characteristic của một mặt có biên với genus $g$ là $1 - 2g$.</p>
+
+<p><strong>Liên hệ với phần chính:</strong> Seifert surfaces là một ví dụ tuyệt vời về cách topology hai chiều có thể được sử dụng để nghiên cứu các đối tượng một chiều. Chúng cho thấy mối liên hệ sâu sắc giữa các chiều khác nhau trong topology.</p>
+
+<hr />
+
+<h2 id="-các-loại-nút-cơ-bản">🔢 Các Loại Nút Cơ Bản</h2>
+
+<h3 id="trefoil-knot-nút-ba-lá">Trefoil Knot (Nút Ba Lá)</h3>
+
+<p><strong>Trefoil knot</strong> là nút đơn giản nhất không phải unknot. Nó có ba vòng lặp và là nút đầu tiên trong bảng phân loại nút.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/TrefoilKnot_01.svg/300px-TrefoilKnot_01.svg.png" alt="Trefoil knot" /><br />
+<em>Trefoil knot - nút đơn giản nhất không phải unknot - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:TrefoilKnot_01.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Đặc điểm:</strong></p>
+<ul>
+  <li><strong>Số crossing:</strong> 3 (ba điểm giao nhau trong diagram)</li>
+  <li><strong>Chiral:</strong> Trefoil knot có hai dạng mirror image không tương đương</li>
+  <li><strong>Không thể unknot:</strong> Không thể biến đổi thành unknot bằng Reidemeister moves</li>
+</ul>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+
+<p>Trefoil knot là ví dụ đầu tiên cho thấy rằng không phải tất cả các nút đều tương đương với unknot. Nó chứng minh rằng có nhiều loại nút khác nhau.</p>
+
+<h3 id="kết-quả-cơ-bản-nhất-trefoil-không-thể-unknot">Kết Quả Cơ Bản Nhất: Trefoil Không Thể Unknot</h3>
+
+<p><strong>Định lý cơ bản nhất của Knot Theory:</strong></p>
+
+<p><strong>Trefoil knot không thể được biến dạng liên tục thành một đường tròn mà không cắt.</strong> Đây là kết quả cơ bản nhất và quan trọng nhất trong knot theory.</p>
+
+<p><strong>Tại sao đây là kết quả cơ bản nhất?</strong></p>
+
+<p>Đây là kết quả đầu tiên chứng minh rằng knot theory không phải là một lĩnh vực “tầm thường”—không phải tất cả các nút đều giống nhau. Nếu mọi nút đều có thể được biến đổi thành unknot, thì knot theory sẽ không có gì để nghiên cứu. Việc chứng minh Trefoil không thể unknot là bước đầu tiên trong việc xây dựng toàn bộ lý thuyết này.</p>
+
+<p><strong>Tại sao đây là một bài toán đẹp?</strong></p>
+
+<p>Đây là một bài toán tuyệt vời vì:</p>
+<ul>
+  <li><strong>Có thể giải thích cho trẻ em:</strong> Bạn có thể giải thích cho một đứa trẻ rằng “hãy thử tháo một nút thắt ba lá mà không cắt sợi dây”—đứa trẻ sẽ hiểu ngay vấn đề</li>
+  <li><strong>Không tầm thường:</strong> Mặc dù có vẻ đơn giản, việc chứng minh toán học chặt chẽ là không dễ dàng</li>
+  <li><strong>Cơ sở cho toàn bộ lý thuyết:</strong> Tất cả các kết quả khác trong knot theory đều dựa trên ý tưởng rằng có những nút khác nhau</li>
+</ul>
+
+<p><strong>Chứng minh trực quan:</strong></p>
+
+<p>Có nhiều cách để chứng minh Trefoil không thể unknot:</p>
+
+<p><strong>1. Sử dụng Knot Invariants:</strong></p>
+
+<p>Cách đơn giản nhất là sử dụng các knot invariants. Ví dụ:</p>
+<ul>
+  <li><strong>Tricolorability:</strong> Trefoil knot có thể được tô màu ba màu (tricolorable), trong khi unknot thì không</li>
+  <li><strong>Alexander Polynomial:</strong> Trefoil có Alexander polynomial là $t^2 - t + 1$, trong khi unknot có Alexander polynomial là $1$</li>
+  <li><strong>Jones Polynomial:</strong> Trefoil có Jones polynomial khác với unknot</li>
+</ul>
+
+<p>Vì các invariants này khác nhau, Trefoil và unknot không thể tương đương.</p>
+
+<p><strong>2. Chứng minh bằng Fundamental Group:</strong></p>
+
+<p>Knot group của Trefoil là:
+\(\pi_1(S^3 \setminus \text{Trefoil}) = \langle a, b \mid a^2 = b^3 \rangle\)</p>
+
+<p>Trong khi knot group của unknot là:
+\(\pi_1(S^3 \setminus \text{Unknot}) = \mathbb{Z}\)</p>
+
+<p>Vì hai nhóm này không đẳng cấu, Trefoil và unknot không thể tương đương.</p>
+
+<p><strong>3. Thử nghiệm thực tế:</strong></p>
+
+<p>Hãy thử lấy một sợi dây và tạo một Trefoil knot. Sau đó, hãy thử tháo nó mà không cắt sợi dây. Bạn sẽ nhận ra rằng điều này là không thể—đây chính là trực giác đằng sau định lý toán học.</p>
+
+<p><strong>Ý nghĩa sâu sắc:</strong></p>
+
+<p>Kết quả này cho thấy rằng topology của không gian ba chiều là phong phú và phức tạp hơn chúng ta có thể nghĩ. Một đường cong khép kín đơn giản có thể có nhiều cách “thắt nút” khác nhau, và những cách này không thể được biến đổi thành nhau bằng các phép biến đổi liên tục. Đây là một khám phá sâu sắc về bản chất của không gian và hình học.</p>
+
+<h3 id="figure-eight-knot-nút-hình-số-8">Figure-Eight Knot (Nút Hình Số 8)</h3>
+
+<p><strong>Figure-eight knot</strong> là nút thứ hai trong bảng phân loại, sau trefoil.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Figure-eight_knot.svg/300px-Figure-eight_knot.svg.png" alt="Figure-eight knot" /><br />
+<em>Figure-eight knot - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Figure-eight_knot.svg">Wikimedia Commons</a></em></p>
+
+<p><strong>Đặc điểm:</strong></p>
+<ul>
+  <li><strong>Số crossing:</strong> 4</li>
+  <li><strong>Amphichiral:</strong> Figure-eight knot tương đương với mirror image của nó</li>
+  <li><strong>Không thể unknot:</strong> Không thể biến đổi thành unknot</li>
+</ul>
+
+<p><strong>Điểm thú vị:</strong> Figure-eight knot là nút đầu tiên trong bảng phân loại là amphichiral—nó có tính đối xứng gương.</p>
+
+<h3 id="các-nút-phức-tạp-hơn">Các Nút Phức Tạp Hơn</h3>
+
+<p>Khi số lượng crossings tăng lên, số lượng các nút khác nhau tăng lên nhanh chóng:</p>
+<ul>
+  <li><strong>3 crossings:</strong> 1 nút (trefoil)</li>
+  <li><strong>4 crossings:</strong> 1 nút (figure-eight)</li>
+  <li><strong>5 crossings:</strong> 2 nút</li>
+  <li><strong>6 crossings:</strong> 3 nút</li>
+  <li><strong>7 crossings:</strong> 7 nút</li>
+  <li><strong>8 crossings:</strong> 21 nút</li>
+  <li><strong>9 crossings:</strong> 49 nút</li>
+  <li><strong>10 crossings:</strong> 165 nút</li>
+  <li>Và cứ thế…</li>
+</ul>
+
+<p><strong>Vấn đề phân loại:</strong></p>
+
+<p>Phân loại tất cả các nút là một bài toán cực kỳ khó. Hiện tại, các nhà toán học đã phân loại được tất cả các nút với tối đa 16 crossings, nhưng vẫn còn nhiều công việc phải làm!</p>
+
+<h3 id="alternating-links-liên-kết-xen-kẽ">Alternating Links (Liên Kết Xen Kẽ)</h3>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Một <strong>alternating link</strong> (liên kết xen kẽ) là một link có diagram trong đó các crossings xen kẽ giữa “over” và “under” khi đi dọc theo link.</p>
+
+<p><strong>Cụ thể hơn:</strong></p>
+
+<p>Trong một alternating diagram, khi bạn đi dọc theo link, các crossings xuất hiện theo thứ tự xen kẽ: over, under, over, under, …</p>
+
+<p><strong>Tính chất quan trọng:</strong></p>
+
+<ul>
+  <li>Alternating links có nhiều tính chất đặc biệt và dễ nghiên cứu hơn các links tổng quát</li>
+  <li>Nhiều định lý trong knot theory được chứng minh đầu tiên cho alternating links</li>
+  <li>Alternating knots có các tính chất hình học đặc biệt liên quan đến hyperbolic geometry</li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+
+<ul>
+  <li>Trefoil knot là alternating</li>
+  <li>Figure-eight knot là alternating</li>
+  <li>Nhiều nút đơn giản khác cũng là alternating</li>
+</ul>
+
+<p><strong>Định lý Tait (1898):</strong></p>
+
+<p>Một alternating diagram giảm (reduced alternating diagram) có số crossing tối thiểu. Điều này có nghĩa là nếu bạn có một alternating diagram của một alternating knot, thì số crossing trong diagram đó chính là crossing number của nút.</p>
+
+<p><strong>Liên hệ với phần chính:</strong> Alternating links là một lớp quan trọng và dễ nghiên cứu trong knot theory. Nhiều kết quả quan trọng được chứng minh đầu tiên cho alternating links trước khi được mở rộng cho các links tổng quát.</p>
+
+<hr />
+
+<h2 id="-knot-invariants-bất-biến-nút">🧮 Knot Invariants (Bất Biến Nút)</h2>
+
+<h3 id="bất-biến-là-gì">Bất Biến là gì?</h3>
+
+<p>Một <strong>knot invariant</strong> là một đại lượng (số, đa thức, nhóm, v.v.) được gán cho mỗi nút sao cho các nút tương đương có cùng giá trị của bất biến.</p>
+
+<p><strong>Tại sao bất biến quan trọng?</strong></p>
+
+<p>Nếu hai nút có các giá trị khác nhau của một bất biến, chúng ta biết chắc chắn rằng chúng không tương đương. Tuy nhiên, nếu chúng có cùng giá trị, chúng có thể tương đương hoặc không—phụ thuộc vào việc bất biến có “hoàn chỉnh” hay không.</p>
+
+<p><strong>Bất biến hoàn chỉnh:</strong></p>
+
+<p>Một bất biến được gọi là <strong>hoàn chỉnh</strong> (complete) nếu hai nút có cùng giá trị của bất biến khi và chỉ khi chúng tương đương. Hiện tại, chúng ta chưa có bất biến hoàn chỉnh nào được biết đến!</p>
+
+<h3 id="trivial-invariants-bất-biến-tầm-thường">Trivial Invariants (Bất Biến Tầm Thường)</h3>
+
+<p>Một số bất biến đơn giản nhưng không mạnh:</p>
+
+<p><strong>Số Crossing (Crossing Number):</strong></p>
+<ul>
+  <li>Số lượng điểm giao nhau tối thiểu trong một diagram của nút</li>
+  <li>Unknot có crossing number = 0</li>
+  <li>Trefoil có crossing number = 3</li>
+  <li>Figure-eight có crossing number = 4</li>
+</ul>
+
+<p><strong>Vấn đề:</strong> Tính toán crossing number là một bài toán khó—chúng ta cần tìm diagram với số crossing tối thiểu.</p>
+
+<p><strong>Unknotting Number:</strong></p>
+<ul>
+  <li>Số lần tối thiểu cần “cắt” và “nối lại” để biến một nút thành unknot</li>
+  <li>Unknot có unknotting number = 0</li>
+  <li>Trefoil có unknotting number = 1</li>
+</ul>
+
+<h3 id="knot-group-nhóm-nút">Knot Group (Nhóm Nút)</h3>
+
+<p><strong>Knot group</strong> là một trong những bất biến quan trọng nhất của nút.</p>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Knot group của một nút $K$ là fundamental group của knot complement:
+\(\pi_1(S^3 \setminus K)\)</p>
+
+<p>trong đó $S^3 \setminus K$ là phần bù của nút trong hình cầu ba chiều.</p>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+
+<p>Knot group là một bất biến mạnh mẽ—nhiều nút khác nhau có các knot groups khác nhau. Tuy nhiên, nó không hoàn chỉnh—có những nút khác nhau có cùng knot group.</p>
+
+<p><strong>Tính toán Knot Group:</strong></p>
+
+<p>Knot group có thể được tính toán từ knot diagram sử dụng Wirtinger presentation:</p>
+<ul>
+  <li>Mỗi crossing tạo ra một generator</li>
+  <li>Mỗi crossing tạo ra một relation</li>
+  <li>Nhóm được trình bày bởi các generators và relations này</li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+
+<ul>
+  <li><strong>Unknot:</strong> Knot group = $\mathbb{Z}$ (cyclic group vô hạn)</li>
+  <li><strong>Trefoil:</strong> Knot group = Braid group $B_3$ (phức tạp hơn nhiều)</li>
+</ul>
+
+<p><strong>Liên hệ với Fundamental Group:</strong></p>
+
+<p>Knot group là một ứng dụng cụ thể của fundamental group mà chúng ta đã học trong Chapter 06. Nó cho thấy cách fundamental group có thể được sử dụng để phân biệt các không gian topology phức tạp.</p>
+
+<hr />
+
+<h2 id="-alexander-polynomial">📐 Alexander Polynomial</h2>
+
+<h3 id="định-nghĩa">Định Nghĩa</h3>
+
+<p><strong>Alexander polynomial</strong> $\Delta_K(t)$ là một đa thức được gán cho mỗi nút $K$, được phát minh bởi James W. Alexander vào năm 1928.</p>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li><strong>Bất biến:</strong> Nếu hai nút tương đương, chúng có cùng Alexander polynomial</li>
+  <li><strong>Đa thức Laurent:</strong> Alexander polynomial là một đa thức Laurent trong biến $t$ và $t^{-1}$</li>
+  <li><strong>Chuẩn hóa:</strong> Thường được chuẩn hóa sao cho $\Delta_K(1) = 1$ và $\Delta_K(t) = \Delta_K(t^{-1})$</li>
+</ul>
+
+<h3 id="cách-tính-alexander-polynomial">Cách Tính Alexander Polynomial</h3>
+
+<p>Có nhiều cách để tính Alexander polynomial:</p>
+
+<p><strong>1. Từ Knot Diagram:</strong></p>
+
+<p>Sử dụng Alexander matrix—một ma trận được xây dựng từ knot diagram:</p>
+<ul>
+  <li>Mỗi crossing tạo ra một hàng và một cột</li>
+  <li>Các phần tử của ma trận được tính từ các arcs trong diagram</li>
+  <li>Alexander polynomial là determinant của một minor của ma trận này</li>
+</ul>
+
+<p><strong>2. Từ Knot Group:</strong></p>
+
+<p>Alexander polynomial có thể được tính từ presentation của knot group sử dụng Fox calculus.</p>
+
+<p><strong>3. Từ Skein Relation:</strong></p>
+
+<p>Alexander polynomial thỏa mãn một skein relation:
+\(\Delta_{K_+}(t) - \Delta_{K_-}(t) = (t^{1/2} - t^{-1/2}) \Delta_{K_0}(t)\)</p>
+
+<p>trong đó $K_+$, $K_-$, và $K_0$ là các nút chỉ khác nhau tại một crossing.</p>
+
+<h3 id="ví-dụ">Ví dụ</h3>
+
+<p><strong>Unknot:</strong>
+\(\Delta_{\text{unknot}}(t) = 1\)</p>
+
+<p><strong>Trefoil:</strong>
+\(\Delta_{\text{trefoil}}(t) = t - 1 + t^{-1}\)</p>
+
+<p><strong>Figure-eight:</strong>
+\(\Delta_{\text{figure-eight}}(t) = t - 3 + t^{-1}\)</p>
+
+<p><strong>Liên hệ với phần chính:</strong> Alexander polynomial là một trong những bất biến đầu tiên và quan trọng nhất của nút. Nó cho phép chúng ta phân biệt nhiều nút khác nhau, mặc dù nó không hoàn chỉnh—có những nút khác nhau có cùng Alexander polynomial.</p>
+
+<hr />
+
+<h2 id="-conway-polynomial">🔷 Conway Polynomial</h2>
+
+<h3 id="định-nghĩa-và-skein-relation">Định Nghĩa và Skein Relation</h3>
+
+<p><strong>Conway polynomial</strong> $\nabla_K(z)$ là một bất biến của nút được phát minh bởi John Conway vào những năm 1960. Nó liên quan chặt chẽ với Alexander polynomial nhưng có skein relation đơn giản hơn.</p>
+
+<p><strong>Skein Relation:</strong></p>
+
+<p>Conway polynomial thỏa mãn skein relation:
+\(\nabla_{K_+}(z) - \nabla_{K_-}(z) = z \nabla_{K_0}(z)\)</p>
+
+<p>trong đó $K_+$, $K_-$, và $K_0$ là các nút chỉ khác nhau tại một crossing.</p>
+
+<p><strong>Điều kiện ban đầu:</strong></p>
+
+\[\nabla_{\text{unknot}}(z) = 1\]
+
+<p><strong>Liên hệ với Alexander Polynomial:</strong></p>
+
+<p>Conway polynomial và Alexander polynomial liên quan với nhau qua phép thay biến:
+\(\Delta_K(t) = \nabla_K(t^{1/2} - t^{-1/2})\)</p>
+
+<p>hoặc ngược lại:
+\(\nabla_K(z) = \Delta_K\left(\frac{z + \sqrt{z^2 + 4}}{2}\right)\)</p>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+
+<p>Conway polynomial có skein relation đơn giản hơn Alexander polynomial, làm cho việc tính toán trở nên dễ dàng hơn trong nhiều trường hợp. Nó cũng có các tính chất đại số đẹp và được sử dụng rộng rãi trong knot theory.</p>
+
+<p><strong>Ví dụ:</strong></p>
+
+<ul>
+  <li><strong>Unknot:</strong> $\nabla_{\text{unknot}}(z) = 1$</li>
+  <li><strong>Trefoil:</strong> $\nabla_{\text{trefoil}}(z) = 1 + z^2$</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Conway polynomial là một cách khác để biểu diễn thông tin từ Alexander polynomial, với skein relation đơn giản hơn. Nó cho thấy cách các bất biến khác nhau có thể được liên kết với nhau.</p>
+
+<hr />
+
+<h2 id="️-signature-và-slice-knots">✍️ Signature và Slice Knots</h2>
+
+<h3 id="signature-của-nút">Signature của Nút</h3>
+
+<p><strong>Signature</strong> (chữ ký) của một nút là một số nguyên được gán cho mỗi nút, là một bất biến quan trọng trong knot theory.</p>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Signature của một nút $K$ được định nghĩa thông qua Seifert surface của nó. Cụ thể:</p>
+<ul>
+  <li>Chọn một Seifert surface $\Sigma$ cho $K$</li>
+  <li>Xây dựng Seifert form (một dạng song tuyến tính trên $H_1(\Sigma)$)</li>
+  <li>Signature là số lượng các giá trị riêng dương trừ số lượng các giá trị riêng âm của Seifert form</li>
+</ul>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li>Signature là một bất biến của nút—không phụ thuộc vào việc chọn Seifert surface</li>
+  <li>Signature là một số nguyên chẵn hoặc lẻ tùy thuộc vào nút</li>
+  <li>Signature có thể được tính toán từ knot diagram</li>
+</ul>
+
+<p><strong>Ứng dụng:</strong></p>
+
+<p>Signature được sử dụng để:</p>
+<ul>
+  <li>Phân biệt các nút khác nhau</li>
+  <li>Nghiên cứu slice knots</li>
+  <li>Nghiên cứu các tính chất hình học của nút</li>
+</ul>
+
+<h3 id="slice-knots-nút-slice">Slice Knots (Nút Slice)</h3>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Một nút $K$ trong $S^3$ được gọi là <strong>slice</strong> nếu nó là biên của một đĩa được nhúng mượt (smoothly embedded disk) trong quả bóng bốn chiều $B^4$.</p>
+
+<p><strong>Cụ thể hơn:</strong></p>
+
+<p>$K$ là slice nếu tồn tại một đĩa mượt $D \subset B^4$ sao cho $\partial D = K$ và $D$ được nhúng mượt trong $B^4$.</p>
+
+<p><strong>Ribbon Knots:</strong></p>
+
+<p>Một lớp con quan trọng của slice knots là <strong>ribbon knots</strong>—các nút có thể được tạo ra bằng cách “cắt” một link đơn giản và “dán” lại.</p>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li>Unknot là slice (hiển nhiên)</li>
+  <li>Nhiều nút khác nhau có thể là slice hoặc không slice</li>
+  <li>Việc xác định xem một nút có phải là slice hay không là một bài toán khó</li>
+</ul>
+
+<p><strong>Liên hệ với Signature:</strong></p>
+
+<p>Signature cung cấp một điều kiện cần cho một nút là slice:</p>
+<ul>
+  <li>Nếu $K$ là slice, thì signature của $K$ phải bằng 0</li>
+  <li>Tuy nhiên, điều ngược lại không đúng—có những nút có signature = 0 nhưng không phải là slice</li>
+</ul>
+
+<p><strong>Four-Ball Genus:</strong></p>
+
+<p><strong>Four-ball genus</strong> (hay slice genus) của một nút $K$, ký hiệu $g_4(K)$, là genus nhỏ nhất của một mặt có biên trong $B^4$ có biên là $K$.</p>
+
+<ul>
+  <li>Nếu $K$ là slice, thì $g_4(K) = 0$</li>
+  <li>Four-ball genus là một bất biến quan trọng của nút</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Signature và slice knots là các khái niệm quan trọng trong knot theory hiện đại. Chúng liên kết knot theory với topology bốn chiều và có nhiều ứng dụng trong hình học và topology.</p>
+
+<hr />
+
+<h2 id="-jones-polynomial">🎨 Jones Polynomial</h2>
+
+<h3 id="phát-minh-và-ý-nghĩa">Phát Minh và Ý Nghĩa</h3>
+
+<p><strong>Jones polynomial</strong> $V_K(t)$ được phát minh bởi Vaughan Jones vào năm 1984, và đây là một phát hiện đột phá trong knot theory.</p>
+
+<p><strong>Điều đặc biệt:</strong></p>
+
+<p>Jones polynomial không chỉ là một bất biến mạnh mẽ—nó còn có nguồn gốc từ một lĩnh vực toán học hoàn toàn khác: <strong>operator algebras</strong> và <strong>statistical mechanics</strong>. Điều này cho thấy mối liên hệ sâu sắc giữa các nhánh khác nhau của toán học.</p>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li><strong>Bất biến:</strong> Nếu hai nút tương đương, chúng có cùng Jones polynomial</li>
+  <li><strong>Đa thức Laurent:</strong> Jones polynomial là một đa thức Laurent trong biến $t^{1/2}$ và $t^{-1/2}$</li>
+  <li><strong>Mạnh hơn Alexander:</strong> Jones polynomial phân biệt được nhiều nút mà Alexander polynomial không phân biệt được</li>
+</ul>
+
+<h3 id="skein-relation">Skein Relation</h3>
+
+<p>Jones polynomial thỏa mãn skein relation:
+\(t^{-1} V_{K_+}(t) - t V_{K_-}(t) = (t^{1/2} - t^{-1/2}) V_{K_0}(t)\)</p>
+
+<p>và điều kiện ban đầu:
+\(V_{\text{unknot}}(t) = 1\)</p>
+
+<p><strong>Cách tính:</strong></p>
+
+<p>Từ skein relation và điều kiện ban đầu, chúng ta có thể tính Jones polynomial của bất kỳ nút nào bằng cách:</p>
+<ol>
+  <li>Chọn một crossing trong knot diagram</li>
+  <li>Áp dụng skein relation để tính Jones polynomial của các nút đơn giản hơn</li>
+  <li>Lặp lại cho đến khi đạt được unknot</li>
+</ol>
+
+<h3 id="ví-dụ-1">Ví dụ</h3>
+
+<p><strong>Unknot:</strong>
+\(V_{\text{unknot}}(t) = 1\)</p>
+
+<p><strong>Trefoil:</strong>
+\(V_{\text{trefoil}}(t) = t + t^3 - t^4\)</p>
+
+<p><strong>Figure-eight:</strong>
+\(V_{\text{figure-eight}}(t) = t^{-2} - t^{-1} + 1 - t + t^2\)</p>
+
+<p><strong>Liên hệ với phần chính:</strong> Jones polynomial là một ví dụ tuyệt vời về cách các ý tưởng từ các lĩnh vực khác nhau của toán học có thể được kết hợp để tạo ra những công cụ mạnh mẽ mới. Nó cũng cho thấy rằng knot theory vẫn là một lĩnh vực đang phát triển với những phát hiện mới.</p>
+
+<hr />
+
+<h2 id="-knot-complement-và-topology">🔗 Knot Complement và Topology</h2>
+
+<h3 id="knot-complement">Knot Complement</h3>
+
+<p><strong>Knot complement</strong> của một nút $K$ trong hình cầu ba chiều $S^3$ là không gian:
+\(S^3 \setminus K\)</p>
+
+<p>Đây là không gian thu được bằng cách “loại bỏ” nút khỏi hình cầu ba chiều.</p>
+
+<p><strong>Tại sao quan trọng?</strong></p>
+
+<p>Knot complement là một không gian topology phức tạp và thú vị. Nhiều tính chất của nút có thể được hiểu thông qua topology của knot complement.</p>
+
+<h3 id="fundamental-group-của-knot-complement">Fundamental Group của Knot Complement</h3>
+
+<p>Như chúng ta đã đề cập, <strong>knot group</strong> là fundamental group của knot complement:
+\(\pi_1(S^3 \setminus K)\)</p>
+
+<p><strong>Tính chất:</strong></p>
+
+<ul>
+  <li>Knot group là một bất biến mạnh mẽ của nút</li>
+  <li>Nó có thể được tính toán từ knot diagram</li>
+  <li>Nhiều nút khác nhau có các knot groups khác nhau</li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+
+<ul>
+  <li><strong>Unknot:</strong> $\pi_1(S^3 \setminus \text{unknot}) = \mathbb{Z}$</li>
+  <li><strong>Trefoil:</strong> Knot group phức tạp hơn nhiều, không phải abelian</li>
+</ul>
+
+<h3 id="homology-của-knot-complement">Homology của Knot Complement</h3>
+
+<p>Chúng ta cũng có thể tính homology của knot complement:</p>
+
+<p><strong>$H_0(S^3 \setminus K)$:</strong></p>
+<ul>
+  <li>Luôn bằng $\mathbb{Z}$ (một thành phần liên thông)</li>
+</ul>
+
+<p><strong>$H_1(S^3 \setminus K)$:</strong></p>
+<ul>
+  <li>Luôn bằng $\mathbb{Z}$ (một generator từ nút)</li>
+  <li>Đây là abelianization của knot group</li>
+</ul>
+
+<p><strong>$H_2(S^3 \setminus K)$:</strong></p>
+<ul>
+  <li>Luôn bằng 0 (không có lỗ hai chiều)</li>
+</ul>
+
+<p><strong>$H_n(S^3 \setminus K)$ (n ≥ 3):</strong></p>
+<ul>
+  <li>Luôn bằng 0</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Knot complement là một ví dụ tuyệt vời về cách topology đại số (fundamental group, homology) có thể được sử dụng để nghiên cứu các đối tượng hình học phức tạp như nút.</p>
+
+<h3 id="covering-spaces-của-knot-complement">Covering Spaces của Knot Complement</h3>
+
+<p><strong>Không gian phủ:</strong></p>
+
+<p>Knot complement $S^3 \setminus K$ có nhiều không gian phủ (covering spaces) thú vị. Đặc biệt, chúng ta có thể xây dựng các không gian phủ vô hạn của knot complement.</p>
+
+<p><strong>Cyclic Coverings:</strong></p>
+
+<p>Cho một nút $K$, chúng ta có thể xây dựng các <strong>cyclic coverings</strong> của $S^3 \setminus K$:</p>
+<ul>
+  <li>$X_n$ là không gian phủ $n$-lớp của $S^3 \setminus K$</li>
+  <li>$X_n$ được xác định bởi homomorphism $\pi_1(S^3 \setminus K) \to \mathbb{Z}/n\mathbb{Z}$</li>
+</ul>
+
+<p><strong>Ứng dụng:</strong></p>
+
+<p>Covering spaces của knot complement được sử dụng để:</p>
+<ul>
+  <li>Tính toán Alexander polynomial</li>
+  <li>Nghiên cứu topology của knot complement</li>
+  <li>Xây dựng các bất biến mới của nút</li>
+</ul>
+
+<p><strong>Infinite Cyclic Covering:</strong></p>
+
+<p><strong>Infinite cyclic covering</strong> $X_\infty$ của $S^3 \setminus K$ là không gian phủ vô hạn được xác định bởi homomorphism $\pi_1(S^3 \setminus K) \to \mathbb{Z}$.</p>
+
+<ul>
+  <li>$X_\infty$ có tính chất đặc biệt và được sử dụng rộng rãi trong knot theory</li>
+  <li>Alexander polynomial có thể được tính toán từ homology của $X_\infty$</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Covering spaces là một công cụ mạnh mẽ trong topology đại số, và việc áp dụng chúng vào knot theory cho thấy mối liên hệ sâu sắc giữa các nhánh khác nhau của toán học.</p>
+
+<hr />
+
+<h2 id="-ứng-dụng-của-knot-theory">🧬 Ứng Dụng của Knot Theory</h2>
+
+<h3 id="trong-vật-lý">Trong Vật Lý</h3>
+
+<p><strong>Quantum Field Theory:</strong></p>
+
+<p>Knot theory có nhiều ứng dụng trong vật lý lượng tử:</p>
+<ul>
+  <li><strong>Chern-Simons theory:</strong> Một lý thuyết trường lượng tử trong đó Jones polynomial xuất hiện tự nhiên</li>
+  <li><strong>Topological quantum field theory (TQFT):</strong> Các lý thuyết trường lượng tử với tính chất topology</li>
+  <li><strong>Anyons:</strong> Các hạt lượng tử với tính chất topology đặc biệt</li>
+</ul>
+
+<p><strong>String Theory:</strong></p>
+
+<ul>
+  <li>Nghiên cứu về các string và cách chúng có thể tạo thành các cấu trúc giống nút</li>
+  <li>Liên kết với topology của không gian nhiều chiều</li>
+</ul>
+
+<h3 id="trong-sinh-học">Trong Sinh Học</h3>
+
+<p><strong>DNA và Protein:</strong></p>
+
+<ul>
+  <li><strong>DNA:</strong> Các phân tử DNA có thể tạo thành các nút và links</li>
+  <li><strong>Topoisomerase:</strong> Các enzyme có thể “tháo gỡ” các nút trong DNA</li>
+  <li><strong>Protein folding:</strong> Nghiên cứu về cách các protein gấp lại có thể liên quan đến knot theory</li>
+</ul>
+
+<p><strong>Vi khuẩn và Virus:</strong></p>
+
+<ul>
+  <li>Một số vi khuẩn và virus có cấu trúc DNA với các nút phức tạp</li>
+  <li>Hiểu topology của chúng giúp phát triển các phương pháp điều trị mới</li>
+</ul>
+
+<h3 id="trong-hóa-học">Trong Hóa Học</h3>
+
+<p><strong>Phân tử:</strong></p>
+
+<ul>
+  <li>Một số phân tử có cấu trúc giống nút</li>
+  <li>Nghiên cứu về cách các phân tử này được hình thành và tính chất của chúng</li>
+</ul>
+
+<p><strong>Polymers:</strong></p>
+
+<ul>
+  <li>Các polymer dài có thể tạo thành các cấu trúc giống nút</li>
+  <li>Topology ảnh hưởng đến tính chất vật lý của polymer</li>
+</ul>
+
+<h3 id="dehn-surgery-và-3-manifolds">Dehn Surgery và 3-Manifolds</h3>
+
+<p><strong>Dehn Surgery:</strong></p>
+
+<p><strong>Dehn surgery</strong> là một phương pháp để tạo ra các 3-manifold mới từ $S^3$ bằng cách “phẫu thuật” trên một nút hoặc link.</p>
+
+<p><strong>Quá trình:</strong></p>
+
+<ol>
+  <li>Chọn một nút $K$ trong $S^3$</li>
+  <li>Loại bỏ một tubular neighborhood của $K$ (một solid torus)</li>
+  <li>Gắn lại một solid torus khác theo một cách khác</li>
+</ol>
+
+<p>Kết quả là một 3-manifold mới $M$.</p>
+
+<p><strong>Surgery Coefficient:</strong></p>
+
+<p>Cách gắn lại solid torus được xác định bởi một <strong>surgery coefficient</strong> $p/q$ (một số hữu tỉ hoặc vô hạn).</p>
+
+<ul>
+  <li>$p/q = \infty$ tương ứng với việc gắn lại solid torus theo cách ban đầu—kết quả vẫn là $S^3$</li>
+  <li>Các giá trị khác của $p/q$ tạo ra các 3-manifold khác nhau</li>
+</ul>
+
+<p><strong>Định lý Lickorish-Wallace:</strong></p>
+
+<p>Mọi 3-manifold đóng, orientable có thể thu được từ $S^3$ bằng cách thực hiện Dehn surgery trên một link. Đây là một kết quả cơ bản và quan trọng trong topology ba chiều.</p>
+
+<p><strong>Ứng dụng:</strong></p>
+
+<p>Dehn surgery được sử dụng để:</p>
+<ul>
+  <li>Xây dựng các 3-manifold mới</li>
+  <li>Nghiên cứu topology của 3-manifolds</li>
+  <li>Liên kết knot theory với topology ba chiều</li>
+</ul>
+
+<p><strong>3-Manifold Invariants từ Jones Polynomial:</strong></p>
+
+<p>Một phát triển quan trọng là việc sử dụng Jones polynomial (và các bất biến lượng tử khác) để xây dựng các bất biến cho 3-manifolds.</p>
+
+<ul>
+  <li><strong>Witten-Reshetikhin-Turaev invariants:</strong> Các bất biến lượng tử cho 3-manifolds được xây dựng từ Jones polynomial</li>
+  <li>Các bất biến này có tính chất đặc biệt và được nghiên cứu rộng rãi trong topology lượng tử</li>
+</ul>
+
+<p><strong>Liên hệ với phần chính:</strong> Dehn surgery cho thấy mối liên hệ sâu sắc giữa knot theory và topology ba chiều. Nó cho phép chúng ta sử dụng kiến thức về nút để nghiên cứu các không gian ba chiều phức tạp hơn.</p>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>J.W. Alexander</strong> - <em>“Topological Invariants of Knots and Links”</em> (1928)<br />
+<em>Phát minh Alexander polynomial</em></p>
+  </li>
+  <li>
+    <p><strong>Kurt Reidemeister</strong> - <em>“Elementare Begründung der Knotentheorie”</em> (1927)<br />
+<em>Reidemeister moves và định lý cơ bản</em></p>
+  </li>
+  <li>
+    <p><strong>Vaughan Jones</strong> - <em>“A Polynomial Invariant for Knots via von Neumann Algebras”</em> (1985)<br />
+<em>Phát minh Jones polynomial</em></p>
+  </li>
+  <li>
+    <p><strong>Louis Kauffman</strong> - <em>“State Models and the Jones Polynomial”</em> (1987)<br />
+<em>Cách tính Jones polynomial từ state models</em></p>
+  </li>
+  <li>
+    <p><strong>William Thurston</strong> - <em>“Three-Dimensional Geometry and Topology”</em> (1997)<br />
+<em>Knot theory và hyperbolic geometry</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ul>
+  <li>
+    <p><strong>Dale Rolfsen</strong> - <em>Knots and Links</em> (1976)<br />
+<em>Giáo trình kinh điển về knot theory</em></p>
+  </li>
+  <li>
+    <p><strong>Colin Adams</strong> - <em>The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots</em> (1994)<br />
+<em>Giới thiệu dễ hiểu về knot theory</em></p>
+  </li>
+  <li>
+    <p><strong>Louis Kauffman</strong> - <em>Knots and Physics</em> (1991)<br />
+<em>Knot theory và vật lý</em></p>
+  </li>
+  <li>
+    <p><strong>W.B. Raymond Lickorish</strong> - <em>An Introduction to Knot Theory</em> (1997)<br />
+<em>Giáo trình chuyên sâu về knot theory, kết hợp topology hình học, tổ hợp và topology đại số. Bao gồm Seifert surfaces, Conway polynomial, signature, slice knots, Dehn surgery, và các bất biến 3-manifold từ Jones polynomial</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="trong-toán-học">Trong Toán Học</h3>
+
+<p>Knot theory có nhiều kết nối với các nhánh khác của toán học:</p>
+
+<ol>
+  <li><strong>Topology:</strong> Knot theory là một phần của low-dimensional topology</li>
+  <li><strong>Group Theory:</strong> Knot groups và braid groups</li>
+  <li><strong>Algebra:</strong> Polynomial invariants và skein theory</li>
+  <li><strong>Geometry:</strong> Hyperbolic geometry và knot complements</li>
+  <li><strong>Combinatorics:</strong> Knot diagrams và graph theory</li>
+</ol>
+
+<h3 id="trong-vật-lý-1">Trong Vật Lý</h3>
+
+<ul>
+  <li><strong>Quantum Field Theory:</strong> Chern-Simons theory và TQFT</li>
+  <li><strong>Statistical Mechanics:</strong> Jones polynomial từ statistical models</li>
+  <li><strong>String Theory:</strong> Topology của strings và branes</li>
+</ul>
+
+<h3 id="trong-sinh-học-và-hóa-học">Trong Sinh Học và Hóa Học</h3>
+
+<ul>
+  <li><strong>DNA Topology:</strong> Cấu trúc và topology của DNA</li>
+  <li><strong>Protein Folding:</strong> Topology của các protein phức tạp</li>
+  <li><strong>Polymer Science:</strong> Topology của các polymer dài</li>
+</ul>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Thử nghiệm:</strong> Hãy lấy một sợi dây và thử tạo ra các nút khác nhau. Bạn có thể tạo ra trefoil knot không? Bạn có thể tháo gỡ nó không?</p>
+  </li>
+  <li>
+    <p><strong>Phân tích:</strong> Tại sao unknot được coi là một nút mặc dù nó trông giống một vòng tròn đơn giản?</p>
+  </li>
+  <li>
+    <p><strong>So sánh:</strong> Hãy so sánh Alexander polynomial và Jones polynomial. Chúng khác nhau như thế nào? Tại sao cả hai đều quan trọng?</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Hãy nghĩ về các ứng dụng của knot theory trong lĩnh vực mà bạn quan tâm.</p>
+  </li>
+  <li>
+    <p><strong>Thử thách:</strong> Hãy tìm hiểu về cách tính knot group từ knot diagram sử dụng Wirtinger presentation.</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm-thực-tế">Thử nghiệm thực tế</h3>
+
+<ol>
+  <li>
+    <p><strong>Tạo nút:</strong> Hãy lấy một sợi dây và thử tạo ra các nút khác nhau (trefoil, figure-eight, v.v.).</p>
+  </li>
+  <li>
+    <p><strong>Reidemeister Moves:</strong> Hãy thử áp dụng các Reidemeister moves để biến đổi một knot diagram.</p>
+  </li>
+  <li>
+    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về các ứng dụng của knot theory trong vật lý và sinh học.</p>
+  </li>
+  <li>
+    <p><strong>Tính toán:</strong> Hãy thử tính Alexander polynomial của một nút đơn giản.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Trong bài học này, chúng ta đã khám phá:</p>
+
+<ul>
+  <li>
+    <p><strong>Định nghĩa toán học:</strong> Nút là embedding của $S^1$ vào $\mathbb{R}^3$ với các đầu được buộc lại với nhau</p>
+  </li>
+  <li>
+    <p><strong>Reidemeister Moves:</strong> Ba phép biến đổi cơ bản cho phép chúng ta làm việc với knot diagrams</p>
+  </li>
+  <li>
+    <p><strong>Seifert Surfaces:</strong> Mặt có biên orientable có biên là nút, được sử dụng để nghiên cứu genus và các tính chất khác</p>
+  </li>
+  <li>
+    <p><strong>Alternating Links:</strong> Các liên kết với diagram xen kẽ, có nhiều tính chất đặc biệt</p>
+  </li>
+  <li>
+    <p><strong>Knot Invariants:</strong> Các bất biến như knot group, Alexander polynomial, Conway polynomial, Jones polynomial, và signature</p>
+  </li>
+  <li>
+    <p><strong>Slice Knots:</strong> Các nút là biên của đĩa trong $B^4$, liên quan đến topology bốn chiều</p>
+  </li>
+  <li>
+    <p><strong>Knot Complement:</strong> Topology của $S^3 \setminus K$, covering spaces, và cách chúng liên quan đến tính chất của nút</p>
+  </li>
+  <li>
+    <p><strong>Dehn Surgery:</strong> Phương pháp tạo ra 3-manifolds từ $S^3$ bằng cách phẫu thuật trên nút</p>
+  </li>
+  <li>
+    <p><strong>Ứng dụng:</strong> Từ vật lý lượng tử đến sinh học phân tử, và từ topology ba chiều đến topology bốn chiều</p>
+  </li>
+</ul>
+
+<p>Knot theory là một lĩnh vực toán học phong phú và đang phát triển, với nhiều kết nối sâu sắc với các nhánh khác của toán học và nhiều ứng dụng thực tế. Hiểu được knot theory giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều và các ứng dụng của nó trong khoa học và công nghệ!</p>
+
+
+</div>
+
+<!-- Back to Chapter Home Link -->
+
+  
+  
+  <div style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #007bff;">
+    <a href="/topology-self-learning/contents/vi/chapter8/" style="text-decoration: none; color: #007bff; font-weight: bold;">
+      ← Quay lại đầu chương
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="convex-topology-for-all/convex-topology-for-all.github.io"
+        issue-term="title"
+        label="Comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/topology-self-learning/public/js/script.js'></script>
+    <script src='/topology-self-learning/public/js/multilang.js'></script>
+    <script src='/topology-self-learning/public/js/search.js'></script>
+  </body>
+</html>

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology"
+title: "Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology"
 lang: vi
-lang-ref: lecture-09-01
+lang-ref: lecture-09-02
 chapter: 9
-lecture: 1
+lecture: 2
 categories: [chapter09]
 tags: [graph-theory, euler-path, liên-thông, topology-cơ-bản]
 description: "Khám phá bài toán cổ điển về bảy cây cầu ở Königsberg và cách nó mở đầu cho topology và graph theory hiện đại"

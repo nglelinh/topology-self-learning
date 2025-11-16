@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Bài 09.06: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ"
+title: "Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ"
 lang: vi
-lang-ref: lecture-09-06
+lang-ref: lecture-09-07
 chapter: 9
-lecture: 6
+lecture: 7
 categories: [chapter09]
 tags: [vật-lý, quantum, topology-ứng-dụng, vật-liệu]
 description: "Khám phá cách topology xuất hiện trong vật lý hiện đại, từ quantum mechanics đến vật liệu mới và string theory"

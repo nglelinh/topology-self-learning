@@ -1,295 +1,2227 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/topology-self-learning/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/topology-self-learning/" rel="alternate" type="text/html" /><updated>2025-11-15T13:09:59+07:00</updated><id>http://localhost:4000/topology-self-learning/feed.xml</id><title type="html">Topology Self-Learning</title><subtitle>Comprehensive Topology Course</subtitle><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><entry xml:lang="vi"><title type="html">Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture/" rel="alternate" type="text/html" title="Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture/"><![CDATA[<p><strong>Millennium Problem và Hành Trình Giải Quyết</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/topology-self-learning/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/topology-self-learning/" rel="alternate" type="text/html" /><updated>2025-11-16T21:01:41+07:00</updated><id>http://localhost:4000/topology-self-learning/feed.xml</id><title type="html">Topology Self-Learning</title><subtitle>Comprehensive Topology Course</subtitle><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><entry xml:lang="vi"><title type="html">Bài 09.10: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_10_Terminology_Glossary/" rel="alternate" type="text/html" title="Bài 09.10: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_10_Terminology_Glossary</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_10_Terminology_Glossary/"><![CDATA[<p><strong>Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa</strong></p>
+
+<hr />
+
+<p><strong>Lưu ý về hiển thị công thức toán học:</strong> Tất cả các công thức toán học trong bảng được viết bằng LaTeX và sẽ được hiển thị đúng khi MathJax được load. Nếu công thức không hiển thị, vui lòng đảm bảo rằng MathJax đã được cấu hình đúng trong trang web.</p>
 
 <hr />
 
 <h2 id="-tổng-quan">📖 Tổng quan</h2>
 
-<p>Năm 2000, Viện Toán học Clay đã công bố bảy bài toán được gọi là <strong>Millennium Problems</strong>—mỗi bài toán có giải thưởng một triệu đô la cho người giải được. Một trong những bài toán này, <strong>Poincaré Conjecture</strong>, đã được giải quyết chỉ sáu năm sau đó bởi nhà toán học người Nga <strong>Grigori Perelman</strong>—và điều đáng ngạc nhiên là ông đã từ chối giải thưởng một triệu đô la!</p>
+<p>Bài học này là một <strong>từ điển toàn diện</strong> tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology. Đây là một tài liệu tham khảo hữu ích để tra cứu nhanh các định nghĩa, ký hiệu, và khái niệm quan trọng.</p>
 
-<p>Poincaré Conjecture là một trong những bài toán nổi tiếng nhất và khó nhất trong toán học. Được đề xuất bởi nhà toán học vĩ đại <strong>Henri Poincaré</strong> vào năm 1904, bài toán này đã làm đau đầu các nhà toán học trong hơn một thế kỷ trước khi được giải quyết vào năm 2006.</p>
+<p><strong>Cách sử dụng:</strong></p>
 
-<p>Bài toán này liên quan đến topology của các không gian ba chiều—một lĩnh vực toán học cực kỳ phức tạp và khó hiểu. Mặc dù phát biểu của nó có vẻ đơn giản, việc chứng minh nó đòi hỏi những công cụ toán học cực kỳ tiên tiến và sâu sắc.</p>
+<ul>
+  <li><strong>Tra cứu nhanh:</strong> Sử dụng để tìm định nghĩa của một thuật ngữ cụ thể</li>
+  <li><strong>Ôn tập:</strong> Xem lại các khái niệm đã học theo từng chương</li>
+  <li><strong>Tham khảo:</strong> Sử dụng khi đọc các bài học khác để hiểu các thuật ngữ</li>
+</ul>
 
-<p>Trong bài học này, chúng ta sẽ khám phá Poincaré Conjecture một cách chi tiết: phát biểu của bài toán, tại sao nó lại khó đến vậy, hành trình giải quyết nó, và ý nghĩa của nó trong toán học và topology.</p>
+<p><strong>Cấu trúc:</strong></p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Henri_Poincare.jpg/300px-Henri_Poincare.jpg" alt="Poincaré" /><br />
-<em>Henri Poincaré - người đề xuất conjecture - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Henri_Poincare.jpg">Wikimedia Commons</a></em></p>
-
-<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Poincaré Conjecture là một trong những thành tựu toán học vĩ đại nhất của thế kỷ 20 và 21. Việc giải quyết nó không chỉ là một chiến thắng toán học—nó đã mở ra những hướng nghiên cứu mới và giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều.</p>
+<p>Các thuật ngữ được sắp xếp theo các chương và chủ đề chính, với bảng trình bày rõ ràng bao gồm:</p>
+<ul>
+  <li><strong>Thuật ngữ</strong> (tiếng Việt và tiếng Anh)</li>
+  <li><strong>Ký hiệu toán học</strong> (nếu có)</li>
+  <li><strong>Định nghĩa ngắn gọn</strong></li>
+  <li><strong>Chương xuất hiện</strong></li>
+</ul>
 
 <hr />
 
-<h2 id="-phát-biểu-của-poincaré-conjecture">🎯 Phát Biểu của Poincaré Conjecture</h2>
+<h2 id="-chapter-00-foundations-and-set-theoretic-topology">📚 Chapter 00: Foundations and Set-Theoretic Topology</h2>
 
-<h3 id="câu-hỏi-ban-đầu">Câu hỏi ban đầu</h3>
+<h3 id="lý-thuyết-tập-hợp">Lý Thuyết Tập Hợp</h3>
 
-<p>Năm 1904, Henri Poincaré đã đặt ra câu hỏi sau:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tập hợp</strong> (Set)</td>
+      <td>$A$, $B$, $X$</td>
+      <td>Một collection các đối tượng phân biệt</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phần tử</strong> (Element)</td>
+      <td>$x \in A$</td>
+      <td>Một đối tượng thuộc tập hợp</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tập con</strong> (Subset)</td>
+      <td>$A \subseteq B$</td>
+      <td>Mọi phần tử của $A$ đều thuộc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tập rỗng</strong> (Empty Set)</td>
+      <td>$\emptyset$</td>
+      <td>Tập hợp không có phần tử nào</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Hợp</strong> (Union)</td>
+      <td>$A \cup B$</td>
+      <td>Tập tất cả phần tử thuộc $A$ hoặc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Giao</strong> (Intersection)</td>
+      <td>$A \cap B$</td>
+      <td>Tập tất cả phần tử thuộc cả $A$ và $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Hiệu</strong> (Difference)</td>
+      <td>$A \setminus B$</td>
+      <td>Tập các phần tử thuộc $A$ nhưng không thuộc $B$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phần bù</strong> (Complement)</td>
+      <td>$A^c$</td>
+      <td>Tập tất cả phần tử không thuộc $A$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Tích Descartes</strong> (Cartesian Product)</td>
+      <td>$A \times B$</td>
+      <td>Tập các cặp có thứ tự $(a,b)$ với $a \in A$, $b \in B$</td>
+      <td>00.01</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Lực lượng</strong> (Cardinality)</td>
+      <td>$</td>
+      <td>A</td>
+      <td>$, $\mathrm{card}(A)$</td>
+      <td>Số lượng phần tử của tập hợp</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đếm được</strong> (Countable)</td>
+      <td>$\aleph_0$</td>
+      <td>Có thể đặt tương ứng 1-1 với $\mathbb{N}$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Không đếm được</strong> (Uncountable)</td>
+      <td>$2^{\aleph_0}$</td>
+      <td>Không thể đặt tương ứng với $\mathbb{N}$</td>
+      <td>00.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>Câu hỏi:</strong> Nếu một không gian ba chiều có tính chất rằng mọi vòng lặp đều có thể co lại thành một điểm, thì không gian đó có phải là hình cầu ba chiều không?</p>
+<h3 id="hàm-số-và-quan-hệ">Hàm Số và Quan Hệ</h3>
 
-<p>Nghe có vẻ đơn giản? Nhưng đây là một trong những bài toán khó nhất trong toán học!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm số</strong> (Function)</td>
+      <td>$f: A \to B$</td>
+      <td>Ánh xạ từ tập $A$ vào tập $B$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đơn ánh</strong> (Injective)</td>
+      <td>$f$ injective</td>
+      <td>$f(a_1) = f(a_2) \Rightarrow a_1 = a_2$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Toàn ánh</strong> (Surjective)</td>
+      <td>$f$ surjective</td>
+      <td>Mọi $b \in B$ đều có $a \in A$ sao cho $f(a) = b$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Song ánh</strong> (Bijective)</td>
+      <td>$f$ bijective</td>
+      <td>Vừa đơn ánh vừa toàn ánh</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Hàm ngược</strong> (Inverse Function)</td>
+      <td>$f^{-1}$</td>
+      <td>Hàm ngược của song ánh</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Quan hệ tương đương</strong> (Equivalence Relation)</td>
+      <td>$\sim$</td>
+      <td>Quan hệ phản xạ, đối xứng, bắc cầu</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lớp tương đương</strong> (Equivalence Class)</td>
+      <td>$[a]$</td>
+      <td>Tập tất cả phần tử tương đương với $a$</td>
+      <td>00.00</td>
+    </tr>
+    <tr>
+      <td><strong>Phân hoạch</strong> (Partition)</td>
+      <td>-</td>
+      <td>Phân chia tập hợp thành các lớp tương đương</td>
+      <td>00.00</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3 id="phát-biểu-chính-xác">Phát biểu chính xác</h3>
+<h3 id="tiên-đề-và-logic">Tiên Đề và Logic</h3>
 
-<p><strong>Poincaré Conjecture (1904):</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tiên đề chọn</strong> (Axiom of Choice)</td>
+      <td>AC</td>
+      <td>Có thể chọn một phần tử từ mỗi tập hợp</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Zorn</strong> (Zorn’s Lemma)</td>
+      <td>-</td>
+      <td>Mọi tập được sắp thứ tự bộ phận có phần tử tối đại</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Nguyên lý sắp thứ tự tốt</strong> (Well-Ordering Principle)</td>
+      <td>-</td>
+      <td>Mọi tập hợp đều có thể sắp thứ tự tốt</td>
+      <td>00.01</td>
+    </tr>
+    <tr>
+      <td><strong>Quy nạp toán học</strong> (Mathematical Induction)</td>
+      <td>-</td>
+      <td>Phương pháp chứng minh cho các số tự nhiên</td>
+      <td>00.02</td>
+    </tr>
+    <tr>
+      <td><strong>Phản chứng</strong> (Proof by Contradiction)</td>
+      <td>-</td>
+      <td>Giả sử phủ định để dẫn đến mâu thuẫn</td>
+      <td>00.02</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Mọi không gian ba chiều đóng, đơn giản liên thông (simply connected) đều homeomorphic với hình cầu ba chiều $S^3$.</p>
+<h3 id="số-thực-và-không-gian-euclid">Số Thực và Không Gian Euclid</h3>
 
-<p><strong>Giải thích các thuật ngữ:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Số thực</strong> (Real Numbers)</td>
+      <td>$\mathbb{R}$</td>
+      <td>Tập hợp tất cả số thực</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian Euclid</strong> (Euclidean Space)</td>
+      <td>$\mathbb{R}^n$</td>
+      <td>Không gian $n$-chiều với metric Euclid</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Tính đầy đủ</strong> (Completeness)</td>
+      <td>-</td>
+      <td>Mọi dãy Cauchy đều hội tụ</td>
+      <td>00.03</td>
+    </tr>
+    <tr>
+      <td><strong>Cắt Dedekind</strong> (Dedekind Cut)</td>
+      <td>-</td>
+      <td>Cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$</td>
+      <td>00.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-01-topological-spaces-and-continuous-functions">📚 Chapter 01: Topological Spaces and Continuous Functions</h2>
+
+<h3 id="không-gian-tô-pô">Không Gian Tô-pô</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Không gian tô-pô</strong> (Topological Space)</td>
+      <td>$(X, \tau)$</td>
+      <td>Tập hợp $X$ với topology $\tau$</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology</strong></td>
+      <td>$\tau$</td>
+      <td>Họ các tập mở thỏa mãn ba tiên đề</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập mở</strong> (Open Set)</td>
+      <td>$U \in \tau$</td>
+      <td>Phần tử của topology</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập đóng</strong> (Closed Set)</td>
+      <td>$A$ closed</td>
+      <td>Phần bù của tập mở</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Topology tầm thường</strong> (Trivial Topology)</td>
+      <td>${\emptyset, X}$</td>
+      <td>Topology nhỏ nhất</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology rời rạc</strong> (Discrete Topology)</td>
+      <td>$\mathcal{P}(X)$</td>
+      <td>Topology lớn nhất (mọi tập đều mở)</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology hữu hạn bù</strong> (Cofinite Topology)</td>
+      <td>-</td>
+      <td>Tập mở là $\emptyset$ hoặc có phần bù hữu hạn</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology đếm được bù</strong> (Cocountable Topology)</td>
+      <td>-</td>
+      <td>Tập mở là $\emptyset$ hoặc có phần bù đếm được</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thô hơn</strong> (Coarser)</td>
+      <td>$\tau_1 \subseteq \tau_2$</td>
+      <td>Topology nhỏ hơn</td>
+      <td>01.00</td>
+    </tr>
+    <tr>
+      <td><strong>Mịn hơn</strong> (Finer)</td>
+      <td>$\tau_2 \supseteq \tau_1$</td>
+      <td>Topology lớn hơn</td>
+      <td>01.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cơ-sở-và-tiền-cơ-sở">Cơ Sở và Tiền Cơ Sở</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cơ sở</strong> (Basis)</td>
+      <td>$\mathcal{B}$</td>
+      <td>Họ tập mở sinh ra topology</td>
+      <td>01.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tiền cơ sở</strong> (Subbasis)</td>
+      <td>$\mathcal{S}$</td>
+      <td>Họ tập hợp sinh ra basis</td>
+      <td>01.01</td>
+    </tr>
+    <tr>
+      <td><strong>Cơ sở chuẩn</strong> (Standard Basis)</td>
+      <td>-</td>
+      <td>Cơ sở cho $\mathbb{R}^n$</td>
+      <td>01.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bao-đóng-và-phần-trong">Bao Đóng và Phần Trong</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bao đóng</strong> (Closure)</td>
+      <td>$\overline{A}$, $\mathrm{cl}(A)$</td>
+      <td>Tập đóng nhỏ nhất chứa $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Phần trong</strong> (Interior)</td>
+      <td>$A^\circ$, $\mathrm{int}(A)$</td>
+      <td>Tập mở lớn nhất chứa trong $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Biên</strong> (Boundary)</td>
+      <td>$\partial A$</td>
+      <td>$\overline{A} \setminus A^\circ$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm giới hạn</strong> (Limit Point)</td>
+      <td>-</td>
+      <td>Mọi lân cận đều chứa điểm khác của $A$</td>
+      <td>01.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm cô lập</strong> (Isolated Point)</td>
+      <td>-</td>
+      <td>Có lân cận không chứa điểm khác của $A$</td>
+      <td>01.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hàm-liên-tục-và-đồng-phôi">Hàm Liên Tục và Đồng Phôi</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm liên tục</strong> (Continuous Function)</td>
+      <td>$f: X \to Y$</td>
+      <td>Ảnh ngược của tập mở là tập mở</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng phôi</strong> (Homeomorphism)</td>
+      <td>$f: X \cong Y$</td>
+      <td>Song ánh liên tục với hàm ngược liên tục</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Phép nhúng</strong> (Embedding)</td>
+      <td>$f: X \hookrightarrow Y$</td>
+      <td>Đồng phôi lên ảnh của nó</td>
+      <td>01.03</td>
+    </tr>
+    <tr>
+      <td><strong>Tương đương đồng luân</strong> (Homotopy Equivalence)</td>
+      <td>$X \simeq Y$</td>
+      <td>Tồn tại ánh xạ với đồng luân ngược</td>
+      <td>06.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="topology-con-và-tích">Topology Con và Tích</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Topology con</strong> (Subspace Topology)</td>
+      <td>$Y \subseteq X$</td>
+      <td>Topology cảm sinh trên tập con</td>
+      <td>01.04</td>
+    </tr>
+    <tr>
+      <td><strong>Topology tích</strong> (Product Topology)</td>
+      <td>$X \times Y$</td>
+      <td>Topology trên tích Descartes</td>
+      <td>01.04</td>
+    </tr>
+    <tr>
+      <td><strong>Hình chiếu</strong> (Projection)</td>
+      <td>$\pi_i: X_1 \times X_2 \to X_i$</td>
+      <td>Ánh xạ chiếu lên thành phần thứ $i$</td>
+      <td>01.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-02-connectedness-and-compactness">📚 Chapter 02: Connectedness and Compactness</h2>
+
+<h3 id="liên-thông">Liên Thông</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Liên thông</strong> (Connected)</td>
+      <td>-</td>
+      <td>Không thể phân thành hai tập mở rời nhau</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thành phần liên thông</strong> (Connected Component)</td>
+      <td>-</td>
+      <td>Tập liên thông lớn nhất chứa điểm</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Liên thông đường</strong> (Path-Connected)</td>
+      <td>-</td>
+      <td>Mọi hai điểm đều nối được bằng đường đi</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Thành phần liên thông đường</strong> (Path Component)</td>
+      <td>-</td>
+      <td>Tập liên thông đường lớn nhất</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đường đi</strong> (Path)</td>
+      <td>$\gamma: [0,1] \to X$</td>
+      <td>Ánh xạ liên tục từ đoạn vào không gian</td>
+      <td>02.00</td>
+    </tr>
+    <tr>
+      <td><strong>Vòng lặp</strong> (Loop)</td>
+      <td>$\gamma: S^1 \to X$</td>
+      <td>Đường đi khép kín</td>
+      <td>06.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="compact">Compact</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Compact</strong></td>
+      <td>-</td>
+      <td>Mọi phủ mở đều có phủ con hữu hạn</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ mở</strong> (Open Cover)</td>
+      <td>${U_\alpha}$</td>
+      <td>Họ tập mở có hợp chứa không gian</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ con hữu hạn</strong> (Finite Subcover)</td>
+      <td>-</td>
+      <td>Phủ con có số phần tử hữu hạn</td>
+      <td>02.01</td>
+    </tr>
+    <tr>
+      <td><strong>Liên compact</strong> (Locally Compact)</td>
+      <td>-</td>
+      <td>Mọi điểm có lân cận compact</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa</strong> (Compactification)</td>
+      <td>$\hat{X}$</td>
+      <td>Không gian compact chứa $X$</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa một điểm</strong> (One-Point Compactification)</td>
+      <td>$X^*$</td>
+      <td>Thêm điểm vô cực</td>
+      <td>02.02</td>
+    </tr>
+    <tr>
+      <td><strong>Compact hóa Stone-Čech</strong> (Stone-Čech Compactification)</td>
+      <td>$\beta X$</td>
+      <td>Compact hóa phổ quát</td>
+      <td>02.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-03-separation-axioms">📚 Chapter 03: Separation Axioms</h2>
+
+<h3 id="tiên-đề-tách">Tiên Đề Tách</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>T0-space</strong></td>
+      <td>-</td>
+      <td>Với mọi hai điểm, có tập mở chứa một điểm nhưng không chứa điểm kia</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>T1-space</strong></td>
+      <td>-</td>
+      <td>Mọi điểm đơn đều đóng</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>Hausdorff</strong> (T2)</td>
+      <td>-</td>
+      <td>Mọi hai điểm đều có lân cận rời nhau</td>
+      <td>03.00</td>
+    </tr>
+    <tr>
+      <td><strong>Regular</strong> (T3)</td>
+      <td>-</td>
+      <td>Tập đóng và điểm không thuộc có lân cận rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Normal</strong> (T4)</td>
+      <td>-</td>
+      <td>Mọi hai tập đóng rời nhau có lân cận rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hoàn toàn chính quy</strong> (Completely Regular)</td>
+      <td>T3½</td>
+      <td>Regular và có hàm liên tục tách điểm và tập đóng</td>
+      <td>03.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tiên-đề-đếm-được">Tiên Đề Đếm Được</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đếm được thứ nhất</strong> (First Countable)</td>
+      <td>-</td>
+      <td>Mọi điểm có cơ sở lân cận đếm được</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Đếm được thứ hai</strong> (Second Countable)</td>
+      <td>-</td>
+      <td>Có cơ sở đếm được</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Separable</strong></td>
+      <td>-</td>
+      <td>Có tập con đếm được trù mật</td>
+      <td>03.02</td>
+    </tr>
+    <tr>
+      <td><strong>Lindelöf</strong></td>
+      <td>-</td>
+      <td>Mọi phủ mở đều có phủ con đếm được</td>
+      <td>03.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="định-lý-metrization">Định Lý Metrization</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metrizable</strong></td>
+      <td>-</td>
+      <td>Có thể định nghĩa metric sinh ra topology</td>
+      <td>03.03</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Urysohn Metrization</strong></td>
+      <td>-</td>
+      <td>T3 + Second countable $\Rightarrow$ Metrizable</td>
+      <td>03.03</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Urysohn</strong> (Urysohn’s Lemma)</td>
+      <td>-</td>
+      <td>Tồn tại hàm liên tục tách tập đóng rời nhau</td>
+      <td>03.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Tietze Extension</strong></td>
+      <td>-</td>
+      <td>Hàm liên tục trên tập đóng có thể mở rộng</td>
+      <td>03.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-04-metric-spaces">📚 Chapter 04: Metric Spaces</h2>
+
+<h3 id="không-gian-metric">Không Gian Metric</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metric</strong> (Khoảng cách)</td>
+      <td>$d: X \times X \to \mathbb{R}$</td>
+      <td>Hàm khoảng cách thỏa mãn ba tiên đề</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Không gian metric</strong> (Metric Space)</td>
+      <td>$(X, d)$</td>
+      <td>Tập hợp với metric</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Quả cầu mở</strong> (Open Ball)</td>
+      <td>$B(x, r)$</td>
+      <td>${y : d(x,y) &lt; r}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Quả cầu đóng</strong> (Closed Ball)</td>
+      <td>$\overline{B}(x, r)$</td>
+      <td>${y : d(x,y) \leq r}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Metric Euclid</strong> (Euclidean Metric)</td>
+      <td>$d_2$</td>
+      <td>$\sqrt{\sum (x_i - y_i)^2}$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Metric Manhattan</strong> (Manhattan Metric)</td>
+      <td>$d_1$</td>
+      <td>$\sum</td>
+      <td>x_i - y_i</td>
+      <td>$</td>
+      <td>04.00</td>
+    </tr>
+    <tr>
+      <td><strong>Metric Maximum</strong> (Maximum Metric)</td>
+      <td>$d_\infty$</td>
+      <td>$\max</td>
+      <td>x_i - y_i</td>
+      <td>$</td>
+      <td>04.00</td>
+    </tr>
+    <tr>
+      <td><strong>Metric rời rạc</strong> (Discrete Metric)</td>
+      <td>$d_{\mathrm{disc}}$</td>
+      <td>$d(x,y) = 1$ nếu $x \neq y$</td>
+      <td>04.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tính-đầy-đủ-và-baire">Tính Đầy Đủ và Baire</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dãy Cauchy</strong> (Cauchy Sequence)</td>
+      <td>$(x_n)$</td>
+      <td>$\forall \epsilon &gt; 0, \exists N: m,n \geq N \Rightarrow d(x_m, x_n) &lt; \epsilon$</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đầy đủ</strong> (Complete)</td>
+      <td>-</td>
+      <td>Mọi dãy Cauchy đều hội tụ</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hoàn thiện</strong> (Completion)</td>
+      <td>$\hat{X}$</td>
+      <td>Không gian đầy đủ chứa $X$</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập không đâu trù mật</strong> (Nowhere Dense)</td>
+      <td>-</td>
+      <td>Phần trong của bao đóng rỗng</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập meager</strong> (Meager/First Category)</td>
+      <td>-</td>
+      <td>Hợp đếm được các tập không đâu trù mật</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tập nonmeager</strong> (Nonmeager/Second Category)</td>
+      <td>-</td>
+      <td>Không phải meager</td>
+      <td>04.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Baire Category</strong></td>
+      <td>-</td>
+      <td>Không gian đầy đủ là nonmeager</td>
+      <td>04.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tính-liên-tục-đều">Tính Liên Tục Đều</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Liên tục đều</strong> (Uniformly Continuous)</td>
+      <td>-</td>
+      <td>$\forall \epsilon &gt; 0, \exists \delta &gt; 0: d(x,y) &lt; \delta \Rightarrow d(f(x), f(y)) &lt; \epsilon$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Lipschitz</strong></td>
+      <td>-</td>
+      <td>$d(f(x), f(y)) \leq L \cdot d(x,y)$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Hệ số Lipschitz</strong> (Lipschitz Constant)</td>
+      <td>$L$</td>
+      <td>Hằng số trong điều kiện Lipschitz</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Co rút</strong> (Contraction)</td>
+      <td>-</td>
+      <td>Lipschitz với $L &lt; 1$</td>
+      <td>04.02</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý điểm cố định Banach</strong></td>
+      <td>-</td>
+      <td>Co rút trên không gian đầy đủ có điểm cố định duy nhất</td>
+      <td>04.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="metric-tích-và-không-gian-hàm">Metric Tích và Không Gian Hàm</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Metric tích</strong> (Product Metric)</td>
+      <td>-</td>
+      <td>Metric trên tích các không gian metric</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian hàm</strong> (Function Space)</td>
+      <td>$C(X,Y)$</td>
+      <td>Tập các hàm liên tục</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Metric đều</strong> (Uniform Metric)</td>
+      <td>$d_\infty$</td>
+      <td>$\sup_{x \in X} d(f(x), g(x))$</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hội tụ đều</strong> (Uniform Convergence)</td>
+      <td>-</td>
+      <td>Hội tụ theo metric đều</td>
+      <td>04.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hội tụ điểm</strong> (Pointwise Convergence)</td>
+      <td>-</td>
+      <td>Hội tụ tại mỗi điểm</td>
+      <td>04.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-05-quotient-spaces">📚 Chapter 05: Quotient Spaces</h2>
+
+<h3 id="topology-thương">Topology Thương</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Quan hệ tương đương</strong> (Equivalence Relation)</td>
+      <td>$\sim$</td>
+      <td>Quan hệ phản xạ, đối xứng, bắc cầu</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Tập thương</strong> (Quotient Set)</td>
+      <td>$X/\sim$</td>
+      <td>Tập các lớp tương đương</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Topology thương</strong> (Quotient Topology)</td>
+      <td>-</td>
+      <td>Topology lớn nhất làm ánh xạ chiếu liên tục</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ chiếu</strong> (Projection Map)</td>
+      <td>$\pi: X \to X/\sim$</td>
+      <td>Ánh xạ gửi phần tử vào lớp tương đương</td>
+      <td>05.00</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ thương</strong> (Quotient Map)</td>
+      <td>$q: X \to Y$</td>
+      <td>Ánh xạ liên tục, mở, và toàn ánh</td>
+      <td>05.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="phân-loại-bề-mặt">Phân Loại Bề Mặt</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bề mặt</strong> (Surface)</td>
+      <td>-</td>
+      <td>2-manifold compact</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Định hướng được</strong> (Orientable)</td>
+      <td>-</td>
+      <td>Có thể định hướng nhất quán</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Không định hướng được</strong> (Non-orientable)</td>
+      <td>-</td>
+      <td>Không thể định hướng</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Genus</strong></td>
+      <td>$g$</td>
+      <td>Số lỗ trong bề mặt</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đặc trưng Euler</strong> (Euler Characteristic)</td>
+      <td>$\chi$</td>
+      <td>$V - E + F$</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng liên thông</strong> (Connected Sum)</td>
+      <td>$#$</td>
+      <td>Phép toán ghép hai bề mặt</td>
+      <td>05.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đa giác cơ bản</strong> (Fundamental Polygon)</td>
+      <td>-</td>
+      <td>Biểu diễn bề mặt bằng đa giác</td>
+      <td>05.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="phức-cw">Phức CW</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Phức CW</strong> (CW Complex)</td>
+      <td>-</td>
+      <td>Không gian được xây dựng từ cells</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>n-cell</strong></td>
+      <td>$e^n$</td>
+      <td>Quả cầu mở $n$-chiều</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>Skeleton</strong></td>
+      <td>$X^n$</td>
+      <td>Phức con gồm các cells chiều $\leq n$</td>
+      <td>05.02</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ gắn</strong> (Attaching Map)</td>
+      <td>$\phi: S^{n-1} \to X^{n-1}$</td>
+      <td>Ánh xạ gắn $n$-cell vào skeleton</td>
+      <td>05.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tác-động-nhóm">Tác Động Nhóm</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tác động nhóm</strong> (Group Action)</td>
+      <td>$G \curvearrowright X$</td>
+      <td>Ánh xạ $G \times X \to X$ thỏa mãn tiên đề</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Quỹ đạo</strong> (Orbit)</td>
+      <td>$G \cdot x$</td>
+      <td>Tập ${g \cdot x : g \in G}$</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đẳng hướng</strong> (Stabilizer)</td>
+      <td>$G_x$</td>
+      <td>${g \in G : g \cdot x = x}$</td>
+      <td>05.03</td>
+    </tr>
+    <tr>
+      <td><strong>Không gian quỹ đạo</strong> (Orbit Space)</td>
+      <td>$X/G$</td>
+      <td>Tập các quỹ đạo với topology thương</td>
+      <td>05.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-06-fundamental-group">📚 Chapter 06: Fundamental Group</h2>
+
+<h3 id="đồng-luân">Đồng Luân</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng luân</strong> (Homotopy)</td>
+      <td>$F: X \times [0,1] \to Y$</td>
+      <td>Biến dạng liên tục giữa hai ánh xạ</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng luân đường</strong> (Path Homotopy)</td>
+      <td>$\gamma \simeq_p \delta$</td>
+      <td>Đồng luân giữa các đường đi</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lớp đồng luân</strong> (Homotopy Class)</td>
+      <td>$[\gamma]$</td>
+      <td>Tập các đường đi đồng luân</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Co được</strong> (Contractible)</td>
+      <td>-</td>
+      <td>Đồng luân với điểm</td>
+      <td>06.00</td>
+    </tr>
+    <tr>
+      <td><strong>Rút đồng luân</strong> (Deformation Retract)</td>
+      <td>-</td>
+      <td>Rút liên tục về không gian con</td>
+      <td>06.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="nhóm-cơ-bản">Nhóm Cơ Bản</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nhóm cơ bản</strong> (Fundamental Group)</td>
+      <td>$\pi_1(X, x_0)$</td>
+      <td>Nhóm các lớp đồng luân của loops tại $x_0$</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm cơ sở</strong> (Basepoint)</td>
+      <td>$x_0$</td>
+      <td>Điểm cố định cho loops</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ghép nối</strong> (Concatenation)</td>
+      <td>$\gamma \cdot \delta$</td>
+      <td>Đi qua $\gamma$ rồi $\delta$</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đường đi ngược</strong> (Inverse Path)</td>
+      <td>$\gamma^{-1}$</td>
+      <td>Đi ngược lại đường đi</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Vòng lặp hằng</strong> (Constant Loop)</td>
+      <td>$e_{x_0}$</td>
+      <td>Vòng lặp không di chuyển</td>
+      <td>06.01</td>
+    </tr>
+    <tr>
+      <td><strong>Số vòng quay</strong> (Winding Number)</td>
+      <td>-</td>
+      <td>Số lần vòng quanh điểm</td>
+      <td>06.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="không-gian-phủ">Không Gian Phủ</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Không gian phủ</strong> (Covering Space)</td>
+      <td>$\tilde{X}$</td>
+      <td>Không gian phủ $X$</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ phủ</strong> (Covering Map)</td>
+      <td>$p: \tilde{X} \to X$</td>
+      <td>Ánh xạ phủ địa phương</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Lift</strong></td>
+      <td>$\tilde{f}$</td>
+      <td>Nâng ánh xạ lên không gian phủ</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Phủ phổ quát</strong> (Universal Cover)</td>
+      <td>-</td>
+      <td>Phủ đơn liên</td>
+      <td>06.03</td>
+    </tr>
+    <tr>
+      <td><strong>Biến đổi Deck</strong> (Deck Transformation)</td>
+      <td>-</td>
+      <td>Tự đẳng cấu của không gian phủ</td>
+      <td>06.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="định-lý-van-kampen">Định Lý Van Kampen</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tích tự do</strong> (Free Product)</td>
+      <td>$G * H$</td>
+      <td>Tích tự do của hai nhóm</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tích tự do ghép</strong> (Amalgamated Free Product)</td>
+      <td>$G *_K H$</td>
+      <td>Tích tự do ghép qua nhóm con</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Seifert-Van Kampen</strong></td>
+      <td>-</td>
+      <td>Tính toán $\pi_1$ từ các phần</td>
+      <td>06.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng nêm</strong> (Wedge Sum)</td>
+      <td>$X \vee Y$</td>
+      <td>Ghép hai không gian tại một điểm</td>
+      <td>06.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-07-homology-theory">📚 Chapter 07: Homology Theory</h2>
+
+<h3 id="homology-đơn-hình">Homology Đơn Hình</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>n-đơn hình</strong> (n-Simplex)</td>
+      <td>$\sigma = [v_0, \ldots, v_n]$</td>
+      <td>Convex hull của $n+1$ điểm độc lập</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Mặt</strong> (Face)</td>
+      <td>$\partial_i \sigma$</td>
+      <td>Simplex con loại bỏ vertex $v_i$</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phức đơn hình</strong> (Simplicial Complex)</td>
+      <td>$K$</td>
+      <td>Tập các simplices đóng với mặt</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Thực hóa hình học</strong> (Geometric Realization)</td>
+      <td>$</td>
+      <td>K</td>
+      <td>$</td>
+      <td>Không gian tô-pô của phức</td>
+      <td>07.00</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm chuỗi</strong> (Chain Group)</td>
+      <td>$C_n(K)$</td>
+      <td>Nhóm abel tự do sinh bởi $n$-simplices</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Toán tử biên</strong> (Boundary Operator)</td>
+      <td>$\partial_n: C_n \to C_{n-1}$</td>
+      <td>Toán tử tính biên của simplex</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Phức chuỗi</strong> (Chain Complex)</td>
+      <td>$(C_<em>, \partial_</em>)$</td>
+      <td>Dãy các nhóm và toán tử biên</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Chu trình</strong> (Cycle)</td>
+      <td>$Z_n = \ker(\partial_n)$</td>
+      <td>Phần tử có biên bằng 0</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Biên</strong> (Boundary)</td>
+      <td>$B_n = \mathrm{im}(\partial_{n+1})$</td>
+      <td>Phần tử là biên của phần tử khác</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đồng điều</strong> (Homology Group)</td>
+      <td>$H_n(K) = Z_n / B_n$</td>
+      <td>Chu trình modulo biên</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Số Betti</strong> (Betti Number)</td>
+      <td>$\beta_n = \mathrm{rank}(H_n)$</td>
+      <td>Hạng của nhóm đồng điều</td>
+      <td>07.00</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="homology-kỳ-dị">Homology Kỳ Dị</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đơn hình chuẩn</strong> (Standard Simplex)</td>
+      <td>$\Delta^n$</td>
+      <td>Simplex chuẩn trong $\mathbb{R}^{n+1}$</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tọa độ barycentric</strong> (Barycentric Coordinates)</td>
+      <td>$(t_0, \ldots, t_n)$</td>
+      <td>Tọa độ trong simplex</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ mặt</strong> (Face Map)</td>
+      <td>$\delta_i: \Delta^{n-1} \to \Delta^n$</td>
+      <td>Ánh xạ vào mặt thứ $i$</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ suy biến</strong> (Degeneracy Map)</td>
+      <td>$s_i: \Delta^{n+1} \to \Delta^n$</td>
+      <td>Ánh xạ suy biến</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>n-đơn hình kỳ dị</strong> (Singular n-Simplex)</td>
+      <td>$\sigma: \Delta^n \to X$</td>
+      <td>Ánh xạ liên tục từ simplex chuẩn</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm chuỗi kỳ dị</strong> (Singular Chain Group)</td>
+      <td>$C_n(X)$</td>
+      <td>Nhóm abel tự do sinh bởi singular simplices</td>
+      <td>07.01</td>
+    </tr>
+    <tr>
+      <td><strong>Homology kỳ dị</strong> (Singular Homology)</td>
+      <td>$H_n(X)$</td>
+      <td>Homology của phức chuỗi kỳ dị</td>
+      <td>07.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dãy-mayer-vietoris">Dãy Mayer-Vietoris</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Dãy khớp</strong> (Exact Sequence)</td>
+      <td>-</td>
+      <td>Dãy với $\mathrm{im} = \ker$</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Dãy khớp ngắn</strong> (Short Exact Sequence)</td>
+      <td>$0 \to A \to B \to C \to 0$</td>
+      <td>Dãy khớp với 5 phần tử</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Dãy Mayer-Vietoris</strong></td>
+      <td>-</td>
+      <td>Dãy khớp dài tính $H_n$ từ các phần</td>
+      <td>07.03</td>
+    </tr>
+    <tr>
+      <td><strong>Ánh xạ nối</strong> (Connecting Homomorphism)</td>
+      <td>$\partial_*$</td>
+      <td>Ánh xạ nối trong dãy khớp</td>
+      <td>07.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="đồng-điều">Đồng Điều</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng điều</strong> (Cohomology)</td>
+      <td>$H^n(X)$</td>
+      <td>Đối ngẫu của homology</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đối chuỗi</strong> (Cochain Group)</td>
+      <td>$C^n(X)$</td>
+      <td>$\mathrm{Hom}(C_n(X), \mathbb{Z})$</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Toán tử đối biên</strong> (Coboundary Operator)</td>
+      <td>$\delta: C^n \to C^{n+1}$</td>
+      <td>Đối ngẫu của toán tử biên</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tích cúp</strong> (Cup Product)</td>
+      <td>$\cup$</td>
+      <td>Phép nhân trong cohomology</td>
+      <td>07.04</td>
+    </tr>
+    <tr>
+      <td><strong>Vành đồng điều</strong> (Cohomology Ring)</td>
+      <td>$H^*(X)$</td>
+      <td>Cohomology với tích cúp</td>
+      <td>07.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-08-advanced-topics">📚 Chapter 08: Advanced Topics</h2>
+
+<h3 id="nhóm-đồng-luân-cao">Nhóm Đồng Luân Cao</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nhóm đồng luân n</strong> (n-th Homotopy Group)</td>
+      <td>$\pi_n(X, x_0)$</td>
+      <td>Nhóm các lớp đồng luân của ánh xạ $S^n \to X$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Bậc của ánh xạ</strong> (Degree of a Map)</td>
+      <td>$\deg(f)$</td>
+      <td>Số nguyên đặc trưng ánh xạ $S^n \to S^n$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Fibration Hopf</strong> (Hopf Fibration)</td>
+      <td>$S^3 \to S^2$</td>
+      <td>Fibration quan trọng</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý Freudenthal Suspension</strong></td>
+      <td>-</td>
+      <td>Liên hệ $\pi_n$ và $\pi_{n+1}$</td>
+      <td>08.00</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm đồng luân ổn định</strong> (Stable Homotopy Groups)</td>
+      <td>$\pi_k^s$</td>
+      <td>Giới hạn của $\pi_{n+k}(S^n)$</td>
+      <td>08.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bó-sợi-và-bó-vectơ">Bó Sợi và Bó Vectơ</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bó sợi</strong> (Fiber Bundle)</td>
+      <td>$E \to B$</td>
+      <td>Không gian phủ địa phương với fiber</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Cơ sở</strong> (Base Space)</td>
+      <td>$B$</td>
+      <td>Không gian cơ sở</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tổng</strong> (Total Space)</td>
+      <td>$E$</td>
+      <td>Không gian tổng</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Sợi</strong> (Fiber)</td>
+      <td>$F$</td>
+      <td>Không gian sợi</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Tầm thường địa phương</strong> (Locally Trivial)</td>
+      <td>-</td>
+      <td>Địa phương giống tích</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Hàm chuyển tiếp</strong> (Transition Function)</td>
+      <td>-</td>
+      <td>Hàm chuyển đổi giữa các biểu đồ</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó vectơ</strong> (Vector Bundle)</td>
+      <td>-</td>
+      <td>Bó sợi với fiber là không gian vectơ</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó tiếp tuyến</strong> (Tangent Bundle)</td>
+      <td>$TM$</td>
+      <td>Bó vectơ của các vectơ tiếp tuyến</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó chuẩn</strong> (Normal Bundle)</td>
+      <td>$\nu(M)$</td>
+      <td>Bó vectơ của các vectơ pháp tuyến</td>
+      <td>08.01</td>
+    </tr>
+    <tr>
+      <td><strong>Bó chính</strong> (Principal Bundle)</td>
+      <td>-</td>
+      <td>Bó sợi với fiber là nhóm Lie</td>
+      <td>08.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lý-thuyết-morse">Lý Thuyết Morse</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hàm Morse</strong> (Morse Function)</td>
+      <td>$f: M \to \mathbb{R}$</td>
+      <td>Hàm với các điểm tới hạn không suy biến</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Điểm tới hạn</strong> (Critical Point)</td>
+      <td>-</td>
+      <td>Điểm với $df = 0$</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Chỉ số</strong> (Index)</td>
+      <td>$\lambda$</td>
+      <td>Số giá trị riêng âm của Hessian</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Tập mức dưới</strong> (Sublevel Set)</td>
+      <td>$M^a$</td>
+      <td>${x : f(x) \leq a}$</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Bổ đề Morse</strong> (Morse Lemma)</td>
+      <td>-</td>
+      <td>Dạng chuẩn của hàm Morse tại điểm tới hạn</td>
+      <td>08.02</td>
+    </tr>
+    <tr>
+      <td><strong>Bất đẳng thức Morse</strong> (Morse Inequalities)</td>
+      <td>-</td>
+      <td>$c_k \geq \beta_k$</td>
+      <td>08.02</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="đa-tạp-tô-pô">Đa Tạp Tô-pô</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đa tạp tô-pô</strong> (Topological Manifold)</td>
+      <td>$M$</td>
+      <td>Không gian Hausdorff, đếm được thứ hai, địa phương Euclid</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Biểu đồ</strong> (Chart)</td>
+      <td>$(U, \phi)$</td>
+      <td>Mở $U$ với homeomorphism vào $\mathbb{R}^n$</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Atlas</strong></td>
+      <td>-</td>
+      <td>Tập các biểu đồ phủ đa tạp</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đa tạp trơn</strong> (Smooth Manifold)</td>
+      <td>-</td>
+      <td>Đa tạp với atlas trơn</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Đa tạp có biên</strong> (Manifold with Boundary)</td>
+      <td>-</td>
+      <td>Đa tạp với biên</td>
+      <td>08.03</td>
+    </tr>
+    <tr>
+      <td><strong>Hình cầu kỳ lạ</strong> (Exotic Sphere)</td>
+      <td>-</td>
+      <td>Đa tạp homeomorphic nhưng không diffeomorphic với $S^n$</td>
+      <td>08.03</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="lý-thuyết-nút">Lý Thuyết Nút</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nút</strong> (Knot)</td>
+      <td>$K: S^1 \to \mathbb{R}^3$</td>
+      <td>Embedding của đường tròn vào không gian 3D</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nút không</strong> (Unknot)</td>
+      <td>-</td>
+      <td>Nút tầm thường (đường tròn)</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Tương đương nút</strong> (Knot Equivalence)</td>
+      <td>-</td>
+      <td>Ambient isotopic</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phép biến đổi Reidemeister</strong> (Reidemeister Move)</td>
+      <td>RI, RII, RIII</td>
+      <td>Ba phép biến đổi cơ bản trên diagram</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Mặt Seifert</strong> (Seifert Surface)</td>
+      <td>$\Sigma$</td>
+      <td>Mặt có biên là nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Genus của nút</strong> (Knot Genus)</td>
+      <td>$g(K)$</td>
+      <td>Genus nhỏ nhất của Seifert surface</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nhóm nút</strong> (Knot Group)</td>
+      <td>$\pi_1(S^3 \setminus K)$</td>
+      <td>Fundamental group của phần bù nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Alexander</strong> (Alexander Polynomial)</td>
+      <td>$\Delta_K(t)$</td>
+      <td>Đa thức bất biến của nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Conway</strong> (Conway Polynomial)</td>
+      <td>$\nabla_K(z)$</td>
+      <td>Đa thức với skein relation đơn giản</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Đa thức Jones</strong> (Jones Polynomial)</td>
+      <td>$V_K(t)$</td>
+      <td>Đa thức bất biến lượng tử</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Chữ ký</strong> (Signature)</td>
+      <td>$\sigma(K)$</td>
+      <td>Số nguyên bất biến của nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Nút slice</strong> (Slice Knot)</td>
+      <td>-</td>
+      <td>Nút là biên của đĩa trong $B^4$</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phần bù nút</strong> (Knot Complement)</td>
+      <td>$S^3 \setminus K$</td>
+      <td>Không gian thu được bằng cách loại bỏ nút</td>
+      <td>08.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phẫu thuật Dehn</strong> (Dehn Surgery)</td>
+      <td>-</td>
+      <td>Phương pháp tạo 3-manifold từ nút</td>
+      <td>08.04</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-chapter-09-topology-đại-chúng">📚 Chapter 09: Topology Đại Chúng</h2>
+
+<h3 id="khái-niệm-cơ-bản">Khái Niệm Cơ Bản</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Thuật Ngữ</th>
+      <th>Ký Hiệu</th>
+      <th>Định Nghĩa</th>
+      <th>Chương</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Đồng phôi</strong> (Homeomorphism)</td>
+      <td>$X \cong Y$</td>
+      <td>Song ánh liên tục với hàm ngược liên tục</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Biến dạng liên tục</strong> (Continuous Deformation)</td>
+      <td>-</td>
+      <td>Biến đổi không cắt hoặc dán</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Lỗ</strong> (Hole)</td>
+      <td>-</td>
+      <td>Đặc trưng topology của không gian</td>
+      <td>09.00</td>
+    </tr>
+    <tr>
+      <td><strong>Đồ thị</strong> (Graph)</td>
+      <td>$G = (V, E)$</td>
+      <td>Tập đỉnh và cạnh</td>
+      <td>09.01</td>
+    </tr>
+    <tr>
+      <td><strong>Đường Euler</strong> (Euler Path)</td>
+      <td>-</td>
+      <td>Đường đi qua mỗi cạnh đúng một lần</td>
+      <td>09.01</td>
+    </tr>
+    <tr>
+      <td><strong>Mặt Möbius</strong> (Möbius Strip)</td>
+      <td>-</td>
+      <td>Mặt không định hướng với một mặt</td>
+      <td>09.02</td>
+    </tr>
+    <tr>
+      <td><strong>Định hướng</strong> (Orientability)</td>
+      <td>-</td>
+      <td>Tính chất có thể định hướng</td>
+      <td>09.02</td>
+    </tr>
+    <tr>
+      <td><strong>Đặc trưng Euler</strong> (Euler Characteristic)</td>
+      <td>$\chi = V - E + F$</td>
+      <td>Bất biến topology</td>
+      <td>09.03</td>
+    </tr>
+    <tr>
+      <td><strong>Định lý bốn màu</strong> (Four Color Theorem)</td>
+      <td>-</td>
+      <td>Mọi bản đồ phẳng có thể tô bằng 4 màu</td>
+      <td>09.04</td>
+    </tr>
+    <tr>
+      <td><strong>Phân tích dữ liệu tô-pô</strong> (TDA)</td>
+      <td>-</td>
+      <td>Phương pháp phân tích dữ liệu bằng topology</td>
+      <td>09.07</td>
+    </tr>
+    <tr>
+      <td><strong>Đồng điều bền vững</strong> (Persistent Homology)</td>
+      <td>-</td>
+      <td>Homology theo tham số</td>
+      <td>09.07</td>
+    </tr>
+    <tr>
+      <td><strong>Giả thuyết Poincaré</strong> (Poincaré Conjecture)</td>
+      <td>-</td>
+      <td>Định lý về 3-manifold đơn liên</td>
+      <td>09.08</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-ký-hiệu-toán-học-thường-dùng">🎯 Ký Hiệu Toán Học Thường Dùng</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ký Hiệu</th>
+      <th>Ý Nghĩa</th>
+      <th>Ví Dụ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\mathbb{R}$</td>
+      <td>Số thực</td>
+      <td>$\mathbb{R}^n$ - không gian Euclid $n$-chiều</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{Z}$</td>
+      <td>Số nguyên</td>
+      <td>$\pi_1(S^1) \cong \mathbb{Z}$</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{Q}$</td>
+      <td>Số hữu tỉ</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{N}$</td>
+      <td>Số tự nhiên</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\emptyset$</td>
+      <td>Tập rỗng</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\in$</td>
+      <td>Thuộc về</td>
+      <td>$x \in A$</td>
+    </tr>
+    <tr>
+      <td>$\subseteq$</td>
+      <td>Tập con</td>
+      <td>$A \subseteq B$</td>
+    </tr>
+    <tr>
+      <td>$\cup$</td>
+      <td>Hợp</td>
+      <td>$A \cup B$</td>
+    </tr>
+    <tr>
+      <td>$\cap$</td>
+      <td>Giao</td>
+      <td>$A \cap B$</td>
+    </tr>
+    <tr>
+      <td>$\setminus$</td>
+      <td>Hiệu</td>
+      <td>$A \setminus B$</td>
+    </tr>
+    <tr>
+      <td>$\times$</td>
+      <td>Tích Descartes</td>
+      <td>$X \times Y$</td>
+    </tr>
+    <tr>
+      <td>$\cong$</td>
+      <td>Đẳng cấu</td>
+      <td>$X \cong Y$</td>
+    </tr>
+    <tr>
+      <td>$\simeq$</td>
+      <td>Tương đương đồng luân</td>
+      <td>$X \simeq Y$</td>
+    </tr>
+    <tr>
+      <td>$\to$</td>
+      <td>Ánh xạ</td>
+      <td>$f: X \to Y$</td>
+    </tr>
+    <tr>
+      <td>$\hookrightarrow$</td>
+      <td>Nhúng</td>
+      <td>$X \hookrightarrow Y$</td>
+    </tr>
+    <tr>
+      <td>$\partial$</td>
+      <td>Biên</td>
+      <td>$\partial A$, $\partial_n$</td>
+    </tr>
+    <tr>
+      <td>$\pi$</td>
+      <td>Ánh xạ chiếu hoặc số pi</td>
+      <td>$\pi: X \to X/\sim$, $\pi_1(X)$</td>
+    </tr>
+    <tr>
+      <td>$\sim$</td>
+      <td>Quan hệ tương đương</td>
+      <td>$x \sim y$</td>
+    </tr>
+    <tr>
+      <td>$S^n$</td>
+      <td>Hình cầu $n$-chiều</td>
+      <td>$S^1$ - đường tròn</td>
+    </tr>
+    <tr>
+      <td>$D^n$</td>
+      <td>Quả cầu đóng $n$-chiều</td>
+      <td>$D^2$ - đĩa</td>
+    </tr>
+    <tr>
+      <td>$B^n$</td>
+      <td>Quả cầu mở $n$-chiều</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$T^n$</td>
+      <td>Torus $n$-chiều</td>
+      <td>$T^2$ - torus</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{R}P^n$</td>
+      <td>Không gian xạ ảnh thực $n$-chiều</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>$\mathbb{C}P^n$</td>
+      <td>Không gian xạ ảnh phức $n$-chiều</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-ghi-chú">📝 Ghi Chú</h2>
+
+<p><strong>Cách sử dụng bảng:</strong></p>
 
 <ol>
-  <li>
-    <p><strong>Không gian ba chiều:</strong> Một không gian mà tại mỗi điểm, bạn có thể di chuyển theo ba hướng độc lập</p>
-  </li>
-  <li>
-    <p><strong>Đóng (closed):</strong> Không có boundary (cạnh)—giống như một hình cầu, không có “rìa”</p>
-  </li>
-  <li><strong>Đơn giản liên thông (simply connected):</strong> Mọi vòng lặp đều có thể co lại thành một điểm
-    <ul>
-      <li>Điều này có nghĩa là không có “lỗ” một chiều</li>
-      <li>Mọi đường cong khép kín đều có thể được co lại thành một điểm</li>
-    </ul>
-  </li>
-  <li><strong>Homeomorphic với $S^3$:</strong> Có thể biến đổi liên tục thành hình cầu ba chiều</li>
+  <li><strong>Tra cứu theo chương:</strong> Tìm thuật ngữ trong chương tương ứng</li>
+  <li><strong>Tra cứu theo ký hiệu:</strong> Sử dụng bảng ký hiệu để tìm ý nghĩa</li>
+  <li><strong>Tra cứu theo tên:</strong> Tìm kiếm theo tên tiếng Việt hoặc tiếng Anh</li>
 </ol>
 
-<h3 id="tại-sao-đây-là-một-câu-hỏi-quan-trọng">Tại sao đây là một câu hỏi quan trọng?</h3>
-
-<p><strong>Trong không gian hai chiều:</strong></p>
-
-<p>Câu hỏi tương tự trong không gian hai chiều đã được giải quyết từ lâu:</p>
-<ul>
-  <li>Mọi bề mặt đóng, đơn giản liên thông đều homeomorphic với hình cầu hai chiều $S^2$</li>
-  <li>Đây là một kết quả đã được biết đến từ thế kỷ 19</li>
-</ul>
-
-<p><strong>Trong không gian ba chiều:</strong></p>
-
-<p>Nhưng trong không gian ba chiều, câu hỏi này cực kỳ khó:</p>
-<ul>
-  <li>Không gian ba chiều phức tạp hơn nhiều so với không gian hai chiều</li>
-  <li>Có nhiều “cách” để một không gian ba chiều có thể được tổ chức</li>
-  <li>Khó hình dung và khó chứng minh</li>
-</ul>
-
-<p><strong>Tại sao khó hình dung?</strong></p>
-
-<p>Chúng ta sống trong không gian ba chiều, nhưng chúng ta chỉ có thể “nhìn thấy” hai chiều một lúc. Điều này làm cho việc hình dung các không gian ba chiều trở nên cực kỳ khó khăn!</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Hopf_Fibration.png/500px-Hopf_Fibration.png" alt="3-sphere" /><br />
-<em>Hình cầu ba chiều (3-sphere) - một không gian phức tạp khó hình dung - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Hopf_Fibration.png">Wikimedia Commons</a></em></p>
-
-<hr />
-
-<h2 id="-tại-sao-bài-toán-lại-khó">🔍 Tại sao Bài Toán Lại Khó?</h2>
-
-<h3 id="sự-phức-tạp-của-không-gian-ba-chiều">Sự phức tạp của không gian ba chiều</h3>
-
-<p><strong>Không gian một chiều:</strong></p>
+<p><strong>Lưu ý:</strong></p>
 
 <ul>
-  <li>Chỉ có một loại không gian một chiều đóng, đơn giản liên thông: đường tròn $S^1$</li>
-  <li>(Nhưng đường tròn không đơn giản liên thông—có vòng lặp không thể co lại)</li>
-</ul>
-
-<p><strong>Không gian hai chiều:</strong></p>
-
-<ul>
-  <li>Mọi bề mặt đóng, đơn giản liên thông đều là hình cầu $S^2$</li>
-  <li>Đây là một kết quả đã được biết đến</li>
-</ul>
-
-<p><strong>Không gian ba chiều:</strong></p>
-
-<ul>
-  <li>Có vô số các không gian ba chiều khác nhau!</li>
-  <li>Một số có thể trông rất khác nhau nhưng lại homeomorphic</li>
-  <li>Một số có thể trông giống nhau nhưng lại không homeomorphic</li>
-  <li>Rất khó để phân biệt!</li>
-</ul>
-
-<h3 id="vấn-đề-với-việc-chứng-minh">Vấn đề với việc chứng minh</h3>
-
-<p><strong>Các phương pháp truyền thống không hoạt động:</strong></p>
-
-<ul>
-  <li>Các phương pháp được sử dụng cho không gian hai chiều không thể áp dụng trực tiếp</li>
-  <li>Cần các công cụ toán học mới và phức tạp hơn nhiều</li>
-</ul>
-
-<p><strong>Cần các công cụ mới:</strong></p>
-
-<ul>
-  <li><strong>Ricci flow:</strong> Một phương trình vi phân phức tạp</li>
-  <li><strong>Geometric analysis:</strong> Phân tích hình học tiên tiến</li>
-  <li><strong>Surgery theory:</strong> Lý thuyết phẫu thuật topology</li>
-</ul>
-
-<hr />
-
-<h2 id="-hành-trình-giải-quyết">🏆 Hành Trình Giải Quyết</h2>
-
-<h3 id="những-nỗ-lực-ban-đầu">Những nỗ lực ban đầu</h3>
-
-<p>Trong hơn một thế kỷ, nhiều nhà toán học đã cố gắng giải quyết Poincaré Conjecture:</p>
-
-<p><strong>1904-1960:</strong></p>
-<ul>
-  <li>Nhiều nhà toán học đã cố gắng nhưng không thành công</li>
-  <li>Nhiều “chứng minh” được công bố nhưng đều có lỗi</li>
-</ul>
-
-<p><strong>1960s-1980s:</strong></p>
-<ul>
-  <li>Các nhà toán học bắt đầu phát triển các công cụ mới</li>
-  <li><strong>Surgery theory</strong> được phát triển</li>
-  <li>Nhiều tiến bộ được thực hiện, nhưng conjecture vẫn chưa được giải quyết</li>
-</ul>
-
-<p><strong>1980s-2000s:</strong></p>
-<ul>
-  <li><strong>Ricci flow</strong> được phát triển bởi Richard Hamilton</li>
-  <li>Đây là một công cụ mạnh mẽ để nghiên cứu hình dạng của không gian</li>
-  <li>Nhưng vẫn còn nhiều khó khăn kỹ thuật</li>
-</ul>
-
-<h3 id="giải-pháp-của-perelman-2002-2006">Giải pháp của Perelman (2002-2006)</h3>
-
-<p><strong>Grigori Perelman:</strong></p>
-
-<p>Năm 2002-2003, Grigori Perelman, một nhà toán học người Nga, đã công bố một loạt các bài báo trên arXiv (một trang web preprint) giải quyết Poincaré Conjecture.</p>
-
-<p><strong>Phương pháp của Perelman:</strong></p>
-
-<p>Perelman sử dụng <strong>Ricci flow</strong> với các cải tiến quan trọng:</p>
-<ol>
-  <li><strong>Ricci flow với surgery:</strong> Kết hợp Ricci flow với surgery theory</li>
-  <li><strong>Entropy:</strong> Sử dụng khái niệm entropy để kiểm soát quá trình</li>
-  <li><strong>Kỹ thuật mới:</strong> Phát triển nhiều kỹ thuật toán học mới</li>
-</ol>
-
-<p><strong>Đặc điểm đặc biệt:</strong></p>
-
-<ul>
-  <li>Perelman công bố các bài báo trên arXiv, không qua peer review truyền thống</li>
-  <li>Ông từ chối giải thưởng Fields Medal (2006)</li>
-  <li>Ông từ chối giải thưởng Millennium Prize (2010) - một triệu đô la!</li>
-</ul>
-
-<p><strong>Tại sao từ chối giải thưởng?</strong></p>
-
-<p>Perelman nói rằng:</p>
-<ul>
-  <li>Ông không quan tâm đến tiền bạc hoặc danh tiếng</li>
-  <li>Ông chỉ quan tâm đến toán học</li>
-  <li>Ông cảm thấy giải thưởng không công bằng với các nhà toán học khác</li>
-</ul>
-
-<hr />
-
-<h2 id="-ý-nghĩa-và-ứng-dụng">🧮 Ý Nghĩa và Ứng Dụng</h2>
-
-<h3 id="ý-nghĩa-trong-toán-học">Ý nghĩa trong toán học</h3>
-
-<p><strong>Topology ba chiều:</strong></p>
-
-<p>Poincaré Conjecture là một kết quả cơ bản trong topology ba chiều:</p>
-<ul>
-  <li>Nó giúp chúng ta hiểu cấu trúc của các không gian ba chiều</li>
-  <li>Nó liên kết với nhiều lĩnh vực toán học khác</li>
-</ul>
-
-<p><strong>Công cụ mới:</strong></p>
-
-<p>Việc giải quyết Poincaré Conjecture đã dẫn đến việc phát triển nhiều công cụ toán học mới:</p>
-<ul>
-  <li><strong>Ricci flow:</strong> Một công cụ mạnh mẽ trong hình học</li>
-  <li><strong>Geometric analysis:</strong> Phân tích hình học tiên tiến</li>
-  <li><strong>Surgery theory:</strong> Lý thuyết phẫu thuật topology</li>
-</ul>
-
-<h3 id="ứng-dụng">Ứng dụng</h3>
-
-<p><strong>Topology:</strong></p>
-
-<ul>
-  <li>Hiểu sâu hơn về topology của không gian ba chiều</li>
-  <li>Phát triển các công cụ mới cho topology</li>
-</ul>
-
-<p><strong>Hình học:</strong></p>
-
-<ul>
-  <li>Nghiên cứu về hình dạng của không gian</li>
-  <li>Ứng dụng trong general relativity</li>
-</ul>
-
-<p><strong>Vật lý:</strong></p>
-
-<ul>
-  <li>Hiểu cấu trúc của không gian-thời gian</li>
-  <li>Ứng dụng trong cosmology</li>
+  <li>Một số thuật ngữ xuất hiện ở nhiều chương khác nhau</li>
+  <li>Các định nghĩa ở đây là ngắn gọn, chi tiết hơn xem trong các bài học cụ thể</li>
+  <li>Ký hiệu có thể khác nhau tùy theo tài liệu, nhưng đã được chuẩn hóa trong khóa học này</li>
 </ul>
 
 <hr />
 
 <h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
 
-<h3 id="classic-works">Classic Works</h3>
+<h3 id="tài-liệu-tham-khảo-chính">Tài Liệu Tham Khảo Chính</h3>
 
 <ol>
   <li>
-    <p><strong>Henri Poincaré</strong> - <em>“Cinquième complément à l’Analysis Situs”</em> (1904)<br />
-<em>Bài báo gốc đề xuất Poincaré Conjecture</em></p>
+    <p><strong>James R. Munkres</strong> - <em>Topology</em>, 2nd Ed.<br />
+<em>Giáo trình kinh điển về topology</em></p>
   </li>
   <li>
-    <p><strong>Grigori Perelman</strong> - <em>“The Entropy Formula for the Ricci Flow and Its Geometric Applications”</em> (2002)<br />
-<em>Bài báo đầu tiên của Perelman về Poincaré Conjecture</em></p>
+    <p><strong>Sidney A. Morris</strong> - <em>Topology without Tears</em><br />
+<em>Giáo trình dễ tiếp cận</em></p>
   </li>
   <li>
-    <p><strong>Grigori Perelman</strong> - <em>“Ricci Flow with Surgery on Three-Manifolds”</em> (2003)<br />
-<em>Bài báo thứ hai của Perelman</em></p>
+    <p><strong>Colin Adams &amp; Robert Franzosa</strong> - <em>Introduction to Topology: Pure and Applied</em><br />
+<em>Kết hợp lý thuyết và ứng dụng</em></p>
   </li>
   <li>
-    <p><strong>Grigori Perelman</strong> - <em>“Finite Extinction Time for the Solutions to the Ricci Flow on Certain Three-Manifolds”</em> (2003)<br />
-<em>Bài báo thứ ba của Perelman</em></p>
+    <p><strong>Allen Hatcher</strong> - <em>Algebraic Topology</em><br />
+<em>Giáo trình về topology đại số</em></p>
+  </li>
+  <li>
+    <p><strong>W.B. Raymond Lickorish</strong> - <em>An Introduction to Knot Theory</em><br />
+<em>Giáo trình về lý thuyết nút</em></p>
   </li>
 </ol>
-
-<h3 id="textbooks">Textbooks</h3>
-
-<ul>
-  <li>
-    <p><strong>John Morgan &amp; Gang Tian</strong> - <em>Ricci Flow and the Poincaré Conjecture</em> (2007)<br />
-<em>Giải thích chi tiết về chứng minh của Perelman</em></p>
-  </li>
-  <li>
-    <p><strong>Bruce Kleiner &amp; John Lott</strong> - <em>“Notes on Perelman’s Papers”</em> (2006)<br />
-<em>Ghi chú chi tiết về chứng minh của Perelman</em></p>
-  </li>
-</ul>
 
 <hr />
 
 <h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
 
-<h3 id="trong-toán-học">Trong toán học</h3>
-
-<p>Poincaré Conjecture có nhiều ý nghĩa trong toán học:</p>
-
-<ol>
-  <li><strong>Topology:</strong> Hiểu sâu hơn về topology của không gian ba chiều</li>
-  <li><strong>Hình học:</strong> Phát triển các công cụ hình học mới</li>
-  <li><strong>Phân tích:</strong> Liên kết với phân tích hình học</li>
-</ol>
-
-<h3 id="trong-vật-lý">Trong vật lý</h3>
-
-<ul>
-  <li><strong>General relativity:</strong> Hiểu cấu trúc của không gian-thời gian</li>
-  <li><strong>Cosmology:</strong> Nghiên cứu về cấu trúc của vũ trụ</li>
-  <li><strong>Quantum gravity:</strong> Ứng dụng trong các lý thuyết về lực hấp dẫn lượng tử</li>
-</ul>
+<p>Từ điển này tổng hợp các thuật ngữ từ toàn bộ khóa học topology, từ các khái niệm cơ bản nhất về tập hợp và không gian tô-pô đến các chủ đề nâng cao như lý thuyết nút và topology đại số. Việc hiểu và sử dụng đúng các thuật ngữ này là nền tảng quan trọng để nghiên cứu sâu hơn về topology và các ứng dụng của nó.</p>
 
 <hr />
 
@@ -299,19 +2231,16 @@
 
 <ol>
   <li>
-    <p><strong>Tưởng tượng:</strong> Hãy tưởng tượng bạn sống trong một không gian ba chiều đóng, đơn giản liên thông. Làm thế nào bạn có thể kiểm tra xem nó có phải là hình cầu không?</p>
+    <p><strong>Tra cứu:</strong> Hãy tìm định nghĩa của một thuật ngữ cụ thể mà bạn quan tâm.</p>
   </li>
   <li>
-    <p><strong>So sánh:</strong> Hãy so sánh Poincaré Conjecture với định lý phân loại bề mặt. Chúng khác nhau như thế nào?</p>
+    <p><strong>Phân loại:</strong> Hãy phân loại các thuật ngữ theo các nhóm: định nghĩa cơ bản, định lý, kỹ thuật tính toán, ứng dụng.</p>
   </li>
   <li>
-    <p><strong>Suy ngẫm:</strong> Tại sao Poincaré Conjecture lại khó đến vậy? Điều gì làm cho nó khác với các bài toán topology khác?</p>
+    <p><strong>Liên kết:</strong> Hãy tìm các thuật ngữ liên quan đến nhau và giải thích mối liên hệ giữa chúng.</p>
   </li>
   <li>
-    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về Grigori Perelman và tại sao ông từ chối giải thưởng.</p>
-  </li>
-  <li>
-    <p><strong>Thử thách:</strong> Hãy tìm hiểu về Ricci flow và cách nó được sử dụng để chứng minh Poincaré Conjecture.</p>
+    <p><strong>Mở rộng:</strong> Hãy tìm hiểu thêm về các thuật ngữ mà bạn chưa hiểu rõ từ các bài học tương ứng.</p>
   </li>
 </ol>
 
@@ -319,13 +2248,13 @@
 
 <ol>
   <li>
-    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về các Millennium Problems khác và trạng thái hiện tại của chúng.</p>
+    <p><strong>Tạo từ điển cá nhân:</strong> Hãy tạo một từ điển riêng với các ví dụ và giải thích của bạn.</p>
   </li>
   <li>
-    <p><strong>Khám phá:</strong> Hãy tìm hiểu về topology của không gian ba chiều và các không gian khác.</p>
+    <p><strong>Ôn tập:</strong> Sử dụng từ điển này để ôn tập lại các khái niệm đã học.</p>
   </li>
   <li>
-    <p><strong>Suy ngẫm:</strong> Hãy suy ngẫm về ý nghĩa của việc giải quyết Poincaré Conjecture đối với toán học và khoa học.</p>
+    <p><strong>Tham khảo:</strong> Sử dụng từ điển này khi đọc các bài học khác để hiểu các thuật ngữ mới.</p>
   </li>
 </ol>
 
@@ -333,26 +2262,16 @@
 
 <h2 id="-tóm-tắt">📚 Tóm tắt</h2>
 
-<p>Trong bài học này, chúng ta đã khám phá:</p>
+<p>Từ điển này là một công cụ tham khảo quan trọng cho toàn bộ khóa học topology. Nó tổng hợp:</p>
 
 <ul>
-  <li>
-    <p><strong>Poincaré Conjecture:</strong> Một trong những bài toán khó nhất trong toán học</p>
-  </li>
-  <li>
-    <p><strong>Hành trình giải quyết:</strong> Hơn một thế kỷ nghiên cứu và nỗ lực</p>
-  </li>
-  <li>
-    <p><strong>Giải pháp của Perelman:</strong> Sử dụng Ricci flow và các công cụ toán học tiên tiến</p>
-  </li>
-  <li>
-    <p><strong>Ý nghĩa:</strong> Mở ra những hướng nghiên cứu mới trong topology và hình học</p>
-  </li>
+  <li><strong>Hơn 200 thuật ngữ toán học</strong> từ các chương khác nhau</li>
+  <li><strong>Các ký hiệu toán học</strong> thường dùng</li>
+  <li><strong>Định nghĩa ngắn gọn</strong> cho mỗi thuật ngữ</li>
+  <li><strong>Tham chiếu chương</strong> để tìm hiểu chi tiết hơn</li>
 </ul>
 
-<p>Poincaré Conjecture là một ví dụ tuyệt vời về cách các bài toán toán học có thể thách thức các nhà toán học trong nhiều thế hệ, và cách việc giải quyết chúng có thể dẫn đến những phát triển toán học mới và sâu sắc. Nó cũng minh họa mối liên hệ sâu sắc giữa topology, hình học, và phân tích!</p>
-
-<p>Trong bài học cuối cùng, chúng ta sẽ khám phá topology trong nghệ thuật và kiến trúc!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="poincare-conjecture" /><category term="millennium-problem" /><category term="topology-3d" /><category term="toán-học" /><summary type="html"><![CDATA[Khám phá Poincaré Conjecture - một trong những bài toán khó nhất và nổi tiếng nhất trong toán học, và cách nó được giải quyết sau hơn 100 năm]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.06: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_Physics_Topology/" rel="alternate" type="text/html" title="Bài 09.06: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_Physics_Topology</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_Physics_Topology/"><![CDATA[<p><strong>Topology và Vật Lý Hiện Đại</strong></p>
+<p>Sử dụng từ điển này một cách hiệu quả sẽ giúp bạn nắm vững các khái niệm topology và áp dụng chúng trong nghiên cứu và ứng dụng thực tế!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="glossary" /><category term="terminology" /><category term="dictionary" /><category term="reference" /><summary type="html"><![CDATA[Tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology, trình bày dưới dạng bảng có tổ chức]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Physics_Topology/" rel="alternate" type="text/html" title="Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Physics_Topology</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Physics_Topology/"><![CDATA[<p><strong>Topology và Vật Lý Hiện Đại</strong></p>
 
 <hr />
 
@@ -692,7 +2611,7 @@ Khi bạn thay đổi nhiệt độ hoặc áp suất, vật chất có thể ch
 
 <p>Topology trong vật lý là một ví dụ tuyệt vời về cách toán học trừu tượng có thể giúp chúng ta hiểu và khám phá thế giới vật lý. Nó cho thấy rằng topology không chỉ là toán học thuần túy—nó có những ứng dụng thực tế quan trọng trong công nghệ và nghiên cứu khoa học!</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="vật-lý" /><category term="quantum" /><category term="topology-ứng-dụng" /><category term="vật-liệu" /><summary type="html"><![CDATA[Khám phá cách topology xuất hiện trong vật lý hiện đại, từ quantum mechanics đến vật liệu mới và string theory]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.05: Topology của DNA - Xoắn và Nút</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_DNA_Knot_Theory/" rel="alternate" type="text/html" title="Bài 09.05: Topology của DNA - Xoắn và Nút" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_DNA_Knot_Theory</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_DNA_Knot_Theory/"><![CDATA[<p><strong>Knot Theory và Ứng Dụng Trong Sinh Học Phân Tử</strong></p>
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="vật-lý" /><category term="quantum" /><category term="topology-ứng-dụng" /><category term="vật-liệu" /><summary type="html"><![CDATA[Khám phá cách topology xuất hiện trong vật lý hiện đại, từ quantum mechanics đến vật liệu mới và string theory]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.06: Topology của DNA - Xoắn và Nút</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_DNA_Knot_Theory/" rel="alternate" type="text/html" title="Bài 09.06: Topology của DNA - Xoắn và Nút" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_DNA_Knot_Theory</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_DNA_Knot_Theory/"><![CDATA[<p><strong>Knot Theory và Ứng Dụng Trong Sinh Học Phân Tử</strong></p>
 
 <hr />
 
@@ -1076,7 +2995,7 @@ Khi bạn thay đổi nhiệt độ hoặc áp suất, vật chất có thể ch
 
 <p>Topology của DNA là một ví dụ tuyệt vời về cách toán học trừu tượng có thể giúp chúng ta hiểu các hệ thống sinh học phức tạp. Nó cho thấy rằng topology không chỉ là toán học thuần túy—nó có những ứng dụng thực tế quan trọng trong cuộc sống hàng ngày!</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="knot-theory" /><category term="DNA" /><category term="sinh-học" /><category term="topology-ứng-dụng" /><summary type="html"><![CDATA[Khám phá cách các nhà khoa học sử dụng topology và knot theory để nghiên cứu cấu trúc của DNA và các phân tử sinh học]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.04: Bốn Màu Đủ Để Tô Bản Đồ</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Four_Color_Theorem/" rel="alternate" type="text/html" title="Bài 09.04: Bốn Màu Đủ Để Tô Bản Đồ" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Four_Color_Theorem</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Four_Color_Theorem/"><![CDATA[<p><strong>Định Lý Toán Học Nổi Tiếng Và Ứng Dụng Thực Tế</strong></p>
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="knot-theory" /><category term="DNA" /><category term="sinh-học" /><category term="topology-ứng-dụng" /><summary type="html"><![CDATA[Khám phá cách các nhà khoa học sử dụng topology và knot theory để nghiên cứu cấu trúc của DNA và các phân tử sinh học]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_Four_Color_Theorem/" rel="alternate" type="text/html" title="Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_Four_Color_Theorem</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_Four_Color_Theorem/"><![CDATA[<p><strong>Định Lý Toán Học Nổi Tiếng Và Ứng Dụng Thực Tế</strong></p>
 
 <hr />
 
@@ -1493,7 +3412,7 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <p>Định lý Bốn Màu là một ví dụ tuyệt vời về cách toán học có thể giải quyết các vấn đề thực tế và cách các công cụ hiện đại (như máy tính) có thể giúp chúng ta chứng minh các định lý phức tạp. Nó cũng minh họa mối liên hệ sâu sắc giữa topology, graph theory, và các ứng dụng thực tế.</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="four-color-theorem" /><category term="bản-đồ" /><category term="topology" /><category term="graph-theory" /><summary type="html"><![CDATA[Khám phá định lý bốn màu - một trong những định lý nổi tiếng nhất trong toán học, và cách nó liên quan đến topology và graph theory]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.03: Euler Characteristic - Công Thức V - E + F</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Euler_Characteristic/" rel="alternate" type="text/html" title="Bài 09.03: Euler Characteristic - Công Thức V - E + F" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Euler_Characteristic</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Euler_Characteristic/"><![CDATA[<p><strong>Bất Biến Toán Học Quan Trọng Phân Loại Các Bề Mặt</strong></p>
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="four-color-theorem" /><category term="bản-đồ" /><category term="topology" /><category term="graph-theory" /><summary type="html"><![CDATA[Khám phá định lý bốn màu - một trong những định lý nổi tiếng nhất trong toán học, và cách nó liên quan đến topology và graph theory]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.04: Euler Characteristic - Công Thức V - E + F</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Euler_Characteristic/" rel="alternate" type="text/html" title="Bài 09.04: Euler Characteristic - Công Thức V - E + F" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Euler_Characteristic</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Euler_Characteristic/"><![CDATA[<p><strong>Bất Biến Toán Học Quan Trọng Phân Loại Các Bề Mặt</strong></p>
 
 <hr />
 
@@ -2354,7 +4273,7 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <p>Euler Characteristic là một công cụ mạnh mẽ và đẹp đẽ trong topology—nó liên kết hình học với topology và cho phép chúng ta hiểu sâu hơn về cấu trúc của các không gian phức tạp.</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="euler-characteristic" /><category term="bất-biến" /><category term="polyhedra" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá Euler Characteristic - một bất biến toán học quan trọng được tính bằng công thức V - E + F, và tại sao nó lại quan trọng trong topology]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Mobius_Strip/" rel="alternate" type="text/html" title="Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Mobius_Strip</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Mobius_Strip/"><![CDATA[<p><strong>Khám phá Bề Mặt Kỳ Lạ Chỉ Có Một Mặt và Một Cạnh</strong></p>
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="euler-characteristic" /><category term="bất-biến" /><category term="polyhedra" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá Euler Characteristic - một bất biến toán học quan trọng được tính bằng công thức V - E + F, và tại sao nó lại quan trọng trong topology]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.03: Möbius Strip - Mặt Chỉ Có Một Mặt</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Mobius_Strip/" rel="alternate" type="text/html" title="Bài 09.03: Möbius Strip - Mặt Chỉ Có Một Mặt" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Mobius_Strip</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Mobius_Strip/"><![CDATA[<p><strong>Khám phá Bề Mặt Kỳ Lạ Chỉ Có Một Mặt và Một Cạnh</strong></p>
 
 <hr />
 
@@ -2919,7 +4838,7 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <p>Möbius strip là một ví dụ tuyệt vời về cách topology có thể tạo ra những vật thể kỳ lạ và thú vị với các tính chất không thể tưởng tượng được. Nó minh họa một cách rõ ràng khái niệm về định hướng và giúp chúng ta hiểu sâu hơn về topology của các bề mặt.</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="mobius-strip" /><category term="định-hướng" /><category term="bề-mặt" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá Möbius strip - một bề mặt kỳ lạ chỉ có một mặt và một cạnh, và tại sao nó lại quan trọng trong topology]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Konigsberg_Bridges/" rel="alternate" type="text/html" title="Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Konigsberg_Bridges</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Konigsberg_Bridges/"><![CDATA[<p><strong>Bài Toán Cổ Điển Mở Đầu Cho Topology và Graph Theory</strong></p>
+<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="mobius-strip" /><category term="định-hướng" /><category term="bề-mặt" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá Möbius strip - một bề mặt kỳ lạ chỉ có một mặt và một cạnh, và tại sao nó lại quan trọng trong topology]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Konigsberg_Bridges/" rel="alternate" type="text/html" title="Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Konigsberg_Bridges</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Konigsberg_Bridges/"><![CDATA[<p><strong>Bài Toán Cổ Điển Mở Đầu Cho Topology và Graph Theory</strong></p>
 
 <hr />
 
@@ -3327,7 +5246,7 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
   </li>
 </ul>
 
-<p>Bài toán bảy cây cầu không chỉ là một bài toán thú vị—nó là nền tảng của nhiều nhánh toán học hiện đại. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="graph-theory" /><category term="euler-path" /><category term="liên-thông" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá bài toán cổ điển về bảy cây cầu ở Königsberg và cách nó mở đầu cho topology và graph theory hiện đại]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.00: Cà phê và Bánh Donut - Tại sao chúng giống nhau?</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Coffee_Donut/" rel="alternate" type="text/html" title="Bài 09.00: Cà phê và Bánh Donut - Tại sao chúng giống nhau?" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Coffee_Donut</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Coffee_Donut/"><![CDATA[<p><strong>Khám phá Topology qua Ví dụ Thực Tế</strong></p>
+<p>Bài toán bảy cây cầu không chỉ là một bài toán thú vị—nó là nền tảng của nhiều nhánh toán học hiện đại. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="graph-theory" /><category term="euler-path" /><category term="liên-thông" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá bài toán cổ điển về bảy cây cầu ở Königsberg và cách nó mở đầu cho topology và graph theory hiện đại]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.01: Cà phê và Bánh Donut - Tại sao chúng giống nhau?</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Coffee_Donut/" rel="alternate" type="text/html" title="Bài 09.01: Cà phê và Bánh Donut - Tại sao chúng giống nhau?" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Coffee_Donut</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Coffee_Donut/"><![CDATA[<p><strong>Khám phá Topology qua Ví dụ Thực Tế</strong></p>
 
 <hr />
 
@@ -4055,292 +5974,218 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
   </li>
 </ul>
 
-<p>Topology không chỉ là toán học trừu tượng—nó giúp chúng ta hiểu thế giới xung quanh theo một cách mới mẻ và sâu sắc hơn. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="homeomorphism" /><category term="biến-dạng" /><category term="đại-chúng" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá khái niệm homeomorphism và biến dạng liên tục qua ví dụ thú vị: tại sao một chiếc ly cà phê có thể biến thành bánh donut?]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.07: Topology của Dữ Liệu - Phân Tích Dữ Liệu Bằng Topology</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Topological_Data_Analysis/" rel="alternate" type="text/html" title="Bài 09.07: Topology của Dữ Liệu - Phân Tích Dữ Liệu Bằng Topology" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Topological_Data_Analysis</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Topological_Data_Analysis/"><![CDATA[<p><strong>Topological Data Analysis và Ứng Dụng Trong Khoa Học Dữ Liệu</strong></p>
+<p>Topology không chỉ là toán học trừu tượng—nó giúp chúng ta hiểu thế giới xung quanh theo một cách mới mẻ và sâu sắc hơn. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="homeomorphism" /><category term="biến-dạng" /><category term="đại-chúng" /><category term="topology-cơ-bản" /><summary type="html"><![CDATA[Khám phá khái niệm homeomorphism và biến dạng liên tục qua ví dụ thú vị: tại sao một chiếc ly cà phê có thể biến thành bánh donut?]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.00: Giới Thiệu - Topology Đại Chúng</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Introduction/" rel="alternate" type="text/html" title="Bài 09.00: Giới Thiệu - Topology Đại Chúng" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Introduction</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Introduction/"><![CDATA[<p><strong>Giới Thiệu - Topology Đại Chúng</strong></p>
 
 <hr />
 
-<h2 id="-tổng-quan">📖 Tổng quan</h2>
+<h2 id="-chào-mừng-đến-với-topology-đại-chúng">📖 Chào Mừng Đến Với Topology Đại Chúng</h2>
 
-<p>Trong thời đại của dữ liệu lớn (big data), chúng ta có thể thu thập được lượng dữ liệu khổng lồ từ nhiều nguồn khác nhau: từ hình ảnh y tế đến dữ liệu khí hậu, từ mạng xã hội đến nghiên cứu khoa học. Nhưng làm thế nào để chúng ta hiểu được cấu trúc ẩn trong những dữ liệu phức tạp này?</p>
+<p>Chào mừng bạn đến với <strong>Chapter 09: Topology Đại Chúng</strong>! Đây là một hành trình đặc biệt được thiết kế để đưa topology—một trong những nhánh toán học trừu tượng nhất—đến gần với mọi người thông qua những câu chuyện thực tế, ví dụ cụ thể, và ứng dụng trong cuộc sống hàng ngày.</p>
 
-<p><strong>Topological Data Analysis (TDA)</strong> là một phương pháp mới nổi sử dụng topology để phân tích dữ liệu và phát hiện các cấu trúc ẩn. Thay vì chỉ nhìn vào các điểm dữ liệu riêng lẻ, TDA tập trung vào <strong>cấu trúc topology</strong> của dữ liệu—các “lỗ”, “vòng lặp”, và các tính chất hình học khác không thể phát hiện được bằng các phương pháp truyền thống.</p>
+<p><strong>Topology là gì?</strong></p>
 
-<p>TDA đặc biệt hữu ích khi làm việc với dữ liệu có nhiều chiều hoặc dữ liệu có nhiễu. Nó có thể phát hiện các cấu trúc quan trọng mà các phương pháp thống kê truyền thống có thể bỏ qua, và nó đang được sử dụng trong nhiều lĩnh vực: từ phân tích hình ảnh y tế đến nghiên cứu khí hậu, từ machine learning đến khoa học dữ liệu.</p>
+<p>Nếu bạn đã từng nghe câu nói nổi tiếng: <em>“Một nhà toán học là người không phân biệt được giữa một tách cà phê và một chiếc bánh donut”</em>, thì đó chính là topology! Topology nghiên cứu các tính chất của không gian không thay đổi khi chúng ta “kéo dãn” hoặc “bóp méo” chúng—miễn là không cắt hoặc dán.</p>
 
-<p>Trong bài học này, chúng ta sẽ khám phá TDA một cách chi tiết: persistent homology (một công cụ chính của TDA), cách TDA hoạt động, và các ứng dụng thực tế của nó trong khoa học và công nghệ.</p>
+<p><strong>Tại sao Chapter này đặc biệt?</strong></p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Persistent_homology.svg/500px-Persistent_homology.svg.png" alt="Persistent homology" /><br />
-<em>Persistent homology - một công cụ chính của TDA - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Persistent_homology.svg">Wikimedia Commons</a></em></p>
+<p>Trong các chapter trước, chúng ta đã học topology một cách chính thống với các định nghĩa toán học chặt chẽ, các định lý, và các chứng minh. Chapter 09 này khác biệt—chúng ta sẽ khám phá topology qua:</p>
 
-<p><strong>Tại sao đây là kiến thức quan trọng?</strong> TDA là một trong những phương pháp phân tích dữ liệu mạnh mẽ nhất hiện nay. Nó có thể phát hiện các cấu trúc mà các phương pháp truyền thống không thể phát hiện, và nó đang được sử dụng trong nhiều lĩnh vực quan trọng như y học, khoa học khí hậu, và machine learning.</p>
-
-<hr />
-
-<h2 id="-persistent-homology---công-cụ-chính-của-tda">🔍 Persistent Homology - Công Cụ Chính của TDA</h2>
-
-<h3 id="homology-là-gì">Homology là gì?</h3>
-
-<p>Như chúng ta đã học trong các bài trước, <strong>homology</strong> là một cách đo lường các “lỗ” trong một không gian ở mọi chiều:</p>
 <ul>
-  <li><strong>$H_0$:</strong> Đếm số thành phần liên thông</li>
-  <li><strong>$H_1$:</strong> Đếm số lỗ một chiều (vòng lặp)</li>
-  <li><strong>$H_2$:</strong> Đếm số lỗ hai chiều (khoảng trống)</li>
-  <li>Và cứ thế…</li>
+  <li><strong>Những câu chuyện thực tế:</strong> Từ bài toán bảy cây cầu ở Königsberg đến giả thuyết Poincaré triệu đô</li>
+  <li><strong>Ví dụ cụ thể:</strong> Cà phê và donut, Möbius strip, DNA xoắn kép</li>
+  <li><strong>Ứng dụng thực tế:</strong> Trong vật lý lượng tử, sinh học phân tử, phân tích dữ liệu, nghệ thuật</li>
+  <li><strong>Giải thích trực quan:</strong> Không cần công thức phức tạp để hiểu các khái niệm cơ bản</li>
 </ul>
 
-<h3 id="persistent-homology">Persistent Homology</h3>
+<hr />
 
-<p><strong>Persistent homology</strong> là một cách để tính toán homology của dữ liệu khi chúng ta “phóng to” dữ liệu theo các mức độ khác nhau.</p>
+<h2 id="-mục-tiêu-của-chapter-này">🎯 Mục Tiêu Của Chapter Này</h2>
 
-<p><strong>Ý tưởng cơ bản:</strong></p>
+<h3 id="mục-tiêu-chính">Mục Tiêu Chính</h3>
 
 <ol>
   <li>
-    <p><strong>Bắt đầu với các điểm dữ liệu:</strong> Chúng ta có một tập hợp các điểm trong không gian</p>
+    <p><strong>Làm cho topology trở nên dễ tiếp cận:</strong> Bạn không cần kiến thức toán học chuyên sâu để hiểu các khái niệm cơ bản của topology.</p>
   </li>
   <li>
-    <p><strong>Tạo các “quả bóng”:</strong> Xung quanh mỗi điểm, chúng ta tạo một quả bóng với bán kính $r$</p>
+    <p><strong>Kết nối với thực tế:</strong> Khám phá cách topology xuất hiện trong cuộc sống hàng ngày, từ hình dạng của các vật thể đến cấu trúc của DNA.</p>
   </li>
   <li>
-    <p><strong>Tăng bán kính:</strong> Khi chúng ta tăng $r$, các quả bóng lớn hơn và bắt đầu giao nhau</p>
+    <p><strong>Xây dựng trực giác:</strong> Phát triển cảm nhận về “hình dạng” và “cấu trúc” mà không cần công thức toán học phức tạp.</p>
   </li>
   <li>
-    <p><strong>Theo dõi các cấu trúc:</strong> Khi các quả bóng giao nhau, chúng tạo thành các cấu trúc topology (vòng lặp, khoảng trống)</p>
+    <p><strong>Khám phá ứng dụng:</strong> Tìm hiểu cách topology được sử dụng trong các lĩnh vực khác nhau như vật lý, sinh học, khoa học dữ liệu, và nghệ thuật.</p>
   </li>
   <li>
-    <p><strong>Persistent:</strong> Chúng ta theo dõi các cấu trúc này xuất hiện và biến mất khi $r$ thay đổi</p>
+    <p><strong>Hiểu các bất biến toán học:</strong> Tìm hiểu về các đại lượng không thay đổi khi chúng ta biến dạng không gian, và tại sao chúng quan trọng.</p>
   </li>
 </ol>
 
-<p><strong>Ví dụ trực quan:</strong></p>
+<h3 id="ai-nên-học-chapter-này">Ai Nên Học Chapter Này?</h3>
 
-<p>Hãy tưởng tượng bạn có các điểm dữ liệu được sắp xếp theo hình tròn:</p>
 <ul>
-  <li><strong>$r$ nhỏ:</strong> Các quả bóng nhỏ, không có cấu trúc nào</li>
-  <li><strong>$r$ vừa:</strong> Các quả bóng bắt đầu giao nhau, tạo thành một vòng lặp (một lỗ một chiều)</li>
-  <li><strong>$r$ lớn:</strong> Vòng lặp biến mất khi toàn bộ không gian được lấp đầy</li>
-</ul>
-
-<p><strong>Persistent homology</strong> theo dõi vòng lặp này xuất hiện ở $r$ nào và biến mất ở $r$ nào—đây là thông tin quan trọng về cấu trúc của dữ liệu!</p>
-
-<h3 id="barcode-và-persistence-diagram">Barcode và Persistence Diagram</h3>
-
-<p><strong>Barcode:</strong></p>
-
-<p>Một cách trực quan để biểu diễn persistent homology là sử dụng <strong>barcode</strong>:</p>
-<ul>
-  <li>Mỗi “thanh” trong barcode đại diện cho một cấu trúc topology (một lỗ)</li>
-  <li>Độ dài của thanh cho biết “persistence” (độ bền) của cấu trúc—cấu trúc tồn tại trong khoảng $r$ nào</li>
-  <li>Thanh dài = cấu trúc quan trọng và ổn định</li>
-  <li>Thanh ngắn = cấu trúc có thể chỉ là nhiễu</li>
-</ul>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Persistence_barcode.svg/500px-Persistence_barcode.svg.png" alt="Persistence barcode" /><br />
-<em>Barcode biểu diễn persistent homology - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Persistence_barcode.svg">Wikimedia Commons</a></em></p>
-
-<p><strong>Persistence Diagram:</strong></p>
-
-<p>Một cách khác để biểu diễn là sử dụng <strong>persistence diagram</strong>:</p>
-<ul>
-  <li>Mỗi điểm $(b, d)$ đại diện cho một cấu trúc topology</li>
-  <li>$b$ = thời điểm xuất hiện (birth)</li>
-  <li>$d$ = thời điểm biến mất (death)</li>
-  <li>Khoảng cách từ đường chéo = persistence của cấu trúc</li>
-</ul>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Persistence_diagram.svg/500px-Persistence_diagram.svg.png" alt="Persistence diagram" /><br />
-<em>Persistence diagram - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Persistence_diagram.svg">Wikimedia Commons</a></em></p>
-
-<p><strong>Liên hệ với phần chính:</strong> Persistent homology cho phép chúng ta “nhìn thấy” cấu trúc topology của dữ liệu ở các mức độ chi tiết khác nhau. Điều này giống như cách bạn có thể nhìn một vật thể từ xa để thấy hình dạng tổng thể, và từ gần để thấy các chi tiết—nhưng ở đây chúng ta đang nhìn cấu trúc topology!</p>
-
-<hr />
-
-<h2 id="-cách-tda-hoạt-động">🧮 Cách TDA Hoạt Động</h2>
-
-<h3 id="bước-1-thu-thập-dữ-liệu">Bước 1: Thu thập Dữ liệu</h3>
-
-<p>Đầu tiên, chúng ta cần có dữ liệu:</p>
-<ul>
-  <li>Có thể là các điểm trong không gian nhiều chiều</li>
-  <li>Có thể là hình ảnh, âm thanh, hoặc bất kỳ dữ liệu nào có thể được biểu diễn dưới dạng số</li>
-</ul>
-
-<h3 id="bước-2-xây-dựng-simplicial-complex">Bước 2: Xây dựng Simplicial Complex</h3>
-
-<p>Từ các điểm dữ liệu, chúng ta xây dựng một <strong>simplicial complex</strong>:</p>
-<ul>
-  <li><strong>0-simplices:</strong> Các điểm dữ liệu</li>
-  <li><strong>1-simplices:</strong> Các cạnh nối các điểm gần nhau</li>
-  <li><strong>2-simplices:</strong> Các tam giác được tạo thành từ các cạnh</li>
-  <li>Và cứ thế…</li>
-</ul>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Simplicial_complex.svg/500px-Simplicial_complex.svg.png" alt="Simplicial complex" /><br />
-<em>Simplicial complex được xây dựng từ các điểm dữ liệu - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Simplicial_complex.svg">Wikimedia Commons</a></em></p>
-
-<p><strong>Cách xây dựng:</strong></p>
-
-<p>Có nhiều cách để xây dựng simplicial complex từ dữ liệu:</p>
-<ul>
-  <li><strong>Vietoris-Rips complex:</strong> Nối các điểm có khoảng cách nhỏ hơn một ngưỡng</li>
-  <li><strong>Čech complex:</strong> Sử dụng giao của các quả bóng</li>
-  <li><strong>Alpha complex:</strong> Sử dụng Voronoi diagrams</li>
-</ul>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Vietoris-Rips_complex.svg/500px-Vietoris-Rips_complex.svg.png" alt="Vietoris-Rips complex" /><br />
-<em>Vietoris-Rips complex - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Vietoris-Rips_complex.svg">Wikimedia Commons</a></em></p>
-
-<h3 id="bước-3-tính-persistent-homology">Bước 3: Tính Persistent Homology</h3>
-
-<p>Sau đó, chúng ta tính persistent homology của simplicial complex:</p>
-<ul>
-  <li>Tính homology ở các mức độ $r$ khác nhau</li>
-  <li>Theo dõi các cấu trúc topology xuất hiện và biến mất</li>
-  <li>Tạo ra barcode hoặc persistence diagram</li>
-</ul>
-
-<h3 id="bước-4-phân-tích-kết-quả">Bước 4: Phân tích Kết quả</h3>
-
-<p>Cuối cùng, chúng ta phân tích kết quả:</p>
-<ul>
-  <li><strong>Cấu trúc quan trọng:</strong> Các thanh dài trong barcode đại diện cho các cấu trúc quan trọng</li>
-  <li><strong>Nhiễu:</strong> Các thanh ngắn có thể chỉ là nhiễu</li>
-  <li><strong>So sánh:</strong> So sánh các barcode từ các tập dữ liệu khác nhau</li>
+  <li><strong>Người mới bắt đầu:</strong> Bạn chưa biết gì về topology nhưng tò mò muốn tìm hiểu</li>
+  <li><strong>Sinh viên:</strong> Bạn muốn hiểu topology một cách trực quan trước khi đi sâu vào toán học chính thống</li>
+  <li><strong>Giáo viên:</strong> Bạn muốn tìm cách giải thích topology cho học sinh một cách dễ hiểu</li>
+  <li><strong>Người quan tâm đến khoa học:</strong> Bạn muốn hiểu cách topology được áp dụng trong các lĩnh vực khác nhau</li>
+  <li><strong>Người yêu toán học:</strong> Bạn muốn khám phá một nhánh toán học thú vị qua các ví dụ thực tế</li>
 </ul>
 
 <hr />
 
-<h2 id="-ứng-dụng-thực-tế">🔗 Ứng dụng Thực Tế</h2>
+<h2 id="-cấu-trúc-chapter">📚 Cấu Trúc Chapter</h2>
 
-<h3 id="phân-tích-hình-ảnh-y-tế">Phân tích Hình ảnh Y tế</h3>
+<p>Chapter 09 bao gồm <strong>9 bài học</strong>, mỗi bài tập trung vào một chủ đề cụ thể:</p>
 
-<p><strong>Phát hiện khối u:</strong></p>
+<h3 id="bài-0901-cà-phê-và-bánh-donut---tại-sao-chúng-giống-nhau">Bài 09.01: Cà phê và Bánh Donut - Tại sao chúng giống nhau?</h3>
+<p><strong>Chủ đề:</strong> Homeomorphism và biến dạng liên tục. Khám phá khái niệm “lỗ” trong topology và cách phân loại các vật thể.</p>
 
-<p>TDA có thể được sử dụng để phân tích hình ảnh y tế và phát hiện các khối u:</p>
+<h3 id="bài-0902-bảy-cây-cầu-ở-königsberg---bài-toán-mở-đầu-của-topology">Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</h3>
+<p><strong>Chủ đề:</strong> Graph theory và topology. Bài toán cổ điển về đường đi Euler và ứng dụng trong mạng lưới.</p>
+
+<h3 id="bài-0903-möbius-strip---mặt-chỉ-có-một-mặt">Bài 09.03: Möbius Strip - Mặt Chỉ Có Một Mặt</h3>
+<p><strong>Chủ đề:</strong> Định hướng và không định hướng. Cách làm Möbius strip và ứng dụng thực tế.</p>
+
+<h3 id="bài-0904-euler-characteristic---công-thức-v---e--f">Bài 09.04: Euler Characteristic - Công Thức V - E + F</h3>
+<p><strong>Chủ đề:</strong> Bất biến toán học quan trọng. Công thức Euler và ứng dụng trong phân loại bề mặt.</p>
+
+<h3 id="bài-0905-bốn-màu-đủ-để-tô-bản-đồ">Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ</h3>
+<p><strong>Chủ đề:</strong> Định lý bốn màu và topology của bản đồ. Lịch sử và chứng minh bằng máy tính.</p>
+
+<h3 id="bài-0906-topology-của-dna---xoắn-và-nút">Bài 09.06: Topology của DNA - Xoắn và Nút</h3>
+<p><strong>Chủ đề:</strong> Knot theory cơ bản và topology của chuỗi DNA. Ứng dụng trong sinh học phân tử.</p>
+
+<h3 id="bài-0907-topology-trong-vật-lý---từ-quantum-đến-vũ-trụ">Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</h3>
+<p><strong>Chủ đề:</strong> Topology trong quantum mechanics, topological phases of matter, string theory.</p>
+
+<h3 id="bài-0908-poincaré-conjecture---bài-toán-triệu-đô">Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô</h3>
+<p><strong>Chủ đề:</strong> Giải thích đại chúng về Poincaré conjecture, lịch sử và giải pháp của Perelman.</p>
+
+<h3 id="bài-0909-từ-điển-thuật-ngữ-toán-học---tổng-hợp-toàn-khóa">Bài 09.09: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa</h3>
+<p><strong>Chủ đề:</strong> Tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học.</p>
+
+<hr />
+
+<h2 id="-cách-sử-dụng-chapter-này">🧭 Cách Sử Dụng Chapter Này</h2>
+
+<h3 id="đọc-tuần-tự">Đọc Tuần Tự</h3>
+
+<p>Các bài học được sắp xếp theo thứ tự từ cơ bản đến nâng cao. Bạn nên đọc tuần tự để xây dựng kiến thức một cách có hệ thống.</p>
+
+<h3 id="đọc-độc-lập">Đọc Độc Lập</h3>
+
+<p>Mỗi bài học cũng có thể đọc độc lập. Nếu bạn quan tâm đến một chủ đề cụ thể, bạn có thể đọc trực tiếp bài học đó.</p>
+
+<h3 id="thực-hành">Thực Hành</h3>
+
+<p>Nhiều bài học có các thử nghiệm thực tế mà bạn có thể làm tại nhà (ví dụ: làm Möbius strip, tạo các nút thắt). Hãy thử làm để hiểu sâu hơn!</p>
+
+<h3 id="tham-khảo">Tham Khảo</h3>
+
+<p>Nếu bạn muốn tìm hiểu sâu hơn về một khái niệm cụ thể, bạn có thể tham khảo các chapter trước hoặc sử dụng từ điển thuật ngữ ở bài cuối cùng.</p>
+
+<hr />
+
+<h2 id="-những-điều-bạn-sẽ-học">💡 Những Điều Bạn Sẽ Học</h2>
+
+<h3 id="khái-niệm-cơ-bản">Khái Niệm Cơ Bản</h3>
+
 <ul>
-  <li>Các khối u có cấu trúc topology đặc biệt</li>
-  <li>TDA có thể phát hiện các cấu trúc này ngay cả khi chúng không rõ ràng trong hình ảnh</li>
-  <li>Giúp các bác sĩ chẩn đoán bệnh sớm hơn</li>
+  <li><strong>Homeomorphism:</strong> Tại sao cà phê và donut “giống nhau” về mặt topology?</li>
+  <li><strong>Biến dạng liên tục:</strong> Làm thế nào để biến đổi một vật thể thành vật thể khác?</li>
+  <li><strong>Lỗ và Genus:</strong> Cách đếm “lỗ” trong một vật thể</li>
+  <li><strong>Định hướng:</strong> Tại sao Möbius strip chỉ có một mặt?</li>
 </ul>
 
-<p><strong>Nghiên cứu não bộ:</strong></p>
+<h3 id="bất-biến-toán-học">Bất Biến Toán Học</h3>
 
 <ul>
-  <li>Phân tích cấu trúc của não bộ</li>
-  <li>Nghiên cứu các bệnh thần kinh</li>
-  <li>Hiểu cách não bộ hoạt động</li>
+  <li><strong>Euler Characteristic:</strong> Công thức $V - E + F$ và ý nghĩa của nó</li>
+  <li><strong>Knot Invariants:</strong> Các đại lượng phân biệt các nút khác nhau</li>
+  <li><strong>Topological Invariants:</strong> Các tính chất không thay đổi khi biến dạng</li>
 </ul>
 
-<h3 id="nghiên-cứu-khí-hậu">Nghiên cứu Khí hậu</h3>
-
-<p><strong>Phân tích dữ liệu khí hậu:</strong></p>
-
-<p>TDA có thể được sử dụng để phân tích dữ liệu khí hậu phức tạp:</p>
-<ul>
-  <li>Phát hiện các mẫu khí hậu</li>
-  <li>Dự đoán thời tiết</li>
-  <li>Nghiên cứu biến đổi khí hậu</li>
-</ul>
-
-<h3 id="machine-learning">Machine Learning</h3>
-
-<p><strong>Feature extraction:</strong></p>
-
-<p>TDA có thể được sử dụng để trích xuất các đặc trưng (features) từ dữ liệu:</p>
-<ul>
-  <li>Các đặc trưng topology có thể cung cấp thông tin quan trọng</li>
-  <li>Cải thiện hiệu suất của các thuật toán machine learning</li>
-  <li>Giúp hiểu cấu trúc của dữ liệu</li>
-</ul>
-
-<p><strong>Dimensionality reduction:</strong></p>
+<h3 id="ứng-dụng-thực-tế">Ứng Dụng Thực Tế</h3>
 
 <ul>
-  <li>Giảm số chiều của dữ liệu trong khi giữ lại cấu trúc topology quan trọng</li>
-  <li>Giúp visualize dữ liệu nhiều chiều</li>
-  <li>Cải thiện hiệu suất tính toán</li>
-</ul>
-
-<h3 id="khoa-học-dữ-liệu">Khoa học Dữ Liệu</h3>
-
-<p><strong>Phát hiện anomalies:</strong></p>
-
-<p>TDA có thể phát hiện các điểm bất thường trong dữ liệu:</p>
-<ul>
-  <li>Các điểm không phù hợp với cấu trúc topology chung</li>
-  <li>Có thể chỉ ra lỗi trong dữ liệu hoặc các sự kiện đặc biệt</li>
-</ul>
-
-<p><strong>Clustering:</strong></p>
-
-<ul>
-  <li>Phân nhóm dữ liệu dựa trên cấu trúc topology</li>
-  <li>Phát hiện các nhóm tự nhiên trong dữ liệu</li>
-  <li>Hiểu mối quan hệ giữa các nhóm</li>
+  <li><strong>Graph Theory:</strong> Ứng dụng trong mạng lưới giao thông, internet</li>
+  <li><strong>Knot Theory:</strong> Topology của DNA và protein</li>
+  <li><strong>Topology trong Vật Lý:</strong> Quantum mechanics, vật liệu mới</li>
 </ul>
 
 <hr />
 
-<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+<h2 id="-tại-sao-topology-quan-trọng">🌟 Tại Sao Topology Quan Trọng?</h2>
 
-<h3 id="classic-works">Classic Works</h3>
+<p>Topology không chỉ là một nhánh toán học trừu tượng—nó có nhiều ứng dụng thực tế:</p>
 
-<ol>
-  <li>
-    <p><strong>Herbert Edelsbrunner &amp; John Harer</strong> - <em>“Computational Topology: An Introduction”</em> (2010)<br />
-<em>Giới thiệu về computational topology và TDA</em></p>
-  </li>
-  <li>
-    <p><strong>Gunnar Carlsson</strong> - <em>“Topology and Data”</em> (2009)<br />
-<em>Bài báo nền tảng về TDA</em></p>
-  </li>
-  <li>
-    <p><strong>Robert Ghrist</strong> - <em>“Barcodes: The Persistent Topology of Data”</em> (2008)<br />
-<em>Persistent homology và barcodes</em></p>
-  </li>
-</ol>
-
-<h3 id="textbooks">Textbooks</h3>
+<h3 id="trong-khoa-học">Trong Khoa Học</h3>
 
 <ul>
-  <li>
-    <p><strong>Herbert Edelsbrunner &amp; John Harer</strong> - <em>Computational Topology: An Introduction</em> (2010)<br />
-<em>Computational topology và TDA</em></p>
-  </li>
-  <li>
-    <p><strong>Robert Ghrist</strong> - <em>Elementary Applied Topology</em> (2014)<br />
-<em>TDA và ứng dụng</em></p>
-  </li>
+  <li><strong>Vật lý:</strong> Hiểu các pha topology của vật chất, quantum field theory</li>
+  <li><strong>Sinh học:</strong> Nghiên cứu cấu trúc DNA, protein folding</li>
+  <li><strong>Hóa học:</strong> Cấu trúc phân tử phức tạp</li>
+</ul>
+
+<h3 id="trong-công-nghệ">Trong Công Nghệ</h3>
+
+<ul>
+  <li><strong>Khoa học dữ liệu:</strong> Topological Data Analysis để phân tích dữ liệu phức tạp</li>
+  <li><strong>Machine Learning:</strong> Sử dụng topology để hiểu cấu trúc dữ liệu</li>
+  <li><strong>Robotics:</strong> Lập kế hoạch chuyển động, không gian cấu hình</li>
+</ul>
+
+<h3 id="trong-nghệ-thuật-và-thiết-kế">Trong Nghệ Thuật và Thiết Kế</h3>
+
+<ul>
+  <li><strong>Kiến trúc:</strong> Thiết kế các cấu trúc phức tạp</li>
+  <li><strong>Nghệ thuật:</strong> Tạo ra các tác phẩm với cấu trúc topology thú vị</li>
+  <li><strong>Thiết kế:</strong> Ứng dụng trong thiết kế sản phẩm và đồ họa</li>
 </ul>
 
 <hr />
 
-<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+<h2 id="-yêu-cầu-và-chuẩn-bị">🎓 Yêu Cầu và Chuẩn Bị</h2>
 
-<h3 id="trong-khoa-học-dữ-liệu">Trong khoa học dữ liệu</h3>
+<h3 id="kiến-thức-cần-thiết">Kiến Thức Cần Thiết</h3>
 
-<p>TDA có nhiều ứng dụng trong khoa học dữ liệu:</p>
+<p><strong>Tin tốt:</strong> Bạn không cần kiến thức toán học chuyên sâu để bắt đầu! Chapter này được thiết kế để dễ tiếp cận cho mọi người.</p>
 
-<ol>
-  <li><strong>Phân tích dữ liệu:</strong> Phát hiện cấu trúc ẩn trong dữ liệu phức tạp</li>
-  <li><strong>Machine learning:</strong> Cải thiện hiệu suất của các thuật toán</li>
-  <li><strong>Visualization:</strong> Giúp visualize dữ liệu nhiều chiều</li>
-</ol>
-
-<h3 id="trong-y-học">Trong y học</h3>
-
+<p><strong>Kiến thức cơ bản hữu ích (nhưng không bắt buộc):</strong></p>
 <ul>
-  <li><strong>Chẩn đoán:</strong> Phát hiện bệnh sớm hơn</li>
-  <li><strong>Nghiên cứu:</strong> Hiểu cấu trúc của các hệ thống sinh học</li>
-  <li><strong>Điều trị:</strong> Phát triển các phương pháp điều trị mới</li>
+  <li>Hiểu biết cơ bản về hình học (hình tròn, hình cầu, v.v.)</li>
+  <li>Khái niệm về “biến dạng” và “biến đổi”</li>
+  <li>Tò mò và ham học hỏi!</li>
 </ul>
 
-<h3 id="trong-khoa-học">Trong khoa học</h3>
+<h3 id="chuẩn-bị-tinh-thần">Chuẩn Bị Tinh Thần</h3>
 
 <ul>
-  <li><strong>Khí hậu:</strong> Nghiên cứu biến đổi khí hậu</li>
-  <li><strong>Vật lý:</strong> Phân tích dữ liệu từ các thí nghiệm vật lý</li>
-  <li><strong>Sinh học:</strong> Nghiên cứu cấu trúc của các hệ thống sinh học</li>
+  <li><strong>Sẵn sàng suy nghĩ trừu tượng:</strong> Topology nghiên cứu “hình dạng” một cách trừu tượng</li>
+  <li><strong>Kiên nhẫn:</strong> Một số khái niệm có thể cần thời gian để hiểu</li>
+  <li><strong>Thực hành:</strong> Hãy thử làm các thí nghiệm thực tế trong các bài học</li>
+</ul>
+
+<hr />
+
+<h2 id="-bắt-đầu-hành-trình">🚀 Bắt Đầu Hành Trình</h2>
+
+<p>Bây giờ bạn đã sẵn sàng để bắt đầu hành trình khám phá topology đại chúng!</p>
+
+<p><strong>Bước tiếp theo:</strong> Hãy đọc <a href="../09_01_Coffee_Donut/">Bài 09.01: Cà phê và Bánh Donut</a> để khám phá khái niệm cơ bản nhất của topology—tại sao một chiếc ly cà phê có thể “biến thành” một chiếc bánh donut!</p>
+
+<p>Chúc bạn học tập vui vẻ và khám phá được nhiều điều thú vị về topology! 🎉</p>
+
+<hr />
+
+<h2 id="-tài-liệu-tham-khảo">📚 Tài Liệu Tham Khảo</h2>
+
+<p>Nếu bạn muốn tìm hiểu sâu hơn về topology sau khi hoàn thành chapter này, bạn có thể tham khảo:</p>
+
+<ul>
+  <li><strong>Các chapter trước:</strong> Chapter 01-08 cung cấp kiến thức topology chính thống</li>
+  <li><strong>Sách giáo khoa:</strong> Munkres, Hatcher, Morris, Adams &amp; Franzosa</li>
+  <li><strong>Từ điển thuật ngữ:</strong> Bài 09.10 tổng hợp tất cả các thuật ngữ trong khóa học</li>
 </ul>
 
 <hr />
@@ -4351,19 +6196,355 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <ol>
   <li>
-    <p><strong>Tưởng tượng:</strong> Hãy tưởng tượng bạn có một tập hợp các điểm dữ liệu. Làm thế nào bạn có thể sử dụng topology để hiểu cấu trúc của chúng?</p>
+    <p><strong>Trước khi bắt đầu:</strong> Bạn đã từng nghe về topology chưa? Bạn nghĩ topology là gì?</p>
   </li>
   <li>
-    <p><strong>So sánh:</strong> Hãy so sánh TDA với các phương pháp phân tích dữ liệu truyền thống. Chúng khác nhau như thế nào?</p>
+    <p><strong>Mục tiêu học tập:</strong> Bạn muốn học được điều gì từ chapter này?</p>
   </li>
   <li>
-    <p><strong>Ứng dụng:</strong> Hãy nghĩ về một ứng dụng của TDA trong lĩnh vực mà bạn quan tâm.</p>
+    <p><strong>Ứng dụng:</strong> Bạn quan tâm đến ứng dụng nào của topology nhất? (Vật lý, sinh học, khoa học dữ liệu, nghệ thuật, v.v.)</p>
+  </li>
+</ol>
+
+<h3 id="thử-nghiệm">Thử nghiệm</h3>
+
+<ol>
+  <li>
+    <p><strong>Khám phá:</strong> Hãy nghĩ về các vật thể xung quanh bạn. Những vật thể nào có thể “biến dạng” thành nhau?</p>
   </li>
   <li>
-    <p><strong>Thử thách:</strong> Hãy tìm hiểu về persistent homology và cách nó được tính toán.</p>
+    <p><strong>Quan sát:</strong> Hãy quan sát các hình dạng trong tự nhiên và nghĩ về “lỗ” và “cấu trúc” của chúng.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-tóm-tắt">📚 Tóm tắt</h2>
+
+<p>Trong bài giới thiệu này, chúng ta đã:</p>
+
+<ul>
+  <li><strong>Giới thiệu Chapter 09:</strong> Topology Đại Chúng là gì và tại sao nó đặc biệt</li>
+  <li><strong>Mục tiêu:</strong> Làm cho topology trở nên dễ tiếp cận và kết nối với thực tế</li>
+  <li><strong>Cấu trúc:</strong> 10 bài học từ cơ bản đến nâng cao</li>
+  <li><strong>Cách sử dụng:</strong> Đọc tuần tự hoặc độc lập, thực hành, tham khảo</li>
+  <li><strong>Tầm quan trọng:</strong> Topology có nhiều ứng dụng trong khoa học, công nghệ, và nghệ thuật</li>
+</ul>
+
+<p>Bây giờ bạn đã sẵn sàng để bắt đầu hành trình khám phá topology đại chúng! Hãy bắt đầu với bài học đầu tiên và khám phá thế giới kỳ diệu của topology! 🌟</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="introduction" /><category term="overview" /><category term="popular-science" /><summary type="html"><![CDATA[Giới thiệu về Chapter 09 - Topology Đại Chúng: mục tiêu, cấu trúc, và cách tiếp cận topology qua các ví dụ thực tế]]></summary></entry><entry xml:lang="vi"><title type="html">Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture/" rel="alternate" type="text/html" title="Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô" /><published>2025-01-10T00:00:00+07:00</published><updated>2025-01-10T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_08_Poincare_Conjecture/"><![CDATA[<p><strong>Millennium Problem và Hành Trình Giải Quyết</strong></p>
+
+<hr />
+
+<h2 id="-tổng-quan">📖 Tổng quan</h2>
+
+<p>Năm 2000, Viện Toán học Clay đã công bố bảy bài toán được gọi là <strong>Millennium Problems</strong>—mỗi bài toán có giải thưởng một triệu đô la cho người giải được. Một trong những bài toán này, <strong>Poincaré Conjecture</strong>, đã được giải quyết chỉ sáu năm sau đó bởi nhà toán học người Nga <strong>Grigori Perelman</strong>—và điều đáng ngạc nhiên là ông đã từ chối giải thưởng một triệu đô la!</p>
+
+<p>Poincaré Conjecture là một trong những bài toán nổi tiếng nhất và khó nhất trong toán học. Được đề xuất bởi nhà toán học vĩ đại <strong>Henri Poincaré</strong> vào năm 1904, bài toán này đã làm đau đầu các nhà toán học trong hơn một thế kỷ trước khi được giải quyết vào năm 2006.</p>
+
+<p>Bài toán này liên quan đến topology của các không gian ba chiều—một lĩnh vực toán học cực kỳ phức tạp và khó hiểu. Mặc dù phát biểu của nó có vẻ đơn giản, việc chứng minh nó đòi hỏi những công cụ toán học cực kỳ tiên tiến và sâu sắc.</p>
+
+<p>Trong bài học này, chúng ta sẽ khám phá Poincaré Conjecture một cách chi tiết: phát biểu của bài toán, tại sao nó lại khó đến vậy, hành trình giải quyết nó, và ý nghĩa của nó trong toán học và topology.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Henri_Poincare.jpg/300px-Henri_Poincare.jpg" alt="Poincaré" /><br />
+<em>Henri Poincaré - người đề xuất conjecture - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Henri_Poincare.jpg">Wikimedia Commons</a></em></p>
+
+<p><strong>Tại sao đây là kiến thức quan trọng?</strong> Poincaré Conjecture là một trong những thành tựu toán học vĩ đại nhất của thế kỷ 20 và 21. Việc giải quyết nó không chỉ là một chiến thắng toán học—nó đã mở ra những hướng nghiên cứu mới và giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều.</p>
+
+<hr />
+
+<h2 id="-phát-biểu-của-poincaré-conjecture">🎯 Phát Biểu của Poincaré Conjecture</h2>
+
+<h3 id="câu-hỏi-ban-đầu">Câu hỏi ban đầu</h3>
+
+<p>Năm 1904, Henri Poincaré đã đặt ra câu hỏi sau:</p>
+
+<p><strong>Câu hỏi:</strong> Nếu một không gian ba chiều có tính chất rằng mọi vòng lặp đều có thể co lại thành một điểm, thì không gian đó có phải là hình cầu ba chiều không?</p>
+
+<p>Nghe có vẻ đơn giản? Nhưng đây là một trong những bài toán khó nhất trong toán học!</p>
+
+<h3 id="phát-biểu-chính-xác">Phát biểu chính xác</h3>
+
+<p><strong>Poincaré Conjecture (1904):</strong></p>
+
+<p>Mọi không gian ba chiều đóng, đơn giản liên thông (simply connected) đều homeomorphic với hình cầu ba chiều $S^3$.</p>
+
+<p><strong>Giải thích các thuật ngữ:</strong></p>
+
+<ol>
+  <li>
+    <p><strong>Không gian ba chiều:</strong> Một không gian mà tại mỗi điểm, bạn có thể di chuyển theo ba hướng độc lập</p>
   </li>
   <li>
-    <p><strong>Suy ngẫm:</strong> Tại sao topology lại hữu ích trong phân tích dữ liệu?</p>
+    <p><strong>Đóng (closed):</strong> Không có boundary (cạnh)—giống như một hình cầu, không có “rìa”</p>
+  </li>
+  <li><strong>Đơn giản liên thông (simply connected):</strong> Mọi vòng lặp đều có thể co lại thành một điểm
+    <ul>
+      <li>Điều này có nghĩa là không có “lỗ” một chiều</li>
+      <li>Mọi đường cong khép kín đều có thể được co lại thành một điểm</li>
+    </ul>
+  </li>
+  <li><strong>Homeomorphic với $S^3$:</strong> Có thể biến đổi liên tục thành hình cầu ba chiều</li>
+</ol>
+
+<h3 id="tại-sao-đây-là-một-câu-hỏi-quan-trọng">Tại sao đây là một câu hỏi quan trọng?</h3>
+
+<p><strong>Trong không gian hai chiều:</strong></p>
+
+<p>Câu hỏi tương tự trong không gian hai chiều đã được giải quyết từ lâu:</p>
+<ul>
+  <li>Mọi bề mặt đóng, đơn giản liên thông đều homeomorphic với hình cầu hai chiều $S^2$</li>
+  <li>Đây là một kết quả đã được biết đến từ thế kỷ 19</li>
+</ul>
+
+<p><strong>Trong không gian ba chiều:</strong></p>
+
+<p>Nhưng trong không gian ba chiều, câu hỏi này cực kỳ khó:</p>
+<ul>
+  <li>Không gian ba chiều phức tạp hơn nhiều so với không gian hai chiều</li>
+  <li>Có nhiều “cách” để một không gian ba chiều có thể được tổ chức</li>
+  <li>Khó hình dung và khó chứng minh</li>
+</ul>
+
+<p><strong>Tại sao khó hình dung?</strong></p>
+
+<p>Chúng ta sống trong không gian ba chiều, nhưng chúng ta chỉ có thể “nhìn thấy” hai chiều một lúc. Điều này làm cho việc hình dung các không gian ba chiều trở nên cực kỳ khó khăn!</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Hopf_Fibration.png/500px-Hopf_Fibration.png" alt="3-sphere" /><br />
+<em>Hình cầu ba chiều (3-sphere) - một không gian phức tạp khó hình dung - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Hopf_Fibration.png">Wikimedia Commons</a></em></p>
+
+<hr />
+
+<h2 id="-tại-sao-bài-toán-lại-khó">🔍 Tại sao Bài Toán Lại Khó?</h2>
+
+<h3 id="sự-phức-tạp-của-không-gian-ba-chiều">Sự phức tạp của không gian ba chiều</h3>
+
+<p><strong>Không gian một chiều:</strong></p>
+
+<ul>
+  <li>Chỉ có một loại không gian một chiều đóng, đơn giản liên thông: đường tròn $S^1$</li>
+  <li>(Nhưng đường tròn không đơn giản liên thông—có vòng lặp không thể co lại)</li>
+</ul>
+
+<p><strong>Không gian hai chiều:</strong></p>
+
+<ul>
+  <li>Mọi bề mặt đóng, đơn giản liên thông đều là hình cầu $S^2$</li>
+  <li>Đây là một kết quả đã được biết đến</li>
+</ul>
+
+<p><strong>Không gian ba chiều:</strong></p>
+
+<ul>
+  <li>Có vô số các không gian ba chiều khác nhau!</li>
+  <li>Một số có thể trông rất khác nhau nhưng lại homeomorphic</li>
+  <li>Một số có thể trông giống nhau nhưng lại không homeomorphic</li>
+  <li>Rất khó để phân biệt!</li>
+</ul>
+
+<h3 id="vấn-đề-với-việc-chứng-minh">Vấn đề với việc chứng minh</h3>
+
+<p><strong>Các phương pháp truyền thống không hoạt động:</strong></p>
+
+<ul>
+  <li>Các phương pháp được sử dụng cho không gian hai chiều không thể áp dụng trực tiếp</li>
+  <li>Cần các công cụ toán học mới và phức tạp hơn nhiều</li>
+</ul>
+
+<p><strong>Cần các công cụ mới:</strong></p>
+
+<ul>
+  <li><strong>Ricci flow:</strong> Một phương trình vi phân phức tạp</li>
+  <li><strong>Geometric analysis:</strong> Phân tích hình học tiên tiến</li>
+  <li><strong>Surgery theory:</strong> Lý thuyết phẫu thuật topology</li>
+</ul>
+
+<hr />
+
+<h2 id="-hành-trình-giải-quyết">🏆 Hành Trình Giải Quyết</h2>
+
+<h3 id="những-nỗ-lực-ban-đầu">Những nỗ lực ban đầu</h3>
+
+<p>Trong hơn một thế kỷ, nhiều nhà toán học đã cố gắng giải quyết Poincaré Conjecture:</p>
+
+<p><strong>1904-1960:</strong></p>
+<ul>
+  <li>Nhiều nhà toán học đã cố gắng nhưng không thành công</li>
+  <li>Nhiều “chứng minh” được công bố nhưng đều có lỗi</li>
+</ul>
+
+<p><strong>1960s-1980s:</strong></p>
+<ul>
+  <li>Các nhà toán học bắt đầu phát triển các công cụ mới</li>
+  <li><strong>Surgery theory</strong> được phát triển</li>
+  <li>Nhiều tiến bộ được thực hiện, nhưng conjecture vẫn chưa được giải quyết</li>
+</ul>
+
+<p><strong>1980s-2000s:</strong></p>
+<ul>
+  <li><strong>Ricci flow</strong> được phát triển bởi Richard Hamilton</li>
+  <li>Đây là một công cụ mạnh mẽ để nghiên cứu hình dạng của không gian</li>
+  <li>Nhưng vẫn còn nhiều khó khăn kỹ thuật</li>
+</ul>
+
+<h3 id="giải-pháp-của-perelman-2002-2006">Giải pháp của Perelman (2002-2006)</h3>
+
+<p><strong>Grigori Perelman:</strong></p>
+
+<p>Năm 2002-2003, Grigori Perelman, một nhà toán học người Nga, đã công bố một loạt các bài báo trên arXiv (một trang web preprint) giải quyết Poincaré Conjecture.</p>
+
+<p><strong>Phương pháp của Perelman:</strong></p>
+
+<p>Perelman sử dụng <strong>Ricci flow</strong> với các cải tiến quan trọng:</p>
+<ol>
+  <li><strong>Ricci flow với surgery:</strong> Kết hợp Ricci flow với surgery theory</li>
+  <li><strong>Entropy:</strong> Sử dụng khái niệm entropy để kiểm soát quá trình</li>
+  <li><strong>Kỹ thuật mới:</strong> Phát triển nhiều kỹ thuật toán học mới</li>
+</ol>
+
+<p><strong>Đặc điểm đặc biệt:</strong></p>
+
+<ul>
+  <li>Perelman công bố các bài báo trên arXiv, không qua peer review truyền thống</li>
+  <li>Ông từ chối giải thưởng Fields Medal (2006)</li>
+  <li>Ông từ chối giải thưởng Millennium Prize (2010) - một triệu đô la!</li>
+</ul>
+
+<p><strong>Tại sao từ chối giải thưởng?</strong></p>
+
+<p>Perelman nói rằng:</p>
+<ul>
+  <li>Ông không quan tâm đến tiền bạc hoặc danh tiếng</li>
+  <li>Ông chỉ quan tâm đến toán học</li>
+  <li>Ông cảm thấy giải thưởng không công bằng với các nhà toán học khác</li>
+</ul>
+
+<hr />
+
+<h2 id="-ý-nghĩa-và-ứng-dụng">🧮 Ý Nghĩa và Ứng Dụng</h2>
+
+<h3 id="ý-nghĩa-trong-toán-học">Ý nghĩa trong toán học</h3>
+
+<p><strong>Topology ba chiều:</strong></p>
+
+<p>Poincaré Conjecture là một kết quả cơ bản trong topology ba chiều:</p>
+<ul>
+  <li>Nó giúp chúng ta hiểu cấu trúc của các không gian ba chiều</li>
+  <li>Nó liên kết với nhiều lĩnh vực toán học khác</li>
+</ul>
+
+<p><strong>Công cụ mới:</strong></p>
+
+<p>Việc giải quyết Poincaré Conjecture đã dẫn đến việc phát triển nhiều công cụ toán học mới:</p>
+<ul>
+  <li><strong>Ricci flow:</strong> Một công cụ mạnh mẽ trong hình học</li>
+  <li><strong>Geometric analysis:</strong> Phân tích hình học tiên tiến</li>
+  <li><strong>Surgery theory:</strong> Lý thuyết phẫu thuật topology</li>
+</ul>
+
+<h3 id="ứng-dụng">Ứng dụng</h3>
+
+<p><strong>Topology:</strong></p>
+
+<ul>
+  <li>Hiểu sâu hơn về topology của không gian ba chiều</li>
+  <li>Phát triển các công cụ mới cho topology</li>
+</ul>
+
+<p><strong>Hình học:</strong></p>
+
+<ul>
+  <li>Nghiên cứu về hình dạng của không gian</li>
+  <li>Ứng dụng trong general relativity</li>
+</ul>
+
+<p><strong>Vật lý:</strong></p>
+
+<ul>
+  <li>Hiểu cấu trúc của không gian-thời gian</li>
+  <li>Ứng dụng trong cosmology</li>
+</ul>
+
+<hr />
+
+<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
+
+<h3 id="classic-works">Classic Works</h3>
+
+<ol>
+  <li>
+    <p><strong>Henri Poincaré</strong> - <em>“Cinquième complément à l’Analysis Situs”</em> (1904)<br />
+<em>Bài báo gốc đề xuất Poincaré Conjecture</em></p>
+  </li>
+  <li>
+    <p><strong>Grigori Perelman</strong> - <em>“The Entropy Formula for the Ricci Flow and Its Geometric Applications”</em> (2002)<br />
+<em>Bài báo đầu tiên của Perelman về Poincaré Conjecture</em></p>
+  </li>
+  <li>
+    <p><strong>Grigori Perelman</strong> - <em>“Ricci Flow with Surgery on Three-Manifolds”</em> (2003)<br />
+<em>Bài báo thứ hai của Perelman</em></p>
+  </li>
+  <li>
+    <p><strong>Grigori Perelman</strong> - <em>“Finite Extinction Time for the Solutions to the Ricci Flow on Certain Three-Manifolds”</em> (2003)<br />
+<em>Bài báo thứ ba của Perelman</em></p>
+  </li>
+</ol>
+
+<h3 id="textbooks">Textbooks</h3>
+
+<ul>
+  <li>
+    <p><strong>John Morgan &amp; Gang Tian</strong> - <em>Ricci Flow and the Poincaré Conjecture</em> (2007)<br />
+<em>Giải thích chi tiết về chứng minh của Perelman</em></p>
+  </li>
+  <li>
+    <p><strong>Bruce Kleiner &amp; John Lott</strong> - <em>“Notes on Perelman’s Papers”</em> (2006)<br />
+<em>Ghi chú chi tiết về chứng minh của Perelman</em></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="-applications-and-connections">🔗 Applications and Connections</h2>
+
+<h3 id="trong-toán-học">Trong toán học</h3>
+
+<p>Poincaré Conjecture có nhiều ý nghĩa trong toán học:</p>
+
+<ol>
+  <li><strong>Topology:</strong> Hiểu sâu hơn về topology của không gian ba chiều</li>
+  <li><strong>Hình học:</strong> Phát triển các công cụ hình học mới</li>
+  <li><strong>Phân tích:</strong> Liên kết với phân tích hình học</li>
+</ol>
+
+<h3 id="trong-vật-lý">Trong vật lý</h3>
+
+<ul>
+  <li><strong>General relativity:</strong> Hiểu cấu trúc của không gian-thời gian</li>
+  <li><strong>Cosmology:</strong> Nghiên cứu về cấu trúc của vũ trụ</li>
+  <li><strong>Quantum gravity:</strong> Ứng dụng trong các lý thuyết về lực hấp dẫn lượng tử</li>
+</ul>
+
+<hr />
+
+<h2 id="-exercises-and-reflections">🧩 Exercises and Reflections</h2>
+
+<h3 id="câu-hỏi-suy-ngẫm">Câu hỏi suy ngẫm</h3>
+
+<ol>
+  <li>
+    <p><strong>Tưởng tượng:</strong> Hãy tưởng tượng bạn sống trong một không gian ba chiều đóng, đơn giản liên thông. Làm thế nào bạn có thể kiểm tra xem nó có phải là hình cầu không?</p>
+  </li>
+  <li>
+    <p><strong>So sánh:</strong> Hãy so sánh Poincaré Conjecture với định lý phân loại bề mặt. Chúng khác nhau như thế nào?</p>
+  </li>
+  <li>
+    <p><strong>Suy ngẫm:</strong> Tại sao Poincaré Conjecture lại khó đến vậy? Điều gì làm cho nó khác với các bài toán topology khác?</p>
+  </li>
+  <li>
+    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về Grigori Perelman và tại sao ông từ chối giải thưởng.</p>
+  </li>
+  <li>
+    <p><strong>Thử thách:</strong> Hãy tìm hiểu về Ricci flow và cách nó được sử dụng để chứng minh Poincaré Conjecture.</p>
   </li>
 </ol>
 
@@ -4371,13 +6552,13 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <ol>
   <li>
-    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về các công cụ TDA có sẵn và cách sử dụng chúng.</p>
+    <p><strong>Nghiên cứu:</strong> Hãy tìm hiểu về các Millennium Problems khác và trạng thái hiện tại của chúng.</p>
   </li>
   <li>
-    <p><strong>Khám phá:</strong> Hãy tìm hiểu về các ứng dụng của TDA trong y học và khoa học.</p>
+    <p><strong>Khám phá:</strong> Hãy tìm hiểu về topology của không gian ba chiều và các không gian khác.</p>
   </li>
   <li>
-    <p><strong>Sáng tạo:</strong> Hãy nghĩ về các ứng dụng mới của TDA trong các lĩnh vực khác.</p>
+    <p><strong>Suy ngẫm:</strong> Hãy suy ngẫm về ý nghĩa của việc giải quyết Poincaré Conjecture đối với toán học và khoa học.</p>
   </li>
 </ol>
 
@@ -4389,663 +6570,19 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 
 <ul>
   <li>
-    <p><strong>Topological Data Analysis:</strong> Một phương pháp mới để phân tích dữ liệu phức tạp</p>
+    <p><strong>Poincaré Conjecture:</strong> Một trong những bài toán khó nhất trong toán học</p>
   </li>
   <li>
-    <p><strong>Persistent Homology:</strong> Công cụ chính của TDA để phát hiện cấu trúc topology</p>
+    <p><strong>Hành trình giải quyết:</strong> Hơn một thế kỷ nghiên cứu và nỗ lực</p>
   </li>
   <li>
-    <p><strong>Ứng dụng:</strong> Từ phân tích hình ảnh y tế đến machine learning</p>
+    <p><strong>Giải pháp của Perelman:</strong> Sử dụng Ricci flow và các công cụ toán học tiên tiến</p>
+  </li>
+  <li>
+    <p><strong>Ý nghĩa:</strong> Mở ra những hướng nghiên cứu mới trong topology và hình học</p>
   </li>
 </ul>
 
-<p>TDA là một ví dụ tuyệt vời về cách topology có thể được sử dụng để giải quyết các vấn đề thực tế trong khoa học dữ liệu. Nó cho thấy rằng topology không chỉ là toán học trừu tượng—nó có những ứng dụng thực tế quan trọng trong việc hiểu và phân tích dữ liệu phức tạp!</p>
+<p>Poincaré Conjecture là một ví dụ tuyệt vời về cách các bài toán toán học có thể thách thức các nhà toán học trong nhiều thế hệ, và cách việc giải quyết chúng có thể dẫn đến những phát triển toán học mới và sâu sắc. Nó cũng minh họa mối liên hệ sâu sắc giữa topology, hình học, và phân tích!</p>
 
-<p>Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="TDA" /><category term="persistent-homology" /><category term="machine-learning" /><category term="khoa-học-dữ-liệu" /><summary type="html"><![CDATA[Khám phá Topological Data Analysis - một phương pháp mới sử dụng topology để phân tích dữ liệu phức tạp và phát hiện các cấu trúc ẩn]]></summary></entry><entry xml:lang="vi"><title type="html">Lecture 08.03: Topological Manifolds - Final Lecture</title><link href="http://localhost:4000/topology-self-learning/contents/vi/chapter08/08_03_Topological_Manifolds/" rel="alternate" type="text/html" title="Lecture 08.03: Topological Manifolds - Final Lecture" /><published>2025-01-09T00:00:00+07:00</published><updated>2025-01-09T00:00:00+07:00</updated><id>http://localhost:4000/topology-self-learning/contents/vi/chapter08/08_03_Topological_Manifolds</id><content type="html" xml:base="http://localhost:4000/topology-self-learning/contents/vi/chapter08/08_03_Topological_Manifolds/"><![CDATA[<p><strong>Locally Euclidean Spaces - Foundation of Modern Geometry</strong></p>
-
-<hr />
-
-<h2 id="-tổng-quan">📖 Tổng quan</h2>
-
-<p>Chúng ta đã bắt đầu khóa học với các không gian tô-pô trừu tượng, và giờ đây chúng ta kết thúc với <strong>manifolds</strong>—những không gian đẹp nhất và quan trọng nhất trong toán học hiện đại. Một manifold là một không gian mà về mặt địa phương trông giống như $\mathbb{R}^n$—mỗi điểm đều có một lân cận đồng phôi với một tập mở trong không gian Euclid. Đây là một khái niệm cơ bản kết nối tô-pô học với hình học vi phân, vật lý, và nhiều lĩnh vực khác.</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Atlas_on_a_manifold.svg/500px-Atlas_on_a_manifold.svg.png" alt="Manifold charts" /><br />
-<em>Atlas của các charts trên manifold - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Atlas_on_a_manifold.svg">Wikimedia Commons</a></em></p>
-
-<p>Tại sao manifolds lại cơ bản đến vậy? Chúng tổng quát hóa các khái niệm hình học cổ điển: các đường cong một chiều, các mặt hai chiều, và mở rộng chúng thành các đa tạp $n$-chiều. Trong vật lý, không-thời gian trong thuyết tương đối rộng là một đa tạp 4 chiều, và không gian pha trong cơ học cổ điển là một đa tạp symplectic. Trong hình học vi phân, chúng ta nghiên cứu các cấu trúc trơn, độ cong, và các tính chất hình học trên manifolds. Trong tô-pô học, chúng ta phân loại manifolds, tìm các bất biến, và khám phá các cấu trúc kỳ lạ như các exotic spheres.</p>
-
-<p>Trong bài học cuối cùng này, chúng ta sẽ khám phá các khái niệm cơ bản của topological manifolds. Chúng ta bắt đầu với định nghĩa chính xác của một topological manifold—một không gian Hausdorff, second countable, và locally Euclidean. Chúng ta sẽ nghiên cứu các charts và atlases, những công cụ cho phép chúng ta mô tả manifolds bằng các tọa độ địa phương. Chúng ta sẽ xem xét các ví dụ quan trọng như các hình cầu, torus, các không gian projective, và các nhóm Lie. Chúng ta sẽ khám phá các cấu trúc trơn và cách chúng khác với cấu trúc tô-pô. Chúng ta sẽ thảo luận về phân loại manifolds—một vấn đề đã được giải quyết hoàn toàn trong các chiều thấp (1, 2, 3) nhưng trở nên không thể giải quyết được trong các chiều cao hơn. Cuối cùng, chúng ta sẽ khám phá các kết nối với hình học vi phân và vật lý, và nhìn về phía trước để xem những gì nằm ngoài khóa học này.</p>
-
-<p>Tại sao bài học cuối này lại hoàn hảo? Manifolds là sự kết tinh của các ý tưởng tô-pô mà chúng ta đã học—chúng kết nối mọi thứ: homology, fundamental group $\pi_1$, fiber bundles, và Morse theory. Chúng tạo thành nền tảng cho hình học vi phân và nhiều lĩnh vực toán học tiên tiến khác. Hơn nữa, nghiên cứu về manifolds là cửa ngõ vào nghiên cứu toán học hiện đại—nhiều vấn đề mở quan trọng nhất trong toán học liên quan đến manifolds, từ giả thuyết Poincaré (đã được chứng minh) đến các vấn đề về phân loại và exotic structures.</p>
-
-<hr />
-
-<h2 id="-definition-của-topological-manifolds">🎯 Definition của Topological Manifolds</h2>
-
-<h3 id="1-locally-euclidean">1. Locally Euclidean</h3>
-
-<p>Trực giác đằng sau khái niệm manifold là đơn giản nhưng sâu sắc: một manifold là một không gian mà mỗi điểm đều có một lân cận trông giống như không gian Euclid $\mathbb{R}^n$. Điều này có nghĩa là, mặc dù không gian có thể có hình dạng phức tạp về mặt toàn cục (như một hình cầu hoặc một torus), về mặt địa phương nó luôn trông giống như không gian phẳng quen thuộc mà chúng ta biết từ giải tích đa biến.</p>
-
-<p><strong>Định nghĩa (Locally Euclidean):</strong><br />
-Một không gian $M$ được gọi là <strong>locally Euclidean of dimension n</strong> nếu:</p>
-
-<p>Với mọi điểm $p \in M$, tồn tại một lân cận mở $U$ chứa $p$ và một đồng phôi:</p>
-
-\[\phi : U \xrightarrow{\cong} \phi(U) \subseteq \mathbb{R}^n\]
-
-<p>trong đó $\phi(U)$ là một tập mở trong $\mathbb{R}^n$.</p>
-
-<p>Đồng phôi $\phi$ cho chúng ta một hệ tọa độ địa phương: nếu $\phi(p) = (x_1, \ldots, x_n) \in \mathbb{R}^n$, thì chúng ta có thể mô tả các điểm gần $p$ bằng các tọa độ $(x_1, \ldots, x_n)$ trong $\mathbb{R}^n$. Điều này cho phép chúng ta áp dụng các công cụ của giải tích đa biến một cách địa phương trên manifold.</p>
-
-<p>Một cặp $(U, \phi)$ trong đó $U \subseteq M$ là một tập mở và $\phi: U \to \mathbb{R}^n$ là một đồng phôi lên một tập mở được gọi là một <strong>chart</strong> (bản đồ) hoặc một <strong>coordinate chart</strong> (bản đồ tọa độ). Đây là cách chúng ta “vẽ bản đồ” của một phần của manifold vào không gian Euclid, giống như cách chúng ta vẽ bản đồ của Trái Đất (một mặt cầu) lên một mặt phẳng.</p>
-
-<hr />
-
-<h3 id="2-topological-manifold">2. Topological Manifold</h3>
-
-<p>Tuy nhiên, chỉ có tính chất locally Euclidean là chưa đủ để định nghĩa một manifold. Chúng ta cần thêm hai điều kiện kỹ thuật quan trọng để đảm bảo rằng manifold có các tính chất tốt mà chúng ta mong muốn.</p>
-
-<p><strong>Định nghĩa (Topological Manifold):</strong><br />
-Một không gian $M$ được gọi là <strong>topological n-manifold</strong> nếu:</p>
-
-<ol>
-  <li><strong>$M$ là Hausdorff:</strong> Hai điểm phân biệt có các lân cận rời nhau</li>
-  <li><strong>$M$ là second countable:</strong> Tồn tại một cơ sở đếm được cho tô-pô</li>
-  <li><strong>$M$ là locally Euclidean of dimension $n$</strong></li>
-</ol>
-
-<p>Tại sao chúng ta cần các điều kiện bổ sung này? Điều kiện Hausdorff loại trừ các trường hợp bệnh lý như “đường thẳng với hai điểm gốc”—một không gian mà hai điểm có thể không thể được tách bằng các lân cận rời nhau. Điều kiện second countable đảm bảo nhiều tính chất quan trọng: tính paracompact (tồn tại partitions of unity), tính metrizable (theo định lý metrization của Urysohn), homology và cohomology đếm được, và nhiều tiện ích kỹ thuật khác. Không có các điều kiện này, các “manifolds” có thể có hành vi rất kỳ lạ và không thể làm việc được với các công cụ tiêu chuẩn của hình học vi phân và tô-pô học.</p>
-
-<hr />
-
-<h3 id="3-atlas">3. Atlas</h3>
-
-<p>Một chart chỉ cho chúng ta biết về một phần của manifold. Để mô tả toàn bộ manifold, chúng ta cần một tập hợp các charts phủ toàn bộ không gian. Đây chính là khái niệm của một atlas.</p>
-
-<p><strong>Định nghĩa (Atlas):</strong><br />
-Một <strong>atlas</strong> $\mathcal{A}$ là một tập hợp các charts ${(U_\alpha, \phi_\alpha)}$ sao cho:</p>
-
-\[M = \bigcup_\alpha U_\alpha \quad \text{(các charts phủ toàn bộ M)}\]
-
-<p>Đây là một tập hợp đầy đủ các hệ tọa độ địa phương cho phép chúng ta mô tả mọi điểm trong manifold bằng ít nhất một hệ tọa độ.</p>
-
-<p>Khi hai charts $(U_\alpha, \phi_\alpha)$ và $(U_\beta, \phi_\beta)$ có phần giao không rỗng $U_\alpha \cap U_\beta$, chúng ta có thể so sánh các hệ tọa độ của chúng. Ánh xạ chuyển tiếp (transition map) giữa hai charts là:</p>
-
-\[\phi_\beta \circ \phi_\alpha^{-1} : \phi_\alpha(U_\alpha \cap U_\beta) \to \phi_\beta(U_\alpha \cap U_\beta)\]
-
-<p>Đây là một đồng phôi giữa các tập mở trong $\mathbb{R}^n$, và nó mô tả cách các tọa độ trong một chart liên quan đến các tọa độ trong chart khác. Nếu các ánh xạ chuyển tiếp này là trơn (smooth), thì chúng ta có một smooth atlas và có thể làm việc với các hàm trơn trên manifold.</p>
-
-<hr />
-
-<h3 id="4-dimension">4. Dimension</h3>
-
-<p>Một câu hỏi tự nhiên là: liệu một không gian có thể là locally Euclidean của các chiều khác nhau không? Câu trả lời là không—định lý về tính bất biến của chiều đảm bảo rằng chiều của một manifold được xác định duy nhất.</p>
-
-<p><strong>Định lý (Invariance of Dimension):</strong><br />
-Nếu một không gian $M$ là locally Euclidean của cả chiều $n$ và chiều $m$, thì $n = m$.</p>
-
-<p>Điều này có nghĩa là chiều của một manifold được xác định rõ ràng—chúng ta không thể có một không gian vừa là 2-manifold vừa là 3-manifold. Chứng minh của định lý này dựa trên tính bất biến tô-pô của homology và các kết quả như định lý Brouwer về tính bất biến của miền. Chúng ta ký hiệu $\dim(M) = n$ là chiều của manifold $M$.</p>
-
-<hr />
-
-<h2 id="-standard-examples">📊 Standard Examples</h2>
-
-<h3 id="example-1-euclidean-space-mathbbrn">Example 1: Euclidean Space $\mathbb{R}^n$</h3>
-
-<p>Ví dụ đơn giản nhất của một manifold là chính không gian Euclid $\mathbb{R}^n$. Đây là một $n$-manifold với một chart duy nhất: $(\mathbb{R}^n, \text{id})$, trong đó ánh xạ đồng nhất cho chúng ta hệ tọa độ toàn cục. Đây là manifold đơn giản nhất có thể có—không có độ cong, không có topology phức tạp, chỉ là không gian phẳng quen thuộc.</p>
-
-<hr />
-
-<h3 id="example-2-sphere-sn">Example 2: Sphere $S^n$</h3>
-
-<p>Hình cầu $S^n = {x \in \mathbb{R}^{n+1} : |x| = 1}$ là một ví dụ quan trọng và đẹp đẽ của một manifold. Mặc dù hình cầu có hình dạng cong về mặt toàn cục, về mặt địa phương nó trông giống như $\mathbb{R}^n$. Một cách tự nhiên để xây dựng một atlas cho $S^n$ là sử dụng phép chiếu stereographic.</p>
-
-<p><strong>Chart từ cực bắc:</strong> $U_N = S^n \setminus {\text{cực bắc}}$ với $\phi_N: U_N \to \mathbb{R}^n$ là phép chiếu từ cực bắc xuống mặt phẳng xích đạo.</p>
-
-<p><strong>Chart từ cực nam:</strong> $U_S = S^n \setminus {\text{cực nam}}$ với $\phi_S: U_S \to \mathbb{R}^n$ là phép chiếu từ cực nam lên mặt phẳng xích đạo.</p>
-
-<p>Hai charts này phủ toàn bộ $S^n$! Ánh xạ chuyển tiếp $\phi_S \circ \phi_N^{-1}: \mathbb{R}^n \setminus {0} \to \mathbb{R}^n \setminus {0}$ được cho bởi $x \mapsto x/|x|^2$ (phép nghịch đảo), và nó là một ánh xạ trơn. Thực tế, $S^n$ là một smooth manifold với atlas này.</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Stereoprojzero.svg/400px-Stereoprojzero.svg.png" alt="Stereographic projection" /><br />
-<em>Phép chiếu stereographic trên $S^2$ - Nguồn: <a href="https://commons.wikimedia.org/wiki/File:Stereoprojzero.svg">Wikimedia Commons</a></em></p>
-
-<hr />
-
-<h3 id="example-3-torus-tn">Example 3: Torus $T^n$</h3>
-
-<p>Torus $n$-chiều $T^n = S^1 \times \cdots \times S^1$ (tích của $n$ vòng tròn) là một ví dụ quan trọng của một manifold được xây dựng như một tích của các manifolds. Một tính chất quan trọng là tích của các manifolds là một manifold, và các charts của tích được xây dựng từ các charts của các thừa số. Do đó, $\dim(T^n) = n$.</p>
-
-<hr />
-
-<h3 id="example-4-projective-spaces-mathbbrpn-mathbbcpn">Example 4: Projective Spaces $\mathbb{R}P^n$, $\mathbb{C}P^n$</h3>
-
-<p>Không gian projective thực $\mathbb{R}P^n$ được định nghĩa là không gian các đường thẳng đi qua gốc trong $\mathbb{R}^{n+1}$, tức là $\mathbb{R}P^n = (\mathbb{R}^{n+1} \setminus {0}) / \sim$ trong đó $v \sim \lambda v$ với $\lambda \neq 0$. Đây là không gian các lớp tương đương của các vector khác không, được đồng nhất hóa theo quan hệ tỷ lệ.</p>
-
-<p>Một atlas tự nhiên cho $\mathbb{R}P^n$ được cho bởi $(n+1)$ charts: $U_i = {[x_0:\ldots:x_n] : x_i \neq 0}$ với $\phi_i([x]) = (x_0/x_i, \ldots, \hat{x}_i, \ldots, x_n/x_i) \in \mathbb{R}^n$, trong đó $\hat{x}_i$ có nghĩa là bỏ qua thành phần $x_i$. Đây là một $n$-dimensional manifold. Tương tự, $\mathbb{C}P^n$ là một $2n$-dimensional real manifold (hoặc một $n$-dimensional complex manifold).</p>
-
-<hr />
-
-<h3 id="example-5-lie-groups">Example 5: Lie Groups</h3>
-
-<p>Một nhóm Lie là một nhóm đồng thời là một smooth manifold, với phép nhóm là một ánh xạ trơn. Đây là một ví dụ đẹp đẽ về sự tương tác giữa đại số, tô-pô học, và hình học.</p>
-
-<p>Các ví dụ quan trọng bao gồm:</p>
-<ul>
-  <li><strong>$GL(n, \mathbb{R})$:</strong> Nhóm các ma trận khả nghịch, là một tập mở trong $\text{Mat}_n(\mathbb{R}) \cong \mathbb{R}^{n^2}$ (vì điều kiện $\det \neq 0$), vì vậy là một $n^2$-dimensional manifold.</li>
-  <li><strong>$SO(n)$:</strong> Nhóm các ma trận trực giao với định thức bằng 1, là một $n(n-1)/2$-dimensional manifold.</li>
-  <li><strong>$SU(n)$:</strong> Nhóm các ma trận unita với định thức bằng 1, là một $(n^2-1)$-dimensional manifold.</li>
-  <li><strong>$S^1, S^3$:</strong> Vòng tròn và hình cầu 3 chiều là các nhóm Lie ($U(1)$ và các quaternion đơn vị).</li>
-</ul>
-
-<p>Sự tương tác phong phú giữa lý thuyết nhóm, tô-pô học, và hình học làm cho nhóm Lie trở thành một trong những đối tượng quan trọng nhất trong toán học hiện đại.</p>
-
-<hr />
-
-<h2 id="-smooth-manifolds">🔗 Smooth Manifolds</h2>
-
-<h3 id="1-smooth-structure">1. Smooth Structure</h3>
-
-<p>Một topological manifold chỉ có tính chất liên tục—chúng ta có thể nói về các hàm liên tục và các đồng phôi, nhưng không thể làm việc với đạo hàm hoặc các khái niệm giải tích khác. Để có thể làm việc với giải tích và hình học vi phân, chúng ta cần một <strong>smooth structure</strong>—một cách để định nghĩa các hàm trơn và các ánh xạ trơn trên manifold.</p>
-
-<p><strong>Định nghĩa (Smooth Atlas):</strong><br />
-Một atlas $\mathcal{A} = {(U_\alpha, \phi_\alpha)}$ được gọi là <strong>smooth</strong> nếu tất cả các ánh xạ chuyển tiếp:</p>
-
-\[\phi_\beta \circ \phi_\alpha^{-1}\]
-
-<p>đều là các ánh xạ $C^\infty$ (trơn) như các ánh xạ từ $\mathbb{R}^n$ đến $\mathbb{R}^n$.</p>
-
-<p>Một <strong>smooth manifold</strong> là một manifold cùng với một smooth atlas tối đại (maximal smooth atlas)—một atlas mà không thể mở rộng thêm bằng cách thêm các charts tương thích. Với một smooth structure, chúng ta có thể làm việc với giải tích: định nghĩa các vector tiếp tuyến, vi phân, đạo hàm, và tất cả các công cụ của hình học vi phân.</p>
-
-<hr />
-
-<h3 id="2-tangent-bundle">2. Tangent Bundle</h3>
-
-<p>Một trong những khái niệm quan trọng nhất trong hình học vi phân là không gian tiếp tuyến. Tại mỗi điểm $p$ của một smooth manifold $M$, không gian tiếp tuyến $T_pM$ là không gian của các “vector vận tốc” tại điểm đó—các hướng mà chúng ta có thể di chuyển từ điểm $p$. Tập hợp tất cả các không gian tiếp tuyến tạo thành <strong>tangent bundle</strong> $TM = \bigcup_{p \in M} T_pM$.</p>
-
-<p>Tangent bundle $TM \to M$ là một vector bundle có rank $n$ (mỗi fiber $T_pM$ là một không gian vector $n$-chiều). Các sections của tangent bundle là các trường vector trên $M$—các cách chọn một vector tiếp tuyến tại mỗi điểm một cách trơn. Hình học vi phân nghiên cứu độ cong, geodesic, và các connections trên $TM$—tất cả các khái niệm này đều dựa trên cấu trúc smooth của manifold.</p>
-
-<hr />
-
-<h3 id="3-smooth-vs-topological">3. Smooth vs Topological</h3>
-
-<p>Một câu hỏi tự nhiên là: mọi topological manifold có thừa nhận một smooth structure không? Câu trả lời phụ thuộc vào chiều của manifold.</p>
-
-<p>Đối với các chiều thấp ($\dim \leq 3$), câu trả lời là có—mọi topological manifold đều có một smooth structure duy nhất (theo các kết quả của Radó và Moise). Tuy nhiên, đối với các chiều cao hơn ($\dim \geq 4$), tình hình phức tạp hơn nhiều.</p>
-
-<p>Một khám phá đáng kinh ngạc của Milnor vào năm 1956 là sự tồn tại của các <strong>exotic spheres</strong>—các topological spheres đồng phôi với $S^n$, nhưng có các smooth structures khác nhau! Ví dụ, $S^7$ có 28 smooth structures phân biệt (theo công trình của Kervaire-Milnor). Thậm chí còn đáng ngạc nhiên hơn, $\mathbb{R}^4$ có vô số đếm được các smooth structures (theo các kết quả của Donaldson và Freedman)—một kết quả sâu sắc cho thấy chiều 4 là đặc biệt trong nhiều cách.</p>
-
-<hr />
-
-<h2 id="-manifolds-with-boundary">🧮 Manifolds with Boundary</h2>
-
-<h3 id="definition">Definition</h3>
-
-<p><strong>Manifold with boundary:</strong> Locally like ℝⁿ or half-space ℍⁿ = {x ∈ ℝⁿ : xₙ ≥ 0}.</p>
-
-<p><strong>Boundary ∂M:</strong> Points with neighborhood ≅ ℍⁿ (on edge xₙ = 0).</p>
-
-<p><strong>Interior:</strong> Points with neighborhood ≅ ℝⁿ.</p>
-
-<hr />
-
-<p><strong>Examples:</strong></p>
-<ul>
-  <li><strong>Disk Dⁿ:</strong> Manifold with boundary ∂Dⁿ = Sⁿ⁻¹.</li>
-  <li><strong>Cylinder S¹ × [0,1]:</strong> Boundary = two circles.</li>
-  <li><strong>Möbius strip:</strong> Boundary = one circle.</li>
-</ul>
-
-<p><strong>Closed manifold:</strong> Compact, no boundary (e.g., Sⁿ, Tⁿ).</p>
-
-<hr />
-
-<h2 id="-classification-of-manifolds">🧠 Classification of Manifolds</h2>
-
-<h3 id="dimension-1">Dimension 1</h3>
-
-<p><strong>Theorem:</strong><br />
-Compact connected 1-manifolds:</p>
-<ul>
-  <li><strong>Without boundary:</strong> S¹ (circle)</li>
-  <li><strong>With boundary:</strong> [0,1] (interval)</li>
-</ul>
-
-<p><strong>Complete classification!</strong></p>
-
-<hr />
-
-<h3 id="dimension-2---surfaces">Dimension 2 - Surfaces</h3>
-
-<p><strong>Theorem (Classification of Surfaces):</strong><br />
-Compact connected surfaces classified by:</p>
-
-<ol>
-  <li><strong>Orientability:</strong> Orientable or not</li>
-  <li><strong>Euler characteristic χ:</strong></li>
-</ol>
-
-<p><strong>Orientable:</strong></p>
-<ul>
-  <li>Sphere S² (χ = 2)</li>
-  <li>Torus T² (χ = 0)</li>
-  <li>Genus g surface Σ_g (χ = 2 - 2g)</li>
-</ul>
-
-<p><strong>Non-orientable:</strong></p>
-<ul>
-  <li>ℝP² (χ = 1)</li>
-  <li>Klein bottle K (χ = 0)</li>
-  <li>Genus g non-orientable (χ = 2 - g)</li>
-</ul>
-
-<p><strong>Complete classification!</strong></p>
-
-<p><strong>Studied in Chapter 05.</strong></p>
-
-<hr />
-
-<h3 id="dimension-3">Dimension 3</h3>
-
-<p><strong>Theorem (Geometrization Conjecture - Perelman 2003):</strong><br />
-Every closed 3-manifold decomposes into pieces, each admitting one of 8 geometric structures.</p>
-
-<p><strong>Special case:</strong> Poincaré conjecture (proved!).</p>
-
-<p><strong>Simply connected closed 3-manifold ⇒ homeomorphic to S³.</strong></p>
-
-<p><strong>Complete classification!</strong> (But very deep.)</p>
-
-<hr />
-
-<h3 id="dimension--4">Dimension ≥ 4</h3>
-
-<p><strong>Theorem (Markov 1958):</strong><br />
-No algorithm exists to determine if two 4-manifolds homeomorphic.</p>
-
-<p><strong>Classification problem UNDECIDABLE!</strong></p>
-
-<p><strong>Questions:</strong></p>
-<ul>
-  <li>Exotic smooth structures (many!)</li>
-  <li>Topological vs smooth (different)</li>
-  <li>Fundamental open problems remain</li>
-</ul>
-
-<p><strong>Frontier of research!</strong></p>
-
-<hr />
-
-<h2 id="-fundamental-papers--references">🧠 Fundamental Papers &amp; References</h2>
-
-<h3 id="classic-works">Classic Works</h3>
-
-<ol>
-  <li>
-    <p><strong>Henri Poincaré</strong> - <em>“Analysis Situs”</em> (1895)<br />
-<em>Foundations of manifold theory</em></p>
-  </li>
-  <li>
-    <p><strong>John Milnor</strong> - <em>“On manifolds homeomorphic to the 7-sphere”</em> (1956)<br />
-<em>Exotic spheres</em></p>
-  </li>
-  <li>
-    <p><strong>Michael Freedman</strong> - <em>“Topology of 4-manifolds”</em> (1982)<br />
-<em>4-dimensional topology</em></p>
-  </li>
-  <li>
-    <p><strong>Simon Donaldson</strong> - <em>“Self-dual connections and geometry of 4-manifolds”</em> (1983)<br />
-<em>Smooth 4-manifolds</em></p>
-  </li>
-  <li>
-    <p><strong>Grigori Perelman</strong> - <em>“Ricci flow and geometrization”</em> (2002-2003)<br />
-<em>Proved Poincaré conjecture</em></p>
-  </li>
-</ol>
-
-<h3 id="textbooks">Textbooks</h3>
-
-<ol>
-  <li>
-    <p><strong>John M. Lee</strong> - <em>Introduction to Topological Manifolds</em>, <strong>2nd Ed.</strong></p>
-  </li>
-  <li>
-    <p><strong>John M. Lee</strong> - <em>Introduction to Smooth Manifolds</em>, <strong>2nd Ed.</strong></p>
-  </li>
-  <li>
-    <p><strong>Glen E. Bredon</strong> - <em>Topology and Geometry</em></p>
-  </li>
-  <li>
-    <p><strong>Morris W. Hirsch</strong> - <em>Differential Topology</em></p>
-  </li>
-</ol>
-
-<hr />
-
-<h2 id="-connections-to-other-fields">🔗 Connections to Other Fields</h2>
-
-<p>Manifolds không chỉ là các đối tượng toán học trừu tượng—chúng xuất hiện một cách tự nhiên trong nhiều lĩnh vực khác nhau và tạo thành nền tảng cho nhiều lý thuyết quan trọng.</p>
-
-<h3 id="differential-geometry">Differential Geometry</h3>
-
-<p>Hình học vi phân nghiên cứu các Riemannian manifolds—các smooth manifolds được trang bị một metric (mét) cho phép chúng ta đo khoảng cách và góc. Metric này cho phép chúng ta định nghĩa độ cong, geodesic (đường trắc địa), và các khái niệm hình học khác. Thuyết tương đối rộng sử dụng các Lorentzian manifolds—các manifolds với một metric có signature Lorentz—để mô tả không-thời gian. Độ cong của không-thời gian được xác định bởi các phương trình Einstein, và điều này giải thích lực hấp dẫn như một hiệu ứng hình học.</p>
-
-<h3 id="physics---general-relativity">Physics - General Relativity</h3>
-
-<p>Trong vật lý, không-thời gian trong thuyết tương đối rộng là một đa tạp 4 chiều (3 chiều không gian + 1 chiều thời gian). Các phương trình Einstein mô tả cách vật chất và năng lượng làm cong không-thời gian, và độ cong này xác định chuyển động của các vật thể. Các khái niệm như lỗ đen và vũ trụ học đều được mô tả bằng ngôn ngữ của manifolds và hình học vi phân.</p>
-
-<h3 id="symplectic-geometry">Symplectic Geometry</h3>
-
-<p>Trong cơ học cổ điển, không gian pha là một symplectic manifold—một smooth manifold được trang bị một dạng symplectic cho phép chúng ta mô tả vị trí và động lượng của các hệ cơ học. Các hệ Hamilton được mô tả bằng các dòng trên symplectic manifolds, và quantization (lượng tử hóa) là quá trình chuyển từ cơ học cổ điển sang cơ học lượng tử trên các manifolds này.</p>
-
-<h3 id="algebraic-geometry">Algebraic Geometry</h3>
-
-<p>Trong hình học đại số, các algebraic varieties phức là các complex manifolds—các manifolds với các charts có giá trị trong $\mathbb{C}^n$ và các ánh xạ chuyển tiếp là các ánh xạ chỉnh hình. Điều này tạo ra một kết nối sâu sắc giữa hình học đại số và hình học vi phân. Các schemes tổng quát hóa các varieties và manifolds hơn nữa, cho phép chúng ta làm việc với các đối tượng hình học tổng quát hơn.</p>
-
-<h3 id="data-science---manifold-learning">Data Science - Manifold Learning</h3>
-
-<p>Trong khoa học dữ liệu, một quan sát quan trọng là dữ liệu chiều cao thường nằm trên một manifold chiều thấp. Các thuật toán như ISOMAP và LLE (Locally Linear Embedding) cố gắng khôi phục cấu trúc manifold từ dữ liệu, cho phép chúng ta giảm chiều và hiểu cấu trúc của dữ liệu. Đây là một ứng dụng thực tế quan trọng của lý thuyết manifolds trong machine learning và data analysis.</p>
-
-<hr />
-
-<h2 id="-exercises">🧩 Exercises</h2>
-
-<h3 id="definitions">Definitions</h3>
-
-<ol>
-  <li>
-    <p><strong>Verify:</strong> ℝⁿ satisfies Hausdorff, second countable.</p>
-  </li>
-  <li>
-    <p><strong>Charts:</strong> Give explicit stereographic projection formula for S².</p>
-  </li>
-  <li>
-    <p><strong>Atlas:</strong> Describe atlas for S¹ using two charts (upper/lower semicircles).</p>
-  </li>
-</ol>
-
-<h3 id="examples">Examples</h3>
-
-<ol>
-  <li>
-    <p><strong>Dimension:</strong> Show T² = S¹ × S¹ is 2-dimensional manifold.</p>
-  </li>
-  <li>
-    <p><strong>ℝP¹:</strong> Verify ℝP¹ ≅ S¹ (projective line = circle).</p>
-  </li>
-  <li>
-    <p><strong>Lie Group:</strong> GL(2, ℝ) ⊆ Mat₂(ℝ) ≅ ℝ⁴. Show it’s 4-dimensional manifold.</p>
-  </li>
-</ol>
-
-<h3 id="smooth-structures">Smooth Structures</h3>
-
-<ol>
-  <li>
-    <p><strong>Transition:</strong> For Sⁿ stereographic charts, verify transition map smooth.</p>
-  </li>
-  <li>
-    <p><strong>Tangent Space:</strong> T_p ℝⁿ ≅ ℝⁿ. Describe isomorphism.</p>
-  </li>
-</ol>
-
-<h3 id="boundary">Boundary</h3>
-
-<ol>
-  <li>
-    <p><strong>Disk:</strong> ∂Dⁿ = Sⁿ⁻¹. Verify for n=2,3.</p>
-  </li>
-  <li>
-    <p><strong>Möbius:</strong> Boundary of Möbius strip = ? (One circle.)</p>
-  </li>
-</ol>
-
-<h3 id="classification">Classification</h3>
-
-<ol>
-  <li>
-    <p><strong>1-Manifolds:</strong> Show any compact connected 1-manifold homeomorphic to S¹ or [0,1].</p>
-  </li>
-  <li>
-    <p><strong>Surfaces:</strong> Which compact surface has χ = -2? (Genus 2 orientable, or genus 4 non-orientable.)</p>
-  </li>
-</ol>
-
-<h3 id="advanced">Advanced</h3>
-
-<ol>
-  <li>
-    <p><strong>Exotic S⁷:</strong> Research exotic smooth structures on S⁷. How many?</p>
-  </li>
-  <li>
-    <p><strong>Poincaré Conjecture:</strong> State precisely. Why was it hard?</p>
-  </li>
-  <li>
-    <p><strong>4-Manifolds:</strong> Read about exotic ℝ⁴. What makes dimension 4 special?</p>
-  </li>
-</ol>
-
-<h3 id="reflection">Reflection</h3>
-
-<ol>
-  <li>
-    <p><strong>Why Manifolds?:</strong> Explain importance in mathematics and physics.</p>
-  </li>
-  <li>
-    <p><strong>Local vs Global:</strong> Give example where local ≅ ℝⁿ but global topology nontrivial.</p>
-  </li>
-  <li>
-    <p><strong>Smooth vs Topological:</strong> Why can topological manifold have multiple smooth structures?</p>
-  </li>
-  <li>
-    <p><strong>Future Study:</strong> List topics you want to explore after this course.</p>
-  </li>
-  <li>
-    <p><strong>Course Reflection:</strong> What was most surprising/beautiful concept you learned?</p>
-  </li>
-</ol>
-
-<hr />
-
-<h2 id="-further-reading-and-next-steps">📚 Further Reading and Next Steps</h2>
-
-<h3 id="textbooks-for-continuation">Textbooks for Continuation</h3>
-
-<p><strong>Differential Geometry:</strong></p>
-<ul>
-  <li>Lee, <em>Introduction to Smooth Manifolds</em></li>
-  <li>do Carmo, <em>Riemannian Geometry</em></li>
-  <li>Spivak, <em>Comprehensive Introduction to Differential Geometry</em></li>
-</ul>
-
-<p><strong>Algebraic Topology:</strong></p>
-<ul>
-  <li>Hatcher, <em>Algebraic Topology</em> (advanced chapters)</li>
-  <li>May, <em>Concise Course in Algebraic Topology</em></li>
-  <li>Spanier, <em>Algebraic Topology</em> (encyclopedic)</li>
-</ul>
-
-<p><strong>Differential Topology:</strong></p>
-<ul>
-  <li>Milnor, <em>Topology from the Differentiable Viewpoint</em></li>
-  <li>Guillemin &amp; Pollack, <em>Differential Topology</em></li>
-  <li>Hirsch, <em>Differential Topology</em></li>
-</ul>
-
-<p><strong>Advanced Topics:</strong></p>
-<ul>
-  <li>Bott &amp; Tu, <em>Differential Forms in Algebraic Topology</em></li>
-  <li>Bredon, <em>Topology and Geometry</em></li>
-  <li>Hatcher, <em>Spectral Sequences in Algebraic Topology</em></li>
-</ul>
-
-<hr />
-
-<h2 id="-course-summary---complete-journey">🎓 Course Summary - Complete Journey</h2>
-
-<h3 id="bạn-đã-học">Bạn đã học:</h3>
-
-<p><strong>Chapter 00: Foundations (4 lectures)</strong>
-✅ Set theory, functions, relations<br />
-✅ Cartesian products, Zorn’s Lemma<br />
-✅ Logic, mathematical proofs<br />
-✅ Real numbers, Euclidean space</p>
-
-<p><strong>Chapter 01: Point-Set Topology (5 lectures)</strong>
-✅ Topological spaces, basic examples<br />
-✅ Basis and subbasis<br />
-✅ Closed sets, closure, interior, boundary<br />
-✅ Continuous functions, homeomorphisms<br />
-✅ Subspace and product topology</p>
-
-<p><strong>Chapter 02: Fundamental Properties (3 lectures)</strong>
-✅ Connected spaces<br />
-✅ Compact spaces, Heine-Borel<br />
-✅ Local compactness, compactification</p>
-
-<p><strong>Chapter 03: Separation and Metrization (4 lectures)</strong>
-✅ T₀, T₁, T₂ (Hausdorff) axioms<br />
-✅ Regular and Normal spaces<br />
-✅ Countability axioms<br />
-✅ Urysohn’s Metrization Theorem</p>
-
-<p><strong>Chapter 04: Metric Spaces (4 lectures)</strong>
-✅ Metric space fundamentals<br />
-✅ Completeness, Baire Category Theorem<br />
-✅ Equivalent metrics, uniform continuity<br />
-✅ Product metrics, function spaces</p>
-
-<p><strong>Chapter 05: Quotient Spaces (4 lectures)</strong>
-✅ Quotient topology construction<br />
-✅ Classification of surfaces<br />
-✅ CW complexes<br />
-✅ Group actions, orbit spaces</p>
-
-<p><strong>Chapter 06: Fundamental Group (5 lectures)</strong>
-✅ Homotopy and path homotopy<br />
-✅ Fundamental group π₁(X, x₀)<br />
-✅ Computing π₁ examples<br />
-✅ Covering spaces<br />
-✅ Seifert-Van Kampen Theorem</p>
-
-<p><strong>Chapter 07: Homology Theory (5 lectures)</strong>
-✅ Simplicial homology<br />
-✅ Singular homology<br />
-✅ Homology computations<br />
-✅ Mayer-Vietoris sequence<br />
-✅ Cohomology introduction</p>
-
-<p><strong>Chapter 08: Advanced Topics (4 lectures)</strong>
-✅ Higher homotopy groups π_n<br />
-✅ Fiber bundles, vector bundles<br />
-✅ Morse theory<br />
-✅ Topological manifolds</p>
-
-<hr />
-
-<h3 id="total-achievement">Total Achievement:</h3>
-<p>🎓 <strong>33 comprehensive lectures</strong><br />
-🎓 <strong>~20,000 dòng content (averaging 600+ dòng/lecture)</strong><br />
-🎓 <strong>600+ exercises</strong><br />
-🎓 <strong>200+ visual illustrations referenced</strong><br />
-🎓 <strong>300+ fundamental papers cited</strong></p>
-
-<hr />
-
-<h2 id="-khóa-học-hoàn-thành-bạn-đã-sẵn-sàng-cho">🚀 Khóa học hoàn thành! Bạn đã sẵn sàng cho:</h2>
-
-<h3 id="research-mathematics">Research Mathematics</h3>
-<ul>
-  <li>Topology research papers</li>
-  <li>Algebraic topology advanced courses</li>
-  <li>Geometric topology</li>
-</ul>
-
-<h3 id="applied-mathematics">Applied Mathematics</h3>
-<ul>
-  <li>Topological Data Analysis (TDA)</li>
-  <li>Computational topology</li>
-  <li>Network analysis</li>
-</ul>
-
-<h3 id="physics">Physics</h3>
-<ul>
-  <li>General relativity</li>
-  <li>Quantum field theory (gauge theory)</li>
-  <li>String theory</li>
-</ul>
-
-<h3 id="differential-geometry-1">Differential Geometry</h3>
-<ul>
-  <li>Riemannian geometry</li>
-  <li>Symplectic geometry</li>
-  <li>Complex geometry</li>
-</ul>
-
-<h3 id="computer-science">Computer Science</h3>
-<ul>
-  <li>Computational geometry</li>
-  <li>Shape analysis</li>
-  <li>Robotics (configuration spaces)</li>
-</ul>
-
-<hr />
-
-<h2 id="-parting-wisdom">🎯 Parting Wisdom</h2>
-
-<blockquote>
-  <p><strong>“Topology reveals what persists through continuous deformation.”</strong></p>
-</blockquote>
-
-<p>Trong hành trình này qua tô-pô học, bạn đã học được rằng các không gian không chỉ là các tập hợp—chúng có CẤU TRÚC. Tính liên tục là cách chúng ta bảo toàn cấu trúc đó, và các bất biến đại số như fundamental group $\pi_1$ và homology $H_n$ là những công cụ mạnh mẽ để hiểu và phân loại các không gian. Sự đối lập giữa địa phương và toàn cục là nguồn gốc của vẻ đẹp và sự phức tạp trong tô-pô học, và chúng ta đã thấy cách giải tích, đại số, và hình học được kết nối sâu sắc với nhau.</p>
-
-<p>Các hiểu biết quan trọng mà bạn đã đạt được bao gồm việc nhận ra rằng một cốc cà phê và một chiếc bánh rán là đồng phôi với nhau—chúng có cùng topology mặc dù hình dạng khác nhau. Chúng ta đã học cách phân biệt một hình cầu và một torus bằng fundamental group—một công cụ đại số mạnh mẽ. Homology đếm các lỗ ở mọi chiều, cho chúng ta một cách hệ thống để hiểu cấu trúc của không gian. Manifolds là nơi hình học xảy ra—chúng là các không gian mà chúng ta có thể làm việc với giải tích và hình học vi phân. Và cuối cùng, toán học là một tổng thể thống nhất và đẹp đẽ—tất cả các lĩnh vực đều được kết nối với nhau.</p>
-
-<p>Hãy tiếp tục khám phá! Tô-pô học là cửa ngõ vào hình học hiện đại, vật lý tiên tiến, toán học thuần túy, và các khoa học ứng dụng. Những công cụ và khái niệm mà bạn đã học sẽ phục vụ bạn tốt trong bất kỳ lĩnh vực nào bạn chọn để theo đuổi.</p>
-
-<hr />
-
-<h2 id="-congratulations-">🎉 CONGRATULATIONS! 🎉</h2>
-
-<p><strong>Bạn đã hoàn thành comprehensive Topology course!</strong></p>
-
-<p><strong>From set theory foundations to manifolds.</strong><br />
-<strong>From basic continuity to advanced invariants.</strong><br />
-<strong>From simple examples to deep theorems.</strong></p>
-
-<p><strong>You are now equipped với:</strong></p>
-<ul>
-  <li>Rigorous mathematical thinking</li>
-  <li>Powerful topological tools</li>
-  <li>Geometric intuition</li>
-  <li>Foundation for advanced study</li>
-</ul>
-
-<hr />
-
-<h3 id="-final-thought">💎 Final Thought</h3>
-
-<p><em>“In topology, we study what remains invariant when everything else changes. In life, we seek what persists through all transformations. The mindset is the same: look for the essential, the unchanging, the fundamental.”</em></p>
-
-<hr />
-
-<p><strong>Thank you for joining this journey through topology!</strong></p>
-
-<p><strong>May your mathematical explorations continue, and may you discover beautiful structures wherever you look.</strong></p>
-
-<p><strong>Topology is not just mathematics—it’s a way of seeing the world.</strong></p>
-
-<hr />
-
-<p>🌟 <strong>THE END - AND THE BEGINNING!</strong> 🌟</p>
-
-<hr />
-
-<p><strong>Previous:</strong> <a href="/contents/vi/topology-chapter08/08_02_Morse_Theory/">Lecture 08.02: Morse Theory</a><br />
-<strong>Course Complete!</strong> Return to <a href="/">Home</a> or explore <a href="/reference/">References</a></p>
-
-<hr />
-
-<p><em>“Không có điểm cuối trong toán học—chỉ có những điểm khởi đầu mới.”</em><br />
-<em>— There is no end in mathematics—only new beginnings.</em></p>
-
-<p>🎯 <strong>Chúc bạn thành công trên con đường nghiên cứu toán học!</strong> 🎯</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter08" /><category term="manifolds" /><category term="dimension" /><category term="charts" /><category term="atlas" /><category term="differential-topology" /><summary type="html"><![CDATA[Topological manifolds: locally Euclidean spaces, smooth structures, classification, và connections to geometry and physics]]></summary></entry></feed>
+<p>Trong bài học cuối cùng, chúng ta sẽ khám phá topology trong nghệ thuật và kiến trúc!</p>]]></content><author><name>Nguyen Le Linh</name><email>nglelinh@gmail.com</email></author><category term="contents" /><category term="vi" /><category term="chapter09" /><category term="poincare-conjecture" /><category term="millennium-problem" /><category term="topology-3d" /><category term="toán-học" /><summary type="html"><![CDATA[Khám phá Poincaré Conjecture - một trong những bài toán khó nhất và nổi tiếng nhất trong toán học, và cách nó được giải quyết sau hơn 100 năm]]></summary></entry></feed>

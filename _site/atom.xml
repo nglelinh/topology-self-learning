@@ -4,13 +4,2296 @@
  <title>Topology Self-Learning</title>
  <link href="http://localhost:4000/topology-self-learning/atom.xml" rel="self"/>
  <link href="http://localhost:4000/topology-self-learning/"/>
- <updated>2025-11-15T13:09:59+07:00</updated>
+ <updated>2025-11-16T21:01:41+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Nguyen Le Linh</name>
    <email>nglelinh@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Bài 09.10: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_10_Terminology_Glossary/"/>
+   <updated>2025-01-10T00:00:00+07:00</updated>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_10_Terminology_Glossary</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Lưu ý về hiển thị công thức toán học:&lt;/strong&gt; Tất cả các công thức toán học trong bảng được viết bằng LaTeX và sẽ được hiển thị đúng khi MathJax được load. Nếu công thức không hiển thị, vui lòng đảm bảo rằng MathJax đã được cấu hình đúng trong trang web.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tổng-quan&quot;&gt;📖 Tổng quan&lt;/h2&gt;
+
+&lt;p&gt;Bài học này là một &lt;strong&gt;từ điển toàn diện&lt;/strong&gt; tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology. Đây là một tài liệu tham khảo hữu ích để tra cứu nhanh các định nghĩa, ký hiệu, và khái niệm quan trọng.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cách sử dụng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Tra cứu nhanh:&lt;/strong&gt; Sử dụng để tìm định nghĩa của một thuật ngữ cụ thể&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ôn tập:&lt;/strong&gt; Xem lại các khái niệm đã học theo từng chương&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tham khảo:&lt;/strong&gt; Sử dụng khi đọc các bài học khác để hiểu các thuật ngữ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cấu trúc:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Các thuật ngữ được sắp xếp theo các chương và chủ đề chính, với bảng trình bày rõ ràng bao gồm:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Thuật ngữ&lt;/strong&gt; (tiếng Việt và tiếng Anh)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ký hiệu toán học&lt;/strong&gt; (nếu có)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Định nghĩa ngắn gọn&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chương xuất hiện&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-00-foundations-and-set-theoretic-topology&quot;&gt;📚 Chapter 00: Foundations and Set-Theoretic Topology&lt;/h2&gt;
+
+&lt;h3 id=&quot;lý-thuyết-tập-hợp&quot;&gt;Lý Thuyết Tập Hợp&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập hợp&lt;/strong&gt; (Set)&lt;/td&gt;
+      &lt;td&gt;$A$, $B$, $X$&lt;/td&gt;
+      &lt;td&gt;Một collection các đối tượng phân biệt&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phần tử&lt;/strong&gt; (Element)&lt;/td&gt;
+      &lt;td&gt;$x \in A$&lt;/td&gt;
+      &lt;td&gt;Một đối tượng thuộc tập hợp&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập con&lt;/strong&gt; (Subset)&lt;/td&gt;
+      &lt;td&gt;$A \subseteq B$&lt;/td&gt;
+      &lt;td&gt;Mọi phần tử của $A$ đều thuộc $B$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập rỗng&lt;/strong&gt; (Empty Set)&lt;/td&gt;
+      &lt;td&gt;$\emptyset$&lt;/td&gt;
+      &lt;td&gt;Tập hợp không có phần tử nào&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hợp&lt;/strong&gt; (Union)&lt;/td&gt;
+      &lt;td&gt;$A \cup B$&lt;/td&gt;
+      &lt;td&gt;Tập tất cả phần tử thuộc $A$ hoặc $B$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Giao&lt;/strong&gt; (Intersection)&lt;/td&gt;
+      &lt;td&gt;$A \cap B$&lt;/td&gt;
+      &lt;td&gt;Tập tất cả phần tử thuộc cả $A$ và $B$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hiệu&lt;/strong&gt; (Difference)&lt;/td&gt;
+      &lt;td&gt;$A \setminus B$&lt;/td&gt;
+      &lt;td&gt;Tập các phần tử thuộc $A$ nhưng không thuộc $B$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phần bù&lt;/strong&gt; (Complement)&lt;/td&gt;
+      &lt;td&gt;$A^c$&lt;/td&gt;
+      &lt;td&gt;Tập tất cả phần tử không thuộc $A$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tích Descartes&lt;/strong&gt; (Cartesian Product)&lt;/td&gt;
+      &lt;td&gt;$A \times B$&lt;/td&gt;
+      &lt;td&gt;Tập các cặp có thứ tự $(a,b)$ với $a \in A$, $b \in B$&lt;/td&gt;
+      &lt;td&gt;00.01&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lực lượng&lt;/strong&gt; (Cardinality)&lt;/td&gt;
+      &lt;td&gt;$&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;$, $\mathrm{card}(A)$&lt;/td&gt;
+      &lt;td&gt;Số lượng phần tử của tập hợp&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đếm được&lt;/strong&gt; (Countable)&lt;/td&gt;
+      &lt;td&gt;$\aleph_0$&lt;/td&gt;
+      &lt;td&gt;Có thể đặt tương ứng 1-1 với $\mathbb{N}$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không đếm được&lt;/strong&gt; (Uncountable)&lt;/td&gt;
+      &lt;td&gt;$2^{\aleph_0}$&lt;/td&gt;
+      &lt;td&gt;Không thể đặt tương ứng với $\mathbb{N}$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;hàm-số-và-quan-hệ&quot;&gt;Hàm Số và Quan Hệ&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hàm số&lt;/strong&gt; (Function)&lt;/td&gt;
+      &lt;td&gt;$f: A \to B$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ từ tập $A$ vào tập $B$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đơn ánh&lt;/strong&gt; (Injective)&lt;/td&gt;
+      &lt;td&gt;$f$ injective&lt;/td&gt;
+      &lt;td&gt;$f(a_1) = f(a_2) \Rightarrow a_1 = a_2$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Toàn ánh&lt;/strong&gt; (Surjective)&lt;/td&gt;
+      &lt;td&gt;$f$ surjective&lt;/td&gt;
+      &lt;td&gt;Mọi $b \in B$ đều có $a \in A$ sao cho $f(a) = b$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Song ánh&lt;/strong&gt; (Bijective)&lt;/td&gt;
+      &lt;td&gt;$f$ bijective&lt;/td&gt;
+      &lt;td&gt;Vừa đơn ánh vừa toàn ánh&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hàm ngược&lt;/strong&gt; (Inverse Function)&lt;/td&gt;
+      &lt;td&gt;$f^{-1}$&lt;/td&gt;
+      &lt;td&gt;Hàm ngược của song ánh&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quan hệ tương đương&lt;/strong&gt; (Equivalence Relation)&lt;/td&gt;
+      &lt;td&gt;$\sim$&lt;/td&gt;
+      &lt;td&gt;Quan hệ phản xạ, đối xứng, bắc cầu&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lớp tương đương&lt;/strong&gt; (Equivalence Class)&lt;/td&gt;
+      &lt;td&gt;$[a]$&lt;/td&gt;
+      &lt;td&gt;Tập tất cả phần tử tương đương với $a$&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phân hoạch&lt;/strong&gt; (Partition)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phân chia tập hợp thành các lớp tương đương&lt;/td&gt;
+      &lt;td&gt;00.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tiên-đề-và-logic&quot;&gt;Tiên Đề và Logic&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tiên đề chọn&lt;/strong&gt; (Axiom of Choice)&lt;/td&gt;
+      &lt;td&gt;AC&lt;/td&gt;
+      &lt;td&gt;Có thể chọn một phần tử từ mỗi tập hợp&lt;/td&gt;
+      &lt;td&gt;00.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bổ đề Zorn&lt;/strong&gt; (Zorn’s Lemma)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi tập được sắp thứ tự bộ phận có phần tử tối đại&lt;/td&gt;
+      &lt;td&gt;00.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nguyên lý sắp thứ tự tốt&lt;/strong&gt; (Well-Ordering Principle)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi tập hợp đều có thể sắp thứ tự tốt&lt;/td&gt;
+      &lt;td&gt;00.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quy nạp toán học&lt;/strong&gt; (Mathematical Induction)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phương pháp chứng minh cho các số tự nhiên&lt;/td&gt;
+      &lt;td&gt;00.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phản chứng&lt;/strong&gt; (Proof by Contradiction)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Giả sử phủ định để dẫn đến mâu thuẫn&lt;/td&gt;
+      &lt;td&gt;00.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;số-thực-và-không-gian-euclid&quot;&gt;Số Thực và Không Gian Euclid&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Số thực&lt;/strong&gt; (Real Numbers)&lt;/td&gt;
+      &lt;td&gt;$\mathbb{R}$&lt;/td&gt;
+      &lt;td&gt;Tập hợp tất cả số thực&lt;/td&gt;
+      &lt;td&gt;00.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian Euclid&lt;/strong&gt; (Euclidean Space)&lt;/td&gt;
+      &lt;td&gt;$\mathbb{R}^n$&lt;/td&gt;
+      &lt;td&gt;Không gian $n$-chiều với metric Euclid&lt;/td&gt;
+      &lt;td&gt;00.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tính đầy đủ&lt;/strong&gt; (Completeness)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi dãy Cauchy đều hội tụ&lt;/td&gt;
+      &lt;td&gt;00.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cắt Dedekind&lt;/strong&gt; (Dedekind Cut)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$&lt;/td&gt;
+      &lt;td&gt;00.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-01-topological-spaces-and-continuous-functions&quot;&gt;📚 Chapter 01: Topological Spaces and Continuous Functions&lt;/h2&gt;
+
+&lt;h3 id=&quot;không-gian-tô-pô&quot;&gt;Không Gian Tô-pô&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian tô-pô&lt;/strong&gt; (Topological Space)&lt;/td&gt;
+      &lt;td&gt;$(X, \tau)$&lt;/td&gt;
+      &lt;td&gt;Tập hợp $X$ với topology $\tau$&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$\tau$&lt;/td&gt;
+      &lt;td&gt;Họ các tập mở thỏa mãn ba tiên đề&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập mở&lt;/strong&gt; (Open Set)&lt;/td&gt;
+      &lt;td&gt;$U \in \tau$&lt;/td&gt;
+      &lt;td&gt;Phần tử của topology&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập đóng&lt;/strong&gt; (Closed Set)&lt;/td&gt;
+      &lt;td&gt;$A$ closed&lt;/td&gt;
+      &lt;td&gt;Phần bù của tập mở&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology tầm thường&lt;/strong&gt; (Trivial Topology)&lt;/td&gt;
+      &lt;td&gt;${\emptyset, X}$&lt;/td&gt;
+      &lt;td&gt;Topology nhỏ nhất&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology rời rạc&lt;/strong&gt; (Discrete Topology)&lt;/td&gt;
+      &lt;td&gt;$\mathcal{P}(X)$&lt;/td&gt;
+      &lt;td&gt;Topology lớn nhất (mọi tập đều mở)&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology hữu hạn bù&lt;/strong&gt; (Cofinite Topology)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập mở là $\emptyset$ hoặc có phần bù hữu hạn&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology đếm được bù&lt;/strong&gt; (Cocountable Topology)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập mở là $\emptyset$ hoặc có phần bù đếm được&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Thô hơn&lt;/strong&gt; (Coarser)&lt;/td&gt;
+      &lt;td&gt;$\tau_1 \subseteq \tau_2$&lt;/td&gt;
+      &lt;td&gt;Topology nhỏ hơn&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Mịn hơn&lt;/strong&gt; (Finer)&lt;/td&gt;
+      &lt;td&gt;$\tau_2 \supseteq \tau_1$&lt;/td&gt;
+      &lt;td&gt;Topology lớn hơn&lt;/td&gt;
+      &lt;td&gt;01.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;cơ-sở-và-tiền-cơ-sở&quot;&gt;Cơ Sở và Tiền Cơ Sở&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cơ sở&lt;/strong&gt; (Basis)&lt;/td&gt;
+      &lt;td&gt;$\mathcal{B}$&lt;/td&gt;
+      &lt;td&gt;Họ tập mở sinh ra topology&lt;/td&gt;
+      &lt;td&gt;01.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tiền cơ sở&lt;/strong&gt; (Subbasis)&lt;/td&gt;
+      &lt;td&gt;$\mathcal{S}$&lt;/td&gt;
+      &lt;td&gt;Họ tập hợp sinh ra basis&lt;/td&gt;
+      &lt;td&gt;01.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cơ sở chuẩn&lt;/strong&gt; (Standard Basis)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Cơ sở cho $\mathbb{R}^n$&lt;/td&gt;
+      &lt;td&gt;01.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;bao-đóng-và-phần-trong&quot;&gt;Bao Đóng và Phần Trong&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bao đóng&lt;/strong&gt; (Closure)&lt;/td&gt;
+      &lt;td&gt;$\overline{A}$, $\mathrm{cl}(A)$&lt;/td&gt;
+      &lt;td&gt;Tập đóng nhỏ nhất chứa $A$&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phần trong&lt;/strong&gt; (Interior)&lt;/td&gt;
+      &lt;td&gt;$A^\circ$, $\mathrm{int}(A)$&lt;/td&gt;
+      &lt;td&gt;Tập mở lớn nhất chứa trong $A$&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Biên&lt;/strong&gt; (Boundary)&lt;/td&gt;
+      &lt;td&gt;$\partial A$&lt;/td&gt;
+      &lt;td&gt;$\overline{A} \setminus A^\circ$&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Điểm giới hạn&lt;/strong&gt; (Limit Point)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi lân cận đều chứa điểm khác của $A$&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Điểm cô lập&lt;/strong&gt; (Isolated Point)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Có lân cận không chứa điểm khác của $A$&lt;/td&gt;
+      &lt;td&gt;01.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;hàm-liên-tục-và-đồng-phôi&quot;&gt;Hàm Liên Tục và Đồng Phôi&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hàm liên tục&lt;/strong&gt; (Continuous Function)&lt;/td&gt;
+      &lt;td&gt;$f: X \to Y$&lt;/td&gt;
+      &lt;td&gt;Ảnh ngược của tập mở là tập mở&lt;/td&gt;
+      &lt;td&gt;01.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng phôi&lt;/strong&gt; (Homeomorphism)&lt;/td&gt;
+      &lt;td&gt;$f: X \cong Y$&lt;/td&gt;
+      &lt;td&gt;Song ánh liên tục với hàm ngược liên tục&lt;/td&gt;
+      &lt;td&gt;01.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phép nhúng&lt;/strong&gt; (Embedding)&lt;/td&gt;
+      &lt;td&gt;$f: X \hookrightarrow Y$&lt;/td&gt;
+      &lt;td&gt;Đồng phôi lên ảnh của nó&lt;/td&gt;
+      &lt;td&gt;01.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tương đương đồng luân&lt;/strong&gt; (Homotopy Equivalence)&lt;/td&gt;
+      &lt;td&gt;$X \simeq Y$&lt;/td&gt;
+      &lt;td&gt;Tồn tại ánh xạ với đồng luân ngược&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;topology-con-và-tích&quot;&gt;Topology Con và Tích&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology con&lt;/strong&gt; (Subspace Topology)&lt;/td&gt;
+      &lt;td&gt;$Y \subseteq X$&lt;/td&gt;
+      &lt;td&gt;Topology cảm sinh trên tập con&lt;/td&gt;
+      &lt;td&gt;01.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology tích&lt;/strong&gt; (Product Topology)&lt;/td&gt;
+      &lt;td&gt;$X \times Y$&lt;/td&gt;
+      &lt;td&gt;Topology trên tích Descartes&lt;/td&gt;
+      &lt;td&gt;01.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hình chiếu&lt;/strong&gt; (Projection)&lt;/td&gt;
+      &lt;td&gt;$\pi_i: X_1 \times X_2 \to X_i$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ chiếu lên thành phần thứ $i$&lt;/td&gt;
+      &lt;td&gt;01.04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-02-connectedness-and-compactness&quot;&gt;📚 Chapter 02: Connectedness and Compactness&lt;/h2&gt;
+
+&lt;h3 id=&quot;liên-thông&quot;&gt;Liên Thông&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Liên thông&lt;/strong&gt; (Connected)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Không thể phân thành hai tập mở rời nhau&lt;/td&gt;
+      &lt;td&gt;02.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Thành phần liên thông&lt;/strong&gt; (Connected Component)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập liên thông lớn nhất chứa điểm&lt;/td&gt;
+      &lt;td&gt;02.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Liên thông đường&lt;/strong&gt; (Path-Connected)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi hai điểm đều nối được bằng đường đi&lt;/td&gt;
+      &lt;td&gt;02.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Thành phần liên thông đường&lt;/strong&gt; (Path Component)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập liên thông đường lớn nhất&lt;/td&gt;
+      &lt;td&gt;02.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đường đi&lt;/strong&gt; (Path)&lt;/td&gt;
+      &lt;td&gt;$\gamma: [0,1] \to X$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ liên tục từ đoạn vào không gian&lt;/td&gt;
+      &lt;td&gt;02.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Vòng lặp&lt;/strong&gt; (Loop)&lt;/td&gt;
+      &lt;td&gt;$\gamma: S^1 \to X$&lt;/td&gt;
+      &lt;td&gt;Đường đi khép kín&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;compact&quot;&gt;Compact&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Compact&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi phủ mở đều có phủ con hữu hạn&lt;/td&gt;
+      &lt;td&gt;02.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phủ mở&lt;/strong&gt; (Open Cover)&lt;/td&gt;
+      &lt;td&gt;${U_\alpha}$&lt;/td&gt;
+      &lt;td&gt;Họ tập mở có hợp chứa không gian&lt;/td&gt;
+      &lt;td&gt;02.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phủ con hữu hạn&lt;/strong&gt; (Finite Subcover)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phủ con có số phần tử hữu hạn&lt;/td&gt;
+      &lt;td&gt;02.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Liên compact&lt;/strong&gt; (Locally Compact)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi điểm có lân cận compact&lt;/td&gt;
+      &lt;td&gt;02.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Compact hóa&lt;/strong&gt; (Compactification)&lt;/td&gt;
+      &lt;td&gt;$\hat{X}$&lt;/td&gt;
+      &lt;td&gt;Không gian compact chứa $X$&lt;/td&gt;
+      &lt;td&gt;02.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Compact hóa một điểm&lt;/strong&gt; (One-Point Compactification)&lt;/td&gt;
+      &lt;td&gt;$X^*$&lt;/td&gt;
+      &lt;td&gt;Thêm điểm vô cực&lt;/td&gt;
+      &lt;td&gt;02.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Compact hóa Stone-Čech&lt;/strong&gt; (Stone-Čech Compactification)&lt;/td&gt;
+      &lt;td&gt;$\beta X$&lt;/td&gt;
+      &lt;td&gt;Compact hóa phổ quát&lt;/td&gt;
+      &lt;td&gt;02.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-03-separation-axioms&quot;&gt;📚 Chapter 03: Separation Axioms&lt;/h2&gt;
+
+&lt;h3 id=&quot;tiên-đề-tách&quot;&gt;Tiên Đề Tách&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;T0-space&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Với mọi hai điểm, có tập mở chứa một điểm nhưng không chứa điểm kia&lt;/td&gt;
+      &lt;td&gt;03.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;T1-space&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi điểm đơn đều đóng&lt;/td&gt;
+      &lt;td&gt;03.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hausdorff&lt;/strong&gt; (T2)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi hai điểm đều có lân cận rời nhau&lt;/td&gt;
+      &lt;td&gt;03.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Regular&lt;/strong&gt; (T3)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập đóng và điểm không thuộc có lân cận rời nhau&lt;/td&gt;
+      &lt;td&gt;03.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Normal&lt;/strong&gt; (T4)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi hai tập đóng rời nhau có lân cận rời nhau&lt;/td&gt;
+      &lt;td&gt;03.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hoàn toàn chính quy&lt;/strong&gt; (Completely Regular)&lt;/td&gt;
+      &lt;td&gt;T3½&lt;/td&gt;
+      &lt;td&gt;Regular và có hàm liên tục tách điểm và tập đóng&lt;/td&gt;
+      &lt;td&gt;03.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tiên-đề-đếm-được&quot;&gt;Tiên Đề Đếm Được&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đếm được thứ nhất&lt;/strong&gt; (First Countable)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi điểm có cơ sở lân cận đếm được&lt;/td&gt;
+      &lt;td&gt;03.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đếm được thứ hai&lt;/strong&gt; (Second Countable)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Có cơ sở đếm được&lt;/td&gt;
+      &lt;td&gt;03.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Separable&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Có tập con đếm được trù mật&lt;/td&gt;
+      &lt;td&gt;03.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lindelöf&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi phủ mở đều có phủ con đếm được&lt;/td&gt;
+      &lt;td&gt;03.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;định-lý-metrization&quot;&gt;Định Lý Metrization&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metrizable&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Có thể định nghĩa metric sinh ra topology&lt;/td&gt;
+      &lt;td&gt;03.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý Urysohn Metrization&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;T3 + Second countable $\Rightarrow$ Metrizable&lt;/td&gt;
+      &lt;td&gt;03.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bổ đề Urysohn&lt;/strong&gt; (Urysohn’s Lemma)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tồn tại hàm liên tục tách tập đóng rời nhau&lt;/td&gt;
+      &lt;td&gt;03.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý Tietze Extension&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Hàm liên tục trên tập đóng có thể mở rộng&lt;/td&gt;
+      &lt;td&gt;03.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-04-metric-spaces&quot;&gt;📚 Chapter 04: Metric Spaces&lt;/h2&gt;
+
+&lt;h3 id=&quot;không-gian-metric&quot;&gt;Không Gian Metric&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric&lt;/strong&gt; (Khoảng cách)&lt;/td&gt;
+      &lt;td&gt;$d: X \times X \to \mathbb{R}$&lt;/td&gt;
+      &lt;td&gt;Hàm khoảng cách thỏa mãn ba tiên đề&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian metric&lt;/strong&gt; (Metric Space)&lt;/td&gt;
+      &lt;td&gt;$(X, d)$&lt;/td&gt;
+      &lt;td&gt;Tập hợp với metric&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quả cầu mở&lt;/strong&gt; (Open Ball)&lt;/td&gt;
+      &lt;td&gt;$B(x, r)$&lt;/td&gt;
+      &lt;td&gt;${y : d(x,y) &amp;lt; r}$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quả cầu đóng&lt;/strong&gt; (Closed Ball)&lt;/td&gt;
+      &lt;td&gt;$\overline{B}(x, r)$&lt;/td&gt;
+      &lt;td&gt;${y : d(x,y) \leq r}$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric Euclid&lt;/strong&gt; (Euclidean Metric)&lt;/td&gt;
+      &lt;td&gt;$d_2$&lt;/td&gt;
+      &lt;td&gt;$\sqrt{\sum (x_i - y_i)^2}$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric Manhattan&lt;/strong&gt; (Manhattan Metric)&lt;/td&gt;
+      &lt;td&gt;$d_1$&lt;/td&gt;
+      &lt;td&gt;$\sum&lt;/td&gt;
+      &lt;td&gt;x_i - y_i&lt;/td&gt;
+      &lt;td&gt;$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric Maximum&lt;/strong&gt; (Maximum Metric)&lt;/td&gt;
+      &lt;td&gt;$d_\infty$&lt;/td&gt;
+      &lt;td&gt;$\max&lt;/td&gt;
+      &lt;td&gt;x_i - y_i&lt;/td&gt;
+      &lt;td&gt;$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric rời rạc&lt;/strong&gt; (Discrete Metric)&lt;/td&gt;
+      &lt;td&gt;$d_{\mathrm{disc}}$&lt;/td&gt;
+      &lt;td&gt;$d(x,y) = 1$ nếu $x \neq y$&lt;/td&gt;
+      &lt;td&gt;04.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tính-đầy-đủ-và-baire&quot;&gt;Tính Đầy Đủ và Baire&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Dãy Cauchy&lt;/strong&gt; (Cauchy Sequence)&lt;/td&gt;
+      &lt;td&gt;$(x_n)$&lt;/td&gt;
+      &lt;td&gt;$\forall \epsilon &amp;gt; 0, \exists N: m,n \geq N \Rightarrow d(x_m, x_n) &amp;lt; \epsilon$&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đầy đủ&lt;/strong&gt; (Complete)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi dãy Cauchy đều hội tụ&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hoàn thiện&lt;/strong&gt; (Completion)&lt;/td&gt;
+      &lt;td&gt;$\hat{X}$&lt;/td&gt;
+      &lt;td&gt;Không gian đầy đủ chứa $X$&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập không đâu trù mật&lt;/strong&gt; (Nowhere Dense)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phần trong của bao đóng rỗng&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập meager&lt;/strong&gt; (Meager/First Category)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Hợp đếm được các tập không đâu trù mật&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập nonmeager&lt;/strong&gt; (Nonmeager/Second Category)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Không phải meager&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý Baire Category&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Không gian đầy đủ là nonmeager&lt;/td&gt;
+      &lt;td&gt;04.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tính-liên-tục-đều&quot;&gt;Tính Liên Tục Đều&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Liên tục đều&lt;/strong&gt; (Uniformly Continuous)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$\forall \epsilon &amp;gt; 0, \exists \delta &amp;gt; 0: d(x,y) &amp;lt; \delta \Rightarrow d(f(x), f(y)) &amp;lt; \epsilon$&lt;/td&gt;
+      &lt;td&gt;04.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lipschitz&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$d(f(x), f(y)) \leq L \cdot d(x,y)$&lt;/td&gt;
+      &lt;td&gt;04.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hệ số Lipschitz&lt;/strong&gt; (Lipschitz Constant)&lt;/td&gt;
+      &lt;td&gt;$L$&lt;/td&gt;
+      &lt;td&gt;Hằng số trong điều kiện Lipschitz&lt;/td&gt;
+      &lt;td&gt;04.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Co rút&lt;/strong&gt; (Contraction)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Lipschitz với $L &amp;lt; 1$&lt;/td&gt;
+      &lt;td&gt;04.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý điểm cố định Banach&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Co rút trên không gian đầy đủ có điểm cố định duy nhất&lt;/td&gt;
+      &lt;td&gt;04.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;metric-tích-và-không-gian-hàm&quot;&gt;Metric Tích và Không Gian Hàm&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric tích&lt;/strong&gt; (Product Metric)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Metric trên tích các không gian metric&lt;/td&gt;
+      &lt;td&gt;04.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian hàm&lt;/strong&gt; (Function Space)&lt;/td&gt;
+      &lt;td&gt;$C(X,Y)$&lt;/td&gt;
+      &lt;td&gt;Tập các hàm liên tục&lt;/td&gt;
+      &lt;td&gt;04.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Metric đều&lt;/strong&gt; (Uniform Metric)&lt;/td&gt;
+      &lt;td&gt;$d_\infty$&lt;/td&gt;
+      &lt;td&gt;$\sup_{x \in X} d(f(x), g(x))$&lt;/td&gt;
+      &lt;td&gt;04.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hội tụ đều&lt;/strong&gt; (Uniform Convergence)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Hội tụ theo metric đều&lt;/td&gt;
+      &lt;td&gt;04.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hội tụ điểm&lt;/strong&gt; (Pointwise Convergence)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Hội tụ tại mỗi điểm&lt;/td&gt;
+      &lt;td&gt;04.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-05-quotient-spaces&quot;&gt;📚 Chapter 05: Quotient Spaces&lt;/h2&gt;
+
+&lt;h3 id=&quot;topology-thương&quot;&gt;Topology Thương&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quan hệ tương đương&lt;/strong&gt; (Equivalence Relation)&lt;/td&gt;
+      &lt;td&gt;$\sim$&lt;/td&gt;
+      &lt;td&gt;Quan hệ phản xạ, đối xứng, bắc cầu&lt;/td&gt;
+      &lt;td&gt;05.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập thương&lt;/strong&gt; (Quotient Set)&lt;/td&gt;
+      &lt;td&gt;$X/\sim$&lt;/td&gt;
+      &lt;td&gt;Tập các lớp tương đương&lt;/td&gt;
+      &lt;td&gt;05.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Topology thương&lt;/strong&gt; (Quotient Topology)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Topology lớn nhất làm ánh xạ chiếu liên tục&lt;/td&gt;
+      &lt;td&gt;05.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ chiếu&lt;/strong&gt; (Projection Map)&lt;/td&gt;
+      &lt;td&gt;$\pi: X \to X/\sim$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ gửi phần tử vào lớp tương đương&lt;/td&gt;
+      &lt;td&gt;05.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ thương&lt;/strong&gt; (Quotient Map)&lt;/td&gt;
+      &lt;td&gt;$q: X \to Y$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ liên tục, mở, và toàn ánh&lt;/td&gt;
+      &lt;td&gt;05.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;phân-loại-bề-mặt&quot;&gt;Phân Loại Bề Mặt&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bề mặt&lt;/strong&gt; (Surface)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;2-manifold compact&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định hướng được&lt;/strong&gt; (Orientable)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Có thể định hướng nhất quán&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không định hướng được&lt;/strong&gt; (Non-orientable)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Không thể định hướng&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Genus&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$g$&lt;/td&gt;
+      &lt;td&gt;Số lỗ trong bề mặt&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đặc trưng Euler&lt;/strong&gt; (Euler Characteristic)&lt;/td&gt;
+      &lt;td&gt;$\chi$&lt;/td&gt;
+      &lt;td&gt;$V - E + F$&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tổng liên thông&lt;/strong&gt; (Connected Sum)&lt;/td&gt;
+      &lt;td&gt;$#$&lt;/td&gt;
+      &lt;td&gt;Phép toán ghép hai bề mặt&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa giác cơ bản&lt;/strong&gt; (Fundamental Polygon)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Biểu diễn bề mặt bằng đa giác&lt;/td&gt;
+      &lt;td&gt;05.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;phức-cw&quot;&gt;Phức CW&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phức CW&lt;/strong&gt; (CW Complex)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Không gian được xây dựng từ cells&lt;/td&gt;
+      &lt;td&gt;05.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;n-cell&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$e^n$&lt;/td&gt;
+      &lt;td&gt;Quả cầu mở $n$-chiều&lt;/td&gt;
+      &lt;td&gt;05.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Skeleton&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$X^n$&lt;/td&gt;
+      &lt;td&gt;Phức con gồm các cells chiều $\leq n$&lt;/td&gt;
+      &lt;td&gt;05.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ gắn&lt;/strong&gt; (Attaching Map)&lt;/td&gt;
+      &lt;td&gt;$\phi: S^{n-1} \to X^{n-1}$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ gắn $n$-cell vào skeleton&lt;/td&gt;
+      &lt;td&gt;05.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tác-động-nhóm&quot;&gt;Tác Động Nhóm&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tác động nhóm&lt;/strong&gt; (Group Action)&lt;/td&gt;
+      &lt;td&gt;$G \curvearrowright X$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ $G \times X \to X$ thỏa mãn tiên đề&lt;/td&gt;
+      &lt;td&gt;05.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Quỹ đạo&lt;/strong&gt; (Orbit)&lt;/td&gt;
+      &lt;td&gt;$G \cdot x$&lt;/td&gt;
+      &lt;td&gt;Tập ${g \cdot x : g \in G}$&lt;/td&gt;
+      &lt;td&gt;05.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm đẳng hướng&lt;/strong&gt; (Stabilizer)&lt;/td&gt;
+      &lt;td&gt;$G_x$&lt;/td&gt;
+      &lt;td&gt;${g \in G : g \cdot x = x}$&lt;/td&gt;
+      &lt;td&gt;05.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian quỹ đạo&lt;/strong&gt; (Orbit Space)&lt;/td&gt;
+      &lt;td&gt;$X/G$&lt;/td&gt;
+      &lt;td&gt;Tập các quỹ đạo với topology thương&lt;/td&gt;
+      &lt;td&gt;05.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-06-fundamental-group&quot;&gt;📚 Chapter 06: Fundamental Group&lt;/h2&gt;
+
+&lt;h3 id=&quot;đồng-luân&quot;&gt;Đồng Luân&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng luân&lt;/strong&gt; (Homotopy)&lt;/td&gt;
+      &lt;td&gt;$F: X \times [0,1] \to Y$&lt;/td&gt;
+      &lt;td&gt;Biến dạng liên tục giữa hai ánh xạ&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng luân đường&lt;/strong&gt; (Path Homotopy)&lt;/td&gt;
+      &lt;td&gt;$\gamma \simeq_p \delta$&lt;/td&gt;
+      &lt;td&gt;Đồng luân giữa các đường đi&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lớp đồng luân&lt;/strong&gt; (Homotopy Class)&lt;/td&gt;
+      &lt;td&gt;$[\gamma]$&lt;/td&gt;
+      &lt;td&gt;Tập các đường đi đồng luân&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Co được&lt;/strong&gt; (Contractible)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đồng luân với điểm&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Rút đồng luân&lt;/strong&gt; (Deformation Retract)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Rút liên tục về không gian con&lt;/td&gt;
+      &lt;td&gt;06.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;nhóm-cơ-bản&quot;&gt;Nhóm Cơ Bản&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm cơ bản&lt;/strong&gt; (Fundamental Group)&lt;/td&gt;
+      &lt;td&gt;$\pi_1(X, x_0)$&lt;/td&gt;
+      &lt;td&gt;Nhóm các lớp đồng luân của loops tại $x_0$&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Điểm cơ sở&lt;/strong&gt; (Basepoint)&lt;/td&gt;
+      &lt;td&gt;$x_0$&lt;/td&gt;
+      &lt;td&gt;Điểm cố định cho loops&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ghép nối&lt;/strong&gt; (Concatenation)&lt;/td&gt;
+      &lt;td&gt;$\gamma \cdot \delta$&lt;/td&gt;
+      &lt;td&gt;Đi qua $\gamma$ rồi $\delta$&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đường đi ngược&lt;/strong&gt; (Inverse Path)&lt;/td&gt;
+      &lt;td&gt;$\gamma^{-1}$&lt;/td&gt;
+      &lt;td&gt;Đi ngược lại đường đi&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Vòng lặp hằng&lt;/strong&gt; (Constant Loop)&lt;/td&gt;
+      &lt;td&gt;$e_{x_0}$&lt;/td&gt;
+      &lt;td&gt;Vòng lặp không di chuyển&lt;/td&gt;
+      &lt;td&gt;06.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Số vòng quay&lt;/strong&gt; (Winding Number)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Số lần vòng quanh điểm&lt;/td&gt;
+      &lt;td&gt;06.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;không-gian-phủ&quot;&gt;Không Gian Phủ&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Không gian phủ&lt;/strong&gt; (Covering Space)&lt;/td&gt;
+      &lt;td&gt;$\tilde{X}$&lt;/td&gt;
+      &lt;td&gt;Không gian phủ $X$&lt;/td&gt;
+      &lt;td&gt;06.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ phủ&lt;/strong&gt; (Covering Map)&lt;/td&gt;
+      &lt;td&gt;$p: \tilde{X} \to X$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ phủ địa phương&lt;/td&gt;
+      &lt;td&gt;06.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lift&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;$\tilde{f}$&lt;/td&gt;
+      &lt;td&gt;Nâng ánh xạ lên không gian phủ&lt;/td&gt;
+      &lt;td&gt;06.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phủ phổ quát&lt;/strong&gt; (Universal Cover)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phủ đơn liên&lt;/td&gt;
+      &lt;td&gt;06.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Biến đổi Deck&lt;/strong&gt; (Deck Transformation)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tự đẳng cấu của không gian phủ&lt;/td&gt;
+      &lt;td&gt;06.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;định-lý-van-kampen&quot;&gt;Định Lý Van Kampen&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tích tự do&lt;/strong&gt; (Free Product)&lt;/td&gt;
+      &lt;td&gt;$G * H$&lt;/td&gt;
+      &lt;td&gt;Tích tự do của hai nhóm&lt;/td&gt;
+      &lt;td&gt;06.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tích tự do ghép&lt;/strong&gt; (Amalgamated Free Product)&lt;/td&gt;
+      &lt;td&gt;$G *_K H$&lt;/td&gt;
+      &lt;td&gt;Tích tự do ghép qua nhóm con&lt;/td&gt;
+      &lt;td&gt;06.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý Seifert-Van Kampen&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tính toán $\pi_1$ từ các phần&lt;/td&gt;
+      &lt;td&gt;06.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tổng nêm&lt;/strong&gt; (Wedge Sum)&lt;/td&gt;
+      &lt;td&gt;$X \vee Y$&lt;/td&gt;
+      &lt;td&gt;Ghép hai không gian tại một điểm&lt;/td&gt;
+      &lt;td&gt;06.04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-07-homology-theory&quot;&gt;📚 Chapter 07: Homology Theory&lt;/h2&gt;
+
+&lt;h3 id=&quot;homology-đơn-hình&quot;&gt;Homology Đơn Hình&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;n-đơn hình&lt;/strong&gt; (n-Simplex)&lt;/td&gt;
+      &lt;td&gt;$\sigma = [v_0, \ldots, v_n]$&lt;/td&gt;
+      &lt;td&gt;Convex hull của $n+1$ điểm độc lập&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Mặt&lt;/strong&gt; (Face)&lt;/td&gt;
+      &lt;td&gt;$\partial_i \sigma$&lt;/td&gt;
+      &lt;td&gt;Simplex con loại bỏ vertex $v_i$&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phức đơn hình&lt;/strong&gt; (Simplicial Complex)&lt;/td&gt;
+      &lt;td&gt;$K$&lt;/td&gt;
+      &lt;td&gt;Tập các simplices đóng với mặt&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Thực hóa hình học&lt;/strong&gt; (Geometric Realization)&lt;/td&gt;
+      &lt;td&gt;$&lt;/td&gt;
+      &lt;td&gt;K&lt;/td&gt;
+      &lt;td&gt;$&lt;/td&gt;
+      &lt;td&gt;Không gian tô-pô của phức&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm chuỗi&lt;/strong&gt; (Chain Group)&lt;/td&gt;
+      &lt;td&gt;$C_n(K)$&lt;/td&gt;
+      &lt;td&gt;Nhóm abel tự do sinh bởi $n$-simplices&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Toán tử biên&lt;/strong&gt; (Boundary Operator)&lt;/td&gt;
+      &lt;td&gt;$\partial_n: C_n \to C_{n-1}$&lt;/td&gt;
+      &lt;td&gt;Toán tử tính biên của simplex&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phức chuỗi&lt;/strong&gt; (Chain Complex)&lt;/td&gt;
+      &lt;td&gt;$(C_&lt;em&gt;, \partial_&lt;/em&gt;)$&lt;/td&gt;
+      &lt;td&gt;Dãy các nhóm và toán tử biên&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Chu trình&lt;/strong&gt; (Cycle)&lt;/td&gt;
+      &lt;td&gt;$Z_n = \ker(\partial_n)$&lt;/td&gt;
+      &lt;td&gt;Phần tử có biên bằng 0&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Biên&lt;/strong&gt; (Boundary)&lt;/td&gt;
+      &lt;td&gt;$B_n = \mathrm{im}(\partial_{n+1})$&lt;/td&gt;
+      &lt;td&gt;Phần tử là biên của phần tử khác&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm đồng điều&lt;/strong&gt; (Homology Group)&lt;/td&gt;
+      &lt;td&gt;$H_n(K) = Z_n / B_n$&lt;/td&gt;
+      &lt;td&gt;Chu trình modulo biên&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Số Betti&lt;/strong&gt; (Betti Number)&lt;/td&gt;
+      &lt;td&gt;$\beta_n = \mathrm{rank}(H_n)$&lt;/td&gt;
+      &lt;td&gt;Hạng của nhóm đồng điều&lt;/td&gt;
+      &lt;td&gt;07.00&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;homology-kỳ-dị&quot;&gt;Homology Kỳ Dị&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đơn hình chuẩn&lt;/strong&gt; (Standard Simplex)&lt;/td&gt;
+      &lt;td&gt;$\Delta^n$&lt;/td&gt;
+      &lt;td&gt;Simplex chuẩn trong $\mathbb{R}^{n+1}$&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tọa độ barycentric&lt;/strong&gt; (Barycentric Coordinates)&lt;/td&gt;
+      &lt;td&gt;$(t_0, \ldots, t_n)$&lt;/td&gt;
+      &lt;td&gt;Tọa độ trong simplex&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ mặt&lt;/strong&gt; (Face Map)&lt;/td&gt;
+      &lt;td&gt;$\delta_i: \Delta^{n-1} \to \Delta^n$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ vào mặt thứ $i$&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ suy biến&lt;/strong&gt; (Degeneracy Map)&lt;/td&gt;
+      &lt;td&gt;$s_i: \Delta^{n+1} \to \Delta^n$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ suy biến&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;n-đơn hình kỳ dị&lt;/strong&gt; (Singular n-Simplex)&lt;/td&gt;
+      &lt;td&gt;$\sigma: \Delta^n \to X$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ liên tục từ simplex chuẩn&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm chuỗi kỳ dị&lt;/strong&gt; (Singular Chain Group)&lt;/td&gt;
+      &lt;td&gt;$C_n(X)$&lt;/td&gt;
+      &lt;td&gt;Nhóm abel tự do sinh bởi singular simplices&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Homology kỳ dị&lt;/strong&gt; (Singular Homology)&lt;/td&gt;
+      &lt;td&gt;$H_n(X)$&lt;/td&gt;
+      &lt;td&gt;Homology của phức chuỗi kỳ dị&lt;/td&gt;
+      &lt;td&gt;07.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;dãy-mayer-vietoris&quot;&gt;Dãy Mayer-Vietoris&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Dãy khớp&lt;/strong&gt; (Exact Sequence)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Dãy với $\mathrm{im} = \ker$&lt;/td&gt;
+      &lt;td&gt;07.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Dãy khớp ngắn&lt;/strong&gt; (Short Exact Sequence)&lt;/td&gt;
+      &lt;td&gt;$0 \to A \to B \to C \to 0$&lt;/td&gt;
+      &lt;td&gt;Dãy khớp với 5 phần tử&lt;/td&gt;
+      &lt;td&gt;07.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Dãy Mayer-Vietoris&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Dãy khớp dài tính $H_n$ từ các phần&lt;/td&gt;
+      &lt;td&gt;07.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Ánh xạ nối&lt;/strong&gt; (Connecting Homomorphism)&lt;/td&gt;
+      &lt;td&gt;$\partial_*$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ nối trong dãy khớp&lt;/td&gt;
+      &lt;td&gt;07.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;đồng-điều&quot;&gt;Đồng Điều&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng điều&lt;/strong&gt; (Cohomology)&lt;/td&gt;
+      &lt;td&gt;$H^n(X)$&lt;/td&gt;
+      &lt;td&gt;Đối ngẫu của homology&lt;/td&gt;
+      &lt;td&gt;07.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm đối chuỗi&lt;/strong&gt; (Cochain Group)&lt;/td&gt;
+      &lt;td&gt;$C^n(X)$&lt;/td&gt;
+      &lt;td&gt;$\mathrm{Hom}(C_n(X), \mathbb{Z})$&lt;/td&gt;
+      &lt;td&gt;07.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Toán tử đối biên&lt;/strong&gt; (Coboundary Operator)&lt;/td&gt;
+      &lt;td&gt;$\delta: C^n \to C^{n+1}$&lt;/td&gt;
+      &lt;td&gt;Đối ngẫu của toán tử biên&lt;/td&gt;
+      &lt;td&gt;07.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tích cúp&lt;/strong&gt; (Cup Product)&lt;/td&gt;
+      &lt;td&gt;$\cup$&lt;/td&gt;
+      &lt;td&gt;Phép nhân trong cohomology&lt;/td&gt;
+      &lt;td&gt;07.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Vành đồng điều&lt;/strong&gt; (Cohomology Ring)&lt;/td&gt;
+      &lt;td&gt;$H^*(X)$&lt;/td&gt;
+      &lt;td&gt;Cohomology với tích cúp&lt;/td&gt;
+      &lt;td&gt;07.04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-08-advanced-topics&quot;&gt;📚 Chapter 08: Advanced Topics&lt;/h2&gt;
+
+&lt;h3 id=&quot;nhóm-đồng-luân-cao&quot;&gt;Nhóm Đồng Luân Cao&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm đồng luân n&lt;/strong&gt; (n-th Homotopy Group)&lt;/td&gt;
+      &lt;td&gt;$\pi_n(X, x_0)$&lt;/td&gt;
+      &lt;td&gt;Nhóm các lớp đồng luân của ánh xạ $S^n \to X$&lt;/td&gt;
+      &lt;td&gt;08.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bậc của ánh xạ&lt;/strong&gt; (Degree of a Map)&lt;/td&gt;
+      &lt;td&gt;$\deg(f)$&lt;/td&gt;
+      &lt;td&gt;Số nguyên đặc trưng ánh xạ $S^n \to S^n$&lt;/td&gt;
+      &lt;td&gt;08.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Fibration Hopf&lt;/strong&gt; (Hopf Fibration)&lt;/td&gt;
+      &lt;td&gt;$S^3 \to S^2$&lt;/td&gt;
+      &lt;td&gt;Fibration quan trọng&lt;/td&gt;
+      &lt;td&gt;08.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý Freudenthal Suspension&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Liên hệ $\pi_n$ và $\pi_{n+1}$&lt;/td&gt;
+      &lt;td&gt;08.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm đồng luân ổn định&lt;/strong&gt; (Stable Homotopy Groups)&lt;/td&gt;
+      &lt;td&gt;$\pi_k^s$&lt;/td&gt;
+      &lt;td&gt;Giới hạn của $\pi_{n+k}(S^n)$&lt;/td&gt;
+      &lt;td&gt;08.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;bó-sợi-và-bó-vectơ&quot;&gt;Bó Sợi và Bó Vectơ&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bó sợi&lt;/strong&gt; (Fiber Bundle)&lt;/td&gt;
+      &lt;td&gt;$E \to B$&lt;/td&gt;
+      &lt;td&gt;Không gian phủ địa phương với fiber&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cơ sở&lt;/strong&gt; (Base Space)&lt;/td&gt;
+      &lt;td&gt;$B$&lt;/td&gt;
+      &lt;td&gt;Không gian cơ sở&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tổng&lt;/strong&gt; (Total Space)&lt;/td&gt;
+      &lt;td&gt;$E$&lt;/td&gt;
+      &lt;td&gt;Không gian tổng&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Sợi&lt;/strong&gt; (Fiber)&lt;/td&gt;
+      &lt;td&gt;$F$&lt;/td&gt;
+      &lt;td&gt;Không gian sợi&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tầm thường địa phương&lt;/strong&gt; (Locally Trivial)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Địa phương giống tích&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hàm chuyển tiếp&lt;/strong&gt; (Transition Function)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Hàm chuyển đổi giữa các biểu đồ&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bó vectơ&lt;/strong&gt; (Vector Bundle)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Bó sợi với fiber là không gian vectơ&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bó tiếp tuyến&lt;/strong&gt; (Tangent Bundle)&lt;/td&gt;
+      &lt;td&gt;$TM$&lt;/td&gt;
+      &lt;td&gt;Bó vectơ của các vectơ tiếp tuyến&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bó chuẩn&lt;/strong&gt; (Normal Bundle)&lt;/td&gt;
+      &lt;td&gt;$\nu(M)$&lt;/td&gt;
+      &lt;td&gt;Bó vectơ của các vectơ pháp tuyến&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bó chính&lt;/strong&gt; (Principal Bundle)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Bó sợi với fiber là nhóm Lie&lt;/td&gt;
+      &lt;td&gt;08.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;lý-thuyết-morse&quot;&gt;Lý Thuyết Morse&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hàm Morse&lt;/strong&gt; (Morse Function)&lt;/td&gt;
+      &lt;td&gt;$f: M \to \mathbb{R}$&lt;/td&gt;
+      &lt;td&gt;Hàm với các điểm tới hạn không suy biến&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Điểm tới hạn&lt;/strong&gt; (Critical Point)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Điểm với $df = 0$&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Chỉ số&lt;/strong&gt; (Index)&lt;/td&gt;
+      &lt;td&gt;$\lambda$&lt;/td&gt;
+      &lt;td&gt;Số giá trị riêng âm của Hessian&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tập mức dưới&lt;/strong&gt; (Sublevel Set)&lt;/td&gt;
+      &lt;td&gt;$M^a$&lt;/td&gt;
+      &lt;td&gt;${x : f(x) \leq a}$&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bổ đề Morse&lt;/strong&gt; (Morse Lemma)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Dạng chuẩn của hàm Morse tại điểm tới hạn&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Bất đẳng thức Morse&lt;/strong&gt; (Morse Inequalities)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;$c_k \geq \beta_k$&lt;/td&gt;
+      &lt;td&gt;08.02&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;đa-tạp-tô-pô&quot;&gt;Đa Tạp Tô-pô&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa tạp tô-pô&lt;/strong&gt; (Topological Manifold)&lt;/td&gt;
+      &lt;td&gt;$M$&lt;/td&gt;
+      &lt;td&gt;Không gian Hausdorff, đếm được thứ hai, địa phương Euclid&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Biểu đồ&lt;/strong&gt; (Chart)&lt;/td&gt;
+      &lt;td&gt;$(U, \phi)$&lt;/td&gt;
+      &lt;td&gt;Mở $U$ với homeomorphism vào $\mathbb{R}^n$&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Atlas&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tập các biểu đồ phủ đa tạp&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa tạp trơn&lt;/strong&gt; (Smooth Manifold)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đa tạp với atlas trơn&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa tạp có biên&lt;/strong&gt; (Manifold with Boundary)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đa tạp với biên&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Hình cầu kỳ lạ&lt;/strong&gt; (Exotic Sphere)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đa tạp homeomorphic nhưng không diffeomorphic với $S^n$&lt;/td&gt;
+      &lt;td&gt;08.03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;lý-thuyết-nút&quot;&gt;Lý Thuyết Nút&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nút&lt;/strong&gt; (Knot)&lt;/td&gt;
+      &lt;td&gt;$K: S^1 \to \mathbb{R}^3$&lt;/td&gt;
+      &lt;td&gt;Embedding của đường tròn vào không gian 3D&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nút không&lt;/strong&gt; (Unknot)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Nút tầm thường (đường tròn)&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tương đương nút&lt;/strong&gt; (Knot Equivalence)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Ambient isotopic&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phép biến đổi Reidemeister&lt;/strong&gt; (Reidemeister Move)&lt;/td&gt;
+      &lt;td&gt;RI, RII, RIII&lt;/td&gt;
+      &lt;td&gt;Ba phép biến đổi cơ bản trên diagram&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Mặt Seifert&lt;/strong&gt; (Seifert Surface)&lt;/td&gt;
+      &lt;td&gt;$\Sigma$&lt;/td&gt;
+      &lt;td&gt;Mặt có biên là nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Genus của nút&lt;/strong&gt; (Knot Genus)&lt;/td&gt;
+      &lt;td&gt;$g(K)$&lt;/td&gt;
+      &lt;td&gt;Genus nhỏ nhất của Seifert surface&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nhóm nút&lt;/strong&gt; (Knot Group)&lt;/td&gt;
+      &lt;td&gt;$\pi_1(S^3 \setminus K)$&lt;/td&gt;
+      &lt;td&gt;Fundamental group của phần bù nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa thức Alexander&lt;/strong&gt; (Alexander Polynomial)&lt;/td&gt;
+      &lt;td&gt;$\Delta_K(t)$&lt;/td&gt;
+      &lt;td&gt;Đa thức bất biến của nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa thức Conway&lt;/strong&gt; (Conway Polynomial)&lt;/td&gt;
+      &lt;td&gt;$\nabla_K(z)$&lt;/td&gt;
+      &lt;td&gt;Đa thức với skein relation đơn giản&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đa thức Jones&lt;/strong&gt; (Jones Polynomial)&lt;/td&gt;
+      &lt;td&gt;$V_K(t)$&lt;/td&gt;
+      &lt;td&gt;Đa thức bất biến lượng tử&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Chữ ký&lt;/strong&gt; (Signature)&lt;/td&gt;
+      &lt;td&gt;$\sigma(K)$&lt;/td&gt;
+      &lt;td&gt;Số nguyên bất biến của nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nút slice&lt;/strong&gt; (Slice Knot)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Nút là biên của đĩa trong $B^4$&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phần bù nút&lt;/strong&gt; (Knot Complement)&lt;/td&gt;
+      &lt;td&gt;$S^3 \setminus K$&lt;/td&gt;
+      &lt;td&gt;Không gian thu được bằng cách loại bỏ nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phẫu thuật Dehn&lt;/strong&gt; (Dehn Surgery)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phương pháp tạo 3-manifold từ nút&lt;/td&gt;
+      &lt;td&gt;08.04&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chapter-09-topology-đại-chúng&quot;&gt;📚 Chapter 09: Topology Đại Chúng&lt;/h2&gt;
+
+&lt;h3 id=&quot;khái-niệm-cơ-bản&quot;&gt;Khái Niệm Cơ Bản&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Thuật Ngữ&lt;/th&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Định Nghĩa&lt;/th&gt;
+      &lt;th&gt;Chương&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng phôi&lt;/strong&gt; (Homeomorphism)&lt;/td&gt;
+      &lt;td&gt;$X \cong Y$&lt;/td&gt;
+      &lt;td&gt;Song ánh liên tục với hàm ngược liên tục&lt;/td&gt;
+      &lt;td&gt;09.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Biến dạng liên tục&lt;/strong&gt; (Continuous Deformation)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Biến đổi không cắt hoặc dán&lt;/td&gt;
+      &lt;td&gt;09.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Lỗ&lt;/strong&gt; (Hole)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đặc trưng topology của không gian&lt;/td&gt;
+      &lt;td&gt;09.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồ thị&lt;/strong&gt; (Graph)&lt;/td&gt;
+      &lt;td&gt;$G = (V, E)$&lt;/td&gt;
+      &lt;td&gt;Tập đỉnh và cạnh&lt;/td&gt;
+      &lt;td&gt;09.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đường Euler&lt;/strong&gt; (Euler Path)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Đường đi qua mỗi cạnh đúng một lần&lt;/td&gt;
+      &lt;td&gt;09.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Mặt Möbius&lt;/strong&gt; (Möbius Strip)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mặt không định hướng với một mặt&lt;/td&gt;
+      &lt;td&gt;09.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định hướng&lt;/strong&gt; (Orientability)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Tính chất có thể định hướng&lt;/td&gt;
+      &lt;td&gt;09.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đặc trưng Euler&lt;/strong&gt; (Euler Characteristic)&lt;/td&gt;
+      &lt;td&gt;$\chi = V - E + F$&lt;/td&gt;
+      &lt;td&gt;Bất biến topology&lt;/td&gt;
+      &lt;td&gt;09.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Định lý bốn màu&lt;/strong&gt; (Four Color Theorem)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Mọi bản đồ phẳng có thể tô bằng 4 màu&lt;/td&gt;
+      &lt;td&gt;09.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Phân tích dữ liệu tô-pô&lt;/strong&gt; (TDA)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Phương pháp phân tích dữ liệu bằng topology&lt;/td&gt;
+      &lt;td&gt;09.07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Đồng điều bền vững&lt;/strong&gt; (Persistent Homology)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Homology theo tham số&lt;/td&gt;
+      &lt;td&gt;09.07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Giả thuyết Poincaré&lt;/strong&gt; (Poincaré Conjecture)&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Định lý về 3-manifold đơn liên&lt;/td&gt;
+      &lt;td&gt;09.08&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-ký-hiệu-toán-học-thường-dùng&quot;&gt;🎯 Ký Hiệu Toán Học Thường Dùng&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ký Hiệu&lt;/th&gt;
+      &lt;th&gt;Ý Nghĩa&lt;/th&gt;
+      &lt;th&gt;Ví Dụ&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{R}$&lt;/td&gt;
+      &lt;td&gt;Số thực&lt;/td&gt;
+      &lt;td&gt;$\mathbb{R}^n$ - không gian Euclid $n$-chiều&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{Z}$&lt;/td&gt;
+      &lt;td&gt;Số nguyên&lt;/td&gt;
+      &lt;td&gt;$\pi_1(S^1) \cong \mathbb{Z}$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{Q}$&lt;/td&gt;
+      &lt;td&gt;Số hữu tỉ&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{N}$&lt;/td&gt;
+      &lt;td&gt;Số tự nhiên&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\emptyset$&lt;/td&gt;
+      &lt;td&gt;Tập rỗng&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\in$&lt;/td&gt;
+      &lt;td&gt;Thuộc về&lt;/td&gt;
+      &lt;td&gt;$x \in A$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\subseteq$&lt;/td&gt;
+      &lt;td&gt;Tập con&lt;/td&gt;
+      &lt;td&gt;$A \subseteq B$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\cup$&lt;/td&gt;
+      &lt;td&gt;Hợp&lt;/td&gt;
+      &lt;td&gt;$A \cup B$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\cap$&lt;/td&gt;
+      &lt;td&gt;Giao&lt;/td&gt;
+      &lt;td&gt;$A \cap B$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\setminus$&lt;/td&gt;
+      &lt;td&gt;Hiệu&lt;/td&gt;
+      &lt;td&gt;$A \setminus B$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\times$&lt;/td&gt;
+      &lt;td&gt;Tích Descartes&lt;/td&gt;
+      &lt;td&gt;$X \times Y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\cong$&lt;/td&gt;
+      &lt;td&gt;Đẳng cấu&lt;/td&gt;
+      &lt;td&gt;$X \cong Y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\simeq$&lt;/td&gt;
+      &lt;td&gt;Tương đương đồng luân&lt;/td&gt;
+      &lt;td&gt;$X \simeq Y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\to$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ&lt;/td&gt;
+      &lt;td&gt;$f: X \to Y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\hookrightarrow$&lt;/td&gt;
+      &lt;td&gt;Nhúng&lt;/td&gt;
+      &lt;td&gt;$X \hookrightarrow Y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\partial$&lt;/td&gt;
+      &lt;td&gt;Biên&lt;/td&gt;
+      &lt;td&gt;$\partial A$, $\partial_n$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\pi$&lt;/td&gt;
+      &lt;td&gt;Ánh xạ chiếu hoặc số pi&lt;/td&gt;
+      &lt;td&gt;$\pi: X \to X/\sim$, $\pi_1(X)$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\sim$&lt;/td&gt;
+      &lt;td&gt;Quan hệ tương đương&lt;/td&gt;
+      &lt;td&gt;$x \sim y$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$S^n$&lt;/td&gt;
+      &lt;td&gt;Hình cầu $n$-chiều&lt;/td&gt;
+      &lt;td&gt;$S^1$ - đường tròn&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$D^n$&lt;/td&gt;
+      &lt;td&gt;Quả cầu đóng $n$-chiều&lt;/td&gt;
+      &lt;td&gt;$D^2$ - đĩa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$B^n$&lt;/td&gt;
+      &lt;td&gt;Quả cầu mở $n$-chiều&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$T^n$&lt;/td&gt;
+      &lt;td&gt;Torus $n$-chiều&lt;/td&gt;
+      &lt;td&gt;$T^2$ - torus&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{R}P^n$&lt;/td&gt;
+      &lt;td&gt;Không gian xạ ảnh thực $n$-chiều&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\mathbb{C}P^n$&lt;/td&gt;
+      &lt;td&gt;Không gian xạ ảnh phức $n$-chiều&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-ghi-chú&quot;&gt;📝 Ghi Chú&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Cách sử dụng bảng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Tra cứu theo chương:&lt;/strong&gt; Tìm thuật ngữ trong chương tương ứng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tra cứu theo ký hiệu:&lt;/strong&gt; Sử dụng bảng ký hiệu để tìm ý nghĩa&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tra cứu theo tên:&lt;/strong&gt; Tìm kiếm theo tên tiếng Việt hoặc tiếng Anh&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Lưu ý:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một số thuật ngữ xuất hiện ở nhiều chương khác nhau&lt;/li&gt;
+  &lt;li&gt;Các định nghĩa ở đây là ngắn gọn, chi tiết hơn xem trong các bài học cụ thể&lt;/li&gt;
+  &lt;li&gt;Ký hiệu có thể khác nhau tùy theo tài liệu, nhưng đã được chuẩn hóa trong khóa học này&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-fundamental-papers--references&quot;&gt;🧠 Fundamental Papers &amp;amp; References&lt;/h2&gt;
+
+&lt;h3 id=&quot;tài-liệu-tham-khảo-chính&quot;&gt;Tài Liệu Tham Khảo Chính&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;James R. Munkres&lt;/strong&gt; - &lt;em&gt;Topology&lt;/em&gt;, 2nd Ed.&lt;br /&gt;
+&lt;em&gt;Giáo trình kinh điển về topology&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Sidney A. Morris&lt;/strong&gt; - &lt;em&gt;Topology without Tears&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;Giáo trình dễ tiếp cận&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Colin Adams &amp;amp; Robert Franzosa&lt;/strong&gt; - &lt;em&gt;Introduction to Topology: Pure and Applied&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;Kết hợp lý thuyết và ứng dụng&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Allen Hatcher&lt;/strong&gt; - &lt;em&gt;Algebraic Topology&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;Giáo trình về topology đại số&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;W.B. Raymond Lickorish&lt;/strong&gt; - &lt;em&gt;An Introduction to Knot Theory&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;Giáo trình về lý thuyết nút&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-applications-and-connections&quot;&gt;🔗 Applications and Connections&lt;/h2&gt;
+
+&lt;p&gt;Từ điển này tổng hợp các thuật ngữ từ toàn bộ khóa học topology, từ các khái niệm cơ bản nhất về tập hợp và không gian tô-pô đến các chủ đề nâng cao như lý thuyết nút và topology đại số. Việc hiểu và sử dụng đúng các thuật ngữ này là nền tảng quan trọng để nghiên cứu sâu hơn về topology và các ứng dụng của nó.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-exercises-and-reflections&quot;&gt;🧩 Exercises and Reflections&lt;/h2&gt;
+
+&lt;h3 id=&quot;câu-hỏi-suy-ngẫm&quot;&gt;Câu hỏi suy ngẫm&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tra cứu:&lt;/strong&gt; Hãy tìm định nghĩa của một thuật ngữ cụ thể mà bạn quan tâm.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Phân loại:&lt;/strong&gt; Hãy phân loại các thuật ngữ theo các nhóm: định nghĩa cơ bản, định lý, kỹ thuật tính toán, ứng dụng.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Liên kết:&lt;/strong&gt; Hãy tìm các thuật ngữ liên quan đến nhau và giải thích mối liên hệ giữa chúng.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Mở rộng:&lt;/strong&gt; Hãy tìm hiểu thêm về các thuật ngữ mà bạn chưa hiểu rõ từ các bài học tương ứng.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;thử-nghiệm-thực-tế&quot;&gt;Thử nghiệm thực tế&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tạo từ điển cá nhân:&lt;/strong&gt; Hãy tạo một từ điển riêng với các ví dụ và giải thích của bạn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ôn tập:&lt;/strong&gt; Sử dụng từ điển này để ôn tập lại các khái niệm đã học.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tham khảo:&lt;/strong&gt; Sử dụng từ điển này khi đọc các bài học khác để hiểu các thuật ngữ mới.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tóm-tắt&quot;&gt;📚 Tóm tắt&lt;/h2&gt;
+
+&lt;p&gt;Từ điển này là một công cụ tham khảo quan trọng cho toàn bộ khóa học topology. Nó tổng hợp:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Hơn 200 thuật ngữ toán học&lt;/strong&gt; từ các chương khác nhau&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Các ký hiệu toán học&lt;/strong&gt; thường dùng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Định nghĩa ngắn gọn&lt;/strong&gt; cho mỗi thuật ngữ&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tham chiếu chương&lt;/strong&gt; để tìm hiểu chi tiết hơn&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sử dụng từ điển này một cách hiệu quả sẽ giúp bạn nắm vững các khái niệm topology và áp dụng chúng trong nghiên cứu và ứng dụng thực tế!&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô</title>
@@ -377,366 +2660,10 @@
  </entry>
  
  <entry>
-   <title>Bài 09.07: Topology của Dữ Liệu - Phân Tích Dữ Liệu Bằng Topology</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_07_Topological_Data_Analysis/"/>
+   <title>Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_07_Physics_Topology/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Topological_Data_Analysis</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;Topological Data Analysis và Ứng Dụng Trong Khoa Học Dữ Liệu&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-tổng-quan&quot;&gt;📖 Tổng quan&lt;/h2&gt;
-
-&lt;p&gt;Trong thời đại của dữ liệu lớn (big data), chúng ta có thể thu thập được lượng dữ liệu khổng lồ từ nhiều nguồn khác nhau: từ hình ảnh y tế đến dữ liệu khí hậu, từ mạng xã hội đến nghiên cứu khoa học. Nhưng làm thế nào để chúng ta hiểu được cấu trúc ẩn trong những dữ liệu phức tạp này?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Topological Data Analysis (TDA)&lt;/strong&gt; là một phương pháp mới nổi sử dụng topology để phân tích dữ liệu và phát hiện các cấu trúc ẩn. Thay vì chỉ nhìn vào các điểm dữ liệu riêng lẻ, TDA tập trung vào &lt;strong&gt;cấu trúc topology&lt;/strong&gt; của dữ liệu—các “lỗ”, “vòng lặp”, và các tính chất hình học khác không thể phát hiện được bằng các phương pháp truyền thống.&lt;/p&gt;
-
-&lt;p&gt;TDA đặc biệt hữu ích khi làm việc với dữ liệu có nhiều chiều hoặc dữ liệu có nhiễu. Nó có thể phát hiện các cấu trúc quan trọng mà các phương pháp thống kê truyền thống có thể bỏ qua, và nó đang được sử dụng trong nhiều lĩnh vực: từ phân tích hình ảnh y tế đến nghiên cứu khí hậu, từ machine learning đến khoa học dữ liệu.&lt;/p&gt;
-
-&lt;p&gt;Trong bài học này, chúng ta sẽ khám phá TDA một cách chi tiết: persistent homology (một công cụ chính của TDA), cách TDA hoạt động, và các ứng dụng thực tế của nó trong khoa học và công nghệ.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Persistent_homology.svg/500px-Persistent_homology.svg.png&quot; alt=&quot;Persistent homology&quot; /&gt;&lt;br /&gt;
-&lt;em&gt;Persistent homology - một công cụ chính của TDA - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Persistent_homology.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tại sao đây là kiến thức quan trọng?&lt;/strong&gt; TDA là một trong những phương pháp phân tích dữ liệu mạnh mẽ nhất hiện nay. Nó có thể phát hiện các cấu trúc mà các phương pháp truyền thống không thể phát hiện, và nó đang được sử dụng trong nhiều lĩnh vực quan trọng như y học, khoa học khí hậu, và machine learning.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-persistent-homology---công-cụ-chính-của-tda&quot;&gt;🔍 Persistent Homology - Công Cụ Chính của TDA&lt;/h2&gt;
-
-&lt;h3 id=&quot;homology-là-gì&quot;&gt;Homology là gì?&lt;/h3&gt;
-
-&lt;p&gt;Như chúng ta đã học trong các bài trước, &lt;strong&gt;homology&lt;/strong&gt; là một cách đo lường các “lỗ” trong một không gian ở mọi chiều:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;$H_0$:&lt;/strong&gt; Đếm số thành phần liên thông&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;$H_1$:&lt;/strong&gt; Đếm số lỗ một chiều (vòng lặp)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;$H_2$:&lt;/strong&gt; Đếm số lỗ hai chiều (khoảng trống)&lt;/li&gt;
-  &lt;li&gt;Và cứ thế…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;persistent-homology&quot;&gt;Persistent Homology&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Persistent homology&lt;/strong&gt; là một cách để tính toán homology của dữ liệu khi chúng ta “phóng to” dữ liệu theo các mức độ khác nhau.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Ý tưởng cơ bản:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Bắt đầu với các điểm dữ liệu:&lt;/strong&gt; Chúng ta có một tập hợp các điểm trong không gian&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Tạo các “quả bóng”:&lt;/strong&gt; Xung quanh mỗi điểm, chúng ta tạo một quả bóng với bán kính $r$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Tăng bán kính:&lt;/strong&gt; Khi chúng ta tăng $r$, các quả bóng lớn hơn và bắt đầu giao nhau&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Theo dõi các cấu trúc:&lt;/strong&gt; Khi các quả bóng giao nhau, chúng tạo thành các cấu trúc topology (vòng lặp, khoảng trống)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Persistent:&lt;/strong&gt; Chúng ta theo dõi các cấu trúc này xuất hiện và biến mất khi $r$ thay đổi&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Ví dụ trực quan:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Hãy tưởng tượng bạn có các điểm dữ liệu được sắp xếp theo hình tròn:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;$r$ nhỏ:&lt;/strong&gt; Các quả bóng nhỏ, không có cấu trúc nào&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;$r$ vừa:&lt;/strong&gt; Các quả bóng bắt đầu giao nhau, tạo thành một vòng lặp (một lỗ một chiều)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;$r$ lớn:&lt;/strong&gt; Vòng lặp biến mất khi toàn bộ không gian được lấp đầy&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Persistent homology&lt;/strong&gt; theo dõi vòng lặp này xuất hiện ở $r$ nào và biến mất ở $r$ nào—đây là thông tin quan trọng về cấu trúc của dữ liệu!&lt;/p&gt;
-
-&lt;h3 id=&quot;barcode-và-persistence-diagram&quot;&gt;Barcode và Persistence Diagram&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Barcode:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Một cách trực quan để biểu diễn persistent homology là sử dụng &lt;strong&gt;barcode&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mỗi “thanh” trong barcode đại diện cho một cấu trúc topology (một lỗ)&lt;/li&gt;
-  &lt;li&gt;Độ dài của thanh cho biết “persistence” (độ bền) của cấu trúc—cấu trúc tồn tại trong khoảng $r$ nào&lt;/li&gt;
-  &lt;li&gt;Thanh dài = cấu trúc quan trọng và ổn định&lt;/li&gt;
-  &lt;li&gt;Thanh ngắn = cấu trúc có thể chỉ là nhiễu&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Persistence_barcode.svg/500px-Persistence_barcode.svg.png&quot; alt=&quot;Persistence barcode&quot; /&gt;&lt;br /&gt;
-&lt;em&gt;Barcode biểu diễn persistent homology - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Persistence_barcode.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Persistence Diagram:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Một cách khác để biểu diễn là sử dụng &lt;strong&gt;persistence diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mỗi điểm $(b, d)$ đại diện cho một cấu trúc topology&lt;/li&gt;
-  &lt;li&gt;$b$ = thời điểm xuất hiện (birth)&lt;/li&gt;
-  &lt;li&gt;$d$ = thời điểm biến mất (death)&lt;/li&gt;
-  &lt;li&gt;Khoảng cách từ đường chéo = persistence của cấu trúc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Persistence_diagram.svg/500px-Persistence_diagram.svg.png&quot; alt=&quot;Persistence diagram&quot; /&gt;&lt;br /&gt;
-&lt;em&gt;Persistence diagram - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Persistence_diagram.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Persistent homology cho phép chúng ta “nhìn thấy” cấu trúc topology của dữ liệu ở các mức độ chi tiết khác nhau. Điều này giống như cách bạn có thể nhìn một vật thể từ xa để thấy hình dạng tổng thể, và từ gần để thấy các chi tiết—nhưng ở đây chúng ta đang nhìn cấu trúc topology!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-cách-tda-hoạt-động&quot;&gt;🧮 Cách TDA Hoạt Động&lt;/h2&gt;
-
-&lt;h3 id=&quot;bước-1-thu-thập-dữ-liệu&quot;&gt;Bước 1: Thu thập Dữ liệu&lt;/h3&gt;
-
-&lt;p&gt;Đầu tiên, chúng ta cần có dữ liệu:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Có thể là các điểm trong không gian nhiều chiều&lt;/li&gt;
-  &lt;li&gt;Có thể là hình ảnh, âm thanh, hoặc bất kỳ dữ liệu nào có thể được biểu diễn dưới dạng số&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;bước-2-xây-dựng-simplicial-complex&quot;&gt;Bước 2: Xây dựng Simplicial Complex&lt;/h3&gt;
-
-&lt;p&gt;Từ các điểm dữ liệu, chúng ta xây dựng một &lt;strong&gt;simplicial complex&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;0-simplices:&lt;/strong&gt; Các điểm dữ liệu&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1-simplices:&lt;/strong&gt; Các cạnh nối các điểm gần nhau&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;2-simplices:&lt;/strong&gt; Các tam giác được tạo thành từ các cạnh&lt;/li&gt;
-  &lt;li&gt;Và cứ thế…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Simplicial_complex.svg/500px-Simplicial_complex.svg.png&quot; alt=&quot;Simplicial complex&quot; /&gt;&lt;br /&gt;
-&lt;em&gt;Simplicial complex được xây dựng từ các điểm dữ liệu - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Simplicial_complex.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Cách xây dựng:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Có nhiều cách để xây dựng simplicial complex từ dữ liệu:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Vietoris-Rips complex:&lt;/strong&gt; Nối các điểm có khoảng cách nhỏ hơn một ngưỡng&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Čech complex:&lt;/strong&gt; Sử dụng giao của các quả bóng&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Alpha complex:&lt;/strong&gt; Sử dụng Voronoi diagrams&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Vietoris-Rips_complex.svg/500px-Vietoris-Rips_complex.svg.png&quot; alt=&quot;Vietoris-Rips complex&quot; /&gt;&lt;br /&gt;
-&lt;em&gt;Vietoris-Rips complex - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Vietoris-Rips_complex.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;bước-3-tính-persistent-homology&quot;&gt;Bước 3: Tính Persistent Homology&lt;/h3&gt;
-
-&lt;p&gt;Sau đó, chúng ta tính persistent homology của simplicial complex:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Tính homology ở các mức độ $r$ khác nhau&lt;/li&gt;
-  &lt;li&gt;Theo dõi các cấu trúc topology xuất hiện và biến mất&lt;/li&gt;
-  &lt;li&gt;Tạo ra barcode hoặc persistence diagram&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;bước-4-phân-tích-kết-quả&quot;&gt;Bước 4: Phân tích Kết quả&lt;/h3&gt;
-
-&lt;p&gt;Cuối cùng, chúng ta phân tích kết quả:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Cấu trúc quan trọng:&lt;/strong&gt; Các thanh dài trong barcode đại diện cho các cấu trúc quan trọng&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Nhiễu:&lt;/strong&gt; Các thanh ngắn có thể chỉ là nhiễu&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;So sánh:&lt;/strong&gt; So sánh các barcode từ các tập dữ liệu khác nhau&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-ứng-dụng-thực-tế&quot;&gt;🔗 Ứng dụng Thực Tế&lt;/h2&gt;
-
-&lt;h3 id=&quot;phân-tích-hình-ảnh-y-tế&quot;&gt;Phân tích Hình ảnh Y tế&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Phát hiện khối u:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;TDA có thể được sử dụng để phân tích hình ảnh y tế và phát hiện các khối u:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Các khối u có cấu trúc topology đặc biệt&lt;/li&gt;
-  &lt;li&gt;TDA có thể phát hiện các cấu trúc này ngay cả khi chúng không rõ ràng trong hình ảnh&lt;/li&gt;
-  &lt;li&gt;Giúp các bác sĩ chẩn đoán bệnh sớm hơn&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Nghiên cứu não bộ:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Phân tích cấu trúc của não bộ&lt;/li&gt;
-  &lt;li&gt;Nghiên cứu các bệnh thần kinh&lt;/li&gt;
-  &lt;li&gt;Hiểu cách não bộ hoạt động&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;nghiên-cứu-khí-hậu&quot;&gt;Nghiên cứu Khí hậu&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Phân tích dữ liệu khí hậu:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;TDA có thể được sử dụng để phân tích dữ liệu khí hậu phức tạp:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Phát hiện các mẫu khí hậu&lt;/li&gt;
-  &lt;li&gt;Dự đoán thời tiết&lt;/li&gt;
-  &lt;li&gt;Nghiên cứu biến đổi khí hậu&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Feature extraction:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;TDA có thể được sử dụng để trích xuất các đặc trưng (features) từ dữ liệu:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Các đặc trưng topology có thể cung cấp thông tin quan trọng&lt;/li&gt;
-  &lt;li&gt;Cải thiện hiệu suất của các thuật toán machine learning&lt;/li&gt;
-  &lt;li&gt;Giúp hiểu cấu trúc của dữ liệu&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Dimensionality reduction:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Giảm số chiều của dữ liệu trong khi giữ lại cấu trúc topology quan trọng&lt;/li&gt;
-  &lt;li&gt;Giúp visualize dữ liệu nhiều chiều&lt;/li&gt;
-  &lt;li&gt;Cải thiện hiệu suất tính toán&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;khoa-học-dữ-liệu&quot;&gt;Khoa học Dữ Liệu&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Phát hiện anomalies:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;TDA có thể phát hiện các điểm bất thường trong dữ liệu:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Các điểm không phù hợp với cấu trúc topology chung&lt;/li&gt;
-  &lt;li&gt;Có thể chỉ ra lỗi trong dữ liệu hoặc các sự kiện đặc biệt&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Clustering:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Phân nhóm dữ liệu dựa trên cấu trúc topology&lt;/li&gt;
-  &lt;li&gt;Phát hiện các nhóm tự nhiên trong dữ liệu&lt;/li&gt;
-  &lt;li&gt;Hiểu mối quan hệ giữa các nhóm&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-fundamental-papers--references&quot;&gt;🧠 Fundamental Papers &amp;amp; References&lt;/h2&gt;
-
-&lt;h3 id=&quot;classic-works&quot;&gt;Classic Works&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Herbert Edelsbrunner &amp;amp; John Harer&lt;/strong&gt; - &lt;em&gt;“Computational Topology: An Introduction”&lt;/em&gt; (2010)&lt;br /&gt;
-&lt;em&gt;Giới thiệu về computational topology và TDA&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Gunnar Carlsson&lt;/strong&gt; - &lt;em&gt;“Topology and Data”&lt;/em&gt; (2009)&lt;br /&gt;
-&lt;em&gt;Bài báo nền tảng về TDA&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Robert Ghrist&lt;/strong&gt; - &lt;em&gt;“Barcodes: The Persistent Topology of Data”&lt;/em&gt; (2008)&lt;br /&gt;
-&lt;em&gt;Persistent homology và barcodes&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;textbooks&quot;&gt;Textbooks&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Herbert Edelsbrunner &amp;amp; John Harer&lt;/strong&gt; - &lt;em&gt;Computational Topology: An Introduction&lt;/em&gt; (2010)&lt;br /&gt;
-&lt;em&gt;Computational topology và TDA&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Robert Ghrist&lt;/strong&gt; - &lt;em&gt;Elementary Applied Topology&lt;/em&gt; (2014)&lt;br /&gt;
-&lt;em&gt;TDA và ứng dụng&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-applications-and-connections&quot;&gt;🔗 Applications and Connections&lt;/h2&gt;
-
-&lt;h3 id=&quot;trong-khoa-học-dữ-liệu&quot;&gt;Trong khoa học dữ liệu&lt;/h3&gt;
-
-&lt;p&gt;TDA có nhiều ứng dụng trong khoa học dữ liệu:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Phân tích dữ liệu:&lt;/strong&gt; Phát hiện cấu trúc ẩn trong dữ liệu phức tạp&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Machine learning:&lt;/strong&gt; Cải thiện hiệu suất của các thuật toán&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Visualization:&lt;/strong&gt; Giúp visualize dữ liệu nhiều chiều&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;trong-y-học&quot;&gt;Trong y học&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Chẩn đoán:&lt;/strong&gt; Phát hiện bệnh sớm hơn&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Nghiên cứu:&lt;/strong&gt; Hiểu cấu trúc của các hệ thống sinh học&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Điều trị:&lt;/strong&gt; Phát triển các phương pháp điều trị mới&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;trong-khoa-học&quot;&gt;Trong khoa học&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Khí hậu:&lt;/strong&gt; Nghiên cứu biến đổi khí hậu&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Vật lý:&lt;/strong&gt; Phân tích dữ liệu từ các thí nghiệm vật lý&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sinh học:&lt;/strong&gt; Nghiên cứu cấu trúc của các hệ thống sinh học&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-exercises-and-reflections&quot;&gt;🧩 Exercises and Reflections&lt;/h2&gt;
-
-&lt;h3 id=&quot;câu-hỏi-suy-ngẫm&quot;&gt;Câu hỏi suy ngẫm&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Tưởng tượng:&lt;/strong&gt; Hãy tưởng tượng bạn có một tập hợp các điểm dữ liệu. Làm thế nào bạn có thể sử dụng topology để hiểu cấu trúc của chúng?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;So sánh:&lt;/strong&gt; Hãy so sánh TDA với các phương pháp phân tích dữ liệu truyền thống. Chúng khác nhau như thế nào?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt; Hãy nghĩ về một ứng dụng của TDA trong lĩnh vực mà bạn quan tâm.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Thử thách:&lt;/strong&gt; Hãy tìm hiểu về persistent homology và cách nó được tính toán.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Suy ngẫm:&lt;/strong&gt; Tại sao topology lại hữu ích trong phân tích dữ liệu?&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;thử-nghiệm-thực-tế&quot;&gt;Thử nghiệm thực tế&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Nghiên cứu:&lt;/strong&gt; Hãy tìm hiểu về các công cụ TDA có sẵn và cách sử dụng chúng.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Khám phá:&lt;/strong&gt; Hãy tìm hiểu về các ứng dụng của TDA trong y học và khoa học.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Sáng tạo:&lt;/strong&gt; Hãy nghĩ về các ứng dụng mới của TDA trong các lĩnh vực khác.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-tóm-tắt&quot;&gt;📚 Tóm tắt&lt;/h2&gt;
-
-&lt;p&gt;Trong bài học này, chúng ta đã khám phá:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Topological Data Analysis:&lt;/strong&gt; Một phương pháp mới để phân tích dữ liệu phức tạp&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Persistent Homology:&lt;/strong&gt; Công cụ chính của TDA để phát hiện cấu trúc topology&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt; Từ phân tích hình ảnh y tế đến machine learning&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;TDA là một ví dụ tuyệt vời về cách topology có thể được sử dụng để giải quyết các vấn đề thực tế trong khoa học dữ liệu. Nó cho thấy rằng topology không chỉ là toán học trừu tượng—nó có những ứng dụng thực tế quan trọng trong việc hiểu và phân tích dữ liệu phức tạp!&lt;/p&gt;
-
-&lt;p&gt;Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!&lt;/p&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>Bài 09.06: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_06_Physics_Topology/"/>
-   <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_Physics_Topology</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_07_Physics_Topology</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Topology và Vật Lý Hiện Đại&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1083,10 +3010,10 @@ Khi bạn thay đổi nhiệt độ hoặc áp suất, vật chất có thể ch
  </entry>
  
  <entry>
-   <title>Bài 09.05: Topology của DNA - Xoắn và Nút</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_05_DNA_Knot_Theory/"/>
+   <title>Bài 09.06: Topology của DNA - Xoắn và Nút</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_06_DNA_Knot_Theory/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_DNA_Knot_Theory</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_06_DNA_Knot_Theory</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Knot Theory và Ứng Dụng Trong Sinh Học Phân Tử&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1477,10 +3404,10 @@ Khi bạn thay đổi nhiệt độ hoặc áp suất, vật chất có thể ch
  </entry>
  
  <entry>
-   <title>Bài 09.04: Bốn Màu Đủ Để Tô Bản Đồ</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_04_Four_Color_Theorem/"/>
+   <title>Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_05_Four_Color_Theorem/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Four_Color_Theorem</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_05_Four_Color_Theorem</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Định Lý Toán Học Nổi Tiếng Và Ứng Dụng Thực Tế&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1904,10 +3831,10 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
  </entry>
  
  <entry>
-   <title>Bài 09.03: Euler Characteristic - Công Thức V - E + F</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_03_Euler_Characteristic/"/>
+   <title>Bài 09.04: Euler Characteristic - Công Thức V - E + F</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_04_Euler_Characteristic/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Euler_Characteristic</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_04_Euler_Characteristic</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Bất Biến Toán Học Quan Trọng Phân Loại Các Bề Mặt&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -2775,10 +4702,10 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
  </entry>
  
  <entry>
-   <title>Bài 09.02: Möbius Strip - Mặt Chỉ Có Một Mặt</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_02_Mobius_Strip/"/>
+   <title>Bài 09.03: Möbius Strip - Mặt Chỉ Có Một Mặt</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_03_Mobius_Strip/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Mobius_Strip</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_03_Mobius_Strip</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Khám phá Bề Mặt Kỳ Lạ Chỉ Có Một Mặt và Một Cạnh&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -3350,10 +5277,10 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
  </entry>
  
  <entry>
-   <title>Bài 09.01: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_01_Konigsberg_Bridges/"/>
+   <title>Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_02_Konigsberg_Bridges/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Konigsberg_Bridges</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_02_Konigsberg_Bridges</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Bài Toán Cổ Điển Mở Đầu Cho Topology và Graph Theory&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -3768,10 +5695,10 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
  </entry>
  
  <entry>
-   <title>Bài 09.00: Cà phê và Bánh Donut - Tại sao chúng giống nhau?</title>
-   <link href="http://localhost:4000/contents/vi/chapter09/09_00_Coffee_Donut/"/>
+   <title>Bài 09.01: Cà phê và Bánh Donut - Tại sao chúng giống nhau?</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_01_Coffee_Donut/"/>
    <updated>2025-01-10T00:00:00+07:00</updated>
-   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Coffee_Donut</id>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_01_Coffee_Donut</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Khám phá Topology qua Ví dụ Thực Tế&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -4501,6 +6428,1275 @@ Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng b�
 &lt;/ul&gt;
 
 &lt;p&gt;Topology không chỉ là toán học trừu tượng—nó giúp chúng ta hiểu thế giới xung quanh theo một cách mới mẻ và sâu sắc hơn. Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Bài 09.00: Giới Thiệu - Topology Đại Chúng</title>
+   <link href="http://localhost:4000/contents/vi/chapter09/09_00_Introduction/"/>
+   <updated>2025-01-10T00:00:00+07:00</updated>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter09/09_00_Introduction</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Giới Thiệu - Topology Đại Chúng&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-chào-mừng-đến-với-topology-đại-chúng&quot;&gt;📖 Chào Mừng Đến Với Topology Đại Chúng&lt;/h2&gt;
+
+&lt;p&gt;Chào mừng bạn đến với &lt;strong&gt;Chapter 09: Topology Đại Chúng&lt;/strong&gt;! Đây là một hành trình đặc biệt được thiết kế để đưa topology—một trong những nhánh toán học trừu tượng nhất—đến gần với mọi người thông qua những câu chuyện thực tế, ví dụ cụ thể, và ứng dụng trong cuộc sống hàng ngày.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Topology là gì?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nếu bạn đã từng nghe câu nói nổi tiếng: &lt;em&gt;“Một nhà toán học là người không phân biệt được giữa một tách cà phê và một chiếc bánh donut”&lt;/em&gt;, thì đó chính là topology! Topology nghiên cứu các tính chất của không gian không thay đổi khi chúng ta “kéo dãn” hoặc “bóp méo” chúng—miễn là không cắt hoặc dán.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao Chapter này đặc biệt?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Trong các chapter trước, chúng ta đã học topology một cách chính thống với các định nghĩa toán học chặt chẽ, các định lý, và các chứng minh. Chapter 09 này khác biệt—chúng ta sẽ khám phá topology qua:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Những câu chuyện thực tế:&lt;/strong&gt; Từ bài toán bảy cây cầu ở Königsberg đến giả thuyết Poincaré triệu đô&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ví dụ cụ thể:&lt;/strong&gt; Cà phê và donut, Möbius strip, DNA xoắn kép&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ứng dụng thực tế:&lt;/strong&gt; Trong vật lý lượng tử, sinh học phân tử, phân tích dữ liệu, nghệ thuật&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Giải thích trực quan:&lt;/strong&gt; Không cần công thức phức tạp để hiểu các khái niệm cơ bản&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-mục-tiêu-của-chapter-này&quot;&gt;🎯 Mục Tiêu Của Chapter Này&lt;/h2&gt;
+
+&lt;h3 id=&quot;mục-tiêu-chính&quot;&gt;Mục Tiêu Chính&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Làm cho topology trở nên dễ tiếp cận:&lt;/strong&gt; Bạn không cần kiến thức toán học chuyên sâu để hiểu các khái niệm cơ bản của topology.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Kết nối với thực tế:&lt;/strong&gt; Khám phá cách topology xuất hiện trong cuộc sống hàng ngày, từ hình dạng của các vật thể đến cấu trúc của DNA.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Xây dựng trực giác:&lt;/strong&gt; Phát triển cảm nhận về “hình dạng” và “cấu trúc” mà không cần công thức toán học phức tạp.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Khám phá ứng dụng:&lt;/strong&gt; Tìm hiểu cách topology được sử dụng trong các lĩnh vực khác nhau như vật lý, sinh học, khoa học dữ liệu, và nghệ thuật.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Hiểu các bất biến toán học:&lt;/strong&gt; Tìm hiểu về các đại lượng không thay đổi khi chúng ta biến dạng không gian, và tại sao chúng quan trọng.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;ai-nên-học-chapter-này&quot;&gt;Ai Nên Học Chapter Này?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Người mới bắt đầu:&lt;/strong&gt; Bạn chưa biết gì về topology nhưng tò mò muốn tìm hiểu&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sinh viên:&lt;/strong&gt; Bạn muốn hiểu topology một cách trực quan trước khi đi sâu vào toán học chính thống&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Giáo viên:&lt;/strong&gt; Bạn muốn tìm cách giải thích topology cho học sinh một cách dễ hiểu&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Người quan tâm đến khoa học:&lt;/strong&gt; Bạn muốn hiểu cách topology được áp dụng trong các lĩnh vực khác nhau&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Người yêu toán học:&lt;/strong&gt; Bạn muốn khám phá một nhánh toán học thú vị qua các ví dụ thực tế&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-cấu-trúc-chapter&quot;&gt;📚 Cấu Trúc Chapter&lt;/h2&gt;
+
+&lt;p&gt;Chapter 09 bao gồm &lt;strong&gt;9 bài học&lt;/strong&gt;, mỗi bài tập trung vào một chủ đề cụ thể:&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0901-cà-phê-và-bánh-donut---tại-sao-chúng-giống-nhau&quot;&gt;Bài 09.01: Cà phê và Bánh Donut - Tại sao chúng giống nhau?&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Homeomorphism và biến dạng liên tục. Khám phá khái niệm “lỗ” trong topology và cách phân loại các vật thể.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0902-bảy-cây-cầu-ở-königsberg---bài-toán-mở-đầu-của-topology&quot;&gt;Bài 09.02: Bảy Cây Cầu ở Königsberg - Bài Toán Mở Đầu của Topology&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Graph theory và topology. Bài toán cổ điển về đường đi Euler và ứng dụng trong mạng lưới.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0903-möbius-strip---mặt-chỉ-có-một-mặt&quot;&gt;Bài 09.03: Möbius Strip - Mặt Chỉ Có Một Mặt&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Định hướng và không định hướng. Cách làm Möbius strip và ứng dụng thực tế.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0904-euler-characteristic---công-thức-v---e--f&quot;&gt;Bài 09.04: Euler Characteristic - Công Thức V - E + F&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Bất biến toán học quan trọng. Công thức Euler và ứng dụng trong phân loại bề mặt.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0905-bốn-màu-đủ-để-tô-bản-đồ&quot;&gt;Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Định lý bốn màu và topology của bản đồ. Lịch sử và chứng minh bằng máy tính.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0906-topology-của-dna---xoắn-và-nút&quot;&gt;Bài 09.06: Topology của DNA - Xoắn và Nút&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Knot theory cơ bản và topology của chuỗi DNA. Ứng dụng trong sinh học phân tử.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0907-topology-trong-vật-lý---từ-quantum-đến-vũ-trụ&quot;&gt;Bài 09.07: Topology trong Vật Lý - Từ Quantum đến Vũ Trụ&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Topology trong quantum mechanics, topological phases of matter, string theory.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0908-poincaré-conjecture---bài-toán-triệu-đô&quot;&gt;Bài 09.08: Poincaré Conjecture - Bài Toán Triệu Đô&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Giải thích đại chúng về Poincaré conjecture, lịch sử và giải pháp của Perelman.&lt;/p&gt;
+
+&lt;h3 id=&quot;bài-0909-từ-điển-thuật-ngữ-toán-học---tổng-hợp-toàn-khóa&quot;&gt;Bài 09.09: Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; Tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-cách-sử-dụng-chapter-này&quot;&gt;🧭 Cách Sử Dụng Chapter Này&lt;/h2&gt;
+
+&lt;h3 id=&quot;đọc-tuần-tự&quot;&gt;Đọc Tuần Tự&lt;/h3&gt;
+
+&lt;p&gt;Các bài học được sắp xếp theo thứ tự từ cơ bản đến nâng cao. Bạn nên đọc tuần tự để xây dựng kiến thức một cách có hệ thống.&lt;/p&gt;
+
+&lt;h3 id=&quot;đọc-độc-lập&quot;&gt;Đọc Độc Lập&lt;/h3&gt;
+
+&lt;p&gt;Mỗi bài học cũng có thể đọc độc lập. Nếu bạn quan tâm đến một chủ đề cụ thể, bạn có thể đọc trực tiếp bài học đó.&lt;/p&gt;
+
+&lt;h3 id=&quot;thực-hành&quot;&gt;Thực Hành&lt;/h3&gt;
+
+&lt;p&gt;Nhiều bài học có các thử nghiệm thực tế mà bạn có thể làm tại nhà (ví dụ: làm Möbius strip, tạo các nút thắt). Hãy thử làm để hiểu sâu hơn!&lt;/p&gt;
+
+&lt;h3 id=&quot;tham-khảo&quot;&gt;Tham Khảo&lt;/h3&gt;
+
+&lt;p&gt;Nếu bạn muốn tìm hiểu sâu hơn về một khái niệm cụ thể, bạn có thể tham khảo các chapter trước hoặc sử dụng từ điển thuật ngữ ở bài cuối cùng.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-những-điều-bạn-sẽ-học&quot;&gt;💡 Những Điều Bạn Sẽ Học&lt;/h2&gt;
+
+&lt;h3 id=&quot;khái-niệm-cơ-bản&quot;&gt;Khái Niệm Cơ Bản&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Homeomorphism:&lt;/strong&gt; Tại sao cà phê và donut “giống nhau” về mặt topology?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Biến dạng liên tục:&lt;/strong&gt; Làm thế nào để biến đổi một vật thể thành vật thể khác?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Lỗ và Genus:&lt;/strong&gt; Cách đếm “lỗ” trong một vật thể&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Định hướng:&lt;/strong&gt; Tại sao Möbius strip chỉ có một mặt?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bất-biến-toán-học&quot;&gt;Bất Biến Toán Học&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Euler Characteristic:&lt;/strong&gt; Công thức $V - E + F$ và ý nghĩa của nó&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Knot Invariants:&lt;/strong&gt; Các đại lượng phân biệt các nút khác nhau&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Topological Invariants:&lt;/strong&gt; Các tính chất không thay đổi khi biến dạng&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ứng-dụng-thực-tế&quot;&gt;Ứng Dụng Thực Tế&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Graph Theory:&lt;/strong&gt; Ứng dụng trong mạng lưới giao thông, internet&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Knot Theory:&lt;/strong&gt; Topology của DNA và protein&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Topology trong Vật Lý:&lt;/strong&gt; Quantum mechanics, vật liệu mới&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tại-sao-topology-quan-trọng&quot;&gt;🌟 Tại Sao Topology Quan Trọng?&lt;/h2&gt;
+
+&lt;p&gt;Topology không chỉ là một nhánh toán học trừu tượng—nó có nhiều ứng dụng thực tế:&lt;/p&gt;
+
+&lt;h3 id=&quot;trong-khoa-học&quot;&gt;Trong Khoa Học&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Vật lý:&lt;/strong&gt; Hiểu các pha topology của vật chất, quantum field theory&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sinh học:&lt;/strong&gt; Nghiên cứu cấu trúc DNA, protein folding&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Hóa học:&lt;/strong&gt; Cấu trúc phân tử phức tạp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;trong-công-nghệ&quot;&gt;Trong Công Nghệ&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Khoa học dữ liệu:&lt;/strong&gt; Topological Data Analysis để phân tích dữ liệu phức tạp&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Machine Learning:&lt;/strong&gt; Sử dụng topology để hiểu cấu trúc dữ liệu&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Robotics:&lt;/strong&gt; Lập kế hoạch chuyển động, không gian cấu hình&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;trong-nghệ-thuật-và-thiết-kế&quot;&gt;Trong Nghệ Thuật và Thiết Kế&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Kiến trúc:&lt;/strong&gt; Thiết kế các cấu trúc phức tạp&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nghệ thuật:&lt;/strong&gt; Tạo ra các tác phẩm với cấu trúc topology thú vị&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Thiết kế:&lt;/strong&gt; Ứng dụng trong thiết kế sản phẩm và đồ họa&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-yêu-cầu-và-chuẩn-bị&quot;&gt;🎓 Yêu Cầu và Chuẩn Bị&lt;/h2&gt;
+
+&lt;h3 id=&quot;kiến-thức-cần-thiết&quot;&gt;Kiến Thức Cần Thiết&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Tin tốt:&lt;/strong&gt; Bạn không cần kiến thức toán học chuyên sâu để bắt đầu! Chapter này được thiết kế để dễ tiếp cận cho mọi người.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kiến thức cơ bản hữu ích (nhưng không bắt buộc):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hiểu biết cơ bản về hình học (hình tròn, hình cầu, v.v.)&lt;/li&gt;
+  &lt;li&gt;Khái niệm về “biến dạng” và “biến đổi”&lt;/li&gt;
+  &lt;li&gt;Tò mò và ham học hỏi!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;chuẩn-bị-tinh-thần&quot;&gt;Chuẩn Bị Tinh Thần&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Sẵn sàng suy nghĩ trừu tượng:&lt;/strong&gt; Topology nghiên cứu “hình dạng” một cách trừu tượng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kiên nhẫn:&lt;/strong&gt; Một số khái niệm có thể cần thời gian để hiểu&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Thực hành:&lt;/strong&gt; Hãy thử làm các thí nghiệm thực tế trong các bài học&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-bắt-đầu-hành-trình&quot;&gt;🚀 Bắt Đầu Hành Trình&lt;/h2&gt;
+
+&lt;p&gt;Bây giờ bạn đã sẵn sàng để bắt đầu hành trình khám phá topology đại chúng!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bước tiếp theo:&lt;/strong&gt; Hãy đọc &lt;a href=&quot;../09_01_Coffee_Donut/&quot;&gt;Bài 09.01: Cà phê và Bánh Donut&lt;/a&gt; để khám phá khái niệm cơ bản nhất của topology—tại sao một chiếc ly cà phê có thể “biến thành” một chiếc bánh donut!&lt;/p&gt;
+
+&lt;p&gt;Chúc bạn học tập vui vẻ và khám phá được nhiều điều thú vị về topology! 🎉&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tài-liệu-tham-khảo&quot;&gt;📚 Tài Liệu Tham Khảo&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn muốn tìm hiểu sâu hơn về topology sau khi hoàn thành chapter này, bạn có thể tham khảo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Các chapter trước:&lt;/strong&gt; Chapter 01-08 cung cấp kiến thức topology chính thống&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sách giáo khoa:&lt;/strong&gt; Munkres, Hatcher, Morris, Adams &amp;amp; Franzosa&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Từ điển thuật ngữ:&lt;/strong&gt; Bài 09.10 tổng hợp tất cả các thuật ngữ trong khóa học&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-exercises-and-reflections&quot;&gt;🧩 Exercises and Reflections&lt;/h2&gt;
+
+&lt;h3 id=&quot;câu-hỏi-suy-ngẫm&quot;&gt;Câu hỏi suy ngẫm&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Trước khi bắt đầu:&lt;/strong&gt; Bạn đã từng nghe về topology chưa? Bạn nghĩ topology là gì?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Mục tiêu học tập:&lt;/strong&gt; Bạn muốn học được điều gì từ chapter này?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt; Bạn quan tâm đến ứng dụng nào của topology nhất? (Vật lý, sinh học, khoa học dữ liệu, nghệ thuật, v.v.)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;thử-nghiệm&quot;&gt;Thử nghiệm&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Khám phá:&lt;/strong&gt; Hãy nghĩ về các vật thể xung quanh bạn. Những vật thể nào có thể “biến dạng” thành nhau?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Quan sát:&lt;/strong&gt; Hãy quan sát các hình dạng trong tự nhiên và nghĩ về “lỗ” và “cấu trúc” của chúng.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tóm-tắt&quot;&gt;📚 Tóm tắt&lt;/h2&gt;
+
+&lt;p&gt;Trong bài giới thiệu này, chúng ta đã:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Giới thiệu Chapter 09:&lt;/strong&gt; Topology Đại Chúng là gì và tại sao nó đặc biệt&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Làm cho topology trở nên dễ tiếp cận và kết nối với thực tế&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cấu trúc:&lt;/strong&gt; 10 bài học từ cơ bản đến nâng cao&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cách sử dụng:&lt;/strong&gt; Đọc tuần tự hoặc độc lập, thực hành, tham khảo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tầm quan trọng:&lt;/strong&gt; Topology có nhiều ứng dụng trong khoa học, công nghệ, và nghệ thuật&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bây giờ bạn đã sẵn sàng để bắt đầu hành trình khám phá topology đại chúng! Hãy bắt đầu với bài học đầu tiên và khám phá thế giới kỳ diệu của topology! 🌟&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Lecture 08.04: Knot Theory - Lý Thuyết Nút</title>
+   <link href="http://localhost:4000/contents/vi/chapter08/08_04_Knot_Theory/"/>
+   <updated>2025-01-09T00:00:00+07:00</updated>
+   <id>http://localhost:4000/topology-self-learning/contents/vi/chapter08/08_04_Knot_Theory</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Knot Theory - Nghiên Cứu Về Các Nút Toán Học&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tổng-quan&quot;&gt;📖 Tổng quan&lt;/h2&gt;
+
+&lt;p&gt;Knot theory là một nhánh quan trọng của topology nghiên cứu về các “nút” toán học—các đường cong khép kín trong không gian ba chiều. Mặc dù khái niệm về nút có vẻ đơn giản (chúng ta đều quen thuộc với các nút thắt trong dây), nhưng toán học đằng sau chúng lại cực kỳ phức tạp và sâu sắc.&lt;/p&gt;
+
+&lt;p&gt;Một trong những câu hỏi cơ bản nhất trong knot theory là: &lt;strong&gt;Làm thế nào để chúng ta biết hai nút có “giống nhau” hay không?&lt;/strong&gt; Đây là một câu hỏi khó hơn nhiều so với vẻ ngoài của nó. Hai nút có thể trông rất khác nhau nhưng lại là cùng một nút (có thể biến đổi thành nhau bằng cách kéo dãn và bóp méo), hoặc có thể trông giống nhau nhưng lại là các nút khác nhau.&lt;/p&gt;
+
+&lt;p&gt;Trong bài học này, chúng ta sẽ khám phá knot theory một cách chuyên sâu: định nghĩa toán học của nút, các bất biến knot (knot invariants) như Alexander polynomial và Jones polynomial, cách tính toán knot groups, và các phương pháp phân loại nút. Chúng ta cũng sẽ khám phá các kết nối với các lĩnh vực khác của toán học như topology đại số và hình học.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Knot_table.svg/800px-Knot_table.svg.png&quot; alt=&quot;Knot table&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Bảng các nút toán học cơ bản - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Knot_table.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao đây là kiến thức quan trọng?&lt;/strong&gt; Knot theory không chỉ là một chủ đề toán học thú vị—nó có nhiều ứng dụng trong vật lý (đặc biệt là trong lý thuyết trường lượng tử), hóa học (cấu trúc phân tử), và sinh học (cấu trúc DNA và protein). Hiểu được knot theory giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều và các ứng dụng của nó.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-định-nghĩa-toán-học-của-nút&quot;&gt;🎯 Định Nghĩa Toán Học của Nút&lt;/h2&gt;
+
+&lt;h3 id=&quot;nút-là-gì&quot;&gt;Nút là gì?&lt;/h3&gt;
+
+&lt;p&gt;Knot theory xem xét cụ thể các &lt;strong&gt;ánh xạ không tự cắt nhau&lt;/strong&gt; (non-self-crossing mappings) từ một đường tròn vào không gian ba chiều, được coi như các nút với các đầu được buộc lại với nhau.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa chính xác:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Trong toán học, một &lt;strong&gt;nút&lt;/strong&gt; (knot) là một embedding của đường tròn $S^1$ vào không gian ba chiều $\mathbb{R}^3$ (hoặc hình cầu ba chiều $S^3$). Cụ thể hơn:&lt;/p&gt;
+
+&lt;p&gt;Một &lt;strong&gt;nút&lt;/strong&gt; là một ánh xạ liên tục và đơn ánh (injective) $K: S^1 \to \mathbb{R}^3$ sao cho:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ánh xạ ngược $K^{-1}: K(S^1) \to S^1$ cũng liên tục&lt;/li&gt;
+  &lt;li&gt;Ánh xạ không tự cắt nhau—không có điểm nào trên đường cong tự cắt chính nó&lt;/li&gt;
+  &lt;li&gt;Đường cong là khép kín—các đầu được “buộc lại với nhau”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Điều quan trọng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Khép kín:&lt;/strong&gt; Đường cong phải khép kín—không có điểm đầu và điểm cuối, các đầu được buộc lại với nhau&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Không tự cắt:&lt;/strong&gt; Ánh xạ không được tự cắt chính nó—đây là yêu cầu cụ thể của knot theory&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Trong không gian 3D:&lt;/strong&gt; Nút phải tồn tại trong không gian ba chiều (hoặc hình cầu ba chiều)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Embedding:&lt;/strong&gt; Ánh xạ phải là một embedding—một homeomorphism lên ảnh của nó&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao “không tự cắt” quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yêu cầu không tự cắt nhau là điều làm cho knot theory trở nên thú vị. Nếu chúng ta cho phép tự cắt nhau, mọi đường cong khép kín đều có thể được biến đổi thành nhau, và không có gì để nghiên cứu. Yêu cầu không tự cắt nhau tạo ra sự phong phú và phức tạp của knot theory.&lt;/p&gt;
+
+&lt;h3 id=&quot;unknot-nút-không&quot;&gt;Unknot (Nút Không)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Unknot&lt;/strong&gt; (còn gọi là trivial knot) là nút đơn giản nhất. Về mặt toán học, unknot chỉ đơn giản là &lt;strong&gt;ánh xạ đường tròn thành một đường tròn trong không gian&lt;/strong&gt;—một embedding của $S^1$ vào $\mathbb{R}^3$ mà ảnh của nó là một đường tròn đơn giản trong không gian.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Unknot.svg/300px-Unknot.svg.png&quot; alt=&quot;Unknot&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Unknot - nút đơn giản nhất - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Unknot.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa chính xác:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Unknot là ánh xạ $K: S^1 \to \mathbb{R}^3$ sao cho $K(S^1)$ là một đường tròn trong không gian ba chiều. Nói cách khác, unknot là ánh xạ đường tròn thành một đường tròn trong không gian—không có nút thắt nào.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tương đương:&lt;/strong&gt; Unknot là nút có thể được biến đổi thành một vòng tròn phẳng bằng cách kéo dãn và bóp méo (không cắt hoặc dán).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao gọi là “nút không”?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mặc dù unknot trông giống một vòng tròn đơn giản, nó vẫn được coi là một nút vì định nghĩa toán học của nút chỉ yêu cầu một embedding của $S^1$ vào $\mathbb{R}^3$. Unknot là nút “tầm thường” nhất—nó không có nút thắt nào, chỉ đơn giản là ánh xạ đường tròn thành đường tròn trong không gian.&lt;/p&gt;
+
+&lt;h3 id=&quot;knot-equivalence-tương-đương-nút&quot;&gt;Knot Equivalence (Tương Đương Nút)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa tương đương:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hai nút được coi là &lt;strong&gt;tương đương&lt;/strong&gt; (equivalent) nếu một nút có thể được &lt;strong&gt;biến đổi liên tục&lt;/strong&gt; thành nút kia trong khi vẫn giữ nó như một nút—nghĩa là:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Không giới thiệu sự gián đoạn (discontinuity)&lt;/li&gt;
+  &lt;li&gt;Không để nó tự cắt qua chính nó (self-crossing)&lt;/li&gt;
+  &lt;li&gt;Luôn duy trì tính chất là một embedding của $S^1$ vào $\mathbb{R}^3$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ambient Isotopy:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hai nút $K_1$ và $K_2$ là &lt;strong&gt;ambient isotopic&lt;/strong&gt; nếu tồn tại một ánh xạ liên tục $H: \mathbb{R}^3 \times [0,1] \to \mathbb{R}^3$ sao cho:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$H(x, 0) = x$ cho mọi $x \in \mathbb{R}^3$&lt;/li&gt;
+  &lt;li&gt;$H(K_1, 1) = K_2$&lt;/li&gt;
+  &lt;li&gt;$H(\cdot, t)$ là một homeomorphism cho mọi $t \in [0,1]$&lt;/li&gt;
+  &lt;li&gt;Quan trọng: $H(K_1, t)$ luôn là một nút (không tự cắt) cho mọi $t \in [0,1]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nói cách khác, chúng ta có thể “kéo dãn” không gian xung quanh để biến đổi một nút thành nút kia, nhưng trong suốt quá trình biến đổi, đường cong luôn phải là một nút hợp lệ—không được tự cắt hoặc tạo ra sự gián đoạn.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bài toán chuẩn của Knot Theory:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Xác định xem hai nút có tương đương hay không&lt;/strong&gt; là một bài toán chuẩn và cơ bản của knot theory. Đây là một trong những câu hỏi quan trọng nhất trong lĩnh vực này, và việc giải quyết nó đòi hỏi các công cụ toán học phức tạp như knot invariants.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-reidemeister-moves&quot;&gt;🔄 Reidemeister Moves&lt;/h2&gt;
+
+&lt;h3 id=&quot;ba-phép-biến-đổi-cơ-bản&quot;&gt;Ba Phép Biến Đổi Cơ Bản&lt;/h3&gt;
+
+&lt;p&gt;Reidemeister moves là ba phép biến đổi cơ bản cho phép chúng ta biến đổi một diagram của nút (hình chiếu 2D của nút) mà không thay đổi loại nút:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reidemeister Move I (RI):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Xoắn hoặc tháo xoắn một vòng lặp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Reidemeister_move_1.svg/300px-Reidemeister_move_1.svg.png&quot; alt=&quot;Reidemeister move I&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Reidemeister Move I - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Reidemeister_move_1.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reidemeister Move II (RII):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Di chuyển một vòng lặp qua hoặc dưới một vòng lặp khác&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Reidemeister_move_2.svg/300px-Reidemeister_move_2.svg.png&quot; alt=&quot;Reidemeister move II&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Reidemeister Move II - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Reidemeister_move_2.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reidemeister Move III (RIII):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Di chuyển một vòng lặp qua một điểm giao nhau&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Reidemeister_move_3.svg/300px-Reidemeister_move_3.svg.png&quot; alt=&quot;Reidemeister move III&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Reidemeister Move III - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Reidemeister_move_3.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;định-lý-reidemeister&quot;&gt;Định Lý Reidemeister&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định lý Reidemeister (1927):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hai diagram của nút biểu diễn cùng một nút nếu và chỉ nếu một diagram có thể được biến đổi thành diagram kia bằng một chuỗi hữu hạn các Reidemeister moves.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ý nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Định lý này cho phép chúng ta làm việc với các diagram 2D của nút thay vì phải làm việc trực tiếp với các nút 3D phức tạp. Đây là một công cụ mạnh mẽ để nghiên cứu và phân loại nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với topology:&lt;/strong&gt; Reidemeister moves tương ứng với các phép biến đổi topology của nút—chúng không thay đổi loại nút, chỉ thay đổi cách biểu diễn của nó.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-seifert-surfaces-mặt-seifert&quot;&gt;🌊 Seifert Surfaces (Mặt Seifert)&lt;/h2&gt;
+
+&lt;h3 id=&quot;định-nghĩa-và-ý-nghĩa&quot;&gt;Định Nghĩa và Ý Nghĩa&lt;/h3&gt;
+
+&lt;p&gt;Một &lt;strong&gt;Seifert surface&lt;/strong&gt; của một nút $K$ là một mặt có biên (compact, orientable surface) có biên là nút $K$. Nói cách khác, đây là một mặt hai chiều trong không gian ba chiều mà biên của nó chính là nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa chính xác:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cho một nút $K$ trong $S^3$, một &lt;strong&gt;Seifert surface&lt;/strong&gt; cho $K$ là một mặt có biên compact, orientable $\Sigma \subset S^3$ sao cho $\partial \Sigma = K$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Seifert surfaces là một công cụ mạnh mẽ trong knot theory vì:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Chúng liên kết nút (một đối tượng một chiều) với mặt (một đối tượng hai chiều)&lt;/li&gt;
+  &lt;li&gt;Chúng cho phép chúng ta nghiên cứu tính chất của nút thông qua tính chất của mặt&lt;/li&gt;
+  &lt;li&gt;Chúng được sử dụng để tính toán các bất biến như genus của nút&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;thuật-toán-xây-dựng-seifert-surface&quot;&gt;Thuật Toán Xây Dựng Seifert Surface&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Thuật toán Seifert (1934):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cho một knot diagram có định hướng (oriented), chúng ta có thể xây dựng một Seifert surface như sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Định hướng nút:&lt;/strong&gt; Gán một hướng cho nút (một trong hai chiều có thể)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Thay thế crossings:&lt;/strong&gt; Tại mỗi crossing, thay thế bằng hai vòng cung không cắt nhau theo cách phù hợp với định hướng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tạo các vòng tròn:&lt;/strong&gt; Kết quả là một tập hợp các vòng tròn không cắt nhau trong mặt phẳng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gắn các đĩa:&lt;/strong&gt; Gắn một đĩa cho mỗi vòng tròn&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gắn các dải:&lt;/strong&gt; Gắn các dải (bands) để kết nối các đĩa tại các vị trí của các crossings ban đầu&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Kết quả là một Seifert surface cho nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đối với trefoil knot, Seifert surface có thể được xây dựng từ ba vòng tròn và ba dải kết nối chúng.&lt;/p&gt;
+
+&lt;h3 id=&quot;genus-của-nút&quot;&gt;Genus của Nút&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Genus&lt;/strong&gt; của một nút $K$, ký hiệu $g(K)$, là genus nhỏ nhất của một Seifert surface cho $K$. Nói cách khác:
+\(g(K) = \min \{ g(\Sigma) : \Sigma \text{ là Seifert surface cho } K \}\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Unknot có genus = 0 (có thể có Seifert surface là một đĩa)&lt;/li&gt;
+  &lt;li&gt;Trefoil có genus = 1&lt;/li&gt;
+  &lt;li&gt;Genus là một bất biến của nút—các nút tương đương có cùng genus&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với Euler Characteristic:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nếu $\Sigma$ là một Seifert surface cho nút $K$ với genus $g$, thì:
+\(\chi(\Sigma) = 1 - 2g\)&lt;/p&gt;
+
+&lt;p&gt;vì $\Sigma$ có một biên (đường tròn) và Euler characteristic của một mặt có biên với genus $g$ là $1 - 2g$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Seifert surfaces là một ví dụ tuyệt vời về cách topology hai chiều có thể được sử dụng để nghiên cứu các đối tượng một chiều. Chúng cho thấy mối liên hệ sâu sắc giữa các chiều khác nhau trong topology.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-các-loại-nút-cơ-bản&quot;&gt;🔢 Các Loại Nút Cơ Bản&lt;/h2&gt;
+
+&lt;h3 id=&quot;trefoil-knot-nút-ba-lá&quot;&gt;Trefoil Knot (Nút Ba Lá)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Trefoil knot&lt;/strong&gt; là nút đơn giản nhất không phải unknot. Nó có ba vòng lặp và là nút đầu tiên trong bảng phân loại nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/TrefoilKnot_01.svg/300px-TrefoilKnot_01.svg.png&quot; alt=&quot;Trefoil knot&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Trefoil knot - nút đơn giản nhất không phải unknot - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:TrefoilKnot_01.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Đặc điểm:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Số crossing:&lt;/strong&gt; 3 (ba điểm giao nhau trong diagram)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chiral:&lt;/strong&gt; Trefoil knot có hai dạng mirror image không tương đương&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Không thể unknot:&lt;/strong&gt; Không thể biến đổi thành unknot bằng Reidemeister moves&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Trefoil knot là ví dụ đầu tiên cho thấy rằng không phải tất cả các nút đều tương đương với unknot. Nó chứng minh rằng có nhiều loại nút khác nhau.&lt;/p&gt;
+
+&lt;h3 id=&quot;kết-quả-cơ-bản-nhất-trefoil-không-thể-unknot&quot;&gt;Kết Quả Cơ Bản Nhất: Trefoil Không Thể Unknot&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định lý cơ bản nhất của Knot Theory:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trefoil knot không thể được biến dạng liên tục thành một đường tròn mà không cắt.&lt;/strong&gt; Đây là kết quả cơ bản nhất và quan trọng nhất trong knot theory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao đây là kết quả cơ bản nhất?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đây là kết quả đầu tiên chứng minh rằng knot theory không phải là một lĩnh vực “tầm thường”—không phải tất cả các nút đều giống nhau. Nếu mọi nút đều có thể được biến đổi thành unknot, thì knot theory sẽ không có gì để nghiên cứu. Việc chứng minh Trefoil không thể unknot là bước đầu tiên trong việc xây dựng toàn bộ lý thuyết này.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao đây là một bài toán đẹp?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đây là một bài toán tuyệt vời vì:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Có thể giải thích cho trẻ em:&lt;/strong&gt; Bạn có thể giải thích cho một đứa trẻ rằng “hãy thử tháo một nút thắt ba lá mà không cắt sợi dây”—đứa trẻ sẽ hiểu ngay vấn đề&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Không tầm thường:&lt;/strong&gt; Mặc dù có vẻ đơn giản, việc chứng minh toán học chặt chẽ là không dễ dàng&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cơ sở cho toàn bộ lý thuyết:&lt;/strong&gt; Tất cả các kết quả khác trong knot theory đều dựa trên ý tưởng rằng có những nút khác nhau&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Chứng minh trực quan:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Có nhiều cách để chứng minh Trefoil không thể unknot:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Sử dụng Knot Invariants:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cách đơn giản nhất là sử dụng các knot invariants. Ví dụ:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Tricolorability:&lt;/strong&gt; Trefoil knot có thể được tô màu ba màu (tricolorable), trong khi unknot thì không&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Alexander Polynomial:&lt;/strong&gt; Trefoil có Alexander polynomial là $t^2 - t + 1$, trong khi unknot có Alexander polynomial là $1$&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Jones Polynomial:&lt;/strong&gt; Trefoil có Jones polynomial khác với unknot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vì các invariants này khác nhau, Trefoil và unknot không thể tương đương.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Chứng minh bằng Fundamental Group:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot group của Trefoil là:
+\(\pi_1(S^3 \setminus \text{Trefoil}) = \langle a, b \mid a^2 = b^3 \rangle\)&lt;/p&gt;
+
+&lt;p&gt;Trong khi knot group của unknot là:
+\(\pi_1(S^3 \setminus \text{Unknot}) = \mathbb{Z}\)&lt;/p&gt;
+
+&lt;p&gt;Vì hai nhóm này không đẳng cấu, Trefoil và unknot không thể tương đương.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Thử nghiệm thực tế:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hãy thử lấy một sợi dây và tạo một Trefoil knot. Sau đó, hãy thử tháo nó mà không cắt sợi dây. Bạn sẽ nhận ra rằng điều này là không thể—đây chính là trực giác đằng sau định lý toán học.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ý nghĩa sâu sắc:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Kết quả này cho thấy rằng topology của không gian ba chiều là phong phú và phức tạp hơn chúng ta có thể nghĩ. Một đường cong khép kín đơn giản có thể có nhiều cách “thắt nút” khác nhau, và những cách này không thể được biến đổi thành nhau bằng các phép biến đổi liên tục. Đây là một khám phá sâu sắc về bản chất của không gian và hình học.&lt;/p&gt;
+
+&lt;h3 id=&quot;figure-eight-knot-nút-hình-số-8&quot;&gt;Figure-Eight Knot (Nút Hình Số 8)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Figure-eight knot&lt;/strong&gt; là nút thứ hai trong bảng phân loại, sau trefoil.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Figure-eight_knot.svg/300px-Figure-eight_knot.svg.png&quot; alt=&quot;Figure-eight knot&quot; /&gt;&lt;br /&gt;
+&lt;em&gt;Figure-eight knot - Nguồn: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Figure-eight_knot.svg&quot;&gt;Wikimedia Commons&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Đặc điểm:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Số crossing:&lt;/strong&gt; 4&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Amphichiral:&lt;/strong&gt; Figure-eight knot tương đương với mirror image của nó&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Không thể unknot:&lt;/strong&gt; Không thể biến đổi thành unknot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Điểm thú vị:&lt;/strong&gt; Figure-eight knot là nút đầu tiên trong bảng phân loại là amphichiral—nó có tính đối xứng gương.&lt;/p&gt;
+
+&lt;h3 id=&quot;các-nút-phức-tạp-hơn&quot;&gt;Các Nút Phức Tạp Hơn&lt;/h3&gt;
+
+&lt;p&gt;Khi số lượng crossings tăng lên, số lượng các nút khác nhau tăng lên nhanh chóng:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;3 crossings:&lt;/strong&gt; 1 nút (trefoil)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;4 crossings:&lt;/strong&gt; 1 nút (figure-eight)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;5 crossings:&lt;/strong&gt; 2 nút&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;6 crossings:&lt;/strong&gt; 3 nút&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;7 crossings:&lt;/strong&gt; 7 nút&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;8 crossings:&lt;/strong&gt; 21 nút&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;9 crossings:&lt;/strong&gt; 49 nút&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;10 crossings:&lt;/strong&gt; 165 nút&lt;/li&gt;
+  &lt;li&gt;Và cứ thế…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Vấn đề phân loại:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Phân loại tất cả các nút là một bài toán cực kỳ khó. Hiện tại, các nhà toán học đã phân loại được tất cả các nút với tối đa 16 crossings, nhưng vẫn còn nhiều công việc phải làm!&lt;/p&gt;
+
+&lt;h3 id=&quot;alternating-links-liên-kết-xen-kẽ&quot;&gt;Alternating Links (Liên Kết Xen Kẽ)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một &lt;strong&gt;alternating link&lt;/strong&gt; (liên kết xen kẽ) là một link có diagram trong đó các crossings xen kẽ giữa “over” và “under” khi đi dọc theo link.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cụ thể hơn:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Trong một alternating diagram, khi bạn đi dọc theo link, các crossings xuất hiện theo thứ tự xen kẽ: over, under, over, under, …&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất quan trọng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alternating links có nhiều tính chất đặc biệt và dễ nghiên cứu hơn các links tổng quát&lt;/li&gt;
+  &lt;li&gt;Nhiều định lý trong knot theory được chứng minh đầu tiên cho alternating links&lt;/li&gt;
+  &lt;li&gt;Alternating knots có các tính chất hình học đặc biệt liên quan đến hyperbolic geometry&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Trefoil knot là alternating&lt;/li&gt;
+  &lt;li&gt;Figure-eight knot là alternating&lt;/li&gt;
+  &lt;li&gt;Nhiều nút đơn giản khác cũng là alternating&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Định lý Tait (1898):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một alternating diagram giảm (reduced alternating diagram) có số crossing tối thiểu. Điều này có nghĩa là nếu bạn có một alternating diagram của một alternating knot, thì số crossing trong diagram đó chính là crossing number của nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Alternating links là một lớp quan trọng và dễ nghiên cứu trong knot theory. Nhiều kết quả quan trọng được chứng minh đầu tiên cho alternating links trước khi được mở rộng cho các links tổng quát.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-knot-invariants-bất-biến-nút&quot;&gt;🧮 Knot Invariants (Bất Biến Nút)&lt;/h2&gt;
+
+&lt;h3 id=&quot;bất-biến-là-gì&quot;&gt;Bất Biến là gì?&lt;/h3&gt;
+
+&lt;p&gt;Một &lt;strong&gt;knot invariant&lt;/strong&gt; là một đại lượng (số, đa thức, nhóm, v.v.) được gán cho mỗi nút sao cho các nút tương đương có cùng giá trị của bất biến.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao bất biến quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nếu hai nút có các giá trị khác nhau của một bất biến, chúng ta biết chắc chắn rằng chúng không tương đương. Tuy nhiên, nếu chúng có cùng giá trị, chúng có thể tương đương hoặc không—phụ thuộc vào việc bất biến có “hoàn chỉnh” hay không.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bất biến hoàn chỉnh:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một bất biến được gọi là &lt;strong&gt;hoàn chỉnh&lt;/strong&gt; (complete) nếu hai nút có cùng giá trị của bất biến khi và chỉ khi chúng tương đương. Hiện tại, chúng ta chưa có bất biến hoàn chỉnh nào được biết đến!&lt;/p&gt;
+
+&lt;h3 id=&quot;trivial-invariants-bất-biến-tầm-thường&quot;&gt;Trivial Invariants (Bất Biến Tầm Thường)&lt;/h3&gt;
+
+&lt;p&gt;Một số bất biến đơn giản nhưng không mạnh:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Số Crossing (Crossing Number):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Số lượng điểm giao nhau tối thiểu trong một diagram của nút&lt;/li&gt;
+  &lt;li&gt;Unknot có crossing number = 0&lt;/li&gt;
+  &lt;li&gt;Trefoil có crossing number = 3&lt;/li&gt;
+  &lt;li&gt;Figure-eight có crossing number = 4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Vấn đề:&lt;/strong&gt; Tính toán crossing number là một bài toán khó—chúng ta cần tìm diagram với số crossing tối thiểu.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unknotting Number:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Số lần tối thiểu cần “cắt” và “nối lại” để biến một nút thành unknot&lt;/li&gt;
+  &lt;li&gt;Unknot có unknotting number = 0&lt;/li&gt;
+  &lt;li&gt;Trefoil có unknotting number = 1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;knot-group-nhóm-nút&quot;&gt;Knot Group (Nhóm Nút)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Knot group&lt;/strong&gt; là một trong những bất biến quan trọng nhất của nút.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot group của một nút $K$ là fundamental group của knot complement:
+\(\pi_1(S^3 \setminus K)\)&lt;/p&gt;
+
+&lt;p&gt;trong đó $S^3 \setminus K$ là phần bù của nút trong hình cầu ba chiều.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot group là một bất biến mạnh mẽ—nhiều nút khác nhau có các knot groups khác nhau. Tuy nhiên, nó không hoàn chỉnh—có những nút khác nhau có cùng knot group.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính toán Knot Group:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot group có thể được tính toán từ knot diagram sử dụng Wirtinger presentation:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mỗi crossing tạo ra một generator&lt;/li&gt;
+  &lt;li&gt;Mỗi crossing tạo ra một relation&lt;/li&gt;
+  &lt;li&gt;Nhóm được trình bày bởi các generators và relations này&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Unknot:&lt;/strong&gt; Knot group = $\mathbb{Z}$ (cyclic group vô hạn)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Trefoil:&lt;/strong&gt; Knot group = Braid group $B_3$ (phức tạp hơn nhiều)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với Fundamental Group:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot group là một ứng dụng cụ thể của fundamental group mà chúng ta đã học trong Chapter 06. Nó cho thấy cách fundamental group có thể được sử dụng để phân biệt các không gian topology phức tạp.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-alexander-polynomial&quot;&gt;📐 Alexander Polynomial&lt;/h2&gt;
+
+&lt;h3 id=&quot;định-nghĩa&quot;&gt;Định Nghĩa&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Alexander polynomial&lt;/strong&gt; $\Delta_K(t)$ là một đa thức được gán cho mỗi nút $K$, được phát minh bởi James W. Alexander vào năm 1928.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Bất biến:&lt;/strong&gt; Nếu hai nút tương đương, chúng có cùng Alexander polynomial&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Đa thức Laurent:&lt;/strong&gt; Alexander polynomial là một đa thức Laurent trong biến $t$ và $t^{-1}$&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chuẩn hóa:&lt;/strong&gt; Thường được chuẩn hóa sao cho $\Delta_K(1) = 1$ và $\Delta_K(t) = \Delta_K(t^{-1})$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cách-tính-alexander-polynomial&quot;&gt;Cách Tính Alexander Polynomial&lt;/h3&gt;
+
+&lt;p&gt;Có nhiều cách để tính Alexander polynomial:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Từ Knot Diagram:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sử dụng Alexander matrix—một ma trận được xây dựng từ knot diagram:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mỗi crossing tạo ra một hàng và một cột&lt;/li&gt;
+  &lt;li&gt;Các phần tử của ma trận được tính từ các arcs trong diagram&lt;/li&gt;
+  &lt;li&gt;Alexander polynomial là determinant của một minor của ma trận này&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Từ Knot Group:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alexander polynomial có thể được tính từ presentation của knot group sử dụng Fox calculus.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Từ Skein Relation:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alexander polynomial thỏa mãn một skein relation:
+\(\Delta_{K_+}(t) - \Delta_{K_-}(t) = (t^{1/2} - t^{-1/2}) \Delta_{K_0}(t)\)&lt;/p&gt;
+
+&lt;p&gt;trong đó $K_+$, $K_-$, và $K_0$ là các nút chỉ khác nhau tại một crossing.&lt;/p&gt;
+
+&lt;h3 id=&quot;ví-dụ&quot;&gt;Ví dụ&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Unknot:&lt;/strong&gt;
+\(\Delta_{\text{unknot}}(t) = 1\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trefoil:&lt;/strong&gt;
+\(\Delta_{\text{trefoil}}(t) = t - 1 + t^{-1}\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Figure-eight:&lt;/strong&gt;
+\(\Delta_{\text{figure-eight}}(t) = t - 3 + t^{-1}\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Alexander polynomial là một trong những bất biến đầu tiên và quan trọng nhất của nút. Nó cho phép chúng ta phân biệt nhiều nút khác nhau, mặc dù nó không hoàn chỉnh—có những nút khác nhau có cùng Alexander polynomial.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-conway-polynomial&quot;&gt;🔷 Conway Polynomial&lt;/h2&gt;
+
+&lt;h3 id=&quot;định-nghĩa-và-skein-relation&quot;&gt;Định Nghĩa và Skein Relation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Conway polynomial&lt;/strong&gt; $\nabla_K(z)$ là một bất biến của nút được phát minh bởi John Conway vào những năm 1960. Nó liên quan chặt chẽ với Alexander polynomial nhưng có skein relation đơn giản hơn.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Skein Relation:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Conway polynomial thỏa mãn skein relation:
+\(\nabla_{K_+}(z) - \nabla_{K_-}(z) = z \nabla_{K_0}(z)\)&lt;/p&gt;
+
+&lt;p&gt;trong đó $K_+$, $K_-$, và $K_0$ là các nút chỉ khác nhau tại một crossing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Điều kiện ban đầu:&lt;/strong&gt;&lt;/p&gt;
+
+\[\nabla_{\text{unknot}}(z) = 1\]
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với Alexander Polynomial:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Conway polynomial và Alexander polynomial liên quan với nhau qua phép thay biến:
+\(\Delta_K(t) = \nabla_K(t^{1/2} - t^{-1/2})\)&lt;/p&gt;
+
+&lt;p&gt;hoặc ngược lại:
+\(\nabla_K(z) = \Delta_K\left(\frac{z + \sqrt{z^2 + 4}}{2}\right)\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Conway polynomial có skein relation đơn giản hơn Alexander polynomial, làm cho việc tính toán trở nên dễ dàng hơn trong nhiều trường hợp. Nó cũng có các tính chất đại số đẹp và được sử dụng rộng rãi trong knot theory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Unknot:&lt;/strong&gt; $\nabla_{\text{unknot}}(z) = 1$&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Trefoil:&lt;/strong&gt; $\nabla_{\text{trefoil}}(z) = 1 + z^2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Conway polynomial là một cách khác để biểu diễn thông tin từ Alexander polynomial, với skein relation đơn giản hơn. Nó cho thấy cách các bất biến khác nhau có thể được liên kết với nhau.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;️-signature-và-slice-knots&quot;&gt;✍️ Signature và Slice Knots&lt;/h2&gt;
+
+&lt;h3 id=&quot;signature-của-nút&quot;&gt;Signature của Nút&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Signature&lt;/strong&gt; (chữ ký) của một nút là một số nguyên được gán cho mỗi nút, là một bất biến quan trọng trong knot theory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Signature của một nút $K$ được định nghĩa thông qua Seifert surface của nó. Cụ thể:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Chọn một Seifert surface $\Sigma$ cho $K$&lt;/li&gt;
+  &lt;li&gt;Xây dựng Seifert form (một dạng song tuyến tính trên $H_1(\Sigma)$)&lt;/li&gt;
+  &lt;li&gt;Signature là số lượng các giá trị riêng dương trừ số lượng các giá trị riêng âm của Seifert form&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Signature là một bất biến của nút—không phụ thuộc vào việc chọn Seifert surface&lt;/li&gt;
+  &lt;li&gt;Signature là một số nguyên chẵn hoặc lẻ tùy thuộc vào nút&lt;/li&gt;
+  &lt;li&gt;Signature có thể được tính toán từ knot diagram&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Signature được sử dụng để:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Phân biệt các nút khác nhau&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu slice knots&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu các tính chất hình học của nút&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;slice-knots-nút-slice&quot;&gt;Slice Knots (Nút Slice)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Định nghĩa:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một nút $K$ trong $S^3$ được gọi là &lt;strong&gt;slice&lt;/strong&gt; nếu nó là biên của một đĩa được nhúng mượt (smoothly embedded disk) trong quả bóng bốn chiều $B^4$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cụ thể hơn:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;$K$ là slice nếu tồn tại một đĩa mượt $D \subset B^4$ sao cho $\partial D = K$ và $D$ được nhúng mượt trong $B^4$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ribbon Knots:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một lớp con quan trọng của slice knots là &lt;strong&gt;ribbon knots&lt;/strong&gt;—các nút có thể được tạo ra bằng cách “cắt” một link đơn giản và “dán” lại.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Unknot là slice (hiển nhiên)&lt;/li&gt;
+  &lt;li&gt;Nhiều nút khác nhau có thể là slice hoặc không slice&lt;/li&gt;
+  &lt;li&gt;Việc xác định xem một nút có phải là slice hay không là một bài toán khó&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với Signature:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Signature cung cấp một điều kiện cần cho một nút là slice:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nếu $K$ là slice, thì signature của $K$ phải bằng 0&lt;/li&gt;
+  &lt;li&gt;Tuy nhiên, điều ngược lại không đúng—có những nút có signature = 0 nhưng không phải là slice&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Four-Ball Genus:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Four-ball genus&lt;/strong&gt; (hay slice genus) của một nút $K$, ký hiệu $g_4(K)$, là genus nhỏ nhất của một mặt có biên trong $B^4$ có biên là $K$.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nếu $K$ là slice, thì $g_4(K) = 0$&lt;/li&gt;
+  &lt;li&gt;Four-ball genus là một bất biến quan trọng của nút&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Signature và slice knots là các khái niệm quan trọng trong knot theory hiện đại. Chúng liên kết knot theory với topology bốn chiều và có nhiều ứng dụng trong hình học và topology.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-jones-polynomial&quot;&gt;🎨 Jones Polynomial&lt;/h2&gt;
+
+&lt;h3 id=&quot;phát-minh-và-ý-nghĩa&quot;&gt;Phát Minh và Ý Nghĩa&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Jones polynomial&lt;/strong&gt; $V_K(t)$ được phát minh bởi Vaughan Jones vào năm 1984, và đây là một phát hiện đột phá trong knot theory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Điều đặc biệt:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Jones polynomial không chỉ là một bất biến mạnh mẽ—nó còn có nguồn gốc từ một lĩnh vực toán học hoàn toàn khác: &lt;strong&gt;operator algebras&lt;/strong&gt; và &lt;strong&gt;statistical mechanics&lt;/strong&gt;. Điều này cho thấy mối liên hệ sâu sắc giữa các nhánh khác nhau của toán học.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Bất biến:&lt;/strong&gt; Nếu hai nút tương đương, chúng có cùng Jones polynomial&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Đa thức Laurent:&lt;/strong&gt; Jones polynomial là một đa thức Laurent trong biến $t^{1/2}$ và $t^{-1/2}$&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mạnh hơn Alexander:&lt;/strong&gt; Jones polynomial phân biệt được nhiều nút mà Alexander polynomial không phân biệt được&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;skein-relation&quot;&gt;Skein Relation&lt;/h3&gt;
+
+&lt;p&gt;Jones polynomial thỏa mãn skein relation:
+\(t^{-1} V_{K_+}(t) - t V_{K_-}(t) = (t^{1/2} - t^{-1/2}) V_{K_0}(t)\)&lt;/p&gt;
+
+&lt;p&gt;và điều kiện ban đầu:
+\(V_{\text{unknot}}(t) = 1\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cách tính:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Từ skein relation và điều kiện ban đầu, chúng ta có thể tính Jones polynomial của bất kỳ nút nào bằng cách:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Chọn một crossing trong knot diagram&lt;/li&gt;
+  &lt;li&gt;Áp dụng skein relation để tính Jones polynomial của các nút đơn giản hơn&lt;/li&gt;
+  &lt;li&gt;Lặp lại cho đến khi đạt được unknot&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;ví-dụ-1&quot;&gt;Ví dụ&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Unknot:&lt;/strong&gt;
+\(V_{\text{unknot}}(t) = 1\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trefoil:&lt;/strong&gt;
+\(V_{\text{trefoil}}(t) = t + t^3 - t^4\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Figure-eight:&lt;/strong&gt;
+\(V_{\text{figure-eight}}(t) = t^{-2} - t^{-1} + 1 - t + t^2\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Jones polynomial là một ví dụ tuyệt vời về cách các ý tưởng từ các lĩnh vực khác nhau của toán học có thể được kết hợp để tạo ra những công cụ mạnh mẽ mới. Nó cũng cho thấy rằng knot theory vẫn là một lĩnh vực đang phát triển với những phát hiện mới.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-knot-complement-và-topology&quot;&gt;🔗 Knot Complement và Topology&lt;/h2&gt;
+
+&lt;h3 id=&quot;knot-complement&quot;&gt;Knot Complement&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Knot complement&lt;/strong&gt; của một nút $K$ trong hình cầu ba chiều $S^3$ là không gian:
+\(S^3 \setminus K\)&lt;/p&gt;
+
+&lt;p&gt;Đây là không gian thu được bằng cách “loại bỏ” nút khỏi hình cầu ba chiều.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tại sao quan trọng?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot complement là một không gian topology phức tạp và thú vị. Nhiều tính chất của nút có thể được hiểu thông qua topology của knot complement.&lt;/p&gt;
+
+&lt;h3 id=&quot;fundamental-group-của-knot-complement&quot;&gt;Fundamental Group của Knot Complement&lt;/h3&gt;
+
+&lt;p&gt;Như chúng ta đã đề cập, &lt;strong&gt;knot group&lt;/strong&gt; là fundamental group của knot complement:
+\(\pi_1(S^3 \setminus K)\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tính chất:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Knot group là một bất biến mạnh mẽ của nút&lt;/li&gt;
+  &lt;li&gt;Nó có thể được tính toán từ knot diagram&lt;/li&gt;
+  &lt;li&gt;Nhiều nút khác nhau có các knot groups khác nhau&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Unknot:&lt;/strong&gt; $\pi_1(S^3 \setminus \text{unknot}) = \mathbb{Z}$&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Trefoil:&lt;/strong&gt; Knot group phức tạp hơn nhiều, không phải abelian&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;homology-của-knot-complement&quot;&gt;Homology của Knot Complement&lt;/h3&gt;
+
+&lt;p&gt;Chúng ta cũng có thể tính homology của knot complement:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$H_0(S^3 \setminus K)$:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Luôn bằng $\mathbb{Z}$ (một thành phần liên thông)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;$H_1(S^3 \setminus K)$:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Luôn bằng $\mathbb{Z}$ (một generator từ nút)&lt;/li&gt;
+  &lt;li&gt;Đây là abelianization của knot group&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;$H_2(S^3 \setminus K)$:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Luôn bằng 0 (không có lỗ hai chiều)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;$H_n(S^3 \setminus K)$ (n ≥ 3):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Luôn bằng 0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Knot complement là một ví dụ tuyệt vời về cách topology đại số (fundamental group, homology) có thể được sử dụng để nghiên cứu các đối tượng hình học phức tạp như nút.&lt;/p&gt;
+
+&lt;h3 id=&quot;covering-spaces-của-knot-complement&quot;&gt;Covering Spaces của Knot Complement&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Không gian phủ:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot complement $S^3 \setminus K$ có nhiều không gian phủ (covering spaces) thú vị. Đặc biệt, chúng ta có thể xây dựng các không gian phủ vô hạn của knot complement.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cyclic Coverings:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cho một nút $K$, chúng ta có thể xây dựng các &lt;strong&gt;cyclic coverings&lt;/strong&gt; của $S^3 \setminus K$:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$X_n$ là không gian phủ $n$-lớp của $S^3 \setminus K$&lt;/li&gt;
+  &lt;li&gt;$X_n$ được xác định bởi homomorphism $\pi_1(S^3 \setminus K) \to \mathbb{Z}/n\mathbb{Z}$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Covering spaces của knot complement được sử dụng để:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tính toán Alexander polynomial&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu topology của knot complement&lt;/li&gt;
+  &lt;li&gt;Xây dựng các bất biến mới của nút&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Infinite Cyclic Covering:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Infinite cyclic covering&lt;/strong&gt; $X_\infty$ của $S^3 \setminus K$ là không gian phủ vô hạn được xác định bởi homomorphism $\pi_1(S^3 \setminus K) \to \mathbb{Z}$.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$X_\infty$ có tính chất đặc biệt và được sử dụng rộng rãi trong knot theory&lt;/li&gt;
+  &lt;li&gt;Alexander polynomial có thể được tính toán từ homology của $X_\infty$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Covering spaces là một công cụ mạnh mẽ trong topology đại số, và việc áp dụng chúng vào knot theory cho thấy mối liên hệ sâu sắc giữa các nhánh khác nhau của toán học.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-ứng-dụng-của-knot-theory&quot;&gt;🧬 Ứng Dụng của Knot Theory&lt;/h2&gt;
+
+&lt;h3 id=&quot;trong-vật-lý&quot;&gt;Trong Vật Lý&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Quantum Field Theory:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Knot theory có nhiều ứng dụng trong vật lý lượng tử:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Chern-Simons theory:&lt;/strong&gt; Một lý thuyết trường lượng tử trong đó Jones polynomial xuất hiện tự nhiên&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Topological quantum field theory (TQFT):&lt;/strong&gt; Các lý thuyết trường lượng tử với tính chất topology&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Anyons:&lt;/strong&gt; Các hạt lượng tử với tính chất topology đặc biệt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;String Theory:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nghiên cứu về các string và cách chúng có thể tạo thành các cấu trúc giống nút&lt;/li&gt;
+  &lt;li&gt;Liên kết với topology của không gian nhiều chiều&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;trong-sinh-học&quot;&gt;Trong Sinh Học&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;DNA và Protein:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;DNA:&lt;/strong&gt; Các phân tử DNA có thể tạo thành các nút và links&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Topoisomerase:&lt;/strong&gt; Các enzyme có thể “tháo gỡ” các nút trong DNA&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Protein folding:&lt;/strong&gt; Nghiên cứu về cách các protein gấp lại có thể liên quan đến knot theory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Vi khuẩn và Virus:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một số vi khuẩn và virus có cấu trúc DNA với các nút phức tạp&lt;/li&gt;
+  &lt;li&gt;Hiểu topology của chúng giúp phát triển các phương pháp điều trị mới&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;trong-hóa-học&quot;&gt;Trong Hóa Học&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Phân tử:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một số phân tử có cấu trúc giống nút&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu về cách các phân tử này được hình thành và tính chất của chúng&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Polymers:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Các polymer dài có thể tạo thành các cấu trúc giống nút&lt;/li&gt;
+  &lt;li&gt;Topology ảnh hưởng đến tính chất vật lý của polymer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dehn-surgery-và-3-manifolds&quot;&gt;Dehn Surgery và 3-Manifolds&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Dehn Surgery:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dehn surgery&lt;/strong&gt; là một phương pháp để tạo ra các 3-manifold mới từ $S^3$ bằng cách “phẫu thuật” trên một nút hoặc link.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quá trình:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Chọn một nút $K$ trong $S^3$&lt;/li&gt;
+  &lt;li&gt;Loại bỏ một tubular neighborhood của $K$ (một solid torus)&lt;/li&gt;
+  &lt;li&gt;Gắn lại một solid torus khác theo một cách khác&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Kết quả là một 3-manifold mới $M$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Surgery Coefficient:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cách gắn lại solid torus được xác định bởi một &lt;strong&gt;surgery coefficient&lt;/strong&gt; $p/q$ (một số hữu tỉ hoặc vô hạn).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$p/q = \infty$ tương ứng với việc gắn lại solid torus theo cách ban đầu—kết quả vẫn là $S^3$&lt;/li&gt;
+  &lt;li&gt;Các giá trị khác của $p/q$ tạo ra các 3-manifold khác nhau&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Định lý Lickorish-Wallace:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mọi 3-manifold đóng, orientable có thể thu được từ $S^3$ bằng cách thực hiện Dehn surgery trên một link. Đây là một kết quả cơ bản và quan trọng trong topology ba chiều.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Dehn surgery được sử dụng để:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Xây dựng các 3-manifold mới&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu topology của 3-manifolds&lt;/li&gt;
+  &lt;li&gt;Liên kết knot theory với topology ba chiều&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3-Manifold Invariants từ Jones Polynomial:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Một phát triển quan trọng là việc sử dụng Jones polynomial (và các bất biến lượng tử khác) để xây dựng các bất biến cho 3-manifolds.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Witten-Reshetikhin-Turaev invariants:&lt;/strong&gt; Các bất biến lượng tử cho 3-manifolds được xây dựng từ Jones polynomial&lt;/li&gt;
+  &lt;li&gt;Các bất biến này có tính chất đặc biệt và được nghiên cứu rộng rãi trong topology lượng tử&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Liên hệ với phần chính:&lt;/strong&gt; Dehn surgery cho thấy mối liên hệ sâu sắc giữa knot theory và topology ba chiều. Nó cho phép chúng ta sử dụng kiến thức về nút để nghiên cứu các không gian ba chiều phức tạp hơn.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-fundamental-papers--references&quot;&gt;🧠 Fundamental Papers &amp;amp; References&lt;/h2&gt;
+
+&lt;h3 id=&quot;classic-works&quot;&gt;Classic Works&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;J.W. Alexander&lt;/strong&gt; - &lt;em&gt;“Topological Invariants of Knots and Links”&lt;/em&gt; (1928)&lt;br /&gt;
+&lt;em&gt;Phát minh Alexander polynomial&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Kurt Reidemeister&lt;/strong&gt; - &lt;em&gt;“Elementare Begründung der Knotentheorie”&lt;/em&gt; (1927)&lt;br /&gt;
+&lt;em&gt;Reidemeister moves và định lý cơ bản&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Vaughan Jones&lt;/strong&gt; - &lt;em&gt;“A Polynomial Invariant for Knots via von Neumann Algebras”&lt;/em&gt; (1985)&lt;br /&gt;
+&lt;em&gt;Phát minh Jones polynomial&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Louis Kauffman&lt;/strong&gt; - &lt;em&gt;“State Models and the Jones Polynomial”&lt;/em&gt; (1987)&lt;br /&gt;
+&lt;em&gt;Cách tính Jones polynomial từ state models&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;William Thurston&lt;/strong&gt; - &lt;em&gt;“Three-Dimensional Geometry and Topology”&lt;/em&gt; (1997)&lt;br /&gt;
+&lt;em&gt;Knot theory và hyperbolic geometry&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;textbooks&quot;&gt;Textbooks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dale Rolfsen&lt;/strong&gt; - &lt;em&gt;Knots and Links&lt;/em&gt; (1976)&lt;br /&gt;
+&lt;em&gt;Giáo trình kinh điển về knot theory&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Colin Adams&lt;/strong&gt; - &lt;em&gt;The Knot Book: An Elementary Introduction to the Mathematical Theory of Knots&lt;/em&gt; (1994)&lt;br /&gt;
+&lt;em&gt;Giới thiệu dễ hiểu về knot theory&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Louis Kauffman&lt;/strong&gt; - &lt;em&gt;Knots and Physics&lt;/em&gt; (1991)&lt;br /&gt;
+&lt;em&gt;Knot theory và vật lý&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;W.B. Raymond Lickorish&lt;/strong&gt; - &lt;em&gt;An Introduction to Knot Theory&lt;/em&gt; (1997)&lt;br /&gt;
+&lt;em&gt;Giáo trình chuyên sâu về knot theory, kết hợp topology hình học, tổ hợp và topology đại số. Bao gồm Seifert surfaces, Conway polynomial, signature, slice knots, Dehn surgery, và các bất biến 3-manifold từ Jones polynomial&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-applications-and-connections&quot;&gt;🔗 Applications and Connections&lt;/h2&gt;
+
+&lt;h3 id=&quot;trong-toán-học&quot;&gt;Trong Toán Học&lt;/h3&gt;
+
+&lt;p&gt;Knot theory có nhiều kết nối với các nhánh khác của toán học:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Topology:&lt;/strong&gt; Knot theory là một phần của low-dimensional topology&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Group Theory:&lt;/strong&gt; Knot groups và braid groups&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Algebra:&lt;/strong&gt; Polynomial invariants và skein theory&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Geometry:&lt;/strong&gt; Hyperbolic geometry và knot complements&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Combinatorics:&lt;/strong&gt; Knot diagrams và graph theory&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;trong-vật-lý-1&quot;&gt;Trong Vật Lý&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Quantum Field Theory:&lt;/strong&gt; Chern-Simons theory và TQFT&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Statistical Mechanics:&lt;/strong&gt; Jones polynomial từ statistical models&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;String Theory:&lt;/strong&gt; Topology của strings và branes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;trong-sinh-học-và-hóa-học&quot;&gt;Trong Sinh Học và Hóa Học&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;DNA Topology:&lt;/strong&gt; Cấu trúc và topology của DNA&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Protein Folding:&lt;/strong&gt; Topology của các protein phức tạp&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Polymer Science:&lt;/strong&gt; Topology của các polymer dài&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-exercises-and-reflections&quot;&gt;🧩 Exercises and Reflections&lt;/h2&gt;
+
+&lt;h3 id=&quot;câu-hỏi-suy-ngẫm&quot;&gt;Câu hỏi suy ngẫm&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Thử nghiệm:&lt;/strong&gt; Hãy lấy một sợi dây và thử tạo ra các nút khác nhau. Bạn có thể tạo ra trefoil knot không? Bạn có thể tháo gỡ nó không?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Phân tích:&lt;/strong&gt; Tại sao unknot được coi là một nút mặc dù nó trông giống một vòng tròn đơn giản?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;So sánh:&lt;/strong&gt; Hãy so sánh Alexander polynomial và Jones polynomial. Chúng khác nhau như thế nào? Tại sao cả hai đều quan trọng?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt; Hãy nghĩ về các ứng dụng của knot theory trong lĩnh vực mà bạn quan tâm.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Thử thách:&lt;/strong&gt; Hãy tìm hiểu về cách tính knot group từ knot diagram sử dụng Wirtinger presentation.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;thử-nghiệm-thực-tế&quot;&gt;Thử nghiệm thực tế&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tạo nút:&lt;/strong&gt; Hãy lấy một sợi dây và thử tạo ra các nút khác nhau (trefoil, figure-eight, v.v.).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Reidemeister Moves:&lt;/strong&gt; Hãy thử áp dụng các Reidemeister moves để biến đổi một knot diagram.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Nghiên cứu:&lt;/strong&gt; Hãy tìm hiểu về các ứng dụng của knot theory trong vật lý và sinh học.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tính toán:&lt;/strong&gt; Hãy thử tính Alexander polynomial của một nút đơn giản.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;-tóm-tắt&quot;&gt;📚 Tóm tắt&lt;/h2&gt;
+
+&lt;p&gt;Trong bài học này, chúng ta đã khám phá:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Định nghĩa toán học:&lt;/strong&gt; Nút là embedding của $S^1$ vào $\mathbb{R}^3$ với các đầu được buộc lại với nhau&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Reidemeister Moves:&lt;/strong&gt; Ba phép biến đổi cơ bản cho phép chúng ta làm việc với knot diagrams&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Seifert Surfaces:&lt;/strong&gt; Mặt có biên orientable có biên là nút, được sử dụng để nghiên cứu genus và các tính chất khác&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Alternating Links:&lt;/strong&gt; Các liên kết với diagram xen kẽ, có nhiều tính chất đặc biệt&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Knot Invariants:&lt;/strong&gt; Các bất biến như knot group, Alexander polynomial, Conway polynomial, Jones polynomial, và signature&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Slice Knots:&lt;/strong&gt; Các nút là biên của đĩa trong $B^4$, liên quan đến topology bốn chiều&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Knot Complement:&lt;/strong&gt; Topology của $S^3 \setminus K$, covering spaces, và cách chúng liên quan đến tính chất của nút&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dehn Surgery:&lt;/strong&gt; Phương pháp tạo ra 3-manifolds từ $S^3$ bằng cách phẫu thuật trên nút&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ứng dụng:&lt;/strong&gt; Từ vật lý lượng tử đến sinh học phân tử, và từ topology ba chiều đến topology bốn chiều&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Knot theory là một lĩnh vực toán học phong phú và đang phát triển, với nhiều kết nối sâu sắc với các nhánh khác của toán học và nhiều ứng dụng thực tế. Hiểu được knot theory giúp chúng ta hiểu sâu hơn về topology của không gian ba chiều và các ứng dụng của nó trong khoa học và công nghệ!&lt;/p&gt;
 
 </content>
  </entry>

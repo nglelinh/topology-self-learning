@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Bài 09.04: Bốn Màu Đủ Để Tô Bản Đồ"
+title: "Bài 09.05: Bốn Màu Đủ Để Tô Bản Đồ"
 lang: vi
-lang-ref: lecture-09-04
+lang-ref: lecture-09-05
 chapter: 9
-lecture: 4
+lecture: 5
 categories: [chapter09]
 tags: [four-color-theorem, bản-đồ, topology, graph-theory]
 description: "Khám phá định lý bốn màu - một trong những định lý nổi tiếng nhất trong toán học, và cách nó liên quan đến topology và graph theory"
