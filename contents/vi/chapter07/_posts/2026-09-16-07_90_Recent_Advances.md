@@ -80,6 +80,11 @@ Su, Liu, Bou Hamdan, Maroulas, Wu, Carlsson và Wei (2025) viết review “beyo
 
 Một lệnh `VietorisRipsPersistence` trong giotto-tda trên đám mây điểm protein cho barcode $H_1,H_2$ — cùng nhóm $H_n$ của bài 07.00, chỉ khác là $\partial$ chạy trong C++.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, tiếng Anh. Từ đồng điều hữu hạn tới bản bền vững, đúng bước bài này đi thêm.
+- [Applied topology 15: Introduction to a software tutorial for persistent homology and Ripser](https://www.youtube.com/watch?v=jgVr4FIySw4) — Applied Algebraic Topology Network, tiếng Anh. Ripser và một tutorial tính barcode, đúng phần mềm bài nêu tên.
+
 ## 🧩 Bài tập
 
 1. Với 4 đỉnh của hình vuông đơn vị, ước lượng $\varepsilon$ khi $H_1$ sinh và khi nó chết trong VR.

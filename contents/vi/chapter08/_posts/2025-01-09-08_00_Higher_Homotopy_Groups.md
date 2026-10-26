@@ -386,6 +386,11 @@ Ngay cả các stable homotopy groups này cũng cực kỳ khó tính toán, v�
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [A Sphere is a Loop of Loops (Visualizing Homotopy Groups)](https://www.youtube.com/watch?v=CxGtAuJdjYI) — Dennis Sweeney, tiếng Anh. Hình cầu như một vòng của các vòng, để thấy πₙ trước định nghĩa hình thức.
+- [The fundamental group and higher homotopy groups](https://www.youtube.com/watch?v=7RYu7uvomUs) — DanielChanMaths, tiếng Anh. Daniel Chan nối π₁ với các nhóm đồng luân cao hơn, sát phần tính toán của bài.
+
 ## 🧩 Exercises
 
 ### Definitions

@@ -382,6 +382,12 @@ là neighborhood basis tại x.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [[TÔPÔ ĐẠI CƯƠNG] Bài 2. Cơ sở của một tô pô (phần 1)](https://www.youtube.com/watch?v=j4qUKcuf-uA) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Cơ sở của một tô-pô, phần 1, sát định nghĩa bài đang xây.
+- [[TÔ PÔ ĐẠI CƯƠNG] Bài 2. Cơ sở của một tô pô (phần 2)](https://www.youtube.com/watch?v=y_Eqq1QKyXM) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Phần 2 của cùng bài giảng, dùng khi cơ sở đã có và ta sinh ra tô-pô.
+- [Topology Lecture 08: Basis for a Topology](https://www.youtube.com/watch?v=dUfNktEkwPo) — Marius Furter, tiếng Anh. Một lối tiếng Anh chậm, có ví dụ, cho hai điều kiện của cơ sở.
+
 ## 🧩 Exercises
 
 ### Understanding Bases

@@ -374,6 +374,12 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [The Concept So Much of Modern Math is Built On | Compactness](https://www.youtube.com/watch?v=td7Nz9ATyWY) — Morphocular, tiếng Anh. Vì sao phủ mở và phủ con hữu hạn là cách đúng để nói một tập không bị loãng ra vô hạn.
+- [Basic Topology 4 | Compact Sets](https://www.youtube.com/watch?v=pYli4-0hzSs) — The Bright Side of Mathematics, tiếng Anh. Định nghĩa compact và các tính chất đầu tiên, trong chuỗi Basic Topology.
+- [Không gian tô-pô compact](https://www.youtube.com/watch?v=_o4E8YTaDk4) — Cuong Nguyen, tiếng Việt. Không gian compact nói bằng tiếng Việt, để nghe lại định nghĩa trong ngôn ngữ của bài.
+
 ## 🧩 Exercises
 
 ### Compactness Definition

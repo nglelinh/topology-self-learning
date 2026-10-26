@@ -660,6 +660,12 @@ Euler Characteristic là một trong những bất biến quan trọng nhất tr
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Euler's Formula and Graph Duality](https://www.youtube.com/watch?v=-9OUyo8NFZg) — 3Blue1Brown, tiếng Anh. Công thức Euler và đối ngẫu đồ thị, để thấy V − E + F không phụ thuộc cách chia.
+- [Euler Characteristic (some extra footage)](https://www.youtube.com/watch?v=QwfPTE7lEbE) — Numberphile2, tiếng Anh. Numberphile nói thêm về đặc trưng Euler sau các ví dụ phẳng.
+- [Euler's Characteristic - The Incredible Geometry Formula](https://www.youtube.com/watch?v=a9u1agKEjl4) — vinteachesmath, tiếng Anh. Tính V − E + F trên vài khối đa diện, trước khi bài nâng nó thành bất biến.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

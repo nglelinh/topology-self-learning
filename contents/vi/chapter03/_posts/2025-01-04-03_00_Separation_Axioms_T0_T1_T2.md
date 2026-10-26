@@ -332,6 +332,12 @@ Closed sets = algebraic varieties (zero sets của polynomials).
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [[Tôpô đại cương] Bài 15. Không gian Hausdorff và Tiên đề tách T2: Định nghĩa và ví dụ](https://www.youtube.com/watch?v=Cddm3s5qzRo) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Hausdorff và tiên đề tách T2 bằng tiếng Việt, đích của thang T0–T1–T2 trong bài.
+- [Basic Topology 6 | Hausdorff Spaces](https://www.youtube.com/watch?v=wHIu3Js30Uk) — The Bright Side of Mathematics, tiếng Anh. Hai điểm tách được bằng hai tập mở, định nghĩa Hausdorff trong Basic Topology.
+- [Intuitive Topology 7: Hausdorff](https://www.youtube.com/watch?v=-wbRSq7ExdM) — Hausdorff, tiếng Anh. Cùng tính chất, vẽ chậm, để thấy T2 mạnh hơn T1 ở chỗ nào.
+
 ## 🧩 Exercises
 
 ### T₀ Spaces

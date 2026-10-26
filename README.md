@@ -399,6 +399,19 @@ Mỗi bài giảng được thiết kế theo cấu trúc **7 bước**:
 - **Tadashi Tokieda**: Visual thinking
 - **Norman Wildberger**: Algebraic topology series
 
+
+Mỗi bài trong `contents/` có mục **Video tham khảo** (1–3 video đã kiểm tra, một video đánh dấu xem trước). Một video nên mở đầu cho mỗi chương:
+- **Chương 00** — [Surjective (onto) and injective (one-to-one) functions | Linear Algebra | Khan Academy](https://www.youtube.com/watch?v=xKNX8BUWR0g) (Khan Academy)
+- **Chương 01** — [Basic Topology 2 | Topological Spaces](https://www.youtube.com/watch?v=Wxa-pMaxd7Q) (The Bright Side of Mathematics)
+- **Chương 02** — [The Concept So Much of Modern Math is Built On | Compactness](https://www.youtube.com/watch?v=td7Nz9ATyWY) (Morphocular)
+- **Chương 03** — [[Tôpô đại cương] Bài 15. Không gian Hausdorff và Tiên đề tách T2: Định nghĩa và ví dụ](https://www.youtube.com/watch?v=Cddm3s5qzRo) (Nguyễn Thị Yến Nhi THPT Giồng Riềng)
+- **Chương 04** — [Basic Topology 1 | Introduction and Open Sets in Metric Spaces](https://www.youtube.com/watch?v=D7ioHVbqWLA) (The Bright Side of Mathematics)
+- **Chương 05** — [What is...the classification of surfaces?](https://www.youtube.com/watch?v=p1hyQpDk3lw) (VisualMath)
+- **Chương 06** — [Intro to the Fundamental Group //  Algebraic Topology with @TomRocksMaths](https://www.youtube.com/watch?v=IpkzNeS8G20) (Dr. Trefor Bazett)
+- **Chương 07** — [Algebraic Topology 10: Simplicial Homology](https://www.youtube.com/watch?v=-bM8Gg6bOJo) (Math at Andrews University)
+- **Chương 08** — [Manifolds 1 | Introduction and Topology](https://www.youtube.com/watch?v=62WNNkoRCLE) (The Bright Side of Mathematics)
+- **Chương 09** — [This open problem taught me what topology is](https://www.youtube.com/watch?v=IQqtsm-bBRU) (3Blue1Brown)
+
 ---
 
 ## 🌟 Điểm Đặc biệt của Khóa học

@@ -558,6 +558,12 @@ Từ điển này tổng hợp các thuật ngữ từ toàn bộ khóa học to
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [This open problem taught me what topology is](https://www.youtube.com/watch?v=IQqtsm-bBRU) — 3Blue1Brown, tiếng Anh. Một vòng các từ cơ bản: biến dạng, lỗ, mặt, trước khi tra từng mục glossary.
+- [[TÔPÔ ĐẠI CƯƠNG] Không gian Tô pô: Định nghĩa và ví dụ.](https://www.youtube.com/watch?v=1LiNBmWl-S8) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Định nghĩa không gian tô-pô bằng tiếng Việt, khớp các mục chương 01.
+- [Algebraic topology: Introduction](https://www.youtube.com/watch?v=K4f-lk9CMz8) — Richard E Borcherds, tiếng Anh. Borcherds mở đầu tô-pô đại số, khớp các mục nhóm cơ bản và đồng điều ở cuối bảng.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

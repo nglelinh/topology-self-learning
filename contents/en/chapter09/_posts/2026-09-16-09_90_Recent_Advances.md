@@ -78,6 +78,12 @@ Papamarkou et al. (2024) and Su et al. (2025) put the applications into a progra
 
 A porous-materials lab can replace “stare at an SEM image and guess stiffness” by a direction-aware barcode of the void — Euler characteristic, one direction at a time. That is Lecture 09.04 running on an elasticity tensor.
 
+## Video tham khảo
+
+- **xem trước** [Henry Adams: An Introduction to Applied Topology](https://www.youtube.com/watch?v=Xv4IoKVdGKA) — Kaleidoscope Circles, English. Henry Adams introduces applied topology, the common frame for the materials, signals, and data in this note.
+- [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, English. Persistent homology: holes become measurable features, the point of the materials and signal items.
+- [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, English. From the TDA story to an architecture one can train, the topological deep learning item.
+
 ## 🧩 Exercises
 
 1. In one sentence, why a connectome needs $H_1$ and not only a vertex/edge count (Königsberg).

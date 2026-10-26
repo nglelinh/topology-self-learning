@@ -72,6 +72,12 @@ Ballester, Casacuberta và Escalera (2023/24) khảo sát TDA trên mạng nơ-r
 
 Phân nhóm tế bào đơn (single-cell) dùng UMAP + clustering mật độ. Bài tùy chọn này cho phép đọc các paper 2025–2026 mà không rời Chapter 01.
 
+## Video tham khảo
+
+- **xem trước** [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, tiếng Anh. UMAP được giới thiệu như một phép giảm chiều. Bài này sẽ nói vì sao đó chưa phải là đồng phôi.
+- [Henry Adams (5/3/22): Topology in Machine Learning](https://www.youtube.com/watch?v=kwYiQNa_pTc) — Applied Algebraic Topology Network, tiếng Anh. Tô-pô dùng như đặc trưng của dữ liệu và của phân cụm, sát các mục TDA của bài.
+- [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, tiếng Anh. Thành phần liên thông và lỗ xuất hiện theo tỉ lệ, thứ mà thuật toán phân cụm đang cố thấy.
+
 ## 🧩 Bài tập
 
 1. Vẽ hai topology trên cùng 5 điểm: một tách thành 2 cụm, một dính 1 cụm. Topology nào mịn hơn?

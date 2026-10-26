@@ -376,6 +376,12 @@ p: X → Y là **quotient map** nếu:
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Ánh xạ liên tục và phép đồng phôi](https://www.youtube.com/watch?v=rEZoSe0HjOs) — Cuong Nguyen, tiếng Việt. Liên tục rồi đồng phôi, đúng hai tầng của bài, nói bằng tiếng Việt.
+- [[Tôpô đại cương] Bài 22. Ánh xạ liên tục: định nghĩa và Ví dụ](https://www.youtube.com/watch?v=cU8HZcRSpFM) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Định nghĩa ánh xạ liên tục qua nghịch ảnh tập mở, kèm ví dụ.
+- [Basic Topology 19 | Homeomorphic Spaces](https://www.youtube.com/watch?v=1FFwuZbzbjE) — The Bright Side of Mathematics, tiếng Anh. Khi nào một song ánh liên tục thực sự là đồng phôi, và vì sao hai không gian khi đó là một.
+
 ## 🧩 Exercises
 
 ### Continuity

@@ -288,6 +288,12 @@ Bài toán bảy cây cầu là khởi đầu của:
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [The Seven Bridges of Königsberg - Numberphile](https://www.youtube.com/watch?v=W18FDEA1jRQ) — Numberphile, tiếng Anh. Bảy cây cầu Königsberg và cách Euler bỏ độ dài, chỉ giữ cách nối.
+- [How the Königsberg bridge problem changed mathematics - Dan Van der Vieren](https://www.youtube.com/watch?v=nZwSo4vfw6c) — TED-Ed, tiếng Anh. Cùng bài toán, kể ngắn, nếu muốn nghe lại lịch sử trước phần đồ thị.
+- [Euler Paths & the 7 Bridges of Konigsberg | Graph Theory](https://www.youtube.com/watch?v=dSK5jTEe-AM) — Dr. Trefor Bazett, tiếng Anh. Đường đi Euler và chu trình Euler, đúng tiêu chuẩn bậc chẵn mà bài chứng minh.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

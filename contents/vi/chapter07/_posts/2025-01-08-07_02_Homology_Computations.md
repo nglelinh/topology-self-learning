@@ -459,6 +459,11 @@ $\chi = 1 - 0 + 0 = 1$ (sử dụng $\beta_1$ = torsion rank 0). Projective plan
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 17: Degree and Cellular Homology](https://www.youtube.com/watch?v=CVcxgCm6qgg) — Math at Andrews University, tiếng Anh. Đồng điều tế bào và bậc ánh xạ, công cụ tính mà bài dùng cho mặt cầu và mặt.
+- [19. Homology of Cell Complexes - Pierre Albin](https://www.youtube.com/watch?v=2tOLcrLaqOw) — Mat Neth, tiếng Anh. Pierre Albin tính đồng điều của phức tế bào, sát các ví dụ mặt cầu và xuyến.
+
 ## 🧩 Exercises
 
 ### Basic Computations

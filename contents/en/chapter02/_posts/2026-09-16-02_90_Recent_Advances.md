@@ -86,6 +86,11 @@ Classical persistence stability says the map from a compact metric space to diag
 
 When two checkpoints of a large language model can be joined by a low-loss segment, practitioners *merge* weights instead of ensembling. That is path-connectedness in production.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, English. Persistent H_0 as a theory of the connected components of a sample.
+- [[NeurIPS 2018] Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs](https://www.youtube.com/watch?v=UwKdNzb_Q6U) — Timur Garipov, English. Mode connectivity: path-connectedness of a loss landscape between minima, the second item here.
+
 ## 🧩 Exercises
 
 1. Sketch $S_c$ for $L(x,y)=(x^2-1)^2+y^2$. For which $c$ is $S_c$ connected?

@@ -390,6 +390,12 @@ A compact (trong metric space) ⇒ A bounded.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Basic Topology 1 | Introduction and Open Sets in Metric Spaces](https://www.youtube.com/watch?v=D7ioHVbqWLA) — The Bright Side of Mathematics, tiếng Anh. Metric, hình cầu mở, và tập mở sinh ra từ chúng, đúng mở đầu của bài.
+- [[Không gian metric] I - Khái niệm, sự hội tụ, tập mở & tập đóng](https://www.youtube.com/watch?v=VTRHEyFDpA0) — Hatsune's Maticious, tiếng Việt. Cùng các khái niệm bằng tiếng Việt: hội tụ, tập mở, tập đóng.
+- [Metric Spaces 1: Definition and Examples](https://www.youtube.com/watch?v=6LFIav3C_lY) — Math at Andrews University, tiếng Anh. Định nghĩa và vài ví dụ chuẩn, nếu muốn nghe lại từng tiên đề của metric.
+
 ## 🧩 Exercises
 
 ### Metric Definition

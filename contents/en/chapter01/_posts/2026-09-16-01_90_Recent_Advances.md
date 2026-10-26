@@ -74,6 +74,12 @@ Ballester, Casacuberta, and Escalera (2023/24) survey TDA on neural networks: we
 
 Single-cell grouping uses UMAP plus density clustering. These notes let you read the 2025–2026 papers without leaving Chapter 01.
 
+## Video tham khảo
+
+- **xem trước** [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, English. UMAP as a dimension reduction. This note then explains why that is not yet a homeomorphism.
+- [Henry Adams (5/3/22): Topology in Machine Learning](https://www.youtube.com/watch?v=kwYiQNa_pTc) — Applied Algebraic Topology Network, English. Topology used as a feature of data and of clustering, close to the TDA items here.
+- [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, English. Components and holes across scales, which is what a clustering algorithm is trying to see.
+
 ## 🧩 Exercises
 
 1. Draw two topologies on the same 5 points: one with 2 clusters, one with 1. Which is finer?

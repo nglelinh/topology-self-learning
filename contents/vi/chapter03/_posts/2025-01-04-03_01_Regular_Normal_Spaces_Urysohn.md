@@ -343,6 +343,12 @@ X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of interval
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Regular and Normal Spaces -- Topology Video 22](https://www.youtube.com/watch?v=sW-H4f5S5A8) — MathMajor, tiếng Anh. Thang regular rồi normal, trước khi bổ đề Urysohn biến tách tập thành một hàm liên tục.
+- [MAST30026 Lecture 22: Urysohn's lemma](https://www.youtube.com/watch?v=UQas4Cu89D0) — metauni, tiếng Anh. Bổ đề Urysohn cho không gian normal, đúng phiên bản Munkres của bài này.
+- [The most important lemma in Topology | Urysohn Lemma | Part 1](https://www.youtube.com/watch?v=z0qUPtaOmXs) — Problemathic, tiếng Anh. Phần mở đầu chứng minh Urysohn, xem sau khi phát biểu đã nằm yên.
+
 ## 🧩 Exercises
 
 ### Regular Spaces

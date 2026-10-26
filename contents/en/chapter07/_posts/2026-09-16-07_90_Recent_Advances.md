@@ -82,6 +82,11 @@ Su, Liu, Bou Hamdan, Maroulas, Wu, Carlsson, and Wei (2025) review TDA “beyond
 
 A `VietorisRipsPersistence` call in giotto-tda on a protein cloud returns $H_1,H_2$ barcodes — the same groups as Lecture 07.00, with $\partial$ running in C++.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, English. From finite homology to the persistent version, the extra step this note takes.
+- [Applied topology 15: Introduction to a software tutorial for persistent homology and Ripser](https://www.youtube.com/watch?v=jgVr4FIySw4) — Applied Algebraic Topology Network, English. Ripser and a barcode tutorial, the software this note names.
+
 ## 🧩 Exercises
 
 1. For the 4 vertices of the unit square, estimate the $\varepsilon$ where $H_1$ is born and where it dies in VR.

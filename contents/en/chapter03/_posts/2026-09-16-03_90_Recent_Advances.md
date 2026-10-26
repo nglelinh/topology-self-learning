@@ -77,6 +77,11 @@ A continuous function on diagram space is not enough for learning; one wants Lip
 
 When a UMAP dashboard “separates” two patient groups, Chapter 03 forces the question: is that genuine $T_2$ of the data, or a spectral-clustering artifact?
 
+## Video tham khảo
+
+- **xem trước** [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, English. UMAP is sold as an embedding. This note separates that word from a topological embedding.
+- [Henry Adams (5/3/22): Topology in Machine Learning](https://www.youtube.com/watch?v=kwYiQNa_pTc) — Applied Algebraic Topology Network, English. Topology in machine learning, where the stability and Lipschitz conditions of this note are used.
+
 ## 🧩 Exercises
 
 1. Exhibit a 3-point $T_0$ space that is not $T_1$. Could it appear as an intermediate filtration stage?

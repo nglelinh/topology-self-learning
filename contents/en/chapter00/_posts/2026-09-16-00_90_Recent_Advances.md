@@ -80,6 +80,12 @@ Wee and Jiang (2025) survey how finite sets of atoms — sets, not smooth manifo
 
 In cheminformatics a molecule is a finite set of atoms with a bonding relation. Persistent homology reads its holes across scales — the same set/function language as Lectures 00.00–00.03.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, English. Persistent homology on a finite sample: the shape of a point cloud across scales.
+- [Finite Topology [Shelley Kandola]](https://www.youtube.com/watch?v=zTiHx3z59N8) — Applied Algebraic Topology Network, English. Finite topological spaces as the computational model behind that sample.
+- [Henry Adams: An Introduction to Applied Topology](https://www.youtube.com/watch?v=Xv4IoKVdGKA) — Kaleidoscope Circles, English. A wider map of applied topology, so the four advances in this note have a home.
+
 ## 🧩 Exercises
 
 1. Take 8 points on a circle. Without a computer, say when a $1$-cycle appears in the “nearby points” complex.

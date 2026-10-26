@@ -451,6 +451,12 @@ Adding projective plane (cross-cap) makes non-orientable.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [What is...the classification of surfaces?](https://www.youtube.com/watch?v=p1hyQpDk3lw) — VisualMath, tiếng Anh. Phát biểu định lý phân loại mặt: cầu, tổng liên thông các xuyến, và mặt phẳng xạ ảnh.
+- [Classification Theorem 04 Torus & Klein Bottle](https://www.youtube.com/watch?v=OAILb52PkN0) — Sarah Brewer (mathémartiste), tiếng Anh. Xuyến và chai Klein trong chuỗi phân loại, sát các ví dụ định hướng được và không.
+- [Klein Bottles - Numberphile](https://www.youtube.com/watch?v=AAsICMPwGPY) — Numberphile, tiếng Anh. Chai Klein nhìn thấy được, trước khi quay lại đặc trưng Euler và tính định hướng.
+
 ## 🧩 Exercises
 
 ### Surfaces

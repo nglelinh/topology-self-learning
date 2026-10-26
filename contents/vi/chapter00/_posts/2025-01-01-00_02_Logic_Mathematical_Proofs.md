@@ -367,6 +367,11 @@ Vậy công thức đúng với mọi n ∈ ℕ. ∎
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [How To Write Your First Math Proof](https://www.youtube.com/watch?v=nISrZ80Oa50) — BriTheMathGuy, tiếng Anh. Một chứng minh viết tay đầu tiên: giả thiết, kết luận, và từng bước ở giữa.
+- [An Introduction to Mathematical Proofs](https://www.youtube.com/watch?v=YYgepDY3rHw) — zeropercent, tiếng Anh. Khung rộng hơn về cách đọc và viết chứng minh, dùng kèm phần logic của bài.
+
 ## 🧩 Exercises
 
 ### Basic Logic

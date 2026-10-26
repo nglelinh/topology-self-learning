@@ -384,6 +384,12 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Basic Topology 2 | Topological Spaces](https://www.youtube.com/watch?v=Wxa-pMaxd7Q) — The Bright Side of Mathematics, tiếng Anh. Ba tiên đề tập mở và bước từ metric sang không gian tô-pô, đúng định nghĩa của bài.
+- [[TÔPÔ ĐẠI CƯƠNG] Không gian Tô pô: Định nghĩa và ví dụ.](https://www.youtube.com/watch?v=1LiNBmWl-S8) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Cùng định nghĩa và các ví dụ rời rạc, tầm thường, nói bằng tiếng Việt.
+- [This open problem taught me what topology is](https://www.youtube.com/watch?v=IQqtsm-bBRU) — 3Blue1Brown, tiếng Anh. Vì sao người ta chịu khó trừu tượng hóa như vậy, trước khi quay lại các ví dụ cực đoan.
+
 ## 🧩 Exercises
 
 ### Basic Understanding

@@ -433,6 +433,12 @@ Points x, y same **orbit type** if G_x, G_y conjugate subgroups.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [7.06 Group actions and covering spaces, 1](https://www.youtube.com/watch?v=slLVD9cXryo) — Jonathan Evans, tiếng Anh. Tác động nhóm và không gian phủ, cầu nối giữa quỹ đạo và thương ở bài này.
+- [Galois Coverings are precisely Quotients by Properly Discontinuous Free Actions](https://www.youtube.com/watch?v=RvooRyHHXAo) — nptelhrd, tiếng Anh. Tác động tự do, gián đoạn đúng mức, cho một thương là phủ Galois, đúng định lý của bài.
+- [10. Covering Space Actions; the idea of Homology - Pierre Albin](https://www.youtube.com/watch?v=KudAvmWUx8s) — Mat Neth, tiếng Anh. Pierre Albin nói về tác động của nhóm phủ, nửa sau gần với biến đổi deck.
+
 ## 🧩 Exercises
 
 ### Group Actions

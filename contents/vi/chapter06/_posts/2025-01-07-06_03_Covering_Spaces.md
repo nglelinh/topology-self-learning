@@ -458,6 +458,12 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 7: Covering Spaces](https://www.youtube.com/watch?v=Y4MVNILPyxs) — Math at Andrews University, tiếng Anh. Không gian phủ từ định nghĩa, xem trước khi đi vào nâng đường.
+- [7. Covering Spaces; Lifting Criterion - Pierre Albin](https://www.youtube.com/watch?v=6C2egTGwJsU) — Mat Neth, tiếng Anh. Pierre Albin: phủ và tiêu chuẩn nâng, đúng phần lifting của bài.
+- [9. Classification of Covering Spaces; Deck Transformations - Pierre Albin](https://www.youtube.com/watch?v=kNePsKDbpUM) — Mat Neth, tiếng Anh. Phân loại phủ và biến đổi deck, nửa sau của bài.
+
 ## 🧩 Exercises
 
 ### Definition và Basic Properties

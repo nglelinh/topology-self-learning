@@ -80,6 +80,11 @@ is a CW complex (usually a graph) — the language of Lecture 05.02.
 
 In single-cell data, Mapper sometimes reveals a differentiation branch that UMAP flattens. Chapter 05 explains why: a quotient keeps the fibres of the filter; a spectral embedding does not promise that.
 
+## Video tham khảo
+
+- **xem trước** [The Mapper Algorithm | Overview & Python Example Code](https://www.youtube.com/watch?v=NlMrvCYlOOQ) — Shaw Talebi, English. The Mapper algorithm: a cover, a quotient, and a graph of the data, the construction in this note.
+- [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, English. UMAP, a different picture of data that this note says is not Mapper.
+
 ## 🧩 Exercises
 
 1. For $X=S^1$ and $f=$ height, sketch the Mapper graph of a 3-interval overlapping cover.

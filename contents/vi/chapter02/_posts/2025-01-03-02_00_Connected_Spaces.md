@@ -399,6 +399,12 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Basic Topology 15 | Connected Spaces](https://www.youtube.com/watch?v=JEZ9Psscb18) — The Bright Side of Mathematics, tiếng Anh. Không gian liên thông qua tập vừa mở vừa đóng, đúng định nghĩa của bài.
+- [[Tôpô đại cương] Bài 44. Không gian liên thông - Phần 1: Định nghĩa và Ví dụ](https://www.youtube.com/watch?v=d9E5MkJaQpg) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Cùng định nghĩa và ví dụ, bằng tiếng Việt.
+- [Weird Topological Spaces  //  Connected vs Path Connected vs Simply Connected](https://www.youtube.com/watch?v=zzeADy0MSFA) — Dr. Trefor Bazett, tiếng Anh. Liên thông, liên thông đường, và đơn liên: ba mức mà bài cần tách bạch.
+
 ## 🧩 Exercises
 
 ### Connected Spaces

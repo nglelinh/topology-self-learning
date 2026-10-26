@@ -362,6 +362,11 @@ If product = identity in π₁(X), can construct homotopy showing = identity in 
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 6: Seifert-Van Kampen Theorem](https://www.youtube.com/watch?v=pmNcHER9K9I) — Math at Andrews University, tiếng Anh. Phát biểu Seifert–van Kampen và cách dán nhóm cơ bản theo hai mảnh.
+- [6. Applications and Proof of the van Kampen Theorem - Pierre Albin](https://www.youtube.com/watch?v=0msWLft-lT0) — Mat Neth, tiếng Anh. Pierre Albin chứng minh và áp dụng, sau khi phát biểu đã quen.
+
 ## 🧩 Exercises
 
 ### Understanding Statement

@@ -339,6 +339,11 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 18: Mayer-Vietoris](https://www.youtube.com/watch?v=LdJlbh7Tpls) — Math at Andrews University, tiếng Anh. Dãy Mayer–Vietoris: dán đồng điều của hai mảnh và của giao.
+- [20. Euler Characteristic; Mayer-Vietoris Sequence - Pierre Albin](https://www.youtube.com/watch?v=W1RVwbeQy48) — Mat Neth, tiếng Anh. Pierre Albin: đặc trưng Euler rồi dãy Mayer–Vietoris, đúng cặp công cụ của bài.
+
 ## 🧩 Exercises
 
 ### Exact Sequences

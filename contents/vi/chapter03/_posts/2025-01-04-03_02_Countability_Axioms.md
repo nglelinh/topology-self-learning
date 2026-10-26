@@ -336,6 +336,12 @@ Trong metrizable spaces: separable ⟺ second countable.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Second Countable Spaces, and the relation to First Countable Spaces](https://www.youtube.com/watch?v=Y6AILGjDoVA) — Andrew McCrady, tiếng Anh. Đếm được thứ nhất và thứ hai, và quan hệ giữa chúng.
+- [1st/2nd countable and Lindelöf spaces --Topology Video 21](https://www.youtube.com/watch?v=7ZIrSxNan8o) — MathMajor, tiếng Anh. Thêm Lindelöf vào cùng bức tranh, đúng cụm tiên đề đếm được của bài.
+- [Countability axioms | Part 2 | Topology](https://www.youtube.com/watch?v=oL06FkGQttM) — Problemathic, tiếng Anh. Một lối thứ hai, chậm hơn, nếu hai video trên còn đặc.
+
 ## 🧩 Exercises
 
 ### First Countable

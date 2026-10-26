@@ -259,6 +259,12 @@ Mọi chain trong poset có thể mở rộng thành maximal chain.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Cartesian Product -- Applications, 10a Essence of Set Theory](https://www.youtube.com/watch?v=9tbZJ2dwCts) — Mirek Olšák, tiếng Anh. Tích Descartes, trước hết hữu hạn rồi mới tới chỗ tiên đề chọn bắt đầu can thiệp.
+- [11. Set Theory. Infinite Cartesian Products](https://www.youtube.com/watch?v=EySmEsfo9rY) — Antonio Montalban, tiếng Anh. Tích vô hạn trong lý thuyết tập hợp, đúng nửa đầu của bài.
+- [Zorn's Lemma Demystified](https://www.youtube.com/watch?v=oRH-HTrAvxw) — sudgylacmoe, tiếng Anh. Phát biểu bổ đề Zorn và vì sao một thứ tự bộ phận có phần tử tối đại.
+
 ## 🧩 Exercises
 
 ### Conceptual Questions

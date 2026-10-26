@@ -533,6 +533,12 @@ $$
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Product metrics (revised)](https://www.youtube.com/watch?v=jBe5jkrzsV4) — Andrew McCrady, tiếng Anh. Metric tích, đúng phép dựng ở nửa đầu bài.
+- [MAST30026 Lecture 13: Metrics on function spaces (Part 2)](https://www.youtube.com/watch?v=t6B7UCHvz18) — metauni, tiếng Anh. Metric trên không gian hàm, nửa sau của bài, trong giáo trình MAST30026.
+- [Metric Spaces | Lecture 15 | Example of Norm on set of Continuous Functions](https://www.youtube.com/watch?v=10geqkzytCA) — Ranjan Khatu, tiếng Anh. Chuẩn sup trên hàm liên tục, ví dụ cụ thể của metric hàm mà bài đang dùng.
+
 ## 🧩 Exercises
 
 ### Product Metrics

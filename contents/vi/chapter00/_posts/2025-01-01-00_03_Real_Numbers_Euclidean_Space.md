@@ -372,6 +372,11 @@ Metric này không positive definite, nhưng vẫn định nghĩa topology.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Construction of the Real Numbers](https://www.youtube.com/watch?v=ZWRnZhYv0G0) — Dr Peyam, tiếng Anh. Dựng ℝ từ ℚ, nền cho mặt phẳng và không gian Euclid ở nửa sau bài.
+- [Dedekind Cuts: An Introduction](https://www.youtube.com/watch?v=q4FiZ3bsa6w) — Mike, the Mathematician, tiếng Anh. Lát cắt Dedekind, một cách cụ thể để nhìn thứ tự và tính đầy đủ của đường thẳng thực.
+
 ## 🧩 Exercises
 
 ### Understanding ℝ

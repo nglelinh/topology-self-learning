@@ -298,6 +298,11 @@ Vấn đề là khi đỉnh có bậc 5, nó có 5 hàng xóm. Nếu cả 5 hàn
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [The Four Color Map Theorem - Numberphile](https://www.youtube.com/watch?v=NgbK43jB4rQ) — Numberphile, tiếng Anh. Định lý bốn màu từ bản đồ tới đồ thị phẳng, đúng lối bài đang đi.
+- [The 4 Colour Theorem Explained](https://www.youtube.com/watch?v=siFuRrhb-cU) — The Science Biome, tiếng Anh. Một lần kể lại ngắn, nếu muốn nghe phát biểu trước chi tiết lịch sử.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm
