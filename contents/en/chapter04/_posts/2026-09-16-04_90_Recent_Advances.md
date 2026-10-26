@@ -77,6 +77,12 @@ Borde, Arroyo, Morales, Posner, and Dong (2023) use GH to *infer* products of mo
 
 Comparing two proteins that do not share a $\mathbb{R}^3$ frame (different alignments) requires GH or an alignment-invariant metric — the reason Chapter 04 separates “metric” from “coordinates”.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to the Gromov-Hausdorff distance](https://www.youtube.com/watch?v=tvbkSt_QxnE) — Applied Algebraic Topology Network, English. The Gromov–Hausdorff distance, the metric between shapes that this note is about.
+- [What is the distance between two sets of points? | Hausdorff Distance](https://www.youtube.com/watch?v=zGKfU91-hU0) — CHALK, English. Hausdorff distance between two point sets, the simpler layer inside GH.
+- [Week 6 Lecture 6C Interleaving Distance](https://www.youtube.com/watch?v=rXrLVH04FnA) — Vidit Nanda, English. Interleaving distance on persistence modules, not only on point clouds.
+
 ## 🧩 Exercises
 
 1. Compute $d_H$ between $\{0,1\}$ and $\{0,1,2\}$ in $\mathbb{R}$.

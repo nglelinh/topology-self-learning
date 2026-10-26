@@ -471,6 +471,12 @@ Vậy unique fixed point x* ≈ 0.739. ✓
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Topology #11 Metric Equivalences](https://www.youtube.com/watch?v=odCnlzlpKZ0) — Daniel Firth, tiếng Anh. Hai metric tương đương khi chúng mở cùng một họ tập, đúng nửa đầu bài.
+- [Uniform Continuity Explained | Real Analysis](https://www.youtube.com/watch?v=MmxtJwr3Kws) — Wrath of Math, tiếng Anh. Liên tục đều: epsilon không còn phụ thuộc điểm, đúng nửa sau.
+- [Math 441 - 4.4 Uniform Continuity](https://www.youtube.com/watch?v=dQktXveD5bc) — Marc Renault, tiếng Anh. Một buổi học thật về liên tục đều, để thấy chứng minh kiểu ε–δ.
+
 ## 🧩 Exercises
 
 ### Equivalent Metrics

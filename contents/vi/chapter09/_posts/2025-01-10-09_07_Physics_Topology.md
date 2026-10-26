@@ -240,6 +240,12 @@ Topology có nhiều ứng dụng trong vật lý:
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Topological Phases of Matter - Nobel Prize in Physics 2016](https://www.youtube.com/watch?v=aGNGl-sQzNA) — simpleshow foundation, tiếng Anh. Pha tô-pô của vật chất và giải Nobel 2016, cửa vào của bài.
+- [Topological insulators and how they might change the world | Professor Michael Fuhrer](https://www.youtube.com/watch?v=jQ_ihxXcqpg) — Monash Education, tiếng Anh. Michael Fuhrer nói chất cách điện tô-pô có thể đổi gì trong vật liệu.
+- [What is a topological insulator?  ▸  Jennifer Cano (Stony Brook)](https://www.youtube.com/watch?v=YwaF5IC8eBY) — Kavli Institute for Theoretical Physics, tiếng Anh. Jennifer Cano định nghĩa chất cách điện tô-pô chặt hơn, sau video đại chúng.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

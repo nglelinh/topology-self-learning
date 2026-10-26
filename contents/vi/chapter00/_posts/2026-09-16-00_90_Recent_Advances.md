@@ -78,6 +78,12 @@ Wee và Jiang (2025) tổng kết cách các tập hữu hạn nguyên tử — 
 
 Trong hóa tin, một phân tử là một tập hữu hạn nguyên tử với quan hệ liên kết. Persistent homology đọc “lỗ” của tập đó qua nhiều tỉ lệ — cùng ngôn ngữ tập/hàm của bài 00.00–00.03.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, tiếng Anh. Homology bền vững trên một mẫu hữu hạn: hình của đám mây điểm thay đổi theo tỉ lệ.
+- [Finite Topology [Shelley Kandola]](https://www.youtube.com/watch?v=zTiHx3z59N8) — Applied Algebraic Topology Network, tiếng Anh. Không gian tô-pô hữu hạn như mô hình tính toán của dữ liệu rời rạc trong bài.
+- [Henry Adams: An Introduction to Applied Topology](https://www.youtube.com/watch?v=Xv4IoKVdGKA) — Kaleidoscope Circles, tiếng Anh. Bản đồ ứng dụng rộng hơn, để bốn mục của bài có chỗ đứng trong TDA.
+
 ## 🧩 Bài tập
 
 1. Lấy 8 điểm trên một vòng tròn. Mô tả, không tính máy, khi nào phức “gần nhau” xuất hiện một $1$-cycle.

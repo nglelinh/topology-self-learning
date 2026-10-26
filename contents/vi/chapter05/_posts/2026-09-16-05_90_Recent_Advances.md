@@ -78,6 +78,11 @@ là CW-phức (thường là đồ thị) — ngôn ngữ bài 05.02.
 
 Trong single-cell, Mapper đôi khi lộ một “nhánh biệt hóa” mà UMAP làm phẳng. Chapter 05 giải thích: một thương giữ sợi của filter; một spectral embedding thì không cam kết điều đó.
 
+## Video tham khảo
+
+- **xem trước** [The Mapper Algorithm | Overview & Python Example Code](https://www.youtube.com/watch?v=NlMrvCYlOOQ) — Shaw Talebi, tiếng Anh. Thuật toán Mapper: phủ, thương, và đồ thị của dữ liệu, đúng phép dựng bài đang kể.
+- [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, tiếng Anh. UMAP, để thấy một bức tranh dữ liệu khác mà bài nói rõ không phải Mapper.
+
 ## 🧩 Bài tập
 
 1. Với $X=S^1$ và $f=$ chiều cao, phác họa Mapper graph (phủ 3 khoảng chồng).

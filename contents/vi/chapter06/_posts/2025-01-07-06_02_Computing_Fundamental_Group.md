@@ -357,6 +357,12 @@ $\pi_1(T^2) = \langle a, b | aba^{-1}b^{-1} = 1 \rangle = \langle a, b | ab = ba
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [3. Fundamental Group of the Circle - Pierre Albin](https://www.youtube.com/watch?v=GnQ1GuXH5vw) — Mat Neth, tiếng Anh. π₁ của đường tròn là ℤ, phép tính trung tâm của bài.
+- [Algebraic topology: Calculating the fundamental group](https://www.youtube.com/watch?v=BDrKDk8PQ_A) — Richard E Borcherds, tiếng Anh. Borcherds tính nhóm cơ bản của vài không gian quen, sau khi đường tròn đã xong.
+- [M-19. Fundamental group of circle and torus](https://www.youtube.com/watch?v=VxLnh4L5LcU) — e-Content-Science, tiếng Anh. Đường tròn và xuyến cạnh nhau, đúng hai ví dụ π₁(S¹) và π₁(T²) của bài.
+
 ## 🧩 Exercises
 
 ### Circle π₁(S¹)

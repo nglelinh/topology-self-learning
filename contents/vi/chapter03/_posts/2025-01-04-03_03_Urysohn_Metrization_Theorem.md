@@ -315,6 +315,11 @@ Basis là countable union của discrete families.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Lecture 40: Urysohn’s Metrization Theorem](https://www.youtube.com/watch?v=8QrZhsErCT4) — NPTEL IIT Bombay, tiếng Anh. Định lý metric hóa Urysohn trong một bài giảng đại học trọn vẹn.
+- [The most important Theorem in Topology | Urysohn Metrisation theorem](https://www.youtube.com/watch?v=4pKQgFI3nF8) — Problemathic, tiếng Anh. Cùng định lý, nói ngắn hơn, để giữ phát biểu trước khi đi vào chứng minh dài.
+
 ## 🧩 Exercises
 
 ### Understanding Metrizable

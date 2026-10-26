@@ -471,6 +471,11 @@ Triangulate (ví dụ, icosahedron—chia hình cầu thành các tam giác).
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 10: Simplicial Homology](https://www.youtube.com/watch?v=-bM8Gg6bOJo) — Math at Andrews University, tiếng Anh. Đơn hình, phức đơn hình, và đối biên, đúng mạch dựng của bài.
+- [11. ∆-Complexes; Simplicial Homology - Pierre Albin](https://www.youtube.com/watch?v=RGhaHydnk-Q) — Mat Neth, tiếng Anh. Pierre Albin: Δ-phức rồi đồng điều đơn hình, một buổi đầy đủ.
+
 ## 🧩 Exercises
 
 ### Simplices

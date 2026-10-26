@@ -75,6 +75,11 @@ Một hàm liên tục trên không gian diagram chưa đủ cho học máy; ta 
 
 Khi một dashboard UMAP “tách” hai nhóm bệnh nhân, Chapter 03 buộc ta hỏi: đó là $T_2$ thật của dữ liệu, hay artifact của spectral clustering?
 
+## Video tham khảo
+
+- **xem trước** [UMAP Dimension Reduction, Main Ideas!!!](https://www.youtube.com/watch?v=eN0wFzBA4Sc) — StatQuest with Josh Starmer, tiếng Anh. UMAP được gọi là một embedding. Bài này tách từ đó khỏi embedding theo nghĩa tách và metric hóa.
+- [Henry Adams (5/3/22): Topology in Machine Learning](https://www.youtube.com/watch?v=kwYiQNa_pTc) — Applied Algebraic Topology Network, tiếng Anh. Tô-pô trong học máy, nơi tính ổn định và điều kiện Lipschitz của bài thực sự được dùng.
+
 ## 🧩 Bài tập
 
 1. Chỉ ra một không gian $T_0$ không $T_1$ có 3 điểm. Nó có thể là output trung gian của một filtration không?

@@ -75,6 +75,11 @@ Wang, Jamasb, Hajij et al. (2025) đưa TDL vào biểu diễn protein (Topotein
 
 Dự đoán tính chất polymer khi đơn vị lặp lại sống trên một phức tuần hoàn: TDL dùng đúng symmetry mà bundle và group action (Chapter 05–08) đã mô tả.
 
+## Video tham khảo
+
+- **xem trước** [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, tiếng Anh. Topological deep learning vượt dữ liệu đồ thị, đúng hướng khảo sát của bài.
+- [Nicholas Scoville: Discrete Morse Theory as an Introduction to Topology](https://www.youtube.com/watch?v=p7bzaDrNHrQ) — Kaleidoscope Circles, tiếng Anh. Morse rời rạc của Nicholas Scoville, bản tính được của lý thuyết Morse trong bài.
+
 ## 🧩 Bài tập
 
 1. Nêu một quan hệ 3-điểm mà GNN không thấy nhưng mạng simplicial thấy.

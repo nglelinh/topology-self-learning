@@ -333,6 +333,11 @@ Trong khoa học dữ liệu, một quan sát quan trọng là dữ liệu chi�
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Manifolds 1 | Introduction and Topology](https://www.youtube.com/watch?v=62WNNkoRCLE) — The Bright Side of Mathematics, tiếng Anh. Đa tạp tô-pô: Hausdorff, đếm được thứ hai, và bản đồ đồng phôi với ℝⁿ.
+- [What is a manifold?](https://www.youtube.com/watch?v=zIjBArHTPZ4) — GeometryForPhysicists, tiếng Anh. Cùng định nghĩa, nói ngắn, để giữ bức tranh trước chuỗi ví dụ.
+
 ## 🧩 Exercises
 
 ### Definitions

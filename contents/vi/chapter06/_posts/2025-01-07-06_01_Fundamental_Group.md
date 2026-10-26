@@ -403,6 +403,12 @@ Trong cơ học lượng tử, hiệu ứng Aharonov-Bohm cho thấy rằng sự
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Intro to the Fundamental Group //  Algebraic Topology with @TomRocksMaths](https://www.youtube.com/watch?v=IpkzNeS8G20) — Dr. Trefor Bazett, tiếng Anh. Nhóm cơ bản từ đường và phép nhân đường, đủ để làm bài tập đầu.
+- [Algebraic topology: Fundamental group](https://www.youtube.com/watch?v=WL9BFRyWMUI) — Richard E Borcherds, tiếng Anh. Richard Borcherds dựng π₁ chậm và chặt, sát phần xây nhóm trong bài.
+- [2. Path Homotopy; the Fundamental Group - Pierre Albin](https://www.youtube.com/watch?v=nq8QBdP_N_o) — Mat Neth, tiếng Anh. Pierre Albin: đồng luân đường rồi nhóm cơ bản, trọn một buổi.
+
 ## 🧩 Exercises
 
 ### Definition và Basic Properties

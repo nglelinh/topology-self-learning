@@ -76,6 +76,12 @@ Papamarkou et al. (2024) và Su et al. (2025) đặt các ứng dụng trên và
 
 Một lab vật liệu xốp có thể thay “nhìn ảnh SEM và đoán độ cứng” bằng barcode hướng của phần rỗng — Euler characteristic theo từng hướng. Đó là bài 09.04 đang chạy trên tensor đàn hồi.
 
+## Video tham khảo
+
+- **xem trước** [Henry Adams: An Introduction to Applied Topology](https://www.youtube.com/watch?v=Xv4IoKVdGKA) — Kaleidoscope Circles, tiếng Anh. Henry Adams dẫn vào tô-pô ứng dụng, khung chung cho vật liệu, tín hiệu và dữ liệu trong bài.
+- [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, tiếng Anh. Homology bền vững: lỗ trở thành đặc trưng đo được, đúng ý mục vật liệu và tín hiệu.
+- [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, tiếng Anh. Từ câu chuyện TDA tới một kiến trúc học được, đúng mục topological deep learning.
+
 ## 🧩 Bài tập
 
 1. Giải thích bằng một câu vì sao connectome cần $H_1$ chứ không chỉ số nút/cạnh (Königsberg).

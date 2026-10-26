@@ -82,6 +82,11 @@ Su et al. (2025) stress TDA *beyond* persistent homology: homotopy and cell comp
 
 Model soups / weight averaging work only when the segment between checkpoints is a low-loss homotopy. Chapter 06 supplies the name.
 
+## Video tham khảo
+
+- **xem trước** [[NeurIPS 2018] Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs](https://www.youtube.com/watch?v=UwKdNzb_Q6U) — Timur Garipov, English. Paths in a loss landscape joining modes, the homotopy picture of this note.
+- [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, English. Networks as spaces you can deform, the frame of topological deep learning.
+
 ## 🧩 Exercises
 
 1. For $L(x)=(x^2-1)^2$, compute $\pi_0(S_c)$ as a function of $c$.

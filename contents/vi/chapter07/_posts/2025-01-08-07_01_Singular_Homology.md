@@ -448,6 +448,11 @@ H_n(S¹) = 0 (n ≥ 2)
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 12: Intro to Singular Homology](https://www.youtube.com/watch?v=GE1_Ntw7x6s) — Math at Andrews University, tiếng Anh. Đồng điều kỳ dị từ đơn hình chuẩn, không cần phép chia tam giác của không gian.
+- [12. Singular Homology; Chain Homotopy - Pierre Albin](https://www.youtube.com/watch?v=I2GbdKDN9zg) — Mat Neth, tiếng Anh. Pierre Albin: đồng điều kỳ dị và đồng luân xích, đúng phần kỹ thuật của bài.
+
 ## 🧩 Exercises
 
 ### Standard Simplex

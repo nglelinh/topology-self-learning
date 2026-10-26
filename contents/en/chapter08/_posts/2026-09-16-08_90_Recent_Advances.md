@@ -77,6 +77,11 @@ Wang, Jamasb, Hajij et al. (2025) bring TDL to protein representation (Topotein)
 
 Predicting polymer properties when the repeating unit lives on a periodic complex: TDL uses the same symmetry that bundles and group actions (Chapters 05–08) already describe.
 
+## Video tham khảo
+
+- **xem trước** [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, English. Topological deep learning beyond graph data, the survey direction of this note.
+- [Nicholas Scoville: Discrete Morse Theory as an Introduction to Topology](https://www.youtube.com/watch?v=p7bzaDrNHrQ) — Kaleidoscope Circles, English. Nicholas Scoville on discrete Morse theory, the computable form of the Morse theory in this note.
+
 ## 🧩 Exercises
 
 1. Name a 3-point relation a GNN cannot see but a simplicial network can.

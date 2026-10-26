@@ -520,6 +520,12 @@ Dual (n-k)-dimensional cycle β = "orthogonal complement."
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [The derivative isn't what you think it is.](https://www.youtube.com/watch?v=2ptFnIj71SM) — Aleph 0, tiếng Anh. Vì sao đối đồng điều đếm lỗ bằng hàm và dạng, trước các định nghĩa đối xích.
+- [Algebraic Topology 20: Introduction to Cohomology](https://www.youtube.com/watch?v=ol-AJVVbkMs) — Math at Andrews University, tiếng Anh. Đối đồng điều kỳ dị từ đầu, sau khi trực giác ở video trên đã có.
+- [Algebraic Topology 21: Cup Product](https://www.youtube.com/watch?v=uenkIqOKjng) — Math at Andrews University, tiếng Anh. Tích cup, cấu trúc vành mà bài giới thiệu sau các nhóm đối đồng điều.
+
 ## 🧩 Exercises
 
 ### Cochains

@@ -248,6 +248,12 @@ Poincaré Conjecture có nhiều ý nghĩa trong toán học:
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Poincaré Conjecture - Numberphile](https://www.youtube.com/watch?v=GItmC9lxeco) — Numberphile, tiếng Việt. Giả thuyết Poincaré nói bằng hình: mặt cầu ba chiều được nhận ra qua nhóm cơ bản tầm thường.
+- [Ricci Flow - Numberphile](https://www.youtube.com/watch?v=hwOCqA9Xw6A) — Numberphile, tiếng Anh. Dòng Ricci, công cụ Perelman dùng, đúng phần hành trình giải ở bài.
+- [Terence Tao on Grigori Perelman solving Poincare Conjecture | Lex Fridman Podcast Clips](https://www.youtube.com/watch?v=aDRGEgqX50M) — Lex Clips, tiếng Anh. Terence Tao kể ngắn về cách Perelman giải, để đặt cạnh phần lịch sử của bài.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

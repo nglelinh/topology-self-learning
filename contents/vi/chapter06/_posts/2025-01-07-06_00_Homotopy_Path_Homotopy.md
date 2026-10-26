@@ -300,6 +300,12 @@ Topological Data Analysis (TDA) là một lĩnh vực mới nổi sử dụng c�
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Algebraic Topology 1: Homotopy Equivalence](https://www.youtube.com/watch?v=crQdC-k6AZE) — Math at Andrews University, tiếng Anh. Đồng luân ánh xạ và tương đương đồng luân, đúng hai khái niệm mở đầu bài.
+- [Lec 3.  Deformation Retract](https://www.youtube.com/watch?v=KMiNqTV2TAA) — The Trefoil, tiếng Anh. Co rút biến dạng, trường hợp đặc biệt mà bài dùng để nhận ra một không gian co được.
+- [1. History of Algebraic Topology; Homotopy Equivalence - Pierre Albin](https://www.youtube.com/watch?v=XxFGokyYo6g) — Mat Neth, tiếng Anh. Pierre Albin mở đầu giáo trình: lịch sử ngắn rồi tới tương đương đồng luân.
+
 ## 🧩 Exercises
 
 ### Homotopy Definition

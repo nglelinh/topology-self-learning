@@ -262,6 +262,12 @@ Có "nhiều loại vô hạn" khác nhau!
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Surjective (onto) and injective (one-to-one) functions | Linear Algebra | Khan Academy](https://www.youtube.com/watch?v=xKNX8BUWR0g) — Khan Academy, tiếng Anh. Xem cách tách đơn ánh, toàn ánh và song ánh trước khi dùng chúng để nói về lực lượng.
+- [INJECTIVE, SURJECTIVE, and BIJECTIVE FUNCTIONS - DISCRETE MATHEMATICS](https://www.youtube.com/watch?v=bZred_Ksz2k) — TrevTutor, tiếng Anh. Thêm ví dụ rời rạc cho cùng ba loại hàm, sát phần hàm của bài.
+- [MATH0005 L13: equivalence relations and partitions](https://www.youtube.com/watch?v=kvtwnWEpv4E) — Matthew Towers, tiếng Anh. Quan hệ tương đương và phân hoạch, đúng phần quan hệ ở cuối bài.
+
 ## 🧩 Exercises
 
 ### Conceptual Questions

@@ -391,6 +391,11 @@ Y = ⋃ T(Bₙ(0)). Baire ⇒ some T(Bₙ(0)) has interior ⇒ T open on origin 
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [The Baire Category Theorem - Dr Joel Feinstein](https://www.youtube.com/watch?v=dvDo0RFAhqw) — University of Nottingham, tiếng Anh. Định lý phạm trù Baire do Joel Feinstein giảng, đúng định lý lớn của bài.
+- [Chương 1: Không gian metric - Bài 5: Dãy Cauchy - Không gian metric đầy.](https://www.youtube.com/watch?v=V4BpOt3mXkc) — Cao Anh Hào-K49-SPTO-HPU2, tiếng Việt. Dãy Cauchy và không gian metric đầy, nửa đầu của bài, bằng tiếng Việt.
+
 ## 🧩 Exercises
 
 ### Completeness

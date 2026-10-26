@@ -84,6 +84,11 @@ $$
 
 Khi hai checkpoint của cùng một mô hình ngôn ngữ lớn nối được bằng đoạn thẳng mất mát thấp, người ta *trộn* trọng số thay vì ensemble. Đó là path-connectedness đang chạy trong production.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to persistent homology](https://www.youtube.com/watch?v=UxEH7WySO60) — Applied Algebraic Topology Network, tiếng Anh. H_0 bền vững như lý thuyết các thành phần liên thông của một mẫu dữ liệu.
+- [[NeurIPS 2018] Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs](https://www.youtube.com/watch?v=UwKdNzb_Q6U) — Timur Garipov, tiếng Anh. Mode connectivity: cảnh quan mất mát liên thông đường giữa các cực tiểu, đúng mục 2 của bài.
+
 ## 🧩 Bài tập
 
 1. Vẽ $S_c$ cho $L(x,y)=(x^2-1)^2+y^2$. Với $c$ nào thì $S_c$ liên thông?

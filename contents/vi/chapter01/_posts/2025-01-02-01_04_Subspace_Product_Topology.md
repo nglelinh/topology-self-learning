@@ -420,6 +420,12 @@ Projections continuous, **but not compact**! Tychonoff fails.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [[Tôpô đại cương] Bài 7.  Không gian tôpô con (phần 1)](https://www.youtube.com/watch?v=WhuwOeKqXaY) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Tô-pô con: tập mở tương đối, đúng nửa đầu của bài.
+- [Tô-pô tích](https://www.youtube.com/watch?v=uSQ7J4tpAWI) — Cuong Nguyen, tiếng Việt. Tô-pô tích, nửa sau của bài, bằng tiếng Việt.
+- [Topology Lecture 12: Product Spaces](https://www.youtube.com/watch?v=iwUzTAhwdh8) — Marius Furter, tiếng Anh. Không gian tích nói chậm bằng tiếng Anh, để đối chiếu với bài giảng tiếng Việt.
+
 ## 🧩 Exercises
 
 ### Subspace Topology

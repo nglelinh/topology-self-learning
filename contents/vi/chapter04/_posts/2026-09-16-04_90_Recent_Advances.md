@@ -75,6 +75,12 @@ Borde, Arroyo, Morales, Posner và Dong (2023) dùng GH để *suy* tích các �
 
 So sánh hai protein không nằm trong cùng $\mathbb{R}^3$ (khác căn chỉnh) đòi hỏi GH hoặc một metric bất biến căn chỉnh — đúng lý do Chapter 04 tách “metric” khỏi “tọa độ”.
 
+## Video tham khảo
+
+- **xem trước** [An introduction to the Gromov-Hausdorff distance](https://www.youtube.com/watch?v=tvbkSt_QxnE) — Applied Algebraic Topology Network, tiếng Anh. Khoảng cách Gromov–Hausdorff, metric giữa các hình mà bài lấy làm chủ đề.
+- [What is the distance between two sets of points? | Hausdorff Distance](https://www.youtube.com/watch?v=zGKfU91-hU0) — CHALK, tiếng Anh. Khoảng cách Hausdorff giữa hai tập điểm, tầng đơn giản hơn nằm trong GH.
+- [Week 6 Lecture 6C Interleaving Distance](https://www.youtube.com/watch?v=rXrLVH04FnA) — Vidit Nanda, tiếng Anh. Khoảng cách interleaving trên module bền vững, không chỉ trên đám mây điểm.
+
 ## 🧩 Bài tập
 
 1. Tính $d_H$ giữa $\{0,1\}$ và $\{0,1,2\}$ trong $\mathbb{R}$.

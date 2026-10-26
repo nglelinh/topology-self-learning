@@ -492,6 +492,12 @@ f̄ homeomorphism if quotient map. ✓
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [[Tôpô đại cương] Bài 38. Ánh xạ thương, tôpô thương và Ví dụ](https://www.youtube.com/watch?v=n8XSQwXw8Gc) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Ánh xạ thương và tô-pô thương bằng tiếng Việt, đúng phép dựng của bài.
+- [Quotient Topology for Equivalence Relations (Identification Spaces)](https://www.youtube.com/watch?v=s3LL3KQp7pQ) — Andrew McCrady, tiếng Anh. Cùng phép dán qua một quan hệ tương đương, nói chậm bằng tiếng Anh.
+- [Topology Lecture 14: Quotient Spaces I](https://www.youtube.com/watch?v=P7mTDR8FRMc) — Marius Furter, tiếng Anh. Một bài giảng đủ dài về không gian thương, để đối chiếu ví dụ.
+
 ## 🧩 Exercises
 
 ### Equivalence Relations

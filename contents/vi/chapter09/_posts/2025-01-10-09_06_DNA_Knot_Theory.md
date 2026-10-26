@@ -272,6 +272,11 @@ Topology của DNA có nhiều ứng dụng trong sinh học:
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [What are...knots and DNA?](https://www.youtube.com/watch?v=WFBWtpXTE5Q) — VisualMath, tiếng Anh. Nút thắt gặp DNA, đúng cầu nối của bài.
+- [DNA Topology || Linking number || Twist || Writhe](https://www.youtube.com/watch?v=DxREU4puGyc) — Rethink Biology, tiếng Anh. Linking number, twist và writhe, ba số mà bài dùng để nói topo của DNA.
+
 ## 🧩 Exercises and Reflections
 
 ### Câu hỏi suy ngẫm

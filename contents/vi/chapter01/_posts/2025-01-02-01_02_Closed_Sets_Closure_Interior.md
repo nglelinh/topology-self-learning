@@ -456,6 +456,12 @@ Vì x ∉ A, nên U ∩ A chứa điểm ≠ x.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [[Tôpô đại cương] Bài 11.  Bao đóng và phần trong: định nghĩa và ví dụ](https://www.youtube.com/watch?v=OYSX3KdXZ8c) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Bao đóng và phần trong bằng tiếng Việt, đúng hai khái niệm trung tâm của bài.
+- [Basic Topology 3 | Closed Sets and Closure](https://www.youtube.com/watch?v=P-SPQLJTxJk) — The Bright Side of Mathematics, tiếng Anh. Tập đóng như phần bù của tập mở, rồi tới bao đóng, trong ngôn ngữ của Bright Side.
+- [Topology Definitions: Closure, Boundary, Interior](https://www.youtube.com/watch?v=jhAI_irtA3M) — Mu Prime Math, tiếng Anh. Ba từ cạnh nhau: bao đóng, biên, phần trong. Xem để không trộn chúng.
+
 ## 🧩 Exercises
 
 ### Closed Sets

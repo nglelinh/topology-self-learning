@@ -276,6 +276,12 @@ Applications trong logic, combinatorics.
 
 ---
 
+## Video tham khảo
+
+- **xem trước** [Basic Topology 8 | Locally Compact Hausdorff Spaces](https://www.youtube.com/watch?v=UN86A94iz6I) — The Bright Side of Mathematics, tiếng Anh. Compact địa phương Hausdorff: mỗi điểm có một lân cận compact, đúng nửa đầu bài.
+- [one point compactification -- Topology Video 18](https://www.youtube.com/watch?v=5tdsgjHlMtA) — MathMajor, tiếng Anh. Compact hóa một điểm, phép thêm một điểm ở vô cực mà bài xây ở nửa sau.
+- [Lecture 31: One point compactification](https://www.youtube.com/watch?v=os9m6Q4gAzM) — NPTEL IIT Bombay, tiếng Anh. Cùng phép compact hóa một điểm, trong một bài giảng đại học đủ chậm để đối chiếu chứng minh.
+
 ## 🧩 Exercises
 
 ### Locally Compact

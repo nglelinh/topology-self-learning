@@ -80,6 +80,11 @@ Su et al. (2025) nhấn mạnh TDA *vượt* persistent homology: homotopy và p
 
 Model soup / weight averaging chạy được chỉ khi đoạn thẳng giữa các checkpoint là một homotopy mất mát thấp. Chapter 06 cho đúng tên gọi.
 
+## Video tham khảo
+
+- **xem trước** [[NeurIPS 2018] Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs](https://www.youtube.com/watch?v=UwKdNzb_Q6U) — Timur Garipov, tiếng Anh. Đường trong cảnh quan mất mát nối các mode, đúng hình ảnh đồng luân của bài.
+- [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, tiếng Anh. Mạng nơ-ron như không gian mà ta biến dạng được, khung của topological deep learning.
+
 ## 🧩 Bài tập
 
 1. Với $L(x)=(x^2-1)^2$, tính $\pi_0(S_c)$ theo $c$.
