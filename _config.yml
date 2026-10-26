@@ -24,6 +24,7 @@ t:
     switch_language: "Switch to Vietnamese"
     required: "Required"
     optional: "Optional"
+    show_lessons: "Show lessons"
   vi:
     title: "Tự học Tô-pô"
     description: "Khóa học Topology toàn diện cho sinh viên toán"
@@ -33,6 +34,7 @@ t:
     switch_language: "Chuyển sang tiếng Anh"
     required: "Bắt buộc"
     optional: "Tùy chọn"
+    show_lessons: "Hiện bài học"
 # About/contact
 author:
   name:              Nguyen Le Linh

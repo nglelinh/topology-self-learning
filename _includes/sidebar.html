@@ -18,23 +18,76 @@
 
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% assign pages_list = site.pages | where: "lang", current_lang | sort: "chapter" %}
-    
+    {% comment %}
+      Lessons are posts. Group once per language, then match each chapter page.
+      Page front matter stores chapter as "01"; posts store it as the integer 1.
+      Sort by lecture (course order). Date is only a tie-break.
+    {% endcomment %}
+    {% assign lang_posts = site.posts | where: "lang", current_lang %}
+    {% assign posts_by_chapter = lang_posts | group_by: "chapter" %}
+    {% assign page_chapter_key = "" %}
+    {% if page.chapter %}
+      {% assign page_chapter_key = page.chapter | plus: 0 | append: "" %}
+    {% endif %}
+
     <!-- Hiển thị các chương có sẵn cho ngôn ngữ hiện tại -->
     {% for node in pages_list %}
       {% if node.title != null and node.chapter %}
         {% if node.layout == "page" %}
           {% assign is_hidden = node.hidden | default: false %}
           {% unless is_hidden %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | absolute_url }}">
-              {{node.chapter}}. {{ node.title }}
-              {% if node.lesson_type %}
+            {% assign node_key = node.chapter | plus: 0 | append: "" %}
+            {% assign chapter_posts = "" | split: "" %}
+            {% for group in posts_by_chapter %}
+              {% if group.name == node_key %}
+                {% assign chapter_posts = group.items | sort: "date" | sort: "lecture" %}
+              {% endif %}
+            {% endfor %}
+            {% assign chapter_open = false %}
+            {% if page_chapter_key == node_key %}
+              {% assign chapter_open = true %}
+            {% endif %}
+
+            {% if chapter_posts.size > 0 %}
+              <div class="sidebar-chapter">
+                <input type="checkbox" class="sidebar-sub-checkbox" id="sidebar-ch-{{ current_lang }}-{{ node.chapter }}"{% if chapter_open %} checked{% endif %}>
+                <div class="sidebar-chapter-head sidebar-nav-item{% if page.url == node.url %} active{% endif %}">
+                  <a class="sidebar-chapter-link" href="{{ node.url | absolute_url }}">
+                    {{ node.chapter }}. {{ node.title }}
+                    {% if node.lesson_type == 'required' %}
+                      <span class="lesson-badge required">{% t required %}</span>
+                    {% elsif node.lesson_type == 'optional' %}
+                      <span class="lesson-badge optional">{% t optional %}</span>
+                    {% endif %}
+                  </a>
+                  <label class="sidebar-sub-toggle" for="sidebar-ch-{{ current_lang }}-{{ node.chapter }}">
+                    <span class="sidebar-chevron" aria-hidden="true"></span>
+                    <span class="sidebar-sub-toggle-text">{% t show_lessons %}</span>
+                  </label>
+                </div>
+                <div class="sidebar-lessons">
+                  {% for lesson in chapter_posts %}
+                    <a class="sidebar-lesson{% if page.url == lesson.url %} active{% endif %}" href="{{ lesson.url | absolute_url }}">
+                      {{ lesson.title }}
+                      {% if lesson.lesson_type == 'required' %}
+                        <span class="lesson-badge required">{% t required %}</span>
+                      {% elsif lesson.lesson_type == 'optional' %}
+                        <span class="lesson-badge optional">{% t optional %}</span>
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | absolute_url }}">
+                {{ node.chapter }}. {{ node.title }}
                 {% if node.lesson_type == 'required' %}
                   <span class="lesson-badge required">{% t required %}</span>
                 {% elsif node.lesson_type == 'optional' %}
                   <span class="lesson-badge optional">{% t optional %}</span>
                 {% endif %}
-              {% endif %}
-            </a>
+              </a>
+            {% endif %}
           {% endunless %}
         {% endif %}
       {% endif %}
