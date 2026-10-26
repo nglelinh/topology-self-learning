@@ -227,12 +227,118 @@ a.sidebar-nav-item:focus {
   border-color: transparent;
 }
 
+/* Chapter groups: link stays a chapter index, chevron toggles its lessons.
+   Checkbox is CSS-only so the submenu collapses on mobile without new script. */
+.sidebar-chapter {
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.sidebar-sub-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+.sidebar-chapter-head {
+  display: flex;
+  align-items: flex-start;
+  gap: .35rem;
+  border-top: 0;
+}
+.sidebar-chapter-head:hover,
+.sidebar-chapter-head:focus-within {
+  background-color: rgba(255,255,255,.1);
+  border-color: transparent;
+}
+.sidebar-chapter-link {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #fff;
+  line-height: 1.35;
+}
+.sidebar-chapter-link:hover,
+.sidebar-chapter-link:focus {
+  text-decoration: none;
+  color: #fff;
+}
+.sidebar-sub-toggle {
+  position: relative;
+  display: flex;
+  flex: 0 0 1.75rem;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: -.15rem;
+  cursor: pointer;
+  border-radius: .2rem;
+}
+.sidebar-sub-toggle:hover,
+.sidebar-sub-toggle:focus {
+  background-color: rgba(255,255,255,.12);
+}
+.sidebar-sub-toggle-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+.sidebar-chevron {
+  display: block;
+  width: .4rem;
+  height: .4rem;
+  border-right: 2px solid rgba(255,255,255,.85);
+  border-bottom: 2px solid rgba(255,255,255,.85);
+  transform: rotate(-45deg);
+}
+.sidebar-sub-checkbox:checked + .sidebar-chapter-head .sidebar-chevron {
+  transform: rotate(45deg);
+  margin-top: -.15rem;
+}
+.sidebar-lessons {
+  display: none;
+  background-color: rgba(0,0,0,.2);
+}
+.sidebar-sub-checkbox:checked ~ .sidebar-lessons {
+  display: block;
+}
+.sidebar-lesson {
+  display: block;
+  padding: .4rem 1rem .4rem 1.35rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+  color: rgba(255,255,255,.85);
+  font-size: .68rem;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.sidebar-lesson:hover,
+.sidebar-lesson:focus,
+.sidebar-lesson.active {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(255,255,255,.1);
+}
+.sidebar-lesson .lesson-badge {
+  margin-left: .35rem;
+}
+
 @media (min-width: 48em) {
   .sidebar-item {
     padding: 1.5rem;
   }
   .sidebar-nav-item {
     padding-left:  1.5rem;
+    padding-right: 1.5rem;
+  }
+  .sidebar-lesson {
+    padding-left: 1.85rem;
     padding-right: 1.5rem;
   }
 }
