@@ -58,15 +58,19 @@ Tưởng tượng Alice đứng **bên ngoài** một căn phòng (closed set).
 
 ### 1. T₃ Spaces (Regular)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Regular Space):**  
 X là **regular** nếu với mọi x ∈ X và closed set F không chứa x, tồn tại disjoint open neighborhoods.
 
 $$
 \forall x \in X, \forall F \text{ closed}: x \notin F \implies \exists U, V \in \tau: x \in U, F \subseteq V, U \cap V = \emptyset
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (T₃ Space):**  
 X là **T₃** nếu X **regular** và **T₁** (hay T₀—authors vary).
+</div>
 
 **Convention:** Chúng ta dùng **T₃ = regular + T₁**.
 
@@ -77,71 +81,97 @@ X là **T₃** nếu X **regular** và **T₁** (hay T₀—authors vary).
 
 **Ví dụ 1: Metric Spaces**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi metric space là regular.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho x ∉ F closed. Đặt d = d(x, F) = inf{d(x,y) : y ∈ F} > 0 (vì F closed).  
 U = B(x, d/2), V = ⋃_{y∈F} B(y, d/2).  
 U ∩ V = ∅ (triangle inequality). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** ℝⁿ (Euclidean) là T₃.
+</div>
 
 **Ví dụ 2: Compact Hausdorff**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi compact Hausdorff space là regular.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):**  
 Cho x ∉ F closed. Với mọi y ∈ F:
 - Hausdorff → ∃U_y ∋ x, V_y ∋ y disjoint.
 {V_y} open cover của F → finite subcover (compact).
 U = ⋂ U_{y_i}, V = ⋃ V_{y_i} là disjoint neighborhoods. ✓
+</div>
 
 **Non-example: Countable Complement Topology**
 
 Trên uncountable set, cocountable topology **không regular**!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Xét x và F = {y} (singleton closed).  
 Mọi open U ∋ x, V ∋ y đều uncountable → U ∩ V ≠ ∅. ✗
+</div>
 
 ---
 
 ### 2. T₄ Spaces (Normal)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Normal Space):**  
 X là **normal** nếu với mọi hai closed sets disjoint A, B, tồn tại disjoint open neighborhoods.
 
 $$
 \forall A, B \text{ closed}: A \cap B = \emptyset \implies \exists U, V \in \tau: A \subseteq U, B \subseteq V, U \cap V = \emptyset
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (T₄ Space):**  
 X là **T₄** nếu X **normal** và **T₁**.
+</div>
 
 ![Normal space illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/T4_space.svg/400px-T4_space.svg.png)  
 *Normal: hai closed sets disjoint có disjoint neighborhoods - Nguồn concept*
 
 **Ví dụ 1: Metric Spaces**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi metric space là normal.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho A, B closed disjoint.  
 Define: d_A(x) = inf{d(x,a) : a ∈ A}, d_B(x) tương tự.  
 U = {x : d_A(x) < d_B(x)}, V = {x : d_B(x) < d_A(x)}.  
 U, V open, A ⊆ U, B ⊆ V, U ∩ V = ∅. ✓
+</div>
 
 **Ví dụ 2: Compact Hausdorff**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi compact Hausdorff space là normal.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Tương tự như regular case, sử dụng compactness. ✓
+</div>
 
 **Non-example: Sorgenfrey Plane**
 
 **Sorgenfrey line** ℝ_ℓ = ℝ với lower limit topology (basis {[a,b)}) là normal.  
 Nhưng **Sorgenfrey plane** ℝ_ℓ × ℝ_ℓ **không normal**!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Kỳ diệu và phức tạp—famous counterexample.
+</div>
 
 **Ý nghĩa:** Normality **không** preserved by products (even finite!)
 
@@ -164,7 +194,9 @@ Nhưng **Sorgenfrey plane** ℝ_ℓ × ℝ_ℓ **không normal**!
 - Basis cho metrization theorems
 - Key tool trong homotopy theory
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (Construction):**
+</div>
 
 **Idea:** Construct f bằng cách xây dựng nested open sets.
 
@@ -222,7 +254,9 @@ X ---F---> [a,b]
 - Basis cho partition of unity
 - Key trong differential topology
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (Sketch):**
+</div>
 
 **Idea:** Approximate f bằng sequence của extensions.
 
@@ -243,11 +277,15 @@ Tồn tại g₁: X → [-1/3, 1/3] với g₁(A₁) = -1/3, g₁(A₂) = 1/3.
 
 ### 5. T₃.₅ Spaces (Completely Regular / Tychonoff)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Completely Regular):**  
 X là **completely regular** nếu với mọi x ∈ X và closed F ∋ x, tồn tại continuous f: X → [0,1] với f(x) = 0, f(F) = {1}.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (T₃.₅ / Tychonoff Space):**  
 X là **Tychonoff** nếu completely regular và T₁.
+</div>
 
 **Hierarchy:**
 $$
@@ -261,10 +299,14 @@ $$
 
 **Ý nghĩa:** Tychonoff spaces = spaces có "enough" continuous functions.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of intervals).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Embedding Theorem—advanced. ✓
+</div>
 
 ---
 
@@ -293,11 +335,13 @@ X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of interval
 4. **T₄ + Urysohn ⇒ Tietze:** Extension property
 5. **Products:** Normality **không** preserved! (Sorgenfrey plane)
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Preservation):**
 - Subspace của T₃ là T₃
 - Subspace của Tychonoff là Tychonoff
 - Product của Tychonoff là Tychonoff (Tychonoff product theorem)
 - Product của T₄ **không nhất thiết** T₄!
+</div>
 
 ---
 

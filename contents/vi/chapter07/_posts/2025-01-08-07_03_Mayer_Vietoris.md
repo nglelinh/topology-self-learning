@@ -48,12 +48,14 @@ Trong bài học này, chúng ta sẽ khám phá Mayer-Vietoris sequence một c
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Exact Sequence):**  
 Một dãy các abelian groups và các homomorphisms:
 
 $$
 \cdots \to A_{n+1} \xrightarrow{f_{n+1}} A_n \xrightarrow{f_n} A_{n-1} \to \cdots
 $$
+</div>
 
 là **exact** nếu:
 
@@ -108,8 +110,10 @@ $$
 
 ### 1. Statement
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Mayer-Vietoris):**  
 Cho $X$ là topological space, $A$, $B$ là các open subsets với $X = A \cup B$.
+</div>
 
 **Long exact sequence:**
 

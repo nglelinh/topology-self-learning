@@ -77,12 +77,14 @@ Trong ℝ², mỗi điểm có **hai tọa độ** (x, y). Topology trên ℝ² 
 
 ### 1. Subspace Topology
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Subspace Topology):**  
 Cho (X, 𝜏) topological space và A ⊆ X. **Subspace topology** trên A là:
 
 $$
 \tau_A = \{U \cap A : U \in \tau\}
 $$
+</div>
 
 **Nói bằng lời:** Open sets trong A = intersections của open sets trong X với A.
 
@@ -107,10 +109,14 @@ S¹ = {(x,y) : x² + y² = 1} ⊂ ℝ²
 
 "Open arc" trong S¹ = intersection của open disk với S¹.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Subspace is Topology):**  
 𝜏_A thỏa mãn ba topology axioms.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(T1):** ∅ = ∅ ∩ A ∈ 𝜏_A, A = X ∩ A ∈ 𝜏_A ✓
 
@@ -121,22 +127,28 @@ S¹ = {(x,y) : x² + y² = 1} ⊂ ℝ²
 **(T3) Finite intersections:**  
 (U₁ ∩ A) ∩ (U₂ ∩ A) = (U₁ ∩ U₂) ∩ A ∈ 𝜏_A ✓
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Inclusion Continuous):**  
 Inclusion map i: A → X, i(a) = a **always continuous**.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho U ∈ 𝜏. i⁻¹(U) = U ∩ A ∈ 𝜏_A (by definition!) ✓
+</div>
 
 ---
 
 ### 2. Basis for Subspace
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Nếu ℬ là basis cho 𝜏 trên X, thì:
 
 $$
 \mathcal{B}_A = \{B \cap A : B \in \mathcal{B}\}
 $$
+</div>
 
 là basis cho 𝜏_A trên A.
 
@@ -150,17 +162,23 @@ Basis cho [0,1]: {(a,b) ∩ [0,1]} = các khoảng mở trong [0,1]
 
 ### 3. Properties of Subspaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Relative Closure):**  
 Cho A ⊆ X, B ⊆ A. Closure của B trong A:
 
 $$
 \text{cl}_A(B) = \text{cl}_X(B) \cap A
 $$
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise (sử dụng definition của closure).
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Subspace của Subspace):**  
 Nếu A ⊆ B ⊆ X, thì subspace topology trên A từ B **bằng** subspace topology trên A từ X.
+</div>
 
 **Trực giác:** Không quan trọng "intermediate space"—chỉ quan trọng ambient space.
 
@@ -168,12 +186,14 @@ Nếu A ⊆ B ⊆ X, thì subspace topology trên A từ B **bằng** subspace t
 
 ### 4. Product Topology (Finite)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Product Topology - 2 spaces):**  
 Cho (X, 𝜏_X) và (Y, 𝜏_Y). Trên X × Y, **product topology** là topology sinh bởi basis:
 
 $$
 \mathcal{B} = \{U \times V : U \in \tau_X, V \in \tau_Y\}
 $$
+</div>
 
 **Nói bằng lời:** Basis elements = "open rectangles" U × V.
 
@@ -199,18 +219,23 @@ Basis: {open arc₁ × open arc₂}
 ![Torus as product](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Torus.png/300px-Torus.png)  
 *Torus = S¹ × S¹ - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus.png)*
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Product is Topology):**  
 𝜏_X×Y thỏa mãn topology axioms.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 ℬ = {U × V} thỏa mãn basis criterion:
 - (B1): X × Y = X × Y ∈ ℬ ✓
 - (B2): (U₁ × V₁) ∩ (U₂ × V₂) = (U₁ ∩ U₂) × (V₁ ∩ V₂) ∈ ℬ ✓
+</div>
 
 ---
 
 ### 5. Projections
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Projection Maps):**
 
 $$
@@ -219,26 +244,35 @@ $$
 $$
 \pi_Y: X \times Y \to Y, \quad \pi_Y(x,y) = y
 $$
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Projections Continuous):**  
 π_X và π_Y **luôn continuous** trong product topology.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho U ∈ 𝜏_X open.  
 π_X⁻¹(U) = U × Y = U × Y (basis element!) ∈ 𝜏_X×Y ✓
+</div>
 
 **Universal Property (Characterization):**  
 Product topology là **coarsest** topology trên X × Y làm cho π_X, π_Y continuous.
 
 **Nói bằng lời:** Đây là topology **nhỏ nhất** với projections continuous.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Product Continuity):**  
 f: Z → X × Y continuous ⟺ π_X ∘ f và π_Y ∘ f continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (⇐):**  
 Đủ check trên basis. Cho U × V basis element.  
 f⁻¹(U × V) = f⁻¹(π_X⁻¹(U) ∩ π_Y⁻¹(V))  
           = (π_X ∘ f)⁻¹(U) ∩ (π_Y ∘ f)⁻¹(V) ∈ 𝜏_Z ✓
+</div>
 
 **Ứng dụng:** Để check f: Z → X × Y continuous, chỉ cần check coordinates!
 
@@ -246,15 +280,19 @@ f⁻¹(U × V) = f⁻¹(π_X⁻¹(U) ∩ π_Y⁻¹(V))
 
 ### 6. Finite Products
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Associativity):**  
 (X × Y) × Z ≅ X × (Y × Z) ≅ X × Y × Z
+</div>
 
 **Trực giác:** Products "associate" naturally.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (n-fold Product):**  
 $$
 X_1 \times X_2 \times \cdots \times X_n
 $$
+</div>
 
 Basis: $B_1 \times B_2 \times \cdots \times B_n$ với $B_i$ basis element trong $X_i$.
 
@@ -278,19 +316,23 @@ Basis = {∏ᵢ Uᵢ : Uᵢ open, Uᵢ = Xᵢ **trừ hữu hạn** indices}
 
 **Nói bằng lời:** Chỉ "finitely many coordinates" non-trivial.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Infinite Product Topology):**
 
 $$
 \mathcal{B} = \left\{\prod_{i \in I} U_i : U_i \in \tau_i, U_i = X_i \text{ for all but finitely many } i\right\}
 $$
+</div>
 
 **Ví dụ:**  
 ℝ^∞ = ℝ × ℝ × ℝ × ···
 
 Basis element: (a₁,b₁) × ··· × (aₙ,bₙ) × ℝ × ℝ × ···
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Projections Continuous):**  
 Mọi projection πᵢ: ∏ⱼXⱼ → Xᵢ continuous trong product topology.
+</div>
 
 **Universal Property:**  
 Product topology là **coarsest** làm cho **all projections** continuous.
@@ -322,8 +364,10 @@ $$
 - Compactness của function spaces
 - Existence proofs trong analysis
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Requires ultrafilter lemma hoặc Alexander subbase theorem. (Advanced!)
+</div>
 
 **Chú ý quan trọng:**  
 Trong **box topology**, Tychonoff **sai**! [0,1]^ℕ with box topology **not compact**.

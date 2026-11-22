@@ -37,8 +37,10 @@ Tại sao quotient topology lại quan trọng đến vậy? Thứ nhất, trong
 
 ### 1. Basics
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Equivalence Relation):**  
 Relation ~ trên X là **equivalence relation** nếu:
+</div>
 
 **(ER1) Reflexive:** x ~ x ∀x
 
@@ -50,18 +52,22 @@ Relation ~ trên X là **equivalence relation** nếu:
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Equivalence Class):**  
 **Equivalence class** của x:
 
 $$
 [x] = \{y \in X : y \sim x\}
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quotient Set):**
 
 $$
 X/{\sim} = \{[x] : x \in X\} = \text{set of equivalence classes}
 $$
+</div>
 
 **Projection map:**
 
@@ -71,12 +77,16 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Partition):**  
 Equivalence relation ~ induces **partition** của X:
 - X = ⋃[x] (cover)
 - [x] = [y] hay [x] ∩ [y] = ∅ (disjoint)
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Straightforward từ axioms. ✓
+</div>
 
 **Converse:** Mọi partition induces equivalence relation.
 
@@ -142,12 +152,14 @@ Quotient set X/~ với projection π: X → X/~.
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quotient Topology):**  
 **Quotient topology** trên X/~ là topology:
 
 $$
 \tau_{X/\sim} = \{U \subseteq X/{\sim} : \pi^{-1}(U) \text{ open in } X\}
 $$
+</div>
 
 **Nói bằng lời:** U open trong X/~ ⟺ π^(-1)(U) open trong X.
 
@@ -157,7 +169,9 @@ $$
 
 **Verification:**
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** τ_X/~ thật sự là topology.
+</div>
 
 **Proof:**
 - ∅, X/~ trong τ: π^(-1)(∅) = ∅, π^(-1)(X/~) = X open ✓
@@ -168,9 +182,13 @@ Vậy τ topology. ✓
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition:** π: X → X/~ continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** By definition: U open in X/~ ⇒ π^(-1)(U) open in X. ✓
+</div>
 
 ---
 
@@ -178,8 +196,10 @@ Vậy τ topology. ✓
 
 **Universal Property của Quotient Topology:**
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 f: X/~ → Y continuous ⟺ f ∘ π: X → Y continuous.
+</div>
 
 **Diagram:**
 ```
@@ -192,15 +212,19 @@ X ---π---> X/~
       Y
 ```
 
+<div class="textbook-proof" markdown="1">
 **Proof (⇒):**  
 f continuous, π continuous ⇒ f ∘ π continuous. ✓
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof (⇐):**  
 Suppose f ∘ π continuous. Need: f continuous.  
 V open in Y.  
 (f ∘ π)^(-1)(V) = π^(-1)(f^(-1)(V)) open in X.  
 By definition quotient topology: f^(-1)(V) open in X/~.  
 Vậy f continuous. ✓
+</div>
 
 ---
 
@@ -213,31 +237,39 @@ Quotient topology là **finest** (largest) topology trên X/~ making π continuo
 
 ### 3. Quotient Maps
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quotient Map):**  
 f: X → Y continuous surjection là **quotient map** nếu:
 
 $$
 U \text{ open in } Y \iff f^{-1}(U) \text{ open in } X
 $$
+</div>
 
 **Nói bằng lời:** Y có quotient topology induced by f.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition:**  
 Projection π: X → X/~ luôn là quotient map (by definition).
+</div>
 
 ---
 
 **Example (Open Map):**
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** f: X → Y continuous surjection, **open** (or **closed**) ⇒ f quotient map.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof (open case):**  
 V ⊆ Y. Suppose f^(-1)(V) open.  
 V = f(f^(-1)(V)) (surjective).  
 f open ⇒ V open. ✓  
 Converse (V open ⇒ f^(-1)(V) open) = continuity. ✓
+</div>
 
 **Remark:** Open/closed maps automatically quotient.
 
@@ -253,15 +285,21 @@ Converse (V open ⇒ f^(-1)(V) open) = continuity. ✓
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Closed Sets):**  
 F ⊆ X/~ closed ⟺ π^(-1)(F) closed trong X.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Complement. ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:**  
 Quotient space có nice properties if π open or closed map.
+</div>
 
 ---
 
@@ -371,7 +409,9 @@ X/A = quotient với A identified to single point.
 **Example:** D²/S¹ (disk với boundary identified).  
 Result = S² (sphere)!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Stereographic projection from sphere to disk. ✓
+</div>
 
 ---
 
@@ -403,11 +443,15 @@ Open set in ℝ² có thể have preimage not open. ✗
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Sufficient Conditions):**
+</div>
 
 **If X compact, Y Hausdorff, f: X → Y continuous surjection ⇒ f quotient map.**
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Compact → Hausdorff = closed map. ✓
+</div>
 
 **Application:** Many geometric quotients (sphere → projective space).
 
@@ -423,11 +467,15 @@ X/~ NOT Hausdorff (can't separate [0] từ nearby points). ✗
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Sufficient Condition):**  
 R = {(x,y) : x ~ y} ⊆ X × X.  
 If R closed trong X × X, thì X/~ Hausdorff.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Technical. See Munkres §22. ✓
+</div>
 
 **Example:** Antipodal relation trên S^n closed ⇒ ℝP^n Hausdorff. ✓
 
@@ -435,15 +483,19 @@ If R closed trong X × X, thì X/~ Hausdorff.
 
 ### 3. First Isomorphism Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 f: X → Y continuous surjection.  
 Define ~ : x ~ y ⟺ f(x) = f(y).  
 Thì X/~ ≅ Y (homeomorphic).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Induced map f̄: X/~ → Y, f̄([x]) = f(x).  
 f̄ bijection, continuous (universal property).  
 f̄ homeomorphism if quotient map. ✓
+</div>
 
 **Application:** Identify quotient spaces với concrete spaces.
 

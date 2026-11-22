@@ -54,12 +54,14 @@ Chain complex: $C_n(X)$ với boundary $\partial: C_n \to C_{n-1}$.
 
 **Dualize:**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cochain Groups):**  
 Cố định coefficient group $G$ (thường là $\mathbb{Z}$).
 
 $$
 C^n(X; G) = \text{Hom}(C_n(X), G)
 $$
+</div>
 
 **Group của các homomorphisms từ $C_n(X)$ đến $G$.** Trực giác hình học là cochain group là không gian của các "functions" trên chain group—mỗi cochain là một cách gán giá trị cho mỗi chain.
 
@@ -79,8 +81,10 @@ $$
 
 ### 2. Coboundary Operator
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Coboundary):**  
 Boundary $\partial: C_{n+1} \to C_n$ cảm ứng **coboundary** $\delta: C^n \to C^{n+1}$.
+</div>
 
 **Công thức:** $\phi \in C^n$, định nghĩa $\delta\phi \in C^{n+1}$ bởi:
 
@@ -107,7 +111,9 @@ C_{n+1} --∂--> C_n
 
 ### 3. Key Property: δ² = 0
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** δ^{n+1} ∘ δ^n = 0.
+</div>
 
 **Proof:**  
 (δ²φ)(c) = (δφ)(∂c) = φ(∂²c) = φ(0) = 0.
@@ -132,7 +138,9 @@ $$
 
 **Coboundaries:** B^n = im(δ^{n-1}) (cochains = δψ)
 
+<div class="textbook-lemma" markdown="1">
 **Lemma:** B^n ⊆ Z^n (follows from δ² = 0).
+</div>
 
 ---
 
@@ -140,11 +148,13 @@ $$
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cohomology Groups):**
 
 $$
 H^n(X; G) = \frac{Z^n(X; G)}{B^n(X; G)} = \frac{\ker(\delta^n)}{\text{im}(\delta^{n-1})}
 $$
+</div>
 
 **Quotient: cocycles modulo coboundaries.**
 
@@ -177,9 +187,13 @@ Define f^*(φ) = φ ∘ f_# (precompose with chain map).
 
 ### 3. Homotopy Invariance
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** X ≃ Y ⇒ H^n(X) ≅ H^n(Y).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Same as homology (dual argument). ✓
+</div>
 
 **Cohomology = homotopy invariant.**
 
@@ -191,11 +205,13 @@ Define f^*(φ) = φ ∘ f_# (precompose with chain map).
 
 **Revolutionary feature:** Cohomology có **multiplication**!
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cup Product):**
 
 $$
 \cup : H^p(X) \times H^q(X) \to H^{p+q}(X)
 $$
+</div>
 
 **Bilinear, associative operation.**
 
@@ -241,6 +257,7 @@ $$
 
 ### 3. Ring Structure
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cohomology Ring):**
 
 $$
@@ -248,6 +265,7 @@ H^*(X) = \bigoplus_{n=0}^\infty H^n(X)
 $$
 
 with cup product ∪.
+</div>
 
 **H^*(X) = graded commutative ring!**
 
@@ -268,11 +286,13 @@ H^*(S²) = ℤ[α]/(α²) where α ∈ H²(S²).
 
 ### 1. Statement
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Universal Coefficient - Cohomology):**
 
 $$
 H^n(X; G) \cong \text{Hom}(H_n(X), G) \oplus \text{Ext}(H_{n-1}(X), G)
 $$
+</div>
 
 **Relates cohomology to homology!**
 
@@ -421,12 +441,14 @@ $$
 
 ### 1. Statement
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Poincaré Duality):**  
 M compact, oriented, n-manifold without boundary.
 
 $$
 H^k(M; \mathbb{Z}) \cong H_{n-k}(M; \mathbb{Z})
 $$
+</div>
 
 **Isomorphism:**
 

@@ -35,12 +35,14 @@ Các bài học tiếp theo sẽ khám phá $\pi_1$, covering spaces, và địn
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Homotopy):**  
 Cho $f, g: X \to Y$ là các ánh xạ liên tục. **Homotopy** từ $f$ đến $g$ là một ánh xạ liên tục:
 
 $$
 F: X \times [0,1] \to Y
 $$
+</div>
 
 sao cho $F(x, 0) = f(x)$ và $F(x, 1) = g(x)$ cho mọi $x \in X$.
 
@@ -54,9 +56,13 @@ Trực giác hình học đằng sau định nghĩa này là chúng ta tưởng 
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\sim$ là quan hệ tương đương.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Chúng ta cần kiểm tra ba tính chất của quan hệ tương đương. Tính phản xạ được thỏa mãn một cách tầm thường—mỗi ánh xạ đồng luân với chính nó thông qua constant homotopy $F(x,t) = f(x)$, nghĩa là chúng ta không thay đổi ánh xạ trong suốt quá trình biến dạng. Tính đối xứng được thiết lập bằng cách đảo ngược thời gian—nếu $F: f \simeq g$ là một homotopy từ $f$ đến $g$, thì $G(x,t) = F(x, 1-t)$ là một homotopy từ $g$ đến $f$, đơn giản là chạy bộ phim ngược lại. Tính bắc cầu được chứng minh bằng cách nối các homotopies—nếu chúng ta có $F: f \simeq g$ và $G: g \simeq h$, chúng ta có thể tạo ra một homotopy từ $f$ đến $h$ bằng cách chạy $F$ trong nửa đầu của khoảng thời gian và $G$ trong nửa sau, với một reparametrization thích hợp để đảm bảo tính liên tục tại điểm nối.
+</div>
 
 ---
 
@@ -80,10 +86,12 @@ Một ví dụ quan trọng về hai ánh xạ không đồng luân là ánh x�
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Homotopy Equivalence):**  
 Cho $f: X \to Y$ là một ánh xạ liên tục. $f$ là **homotopy equivalence** nếu $\exists g: Y \to X$:
 - $g \circ f \simeq \text{id}_X$
 - $f \circ g \simeq \text{id}_Y$
+</div>
 
 **$g$ được gọi là homotopy inverse của $f$.**
 
@@ -91,7 +99,9 @@ Cho $f: X \to Y$ là một ánh xạ liên tục. $f$ là **homotopy equivalence
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\simeq$ là quan hệ tương đương trên các không gian.
+</div>
 
 ---
 
@@ -99,7 +109,9 @@ Cho $f: X \to Y$ là một ánh xạ liên tục. $f$ là **homotopy equivalence
 
 **Ví dụ 1: Các không gian Contractible**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** Một không gian $X$ được gọi là **contractible** nếu $X \simeq \{pt\}$, nghĩa là $X$ đồng luân tương đương với một điểm.
+</div>
 
 Điều này tương đương với việc ánh xạ đồng nhất $\text{id}_X$ đồng luân với một ánh xạ hằng. Trực giác hình học là chúng ta có thể "co" toàn bộ không gian về một điểm một cách liên tục, giống như cách một con sứa co lại khi bị chạm vào. Đây là một tính chất hình học mạnh mẽ—một không gian contractible không có "lỗ" hoặc "vòng lặp" nào mà không thể co lại được.
 
@@ -133,12 +145,14 @@ Tuy nhiên, không phải tất cả các tính chất đều là homotopy invar
 
 ### 1. Paths
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Path):**  
 Một **path** trong không gian $X$ từ điểm $x_0$ đến điểm $x_1$ là một ánh xạ liên tục:
 
 $$
 \gamma: [0,1] \to X
 $$
+</div>
 
 thỏa mãn $\gamma(0) = x_0$ và $\gamma(1) = x_1$. Trực giác hình học là một path là một "đường đi liên tục" từ điểm này đến điểm khác trong không gian—chúng ta có thể tưởng tượng một con kiến đi từ $x_0$ đến $x_1$ dọc theo đường đi $\gamma$. Tham số $t \in [0,1]$ đại diện cho "thời gian" trong hành trình này—tại thời điểm $t=0$, con kiến ở điểm xuất phát $x_0$, và tại thời điểm $t=1$, con kiến đến điểm đích $x_1$.
 
@@ -164,12 +178,14 @@ Trực giác hình học là chúng ta đi qua $\gamma$ rồi tiếp tục đi q
 
 ### 2. Path Homotopy
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Path Homotopy):**  
 Cho $\gamma$, $\delta$: $[0,1] \to X$ là các paths với cùng các điểm đầu và cuối, nghĩa là $\gamma(0) = \delta(0) = x_0$ và $\gamma(1) = \delta(1) = x_1$. Một **path homotopy** $F: \gamma \simeq \delta$ (rel endpoints) là một ánh xạ liên tục:
 
 $$
 F: [0,1] \times [0,1] \to X
 $$
+</div>
 
 thỏa mãn $F(s,0) = \gamma(s)$ và $F(s,1) = \delta(s)$ cho mọi $s \in [0,1]$, và quan trọng là $F(0,t) = x_0$ và $F(1,t) = x_1$ cho mọi $t \in [0,1]$, nghĩa là các điểm đầu và cuối được giữ cố định trong suốt quá trình biến dạng.
 
@@ -182,7 +198,9 @@ Trực giác hình học đằng sau path homotopy là chúng ta có thể biế
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\simeq_p$ là quan hệ tương đương.
+</div>
 
 ---
 
@@ -206,10 +224,12 @@ $$
 
 ### 1. Homotopy Extension Property (HEP)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Cho $(X, A)$ là một cặp "nice" (ví dụ, CW pair). Cho trước:
 - $f: X \to Y$
 - $F: A \times I \to Y$ là homotopy bắt đầu tại $f|_A$
+</div>
 
 Khi đó $\exists$ extension $\tilde{F}: X \times I \to Y$ mở rộng $F$.
 
@@ -219,23 +239,29 @@ Khi đó $\exists$ extension $\tilde{F}: X \times I \to Y$ mở rộng $F$.
 
 ### 2. Deformation Retract
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Deformation Retract):**  
 Cho $A \subseteq X$. $A$ là **deformation retract** của $X$ nếu $\exists r: X \to A$:
 - $r|_A = \text{id}_A$ (retraction)
 - $ir \simeq \text{id}_X$ ($i: A \to X$ là inclusion, homotopy rel $A$)
+</div>
 
 **Ví dụ:** $S^{n-1}$ là deformation retract của $\mathbb{R}^n \setminus \{0\}$. ✓
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Nếu $A$ là deformation retract của $X$, thì $A \simeq X$.
+</div>
 
 ---
 
 ### 3. Contractibility
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Nếu $X$ contractible, thì $X$ path-connected, $\pi_1(X) = \{e\}$, $H_n(X) = 0$ ($n \geq 1$).
+</div>
 
 **Điều ngược lại sai:** (Whitehead manifold counterexample—nâng cao.)
 

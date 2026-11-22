@@ -67,11 +67,13 @@ Có nhiều cách xây dựng ℝ từ ℚ. Hai cách phổ biến:
 
 #### Cách 1: Dedekind Cuts
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Dedekind Cut):**  
 Một **Dedekind cut** là một cặp (A, B) với A, B ⊆ ℚ sao cho:
 1. A ∪ B = ℚ, A ∩ B = ∅, A ≠ ∅, B ≠ ∅
 2. ∀a ∈ A, ∀b ∈ B: a < b
 3. A không có phần tử lớn nhất
+</div>
 
 **Trực giác:** Một "cắt" chia ℚ thành hai nửa: "nhỏ hơn" và "lớn hơn" một số thực.
 
@@ -79,15 +81,19 @@ Một **Dedekind cut** là một cặp (A, B) với A, B ⊆ ℚ sao cho:
 - **√2:** A = {x ∈ ℚ : x < 0 hoặc x² < 2}, B = {x ∈ ℚ : x > 0 và x² ≥ 2}
 - **π:** A = {x ∈ ℚ : x < π}, B = {x ∈ ℚ : x ≥ π}
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** ℝ = {tất cả Dedekind cuts}
+</div>
 
 #### Cách 2: Cauchy Sequences
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cauchy Sequence):**  
 Dãy (xₙ) trong ℚ là **Cauchy** nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: |x_m - x_n| < \varepsilon
 $$
+</div>
 
 **Trực giác:** Các phần tử của dãy "tụ lại gần nhau" khi n → ∞.
 
@@ -112,10 +118,12 @@ $$
 \forall A \subseteq \mathbb{R}: (A \neq \emptyset \land A \text{ bounded above}) \implies \exists \sup A \in \mathbb{R}
 $$
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Supremum):**  
 Số s = sup A nếu:
 1. s là cận trên của A: ∀a ∈ A: a ≤ s
 2. s là nhỏ nhất: nếu t là cận trên khác, thì s ≤ t
+</div>
 
 **Tương tự:** Greatest Lower Bound (GLB) = Infimum (inf A)
 
@@ -144,12 +152,14 @@ $$
 
 **Động lực:** Để nói về "liên tục", ta cần khái niệm "khoảng cách". Đó chính là **metric**.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Metric):**  
 Một **metric** trên tập X là hàm d: X × X → ℝ thỏa mãn:
 
 1. **Non-negativity:** d(x, y) ≥ 0, và d(x, y) = 0 ⟺ x = y
 2. **Symmetry:** d(x, y) = d(y, x)
 3. **Triangle Inequality:** d(x, z) ≤ d(x, y) + d(y, z)
+</div>
 
 **Trực giác:** d(x, y) là "khoảng cách" từ x đến y.
 
@@ -192,21 +202,25 @@ $$
 
 ### 4. Metric Topology (Tô-pô Metric)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Open Ball - Hình cầu mở):**  
 Với x ∈ X và r > 0, **open ball** tâm x bán kính r là:
 $$
 B(x, r) = \{y \in X : d(x, y) < r\}
 $$
+</div>
 
 **Trong ℝ:** B(a, r) = (a - r, a + r) (khoảng mở)  
 **Trong ℝ²:** B(p, r) = đĩa tròn mở tâm p bán kính r  
 **Trong ℝ³:** B(p, r) = quả bóng mở tâm p bán kính r
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Open Set in Metric Space):**  
 Tập U ⊆ X là **open** (mở) nếu:
 $$
 \forall x \in U: \exists r > 0: B(x, r) \subseteq U
 $$
+</div>
 
 **Trực giác:** Mọi điểm trong U có "không gian xung quanh" vẫn nằm trong U.
 
@@ -219,14 +233,18 @@ $$
 - **ℝ** là mở
 - **∅** là mở (vacuously true!)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Họ tất cả các tập mở trong metric space (X, d) tạo thành một **topology** trên X.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):**  
 Cần kiểm tra:
 1. ∅ và X mở ✓
 2. Hợp tùy ý các tập mở là mở ✓
 3. Giao hữu hạn các tập mở là mở ✓
+</div>
 
 **Ý nghĩa:** Mọi metric space tự động là topological space!
 
@@ -234,11 +252,13 @@ Cần kiểm tra:
 
 ### 5. Euclidean Space ℝⁿ
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 **Không gian Euclid n-chiều** là ℝⁿ = ℝ × ℝ × ... × ℝ (n lần) với Euclidean metric:
 $$
 d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)²}
 $$
+</div>
 
 **Các trường hợp đặc biệt:**
 - **ℝ¹ = ℝ:** Đường thẳng
@@ -248,11 +268,13 @@ $$
 
 **Standard Basis:** ℝⁿ có topology induced bởi tất cả các open balls. Nhưng ta có thể dùng **basis** đơn giản hơn:
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Standard Basis for ℝⁿ):**  
 Họ tất cả các "open rectangles" (tích Cartesian của các khoảng mở) tạo thành basis cho topology của ℝⁿ:
 $$
 \mathcal{B} = \{(a_1, b_1) \times (a_2, b_2) \times \cdots \times (a_n, b_n)\}
 $$
+</div>
 
 **Ví dụ trong ℝ²:**  
 Một open rectangle: (1, 3) × (2, 5) = {(x, y) : 1 < x < 3, 2 < y < 5}
@@ -272,36 +294,46 @@ Một open rectangle: (1, 3) × (2, 5) = {(x, y) : 1 < x < 3, 2 < y < 5}
 
 ### 6. Convergence in Metric Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Convergence - Hội tụ):**  
 Dãy (xₙ) trong metric space (X, d) **hội tụ** đến x ∈ X nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall n \geq N: d(x_n, x) < \varepsilon
 $$
+</div>
 
 **Ký hiệu:** xₙ → x hoặc lim_{n→∞} xₙ = x
 
 **Trực giác:** Khoảng cách từ xₙ đến x → 0 khi n → ∞.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cauchy Sequence trong Metric Space):**  
 Dãy (xₙ) là **Cauchy** nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: d(x_m, x_n) < \varepsilon
 $$
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Mọi convergent sequence là Cauchy.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:** Nếu xₙ → x, cho ε > 0, chọn N sao cho ∀n ≥ N: d(xₙ, x) < ε/2.  
 Khi đó với m, n ≥ N:
 $$
 d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
 $$
 ∎
+</div>
 
 **Ngược lại KHÔNG đúng tổng quát!** (Trừ khi space "complete")
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Complete Metric Space):**  
 Metric space (X, d) là **complete** nếu mọi Cauchy sequence hội tụ trong X.
+</div>
 
 **Ví dụ:**
 - **ℝ** complete ✓ (theo completeness axiom)

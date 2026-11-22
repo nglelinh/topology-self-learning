@@ -61,8 +61,10 @@ Và thế là **topology** ra đời!
 
 ### 1. Topological Space (Không gian Tô-pô)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Topology):**  
 Cho X là một tập hợp. Một **topology** trên X là một họ 𝜏 các tập con của X (gọi là **open sets**) thỏa mãn ba điều kiện:
+</div>
 
 **(T1) Empty set và whole space:**
 $$
@@ -103,11 +105,13 @@ Xét trong ℝ: ⋂ₙ₌₁^∞ (-1/n, 1/n) = {0}, nhưng {0} **không open** t
 
 #### Example 1: Trivial Topology (Indiscrete Topology)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 Topology **thô nhất** (coarsest) trên X:
 $$
 \tau_{\text{trivial}} = \{\emptyset, X\}
 $$
+</div>
 
 **Chỉ có** ∅ và X là open!
 
@@ -124,11 +128,13 @@ $$
 
 #### Example 2: Discrete Topology
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 Topology **mịn nhất** (finest) trên X:
 $$
 \tau_{\text{discrete}} = \mathcal{P}(X) = \text{tất cả tập con của } X
 $$
+</div>
 
 **Mọi** tập con đều open!
 
@@ -150,8 +156,10 @@ $$
 
 #### Example 3: Euclidean Topology on ℝ
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 𝜏 = {U ⊆ ℝ : U là hợp của các khoảng mở}
+</div>
 
 **Ví dụ open sets:**
 - (a, b): khoảng mở
@@ -165,11 +173,13 @@ $$
 
 #### Example 4: Cofinite Topology
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 Trên tập X, cofinite topology là:
 $$
 \tau_{\text{cofinite}} = \{U \subseteq X : X \setminus U \text{ hữu hạn hoặc } U = \emptyset\}
 $$
+</div>
 
 **Nói cách khác:** U open ⟺ bù của U hữu hạn (hoặc U = ∅).
 
@@ -203,11 +213,13 @@ Mỗi X \ Uᵢ hữu hạn → hợp hữu hạn các tập hữu hạn = hữu 
 
 #### Example 5: Cocountable Topology
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 Trên tập X (uncountable), cocountable topology là:
 $$
 \tau_{\text{cocountable}} = \{U \subseteq X : X \setminus U \text{ đếm được hoặc } U = \emptyset\}
 $$
+</div>
 
 **Ví dụ:** Trên ℝ
 - Open sets: ∅, ℝ, ℝ \ ℚ, ℝ \ {x₁, x₂, ...}, ...
@@ -219,8 +231,10 @@ $$
 
 ### 3. Comparing Topologies (So sánh Topology)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Coarser/Finer):**  
 Cho 𝜏₁, 𝜏₂ là hai topologies trên X.
+</div>
 
 - 𝜏₁ **coarser** (thô hơn) than 𝜏₂ nếu 𝜏₁ ⊆ 𝜏₂  
 - 𝜏₂ **finer** (mịn hơn) than 𝜏₁ nếu 𝜏₂ ⊇ 𝜏₁
@@ -252,11 +266,13 @@ $$
 
 ### 4. Closed Sets (Tập Đóng)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
 Trong topological space (X, 𝜏), tập F ⊆ X là **closed** nếu:
 $$
 X \setminus F \in \tau
 $$
+</div>
 
 **Nói cách khác:** F closed ⟺ bù của F open.
 
@@ -273,7 +289,9 @@ $$
 2. **Giao tùy ý** các closed sets là closed
 3. **Hợp hữu hạn** các closed sets là closed
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):** Dùng De Morgan's laws và axioms của open sets.
+</div>
 
 **Chú ý:**  
 - Một tập có thể vừa open vừa closed! (Ví dụ: ∅, X)
@@ -286,11 +304,13 @@ $$
 
 ### 5. Interior, Closure, Boundary
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Interior - Phần trong):**  
 **Interior** của A ⊆ X là hợp của tất cả open sets chứa trong A:
 $$
 \text{int}(A) = A° = \bigcup \{U \in \tau : U \subseteq A\}
 $$
+</div>
 
 **Trực giác:** Phần "hoàn toàn bên trong" A—các điểm có "không gian xung quanh" trong A.
 
@@ -299,11 +319,13 @@ $$
 - int(ℚ) = ∅ (không có open interval nào trong ℚ)
 - int((0,1)) = (0,1)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Closure - Bao đóng):**  
 **Closure** của A ⊆ X là giao của tất cả closed sets chứa A:
 $$
 \overline{A} = \text{cl}(A) = \bigcap \{F : F \text{ closed}, A \subseteq F\}
 $$
+</div>
 
 **Trực giác:** Tập nhỏ nhất chứa A và "ranh giới" của A.
 
@@ -312,11 +334,13 @@ $$
 - cl(ℚ) = ℝ (ℚ "dense" trong ℝ)
 - cl({1/n : n ∈ ℕ}) = {1/n : n ∈ ℕ} ∪ {0}
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Boundary - Biên):**  
 **Boundary** của A là:
 $$
 \partial A = \overline{A} \setminus A°
 $$
+</div>
 
 **Ví dụ trong ℝ:**
 - ∂((0,1)) = {0, 1}

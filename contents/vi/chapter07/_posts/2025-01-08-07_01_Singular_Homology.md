@@ -51,11 +51,13 @@ Trong bài học này, chúng ta sẽ khám phá singular homology một cách c
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Standard n-Simplex):**
 
 $$
 \Delta^n = \left\{(t_0, \ldots, t_n) \in \mathbb{R}^{n+1} : t_i \geq 0, \sum_{i=0}^n t_i = 1\right\}
 $$
+</div>
 
 **Vertices:** 
 - $e_0 = (1, 0, \ldots, 0)$
@@ -81,11 +83,13 @@ $$
 
 ### 2. Face Maps
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (i-th Face Map):**
 
 $$
 \delta_i : \Delta^{n-1} \to \Delta^n
 $$
+</div>
 
 **Formula:** Insert 0 at position i:
 
@@ -123,12 +127,14 @@ Not needed for basic homology.
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Singular n-Simplex):**  
 **Singular n-simplex in $X$** = continuous map:
 
 $$
 \sigma : \Delta^n \to X
 $$
+</div>
 
 **Bất kỳ ánh xạ liên tục nào!** Đây là điểm quan trọng—chúng ta không yêu cầu ánh xạ phải là embedding hoặc có tính chất đặc biệt nào khác, chỉ cần liên tục.
 
@@ -178,11 +184,13 @@ Bao gồm simplicial complexes như một trường hợp đặc biệt. Điều
 
 ### 1. Chain Groups
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Singular Chain Group):**
 
 $$
 C_n(X) = \text{free abelian group on singular } n\text{-simplices in } X
 $$
+</div>
 
 **Các phần tử:** Các tổng hình thức:
 
@@ -203,8 +211,10 @@ $$
 
 ### 2. Boundary Operator
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Boundary):**  
 Cho singular simplex $\sigma: \Delta^n \to X$.
+</div>
 
 **i-th face:** $\sigma \circ \delta_i: \Delta^{n-1} \to \Delta^n \to X$. Đây là composition của singular simplex với face map—chúng ta ánh xạ standard $(n-1)$-simplex vào face thứ $i$ của standard $n$-simplex, sau đó ánh xạ vào $X$.
 
@@ -239,8 +249,11 @@ $$
 
 ### 3. Key Property: ∂² = 0
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\partial_{n-1} \circ \partial_n = 0$.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Composition của các face maps:
 
 $$
@@ -248,6 +261,7 @@ $$
 $$
 
 Khi mở rộng $\partial(\partial\sigma)$, mỗi composition xuất hiện hai lần với các dấu đối nhau. Điều này xảy ra vì khi chúng ta tính boundary của boundary, chúng ta phải đi qua hai face maps, và các cách đi qua chúng xuất hiện theo cặp với các dấu đối nhau.
+</div>
 
 **Cancellation ⇒ $\partial^2 = 0$.** ✓ Đây là tính chất cơ bản cho phép chúng ta định nghĩa homology groups—nếu không có tính chất này, chúng ta không thể định nghĩa cycles và boundaries một cách nhất quán.
 
@@ -290,12 +304,14 @@ $$
 
 ### 2. Functoriality
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Functoriality):**  
 Cho ánh xạ liên tục $f: X \to Y$ cảm ứng:
 
 $$
 f_* : H_n(X) \to H_n(Y)
 $$
+</div>
 
 **Xây dựng:**  
 Cho singular simplex $\sigma: \Delta^n \to X$.  
@@ -319,10 +335,14 @@ Induces map on homology: $f_*[c] = [f(c)]$. Điều này có nghĩa là nếu $c
 
 ### 3. Homotopy Invariance
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Homotopy Invariance):**  
 Nếu $f, g: X \to Y$ đồng luân, thì $f_* = g_*: H_n(X) \to H_n(Y)$.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** $X \simeq Y$ ⇒ $H_n(X) \cong H_n(Y)$.
+</div>
 
 **Homology = homotopy invariant!** Đây là một tính chất cực kỳ mạnh mẽ—homology groups chỉ phụ thuộc vào homotopy type của không gian, không phụ thuộc vào chi tiết cụ thể của cấu trúc tô-pô. Điều này cho phép chúng ta tính toán homology bằng cách sử dụng homotopy equivalence để đơn giản hóa không gian.
 

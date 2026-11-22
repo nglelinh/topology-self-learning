@@ -39,11 +39,13 @@ Hãy tưởng tượng bạn không được nhìn chiếc bánh donut, chỉ đ
 
 Kayacan (2025) chỉ ra rằng persistent homology có thể được diễn đạt hoàn toàn trên **không gian tô-pô hữu hạn** (Alexandroff): mỗi giai đoạn lọc là một tập hữu hạn với topology xác định bởi một thứ tự. Điều này đưa Chapter 00 — tập, quan hệ, hàm — sát với pipeline tính toán: dữ liệu không cần được nhúng sẵn vào $\mathbb{R}^d$ mới có homology.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (nhắc lại, không thay lý thuyết):** một không gian Alexandroff hữu hạn có basis các lân cận tối thiểu $U_x$. Filtration hữu hạn là một dãy đơn điệu
 $$
 X_0\subseteq X_1\subseteq\cdots\subseteq X_m
 $$
 và persistent homology đọc các lớp $[z]\in H_n(X_i)$ còn sống ở $X_j$.
+</div>
 
 - Selçuk Kayacan, *Persistent Homology via Finite Topological Spaces*, arXiv:2512.23348 (2025).
 

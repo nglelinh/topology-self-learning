@@ -41,8 +41,10 @@ $$
 
 Trực giác đằng sau khái niệm này là: một dãy Cauchy là một dãy mà các phần tử của nó "muốn hội tụ"—chúng gần nhau tùy ý—nhưng điểm giới hạn có thể không tồn tại trong không gian.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Complete Metric Space):**  
 Một metric space $(X, d)$ được gọi là **complete** nếu mọi dãy Cauchy trong $X$ đều hội tụ đến một điểm trong $X$.
+</div>
 
 Trực giác đằng sau completeness là "không có lỗ hổng"—mọi điểm mà chúng ta mong đợi tồn tại (như giới hạn của một dãy Cauchy) đều thực sự tồn tại trong không gian. Đây là một tính chất quan trọng đảm bảo rằng không gian không có "điểm thiếu".
 
@@ -86,41 +88,55 @@ Chứng minh là không tầm thường và sử dụng bất đẳng thức Min
 
 ### 3. Properties của Complete Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý 1 (Closed Subspace):**  
 Y ⊆ X closed, X complete ⇒ Y complete (với induced metric).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 (yₙ) Cauchy in Y ⇒ Cauchy in X ⇒ yₙ → x ∈ X.  
 Y closed ⇒ x ∈ Y. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:** [a,b] complete vì closed in ℝ.
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý 2 (Converse):**  
 Y ⊆ X, Y complete, X complete ⇒ Y closed trong X.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cho x ∈ cl(Y). ∃ sequence yₙ ∈ Y: yₙ → x.  
 Convergent ⇒ Cauchy.  
 Y complete ⇒ yₙ → y ∈ Y.  
 Limits unique ⇒ x = y ∈ Y.  
 Vậy cl(Y) = Y. ✓
+</div>
 
 **Ý nghĩa:** Y complete ⟺ Y closed (trong complete space).
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý 3 (Nested Closed Sets):**  
 X complete, F₁ ⊇ F₂ ⊇ F₃ ⊇ ... closed nonempty với diam(Fₙ) → 0.  
 Thì ⋂Fₙ = {exactly one point}.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Chọn xₙ ∈ Fₙ. diam(Fₙ) → 0 ⇒ (xₙ) Cauchy.  
 X complete ⇒ xₙ → x.  
 ∀n: tail {xₙ, xₙ₊₁, ...} ⊆ Fₙ, Fₙ closed ⇒ x ∈ Fₙ.  
 Vậy x ∈ ⋂Fₙ.  
 diam → 0 ⇒ unique. ✓
+</div>
 
 **Application:** Fixed point theorems, existence proofs.
 
@@ -132,17 +148,21 @@ diam → 0 ⇒ unique. ✓
 
 **Ví dụ:** Completion của ℚ = ℝ.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Completion Theorem):**  
 Mọi metric space (X, d) có **completion** (\(\overline{X}\), \(\overline{d}\)) unique up to isometry:
 - \(\overline{X}\) complete metric space
 - X ⊆ \(\overline{X}\) isometrically
 - X dense trong \(\overline{X}\)
+</div>
 
 **Construction:**  
 \(\overline{X}\) = equivalence classes của Cauchy sequences trong X.  
 Two sequences equivalent if distance → 0.
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Technical nhưng straightforward. See Munkres §43.
+</div>
 
 **Example:**  
 - Completion của ℚ = ℝ
@@ -159,8 +179,10 @@ Two sequences equivalent if distance → 0.
 
 Khái niệm nowhere dense là một cách để đo lường "độ nhỏ" của một tập hợp theo nghĩa tô-pô. Một tập hợp được gọi là nowhere dense nếu closure của nó không chứa bất kỳ tập mở nào—nghĩa là nó không "dày đặc" ở bất kỳ đâu.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Nowhere Dense):**  
 Một tập hợp $A \subseteq X$ được gọi là **nowhere dense** nếu $\text{int}(\text{cl}(A)) = \emptyset$.
+</div>
 
 Nói bằng lời, closure của $A$ không chứa bất kỳ tập mở nào. Điều này tương đương với việc $\text{cl}(A)$ không có interior points—không có điểm nào trong closure có một lân cận mở hoàn toàn nằm trong closure. Trực giác là $A$ được "trải mỏng"—nó không "dày" ở bất kỳ đâu trong không gian.
 
@@ -187,11 +209,15 @@ cl(ℚ) = ℝ, int(ℝ) = ℝ ≠ ∅. ✗
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition:**  
 A nowhere dense ⟺ X \ cl(A) dense.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 A nowhere dense ⟺ int(cl(A)) = ∅ ⟺ cl(A) không chứa open ball nào ⟺ mọi open ball intersects X \ cl(A) ⟺ X \ cl(A) dense. ✓
+</div>
 
 **Trực giác:** Complement của nowhere dense = dense!
 
@@ -201,14 +227,20 @@ A nowhere dense ⟺ int(cl(A)) = ∅ ⟺ cl(A) không chứa open ball nào ⟺ 
 
 Khái niệm category là một cách để phân loại các tập hợp theo "độ lớn" của chúng trong không gian tô-pô. Một tập hợp được gọi là meager (hay first category) nếu nó có thể được viết thành hợp đếm được của các tập nowhere dense—nghĩa là nó là "nhỏ" theo nghĩa Baire.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Meager/First Category):**  
 Một tập hợp $A$ được gọi là **meager** (hay **first category**) nếu $A = \bigcup A_n$ với mỗi $A_n$ là nowhere dense.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Nonmeager/Second Category):**  
 Một tập hợp $A$ được gọi là **nonmeager** (hay **second category**) nếu nó không meager.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Residual/Comeager):**  
 Một tập hợp $A$ được gọi là **residual** (hay **comeager**) nếu $X \setminus A$ là meager.
+</div>
 
 Trực giác đằng sau các khái niệm này là: meager = "nhỏ" (hợp đếm được của các tập mỏng), trong khi residual = "lớn" (phần bù là meager). Điều quan trọng cần lưu ý là thuật ngữ "category" ở đây không liên quan đến category theory—đây là một thuật ngữ lịch sử từ công trình của Baire.
 
@@ -234,6 +266,7 @@ C nowhere dense ⇒ meager. ✓
 
 ### 3. Baire Category Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Baire Category Theorem - Version 1):**  
 Cho (X, d) complete metric space.  
 Nếu U₁, U₂, U₃, ... open dense trong X, thì:
@@ -241,6 +274,7 @@ Nếu U₁, U₂, U₃, ... open dense trong X, thì:
 $$
 \bigcap_{n=1}^\infty U_n \text{ dense trong } X
 $$
+</div>
 
 **Nói bằng lời:** Countable intersection của open dense sets = dense.
 
@@ -248,8 +282,10 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Baire Category Theorem - Version 2):**  
 Complete metric space X không thể viết được thành countable union của nowhere dense sets.
+</div>
 
 **Equivalent formulation:** Complete metric space = second category (nonmeager).
 
@@ -303,8 +339,10 @@ Uₙ, V open ⇒ x ∈ Uₙ ∩ V.
 
 **Application 1: Existence của Continuous Nowhere Differentiable Functions**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Banach):**  
 "Most" continuous functions [0,1] → ℝ nowhere differentiable.
+</div>
 
 **Precise:** {f ∈ C([0,1]) : f nowhere differentiable} residual.
 
@@ -325,8 +363,10 @@ Vậy "almost all" real numbers irrational (trong Baire sense).
 
 **Application 3: Hint at Open Mapping Theorem**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Open Mapping Theorem - functional analysis):**  
 T: X → Y continuous linear surjection giữa Banach spaces ⇒ T open.
+</div>
 
 **Proof sử dụng Baire Category Theorem crucially.**
 
@@ -337,10 +377,14 @@ Y = ⋃ T(Bₙ(0)). Baire ⇒ some T(Bₙ(0)) has interior ⇒ T open on origin 
 
 **Application 4: Principle of Uniform Boundedness**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Banach-Steinhaus):**  
 {Tₙ} linear operators pointwise bounded ⇒ uniformly bounded.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Baire Category.
+</div>
 
 ---
 

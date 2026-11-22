@@ -49,12 +49,14 @@ Hãy bắt đầu với một ví dụ quen thuộc. Giả sử bạn đang thi�
 
 ### 1. Ordered Pairs và Cartesian Product
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Ordered Pair - Cặp có thứ tự):**  
 Cặp có thứ tự (a, b) được định nghĩa (theo Kuratowski) là:
 
 $$
 (a, b) := \{\{a\}, \{a, b\}\}
 $$
+</div>
 
 **Tính chất quan trọng:**
 $$
@@ -63,12 +65,14 @@ $$
 
 **Trực giác:** Thứ tự quan trọng: (1, 2) ≠ (2, 1).
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cartesian Product - Tích Cartesian):**  
 Với hai tập A và B, tích Cartesian là:
 
 $$
 A \times B = \{(a, b) : a \in A, b \in B\}
 $$
+</div>
 
 **Ví dụ cụ thể:** ℝ × ℝ = ℝ² gives us the familiar plane; ℝ × ℝ × ℝ = ℝ³ constructs three-dimensional space; và {0,1} × {0,1} = {(0,0), (0,1), (1,0), (1,1)} là tập 4 phần tử representing tất cả bit-pairs.
 
@@ -86,12 +90,14 @@ Giả sử có họ tập hợp {Aᵢ : i ∈ I} với I là tập chỉ số (i
 
 **Nhưng:** Làm sao "chọn" khi có vô hạn tập hợp?
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Product of indexed family):**  
 Tích Cartesian của họ {Aᵢ}ᵢ∈I là:
 
 $$
 \prod_{i \in I} A_i = \left\{ f: I \to \bigcup_{i \in I} A_i \; \middle| \; \forall i \in I: f(i) \in A_i \right\}
 $$
+</div>
 
 **Trực giác:** Mỗi phần tử của tích là một **hàm lựa chọn** (choice function) gán cho mỗi chỉ số i một phần tử từ Aᵢ.
 
@@ -119,12 +125,14 @@ $$
 
 **Hệ quả quan trọng:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Với họ không rỗng {Aᵢ}ᵢ∈I, nếu mỗi Aᵢ ≠ ∅, thì:
 
 $$
 \prod_{i \in I} A_i \neq \emptyset \iff \text{Axiom of Choice}
 $$
+</div>
 
 **Tại sao Axiom of Choice quan trọng trong topology?** Nhiều định lý fundamental trong topology absolutely require AC. **Tychonoff's Theorem** states rằng arbitrary product của compact spaces là compact—đây là một trong những theorems central nhất trong topology, và nó equivalent với AC! Không có AC, ta không thể prove theorem này for uncountable products. **Basis Theorem** trong linear algebra (every vector space has a basis) cũng requires AC khi không gian vô hạn chiều. Trong topology, **Stone-Čech compactification**—cách canonical để embed một completely regular space vào một compact space—existence của nó cần AC. Những results này không phải là technical curiosities; chúng là workhorses của modern topology và analysis.
 
@@ -132,22 +140,30 @@ $$
 
 ### 4. Zorn's Lemma
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Partially Ordered Set - Poset):**  
 Một **poset** (A, ≤) là tập A cùng với quan hệ ≤ thỏa mãn:
 1. **Reflexive:** a ≤ a
 2. **Antisymmetric:** (a ≤ b) ∧ (b ≤ a) ⇒ (a = b)
 3. **Transitive:** (a ≤ b) ∧ (b ≤ c) ⇒ (a ≤ c)
+</div>
 
 **Ví dụ về posets:** Real numbers với usual ordering (ℝ, ≤) form một poset where transitivity và antisymmetry hold. Power set 𝒫(X) với set inclusion (𝒫(X), ⊆) là another poset—two sets A, B satisfy A ⊆ B and B ⊆ A exactly when A = B. Đặc biệt relevant cho topology là collection của tất cả topologies trên một fixed set X, ordered by inclusion: topology τ₁ ⊆ τ₂ means τ₁ is coarser (has fewer open sets) than τ₂.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Chain - Xích):**  
 Một **chain** (hoặc totally ordered subset) trong poset (A, ≤) là tập con C ⊆ A sao cho mọi a, b ∈ C đều so sánh được: a ≤ b hoặc b ≤ a.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Upper Bound - Cận trên):**  
 Phần tử u ∈ A là **upper bound** của C nếu ∀c ∈ C: c ≤ u.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Maximal Element - Phần tử cực đại):**  
 Phần tử m ∈ A là **maximal** nếu không tồn tại a ∈ A với m < a.
+</div>
 
 **Chú ý:** Maximal ≠ Maximum! Có thể có nhiều maximal elements.
 
@@ -174,8 +190,10 @@ Ba phát biểu sau đây **tương đương** (trong ZF):
 2. **Zorn's Lemma (ZL)**
 3. **Well-Ordering Principle (WOP):** Mọi tập hợp đều có thể well-ordered.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Well-ordered):**  
 Một tập A với quan hệ thứ tự ≤ là **well-ordered** nếu mọi tập con không rỗng của A đều có phần tử nhỏ nhất.
+</div>
 
 **Ví dụ về well-ordering:** Natural numbers (ℕ, ≤) are well-ordered—every non-empty subset has a least element, which là why induction works! Integers (ℤ, ≤) are NOT well-ordered vì ℤ itself không có phần tử nhỏ nhất (goes to -∞). Similarly, real numbers (ℝ, ≤) are not well-ordered; for instance, open interval (0,1) có không smallest element.
 
@@ -190,10 +208,14 @@ Tồn tại một quan hệ thứ tự trên ℝ (khác ≤ thông thường) sa
 
 **Ứng dụng 1: Tồn tại Basis**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Mọi không gian tô-pô có một basis.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):** Dùng Zorn's Lemma trên poset của các họ tập mở với quan hệ bao hàm. Mọi chain có upper bound (là hợp của chain). Do đó tồn tại basis maximal.
+</div>
 
 **Ứng dụng 2: Tychonoff's Theorem**
 
@@ -204,8 +226,10 @@ Tích tùy ý các không gian compact là compact (trong product topology).
 
 **Ứng dụng 3: Hausdorff Maximal Principle**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Mọi chain trong poset có thể mở rộng thành maximal chain.
+</div>
 
 **Ý nghĩa:** Trong topology, dùng để chứng minh sự tồn tại của ultrafilters, compactifications, etc.
 

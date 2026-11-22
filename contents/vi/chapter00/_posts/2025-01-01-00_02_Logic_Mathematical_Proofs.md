@@ -36,12 +36,16 @@ Mathematical proofs work exactly như vậy! Một **chứng minh** là một ca
 
 **Ví dụ đơn giản:**
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề:** Nếu n là số chẵn, thì n² là số chẵn.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Giả sử n chẵn. Theo định nghĩa, tồn tại k ∈ ℤ sao cho n = 2k.  
 Khi đó: n² = (2k)² = 4k² = 2(2k²).  
 Vì 2k² ∈ ℤ, nên n² chẵn. ∎
+</div>
 
 Đơn giản! Nhưng đây là nền tảng của mọi chứng minh topology phức tạp.
 
@@ -51,7 +55,9 @@ Vì 2k² ∈ ℤ, nên n² chẵn. ∎
 
 ### 1. Propositional Logic (Logic Mệnh đề)
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề (Proposition):** Một câu có giá trị đúng (T) hoặc sai (F).
+</div>
 
 **Ví dụ:**
 - "2 + 2 = 4" → T
@@ -133,10 +139,12 @@ $$
 
 **Trong topology:**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Continuity):**
 $$
 \forall \varepsilon > 0 \; \exists \delta > 0 \; \forall x: (|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon)
 $$
+</div>
 
 Thứ tự quantifiers xác định chính xác khái niệm "liên tục"!
 
@@ -150,8 +158,11 @@ Thứ tự quantifiers xác định chính xác khái niệm "liên tục"!
 
 **Ví dụ:**
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề:** Nếu a, b là số lẻ, thì a + b chẵn.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Giả sử a, b lẻ. Theo định nghĩa:
 - a = 2k + 1 với k ∈ ℤ
@@ -163,6 +174,7 @@ a + b = (2k + 1) + (2m + 1) = 2(k + m + 1)
 $$
 
 Vì k + m + 1 ∈ ℤ, nên a + b chẵn. ∎
+</div>
 
 **Khi nào dùng:** Khi có "đường" rõ ràng từ giả thiết đến kết luận.
 
@@ -174,8 +186,11 @@ Vì k + m + 1 ∈ ℤ, nên a + b chẵn. ∎
 
 **Ví dụ:**
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề:** Nếu n² chẵn, thì n chẵn.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh (bằng contrapositive):**  
 Ta chứng minh: Nếu n lẻ, thì n² lẻ.
 
@@ -186,6 +201,7 @@ n² = (2k + 1)² = 4k² + 4k + 1 = 2(2k² + 2k) + 1
 $$
 
 Nên n² lẻ. ∎
+</div>
 
 **Khi nào dùng:** Khi ¬Q dễ làm việc hơn Q (ví dụ: Q là phủ định)
 
@@ -197,7 +213,9 @@ Nên n² lẻ. ∎
 
 **Ví dụ kinh điển:**
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề:** √2 là số vô tỉ.
+</div>
 
 **Chứng minh:**  
 Giả sử (phản chứng) √2 hữu tỉ. Khi đó:
@@ -239,12 +257,16 @@ Vậy √2 vô tỉ. ∎
 
 **Ví dụ:**
 
+<div class="textbook-theorem" markdown="1">
 **Mệnh đề:** Với mọi n ≥ 1:
 $$
 1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}
 $$
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **Base case (n = 1):**
 $$

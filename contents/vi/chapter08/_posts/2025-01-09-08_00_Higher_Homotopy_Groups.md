@@ -43,8 +43,10 @@ Hãy bắt đầu với một cách nhìn hình học về những gì chúng ta
 
 Bây giờ, hãy tưởng tượng chúng ta nâng cấp khái niệm này lên các chiều cao hơn. Thay vì ánh xạ từ một hình tròn một chiều, chúng ta xem xét các ánh xạ từ một hình cầu n chiều $S^n$ vào không gian X. Hình cầu n chiều là tập hợp tất cả các điểm trong không gian Euclid (n+1) chiều có khoảng cách từ gốc tọa độ bằng 1. Đối với n = 1, đây là đường tròn đơn vị; đối với n = 2, đây là mặt cầu thông thường; đối với n = 3, đây là hình cầu ba chiều trong không gian bốn chiều, và cứ thế. Mỗi hình cầu như vậy có một điểm cơ sở tự nhiên, thường được chọn là điểm (1, 0, 0, ..., 0) trong tọa độ Cartesian.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Nhóm Đồng luân Bậc n):**  
 Cho X là một không gian tô-pô và $x_0$ ∈ X là một điểm cơ sở. Một **ánh xạ dựa trên điểm cơ sở** (based map) là một ánh xạ liên tục f: $S^n$ → X sao cho f($s_0$) = $x_0$, trong đó $s_0$ là điểm cơ sở của $S^n$. Hai ánh xạ dựa trên điểm cơ sở f và g được gọi là **đồng luân dựa trên điểm cơ sở** (based homotopic) nếu tồn tại một đồng luân H: $S^n$ × [0,1] → X sao cho H_t($s_0$) = $x_0$ cho mọi t ∈ [0,1], nghĩa là điểm cơ sở luôn được giữ cố định trong suốt quá trình biến dạng.
+</div>
 
 Nhóm đồng luân bậc n $\pi_n$(X, $x_0$) được định nghĩa là tập hợp tất cả các lớp đồng luân [f] của các ánh xạ dựa trên điểm cơ sở từ $S^n$ vào X. Đây là một cách tự nhiên để khái quát hóa fundamental group: trong khi $\pi_1$ đo lường cách các đường cong một chiều có thể quấn quanh không gian, $\pi_n$ đo lường cách các "bề mặt" n chiều có thể được ánh xạ vào không gian.
 
@@ -81,8 +83,10 @@ Với những tính chất này, $\pi_n$(X, $x_0$) trở thành một nhóm, v�
 
 Một trong những tính chất quan trọng nhất của các nhóm đồng luân bậc cao là chúng là abelian (giao hoán) cho mọi $n \geq 2$. Đây là một sự khác biệt cơ bản so với fundamental group $\pi_1$, có thể không giao hoán như chúng ta đã thấy trong các ví dụ như fundamental group của một hình xuyến hoặc một không gian với nhiều lỗ. Tính chất này có một cách giải thích hình học sâu sắc và đẹp đẽ, được thể hiện qua lý luận Eckmann-Hilton.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Eckmann-Hilton):**  
 Cho $n \geq 2$, nhóm đồng luân $\pi_n$(X, $x_0$) là **abelian**, nghĩa là [f] + [g] = [g] + [f] cho mọi [f], [g] ∈ $\pi_n$(X, $x_0$).
+</div>
 
 Ý tưởng cốt lõi của chứng minh là quan sát rằng trong không gian nhiều chiều ($n \geq 2$), có đủ "chỗ" để các đường cong và bề mặt trượt qua nhau một cách liên tục. Hãy xem xét cách chúng ta định nghĩa phép cộng: [f] + [g] được xây dựng bằng cách chia hình cầu $S^n$ thành hai nửa dọc theo tọa độ đầu tiên, ánh xạ nửa đầu bằng f và nửa thứ hai bằng g. Ngược lại, [g] + [f] được xây dựng bằng cách chia hình cầu theo cùng cách nhưng ánh xạ nửa đầu bằng g và nửa thứ hai bằng f.
 
@@ -95,7 +99,9 @@ Tại sao điều này không hoạt động cho n = 1? Khi n = 1, $S^1$ là m�
 
 Một cách chính thức hơn để hiểu điều này là quan sát rằng phép cộng trong $\pi_n$ có thể được định nghĩa theo hai cách tương đương: một cách sử dụng tọa độ đầu tiên để chia hình cầu, và cách khác sử dụng bất kỳ tọa độ nào khác. Lý luận Eckmann-Hilton cho thấy rằng hai cách định nghĩa này phải trùng nhau, và điều này buộc phép toán phải giao hoán. Chi tiết kỹ thuật liên quan đến việc xây dựng một đồng luân rõ ràng giữa hai cách kết hợp này, sử dụng tính chất rằng trong không gian nhiều chiều, chúng ta có thể điều chỉnh các tham số của phép chia một cách liên tục.
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** Với $n \geq 2$, $\pi_n(X)$ là một **nhóm abelian**, và thường được viết theo ký hiệu cộng thay vì nhân. Điều này làm cho cấu trúc đại số của các nhóm đồng luân bậc cao đơn giản hơn nhiều so với fundamental group, và cho phép chúng ta áp dụng nhiều công cụ từ lý thuyết nhóm abelian, chẳng hạn như cấu trúc của các nhóm abelian hữu hạn sinh và các định lý về các nhóm abelian tự do.
+</div>
 
 ---
 
@@ -103,7 +109,9 @@ Một cách chính thức hơn để hiểu điều này là quan sát rằng ph
 
 Một tính chất quan trọng khác của các nhóm đồng luân là chúng không phụ thuộc vào việc chọn điểm cơ sở, miễn là không gian là liên thông đường. Điều này có nghĩa là nếu chúng ta chọn hai điểm cơ sở khác nhau $x_0$ và $x_1$ trong cùng một thành phần liên thông đường, thì các nhóm $\pi_n$(X, $x_0$) và $\pi_n$(X, $x_1$) sẽ đẳng cấu với nhau, mặc dù có thể không đồng nhất.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Nếu X là một không gian liên thông đường, thì với mọi hai điểm cơ sở $x_0$, $x_1$ ∈ X, các nhóm $\pi_n$(X, $x_0$) và $\pi_n$(X, $x_1$) đẳng cấu với nhau.
+</div>
 
 Chứng minh của định lý này tương tự như chứng minh cho fundamental group. Ý tưởng là sử dụng một đường cong γ từ $x_0$ đến $x_1$ để xây dựng một đẳng cấu giữa hai nhóm. Cụ thể, cho một ánh xạ dựa trên điểm cơ sở f: ($S^n$, $s_0$) → (X, $x_0$), chúng ta có thể "dán" đường cong γ vào đầu và cuối của ánh xạ để tạo ra một ánh xạ mới f': ($S^n$, $s_0$) → (X, $x_1$). Ánh xạ này được định nghĩa bằng cách đi dọc theo γ từ $x_0$ đến $x_1$, sau đó đi theo f, và cuối cùng đi ngược lại dọc theo γ từ $x_1$ về $x_0$. Vì chúng ta đang làm việc với các lớp đồng luân, chúng ta có thể co rút đường cong γ thành một điểm trong khi giữ điểm cơ sở cố định, cho thấy rằng ánh xạ này thực sự là một ánh xạ dựa trên điểm cơ sở tại $x_1$.
 
@@ -200,6 +208,7 @@ Các nhóm đồng luân bậc cao không chỉ là các bất biến hữu ích
 
 Một trong những kết quả quan trọng nhất về các nhóm đồng luân là định lý Whitehead, được đặt tên theo nhà toán học J.H.C. Whitehead. Định lý này phát biểu rằng đối với các phức CW, các nhóm đồng luân là các bất biến hoàn chỉnh—nếu tất cả các nhóm đồng luân của hai không gian đẳng cấu với nhau, thì hai không gian đó đồng luân tương đương.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (J.H.C. Whitehead):**  
 Cho f: X → Y là một ánh xạ liên tục giữa các phức CW. Nếu f cảm sinh các đẳng cấu:
 
@@ -208,6 +217,7 @@ f_* : \pi_n(X) \xrightarrow{\cong} \pi_n(Y) \quad \forall n \geq 0
 $$
 
 thì **f là một tương đương đồng luân**.
+</div>
 
 Ý nghĩa của định lý này là sâu sắc: nếu một ánh xạ cảm sinh đẳng cấu trên tất cả các nhóm đồng luân, thì chính ánh xạ đó phải là một tương đương đồng luân. Điều này có nghĩa là các nhóm đồng luân, khi được xem xét cùng nhau, chứa đựng tất cả thông tin về kiểu đồng luân của không gian. Nếu hai không gian có tất cả các nhóm đồng luân đẳng cấu với nhau, thì chúng phải đồng luân tương đương.
 
@@ -221,8 +231,10 @@ Tuy nhiên, điều quan trọng cần lưu ý là định lý này chỉ áp d�
 
 Một trong những kết quả quan trọng nhất kết nối các nhóm đồng luân với homology là định lý Hurewicz, được đặt tên theo nhà toán học Witold Hurewicz. Định lý này cho thấy rằng trong một số điều kiện nhất định, nhóm đồng luân đầu tiên không tầm thường đẳng cấu với nhóm homology tương ứng. Đây là một công cụ mạnh mẽ vì homology thường dễ tính toán hơn các nhóm đồng luân.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Hurewicz):**  
 Cho X là một không gian liên thông đường.
+</div>
 
 **Phần 1:** Nếu $\pi_1$(X) là abelian, thì tồn tại một đồng cấu nhóm tự nhiên:
 
@@ -241,11 +253,13 @@ $$
 
 bằng cách gửi một lớp đồng luân [f] của một ánh xạ f: $S^n$ → X tới lớp homology f_*([$S^n$]) ∈ $H_n(X)$, trong đó [$S^n$] là lớp cơ bản của $S^n$ trong $H_n$($S^n$) ≅ $\mathbb{Z}$.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Nếu $\pi_k$(X) = 0 cho mọi $k < n$, thì ánh xạ Hurewicz:
 
 $$
 h_n : \pi_n(X) \xrightarrow{\cong} $H_n(X)$
 $$
+</div>
 
 là một **đẳng cấu**.
 
@@ -263,11 +277,13 @@ Tuy nhiên, điều quan trọng cần lưu ý là định lý Hurewicz chỉ á
 
 Một công cụ tính toán mạnh mẽ khác là dãy khớp dài của một fibration. Một fibration là một cấu trúc tương tự như fiber bundle, trong đó chúng ta có một ánh xạ p: E → B với tính chất rằng mọi điểm trong B có một lân cận U sao cho p⁻¹(U) đồng phôi với U × F, trong đó F là không gian thớ (fiber). Ký hiệu F → E → B để chỉ một fibration với thớ F, tổng không gian E, và không gian cơ sở B.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Một fibration F → E → B cảm sinh một dãy khớp dài:
 
 $$
 \cdots \to \pi_n(F) \to \pi_n(E) \to \pi_n(B) \xrightarrow{\partial} \pi_{n-1}(F) \to \cdots
 $$
+</div>
 
 Dãy này là một công cụ tính toán mạnh mẽ vì nó cho phép chúng ta tính toán các nhóm đồng luân của một không gian từ các nhóm đồng luân của các không gian liên quan. Cụ thể, nếu chúng ta biết các nhóm đồng luân của F và B, chúng ta có thể sử dụng dãy khớp dài để tính toán các nhóm đồng luân của E.
 

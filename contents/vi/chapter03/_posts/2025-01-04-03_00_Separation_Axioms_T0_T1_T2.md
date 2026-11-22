@@ -82,12 +82,14 @@ Tưởng tượng bạn có hai người: **Alice** và **Bob**.
 
 ### 1. T₀ Spaces (Kolmogorov)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (T₀ Space):**  
 X là **T₀** (Kolmogorov) nếu với mọi x ≠ y ∈ X, tồn tại open set U chứa một điểm nhưng không chứa điểm kia.
 
 $$
 \forall x \neq y: \exists U \in \tau: (x \in U \land y \notin U) \lor (y \in U \land x \notin U)
 $$
+</div>
 
 **Trực giác:** Topology có thể "distinguish" hai điểm khác nhau.
 
@@ -122,17 +124,21 @@ X infinite, τ = cofinite topology
 
 ### 2. T₁ Spaces (Fréchet)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (T₁ Space):**  
 X là **T₁** (Fréchet) nếu với mọi x ≠ y, mỗi điểm có neighborhood không chứa điểm kia.
 
 $$
 \forall x \neq y: \exists U, V \in \tau: (x \in U, y \notin U) \land (y \in V, x \notin V)
 $$
+</div>
 
 **Phát biểu tương đương:**  
 X là T₁ ⟺ Mọi singleton {x} là **closed**.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(⇒)** Giả sử X là T₁, cần chứng minh {x} closed.  
 Tương đương: X \ {x} open.  
@@ -160,21 +166,27 @@ X infinite, cofinite topology là T₁:
 - {1} không closed (X \ {1} = {0} không open)
 - → Không T₁ ✗
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (T₁ ⇒ T₀):**  
 Mọi T₁ space là T₀.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:** Trivial từ definitions. ∎
+</div>
 
 ---
 
 ### 3. T₂ Spaces (Hausdorff)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Hausdorff Space):**  
 X là **T₂** (Hausdorff) nếu với mọi x ≠ y, tồn tại **disjoint** open neighborhoods.
 
 $$
 \forall x \neq y: \exists U, V \in \tau: x \in U, y \in V, U \cap V = \emptyset
 $$
+</div>
 
 **Trực giác:** Hai điểm khác nhau có thể "completely separated" bởi open sets.
 
@@ -183,15 +195,21 @@ $$
 
 **Ví dụ 1: Metric Spaces**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi metric space là Hausdorff.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho x ≠ y trong (X, d).  
 Đặt ε = d(x,y)/2 > 0.  
 U = B(x, ε), V = B(y, ε).  
 U ∩ V = ∅ (triangle inequality). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** ℝⁿ với Euclidean metric là Hausdorff.
+</div>
 
 **Ví dụ 2: Discrete Topology**
 
@@ -202,22 +220,28 @@ U = {x}, V = {y} disjoint.
 
 X infinite, cofinite topology **không** Hausdorff!
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cho x ≠ y, U, V open chứa x, y.  
 U = X \ A, V = X \ B với A, B finite.  
 U ∩ V = X \ (A ∪ B) còn lại infinite ≠ ∅. ✗
+</div>
 
 **Non-example 2: Trivial Topology**
 
 Trivial topology không Hausdorff (chỉ có X là open set chứa bất kỳ điểm nào).
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (T₂ ⇒ T₁):**  
 Mọi Hausdorff space là T₁.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho x ≠ y. Hausdorff → ∃U ∋ x, V ∋ y disjoint.  
 U không chứa y, V không chứa x.  
 → T₁. ✓
+</div>
 
 **Hierarchy:**
 $$
@@ -228,21 +252,28 @@ $$
 
 ### 4. Properties of Hausdorff Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Limits Unique):**  
 Trong Hausdorff space, nếu sequence hội tụ, limit là **unique**.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Giả sử xₙ → x và xₙ → y với x ≠ y.  
 Hausdorff → ∃U ∋ x, V ∋ y disjoint.  
 xₙ → x → ∃N₁: ∀n ≥ N₁: xₙ ∈ U.  
 xₙ → y → ∃N₂: ∀n ≥ N₂: xₙ ∈ V.  
 Cho n ≥ max{N₁, N₂}: xₙ ∈ U ∩ V = ∅. Mâu thuẫn! ∎
+</div>
 
 **Ý nghĩa:** Hausdorff condition đảm bảo uniqueness của limits—essential cho analysis!
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Compact Subsets Closed):**  
 Trong Hausdorff space, mọi compact subset là closed.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho K ⊆ X compact, cần chứng minh X \ K open.  
 Cho x ∈ X \ K. Với mọi y ∈ K:  
@@ -252,13 +283,18 @@ K compact → ∃ finite subcover V_{y₁}, ..., V_{yₙ}.
 U = U_{y₁} ∩ ... ∩ U_{yₙ} neighborhood của x.  
 U ∩ K = ∅ (vì U ∩ Vᵧᵢ = ∅).  
 → X \ K open. ✓
+</div>
 
 **Chú ý:** Điều này **sai** trong non-Hausdorff spaces!
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Diagonal Closed):**  
 X Hausdorff ⟺ Diagonal Δ = {(x,x) : x ∈ X} closed trong X × X.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise (sử dụng product topology).
+</div>
 
 ---
 

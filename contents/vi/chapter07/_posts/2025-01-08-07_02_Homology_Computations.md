@@ -100,6 +100,7 @@ $H_0(X) = \mathbb{Z}$, $H_n(X) = 0$ ($n > 0$). Đây là một kết quả quan 
 
 ### Định lý: $H_n(S^k)$
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**
 
 $$
@@ -109,6 +110,7 @@ H_n(S^k) = \begin{cases}
 0 & \text{otherwise}
 \end{cases}
 $$
+</div>
 
 **Hai homology groups không tầm thường:**
 - **$H_0 = \mathbb{Z}$:** Connected—hình cầu là connected
@@ -328,12 +330,14 @@ $$
 
 ### 3. Định lý Cellular Homology
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Cho CW complex $X$:
 
 $$
 H_n^{CW}(X) \cong H_n(X)
 $$
+</div>
 
 **(Cellular homology = singular homology)** Đây là một kết quả cực kỳ mạnh mẽ—cellular homology và singular homology cho cùng kết quả, nhưng cellular homology thường dễ tính toán hơn nhiều.
 

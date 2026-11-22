@@ -53,8 +53,10 @@ Trực giác hình học là chúng ta kết hợp hai nhóm lại với nhau m�
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Amalgamated Free Product):**  
 Cho các nhóm $G$, $H$ với các homomorphisms $\phi: K \to G$, $\psi: K \to H$.
+</div>
 
 **Amalgamated product** $G *_K H$ được xây dựng bằng cách:
 - Lấy free product $G * H$
@@ -68,11 +70,13 @@ Cho các nhóm $G$, $H$ với các homomorphisms $\phi: K \to G$, $\psi: K \to H
 
 ### 2. Van Kampen's Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Seifert-Van Kampen):**  
 Cho $X$ là topological space, $A$, $B$ là các open subsets:
 - **$X = A \cup B$** (cover $X$)
 - **$A$, $B$, $A \cap B$ path-connected**
 - **$x_0 \in A \cap B$** (basepoint trong intersection)
+</div>
 
 Khi đó:
 

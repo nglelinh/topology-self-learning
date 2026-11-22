@@ -79,32 +79,40 @@ Bất kỳ open cover nào của [0,1], luôn có thể extract finite subcover.
 
 ### 1. Compact Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Open Cover):**  
 Họ {Uα}α∈I ⊆ 𝜏 là **open cover** của X nếu:
 
 $$
 X = \bigcup_{\alpha \in I} U_\alpha
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Subcover):**  
 {Uβ}β∈J ⊆ {Uα}α∈I là **subcover** nếu vẫn cover X:
 
 $$
 X = \bigcup_{\beta \in J} U_\beta, \quad J \subseteq I
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Compact Space):**  
 X là **compact** nếu mọi open cover có **finite subcover**.
 
 $$
 \forall \{U_\alpha\}_{\alpha \in I} \text{ open cover}: \exists \text{ finite } J \subseteq I: X = \bigcup_{\alpha \in J} U_\alpha
 $$
+</div>
 
 **Ví dụ 1: Finite Space**
 
 X = {1, 2, 3} với bất kỳ topology nào → **compact**!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Mọi open cover là finite (vì X finite) → tự động có finite subcover. ✓
+</div>
 
 **Ví dụ 2: [0,1] compact**
 
@@ -129,40 +137,54 @@ Nếu chọn finite subcover: U_{n₁}, ..., U_{nₖ}, let N = max{nᵢ}.
 
 ### 2. Properties of Compact Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Closed Subspace):**  
 Nếu K ⊆ X với K compact và X Hausdorff, thì K **closed**.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh (sketch):**  
 Cho x ∉ K. Với mọi y ∈ K, Hausdorff → ∃ Uᵧ ∋ x, Vᵧ ∋ y disjoint.  
 {Vᵧ}ᵧ∈K là open cover của K → có finite subcover V_{y₁}, ..., V_{yₙ}.  
 U = U_{y₁} ∩ ... ∩ U_{yₙ} là neighborhood của x disjoint với K.  
 → X \ K open → K closed. ∎
+</div>
 
 **Chú ý:** Hausdorff essential! Trong trivial topology, mọi subset compact nhưng không nhất thiết closed.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Closed Subset of Compact):**  
 Nếu X compact và F ⊆ X closed, thì F **compact** (subspace topology).
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Cho {Uα} open cover của F trong X.  
 Thêm X \ F (open) → {Uα} ∪ {X \ F} là open cover của X.  
 X compact → có finite subcover.  
 Bỏ X \ F đi → finite subcover của F. ∎
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** Trong Hausdorff space, compact ⟺ closed bounded (trong metric spaces).
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Continuous Image):**  
 Nếu f: X → Y continuous và X compact, thì **f(X) compact**.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Cho {Vα} open cover của f(X) trong Y.  
 {f⁻¹(Vα)} là open cover của X (f continuous).  
 X compact → có finite subcover f⁻¹(V_{α₁}), ..., f⁻¹(V_{αₙ}).  
 → f(X) ⊆ V_{α₁} ∪ ... ∪ V_{αₙ}. ∎
+</div>
 
 **Hệ quả quan trọng:**  
 **Compactness là topological invariant!**
@@ -171,18 +193,22 @@ X ≅ Y và X compact → Y compact.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Extreme Value Theorem - EVT):**  
 Nếu X compact, f: X → ℝ continuous, thì f **đạt maximum và minimum**.
 
 $$
 \exists x_{\max}, x_{\min} \in X: \forall x \in X: f(x_{\min}) \leq f(x) \leq f(x_{\max})
 $$
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 f(X) ⊆ ℝ compact (continuous image).  
 f(X) ⊆ ℝ closed and bounded (Heine-Borel).  
 f(X) bounded → sup f(X), inf f(X) tồn tại.  
 f(X) closed → sup, inf ∈ f(X). ✓
+</div>
 
 ![Extreme Value Theorem](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Extreme_value_theorem.svg/400px-Extreme_value_theorem.svg.png)  
 *EVT: continuous function trên compact đạt max/min - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Extreme_value_theorem.svg)*
@@ -196,7 +222,9 @@ f(X) closed → sup, inf ∈ f(X). ✓
 **Định lý Heine-Borel:**  
 Trong **ℝⁿ** (Euclidean topology), tập K compact ⟺ K **closed và bounded**.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch cho ℝ):**
+</div>
 
 **(⇒) Compact ⇒ Closed và Bounded:**
 
@@ -223,7 +251,9 @@ Uα₀ open → ∃ε: (x - ε, x + ε) ⊆ Uα₀.
 Chọn n lớn: bₙ - aₙ < ε → [aₙ, bₙ] ⊆ Uα₀.  
 Mâu thuẫn với [aₙ, bₙ] không có finite subcover! ∎
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** [a, b], [a, b), (a, b], {closed ball trong ℝⁿ} compact.
+</div>
 
 **Non-examples:** (a, b), ℝ, ℕ không compact (không closed hoặc không bounded).
 
@@ -233,20 +263,26 @@ Mâu thuẫn với [aₙ, bₙ] không có finite subcover! ∎
 
 **Trong metric spaces**, có characterization khác của compactness!
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Sequentially Compact):**  
 X là **sequentially compact** nếu mọi sequence có **convergent subsequence**.
 
 $$
 \forall (x_n) \text{ sequence}: \exists \text{ subsequence } (x_{n_k}), \exists x \in X: x_{n_k} \to x
 $$
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Metric Spaces):**  
 Trong metric space, các khái niệm sau **tương đương**:
 1. Compact
 2. Sequentially compact
 3. Limit point compact (mọi infinite subset có limit point)
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Advanced (cần Lebesgue number lemma).
+</div>
 
 **Ví dụ:** [0,1] sequentially compact = Bolzano-Weierstrass theorem!
 
@@ -256,16 +292,20 @@ Trong metric space, các khái niệm sau **tương đương**:
 
 ### 5. Locally Compact Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Locally Compact):**  
 X là **locally compact** nếu mọi x ∈ X có compact neighborhood.
+</div>
 
 **Ví dụ:**
 - **ℝⁿ** locally compact (mọi x có compact neighborhood [x-1, x+1]ⁿ)
 - **Infinite-dimensional Hilbert space** KHÔNG locally compact
 - **ℚ** KHÔNG locally compact (không có compact intervals trong ℚ)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Locally compact Hausdorff spaces có **one-point compactification**.
+</div>
 
 **Ví dụ:** ℝⁿ → Sⁿ (add "point at infinity").
 
@@ -273,11 +313,15 @@ Locally compact Hausdorff spaces có **one-point compactification**.
 
 ### 6. Compact Metric Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Totally Bounded):**  
 Metric space (X, d) compact ⟺ **complete và totally bounded**.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Totally Bounded):**  
 ∀ε > 0: X có thể cover bởi **finite** balls radius ε.
+</div>
 
 **Ví dụ:**
 - [0,1] totally bounded và complete → compact ✓
@@ -319,7 +363,9 @@ $$
 - Existence theorems (PDE, optimization)
 - Compactifications
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Requires Alexander subbase theorem hoặc ultrafilters. (Very advanced!)
+</div>
 
 ---
 

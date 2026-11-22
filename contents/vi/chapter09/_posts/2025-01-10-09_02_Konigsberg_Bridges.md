@@ -104,9 +104,11 @@ Hãy đếm số lượng cây cầu nối với mỗi phần:
 
 Euler đã chứng minh một định lý tổng quát hơn:
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Một đồ thị có một **chu trình Euler** (đường đi qua tất cả các cạnh và quay trở lại điểm xuất phát) nếu và chỉ nếu:
 1. Đồ thị là **liên thông** (có thể đi từ bất kỳ điểm nào đến bất kỳ điểm nào khác).
 2. Tất cả các đỉnh đều có **bậc chẵn** (số lượng cạnh nối với mỗi đỉnh là số chẵn).
+</div>
 
 Trong trường hợp của Königsberg, điều kiện thứ hai không được thỏa mãn—tất cả các phần đều có số lượng cây cầu nối với chúng là số lẻ.
 
@@ -146,9 +148,11 @@ Bài toán bảy cây cầu liên quan đến topology vì:
 
 Một **đường đi Euler** là một đường đi qua tất cả các cạnh của đồ thị, mỗi cạnh chỉ đi qua đúng một lần. Không giống như chu trình Euler, đường đi Euler không cần quay trở lại điểm xuất phát.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Một đồ thị có một đường đi Euler nếu và chỉ nếu:
 1. Đồ thị là liên thông (có thể đi từ bất kỳ đỉnh nào đến bất kỳ đỉnh nào khác).
 2. Có đúng **hai đỉnh có bậc lẻ** (các đỉnh đầu và cuối của đường đi).
+</div>
 
 **Giải thích ý nghĩa:**
 
@@ -167,9 +171,11 @@ Một **đường đi Euler** là một đường đi qua tất cả các cạnh
 
 Một **chu trình Euler** là một đường đi Euler quay trở lại điểm xuất phát.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Một đồ thị có một chu trình Euler nếu và chỉ nếu:
 1. Đồ thị là liên thông.
 2. Tất cả các đỉnh đều có **bậc chẵn**.
+</div>
 
 **Giải thích ý nghĩa:**
 

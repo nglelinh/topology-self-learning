@@ -56,12 +56,14 @@ $$
 
 ### 1. Metrizable Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Metrizable):**  
 Topological space (X, τ) là **metrizable** nếu tồn tại metric d trên X sao cho τ = topology induced bởi d.
 
 $$
 \exists d: X \times X \to \mathbb{R}: \tau = \tau_d
 $$
+</div>
 
 **Nói bằng lời:** Topology "comes from" một metric.
 
@@ -81,18 +83,24 @@ $$
 
 ### 2. Necessary Conditions
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Metric ⇒ Properties):**  
 Nếu X metrizable, thì:
 1. X là **Hausdorff (T₂)**
 2. X là **Regular (T₃)**
 3. X là **Normal (T₄)**
 4. X là **first countable**
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Đã chứng minh trong các bài trước: mọi metric space có các properties này. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:**  
 Nếu space vi phạm bất kỳ property nào trên → **không metrizable**.
+</div>
 
 **Ví dụ:**
 - Trivial topology không Hausdorff → không metrizable ✗
@@ -194,18 +202,28 @@ Ball centered at x (trong metric d) contained trong U. ✓
 
 ### 3. Corollaries
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả 1 (Subspaces):**  
 Mọi subspace của metrizable space là metrizable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Kế thừa metric và properties. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả 2 (Countable Products):**  
 Countable product của metrizable spaces là metrizable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Second countability preserved, regularity preserved. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả 3 (ℝⁿ):**  
 ℝⁿ metrizable (obvious, nhưng now có proof!)
+</div>
 
 ---
 
@@ -220,8 +238,10 @@ Nagata-Smirnov generalize:
 
 > **X metrizable ⟺ X regular + có countably locally finite basis.**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Locally Finite):**  
 Họ {Uα} là **locally finite** nếu mọi x ∈ X có neighborhood intersecting chỉ finitely many Uα.
+</div>
 
 **Ý nghĩa:** Weaker than second countable—cho phép more spaces metrizable.
 
@@ -236,8 +256,10 @@ Manifolds thường có countably locally finite basis (even if not second count
 
 > **X metrizable ⟺ X regular + có σ-discrete basis.**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (σ-discrete):**  
 Basis là countable union của discrete families.
+</div>
 
 **Discrete family:** Mọi điểm có neighborhood intersecting at most one member.
 

@@ -35,6 +35,7 @@ Tại sao bài học cuối này lại hoàn hảo? Manifolds là sự kết tin
 
 Trực giác đằng sau khái niệm manifold là đơn giản nhưng sâu sắc: một manifold là một không gian mà mỗi điểm đều có một lân cận trông giống như không gian Euclid $\mathbb{R}^n$. Điều này có nghĩa là, mặc dù không gian có thể có hình dạng phức tạp về mặt toàn cục (như một hình cầu hoặc một torus), về mặt địa phương nó luôn trông giống như không gian phẳng quen thuộc mà chúng ta biết từ giải tích đa biến.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Locally Euclidean):**  
 Một không gian $M$ được gọi là **locally Euclidean of dimension n** nếu:
 
@@ -45,6 +46,7 @@ $$
 $$
 
 trong đó $\phi(U)$ là một tập mở trong $\mathbb{R}^n$.
+</div>
 
 Đồng phôi $\phi$ cho chúng ta một hệ tọa độ địa phương: nếu $\phi(p) = (x_1, \ldots, x_n) \in \mathbb{R}^n$, thì chúng ta có thể mô tả các điểm gần $p$ bằng các tọa độ $(x_1, \ldots, x_n)$ trong $\mathbb{R}^n$. Điều này cho phép chúng ta áp dụng các công cụ của giải tích đa biến một cách địa phương trên manifold.
 
@@ -56,12 +58,14 @@ Một cặp $(U, \phi)$ trong đó $U \subseteq M$ là một tập mở và $\ph
 
 Tuy nhiên, chỉ có tính chất locally Euclidean là chưa đủ để định nghĩa một manifold. Chúng ta cần thêm hai điều kiện kỹ thuật quan trọng để đảm bảo rằng manifold có các tính chất tốt mà chúng ta mong muốn.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Topological Manifold):**  
 Một không gian $M$ được gọi là **topological n-manifold** nếu:
 
 1. **$M$ là Hausdorff:** Hai điểm phân biệt có các lân cận rời nhau
 2. **$M$ là second countable:** Tồn tại một cơ sở đếm được cho tô-pô
 3. **$M$ là locally Euclidean of dimension $n$**
+</div>
 
 Tại sao chúng ta cần các điều kiện bổ sung này? Điều kiện Hausdorff loại trừ các trường hợp bệnh lý như "đường thẳng với hai điểm gốc"—một không gian mà hai điểm có thể không thể được tách bằng các lân cận rời nhau. Điều kiện second countable đảm bảo nhiều tính chất quan trọng: tính paracompact (tồn tại partitions of unity), tính metrizable (theo định lý metrization của Urysohn), homology và cohomology đếm được, và nhiều tiện ích kỹ thuật khác. Không có các điều kiện này, các "manifolds" có thể có hành vi rất kỳ lạ và không thể làm việc được với các công cụ tiêu chuẩn của hình học vi phân và tô-pô học.
 
@@ -71,12 +75,14 @@ Tại sao chúng ta cần các điều kiện bổ sung này? Điều kiện Hau
 
 Một chart chỉ cho chúng ta biết về một phần của manifold. Để mô tả toàn bộ manifold, chúng ta cần một tập hợp các charts phủ toàn bộ không gian. Đây chính là khái niệm của một atlas.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Atlas):**  
 Một **atlas** $\mathcal{A}$ là một tập hợp các charts $\{(U_\alpha, \phi_\alpha)\}$ sao cho:
 
 $$
 M = \bigcup_\alpha U_\alpha \quad \text{(các charts phủ toàn bộ M)}
 $$
+</div>
 
 Đây là một tập hợp đầy đủ các hệ tọa độ địa phương cho phép chúng ta mô tả mọi điểm trong manifold bằng ít nhất một hệ tọa độ.
 
@@ -94,8 +100,10 @@ $$
 
 Một câu hỏi tự nhiên là: liệu một không gian có thể là locally Euclidean của các chiều khác nhau không? Câu trả lời là không—định lý về tính bất biến của chiều đảm bảo rằng chiều của một manifold được xác định duy nhất.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Invariance of Dimension):**  
 Nếu một không gian $M$ là locally Euclidean của cả chiều $n$ và chiều $m$, thì $n = m$.
+</div>
 
 Điều này có nghĩa là chiều của một manifold được xác định rõ ràng—chúng ta không thể có một không gian vừa là 2-manifold vừa là 3-manifold. Chứng minh của định lý này dựa trên tính bất biến tô-pô của homology và các kết quả như định lý Brouwer về tính bất biến của miền. Chúng ta ký hiệu $\dim(M) = n$ là chiều của manifold $M$.
 
@@ -158,12 +166,14 @@ Sự tương tác phong phú giữa lý thuyết nhóm, tô-pô học, và hình
 
 Một topological manifold chỉ có tính chất liên tục—chúng ta có thể nói về các hàm liên tục và các đồng phôi, nhưng không thể làm việc với đạo hàm hoặc các khái niệm giải tích khác. Để có thể làm việc với giải tích và hình học vi phân, chúng ta cần một **smooth structure**—một cách để định nghĩa các hàm trơn và các ánh xạ trơn trên manifold.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Smooth Atlas):**  
 Một atlas $\mathcal{A} = \{(U_\alpha, \phi_\alpha)\}$ được gọi là **smooth** nếu tất cả các ánh xạ chuyển tiếp:
 
 $$
 \phi_\beta \circ \phi_\alpha^{-1}
 $$
+</div>
 
 đều là các ánh xạ $C^\infty$ (trơn) như các ánh xạ từ $\mathbb{R}^n$ đến $\mathbb{R}^n$.
 
@@ -214,10 +224,12 @@ Một khám phá đáng kinh ngạc của Milnor vào năm 1956 là sự tồn t
 
 ### Dimension 1
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Compact connected 1-manifolds:
 - **Without boundary:** S¹ (circle)
 - **With boundary:** [0,1] (interval)
+</div>
 
 **Complete classification!**
 
@@ -225,11 +237,13 @@ Compact connected 1-manifolds:
 
 ### Dimension 2 - Surfaces
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Classification of Surfaces):**  
 Compact connected surfaces classified by:
 
 1. **Orientability:** Orientable or not
 2. **Euler characteristic χ:**
+</div>
 
 **Orientable:**
 - Sphere S² (χ = 2)
@@ -249,8 +263,10 @@ Compact connected surfaces classified by:
 
 ### Dimension 3
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Geometrization Conjecture - Perelman 2003):**  
 Every closed 3-manifold decomposes into pieces, each admitting one of 8 geometric structures.
+</div>
 
 **Special case:** Poincaré conjecture (proved!).
 
@@ -262,8 +278,10 @@ Every closed 3-manifold decomposes into pieces, each admitting one of 8 geometri
 
 ### Dimension ≥ 4
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Markov 1958):**  
 No algorithm exists to determine if two 4-manifolds homeomorphic.
+</div>
 
 **Classification problem UNDECIDABLE!**
 

@@ -41,11 +41,13 @@ Imagine you never see the doughnut, only a handful of salt grains on its surface
 
 Kayacan (2025) shows that persistent homology can be phrased entirely on **finite (Alexandroff) spaces**: each filtration stage is a finite set whose topology is a preorder. Chapter 00 — sets, relations, functions — sits next to the computational pipeline: data need not be embedded in $\mathbb{R}^d$ before it has homology.
 
+<div class="textbook-definition" markdown="1">
 **Definition (reminder, not a new theory):** a finite Alexandroff space has a minimal neighbourhood $U_x$ at each point. A finite filtration is a nested sequence
 $$
 X_0\subseteq X_1\subseteq\cdots\subseteq X_m,
 $$
 and persistent homology records classes $[z]\in H_n(X_i)$ that still live in $X_j$.
+</div>
 
 - Selçuk Kayacan, *Persistent Homology via Finite Topological Spaces*, arXiv:2512.23348 (2025).
 

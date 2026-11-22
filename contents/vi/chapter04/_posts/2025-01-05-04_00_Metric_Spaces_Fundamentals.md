@@ -35,12 +35,14 @@ Tại sao các không gian metric lại là nền tảng? Chúng tạo thành n�
 
 ### 1. Metric Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Metric):**  
 Cho X là tập hợp. Một **metric** (hay **distance function**) trên X là hàm:
 
 $$
 d: X \times X \to \mathbb{R}
 $$
+</div>
 
 thỏa mãn ba axioms:
 
@@ -59,8 +61,10 @@ $$
 d(x,z) \leq d(x,y) + d(y,z)
 $$
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Metric Space):**  
 Cặp (X, d) gọi là **metric space**.
+</div>
 
 **Trực giác về ba axioms:**
 - **(M1):** Khoảng cách không âm, chỉ bằng 0 khi hai điểm trùng nhau
@@ -167,90 +171,123 @@ Họ các metric này thống nhất nhiều ví dụ quen thuộc trong một c
 
 ### 3. Metric Topology
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Open Ball):**  
 **Open ball** tâm x, bán kính r > 0:
 
 $$
 B(x, r) = B_d(x, r) = \{y \in X : d(x,y) < r\}
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Closed Ball):**
 
 $$
 \overline{B}(x, r) = \{y \in X : d(x,y) \leq r\}
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Sphere):**
 
 $$
 S(x, r) = \{y \in X : d(x,y) = r\}
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Induced Topology):**  
 Topology **induced** bởi metric d:
 
 $$
 \tau_d = \{U \subseteq X : \forall x \in U: \exists r > 0: B(x,r) \subseteq U\}
 $$
+</div>
 
 **Nói bằng lời:** U open ⟺ U là union của open balls.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 τ_d thỏa mãn topology axioms.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise (straightforward verification).
+</div>
 
 ---
 
 **Basis for Metric Topology:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** ℬ = {B(x,r) : x ∈ X, r > 0} là basis cho τ_d.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Trivial từ definition.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:** Metric topology second countable nếu X separable.
+</div>
 
 ---
 
 ### 4. Convergence in Metric Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Convergence):**  
 Sequence (xₙ) **converges** to x nếu:
 
 $$
 \forall \varepsilon > 0: \exists N: \forall n \geq N: d(x_n, x) < \varepsilon
 $$
+</div>
 
 **Notation:** xₙ → x hay lim xₙ = x.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Uniqueness):**  
 Trong metric space, limits **unique**.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Metric spaces Hausdorff (đã chứng minh trước). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Sequential Characterization):**  
 Trong metric space:
 - x ∈ cl(A) ⟺ ∃ sequence trong A converging to x
 - f continuous ⟺ xₙ → x ⇒ f(xₙ) → f(x)
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Metric spaces first countable. ✓
+</div>
 
 ---
 
 ### 5. Cauchy Sequences và Completeness
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Cauchy Sequence):**  
 Sequence (xₙ) là **Cauchy** nếu:
 
 $$
 \forall \varepsilon > 0: \exists N: \forall m,n \geq N: d(x_m, x_n) < \varepsilon
 $$
+</div>
 
 **Trực giác:** Terms "cluster together" khi n → ∞.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Mọi convergent sequence là Cauchy.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 xₙ → x. Cho ε > 0, ∃N: ∀n ≥ N: d(xₙ, x) < ε/2.  
 Với m, n ≥ N:
@@ -258,6 +295,7 @@ $$
 d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
 $$
 ✓
+</div>
 
 **Converse KHÔNG đúng tổng quát!**
 
@@ -266,8 +304,10 @@ xₙ = 1/n Cauchy nhưng limit 0 ∉ (0,1).
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Complete Metric Space):**  
 (X, d) là **complete** nếu mọi Cauchy sequence converges trong X.
+</div>
 
 **Examples Complete:**
 - ℝⁿ complete (completeness axiom)
@@ -286,24 +326,32 @@ xₙ = 1/n Cauchy nhưng limit 0 ∉ (0,1).
 
 ### 6. Isometries
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Isometry):**  
 f: (X, d_X) → (Y, d_Y) là **isometry** nếu:
 
 $$
 d_Y(f(x), f(y)) = d_X(x, y) \quad \forall x, y \in X
 $$
+</div>
 
 **Nói bằng lời:** f preserves distances exactly.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 Mọi isometry là injective và continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**
 - **Injective:** f(x) = f(y) ⇒ d(x,y) = d(f(x), f(y)) = 0 ⇒ x = y ✓
 - **Continuous:** ε-δ trivial với δ = ε ✓
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Isometric):**  
 (X, d_X) và (Y, d_Y) **isometric** nếu ∃ isometry f: X → Y **surjective**.
+</div>
 
 **Notation:** X ≅ Y (as metric spaces).
 
@@ -322,24 +370,32 @@ Mọi isometry là injective và continuous.
 
 ### 7. Bounded Sets và Diameter
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Bounded Set):**  
 A ⊆ X **bounded** nếu ∃M: ∀x, y ∈ A: d(x,y) ≤ M.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Diameter):**
 
 $$
 \text{diam}(A) = \sup\{d(x,y) : x, y \in A\}
 $$
+</div>
 
 **Examples:**
 - [0, 1] trong ℝ: diam = 1
 - ℝ: diam = ∞ (unbounded)
 - Finite set: bounded (obviously)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 A compact (trong metric space) ⇒ A bounded.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Cover by balls B(x₀, n) → finite subcover → bounded. ✓
+</div>
 
 **Converse sai:** (0,1) bounded nhưng không compact.
 

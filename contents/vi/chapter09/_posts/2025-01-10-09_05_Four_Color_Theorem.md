@@ -196,11 +196,13 @@ Trước khi chứng minh định lý Bốn Màu, các nhà toán học đã ch�
 
 **Định lý Năm Màu:** Mọi đồ thị phẳng đều có thể được tô bằng năm màu.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (tóm tắt):**
 
 1. **Mọi đồ thị phẳng đều có một đỉnh có bậc ≤ 5** (từ định lý Euler)
 2. **Loại bỏ đỉnh này:** Tô màu phần còn lại bằng năm màu (quy nạp)
 3. **Thêm lại đỉnh:** Đỉnh này có tối đa 5 hàng xóm, nhưng chỉ có 5 màu, nên luôn có một màu còn lại để tô
+</div>
 
 **Tại sao không áp dụng cho bốn màu?**
 

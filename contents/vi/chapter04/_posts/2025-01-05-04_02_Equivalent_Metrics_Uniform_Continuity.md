@@ -35,12 +35,14 @@ Tại sao những khái niệm này lại quan trọng? Thứ nhất, việc ch�
 
 ### 1. Definition và Characterizations
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Equivalent Metrics):**  
 Hai metrics d₁, d₂ trên X **equivalent** (hay **topologically equivalent**) nếu chúng induce cùng topology:
 
 $$
 \tau_{d_1} = \tau_{d_2}
 $$
+</div>
 
 **Notation:** d₁ ~ d₂.
 
@@ -48,34 +50,48 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition (Characterization bằng Identity Map):**  
 d₁ ~ d₂ ⟺ id: (X, d₁) → (X, d₂) homeomorphism.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 id homeomorphism ⟺ id, id⁻¹ continuous ⟺ τd₁ = τd₂. ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition (Characterization bằng Convergence):**  
 d₁ ~ d₂ ⟺ mọi sequence:
 
 $$
 x_n \xrightarrow{d_1} x \iff x_n \xrightarrow{d_2} x
 $$
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof (⇒):**  
 τd₁ = τd₂ ⇒ same closed sets ⇒ same convergent sequences. ✓
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof (⇐):**  
 Convergence characterizes closed sets (first countable) ⇒ same closed sets ⇒ same topology. ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition (Characterization bằng Open Balls):**  
 d₁ ~ d₂ ⟺ ∀x, r₁ > 0: ∃r₂ > 0: Bd₂(x, r₂) ⊆ Bd₁(x, r₁)  
 và ngược lại.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Basis cho topology. ✓
+</div>
 
 **Practical:** Check balls contain each other.
 
@@ -83,8 +99,10 @@ và ngược lại.
 
 ### 2. Examples trên ℝⁿ
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Equivalence trên ℝⁿ):**  
 Trên ℝⁿ, các metrics sau **equivalent**:
+</div>
 
 **(1) Euclidean:** d₂(x,y) = (Σ(xᵢ - yᵢ)²)^(1/2)
 
@@ -92,8 +110,10 @@ Trên ℝⁿ, các metrics sau **equivalent**:
 
 **(3) Maximum:** d∞(x,y) = maxᵢ |xᵢ - yᵢ|
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Chứng minh d∞ ≤ d₂ ≤ d₁ ≤ n·d∞.
+</div>
 
 **Step 1:** d∞ ≤ d₂.  
 maxᵢ |xᵢ - yᵢ| ≤ (Σ(xᵢ - yᵢ)²)^(1/2). ✓
@@ -110,10 +130,14 @@ maxᵢ |xᵢ - yᵢ| ≤ (Σ(xᵢ - yᵢ)²)^(1/2). ✓
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:**  
 Mọi Lᵖ metric trên ℝⁿ (p ≥ 1) equivalent.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Similar inequalities.
+</div>
 
 **Consequence:** Topology của ℝⁿ well-defined (independent của choice metric).
 
@@ -133,8 +157,10 @@ $$
 
 **Claim:** d_disc ≁ d_Euclidean trên ℝ.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 {x} open trong (ℝ, d_disc) nhưng không open trong (ℝ, d_Euclidean). ✓
+</div>
 
 **Lesson:** Discrete metric induces discrete topology, very different!
 
@@ -163,12 +189,14 @@ Vậy convergence khác ⇒ topology khác. ✓
 
 ### 4. Strongly Equivalent Metrics
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Strongly Equivalent):**  
 d₁, d₂ **strongly equivalent** (hay **uniformly equivalent**) nếu ∃c₁, c₂ > 0:
 
 $$
 c_1 d_1(x,y) \leq d_2(x,y) \leq c_2 d_1(x,y) \quad \forall x,y
 $$
+</div>
 
 **Notation:** d₁ ≈ d₂.
 
@@ -176,10 +204,14 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Strongly equivalent ⇒ equivalent.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Inequalities ⇒ open balls contain each other. ✓
+</div>
 
 **Converse sai:** Equivalent ≠ strongly equivalent.
 
@@ -187,10 +219,14 @@ Strongly equivalent ⇒ equivalent.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 d₁ ≈ d₂ ⇒ same Cauchy sequences, same completeness.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Inequalities preserve Cauchy property. ✓
+</div>
 
 **Contrast:** Equivalent metrics có thể have different completeness!
 
@@ -216,12 +252,14 @@ $$
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Uniform Continuity):**  
 f **uniformly continuous** nếu:
 
 $$
 \forall \varepsilon > 0: \exists \delta > 0: \forall x, x' \in X: d_X(x, x') < \delta \Rightarrow d_Y(f(x), f(x')) < \varepsilon
 $$
+</div>
 
 **Khác biệt:** δ chỉ phụ thuộc ε, **không phụ thuộc x**.
 
@@ -229,10 +267,14 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Uniformly continuous ⇒ continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Trivial (take δ uniform). ✓
+</div>
 
 **Converse sai:** Continuous ⇏ uniformly continuous.
 
@@ -242,6 +284,7 @@ Uniformly continuous ⇒ continuous.
 
 **Claim:** f continuous nhưng không uniformly continuous.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cho ε = 1.  
 Suppose ∃δ works uniformly.  
@@ -251,6 +294,7 @@ $$
 |f(x') - f(x)| = |(x + \delta/2)^2 - x^2| = |x\delta + (\delta/2)^2| \approx x\delta = 1/\delta \cdot \delta = 1
 $$
 (Với x lớn, expression > 1.) Contradiction! ✓
+</div>
 
 **Lesson:** Unbounded derivative ⇒ không uniformly continuous.
 
@@ -260,11 +304,13 @@ $$
 
 **Claim:** f continuous nhưng không uniformly continuous.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 xₙ = 1/n, x'ₙ = 1/(n+1).  
 |xₙ - x'ₙ| = 1/n - 1/(n+1) = 1/(n(n+1)) → 0.  
 Nhưng |f(xₙ) - f(x'ₙ)| = |n - (n+1)| = 1 ≠ 0.  
 Vậy không uniformly continuous. ✓
+</div>
 
 **Lesson:** Unbounded function trên bounded domain có thể fail.
 
@@ -272,9 +318,12 @@ Vậy không uniformly continuous. ✓
 
 ### 2. Uniform Continuity trên Compact Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Heine-Cantor):**  
 f: K → Y continuous, K compact ⇒ f uniformly continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cho ε > 0.  
 ∀x ∈ K: ∃δₓ: B(x, δₓ) ⊆ f⁻¹(B(f(x), ε/2)).  
@@ -285,6 +334,7 @@ Chọn δ = min{δₓᵢ/2}.
 x ∈ B(xᵢ, δₓᵢ/2) cho some i.  
 x' ∈ B(xᵢ, δₓᵢ) (triangle inequality).  
 Both f(x), f(x') ∈ B(f(xᵢ), ε/2) ⇒ d(f(x), f(x')) < ε. ✓
+</div>
 
 **Consequence:** Continuous functions trên [a,b] uniformly continuous.
 
@@ -294,8 +344,10 @@ Both f(x), f(x') ∈ B(f(xᵢ), ε/2) ⇒ d(f(x), f(x')) < ε. ✓
 
 ### 3. Extension Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Extension of Uniform Continuous Functions):**  
 f: A → Y uniformly continuous, Y complete, A dense trong X ⇒ f extends uniquely đến continuous f̄: X → Y.
+</div>
 
 **Proof sketch:**  
 Cho x ∈ X. A dense ⇒ ∃ sequence aₙ ∈ A: aₙ → x.  
@@ -312,12 +364,14 @@ f̄ continuous, extends f. ✓
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Lipschitz Continuous):**  
 f: X → Y **Lipschitz continuous** với **Lipschitz constant** L nếu:
 
 $$
 d_Y(f(x), f(y)) \leq L \cdot d_X(x,y) \quad \forall x, y \in X
 $$
+</div>
 
 **Trực giác:** Distance không increase quá L lần.
 
@@ -325,12 +379,16 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Lipschitz ⇒ uniformly continuous ⇒ continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cho ε > 0. Chọn δ = ε/L.  
 d_X(x,y) < δ ⇒ d_Y(f(x), f(y)) ≤ L·d_X(x,y) < L·δ = ε. ✓
+</div>
 
 **Converse sai:** Uniformly continuous ⇏ Lipschitz.
 
@@ -354,12 +412,14 @@ d_X(x,y) < δ ⇒ d_Y(f(x), f(y)) ≤ L·d_X(x,y) < L·δ = ε. ✓
 
 ### 3. Contraction Mappings
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Contraction):**  
 f: X → X là **contraction** (hay **contraction mapping**) nếu ∃ k < 1:
 
 $$
 d(f(x), f(y)) \leq k \cdot d(x,y) \quad \forall x,y
 $$
+</div>
 
 **Nói bằng lời:** Lipschitz với constant k < 1.
 
@@ -367,13 +427,17 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Banach Fixed Point Theorem):**  
 Cho (X, d) complete metric space, f: X → X contraction.  
 Thì ∃! x* ∈ X: f(x*) = x* (**fixed point**).
+</div>
 
 **Moreover:** ∀x₀ ∈ X, sequence xₙ₊₁ = f(xₙ) converges to x*.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**
+</div>
 
 **Step 1 (Construct sequence):**  
 Chọn x₀ arbitrary. Define xₙ₊₁ = f(xₙ).
@@ -403,11 +467,13 @@ k < 1 ⇒ d(x*, y) = 0 ⇒ x* = y. ✓ QED
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Corollary (Rate of Convergence):**
 
 $$
 d(x_n, x^*) \leq \frac{k^n}{1-k} d(x_1, x_0)
 $$
+</div>
 
 **Remark:** Exponential convergence!
 

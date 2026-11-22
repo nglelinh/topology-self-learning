@@ -51,12 +51,14 @@ Trong bài trước, chúng ta học về **compact spaces**—spaces "finite in
 
 ### 1. Định nghĩa
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Locally Compact):**  
 X là **locally compact** nếu mọi x ∈ X có **compact neighborhood**.
 
 $$
 \forall x \in X: \exists K \text{ compact}, \exists U \in \tau: x \in U \subseteq K
 $$
+</div>
 
 **Phiên bản mạnh hơn:** Mọi x và mọi neighborhood V của x, tồn tại compact K với x ∈ int(K) ⊆ K ⊆ V.
 
@@ -76,9 +78,11 @@ Mọi discrete space locally compact: {x} là compact neighborhood của x.
 
 ℚ (với topology từ ℝ) **không** locally compact!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Mọi compact subset của ℚ là finite union của points (no intervals).  
 Nhưng mọi neighborhood của x ∈ ℚ chứa infinitely many rationals.  
 → Không có compact neighborhood. ✗
+</div>
 
 **Non-example 2: Infinite-Dimensional Spaces**
 
@@ -88,16 +92,24 @@ Hilbert space ℓ² **không** locally compact (Riesz's theorem).
 
 ### 2. Properties
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Closed Subspace):**  
 Nếu X locally compact Hausdorff và F ⊆ X closed, thì F locally compact.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Open Subspace):**  
 Nếu X locally compact Hausdorff và U ⊆ X open, thì U locally compact.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise (sử dụng compact neighborhoods).
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Product):**  
 Nếu X, Y locally compact, thì X × Y locally compact.
+</div>
 
 **Chú ý:** Infinite products của locally compact spaces **không** locally compact (nói chung).
 
@@ -128,10 +140,14 @@ $$
 \tau^* = \tau \cup \{X^* \setminus K : K \subseteq X \text{ compact closed}\}
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 X^* là compact Hausdorff space.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):**
+</div>
 
 **Hausdorff:** Nếu x, y ∈ X: dùng Hausdorff của X.  
 Nếu x ∈ X, y = ∞: x có compact neighborhood K, nên U = int(K), V = X^* \ K separate chúng.
@@ -173,10 +189,14 @@ D² (open unit disk) → D²^* ≅ S² (2-sphere)
 
 ### 3. Uniqueness
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Uniqueness):**  
 Nếu X locally compact Hausdorff không compact, one-point compactification **unique** (up to homeomorphism).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Universal property (xem sau).
+</div>
 
 ---
 
@@ -190,8 +210,10 @@ Nếu X locally compact Hausdorff không compact, one-point compactification **u
 
 **Giải pháp:** **Stone-Čech compactification** βX—largest possible compactification!
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Stone-Čech):**  
 Với mọi Tychonoff space X (T₃.₅), tồn tại compact Hausdorff βX và embedding i: X → βX sao cho:
+</div>
 
 **Universal Property:**  
 Với mọi compact Hausdorff K và continuous f: X → K, tồn tại **duy nhất** continuous extension f̄: βX → K.

@@ -39,8 +39,10 @@ Các ứng dụng trải dài khắp toán học: Tính toán $\pi_1$ (công c�
 
 ### 1. Evenly Covered Neighborhoods
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Covering Space):**  
 $p: \tilde{X} \to X$ là một **covering space** (hay **covering projection**) nếu:
+</div>
 
 **$\forall x \in X$: $\exists$ open neighborhood $U$ của $x$ ("evenly covered"):**
 
@@ -61,13 +63,17 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### 2. Key Properties
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Covering map $p: \tilde{X} \to X$ có các tính chất sau:
 1. **Continuous** (theo định nghĩa)
 2. **Surjective** (covers toàn bộ $X$—mọi điểm trong $X$ đều có ít nhất một preimage trong $\tilde{X}$)
 3. **Open map** (ảnh của các tập mở là tập mở—điều này đảm bảo rằng covering map "bảo toàn" topology)
 4. **Local homeomorphism** (về mặt địa phương là homeomorphism—mỗi điểm có một lân cận được ánh xạ homeomorphically)
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Bài tập—sử dụng tính chất evenly covered. ✓
+</div>
 
 **Quan trọng:** Covering map KHÔNG nhất thiết phải là homeomorphism toàn cục! Đây là một điểm quan trọng—mặc dù về mặt địa phương covering map là homeomorphism, nhưng về mặt toàn cục nó có thể không phải là song ánh hoặc không có nghịch đảo liên tục. Ví dụ, $\mathbb{R} \to S^1$ là covering map nhưng không phải là homeomorphism vì nó không phải là song ánh.
 
@@ -77,7 +83,9 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### Example 1: ℝ → S¹ (Universal Cover of Circle)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** $p: \mathbb{R} \to S^1$, $p(t) = e^{2\pi it}$.
+</div>
 
 **Xác minh covering:**
 - **Surjective:** Mọi điểm $z \in S^1 = e^{i\theta} = p(\theta/(2\pi))$ đều có preimage trên đường thẳng thực. ✓
@@ -95,7 +103,9 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### Example 2: z ↦ z^n on S¹
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** $p: S^1 \to S^1$, $p(z) = z^n$ ($n \geq 2$).
+</div>
 
 **Xác minh covering:**
 - Cho $z_0 \in S^1$, lấy $U = S^1 \setminus \{-z_0\}$.
@@ -109,7 +119,9 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### Example 3: S^n → ℝP^n (Antipodal Quotient)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** $p: S^n \to \mathbb{R}P^n$, quotient map $x \sim -x$.
+</div>
 
 **Xác minh covering:**
 - $\mathbb{R}P^n$ = các đường thẳng đi qua gốc tọa độ trong $\mathbb{R}^{n+1}$.
@@ -124,7 +136,9 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### Example 4: ℝ² → T² (Torus)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** $p: \mathbb{R}^2 \to T^2$, $p(x,y) = (e^{2\pi ix}, e^{2\pi iy})$.
+</div>
 
 **Quotient:** Đồng nhất $\mathbb{R}^2$ bởi lattice $\mathbb{Z}^2$ (translate bởi các số nguyên).
 
@@ -156,8 +170,10 @@ trong đó disjoint union có nghĩa là các $V_\alpha$ là pairwise disjoint v
 
 ### 1. Path Lifting Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Path Lifting):**  
 Cho $p: \tilde{X} \to X$ là covering, $\gamma: [0,1] \to X$ là một path, và $\tilde{x}_0 \in p^{-1}(\gamma(0))$.
+</div>
 
 Khi đó tồn tại duy nhất một **lift** $\tilde{\gamma}: [0,1] \to \tilde{X}$ sao cho:
 - $p \circ \tilde{\gamma} = \gamma$ ($\tilde{\gamma}$ projects down to $\gamma$)
@@ -181,21 +197,29 @@ Khi đó tồn tại duy nhất một **lift** $\tilde{\gamma}: [0,1] \to \tilde
 
 **Ứng dụng cho $\pi_1$:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Cho $\gamma, \delta: [0,1] \to X$ là các paths từ $x_0$ đến $x_1$, và $\gamma \simeq_p \delta$.
+</div>
 
 Các lifts $\tilde{\gamma}$, $\tilde{\delta}$ bắt đầu tại cùng một điểm $\tilde{x}_0 \in p^{-1}(x_0)$ có **cùng điểm cuối**.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Homotopy lifting (phần tiếp theo). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** Homotopy class $[\gamma]$ xác định điểm cuối của lift!  
 Đây chính là CÁCH chúng ta tính toán $\pi_1(S^1) \cong \mathbb{Z}$—winding number xuất hiện tự nhiên như sự khác biệt giữa các điểm cuối của lift.
+</div>
 
 ---
 
 ### 2. Homotopy Lifting Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Homotopy Lifting):**  
 Cho $p: \tilde{X} \to X$ là covering, $F: [0,1] \times [0,1] \to X$ là một homotopy.
+</div>
 
 Cho lift $\tilde{F}_0: [0,1] \to \tilde{X}$ của $F(\cdot, 0)$, tồn tại duy nhất một lift $\tilde{F}: [0,1] \times [0,1] \to \tilde{X}$:
 - $p \circ \tilde{F} = F$ (projects down)
@@ -203,11 +227,15 @@ Cho lift $\tilde{F}_0: [0,1] \to \tilde{X}$ của $F(\cdot, 0)$, tồn tại duy
 
 **Trực giác hình học:** Homotopies lift một cách duy nhất! Điều này có nghĩa là nếu chúng ta có một homotopy giữa hai paths, chúng ta có thể lift toàn bộ homotopy lên covering space một cách duy nhất.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Tương tự như path lifting, sử dụng cấu trúc tích. ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả (Homotopy Invariance):**
+</div>
 
 **Nếu $\gamma \simeq_p \delta$ (path homotopic), các lifts $\tilde{\gamma}$, $\tilde{\delta}$ từ cùng điểm bắt đầu KẾT THÚC tại cùng một điểm.**
 
@@ -217,8 +245,10 @@ Cho lift $\tilde{F}_0: [0,1] \to \tilde{X}$ của $F(\cdot, 0)$, tồn tại duy
 
 ### 3. Lifting Criterion
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Lifting Criterion):**  
 Cho $p: \tilde{X} \to X$ là covering, $f: Y \to X$ liên tục, $f(y_0) = x_0$, và $\tilde{x}_0 \in p^{-1}(x_0)$.
+</div>
 
 Lift $\tilde{f}: Y \to \tilde{X}$ ($\tilde{f}(y_0) = \tilde{x}_0$, $p \circ \tilde{f} = f$) tồn tại $\Longleftrightarrow$:
 
@@ -236,10 +266,12 @@ $$
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Universal Cover):**  
 $\tilde{X}$ là **universal covering space** của $X$ nếu:
 1. $p: \tilde{X} \to X$ là covering space
 2. **$\tilde{X}$ simply connected:** $\pi_1(\tilde{X}) = \{e\}$
+</div>
 
 **"Universal":** $\tilde{X}$ = "most general" covering—tất cả các coverings khác đều là quotients của $\tilde{X}$. Đây là một tính chất đẹp—universal cover là covering space đơn giản nhất, và mọi covering space khác đều có thể được xây dựng như một quotient của universal cover.
 
@@ -247,11 +279,13 @@ $\tilde{X}$ là **universal covering space** của $X$ nếu:
 
 ### 2. Existence
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Existence of Universal Cover):**  
 X has universal cover if X:
 1. **Path-connected**
 2. **Locally path-connected**
 3. **Semilocally simply connected:** ∀x: ∃U neighborhood: loops trong U contractible trong X
+</div>
 
 **Most "nice" spaces satisfy these!**
 
@@ -266,8 +300,10 @@ X has universal cover if X:
 
 ### 3. Uniqueness
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Uniqueness):**  
 Universal covers X̃₁, X̃₂ of X are **isomorphic** (as covering spaces).
+</div>
 
 **Meaning:** Unique up to covering space isomorphism.
 
@@ -299,12 +335,14 @@ Universal covers X̃₁, X̃₂ of X are **isomorphic** (as covering spaces).
 
 ### 1. Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Deck Transformation):**  
 p: X̃ → X covering. **Deck transformation** (hay **covering automorphism**) là homeomorphism f: X̃ → X̃ such that:
 
 $$
 p \circ f = p
 $$
+</div>
 
 **Geometric:** f permutes sheets, preserving projection.
 
@@ -314,19 +352,25 @@ $$
 
 ### 2. Group Structure
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** Aut(X̃/X) is group under composition.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**
 - **Identity:** id_{X̃} deck transformation ✓
 - **Composition:** f, g deck ⇒ f ∘ g deck ✓
 - **Inverses:** f deck, homeomorphism ⇒ f^(-1) deck ✓
+</div>
 
 ---
 
 ### 3. Universal Cover Case
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Main Result):**  
 X̃ universal cover of X, X path-connected, locally path-connected.
+</div>
 
 Then:
 
@@ -383,8 +427,10 @@ Aut(S²/ℝP²) = {id, f} ≅ ℤ/2ℤ ≅ π₁(ℝP²). ✓
 
 ### 1. Correspondence Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Classification of Coverings):**  
 X path-connected, locally path-connected, semilocally simply connected.
+</div>
 
 **Bijection:**
 
@@ -402,9 +448,13 @@ $$
 
 ### 2. Normal Coverings
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** Covering p: X̃ → X **normal** (hay **regular**) if p_*(π₁(X̃)) is **normal subgroup** of π₁(X).
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** Normal covering ⟺ Aut(X̃/X) acts transitively on fibers.
+</div>
 
 **Example:** Universal cover always normal (trivial subgroup normal).
 

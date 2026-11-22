@@ -56,29 +56,41 @@ $$
 d_2((x_1, x_2), (y_1, y_2)) = \sqrt{d_1(x_1, y_1)^2 + d_2(x_2, y_2)^2}
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Cả ba đều metrics trên X₁ × X₂.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify axioms (exercise). ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Equivalence):**  
 d₁, d₂, d∞ equivalent trên X₁ × X₂ (finite product).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 d∞ ≤ d₂ ≤ d₁ ≤ 2·d∞. ✓
+</div>
 
 **Consequence:** Topology của product well-defined.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Relation với Product Topology):**  
 Mọi product metric (d₁, d₂, d∞) induces **product topology** τ_{X₁} × τ_{X₂}.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Basis cho product topology: U₁ × U₂, Uᵢ open.  
 Open balls trong product metric contain products of balls. ✓
+</div>
 
 ---
 
@@ -103,16 +115,22 @@ All equivalent, induce standard topology. ✓
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Uniform Metric trên Infinite Product):**  
 Assume dₙ ≤ 1 (bounded). Define:
 
 $$
 d((x_n), (y_n)) = \sup_n d_n(x_n, y_n)
 $$
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** Nếu dₙ ≤ 1, d là metric.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify axioms (straightforward). ✓
+</div>
 
 ---
 
@@ -124,9 +142,13 @@ $$
 
 (Assume dₙ ≤ 1 để series converge.)
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** d metric, induces product topology.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Technical. See Munkres §20. ✓
+</div>
 
 ---
 
@@ -137,23 +159,33 @@ Sup metric và weighted metric induce same topology (product topology), nhưng c
 
 ### 3. Completeness của Products
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Finite Products):**  
 (X₁, d₁), (X₂, d₂) complete ⇒ (X₁ × X₂, d) complete.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 (xₙ) = ((x₁ⁿ, x₂ⁿ)) Cauchy trong X₁ × X₂.  
 ⇒ (x₁ⁿ) Cauchy trong X₁, (x₂ⁿ) Cauchy trong X₂.  
 X₁, X₂ complete ⇒ x₁ⁿ → x₁, x₂ⁿ → x₂.  
 ⇒ (x₁ⁿ, x₂ⁿ) → (x₁, x₂). ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Infinite Products - Weighted Metric):**  
 (Xₙ, dₙ) complete ∀n ⇒ (∏Xₙ, d_weighted) complete.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Tychonoff-style argument (technical). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:** ℝ^∞ = ℝ × ℝ × ... complete với weighted metric.
+</div>
 
 ---
 
@@ -161,8 +193,10 @@ X₁, X₂ complete ⇒ x₁ⁿ → x₁, x₂ⁿ → x₂.
 
 ### 1. Space of Continuous Functions: C([0,1])
 
+<div class="textbook-definition" markdown="1">
 **Definition:**  
 C([0,1]) = {f: [0,1] → ℝ : f continuous}
+</div>
 
 **This is vector space:** (f + g)(x) = f(x) + g(x), (λf)(x) = λf(x).
 
@@ -180,23 +214,31 @@ $$
 
 **Notation:** ||f - g||∞ = d∞(f,g).
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** d∞ is metric.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**
 - (M1): sup |f - g| ≥ 0, = 0 ⟺ f = g ✓
 - (M2): Symmetric ✓
 - (M3): sup |f - h| ≤ sup |f - g| + sup |g - h| ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Completeness):**  
 (C([0,1]), d∞) complete.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 (fₙ) Cauchy trong d∞ ⇒ uniformly Cauchy.  
 ∀x: (fₙ(x)) Cauchy trong ℝ ⇒ f(x) = lim fₙ(x) exists.  
 Uniform convergence ⇒ f continuous (standard analysis theorem).  
 fₙ → f uniformly ⇒ fₙ → f trong d∞. ✓
+</div>
 
 **Remark:** Uniform convergence preserves continuity—key property!
 
@@ -208,11 +250,17 @@ $$
 d_1(f,g) = \int_0^1 |f(x) - g(x)| \, dx
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** d₁ is metric trên C([0,1]).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify axioms (use integral properties). ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** d₁ ≁ d∞ (not equivalent).
+</div>
 
 **Proof (Counterexample):**  
 fₙ(x) = xⁿ.
@@ -223,8 +271,10 @@ Vậy convergence trong d₁ ≠ convergence trong d∞. ✓
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (NOT Complete):**  
 (C([0,1]), d₁) **không complete**.
+</div>
 
 **Proof sketch:**  
 Construct sequence fₙ continuous converging trong d₁ to discontinuous function.
@@ -239,12 +289,14 @@ fₙ Cauchy trong d₁, nhưng limit = step function ∉ C([0,1]). ✗
 
 ### 2. Uniform vs Pointwise Convergence
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Uniform Convergence):**  
 fₙ **uniformly converges** to f nếu:
 
 $$
 \sup_x |f_n(x) - f(x)| \to 0
 $$
+</div>
 
 **Notation:** fₙ ⇉ f.
 
@@ -252,21 +304,27 @@ $$
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Pointwise Convergence):**  
 fₙ **pointwise converges** to f nếu:
 
 $$
 \forall x: f_n(x) \to f(x)
 $$
+</div>
 
 **Notation:** fₙ → f pointwise.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Uniform convergence ⇒ pointwise convergence.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Trivial. ✓
+</div>
 
 **Converse sai:**
 
@@ -276,9 +334,11 @@ Uniform convergence ⇒ pointwise convergence.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Preservation của Continuity):**
 - Uniform convergence của continuous functions ⇒ limit continuous ✓
 - Pointwise convergence ⇒ limit có thể discontinuous ✗
+</div>
 
 **Example:** fₙ(x) = xⁿ above—limit discontinuous.
 
@@ -288,19 +348,27 @@ Uniform convergence ⇒ pointwise convergence.
 
 ### 3. Sequence Spaces: ℓ^p
 
+<div class="textbook-definition" markdown="1">
 **Definition:**  
 ℓ^p = {sequences (xₙ) : Σ|xₙ|^p < ∞}, 1 ≤ p < ∞.
+</div>
 
 **Metric:**
 $$
 d_p((x_n), (y_n)) = \left(\sum_{n=1}^\infty |x_n - y_n|^p\right)^{1/p}
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** d_p is metric (use Minkowski inequality).
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** ℓ^p complete ∀p ≥ 1.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Technical (dominated convergence). ✓
+</div>
 
 ---
 
@@ -331,21 +399,27 @@ $$
 d_\infty((x_n), (y_n)) = \sup_n |x_n - y_n|
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** ℓ^∞ complete.
+</div>
 
 ---
 
 ### 4. L^p Spaces
 
+<div class="textbook-definition" markdown="1">
 **Definition (Informal):**  
 L^p([0,1]) = {measurable functions f : ∫|f|^p < ∞} / equivalence a.e.
+</div>
 
 **Metric:**
 $$
 d_p(f,g) = \left(\int_0^1 |f(x) - g(x)|^p \, dx\right)^{1/p}
 $$
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** L^p complete (Riesz-Fischer Theorem).
+</div>
 
 **Relation với C([0,1]):**
 - C([0,1]) ⊊ L^p (continuous ⊆ integrable)
@@ -372,8 +446,10 @@ $$
 
 ### 1. Normed Vector Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Norm):**  
 V vector space. **Norm** là hàm ||·|| : V → ℝ thỏa:
+</div>
 
 **(N1) Positive definite:** ||x|| ≥ 0, ||x|| = 0 ⟺ x = 0
 
@@ -381,14 +457,20 @@ V vector space. **Norm** là hàm ||·|| : V → ℝ thỏa:
 
 **(N3) Triangle inequality:** ||x + y|| ≤ ||x|| + ||y||
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Normed Space):** (V, ||·||) = normed vector space.
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Mọi norm induces metric: d(x,y) = ||x - y||.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify metric axioms từ norm axioms. ✓
+</div>
 
 ---
 
@@ -412,8 +494,10 @@ Mọi norm induces metric: d(x,y) = ||x - y||.
 
 ### 2. Banach Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Banach Space):**  
 Normed vector space (V, ||·||) **complete** (as metric space) gọi là **Banach space**.
+</div>
 
 **Trực giác:** Banach space = complete normed vector space.
 
@@ -432,33 +516,47 @@ Normed vector space (V, ||·||) **complete** (as metric space) gọi là **Banac
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Finite-Dimensional):**  
 Mọi finite-dimensional normed vector space là Banach space.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Equivalent với ℝⁿ, which complete. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:** ℝⁿ với bất kỳ norm nào = Banach space.
+</div>
 
 ---
 
 ### 3. Hilbert Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Inner Product Space):**  
 V vector space với **inner product** ⟨·,·⟩ thỏa:
+</div>
 
 **(IP1) Linearity:** ⟨ax + by, z⟩ = a⟨x,z⟩ + b⟨y,z⟩  
 **(IP2) Symmetry:** ⟨x,y⟩ = ⟨y,x⟩ (or conjugate in ℂ)  
 **(IP3) Positive definite:** ⟨x,x⟩ ≥ 0, ⟨x,x⟩ = 0 ⟺ x = 0
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Inner product induces norm: ||x|| = √⟨x,x⟩.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify norm axioms (use Cauchy-Schwarz). ✓
+</div>
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Hilbert Space):**  
 Inner product space **complete** (as metric space) gọi là **Hilbert space**.
+</div>
 
 **Trực giác:** Hilbert space = complete inner product space = Banach space với inner product.
 
@@ -474,12 +572,14 @@ Inner product space **complete** (as metric space) gọi là **Hilbert space**.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Parallelogram Law):**  
 Norm từ inner product ⟺ satisfies:
 
 $$
 ||x + y||^2 + ||x - y||^2 = 2(||x||^2 + ||y||^2)
 $$
+</div>
 
 **Application:** Test if norm từ inner product.
 

@@ -127,10 +127,12 @@ Các tính chất của hình cầu $S^2$: nó là compact (đóng và bị ch�
 
 ### 3. Connected Sum
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Connected Sum):**  
 S₁, S₂ surfaces. **Connected sum** S₁ # S₂:
 1. Remove small open disk từ mỗi surface
 2. Glue along boundaries (circles)
+</div>
 
 **Result:** New surface S₁ # S₂.
 
@@ -170,25 +172,31 @@ Orientable ⟺ admits continuous nowhere-zero "normal" vector field.
 
 ### 3. Properties
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**
 1. S² orientable ✓
 2. T² orientable ✓
 3. g-torus orientable ✓
 4. ℝP² non-orientable ✗
 5. Klein bottle non-orientable ✗
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Connected Sum):**
 - Orientable # Orientable = Orientable
 - Orientable # Non-orientable = Non-orientable
 - Non-orientable # Non-orientable = Non-orientable
+</div>
 
 **Moral:** Orientability "contagious"—one non-orientable piece ⇒ whole non-orientable.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Compact orientable surface can embed trong ℝ³.  
 Non-orientable compact surface CANNOT embed trong ℝ³ (needs higher dimension).
+</div>
 
 **Examples:**
 - S², T², genus 2, ... embed trong ℝ³ ✓
@@ -208,16 +216,20 @@ Decompose surface thành triangles (homeomorphic với simplices).
 - E = number of edges
 - F = number of faces (triangles)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Euler Characteristic):**
 
 $$
 \chi = V - E + F
 $$
+</div>
 
 **Remarkable Theorem (Well-defined):**  
 χ independent của choice triangulation!
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Combinatorial topology / homology theory. ✓
+</div>
 
 **Consequence:** χ = topological invariant.
 
@@ -257,12 +269,14 @@ One standard triangulation: V = 9, E = 27, F = 18.
 
 ### 3. Formula for Genus g Orientable Surface
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Compact orientable surface genus g:
 
 $$
 \chi = 2 - 2g
 $$
+</div>
 
 **Examples:**
 - g = 0 (S²): χ = 2 ✓
@@ -275,12 +289,14 @@ $$
 
 ### 4. Formula for Non-Orientable Surfaces
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Compact non-orientable surface với k "cross-caps" (projective planes):
 
 $$
 \chi = 2 - k
 $$
+</div>
 
 **Examples:**
 - k = 1 (ℝP²): χ = 1 ✓
@@ -293,8 +309,10 @@ $$
 
 ### 1. Statement
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Classification of Compact Surfaces):**  
 Mọi compact connected surface homeomorphic với **đúng một** trong:
+</div>
 
 **Orientable:**
 1. **Sphere** S² (genus 0)
@@ -318,10 +336,14 @@ Mọi compact connected surface homeomorphic với **đúng một** trong:
 
 ### 2. Uniqueness
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Hai compact connected surfaces homeomorphic ⟺ cùng χ và cùng orientability.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Classification theorem + invariants. ✓
+</div>
 
 **Consequence:** To classify surface, compute:
 1. χ (via triangulation)

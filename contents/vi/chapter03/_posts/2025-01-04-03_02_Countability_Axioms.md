@@ -46,28 +46,38 @@ Sau khi học về separation (cách tách các điểm và tập hợp), chúng
 
 ### 1. First Countable Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Neighborhood Basis):**  
 **Neighborhood basis** tại x là họ {Bₙ} các neighborhoods của x sao cho mọi neighborhood N của x, tồn tại Bₙ ⊆ N.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (First Countable):**  
 X là **first countable** nếu mọi điểm có **countable neighborhood basis**.
 
 $$
 \forall x \in X: \exists \{B_n\}_{n=1}^\infty \text{ neighborhoods of } x: \forall N \ni x: \exists n: B_n \subseteq N
 $$
+</div>
 
 **Trực giác:** "Local" property—mỗi điểm có countable "local structure".
 
 **Ví dụ 1: Metric Spaces**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Mọi metric space là first countable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Với x ∈ X, neighborhood basis: {B(x, 1/n)}_{n=1}^∞.  
 Với mọi neighborhood N của x, ∃ε: B(x,ε) ⊆ N.  
 Chọn n > 1/ε → B(x, 1/n) ⊆ N. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** ℝⁿ first countable.
+</div>
 
 **Ví dụ 2: Discrete Topology**
 
@@ -77,6 +87,7 @@ Mọi space với discrete topology first countable: {{x}} là countable neighbo
 
 X uncountable với cocountable topology **không** first countable!
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Neighborhood của x = sets chứa x với countable complement.  
 Giả sử {Bₙ} countable neighborhood basis tại x.  
@@ -84,20 +95,25 @@ Mỗi Bₙ có countable complement Cₙ.
 C = ⋃Cₙ countable (countable union of countable sets).  
 N = X \ C là neighborhood của x.  
 Nhưng không có Bₙ ⊆ N (vì mỗi Bₙ intersects C). Mâu thuẫn! ✗
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Sequential Characterization):**  
 Trong first countable space, A̅ = {x : ∃ sequence trong A converging to x}.
+</div>
 
 **Nói bằng lời:** Closure có thể described hoàn toàn bằng sequences!
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 (⊆) Luôn đúng.  
 (⊇) Cho x ∈ A̅. {Bₙ} countable neighborhood basis tại x.  
 Vₙ = B₁ ∩ ... ∩ Bₙ cũng là neighborhood basis.  
 Mỗi Vₙ ∩ A ≠ ∅ → chọn xₙ ∈ Vₙ ∩ A.  
 Sequence {xₙ} → x. ✓
+</div>
 
 **Ý nghĩa:** Trong first countable spaces, có thể dùng sequences thay vì general nets!
 
@@ -105,22 +121,28 @@ Sequence {xₙ} → x. ✓
 
 ### 2. Second Countable Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Second Countable):**  
 X là **second countable** nếu topology có **countable basis**.
 
 $$
 \exists \{B_n\}_{n=1}^\infty \text{ basis}: \forall U \in \tau: U = \bigcup_{n \in I} B_n, I \subseteq \mathbb{N}
 $$
+</div>
 
 **Trực giác:** "Global" property—toàn bộ topology có countable structure.
 
 **Ví dụ 1: ℝ với Euclidean Topology**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** ℝ second countable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Basis ℬ = {(a,b) : a,b ∈ ℚ} countable.  
 Mọi open U là union của intervals với rational endpoints. ✓
+</div>
 
 **Tổng quát:** ℝⁿ second countable (basis = open rectangles với rational corners).
 
@@ -132,25 +154,33 @@ Mọi countable set với bất kỳ topology nào có countable basis (vì 𝒫
 
 Discrete topology trên uncountable set X **không** second countable.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Trong discrete topology, mọi singleton {x} open.  
 Basis phải chứa {x} với mọi x.  
 → Basis uncountable. ✗
+</div>
 
 **Non-example: Lower Limit Topology ℝ_ℓ**
 
 ℝ với lower limit topology (basis {[a,b)}) **không** second countable!
 
+<div class="textbook-proof" markdown="1">
 **Proof (sketch):** Counting argument—không thể cover tất cả [a,b) bằng countable basis.
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Second ⇒ First):**  
 Second countable ⇒ first countable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho {Bₙ} countable basis cho X.  
 Với x ∈ X, neighborhood basis tại x = {Bₙ : x ∈ Bₙ} (countable subset). ✓
+</div>
 
 **Chú ý:** Ngược lại **sai**! (Discrete topology trên uncountable set)
 
@@ -158,15 +188,19 @@ Với x ∈ X, neighborhood basis tại x = {Bₙ : x ∈ Bₙ} (countable subse
 
 ### 3. Separable Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Dense Set):**  
 D ⊆ X là **dense** nếu D̅ = X.
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Separable):**  
 X là **separable** nếu có **countable dense subset**.
 
 $$
 \exists D \subseteq X: |D| \leq \aleph_0 \land \overline{D} = X
 $$
+</div>
 
 **Trực giác:** "Approximation" property—countable subset "fill" entire space.
 
@@ -186,21 +220,27 @@ $$
 
 Uncountable set X với discrete topology **không** separable.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 D dense → D̅ = X → D = X (mọi point closed trong discrete).  
 Nhưng D countable, X uncountable. Mâu thuẫn! ✗
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Second Countable ⇒ Separable):**  
 Second countable ⇒ separable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho {Bₙ} countable basis.  
 Chọn xₙ ∈ Bₙ (mỗi Bₙ non-empty).  
 D = {xₙ} countable.  
 Mọi open U ≠ ∅ chứa Bₙ nào đó → chứa xₙ.  
 → U ∩ D ≠ ∅ → D dense. ✓
+</div>
 
 **Chú ý:** Ngược lại **sai** trong general!  
 Separable không implies second countable.
@@ -211,12 +251,14 @@ Separable không implies second countable.
 
 ### 4. Lindelöf Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Lindelöf):**  
 X là **Lindelöf** nếu mọi open cover có **countable subcover**.
 
 $$
 \forall \{U_\alpha\}_{\alpha \in I} \text{ open cover}: \exists \text{ countable } J \subseteq I: X = \bigcup_{\alpha \in J} U_\alpha
 $$
+</div>
 
 **Trực giác:** "Compactness-like" nhưng yêu cầu countable subcover thay vì finite.
 
@@ -226,13 +268,17 @@ Mọi compact space là Lindelöf (finite ⊆ countable).
 
 **Ví dụ 2: Second Countable**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Second countable ⇒ Lindelöf.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho {Bₙ} countable basis, {Uα} open cover.  
 Mỗi x ∈ X: x ∈ Uα(x) nào đó → ∃Bₙ(x): x ∈ Bₙ(x) ⊆ Uα(x).  
 {Bₙ(x)} countable subcover bởi basis elements.  
 Với mỗi Bₙ(x), chọn Uα chứa nó → countable subcover. ✓
+</div>
 
 **Ví dụ 3: ℝ**
 
@@ -242,13 +288,17 @@ Với mỗi Bₙ(x), chọn Uα chứa nó → countable subcover. ✓
 
 Uncountable discrete space **không** Lindelöf.
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 Cover {{x}}_{x∈X} không có countable subcover. ✗
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Lindelöf + Hausdorff ⇒ Normal):**  
 Trong Hausdorff space, Lindelöf + paracompact ⇒ normal.
+</div>
 
 (Paracompact = every open cover has locally finite refinement—advanced topic)
 
@@ -274,10 +324,14 @@ First Countable    Separable
 5. First countable **⇏** second countable
 6. Lindelöf **⇏** second countable
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Metrizable):**  
 Trong metrizable spaces: separable ⟺ second countable.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Exercise (sử dụng properties của metric topology).
+</div>
 
 ---
 

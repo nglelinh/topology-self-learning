@@ -85,12 +85,14 @@ Nếu hai shapes có thể biến đổi từ cái này sang cái kia qua các p
 
 ### 1. Continuous Functions
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Continuity - Open Sets):**  
 Cho (X, 𝜏_X) và (Y, 𝜏_Y) là topological spaces. Hàm f: X → Y là **continuous** nếu:
 
 $$
 \forall V \in \tau_Y: f^{-1}(V) \in \tau_X
 $$
+</div>
 
 **Nói bằng lời:** Preimage (nghịch ảnh) của mọi open set trong Y là open trong X.
 
@@ -128,6 +130,7 @@ Với V ∈ 𝜏_X: i⁻¹(V) = V ∩ A ∈ 𝜏_A (theo định nghĩa subspace
 
 ### 2. Equivalent Characterizations
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Equivalent Definitions of Continuity):**  
 Các phát biểu sau **tương đương**:
 
@@ -140,8 +143,11 @@ Các phát biểu sau **tương đương**:
    ∀B ⊆ Y: f⁻¹(int_Y(B)) ⊆ int_X(f⁻¹(B))
 5. **Basis condition:**  
    Nếu ℬ là basis cho 𝜏_Y, thì ∀B ∈ ℬ: f⁻¹(B) ∈ 𝜏_X
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(1 ⇒ 2):**  
 Cho F ⊆ Y closed. Khi đó Y \ F open.  
@@ -175,17 +181,21 @@ cl(f(A)) closed → f⁻¹(cl(f(A))) closed (theo (2)).
 
 ### 3. Continuity at a Point
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Continuity at a Point):**  
 f: X → Y continuous **tại x₀** nếu:
 
 $$
 \forall V \in \tau_Y, f(x_0) \in V: \exists U \in \tau_X, x_0 \in U: f(U) \subseteq V
 $$
+</div>
 
 **Nói bằng lời:** Với mọi neighborhood V của f(x₀), tồn tại neighborhood U của x₀ sao cho f(U) ⊆ V.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**  
 f continuous (trên toàn X) ⟺ f continuous tại mọi x ∈ X.
+</div>
 
 **Connection với ε-δ:**
 
@@ -202,28 +212,38 @@ Trong metric spaces (X,d_X), (Y,d_Y):
 
 ### 4. Properties of Continuous Functions
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Composition):**  
 Nếu f: X → Y và g: Y → Z đều continuous, thì g ∘ f: X → Z continuous.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Cho W ∈ 𝜏_Z open.  
 (g ∘ f)⁻¹(W) = f⁻¹(g⁻¹(W)).  
 g⁻¹(W) ∈ 𝜏_Y (g continuous).  
 f⁻¹(g⁻¹(W)) ∈ 𝜏_X (f continuous). ∎
+</div>
 
 **Ý nghĩa:** Continuous functions form a **category**!
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Restriction):**  
 Nếu f: X → Y continuous và A ⊆ X (subspace topology), thì f|_A: A → Y continuous.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Pasting Lemma):**  
 Cho X = A ∪ B với A, B closed. Nếu f: A → Y và g: B → Y đều continuous và f|_{A∩B} = g|_{A∩B}, thì:
 
 $$
 h: X \to Y, \quad h(x) = \begin{cases} f(x) & x \in A \\ g(x) & x \in B \end{cases}
 $$
+</div>
 
 continuous.
 
@@ -233,11 +253,13 @@ continuous.
 
 ### 5. Homeomorphisms
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Homeomorphism):**  
 f: X → Y là **homeomorphism** nếu:
 1. f **bijective** (1-1 và onto)
 2. f **continuous**
 3. f⁻¹: Y → X **continuous**
+</div>
 
 **Ký hiệu:** X ≅ Y (hoặc X ≃ Y) nếu tồn tại homeomorphism giữa chúng.
 
@@ -260,12 +282,14 @@ f: [0,1] → [2,5], f(x) = 3x + 2
 
 **Claim:** [0,1] ≇ (0,1) (không homeomorphic!)
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh (sketch):**  
 Giả sử f: [0,1] → (0,1) homeomorphism.  
 Xét g = f|_{(0,1)}: (0,1) → (0,1) \ {f(0), f(1)} homeomorphism.  
 Nhưng remove 1 point từ (0,1) → disconnected.  
 Remove 2 points từ [0,1] → still connected (middle part).  
 Contradiction! ∎
+</div>
 
 **Ví dụ 3: Circle vs Line**
 
@@ -281,12 +305,14 @@ f: S² \ {north pole} → ℝ² là homeomorphism!
 
 ### 6. Topological Properties
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Topological Property):**  
 Một property P là **topological property** (hoặc **topological invariant**) nếu:
 
 $$
 X \text{ has } P \land (X \cong Y) \implies Y \text{ has } P
 $$
+</div>
 
 **Nói bằng lời:** Property được bảo toàn qua homeomorphisms.
 
@@ -307,8 +333,10 @@ $$
 
 ### 7. Embedding và Quotient Maps
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Embedding):**  
 f: X → Y là **embedding** nếu f homeomorphism giữa X và f(X) (với subspace topology).
+</div>
 
 **Trực giác:** X "embeds" vào Y—có thể xem X như một subspace của Y.
 
@@ -317,10 +345,12 @@ f: X → Y là **embedding** nếu f homeomorphism giữa X và f(X) (với subs
 - S¹ ↪ ℝ²: circle embeds trong plane
 - Graph(f) = {(x,f(x))} ↪ ℝ²: graph của continuous f embeds trong ℝ²
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quotient Map - Preview):**  
 p: X → Y là **quotient map** nếu:
 1. p surjective
 2. U ⊆ Y open ⟺ p⁻¹(U) open trong X
+</div>
 
 **Trực giác:** Y có topology "induced" từ X via p.
 

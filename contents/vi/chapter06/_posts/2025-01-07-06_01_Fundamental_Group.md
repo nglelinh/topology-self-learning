@@ -42,12 +42,14 @@ Trong bài học này, chúng ta xây dựng lý thuyết một cách có hệ t
 
 ### 1. Loops và Path Homotopy (Nhắc lại)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Loop):**  
 Một **loop** based tại $x_0 \in X$ là một ánh xạ liên tục:
 
 $$
 \gamma: [0,1] \to X, \quad \gamma(0) = \gamma(1) = x_0
 $$
+</div>
 
 **Tập tất cả các loops tại $x_0$:**
 
@@ -84,6 +86,7 @@ $$
 
 ### 2. Group Operation: Path Concatenation
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Concatenation):**  
 Cho các loops $\gamma$, $\delta$ tại $x_0$. **Product loop** $\gamma \cdot \delta$ được định nghĩa bằng cách đi qua $\gamma$ với tốc độ gấp đôi trong nửa đầu của khoảng thời gian, sau đó đi qua $\delta$ với tốc độ gấp đôi trong nửa sau:
 
@@ -93,6 +96,7 @@ $$
 \delta(2t - 1) & 1/2 \leq t \leq 1
 \end{cases}
 $$
+</div>
 
 Trực giác hình học là chúng ta đi qua $\gamma$ trước (với tốc độ gấp đôi, hoàn thành tại $t=1/2$), sau đó đi qua $\delta$ (với tốc độ gấp đôi, hoàn thành tại $t=1$). Reparametrization (thay đổi tốc độ) là cần thiết để đảm bảo rằng loop mới vẫn được định nghĩa trên khoảng $[0,1]$. Điều này cho phép chúng ta định nghĩa một phép toán trên các loops, và khi chúng ta xét các lớp đồng luân, phép toán này sẽ trở thành phép nhóm trong fundamental group.
 
@@ -100,15 +104,21 @@ Trực giác hình học là chúng ta đi qua $\gamma$ trước (với tốc đ
 
 **Well-defined trên homotopy classes:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Nếu $\gamma \simeq_p \gamma'$ và $\delta \simeq_p \delta'$, thì $\gamma \cdot \delta \simeq_p \gamma' \cdot \delta'$.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Giả sử chúng ta có các homotopies $F_\gamma: \gamma \simeq \gamma'$ và $F_\delta: \delta \simeq \delta'$. Chúng ta có thể định nghĩa một homotopy $F_{\gamma \cdot \delta}$ từ $\gamma \cdot \delta$ đến $\gamma' \cdot \delta'$ bằng cách nối các homotopies $F_\gamma$ và $F_\delta$ lại với nhau—chúng ta biến dạng $\gamma$ thành $\gamma'$ trong nửa đầu của khoảng thời gian, và biến dạng $\delta$ thành $\delta'$ trong nửa sau. Các chi tiết kỹ thuật xác minh tính liên tục của homotopy này. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** Phép nhân được định nghĩa tốt trên các lớp đồng luân:
 
 $$
 [\gamma] \cdot [\delta] = [\gamma \cdot \delta]
 $$
+</div>
 
 Điều này có nghĩa là phép toán concatenation không phụ thuộc vào việc chọn đại diện cụ thể của mỗi lớp đồng luân—nếu chúng ta thay thế $\gamma$ bằng một loop đồng luân với nó, kết quả sẽ không thay đổi.
 
@@ -116,9 +126,13 @@ $$
 
 ### 3. Group Axioms Verification
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** (π₁(X, x₀), ·) is a group.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify identity, inverses, associativity.
+</div>
 
 ---
 
@@ -128,7 +142,9 @@ $$
 
 **Khẳng định:** $[e_{x_0}]$ là phần tử đơn vị trong $\pi_1(X, x_0)$.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Chúng ta cần chứng minh rằng $[\gamma] \cdot [e] = [\gamma]$ và $[e] \cdot [\gamma] = [\gamma]$ cho mọi loop $\gamma$.
+</div>
 
 **Homotopy $\gamma \cdot e \simeq_p \gamma$:**
 
@@ -154,7 +170,9 @@ Tương tự, chúng ta có thể chứng minh $[e \cdot \gamma] = [\gamma]$ b�
 
 **Khẳng định:** $[\gamma] \cdot [\gamma^{-1}] = [e]$.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Loop $\gamma \cdot \gamma^{-1}$ đi qua $\gamma$ theo hướng thuận rồi đi ngược lại theo hướng ngược. Trực giác hình học là chúng ta có thể "co" loop này về constant loop bằng cách thu nhỏ nó liên tục từ các điểm đầu và cuối. Hãy tưởng tượng một sợi dây được căng giữa hai điểm—nếu chúng ta đi qua sợi dây theo cả hai hướng, chúng ta có thể thu nhỏ nó về một điểm bằng cách kéo từ cả hai đầu.
+</div>
 
 **Homotopy $F(s,t)$:**
 - Tại $t=0$: $\gamma \cdot \gamma^{-1}(s)$
@@ -171,7 +189,9 @@ Tương tự, chúng ta có $[\gamma^{-1}] \cdot [\gamma] = [e]$. ✓
 
 **Khẳng định:** $([\gamma] \cdot [\delta]) \cdot [\varepsilon] = [\gamma] \cdot ([\delta] \cdot [\varepsilon])$.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Cả hai vế đều bằng $[\gamma \cdot \delta \cdot \varepsilon]$ (đi qua cả ba loops). Sự khác biệt chỉ là cách reparametrization—cách chúng ta phân chia khoảng thời gian $[0,1]$ giữa ba loops. Ở vế trái, $\gamma$ chiếm $[0, 1/4]$, $\delta$ chiếm $[1/4, 1/2]$, và $\varepsilon$ chiếm $[1/2, 1]$. Ở vế phải, $\gamma$ chiếm $[0, 1/2]$, $\delta$ chiếm $[1/2, 3/4]$, và $\varepsilon$ chiếm $[3/4, 1]$. Chúng ta có thể xây dựng một homotopy $F$ reparametrizes một cách mượt mà giữa hai cách phân chia này, chứng minh rằng hai vế là đồng luân. ✓
+</div>
 
 **Kết luận:** $\pi_1(X, x_0)$ thỏa mãn tất cả các tiên đề nhóm! ✓ **QED**
 
@@ -181,7 +201,9 @@ Tương tự, chúng ta có $[\gamma^{-1}] \cdot [\gamma] = [e]$. ✓
 
 ### 1. $\pi_1(\mathbb{R}^n) = 0$ (Nhóm Tầm thường)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\mathbb{R}^n$ là simply connected: $\pi_1(\mathbb{R}^n, x_0) = \{[e]\}$.
+</div>
 
 **Chứng minh:**  
 $\mathbb{R}^n$ là contractible—chúng ta có thể co toàn bộ không gian về một điểm. Bất kỳ loop $\gamma$ nào đều đồng luân với constant loop thông qua straight-line homotopy:
@@ -192,13 +214,17 @@ $$
 
 Đây là một homotopy "đường thẳng"—tại mỗi thời điểm $t$, chúng ta di chuyển mỗi điểm trên loop $\gamma$ dọc theo đường thẳng từ vị trí ban đầu của nó đến điểm cơ sở $x_0$. Tính chất convex của $\mathbb{R}^n$ đảm bảo rằng đường thẳng này nằm hoàn toàn trong không gian. ✓
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** $\mathbb{R}^n$ không có "lỗ" về mặt đại số—mọi loop đều có thể co lại về một điểm, phản ánh trong fundamental group tầm thường.
+</div>
 
 ---
 
 ### 2. $\pi_1(S^1) \cong \mathbb{Z}$ (Số Nguyên!)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(S^1, 1) \cong \mathbb{Z}$.
+</div>
 
 Trực giác hình học là các loops trên hình tròn được phân loại bởi **winding number** $n \in \mathbb{Z}$—số lần chúng ta quấn quanh hình tròn. Hãy tưởng tượng một sợi dây được quấn quanh một cái cột—số lần quấn là một số nguyên, và đây chính là winding number. Một loop quấn một lần theo chiều ngược chiều kim đồng hồ có winding number $+1$, một loop quấn một lần theo chiều kim đồng hồ có winding number $-1$, và một loop không quấn quanh cột có winding number $0$.
 
@@ -218,7 +244,9 @@ Chứng minh này sử dụng khái niệm covering space, mà chúng ta sẽ ng
 
 ### 3. $\pi_1(S^n) = 0$ cho $n \geq 2$
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Các hình cầu cao hơn là simply connected.
+</div>
 
 **Chứng minh sketch:**  
 Cho một loop $\gamma: S^1 \to S^n$. Ảnh $\gamma(S^1)$ của loop này là một tập compact một chiều trong không gian $n$-chiều, và do đó nó phải bỏ qua ít nhất một điểm $p$ (đây là một kết quả về dimension—một tập một chiều không thể phủ toàn bộ không gian $n$-chiều với $n \geq 2$). Không gian $S^n \setminus \{p\}$ đồng luân tương đương với $\mathbb{R}^n$, là contractible. Do đó, loop $\gamma$ có thể được factor qua một không gian contractible, nghĩa là $\gamma \simeq$ constant. ✓
@@ -231,7 +259,9 @@ Cho một loop $\gamma: S^1 \to S^n$. Ảnh $\gamma(S^1)$ của loop này là m�
 
 ### 4. $\pi_1(T^2) \cong \mathbb{Z} \times \mathbb{Z}$ (Torus)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(T^2) \cong \mathbb{Z} \times \mathbb{Z}$.
+</div>
 
 Trực giác hình học là torus $T^2 = S^1 \times S^1$ có hai hướng độc lập để tạo thành loops: meridian (vòng quanh theo một hướng) và longitude (vòng quanh theo hướng khác, đi qua lỗ). Hãy tưởng tượng một torus như một chiếc bánh donut—chúng ta có thể quấn một sợi dây quanh "lỗ" của donut (meridian), hoặc quanh "thân" của donut (longitude), hoặc cả hai theo các tổ hợp khác nhau.
 
@@ -263,11 +293,17 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\beta_\alpha$ là một group isomorphism.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Chúng ta cần kiểm tra hai điều. Thứ nhất, $\beta_\alpha$ là một homomorphism—$\beta_\alpha([\gamma][\delta]) = \beta_\alpha([\gamma])\beta_\alpha([\delta])$, điều này có thể được kiểm tra bằng cách sử dụng tính chất của concatenation. Thứ hai, $\beta_\alpha$ là song ánh—nghịch đảo của nó là $\beta_{\alpha^{-1}}$, ánh xạ từ $\pi_1(X, x_1)$ về $\pi_1(X, x_0)$. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** $\pi_1(X, x_0) \cong \pi_1(X, x_1)$ cho mọi $x_0$, $x_1$ (trong cùng một thành phần liên thông).
+</div>
 
 ---
 
@@ -287,9 +323,13 @@ Các paths khác nhau $\alpha$, $\alpha'$ cho các isomorphisms khác nhau (chú
 
 $\pi_1(X, x_0)$ phụ thuộc hoàn toàn vào thành phần path-connected chứa $x_0$. Điều này có nghĩa là nếu chúng ta chọn các điểm cơ sở từ các thành phần liên thông khác nhau, chúng ta sẽ nhận được các fundamental groups khác nhau.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(X, x_0) = \pi_1(C, x_0)$, trong đó $C$ là thành phần path-connected của $x_0$.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** Chúng ta phải nghiên cứu $\pi_1$ riêng biệt cho mỗi thành phần liên thông. Điều này có nghĩa là để hiểu đầy đủ fundamental group của một không gian không path-connected, chúng ta cần tính toán fundamental group của từng thành phần liên thông và sau đó kết hợp thông tin này lại với nhau.
+</div>
 
 ---
 
@@ -309,9 +349,13 @@ Trực giác hình học là chúng ta ánh xạ loop $\gamma$ trong $X$ thành 
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $f_*$ là một group homomorphism được định nghĩa tốt.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Chúng ta cần kiểm tra hai điều. Thứ nhất, $f_*$ được định nghĩa tốt—nếu $\gamma \simeq_p \delta$, thì $f \circ \gamma \simeq_p f \circ \delta$ vì $f$ liên tục và do đó bảo toàn homotopy. Cụ thể, nếu chúng ta có một homotopy $F$ giữa $\gamma$ và $\delta$, thì $f \circ F$ là một homotopy giữa $f \circ \gamma$ và $f \circ \delta$. Thứ hai, $f_*$ là một homomorphism—$f_*([\gamma][\delta]) = [f \circ (\gamma \cdot \delta)] = [f \circ \gamma \cdot f \circ \delta] = f_*([\gamma])f_*([\delta])$, điều này có thể được kiểm tra bằng cách sử dụng tính chất của concatenation và composition. ✓
+</div>
 
 ---
 
@@ -321,22 +365,32 @@ Trực giác hình học là chúng ta ánh xạ loop $\gamma$ trong $X$ thành 
 
 **Tính chất (2) - Composition:** $(g \circ f)_* = g_* \circ f_*$. Điều này có nghĩa là composition của các ánh xạ cảm ứng composition của các homomorphisms—một tính chất quan trọng đảm bảo rằng fundamental group "tôn trọng" cấu trúc của các ánh xạ.
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** $\pi_1$ là một **functor** từ phạm trù các pointed spaces với các basepoint-preserving maps đến phạm trù các groups với các homomorphisms. Đây là một khái niệm quan trọng trong category theory—fundamental group không chỉ là một cách gán một nhóm cho mỗi không gian, mà còn là một cách "tôn trọng" cấu trúc của các ánh xạ giữa các không gian.
+</div>
 
 ---
 
 ### 2. Homotopy Invariance
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Nếu $f, g: (X, x_0) \to (Y, y_0)$ đồng luân (relative to basepoint), thì $f_* = g_*$.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Giả sử chúng ta có một homotopy $F: X \times I \to Y$ kết nối $f$ và $g$. Homotopy này cảm ứng một homotopy giữa $f \circ \gamma$ và $g \circ \gamma$ cho mỗi loop $\gamma$—cụ thể, $F(\gamma(s), t)$ là một homotopy từ $f \circ \gamma$ đến $g \circ \gamma$. Do đó $[f \circ \gamma] = [g \circ \gamma]$ cho mọi loop $\gamma$, nghĩa là $f_* = g_*$. ✓
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả (Homotopy Invariance chính):**  
 Nếu $X \simeq Y$ đồng luân tương đương, thì $\pi_1(X) \cong \pi_1(Y)$.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Giả sử chúng ta có một homotopy equivalence $f: X \to Y$ với homotopy inverse $g: Y \to X$ sao cho $g \circ f \simeq id_X$ và $f \circ g \simeq id_Y$. Khi đó $g_* \circ f_* = (g \circ f)_* = id_* = id$ và $f_* \circ g_* = id$, nghĩa là $f_*$ và $g_*$ là nghịch đảo của nhau, và do đó là các isomorphisms. ✓
+</div>
 
 **Sức mạnh:** $\pi_1$ là **homotopy invariant**—nó chỉ phụ thuộc vào homotopy type của không gian, không phụ thuộc vào chi tiết cụ thể của cấu trúc tô-pô! Đây là một tính chất cực kỳ mạnh mẽ cho phép chúng ta tính toán fundamental group bằng cách sử dụng homotopy equivalence để đơn giản hóa không gian.
 

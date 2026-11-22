@@ -66,12 +66,14 @@ Xét A = [0, 1) (nửa khoảng)
 
 ### 1. Closed Sets (Tập Đóng)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Closed Set):**  
 Trong topological space (X, 𝜏), tập F ⊆ X là **closed** nếu complement của nó open:
 
 $$
 F \text{ closed} \iff X \setminus F \in \tau
 $$
+</div>
 
 **Ví dụ trong ℝ (Euclidean topology):**
 - **[a, b]** closed (complement = (-∞,a) ∪ (b,∞) open)
@@ -81,7 +83,9 @@ $$
 
 **Dual Axioms for Closed Sets:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** Họ tất cả closed sets thỏa mãn:
+</div>
 
 **(C1)** ∅ và X closed
 
@@ -95,9 +99,11 @@ $$
 F_1, \ldots, F_n \text{ closed} \implies F_1 \cup \cdots \cup F_n \text{ closed}
 $$
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:** Dùng De Morgan's laws:
 - X \ (⋂Fα) = ⋃(X \ Fα) ∈ 𝜏 (arbitrary unions of open sets)
 - X \ (F₁ ∪ ... ∪ Fₙ) = (X\F₁) ∩ ... ∩ (X\Fₙ) ∈ 𝜏 (finite intersections) ∎
+</div>
 
 **Comparison với Open Sets:**
 
@@ -117,12 +123,14 @@ $$
 
 ### 2. Closure Operator (Toán tử Bao đóng)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Closure):**  
 Cho A ⊆ X. **Closure** của A là giao của tất cả closed sets chứa A:
 
 $$
 \overline{A} = \text{cl}(A) = \bigcap \{F : F \text{ closed}, A \subseteq F\}
 $$
+</div>
 
 **Trực giác:** cl(A) là **smallest closed set** containing A.
 
@@ -132,9 +140,11 @@ $$
 - cl(ℚ) = ℝ (vì ℚ dense)
 - cl({1/n : n ∈ ℕ}) = {1/n} ∪ {0}
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Properties of Closure):**
 
 Closure operator thỏa mãn bốn **Kuratowski closure axioms**:
+</div>
 
 **(K1) Extensivity:** 
 $$
@@ -156,7 +166,9 @@ $$
 \overline{\emptyset} = \emptyset
 $$
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(K1):** cl(A) là closed set chứa A, nên A ⊆ cl(A) ✓
 
@@ -180,12 +192,14 @@ Sau đó: F closed ⟺ F = cl(F).
 
 ### 3. Limit Points (Điểm Tụ)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Limit Point):**  
 Điểm x ∈ X là **limit point** (accumulation point) của A ⊆ X nếu:
 
 $$
 \forall U \in \tau, x \in U: (U \cap A) \setminus \{x\} \neq \emptyset
 $$
+</div>
 
 **Nói bằng lời:** Mọi neighborhood của x chứa ít nhất một điểm của A **khác x**.
 
@@ -205,8 +219,10 @@ $$
 ![Limit points visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Limit_point_illustration.svg/400px-Limit_point_illustration.svg.png)  
 *Limit points của một tập - Nguồn concept*
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Isolated Point):**  
 Điểm x ∈ A là **isolated point** nếu nó **không phải** limit point của A.
+</div>
 
 Tương đương: ∃ neighborhood U của x sao cho U ∩ A = {x}.
 
@@ -217,14 +233,18 @@ Tương đương: ∃ neighborhood U của x sao cho U ∩ A = {x}.
 
 **Ký hiệu:** A' = tập tất cả limit points của A (derived set)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Closure via Limit Points):**
 $$
 \overline{A} = A \cup A'
 $$
+</div>
 
 **Trực giác:** Closure = điểm gốc + điểm tụ.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):**
+</div>
 
 **(⊆):** Cho x ∈ cl(A). Nếu x ∉ A, cần chứng minh x ∈ A'.  
 Giả sử (phản chứng) x không phải limit point.  
@@ -238,12 +258,14 @@ Cho x ∈ A'. Mọi closed F ⊇ A phải chứa x (vì nếu x ∉ F, thì U = 
 
 ### 4. Interior Operator (Toán tử Phần trong)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Interior):**  
 **Interior** của A là hợp của tất cả open sets chứa trong A:
 
 $$
 A° = \text{int}(A) = \bigcup \{U \in \tau : U \subseteq A\}
 $$
+</div>
 
 **Trực giác:** int(A) là **largest open set** contained in A.
 
@@ -253,7 +275,9 @@ $$
 - int(ℚ) = ∅ (không có open interval trong ℚ)
 - int({x}) = ∅ (singleton không chứa open set nào)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Properties of Interior):**
+</div>
 
 **(I1) Restrictivity:**
 $$
@@ -277,6 +301,7 @@ $$
 
 **Dual Relationship với Closure:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**
 $$
 \text{int}(A) = X \setminus \overline{X \setminus A}
@@ -285,11 +310,14 @@ $$
 $$
 \overline{A} = X \setminus \text{int}(X \setminus A)
 $$
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 int(A) = largest open ⊆ A  
      = X \ (smallest closed ⊇ (X \ A))  
      = X \ cl(X \ A) ✓
+</div>
 
 **Trực giác:** Interior và closure là **dual operators**.
 
@@ -297,12 +325,14 @@ int(A) = largest open ⊆ A
 
 ### 5. Boundary (Biên)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Boundary):**  
 **Boundary** (frontier) của A là:
 
 $$
 \partial A = \overline{A} \setminus \text{int}(A)
 $$
+</div>
 
 **Phát biểu tương đương:**
 $$
@@ -320,32 +350,40 @@ $$
 
 **Tính chất:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Partition of Space):**  
 Với mọi A ⊆ X:
 $$
 X = \text{int}(A) \sqcup \partial A \sqcup \text{int}(X \setminus A)
 $$
+</div>
 
 (Disjoint union - phân hoạch không gian thành ba phần)
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Exercise sử dụng definitions.
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Boundary Properties):**
 1. ∂A = ∂(X \ A) (boundary đối xứng)
 2. ∂A = ∅ ⟺ A vừa open vừa closed (clopen)
 3. A closed ⟺ ∂A ⊆ A
 4. A open ⟺ ∂A ⊆ (X \ A)
+</div>
 
 ---
 
 ### 6. Dense Sets (Tập Trù mật)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Dense):**  
 Tập A ⊆ X là **dense** trong X nếu:
 
 $$
 \overline{A} = X
 $$
+</div>
 
 **Phát biểu tương đương:**
 - Mọi non-empty open set giao với A
@@ -360,8 +398,10 @@ $$
 ![Dense set illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Dense_set_rationals.svg/400px-Dense_set_rationals.svg.png)  
 *ℚ dense trong ℝ - Nguồn concept*
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Nowhere Dense):**  
 A là **nowhere dense** nếu int(cl(A)) = ∅.
+</div>
 
 **Trực giác:** A "thin" đến mức closure của nó cũng không chứa open set nào.
 
@@ -375,13 +415,16 @@ A là **nowhere dense** nếu int(cl(A)) = ∅.
 **Định lý Baire (Preview):**  
 Trong complete metric space, hợp countable các nowhere dense sets có interior rỗng.
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:** ℝ không thể viết như hợp countable các nowhere dense sets.  
 → ℝ "large" theo nghĩa topology!
+</div>
 
 ---
 
 ### 7. Characterizations of Closure
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Equivalent Definitions):**  
 Các phát biểu sau **tương đương**:
 
@@ -389,8 +432,11 @@ Các phát biểu sau **tương đương**:
 2. Mọi neighborhood của x giao với A
 3. Mọi open set chứa x giao với A
 4. x ∈ A hoặc x là limit point của A
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(1 ⇒ 2):** Giả sử (phản chứng) ∃ neighborhood N của x với N ∩ A = ∅.  
 Tồn tại U ∈ 𝜏 với x ∈ U ⊆ N.  

@@ -35,6 +35,7 @@ Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản c�
 
 ### 1. Basic Definition
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Group Action):**  
 Cho G group, X topological space.  
 **Left action** của G trên X là map:
@@ -42,6 +43,7 @@ Cho G group, X topological space.
 $$
 G \times X \to X, \quad (g, x) \mapsto g \cdot x
 $$
+</div>
 
 satisfying:
 
@@ -129,32 +131,40 @@ G = group của deck transformations (covering automorphisms).
 
 ### 1. Orbits
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Orbit):**  
 Orbit của x ∈ X:
 
 $$
 G \cdot x = \{g \cdot x : g \in G\} \subseteq X
 $$
+</div>
 
 **Trực giác:** All points reachable từ x by group action.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition:**  
 Orbits partition X:
 - X = ⋃ orbits (cover)
 - Orbits disjoint or identical
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Define equivalence relation x ~ y ⟺ ∃g: y = g · x. ✓
+</div>
 
 ---
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Orbit Space):**  
 **Orbit space** (hay **quotient by group action**):
 
 $$
 X/G = \{G \cdot x : x \in X\} = \text{set of orbits}
 $$
+</div>
 
 **Quotient topology:** U ⊆ X/G open ⟺ π^(-1)(U) open trong X.
 
@@ -174,37 +184,47 @@ Orbits: {x, -x}.
 
 ### 2. Stabilizers
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Stabilizer):**  
 **Stabilizer** (hay **isotropy group**) của x:
 
 $$
 G_x = \{g \in G : g \cdot x = x\} \subseteq G
 $$
+</div>
 
 **Trực giác:** Subgroup của G fixing x.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Proposition:** G_x subgroup của G.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Verify closed under multiplication, inverses. ✓
+</div>
 
 ---
 
 **Orbit-Stabilizer Theorem:**
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 Bijection:
 
 $$
 G/G_x \leftrightarrow G \cdot x
 $$
+</div>
 
 (G/G_x = left cosets của G_x.)
 
 **Formula:** |G · x| = |G| / |G_x| (if finite).
 
+<div class="textbook-proof" markdown="1">
 **Proof:** gG_x ↔ g · x well-defined bijection. ✓
+</div>
 
 ---
 
@@ -223,8 +243,10 @@ Stabilizer của north pole: SO(2) (rotations around axis).
 
 ### 1. Free Actions
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Free Action):**  
 Action **free** nếu G_x = {e} ∀x ∈ X.
+</div>
 
 **Nói bằng lời:** No non-identity element fixes any point.
 
@@ -244,10 +266,14 @@ Action **free** nếu G_x = {e} ∀x ∈ X.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Free ⇒ Covering):**  
 G discrete, acts freely và properly discontinuously trên X simply connected, Hausdorff ⇒ π: X → X/G covering map.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** See covering space theory. ✓
+</div>
 
 **Application:** ℝ → S¹ covering (ℤ acts freely).
 
@@ -255,12 +281,14 @@ G discrete, acts freely và properly discontinuously trên X simply connected, H
 
 ### 2. Properly Discontinuous Actions
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Properly Discontinuous):**  
 Action **properly discontinuous** nếu ∀x ∈ X: ∃ neighborhood U của x:
 
 $$
 g \cdot U \cap U \neq \emptyset \implies g = e
 $$
+</div>
 
 **Trực giác:** Orbits "spread out"—locally finite.
 
@@ -281,12 +309,18 @@ $$
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Theorem (Nice Quotients):**  
 G acts properly discontinuously trên Hausdorff X ⇒ X/G Hausdorff.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Properly discontinuous ⇒ can separate orbits. ✓
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Corollary:** ℝ/ℤ, S^n/(ℤ/2ℤ) Hausdorff. ✓
+</div>
 
 ---
 
@@ -301,8 +335,10 @@ G acts properly discontinuously trên Hausdorff X ⇒ X/G Hausdorff.
 
 **G = Aut(X̃/X) acts trên X̃.**
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:**  
 X̃ path-connected, locally path-connected, X path-connected ⇒ X̃/G ≅ X.
+</div>
 
 **Special case:** X̃ universal cover, G = π₁(X) ⇒ X̃/π₁(X) = X. ✓
 
@@ -312,10 +348,12 @@ X̃ path-connected, locally path-connected, X path-connected ⇒ X̃/G ≅ X.
 
 ### 2. Fundamental Domain
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Fundamental Domain):**  
 **Fundamental domain** F ⊆ X cho action:
 - ⋃_{g∈G} g · F = X (cover)
 - g · int(F) ∩ int(F) = ∅ ∀g ≠ e (disjoint interiors)
+</div>
 
 **Trực giác:** "Representative piece"—mỗi orbit intersects F đúng một lần (roughly).
 
@@ -362,7 +400,9 @@ Orbit space: [0, ∞) (radius).
 
 **Homogeneous Spaces:**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa:** M = G/H (quotient Lie group by closed subgroup).
+</div>
 
 **Examples:**
 - S^n = SO(n+1) / SO(n)
@@ -375,8 +415,10 @@ Orbit space: [0, ∞) (radius).
 
 ### 4. Orbit Types và Stratification
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Orbit Type):**  
 Points x, y same **orbit type** if G_x, G_y conjugate subgroups.
+</div>
 
 **Stratification:** X decomposes into strata of same orbit type.
 

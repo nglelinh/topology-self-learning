@@ -35,7 +35,9 @@ Tại sao những ví dụ và kỹ thuật này lại quan trọng đến vậy
 
 ### 1. Statement và Intuition
 
+<div class="textbook-theorem" markdown="1">
 **Theorem:** π₁(S¹, 1) ≅ ℤ.
+</div>
 
 Trực giác hình học là các loops trên hình tròn được phân loại bởi **winding number**—số lần chúng ta quấn quanh hình tròn. Một loop không quấn quanh hình tròn có winding number $0$. Một loop quấn một lần theo chiều ngược chiều kim đồng hồ có winding number $1$. Một loop quấn hai lần có winding number $2$. Một loop quấn một lần theo chiều kim đồng hồ có winding number $-1$. Và cứ thế tiếp tục.
 
@@ -61,9 +63,13 @@ Trực giác hình học là các loops trên hình tròn được phân loại 
 
 **Step 1: Lifting Loops**
 
+<div class="textbook-lemma" markdown="1">
 **Bổ đề (Path Lifting):** Cho một loop $\gamma: [0,1] \to S^1$ với $\gamma(0) = 1$. Tồn tại duy nhất một lift $\tilde{\gamma}: [0,1] \to \mathbb{R}$ với $\tilde{\gamma}(0) = 0$ và $p \circ \tilde{\gamma} = \gamma$.
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:** Đây là một kết quả cơ bản trong lý thuyết covering space mà chúng ta sẽ nghiên cứu chi tiết trong bài học tiếp theo. Ý tưởng cơ bản là vì $p$ là locally homeomorphic, chúng ta có thể "lift" một cách duy nhất mỗi đoạn nhỏ của loop lên đường thẳng thực, và sau đó nối các lifts này lại với nhau để tạo thành một lift toàn cục. ✓
+</div>
 
 **Quan sát quan trọng:** $\tilde{\gamma}(1) \in \mathbb{Z}$ vì $\gamma$ là một loop nên $\gamma(1) = 1$, và do đó $\tilde{\gamma}(1) \in p^{-1}(1) = \mathbb{Z}$. Điều này có nghĩa là điểm cuối của lift là một số nguyên, và đây chính là winding number của loop $\gamma$.
 
@@ -87,8 +93,10 @@ trong đó $\tilde{\gamma}$ là unique lift với $\tilde{\gamma}(0) = 0$.
 
 **Khẳng định:** $\phi([\gamma][\delta]) = \phi([\gamma]) + \phi([\delta])$.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Khi chúng ta lift loop $\gamma \cdot \delta$, chúng ta có thể làm điều này bằng cách lift từng phần một. Trong nửa đầu, lift của $\gamma$ kết thúc tại $\tilde{\gamma}(1) = n$. Trong nửa sau, lift của $\delta$ bắt đầu tại $n$ (để đảm bảo tính liên tục) và kết thúc tại $n + \tilde{\delta}(1) = n + m$. Tổng cộng, điểm cuối của lift của $\gamma \cdot \delta$ là $n + m = \phi([\gamma]) + \phi([\delta])$. ✓
+</div>
 
 **$\phi$ là một homomorphism!** Điều này có nghĩa là phép toán concatenation trên các loops tương ứng với phép cộng trên các số nguyên, và đây chính là lý do tại sao $\pi_1(S^1) \cong \mathbb{Z}$.
 
@@ -120,11 +128,13 @@ Khi chúng ta lift loop $\gamma \cdot \delta$, chúng ta có thể làm điều 
 
 ### 1. Statement
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $S^n$ là simply connected cho $n \geq 2$:
 
 $$
 \pi_1(S^n, *) = \{e\} \quad \forall n \geq 2
 $$
+</div>
 
 **Mọi loop trong $S^n$ đều contractible!** Đây là một kết quả đáng ngạc nhiên—mặc dù hình cầu có vẻ "phức tạp" hơn hình tròn, nhưng fundamental group của nó lại tầm thường. Điều này phản ánh một sự khác biệt cơ bản giữa các chiều—trong các chiều cao hơn, có đủ không gian để "tránh" các điểm và co các loops lại.
 
@@ -134,8 +144,10 @@ $$
 
 **Ý tưởng chính:** Lập luận về chiều—loop tránh các điểm.
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**  
 Cho $\gamma: S^1 \to S^n$ là một loop.
+</div>
 
 **Bước 1:** Ảnh $\gamma(S^1) \subseteq S^n$ là compact và có chiều $1$.
 
@@ -171,12 +183,14 @@ Cho $\gamma: S^1 \to S^n$ là một loop.
 
 ### 1. Product Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Product của Fundamental Groups):**  
 Cho $(X, x_0)$, $(Y, y_0)$ là các pointed spaces. Khi đó:
 
 $$
 \pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0)
 $$
+</div>
 
 **Chứng minh sketch:**  
 Một loop $\gamma: [0,1] \to X \times Y$ có thể được phân tích thành các thành phần: $\gamma(t) = (\gamma_1(t), \gamma_2(t))$, trong đó $\gamma_1$ là một loop trong $X$ và $\gamma_2$ là một loop trong $Y$. Homotopy class $[\gamma]$ tương ứng với cặp $([\gamma_1], [\gamma_2])$. Phép toán concatenation hoạt động theo từng thành phần—khi chúng ta nối hai loops lại với nhau, chúng ta nối các thành phần tương ứng của chúng. Isomorphism $\phi([\gamma]) = ([\gamma_1], [\gamma_2])$ cho thấy rằng fundamental group của tích là tích của các fundamental groups. ✓
@@ -228,11 +242,13 @@ Torus có hai "hướng độc lập" để tạo thành loops: một là vòng 
 - $g = 1$: $T^2$ (torus)
 - $g = 2$: "pretzel" (torus hai lỗ)
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:**
 
 $$
 \pi_1(\Sigma_g) = \langle a_1, b_1, \ldots, a_g, b_g \mid [a_1,b_1] \cdots [a_g,b_g] = 1 \rangle
 $$
+</div>
 
 **Nhóm:** $2g$ generators với một relation. Mỗi "lỗ" trong surface đóng góp hai generators—một cho mỗi hướng độc lập quanh lỗ đó. Relation $[a_1,b_1] \cdots [a_g,b_g] = 1$ phản ánh cách các loops quanh các lỗ khác nhau tương tác với nhau.
 
@@ -247,7 +263,9 @@ $\pi_1(T^2) = \langle a, b | aba^{-1}b^{-1} = 1 \rangle = \langle a, b | ab = ba
 
 **ℝP² (Projective Plane):**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$.
+</div>
 
 **Chứng minh sketch:** $\mathbb{R}P^2 = S^2/(x \sim -x)$—projective plane được xây dựng bằng cách đồng nhất mỗi điểm trên hình cầu với điểm đối cực của nó. Chúng ta có một covering $p: S^2 \to \mathbb{R}P^2$ (2-fold covering—mỗi điểm trên projective plane có hai preimages trên hình cầu). Vì $\pi_1(S^2) = 0$, lý thuyết covering space cho chúng ta biết rằng $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$. ✓
 
@@ -257,7 +275,9 @@ $\pi_1(T^2) = \langle a, b | aba^{-1}b^{-1} = 1 \rangle = \langle a, b | ab = ba
 
 **Klein Bottle K:**
 
+<div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(K) = \langle a, b | aba^{-1}b = 1 \rangle$.
+</div>
 
 **Không abelian:** Đây là một sự khác biệt quan trọng so với torus, nơi relation là $aba^{-1}b^{-1} = 1$ (tương đương với $ab = ba$). Relation $aba^{-1}b = 1$ cho thấy rằng $a$ và $b$ không giao hoán với nhau theo cách đơn giản như trong torus. Điều này phản ánh tính chất không định hướng được của Klein bottle—nó không thể được định hướng như torus.
 

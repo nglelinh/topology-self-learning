@@ -96,8 +96,10 @@ $$
 
 Trong topology, hàm số (hay ánh xạ) là cách chúng ta so sánh và kết nối các không gian với nhau.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Hàm số):**  
 Một **hàm số** từ tập A đến tập B là một quy tắc f gán cho mỗi phần tử của A đúng một phần tử của B. Ký hiệu: f: A → B, trong đó A được gọi là domain (miền xác định), B là codomain (miền giá trị), và với mỗi a ∈ A, ta có f(a) ∈ B.
+</div>
 
 **Định nghĩa hình thức:** Một hàm f: A → B là một tập con của A × B sao cho:
 $$
@@ -142,15 +144,19 @@ $$
 
 ### 3. Quan hệ (Relations)
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quan hệ):**  
 Một **quan hệ** R trên tập A là một tập con của A × A. Ký hiệu: a R b có nghĩa là (a, b) ∈ R.
+</div>
 
 Quan hệ là cách toán học formalize các "connections" giữa các elements. Ví dụ, quan hệ **≤** trên ℝ nắm bắt khái niệm "ordering", quan hệ **=** mô tả "identity", và một quan hệ như "là anh em với" trên tập người có thể được formalized as a subset of (người × người). Sự khác biệt giữa quan hệ và hàm là quan hệ không yêu cầu mỗi element trong A phải liên kết với đúng một element khác—một element có thể không liên kết với ai, hoặc liên kết với nhiều elements khác.
 
 #### Quan hệ Tương đương
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Quan hệ tương đương):**  
 Một quan hệ ∼ trên A là **tương đương** nếu nó thỏa mãn ba tính chất: (1) **Phản xạ (Reflexive):** ∀a ∈ A: a ∼ a; (2) **Đối xứng (Symmetric):** ∀a,b ∈ A: (a ∼ b) ⇒ (b ∼ a); (3) **Bắc cầu (Transitive):** ∀a,b,c ∈ A: (a ∼ b) ∧ (b ∼ c) ⇒ (a ∼ c).
+</div>
 
 Tại sao ba properties này lại đặc biệt? Chúng capture ý tưởng intuitive của "giống nhau theo một cách nào đó". Reflexivity nói rằng mọi object "giống chính nó"—điều này nghe có vẻ trivial nhưng essential for consistency. Symmetry đảm bảo rằng nếu a giống b thì b cũng giống a—không có hierarchy hay direction trong mối quan hệ này. Transitivity cho phép ta "chain" các similarities: nếu a giống b và b giống c, thì a phải giống c. Ba axioms này together tạo nên một notion of "sameness" mathematically precise.
 
@@ -177,8 +183,10 @@ Quan hệ tương đương dẫn đến **không gian thương** (quotient space
 
 Một trong những khám phá vĩ đại nhất của Georg Cantor là: **không phải tất cả vô hạn đều bằng nhau!**
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Lực lượng):**  
 Hai tập A và B có **cùng lực lượng** (same cardinality) nếu tồn tại một bijection f: A → B.
+</div>
 
 Ký hiệu: |A| = |B| hoặc A ∼ B.
 
@@ -197,8 +205,10 @@ Một tập A là **countable** nếu |A| = |ℕ| (có bijection với tập s�
 **Uncountable (Không đếm được):**  
 Một tập là **uncountable** nếu nó không countable—không có bijection với ℕ.
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Cantor):**  
 **ℝ** (số thực) là uncountable.
+</div>
 
 **Chứng minh (sketch):** Giả sử ℝ countable, liệt kê tất cả số thực:
 ```

@@ -86,16 +86,20 @@ Nếu không tìm được → **connected**!
 
 ### 1. Connected Spaces
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Disconnected):**  
 Topological space X là **disconnected** nếu tồn tại U, V ∈ 𝜏 (open) sao cho:
 1. U, V ≠ ∅ (non-empty)
 2. U ∩ V = ∅ (disjoint)
 3. U ∪ V = X (cover space)
+</div>
 
 Khi đó, {U, V} gọi là **separation** (phân ly) của X.
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Connected):**  
 X là **connected** nếu X **không** disconnected.
+</div>
 
 **Nói bằng lời:** Không tồn tại separation.
 
@@ -103,6 +107,7 @@ X là **connected** nếu X **không** disconnected.
 
 [0,1] connected trong ℝ.
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Proof (sketch):** Giả sử (phản chứng) ∃ separation {U, V}.  
 Không mất tổng quát, giả sử 0 ∈ U.  
 Xét s = sup(U ∩ [0,1]) ∈ [0,1].
@@ -110,33 +115,42 @@ Xét s = sup(U ∩ [0,1]) ∈ [0,1].
 Nếu s ∈ U: U open → ∃ε: (s-ε, s+ε) ⊆ U → s không phải sup, mâu thuẫn.  
 Nếu s ∈ V: V open → ∃ε: (s-ε, s+ε) ⊆ V → contradiction với s = sup(U).  
 Nếu s ∉ U ∪ V: contradiction với U ∪ V = X. ∎
+</div>
 
 **Ví dụ 2: ℚ (rationals)**
 
 ℚ **disconnected** trong ℝ!
 
+<div class="textbook-proof" markdown="1">
 **Proof:**  
 U = ℚ ∩ (-∞, √2), V = ℚ ∩ (√2, ∞).  
 U, V open trong subspace topology, disjoint, non-empty, U ∪ V = ℚ. ✓
+</div>
 
 **Ví dụ 3: Discrete Topology**
 
 Mọi space > 1 điểm với discrete topology **disconnected**.
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Cho x ≠ y. U = {x}, V = X \ {x} là separation. ✓
+</div>
 
 **Ví dụ 4: Trivial Topology**
 
 Mọi space với trivial topology **connected**.
 
+<div class="textbook-proof" markdown="1">
 **Proof:** Chỉ có ∅, X là open → không thể tìm separation. ✓
+</div>
 
 ---
 
 ### 2. Equivalent Characterizations
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Equivalent Definitions):**  
 Các phát biểu sau **tương đương**:
+</div>
 
 **(1)** X connected
 
@@ -146,7 +160,9 @@ Các phát biểu sau **tương đương**:
 
 **(4)** Mọi continuous f: X → {0,1} là constant
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh:**
+</div>
 
 **(1 ⇒ 2):**  
 Giả sử A ⊆ X clopen, A ≠ ∅, X.  
@@ -174,15 +190,19 @@ f không constant, mâu thuẫn với (4)! ∎
 
 ### 3. Properties of Connected Spaces
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Continuous Image):**  
 Nếu f: X → Y continuous và X connected, thì f(X) connected.
+</div>
 
 **Trực giác:** Continuity preserves connectedness.
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Giả sử (phản chứng) f(X) disconnected với separation {U, V}.  
 f⁻¹(U), f⁻¹(V) open (f continuous), disjoint, non-empty (f surjection lên f(X)).  
 f⁻¹(U) ∪ f⁻¹(V) = X → separation của X, mâu thuẫn! ∎
+</div>
 
 **Hệ quả quan trọng:**  
 **Connectedness là topological property!**
@@ -193,15 +213,18 @@ X ≅ Y và X connected → Y connected.
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Union of Connected Spaces):**  
 Cho {Aα}α∈I họ connected subspaces của X.  
 Nếu ⋂α Aα ≠ ∅ (có điểm chung), thì ⋃α Aα connected.
+</div>
 
 **Trực giác:** Các connected pieces "overlap" → union connected.
 
 ![Union of connected spaces](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Connected_union.svg/400px-Connected_union.svg.png)  
 *Union của connected spaces qua intersection - Nguồn concept*
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Cho A = ⋃Aα, x₀ ∈ ⋂Aα.  
 Giả sử (phản chứng) f: A → {0,1} continuous non-constant.  
@@ -209,43 +232,58 @@ Không mất tổng quát, f(x₀) = 0.
 Mỗi fα = f|_{Aα} continuous, fα(x₀) = 0.  
 Aα connected → fα constant → fα ≡ 0.  
 → f ≡ 0 trên A, mâu thuẫn! ∎
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Hệ quả:**  
 Nếu A connected và A ⊆ B ⊆ cl(A), thì B connected.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:** A và cl(A) cùng intersect A → A ∪ cl(A) = cl(A) connected. ∎
+</div>
 
 ---
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Product of Connected Spaces):**  
 Nếu X, Y connected, thì X × Y connected (product topology).
+</div>
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (sketch):**  
 Fix x₀ ∈ X, y₀ ∈ Y.  
 - Slice {x₀} × Y ≅ Y connected
 - Slice X × {y} ≅ X connected với mọi y
 - Tất cả slices X × {y} intersect tại (x₀, y)
 - → ⋃_y (X × {y}) = X × Y connected ✓
+</div>
 
 ---
 
 ### 4. Connected Subspaces of ℝ
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Characterization on ℝ):**  
 A ⊆ ℝ connected ⟺ A là **interval** (có thể unbounded).
+</div>
 
 **Intervals:**
 - Bounded: [a,b], (a,b), [a,b), (a,b]
 - Unbounded: [a,∞), (a,∞), (-∞,b], (-∞,b), ℝ
 
+<div class="textbook-proof" markdown="1">
 **Chứng minh (⇐):**  
 Đã chứng minh [0,1] connected.  
 Mọi interval homeomorphic với [0,1], (-∞,∞), [0,∞), hoặc (-∞,0] → connected. ✓
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh (⇒):**  
 Giả sử A connected, không phải interval.  
 Tồn tại a < c < b với a,b ∈ A nhưng c ∉ A.  
 U = A ∩ (-∞,c), V = A ∩ (c,∞) → separation → mâu thuẫn! ∎
+</div>
 
 **Hệ quả quan trọng:** ℝ connected, ℚ disconnected.
 
@@ -253,6 +291,7 @@ U = A ∩ (-∞,c), V = A ∩ (c,∞) → separation → mâu thuẫn! ∎
 
 ### 5. Intermediate Value Theorem
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Intermediate Value Theorem - IVT):**  
 Cho X connected, f: X → ℝ continuous.  
 Nếu x, y ∈ X với f(x) < f(y), thì:
@@ -260,13 +299,16 @@ Nếu x, y ∈ X với f(x) < f(y), thì:
 $$
 \forall r \in (f(x), f(y)): \exists z \in X: f(z) = r
 $$
+</div>
 
 **Nói bằng lời:** f đạt mọi giá trị trung gian.
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 f(X) connected (continuous image).  
 f(x), f(y) ∈ f(X) → (f(x), f(y)) ⊆ f(X) (vì f(X) là interval connected).  
 → ∀r ∈ (f(x), f(y)): ∃z: f(z) = r. ∎
+</div>
 
 ![Intermediate Value Theorem](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Intermediate_value_theorem.svg/400px-Intermediate_value_theorem.svg.png)  
 *IVT illustration - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Intermediate_value_theorem.svg)*
@@ -282,15 +324,19 @@ f(-2) = -5 < 0, f(0) = 1 > 0 → ∃c ∈ (-2,0): f(c) = 0 by IVT. ✓
 
 ### 6. Path-Connectedness
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Path):**  
 **Path** trong X từ x đến y là continuous map:
 
 $$
 \gamma: [0,1] \to X \quad \text{với } \gamma(0) = x, \gamma(1) = y
 $$
+</div>
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Path-Connected):**  
 X là **path-connected** nếu với mọi x, y ∈ X, tồn tại path từ x đến y.
+</div>
 
 **Trực giác:** Có thể "đi" từ bất kỳ điểm nào đến điểm nào qua đường liên tục.
 
@@ -302,14 +348,18 @@ X là **path-connected** nếu với mọi x, y ∈ X, tồn tại path từ x �
 - **S¹** path-connected: arc on circle
 - **[0,1] ∪ [2,3]** KHÔNG path-connected: không có path từ [0,1] → [2,3]
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Path-Connected ⇒ Connected):**  
 Nếu X path-connected, thì X connected.
+</div>
 
+<div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
 Fix x₀ ∈ X. Với mọi x ∈ X, ∃ path γ: [0,1] → X từ x₀ → x.  
 [0,1] connected → γ([0,1]) connected (continuous image).  
 {γ([0,1])}_{x ∈ X} họ connected spaces, tất cả contain x₀.  
 → ⋃_x γ([0,1]) = X connected. ∎
+</div>
 
 **Ngược lại KHÔNG đúng!**
 
@@ -329,18 +379,22 @@ $$
 
 ### 7. Connected Components
 
+<div class="textbook-definition" markdown="1">
 **Định nghĩa (Connected Component):**  
 **Connected component** của x ∈ X là union của tất cả connected subspaces chứa x:
 
 $$
 C_x = \bigcup \{A \subseteq X : x \in A, A \text{ connected}\}
 $$
+</div>
 
+<div class="textbook-theorem" markdown="1">
 **Định lý (Properties of Components):**
 1. C_x connected (union theorem)
 2. C_x closed
 3. C_x ∩ C_y ≠ ∅ ⇒ C_x = C_y
 4. X = ⋃_x C_x (disjoint union - partition)
+</div>
 
 **Trực giác:** Components = "maximal connected pieces" của X.
 
