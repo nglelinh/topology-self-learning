@@ -10,323 +10,214 @@ tags: [connected-spaces, path-connected, components, disconnected]
 description: "Không gian liên thông, path-connectedness, và connected components"
 ---
 
-**Connected Spaces**
+**Không gian Liên thông**
 
 ---
 
 ## 📖 Tổng quan
 
-Chào mừng đến Chapter 02! Chúng ta đã học **định nghĩa** topology và **morphisms** (continuous functions). Giờ đây chúng ta nghiên cứu **properties** của topological spaces.
+Bước sang Chương 02, sau khi đã nắm vững định nghĩa không gian tô-pô và ánh xạ liên tục, ta bắt đầu nghiên cứu hai tính chất bất biến tô-pô quan trọng bậc nhất: **tính liên thông** (*connectedness*) trong bài này và **tính compact** (*compactness*) trong bài tiếp theo.
 
-Hai tính chất quan trọng nhất:
-1. **Connectedness** (tính liên thông) — Chapter này
-2. **Compactness** (tính compact) — Lecture tiếp theo
-
-**Câu hỏi trực quan:** Khi nào một không gian là "one piece" (một mảnh)?
-
-**Ví dụ:**
-- Interval [0,1]: **connected** (không thể chia thành hai phần rời nhau)
-- [0,1] ∪ [2,3]: **disconnected** (hai mảnh riêng biệt)
-- Circle S¹: **connected** (một đường cong liền)
-- Two circles: **disconnected**
+Về trực giác, một không gian là **liên thông** khi nó liền thành "một mảnh duy nhất" và không thể tách rời thành hai phần độc lập. Chẳng hạn, đoạn $[0, 1]$ và đường tròn $S^1$ là các không gian liên thông, trong khi $[0, 1] \cup [2, 3]$ hoặc hợp của hai đường tròn rời nhau là các không gian không liên thông.
 
 ![Connected vs Disconnected](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Connected_and_disconnected_spaces.svg/500px-Connected_and_disconnected_spaces.svg.png)  
-*Connected (trái) vs Disconnected (phải) - Nguồn concept*
+*Không gian liên thông (trái) và không liên thông (phải) - Nguồn minh họa khái niệm*
 
-**Connectedness = không thể "chia nhỏ"**
-
-**Trong bài này:**
-- Định nghĩa chính thức của **connected**
-- Các đặc trưng tương đương (via separation)
-- **Path-connectedness**: Connected qua "đường đi"
-- **Connected components**: Phân hoạch space thành "mảnh"
-- Ứng dụng: Intermediate Value Theorem
-
-**Tại sao quan trọng?**
-- Connected spaces = "cannot be separated"
-- Nhiều theorems cần connectedness (IVT, Fixed Point, etc.)
-- Path-connectedness = stronger notion, dễ work hơn
-- Components = topological invariants
+Bài giảng này trình bày định nghĩa hình thức của tính liên thông thông qua phép phân ly, các đặc trưng tương đương, tính bất biến qua ánh xạ liên tục và ứng dụng chứng minh **Định lý Giá trị Trung gian**, sau đó phân biệt **liên thông đường** (*path-connectedness*) với liên thông thông thường và giới thiệu **thành phần liên thông** (*connected components*).
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Chia cắt
+### Ý tưởng chia cắt không gian
 
-Tưởng tượng bạn có một **piece of rope** (dây thừng). Rope này "connected" vì nó là một mảnh duy nhất.
+Một sợi dây liền là một vật thể liên thông; muốn làm nó mất liên thông, ta phải cắt nó thành hai đoạn tách rời. Trong ngôn ngữ tô-pô, "chia cắt" một không gian $X$ nghĩa là tìm được hai tập mở $U, V$ sao cho:
+- $U \neq \emptyset$ và $V \neq \emptyset$;
+- $U \cap V = \emptyset$;
+- $U \cup V = X$.
 
-**Làm sao "disconnect" rope?**  
-→ **Cut** (cắt) nó! Sau khi cắt → hai pieces riêng biệt.
-
-**Trong topology:**  
-"Cutting" = tìm hai open sets U, V sao cho:
-- U ∪ V = X (cover toàn bộ)
-- U ∩ V = ∅ (disjoint)
-- U, V ≠ ∅ (cả hai non-empty)
-
-Nếu tìm được → **disconnected**.  
-Nếu không tìm được → **connected**!
-
-**Ví dụ trong ℝ:**
-
-[0,1] ∪ [2,3]:
-- U = (-1, 1.5) ∩ X = [0,1]
-- V = (1.5, 4) ∩ X = [2,3]
-- U, V open (trong subspace topology), disjoint, non-empty
-- → Disconnected!
-
-[0,2]:
-- Không thể tìm được separation như vậy
-- → Connected!
+Nếu tồn tại một cặp $(U, V)$ như vậy thì $X$ **không liên thông**; ngược lại, nếu không tồn tại thì $X$ **liên thông**. Chẳng hạn với $X = [0, 1] \cup [2, 3]$, hai tập $U = (-1, 1{,}5) \cap X = [0, 1]$ và $V = (1{,}5, 4) \cap X = [2, 3]$ đều mở trong tô-pô con, khác rỗng, rời nhau và có hợp bằng $X$, nên $X$ không liên thông. Trái lại, đoạn $[0, 2]$ không thể phân tách theo cách này nên nó liên thông.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Connected Spaces
-
-<div class="textbook-definition" markdown="1">
-**Định nghĩa (Disconnected):**  
-Topological space X là **disconnected** nếu tồn tại U, V ∈ 𝜏 (open) sao cho:
-1. U, V ≠ ∅ (non-empty)
-2. U ∩ V = ∅ (disjoint)
-3. U ∪ V = X (cover space)
-</div>
-
-Khi đó, {U, V} gọi là **separation** (phân ly) của X.
+### 1. Không gian liên thông (Connected Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Connected):**  
-X là **connected** nếu X **không** disconnected.
+**Định nghĩa (Không liên thông — Disconnected):**  
+Không gian tô-pô $X$ là **không liên thông** nếu tồn tại hai tập mở $U, V \in \tau$ sao cho:
+1. $U \neq \emptyset$ và $V \neq \emptyset$;
+2. $U \cap V = \emptyset$;
+3. $U \cup V = X$.
 </div>
 
-**Nói bằng lời:** Không tồn tại separation.
+Khi đó cặp $\{U, V\}$ được gọi là một **phép phân ly** (*separation*) của $X$.
 
-**Ví dụ 1: Interval**
+<div class="textbook-definition" markdown="1">
+**Định nghĩa (Liên thông — Connected):**  
+Không gian $X$ là **liên thông** nếu nó không tồn tại bất kỳ phép phân ly nào.
+</div>
 
-[0,1] connected trong ℝ.
+**Ví dụ 1: Đoạn $[0, 1]$ liên thông trong $\mathbb{R}$**
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Proof (sketch):** Giả sử (phản chứng) ∃ separation {U, V}.  
-Không mất tổng quát, giả sử 0 ∈ U.  
-Xét s = sup(U ∩ [0,1]) ∈ [0,1].
-
-Nếu s ∈ U: U open → ∃ε: (s-ε, s+ε) ⊆ U → s không phải sup, mâu thuẫn.  
-Nếu s ∈ V: V open → ∃ε: (s-ε, s+ε) ⊆ V → contradiction với s = sup(U).  
-Nếu s ∉ U ∪ V: contradiction với U ∪ V = X. ∎
+**Phác thảo chứng minh:** Giả sử phản chứng tồn tại phép phân ly $\{U, V\}$ của $[0, 1]$. Không mất tính tổng quát, giả sử $0 \in U$. Vì $V \neq \emptyset$, chọn một điểm $b \in V$ ($0 < b \le 1$) và đặt $s = \sup(U \cap [0, b]) \in [0, b]$.
+- Nếu $s \in U$, thì $s < b$ (vì $b \in V$ rời với $U$). Do $U$ mở trong $[0, 1]$, tồn tại $\varepsilon > 0$ sao cho $[s, s + \varepsilon) \subseteq U \cap [0, b]$, mâu thuẫn với định nghĩa $s = \sup(U \cap [0, b])$.
+- Nếu $s \in V$, thì $s > 0$ (vì $0 \in U$). Do $V$ mở trong $[0, 1]$, tồn tại $\varepsilon > 0$ sao cho $(s - \varepsilon, s] \subseteq V$, suy ra $U \cap [0, b]$ không chứa điểm nào trong $(s - \varepsilon, s]$, mâu thuẫn với $s = \sup(U \cap [0, b])$.
+- Nếu $s \notin U \cup V$, mâu thuẫn với $U \cup V = [0, 1]$. ∎
 </div>
 
-**Ví dụ 2: ℚ (rationals)**
-
-ℚ **disconnected** trong ℝ!
+**Ví dụ 2: Tập số hữu tỉ $\mathbb{Q}$ không liên thông trong $\mathbb{R}$**
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-U = ℚ ∩ (-∞, √2), V = ℚ ∩ (√2, ∞).  
-U, V open trong subspace topology, disjoint, non-empty, U ∪ V = ℚ. ✓
+**Chứng minh:**  
+Hai tập $U = \mathbb{Q} \cap (-\infty, \sqrt{2})$ và $V = \mathbb{Q} \cap (\sqrt{2}, \infty)$ đều mở trong tô-pô con của $\mathbb{Q}$, khác rỗng, rời nhau và có hợp bằng $\mathbb{Q}$, nên $\{U, V\}$ là một phép phân ly của $\mathbb{Q}$.
 </div>
 
-**Ví dụ 3: Discrete Topology**
-
-Mọi space > 1 điểm với discrete topology **disconnected**.
+**Ví dụ 3: Tô-pô rời rạc**  
+Mọi không gian có nhiều hơn $1$ điểm với tô-pô rời rạc đều không liên thông.
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Cho x ≠ y. U = {x}, V = X \ {x} là separation. ✓
+**Chứng minh:** Chọn $x \in X$; khi đó $U = \{x\}$ và $V = X \setminus \{x\}$ tạo thành một phép phân ly của $X$.
 </div>
 
-**Ví dụ 4: Trivial Topology**
-
-Mọi space với trivial topology **connected**.
+**Ví dụ 4: Tô-pô tầm thường**  
+Mọi không gian với tô-pô tầm thường đều liên thông.
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Chỉ có ∅, X là open → không thể tìm separation. ✓
+**Chứng minh:** Vì chỉ có $\emptyset$ và $X$ là tập mở nên không thể tồn tại hai tập mở khác rỗng rời nhau.
 </div>
 
 ---
 
-### 2. Equivalent Characterizations
+### 2. Các đặc trưng tương đương
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Equivalent Definitions):**  
-Các phát biểu sau **tương đương**:
+**Định lý (Các đặc trưng tương đương của tính liên thông):**  
+Với không gian tô-pô $X$, bốn mệnh đề sau **tương đương**:
 </div>
 
-**(1)** X connected
+**(1)** $X$ liên thông.
 
-**(2)** Chỉ có ∅ và X vừa open vừa closed (clopen)
+**(2)** Chỉ có $\emptyset$ và $X$ là các tập vừa mở vừa đóng (*clopen*) trong $X$.
 
-**(3)** Không tồn tại continuous surjection f: X → {0,1} (discrete topology)
+**(3)** Không tồn tại toàn ánh liên tục $f: X \to \{0, 1\}$ (với $\{0, 1\}$ mang tô-pô rời rạc).
 
-**(4)** Mọi continuous f: X → {0,1} là constant
+**(4)** Mọi ánh xạ liên tục $f: X \to \{0, 1\}$ đều là ánh xạ hằng.
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**
 </div>
 
-**(1 ⇒ 2):**  
-Giả sử A ⊆ X clopen, A ≠ ∅, X.  
-Khi đó U = A open, V = X \ A open (vì A closed).  
-U ∩ V = ∅, U ∪ V = X, U,V ≠ ∅ → separation, mâu thuẫn với (1)!
-
-**(2 ⇒ 3):**  
-Giả sử ∃f: X → {0,1} continuous surjection.  
-f⁻¹({0}) clopen (vì {0} clopen trong {0,1}).  
-f surjective → f⁻¹({0}) ≠ ∅, X.  
-Mâu thuẫn với (2)!
-
-**(3 ⇒ 4):** Trivial.
-
-**(4 ⇒ 1):**  
-Giả sử {U, V} separation của X.  
-Define f: X → {0,1}: f(U) = 0, f(V) = 1.  
-f continuous (vì f⁻¹({0}) = U open, f⁻¹({1}) = V open).  
-f không constant, mâu thuẫn với (4)! ∎
-
-**Ứng dụng practical:**  
-Để chứng minh X connected, dùng characterization (2): tìm tất cả clopen sets.
+- **(1 $\Rightarrow$ 2):** Nếu tồn tại tập vừa mở vừa đóng $A \subseteq X$ với $A \neq \emptyset, X$, thì $U = A$ và $V = X \setminus A$ tạo thành một phép phân ly của $X$, mâu thuẫn với (1).
+- **(2 $\Rightarrow$ 3):** Nếu có toàn ánh liên tục $f: X \to \{0, 1\}$, thì $f^{-1}(\{0\})$ vừa mở vừa đóng (vì $\{0\}$ vừa mở vừa đóng trong $\{0, 1\}$) và khác $\emptyset, X$ (vì $f$ toàn ánh), mâu thuẫn với (2).
+- **(3 $\Rightarrow$ 4):** Hiển nhiên (một ánh xạ vào $\{0, 1\}$ không toàn ánh thì chỉ nhận đúng một giá trị).
+- **(4 $\Rightarrow$ 1):** Nếu $\{U, V\}$ là một phép phân ly của $X$, định nghĩa $f: X \to \{0, 1\}$ bởi $f(x) = 0$ với $x \in U$ và $f(x) = 1$ với $x \in V$. Khi đó $f$ liên tục nhưng không hằng, mâu thuẫn với (4). ∎
 
 ---
 
-### 3. Properties of Connected Spaces
+### 3. Các tính chất của không gian liên thông
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Continuous Image):**  
-Nếu f: X → Y continuous và X connected, thì f(X) connected.
+**Định lý (Ảnh liên tục của không gian liên thông):**  
+Nếu $f: X \to Y$ liên tục và $X$ liên thông, thì ảnh $f(X)$ liên thông.
 </div>
-
-**Trực giác:** Continuity preserves connectedness.
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Giả sử (phản chứng) f(X) disconnected với separation {U, V}.  
-f⁻¹(U), f⁻¹(V) open (f continuous), disjoint, non-empty (f surjection lên f(X)).  
-f⁻¹(U) ∪ f⁻¹(V) = X → separation của X, mâu thuẫn! ∎
+Giả sử phản chứng $f(X)$ có phép phân ly $\{U, V\}$ (mở trong $f(X)$). Khi đó $f^{-1}(U)$ và $f^{-1}(V)$ là hai tập mở trong $X$, rời nhau, khác rỗng (do $U, V \subseteq f(X)$ khác rỗng) và có hợp bằng $X$, tạo thành phép phân ly của $X$ — mâu thuẫn. ∎
 </div>
 
-**Hệ quả quan trọng:**  
-**Connectedness là topological property!**
-
-X ≅ Y và X connected → Y connected.
-
-**Ứng dụng:** Để chứng minh Y connected, tìm X connected với continuous surjection f: X → Y.
+**Hệ quả:** Tính liên thông là một **tính chất tô-pô** (bất biến qua phép đồng phôi).
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Union of Connected Spaces):**  
-Cho {Aα}α∈I họ connected subspaces của X.  
-Nếu ⋂α Aα ≠ ∅ (có điểm chung), thì ⋃α Aα connected.
+**Định lý (Hợp của các không gian con liên thông):**  
+Cho $\{A_\alpha\}_{\alpha \in I}$ là một họ các không gian con liên thông của $X$. Nếu $\bigcap_{\alpha \in I} A_\alpha \neq \emptyset$, thì hợp $\bigcup_{\alpha \in I} A_\alpha$ là không gian liên thông.
 </div>
-
-**Trực giác:** Các connected pieces "overlap" → union connected.
 
 ![Union of connected spaces](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Connected_union.svg/400px-Connected_union.svg.png)  
-*Union của connected spaces qua intersection - Nguồn concept*
+*Hợp của các tập liên thông có điểm chung - Nguồn minh họa khái niệm*
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Cho A = ⋃Aα, x₀ ∈ ⋂Aα.  
-Giả sử (phản chứng) f: A → {0,1} continuous non-constant.  
-Không mất tổng quát, f(x₀) = 0.  
-Mỗi fα = f|_{Aα} continuous, fα(x₀) = 0.  
-Aα connected → fα constant → fα ≡ 0.  
-→ f ≡ 0 trên A, mâu thuẫn! ∎
+Đặt $A = \bigcup_\alpha A_\alpha$ và chọn $x_0 \in \bigcap_\alpha A_\alpha$. Xét ánh xạ liên tục bất kỳ $f: A \to \{0, 1\}$, giả sử $f(x_0) = 0$. Với mỗi $\alpha$, ánh xạ thu hẹp $f|_{A_\alpha}$ liên tục trên không gian liên thông $A_\alpha$ nên là ánh xạ hằng, do đó $f|_{A_\alpha} \equiv f(x_0) = 0$. Suy ra $f \equiv 0$ trên toàn bộ $A$, nên $A$ liên thông. ∎
 </div>
 
 <div class="textbook-theorem" markdown="1">
 **Hệ quả:**  
-Nếu A connected và A ⊆ B ⊆ cl(A), thì B connected.
+Nếu $A$ liên thông và $A \subseteq B \subseteq \text{cl}(A)$, thì $B$ cũng liên thông. Đặc biệt, bao đóng $\text{cl}(A)$ của một tập liên thông là liên thông.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh:** A và cl(A) cùng intersect A → A ∪ cl(A) = cl(A) connected. ∎
+**Chứng minh:** Giả sử $B = U \cup V$ là một phép phân ly của $B$ (với $U, V$ mở trong $B$). Vì $A \subseteq B$ liên thông nên $A$ nằm trọn trong $U$ hoặc $V$; giả sử $A \subseteq U$. Khi đó $V$ là tập mở trong $B$ rời với $A$, nên không điểm nào của $V$ thuộc $\text{cl}_B(A) = \text{cl}(A) \cap B = B$, suy ra $V = \emptyset$ — mâu thuẫn. ∎
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Product of Connected Spaces):**  
-Nếu X, Y connected, thì X × Y connected (product topology).
+**Định lý (Tích của các không gian liên thông):**  
+Nếu $X$ và $Y$ đều liên thông, thì không gian tích $X \times Y$ (với tô-pô tích) cũng liên thông.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**  
-Fix x₀ ∈ X, y₀ ∈ Y.  
-- Slice {x₀} × Y ≅ Y connected
-- Slice X × {y} ≅ X connected với mọi y
-- Tất cả slices X × {y} intersect tại (x₀, y)
-- → ⋃_y (X × {y}) = X × Y connected ✓
+**Phác thảo chứng minh:**  
+Cố định $x_0 \in X$. Các lát cắt $\{x_0\} \times Y \cong Y$ và $X \times \{y\} \cong X$ (với mọi $y \in Y$) đều liên thông. Với mỗi $y \in Y$, tập $T_y = (\{x_0\} \times Y) \cup (X \times \{y\})$ liên thông vì hai mảnh giao nhau tại $(x_0, y)$. Hơn nữa mọi $T_y$ đều chứa $\{x_0\} \times Y$, nên hợp $\bigcup_{y \in Y} T_y = X \times Y$ là tập liên thông.
 </div>
 
 ---
 
-### 4. Connected Subspaces of ℝ
+### 4. Các không gian con liên thông của $\mathbb{R}$
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Characterization on ℝ):**  
-A ⊆ ℝ connected ⟺ A là **interval** (có thể unbounded).
+**Định lý (Đặc trưng tập liên thông trong $\mathbb{R}$):**  
+Một tập con $A \subseteq \mathbb{R}$ là liên thông khi và chỉ khi $A$ là một **khoảng** (bao gồm khoảng bị chặn, không bị chặn, điểm đơn hoặc tập rỗng).
 </div>
 
-**Intervals:**
-- Bounded: [a,b], (a,b), [a,b), (a,b]
-- Unbounded: [a,∞), (a,∞), (-∞,b], (-∞,b), ℝ
+Các dạng khoảng có ít nhất hai điểm gồm $[a, b], (a, b), [a, b), (a, b], [a, \infty), (a, \infty), (-\infty, b], (-\infty, b)$ và $\mathbb{R}$.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (⇐):**  
-Đã chứng minh [0,1] connected.  
-Mọi interval homeomorphic với [0,1], (-∞,∞), [0,∞), hoặc (-∞,0] → connected. ✓
+**Phác thảo chứng minh ($\Leftarrow$):**  
+Tương tự chứng minh cho $[0, 1]$ bằng tính đầy đủ của $\mathbb{R}$ (hoặc dùng thực tế mọi khoảng không suy biến đều là hợp tăng dần các đoạn đóng $[a_n, b_n]$ giao nhau).
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh (⇒):**  
-Giả sử A connected, không phải interval.  
-Tồn tại a < c < b với a,b ∈ A nhưng c ∉ A.  
-U = A ∩ (-∞,c), V = A ∩ (c,∞) → separation → mâu thuẫn! ∎
+**Chứng minh ($\Rightarrow$):**  
+Giả sử $A$ không phải là khoảng; khi đó tồn tại $a < c < b$ với $a, b \in A$ nhưng $c \notin A$. Hai tập $U = A \cap (-\infty, c)$ và $V = A \cap (c, \infty)$ tạo thành một phép phân ly của $A$, mâu thuẫn với tính liên thông của $A$. ∎
 </div>
-
-**Hệ quả quan trọng:** ℝ connected, ℚ disconnected.
 
 ---
 
-### 5. Intermediate Value Theorem
+### 5. Định lý Giá trị Trung gian (Intermediate Value Theorem)
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Intermediate Value Theorem - IVT):**  
-Cho X connected, f: X → ℝ continuous.  
-Nếu x, y ∈ X với f(x) < f(y), thì:
+**Định lý (Định lý Giá trị Trung gian — IVT):**  
+Cho $X$ là không gian liên thông và $f: X \to \mathbb{R}$ liên tục. Nếu $x, y \in X$ thỏa $f(x) < f(y)$, thì:
 
 $$
 \forall r \in (f(x), f(y)): \exists z \in X: f(z) = r
 $$
 </div>
 
-**Nói bằng lời:** f đạt mọi giá trị trung gian.
-
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-f(X) connected (continuous image).  
-f(x), f(y) ∈ f(X) → (f(x), f(y)) ⊆ f(X) (vì f(X) là interval connected).  
-→ ∀r ∈ (f(x), f(y)): ∃z: f(z) = r. ∎
+Vì $X$ liên thông và $f$ liên tục nên $f(X) \subseteq \mathbb{R}$ là một tập liên thông, do đó là một khoảng. Vì $f(x), f(y) \in f(X)$, toàn bộ khoảng $(f(x), f(y))$ phải nằm trong $f(X)$, suy ra với mọi $r \in (f(x), f(y))$ tồn tại $z \in X$ sao cho $f(z) = r$. ∎
 </div>
 
 ![Intermediate Value Theorem](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Intermediate_value_theorem.svg/400px-Intermediate_value_theorem.svg.png)  
-*IVT illustration - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Intermediate_value_theorem.svg)*
+*Minh họa Định lý Giá trị Trung gian - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Intermediate_value_theorem.svg)*
 
-**Ứng dụng:**  
-Chứng minh phương trình có nghiệm!
-
-**Ví dụ:** x³ - x + 1 = 0 có nghiệm trong (-2, 0).
-
-f(-2) = -5 < 0, f(0) = 1 > 0 → ∃c ∈ (-2,0): f(c) = 0 by IVT. ✓
+**Ví dụ áp dụng:** Phương trình $f(x) = x^3 - x + 1 = 0$ có nghiệm trong $(-2, 0)$ vì $f$ liên tục trên $[-2, 0]$, $f(-2) = -5 < 0$ và $f(0) = 1 > 0$.
 
 ---
 
-### 6. Path-Connectedness
+### 6. Liên thông đường (Path-Connectedness)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Path):**  
-**Path** trong X từ x đến y là continuous map:
+**Định nghĩa (Đường đi — Path):**  
+Một **đường đi** (*path*) trong $X$ từ $x$ đến $y$ là một ánh xạ liên tục:
 
 $$
 \gamma: [0,1] \to X \quad \text{với } \gamma(0) = x, \gamma(1) = y
@@ -334,54 +225,45 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Path-Connected):**  
-X là **path-connected** nếu với mọi x, y ∈ X, tồn tại path từ x đến y.
+**Định nghĩa (Liên thông đường — Path-Connected):**  
+Không gian $X$ là **liên thông đường** nếu giữa hai điểm bất kỳ $x, y \in X$ luôn tồn tại một đường đi nối $x$ với $y$.
 </div>
 
-**Trực giác:** Có thể "đi" từ bất kỳ điểm nào đến điểm nào qua đường liên tục.
-
 ![Path connected space](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Path-connectedness.svg/400px-Path-connectedness.svg.png)  
-*Path-connected: có path giữa mọi hai điểm - Nguồn concept*
+*Không gian liên thông đường - Nguồn minh họa khái niệm*
 
-**Ví dụ:**
-- **ℝⁿ** path-connected: γ(t) = (1-t)x + ty (straight line)
-- **S¹** path-connected: arc on circle
-- **[0,1] ∪ [2,3]** KHÔNG path-connected: không có path từ [0,1] → [2,3]
+**Ví dụ:** $\mathbb{R}^n$ liên thông đường qua đoạn thẳng $\gamma(t) = (1 - t)x + ty$; đường tròn $S^1$ liên thông đường qua các cung tròn; còn $[0, 1] \cup [2, 3]$ không liên thông đường.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Path-Connected ⇒ Connected):**  
-Nếu X path-connected, thì X connected.
+**Định lý (Liên thông đường $\Rightarrow$ Liên thông):**  
+Mọi không gian liên thông đường đều liên thông.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Fix x₀ ∈ X. Với mọi x ∈ X, ∃ path γ: [0,1] → X từ x₀ → x.  
-[0,1] connected → γ([0,1]) connected (continuous image).  
-{γ([0,1])}_{x ∈ X} họ connected spaces, tất cả contain x₀.  
-→ ⋃_x γ([0,1]) = X connected. ∎
+Cố định $x_0 \in X$. Với mỗi $x \in X$, chọn một đường đi $\gamma_x: [0, 1] \to X$ từ $x_0$ đến $x$. Ảnh $\gamma_x([0, 1])$ là tập liên thông chứa $x_0$. Vì mọi tập $\gamma_x([0, 1])$ đều có điểm chung $x_0$, hợp của chúng $\bigcup_{x \in X} \gamma_x([0, 1]) = X$ là tập liên thông. ∎
 </div>
 
-**Ngược lại KHÔNG đúng!**
+**Chiều ngược lại không đúng:**
 
-**反例 (Topologist's Sine Curve):**
+**Phản ví dụ (Đường cong sin của nhà tô-pô — Topologist's Sine Curve):**
 
 $$
 A = \{(x, \sin(1/x)) : 0 < x \leq 1\} \cup \{(0,0)\} \subseteq \mathbb{R}^2
 $$
 
-- A **connected** (closure của connected subspace)
-- A **KHÔNG path-connected** (không có continuous path từ (0,0) đến any point trên curve)
+Đặt $S = \{(x, \sin(1/x)) : 0 < x \le 1\}$. Khi đó $S$ liên thông (là ảnh liên tục của $(0, 1]$) và $S \subseteq A \subseteq \text{cl}(S)$, nên $A$ **liên thông**. Tuy nhiên, $A$ **không liên thông đường** vì không có đường đi liên tục nào nối $(0, 0)$ với một điểm thuộc $S$.
 
 ![Topologist's sine curve](https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Topologist%27s_sine_curve.svg/400px-Topologist%27s_sine_curve.svg.png)  
-*Topologist's sine curve - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Topologist%27s_sine_curve.svg)*
+*Đường cong sin của nhà tô-pô - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Topologist%27s_sine_curve.svg)*
 
 ---
 
-### 7. Connected Components
+### 7. Thành phần liên thông (Connected Components)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Connected Component):**  
-**Connected component** của x ∈ X là union của tất cả connected subspaces chứa x:
+**Định nghĩa (Thành phần liên thông):**  
+**Thành phần liên thông** chứa điểm $x \in X$ là hợp của tất cả các không gian con liên thông của $X$ chứa $x$:
 
 $$
 C_x = \bigcup \{A \subseteq X : x \in A, A \text{ connected}\}
@@ -389,67 +271,53 @@ $$
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Properties of Components):**
-1. C_x connected (union theorem)
-2. C_x closed
-3. C_x ∩ C_y ≠ ∅ ⇒ C_x = C_y
-4. X = ⋃_x C_x (disjoint union - partition)
+**Định lý (Tính chất của thành phần liên thông):**
+1. $C_x$ là tập con liên thông cực đại chứa $x$.
+2. $C_x$ luôn là tập đóng trong $X$.
+3. Nếu $C_x \cap C_y \neq \emptyset$ thì $C_x = C_y$.
+4. Các thành phần liên thông tạo thành một phân hoạch của $X$.
 </div>
 
-**Trực giác:** Components = "maximal connected pieces" của X.
-
-**Ví dụ:**
-
-[0,1] ∪ [2,3]:
-- C_x = [0,1] nếu x ∈ [0,1]
-- C_x = [2,3] nếu x ∈ [2,3]
-- Hai components
-
-ℚ (rationals):
-- Mỗi C_x = {x} (singleton)
-- ℚ có countably many components (totally disconnected!)
+**Ví dụ:** Không gian $[0, 1] \cup [2, 3]$ có hai thành phần liên thông là $[0, 1]$ và $[2, 3]$. Ngược lại, trong $\mathbb{Q}$, mỗi thành phần liên thông chỉ là một tập đơn điểm $\{x\}$ (gọi là không gian *hoàn toàn không liên thông*, *totally disconnected*).
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Bernard Bolzano** - *"Rein analytischer Beweis..."* (1817)  
-   *Đầu tiên phát biểu IVT chặt chẽ*
+   *Phát biểu và chứng minh chặt chẽ đầu tiên cho Định lý Giá trị Trung gian.*
 
 2. **Camille Jordan** - *"Cours d'analyse"* (1893)  
-   *Jordan curve theorem - connectedness*
+   *Định lý đường cong Jordan gắn liền với tính liên thông của mặt phẳng.*
 
 3. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Formalization của connectedness*
+   *Hình thức hóa khái niệm tính liên thông trong tô-pô đại cương.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§23–24: Connected Spaces**  
-   *Standard reference*
+   *Tài liệu tham khảo chuẩn.*
 
 5. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 9**  
-   *Clear examples*
+   *Giàu ví dụ minh họa.*
 
 6. **Stephen Willard** - *General Topology*, **Chapter 6**  
-   *Comprehensive treatment*
+   *Trình bày đầy đủ và chặt chẽ.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - IVT và Fixed Points
-**Brouwer Fixed Point:** Mọi continuous f: Dⁿ → Dⁿ có fixed point. Chứng minh dùng connectedness!
+### Giải tích — Định lý điểm bất động
+Định lý Giá trị Trung gian suy ra ngay định lý điểm bất động Brouwer trong $1$ chiều (mọi ánh xạ liên tục $[0, 1] \to [0, 1]$ đều có điểm bất động).
 
-### Graph Theory - Connectivity
-**Connected Graphs:** Graph connected ⟺ underlying space connected (với topology thích hợp).
+### Lý thuyết đồ thị — Tính liên thông
+Một đồ thị liên thông theo nghĩa tổ hợp khi và chỉ khi biểu diễn hình học (không gian tô-pô $1$-chiều) của nó liên thông.
 
-### Neuroscience - Brain Networks
-**Functional Connectivity:** Brain regions form connected networks. Disconnection = neurological disorders.
-
-### Economics - Network Effects
-**Market Networks:** Connected markets allow price discovery. Disconnection → arbitrage opportunities.
+### Khoa học thần kinh và kinh tế học mạng lưới
+Khái niệm thành phần liên thông được dùng để mô tả tính kết nối chức năng giữa các vùng não cũng như sự phân mảnh hay liên kết giữa các thị trường.
 
 ---
 
@@ -459,64 +327,62 @@ $$
 - [[Tôpô đại cương] Bài 44. Không gian liên thông - Phần 1: Định nghĩa và Ví dụ](https://www.youtube.com/watch?v=d9E5MkJaQpg) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Cùng định nghĩa và ví dụ, bằng tiếng Việt.
 - [Weird Topological Spaces  //  Connected vs Path Connected vs Simply Connected](https://www.youtube.com/watch?v=zzeADy0MSFA) — Dr. Trefor Bazett, tiếng Anh. Liên thông, liên thông đường, và đơn liên: ba mức mà bài cần tách bạch.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Connected Spaces
+### Không gian liên thông
 
-1. **Verify Connected:**  
-   Các spaces sau connected không?
-   - a) ℝ
-   - b) ℚ
-   - c) [0,1]
-   - d) (0,1) ∪ (1,2)
+1. **Kiểm tra tính liên thông:**  
+   Các không gian sau (với tô-pô con từ $\mathbb{R}$) có liên thông không?
+   - a) $\mathbb{R}$
+   - b) $\mathbb{Q}$
+   - c) $[0, 1]$
+   - d) $(0, 1) \cup (1, 2)$
 
-2. **Clopen Sets:**  
-   Tìm tất cả clopen sets trong:
-   - a) ℝ
-   - b) [0,1] ∪ [2,3]
-   - c) Discrete topology trên {1,2,3}
+2. **Tập vừa mở vừa đóng:**  
+   Tìm tất cả các tập vừa mở vừa đóng trong:
+   - a) $\mathbb{R}$
+   - b) $[0, 1] \cup [2, 3]$
+   - c) $\{1, 2, 3\}$ với tô-pô rời rạc
 
-3. **IVT Application:**  
-   Chứng minh x⁵ + x = 1 có nghiệm trong (0,1).
+3. **Áp dụng Định lý Giá trị Trung gian:**  
+   Chứng minh phương trình $x^5 + x = 1$ có nghiệm trong $(0, 1)$.
 
-### Path-Connected
+### Liên thông đường
 
-4. **Verify Path-Connected:**  
-   Các spaces sau path-connected không?
-   - a) ℝⁿ
-   - b) S¹ (circle)
-   - c) [0,1] ∪ [2,3]
+4. **Kiểm tra liên thông đường:**  
+   Các không gian sau có liên thông đường không?
+   - a) $\mathbb{R}^n$
+   - b) Đường tròn $S^1$
+   - c) $[0, 1] \cup [2, 3]$
 
-5. **Construct Path:**  
-   X = ℝ² \ {origin}. Chứng minh X path-connected.
+5. **Xây dựng đường đi:**  
+   Chứng minh không gian $X = \mathbb{R}^2 \setminus \{(0, 0)\}$ liên thông đường.
 
-6. **Topologist's Sine Curve:**  
-   A = {(x, sin(1/x)) : 0 < x ≤ 1} ∪ {(0,0)}.  
-   Chứng minh A connected nhưng không path-connected.
+6. **Đường cong sin của nhà tô-pô:**  
+   Chứng minh $A = \{(x, \sin(1/x)) : 0 < x \le 1\} \cup \{(0, 0)\}$ liên thông nhưng không liên thông đường.
 
-### Components
+### Thành phần liên thông
 
-7. **Find Components:**  
-   Tìm connected components của:
-   - a) ℚ
-   - b) [0,1] ∪ [2,3] ∪ {5}
-   - c) ℝ \ ℤ
+7. **Tìm thành phần liên thông:**  
+   Tìm tất cả các thành phần liên thông của:
+   - a) $\mathbb{Q}$
+   - b) $[0, 1] \cup [2, 3] \cup \{5\}$
+   - c) $\mathbb{R} \setminus \mathbb{Z}$
 
-8. **Components Properties:**  
-   Chứng minh: Connected components luôn closed.
+8. **Tính đóng của thành phần liên thông:**  
+   Chứng minh mọi thành phần liên thông của một không gian tô-pô đều là tập đóng.
 
-### Advanced
+### Nâng cao
 
-9. **Products:**  
-   Chứng minh: Nếu X, Y connected thì X × Y connected.
+9. **Tích của hai không gian liên thông:**  
+   Trình bày chứng minh đầy đủ: nếu $X, Y$ liên thông thì $X \times Y$ liên thông.
 
-10. **Continuous Image:**  
-    Cho f: X → Y continuous, X connected.  
-    Chứng minh f(X) connected.
+10. **Ảnh liên tục:**  
+    Cho $f: X \to Y$ liên tục và $X$ liên thông. Chứng minh $f(X)$ liên thông bằng đặc trưng tập vừa mở vừa đóng.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §23–25 (Connected Spaces, Components)
 - **Morris, Topology Without Tears:** Chapter 9
@@ -524,31 +390,23 @@ $$
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-✅ **Connected:** Không thể chia thành hai open sets disjoint  
-✅ **Characterizations:** Via clopen sets, continuous maps  
-✅ **Continuous Image:** f(connected) = connected  
-✅ **IVT:** Connected spaces → intermediate values  
-✅ **Path-Connected:** Stronger notion, implies connected  
-✅ **Components:** Maximal connected pieces  
+✅ **Liên thông:** Không tồn tại phép phân ly thành hai tập mở khác rỗng rời nhau.  
+✅ **Đặc trưng tương đương:** Chỉ có $\emptyset$ và $X$ vừa mở vừa đóng; mọi ánh xạ liên tục vào $\{0, 1\}$ đều hằng.  
+✅ **Ảnh liên tục:** Ảnh liên tục của không gian liên thông là liên thông, dẫn trực tiếp đến Định lý Giá trị Trung gian.  
+✅ **Liên thông đường:** Điều kiện mạnh hơn tính liên thông (chiều đảo không đúng, phản ví dụ là đường cong sin của nhà tô-pô).  
+✅ **Thành phần liên thông:** Các không gian con liên thông cực đại phân hoạch $X$ và luôn đóng.
 
-**Điểm chính:**
-- Connectedness = "one piece"
-- IVT là hệ quả topology
-- Path-connected ⇒ connected (ngược lại sai!)
-- Components = partition X
-
-**Tiếp theo:** Lecture 02.01 về **Applications of Connectedness** với nhiều theorems và examples hơn!
+**Tiếp theo:** Bài 02.01 sẽ nghiên cứu **Không gian Compact** — tính chất bất biến tô-pô cốt lõi thứ hai của Chương 02.
 
 ---
 
 *"Connected spaces cannot be separated."* — Topology wisdom
 
-🎯 **Visualize connectedness! Vẽ paths và separations.** 🎯
+🎯 **Hãy vẽ hình minh họa các đường đi, phép phân ly và thành phần liên thông để rèn luyện trực giác.** 🎯
 
 ---
 
 **Previous:** [Chapter 01: Topological Spaces](/contents/vi/topology-chapter01/)  
 **Next:** [Lecture 02.01: Applications of Connectedness](/contents/vi/topology-chapter02/02_01_Applications_Connectedness/)
-

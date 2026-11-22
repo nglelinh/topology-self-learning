@@ -10,237 +10,147 @@ tags: [π1-computations, circle, sphere, torus, simply-connected]
 description: "Computing fundamental groups: S¹, S^n, T², surfaces, techniques và detailed proofs"
 ---
 
-**Examples, Techniques, and Detailed Computations**
+**Tính toán nhóm cơ bản $\pi_1$ – Ví dụ và Kỹ thuật**
 
 ---
 
 ## 📖 Tổng quan
 
-Trong bài học trước, chúng ta đã định nghĩa fundamental group $\pi_1(X, x_0)$. Giờ đây, câu hỏi tự nhiên nảy sinh:
+Sau khi định nghĩa nhóm cơ bản $\pi_1(X, x_0)$ ở bài trước, câu hỏi tự nhiên tiếp theo là:
 
-> **Làm sao TÍNH TOÁN $\pi_1(X)$ cho các không gian cụ thể?**
+> **Làm thế nào để tính tường minh $\pi_1(X)$ cho các không gian cụ thể?**
 
-Đây không phải là một câu hỏi tầm thường! Việc tính toán $\pi_1$ yêu cầu sự kết hợp của trực giác hình học để hình dung các loops, các kỹ thuật đại số từ lý thuyết nhóm, các định lý mạnh mẽ như covering spaces và Van Kampen, và các chứng minh cẩn thận để xác minh các homotopies.
+Việc tính toán nhóm cơ bản thường kết hợp trực giác hình học với các công cụ có hệ thống: không gian phủ, tương đương đồng luân (và co rút biến dạng), định lý tích và định lý Seifert–van Kampen.
 
-Trong bài học này, chúng ta sẽ khám phá các ví dụ cụ thể và các kỹ thuật tính toán fundamental group. Chúng ta sẽ nghiên cứu chi tiết chứng minh rằng $\pi_1(S^1) = \mathbb{Z}$ thông qua covering space—đây là một trong những ví dụ quan trọng nhất trong tô-pô học đại số. Chúng ta sẽ chứng minh rằng $\pi_1(S^n) = 0$ cho $n \geq 2$—các hình cầu cao hơn là simply connected. Chúng ta sẽ tính toán $\pi_1(T^2) = \mathbb{Z}^2$ bằng cách sử dụng product theorem. Chúng ta sẽ khám phá fundamental groups của các surfaces với genus $g$. Chúng ta sẽ học các kỹ thuật như covering spaces, homotopy equivalence, và một preview của định lý Van Kampen. Cuối cùng, chúng ta sẽ xem xét các ứng dụng như $\mathbb{R}^n \setminus \{\text{points}\}$ và projective spaces.
+Trong bài học này, chúng ta trình bày chi tiết chứng minh $\pi_1(S^1) \cong \mathbb{Z}$ bằng không gian phủ $\mathbb{R} \to S^1$, chứng minh $\pi_1(S^n) = 0$ với $n \geq 2$, thiết lập định lý tích để suy ra $\pi_1(T^2) \cong \mathbb{Z}^2$, giới thiệu biểu diễn nhóm cơ bản của các mặt đóng ($\Sigma_g$, $\mathbb{R}P^2$, chai Klein $K$), và tổng kết các kỹ thuật tính toán chính.
 
 ![Fundamental group computations](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Torus_cycles.svg/400px-Torus_cycles.svg.png)  
-*Các generators của fundamental group trên torus - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus_cycles.svg)*
-
-Tại sao những ví dụ và kỹ thuật này lại quan trọng đến vậy? Thứ nhất, chúng là các ví dụ chuẩn—các building blocks cho sự hiểu biết của chúng ta về fundamental group. Thứ hai, các kỹ thuật có thể chuyển giao—các phương pháp này hoạt động rộng rãi cho nhiều loại không gian khác nhau. Thứ ba, chúng phân biệt các không gian—chúng ta có thể chứng minh các không gian không homeomorphic bằng cách tính toán fundamental groups của chúng. Cuối cùng, các ứng dụng rộng rãi trong robotics, vật lý, và giải tích phức.
+*Hai vòng sinh của nhóm cơ bản trên hình xuyến – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus_cycles.svg)*
 
 ---
 
-## 🔵 π₁(S¹) = ℤ: The Circle
+## 🔵 $\pi_1(S^1) \cong \mathbb{Z}$: Đường tròn
 
-### 1. Statement và Intuition
+### 1. Phát biểu và trực giác
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** π₁(S¹, 1) ≅ ℤ.
+**Định lý:** $\pi_1(S^1, 1) \cong \mathbb{Z}$.
 </div>
 
-Trực giác hình học là các loops trên hình tròn được phân loại bởi **winding number**—số lần chúng ta quấn quanh hình tròn. Một loop không quấn quanh hình tròn có winding number $0$. Một loop quấn một lần theo chiều ngược chiều kim đồng hồ có winding number $1$. Một loop quấn hai lần có winding number $2$. Một loop quấn một lần theo chiều kim đồng hồ có winding number $-1$. Và cứ thế tiếp tục.
-
-Điều quan trọng là **winding number $n \in \mathbb{Z}$ hoàn toàn xác định homotopy class!** Điều này có nghĩa là nếu hai loops có cùng winding number, chúng đồng luân với nhau, và nếu chúng có winding numbers khác nhau, chúng không đồng luân với nhau. Đây là một kết quả sâu sắc cho thấy rằng fundamental group của hình tròn là $\mathbb{Z}$.
-
-**Phép toán nhóm:** Concatenate loops tương ứng với cộng winding numbers. Nếu chúng ta có một loop với winding number $n$ và một loop với winding number $m$, thì loop được tạo ra bằng cách nối chúng lại với nhau có winding number $n + m$. Điều này chính xác là cách phép cộng hoạt động trong $\mathbb{Z}$, và đây là lý do tại sao $\pi_1(S^1) \cong \mathbb{Z}$.
+Mỗi vòng khép kín trên đường tròn $S^1$ được đặc trưng duy nhất sai khác đồng luân đường bởi **chỉ số vòng** (winding number) $n \in \mathbb{Z}$ — số lần vòng quấn quanh $S^1$ (có dấu theo chiều quay). Phép nối hai vòng có chỉ số $n$ và $m$ cho vòng có chỉ số $n + m$, tương ứng với phép cộng trong $\mathbb{Z}$.
 
 ![Winding number illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Winding_number.svg/500px-Winding_number.svg.png)  
-*Loops với different winding numbers - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winding_number.svg)*
+*Các vòng có chỉ số vòng khác nhau quanh đường tròn – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winding_number.svg)*
 
 ---
 
-### 2. Proof via Covering Space
+### 2. Chứng minh qua không gian phủ $\mathbb{R} \to S^1$
 
-**Setup:** Chúng ta sử dụng covering space $p: \mathbb{R} \to S^1$ được định nghĩa bởi $p(t) = e^{2\pi it}$. Đây là một ánh xạ ánh xạ đường thẳng thực lên hình tròn bằng cách "quấn" đường thẳng quanh hình tròn.
+Xét ánh xạ phủ $p: \mathbb{R} \to S^1$ xác định bởi $p(t) = e^{2\pi it}$. Ánh xạ này liên tục, toàn ánh, là đồng phôi địa phương, và mỗi điểm $e^{i\theta} \in S^1$ có nghịch ảnh $p^{-1}(e^{i\theta}) = \{\theta/(2\pi) + n : n \in \mathbb{Z}\}$.
 
-**Các tính chất quan trọng:**
-- $p$ liên tục và surjective—mọi điểm trên hình tròn đều có ít nhất một preimage trên đường thẳng.
-- $p^{-1}(e^{i\theta}) = \{\theta/(2\pi) + n : n \in \mathbb{Z}\}$—mỗi điểm trên hình tròn có vô số preimages, cách nhau một khoảng nguyên.
-- $p$ locally homeomorphic—về mặt địa phương, $p$ là một homeomorphism, nghĩa là mỗi điểm trên hình tròn có một lân cận được ánh xạ homeomorphically từ một lân cận trên đường thẳng.
-
----
-
-**Step 1: Lifting Loops**
+**Bước 1: Nâng đường đi (Path Lifting)**
 
 <div class="textbook-lemma" markdown="1">
-**Bổ đề (Path Lifting):** Cho một loop $\gamma: [0,1] \to S^1$ với $\gamma(0) = 1$. Tồn tại duy nhất một lift $\tilde{\gamma}: [0,1] \to \mathbb{R}$ với $\tilde{\gamma}(0) = 0$ và $p \circ \tilde{\gamma} = \gamma$.
+**Bổ đề (Nâng đường đi):** Với mọi vòng $\gamma: [0,1] \to S^1$ thỏa $\gamma(0) = 1$, tồn tại duy nhất một đường nâng (lift) liên tục $\tilde{\gamma}: [0,1] \to \mathbb{R}$ sao cho $\tilde{\gamma}(0) = 0$ và $p \circ \tilde{\gamma} = \gamma$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Đây là một kết quả cơ bản trong lý thuyết covering space mà chúng ta sẽ nghiên cứu chi tiết trong bài học tiếp theo. Ý tưởng cơ bản là vì $p$ là locally homeomorphic, chúng ta có thể "lift" một cách duy nhất mỗi đoạn nhỏ của loop lên đường thẳng thực, và sau đó nối các lifts này lại với nhau để tạo thành một lift toàn cục. ✓
+**Chứng minh:** Chia $[0,1]$ thành hữu hạn đoạn nhỏ sao cho ảnh của mỗi đoạn nằm trong một lân cận phủ đều của $p$, sau đó nâng lần lượt từng đoạn bằng nghịch đảo địa phương của $p$ và dán lại (sẽ trình bày tổng quát trong bài 06.03).
 </div>
 
-**Quan sát quan trọng:** $\tilde{\gamma}(1) \in \mathbb{Z}$ vì $\gamma$ là một loop nên $\gamma(1) = 1$, và do đó $\tilde{\gamma}(1) \in p^{-1}(1) = \mathbb{Z}$. Điều này có nghĩa là điểm cuối của lift là một số nguyên, và đây chính là winding number của loop $\gamma$.
+Vì $\gamma(1) = 1$ và $p(\tilde{\gamma}(1)) = \gamma(1) = 1$, ta có $\tilde{\gamma}(1) \in p^{-1}(1) = \mathbb{Z}$.
 
 ---
 
-**Step 2: Winding Number Map**
+**Bước 2: Định nghĩa ánh xạ chỉ số vòng**
 
-**Định nghĩa $\phi: \pi_1(S^1, 1) \to \mathbb{Z}$:**
+Định nghĩa $\phi: \pi_1(S^1, 1) \to \mathbb{Z}$ bởi:
 
 $$
 \phi([\gamma]) = \tilde{\gamma}(1)
 $$
 
-trong đó $\tilde{\gamma}$ là unique lift với $\tilde{\gamma}(0) = 0$.
-
-**Well-defined:** Các loops đồng luân có các lifts với cùng điểm cuối (đây là một kết quả trong lý thuyết covering space—nếu hai loops đồng luân, thì các lifts của chúng cũng đồng luân và do đó có cùng điểm cuối). ✓
+trong đó $\tilde{\gamma}$ là đường nâng duy nhất của $\gamma$ xuất phát tại $0$. Theo định lý nâng đồng luân (bài 06.03), nếu $\gamma \simeq_p \delta$ thì đường nâng của phép đồng luân giữ nguyên điểm cuối $\tilde{\gamma}(1) = \tilde{\delta}(1)$, nên $\phi$ xác định tốt.
 
 ---
 
-**Step 3: Verify Homomorphism**
-
-**Khẳng định:** $\phi([\gamma][\delta]) = \phi([\gamma]) + \phi([\delta])$.
+**Bước 3: Kiểm tra tính đồng cấu**
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Khi chúng ta lift loop $\gamma \cdot \delta$, chúng ta có thể làm điều này bằng cách lift từng phần một. Trong nửa đầu, lift của $\gamma$ kết thúc tại $\tilde{\gamma}(1) = n$. Trong nửa sau, lift của $\delta$ bắt đầu tại $n$ (để đảm bảo tính liên tục) và kết thúc tại $n + \tilde{\delta}(1) = n + m$. Tổng cộng, điểm cuối của lift của $\gamma \cdot \delta$ là $n + m = \phi([\gamma]) + \phi([\delta])$. ✓
+Đặt $n = \tilde{\gamma}(1)$ và $m = \tilde{\delta}(1)$. Đường nâng của $\gamma \cdot \delta$ xuất phát tại $0$ sẽ đi theo $\tilde{\gamma}$ trên $[0, 1/2]$ (đến $n$), rồi đi theo đường tịnh tiến $t \mapsto n + \tilde{\delta}(2t-1)$ trên $[1/2, 1]$ (đến $n + m$). Do đó $\phi([\gamma][\delta]) = n + m = \phi([\gamma]) + \phi([\delta])$.
 </div>
 
-**$\phi$ là một homomorphism!** Điều này có nghĩa là phép toán concatenation trên các loops tương ứng với phép cộng trên các số nguyên, và đây chính là lý do tại sao $\pi_1(S^1) \cong \mathbb{Z}$.
+---
+
+**Bước 4: Kiểm tra song ánh**
+
+- **Đơn ánh:** Nếu $\phi([\gamma]) = 0$, thì $\tilde{\gamma}(0) = \tilde{\gamma}(1) = 0$. Vì $\mathbb{R}$ lồi nên $\tilde{\gamma}$ đồng luân đường với đường hằng $0$ trong $\mathbb{R}$ qua $H(s,t) = (1-t)\tilde{\gamma}(s)$; chiếu xuống bởi $p$ cho $p \circ H: \gamma \simeq_p e_1$, tức $[\gamma] = [e_1]$.
+- **Toàn ánh:** Với mọi $n \in \mathbb{Z}$, vòng $\gamma_n(t) = e^{2\pi int}$ có đường nâng $\tilde{\gamma}_n(t) = nt$, nên $\phi([\gamma_n]) = n$.
+
+Vậy $\phi: \pi_1(S^1, 1) \to \mathbb{Z}$ là một đẳng cấu nhóm, với phần tử sinh $[\gamma_1]$ ứng với $\gamma_1(t) = e^{2\pi it}$.
 
 ---
 
-**Step 4: Verify Bijection**
+### 3. Ý nghĩa và ứng dụng
 
-**Injective:** Nếu $\phi([\gamma]) = 0$, thì $\tilde{\gamma}(1) = 0$. Điều này có nghĩa là $\tilde{\gamma}$ là một lift của $\gamma$ từ $0$ đến $0$—một đường đi từ $0$ đến $0$ trong $\mathbb{R}$. Vì $\mathbb{R}$ là contractible, đường đi này đồng luân với constant path, và do đó $\gamma$ đồng luân với constant loop, nghĩa là $[\gamma] = [e]$. ✓
-
-**Surjective:** Cho mọi $n \in \mathbb{Z}$, chúng ta có thể xây dựng một loop $\gamma_n(t) = e^{2\pi int}$. Lift của loop này là $\tilde{\gamma}_n(t) = nt$, và do đó $\tilde{\gamma}_n(1) = n$. Điều này có nghĩa là $\phi([\gamma_n]) = n$, và do đó $\phi$ là surjective. ✓
-
-**Kết luận:** $\phi: \pi_1(S^1, 1) \to \mathbb{Z}$ là một isomorphism! ✓ **QED**
+Kết quả $\pi_1(S^1) \cong \mathbb{Z}$ xuất hiện trong giải tích phức ($\int_\gamma \frac{dz}{z} = 2\pi i \cdot \operatorname{Ind}_\gamma(0)$), vật lý (lượng tử hóa từ thông) và robotics (phân loại cách dây cáp quấn quanh chướng ngại vật).
 
 ---
 
-**Generator:** $[\gamma_1]$ trong đó $\gamma_1(t) = e^{2\pi it}$ (quấn một lần theo chiều ngược chiều kim đồng hồ) là một generator của nhóm. Mọi phần tử đều có thể được biểu diễn như $[\gamma_1]^n$ cho một số $n \in \mathbb{Z}$—điều này có nghĩa là mọi loop đều có thể được biểu diễn như một bội số nguyên của loop cơ bản này.
-
----
-
-### 3. Geometric Significance
-
-**$\pi_1(S^1) = \mathbb{Z}$ phản ánh:** Hình tròn có "một lỗ"—một tính chất tô-pô cơ bản được phản ánh trong fundamental group không tầm thường. Chúng ta có thể quấn quanh hình tròn nhiều lần—đây là một tính chất hình học quan trọng cho phép chúng ta phân loại các loops theo số lần quấn. Winding là một tính chất tô-pô cơ bản—nó không thể bị loại bỏ bằng cách biến dạng liên tục. Các loops được phân loại bởi một bất biến nguyên—winding number là một số nguyên hoàn toàn xác định homotopy class của một loop.
-
-**Các ứng dụng:** Trong giải tích phức, tích phân $\int_\gamma dz/z = 2\pi i \cdot (\text{winding number})$—đây là một kết quả cổ điển cho thấy cách winding number xuất hiện trong giải tích phức. Trong vật lý, magnetic flux quantization sử dụng winding number để giải thích tại sao từ thông bị lượng tử hóa. Trong robotics, cable winding around obstacle là một ví dụ về cách fundamental group xuất hiện trong các ứng dụng thực tế.
-
----
-
-## 🌐 π₁(S^n) = 0 for n ≥ 2
-
-### 1. Statement
+## 🌐 $\pi_1(S^n) = 0$ với $n \geq 2$
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** $S^n$ là simply connected cho $n \geq 2$:
+**Định lý:** Mặt cầu $S^n$ đơn liên với mọi $n \geq 2$:
 
 $$
 \pi_1(S^n, *) = \{e\} \quad \forall n \geq 2
 $$
 </div>
 
-**Mọi loop trong $S^n$ đều contractible!** Đây là một kết quả đáng ngạc nhiên—mặc dù hình cầu có vẻ "phức tạp" hơn hình tròn, nhưng fundamental group của nó lại tầm thường. Điều này phản ánh một sự khác biệt cơ bản giữa các chiều—trong các chiều cao hơn, có đủ không gian để "tránh" các điểm và co các loops lại.
-
----
-
-### 2. Proof
-
-**Ý tưởng chính:** Lập luận về chiều—loop tránh các điểm.
-
 <div class="textbook-proof" markdown="1">
-**Chứng minh:**  
-Cho $\gamma: S^1 \to S^n$ là một loop.
+**Chứng minh (Ý tưởng chính):**  
+Cho vòng $\gamma: [0,1] \to S^n$. Nếu $\gamma$ không toàn ánh (bỏ sót ít nhất một điểm $p \in S^n$), thì ảnh của $\gamma$ nằm trong $S^n \setminus \{p\} \cong \mathbb{R}^n$ (qua phép chiếu lập thể), vốn co rút được, nên $\gamma$ đồng luân với vòng hằng.
+
+Trong trường hợp tổng quát (khi $\gamma$ có thể là đường cong phủ đầy $S^n$), ta chọn hai điểm đối cực $p, q \in S^n$ sao cho điểm cơ sở khác $p$ và $q$, rồi áp dụng bổ đề số Lebesgue để chia $[0,1]$ thành hữu hạn đoạn nhỏ sao cho mỗi đoạn chỉ rơi vào $S^n \setminus \{p\}$ hoặc $S^n \setminus \{q\}$, từ đó biến dạng đồng luân $\gamma$ (hoặc dùng trực tiếp định lý Seifert–van Kampen cho phủ mở $S^n = (S^n \setminus \{p\}) \cup (S^n \setminus \{q\})$ vì giao của chúng liên thông đường khi $n \ge 2$). Kết quả là mọi vòng trên $S^n$ ($n \ge 2$) đều co rút được về điểm cơ sở.
 </div>
 
-**Bước 1:** Ảnh $\gamma(S^1) \subseteq S^n$ là compact và có chiều $1$.
-
-**Bước 2:** $S^n$ có chiều $n \geq 2$.
-
-**Đếm chiều:** Một ảnh một chiều trong không gian $n$-chiều (với $n \geq 2$) không thể phủ toàn bộ không gian. Do đó tồn tại một điểm $p \in S^n \setminus \gamma(S^1)$. ✓
-
-**Bước 3:** $S^n \setminus \{p\}$ homeomorphic với $\mathbb{R}^n$ (stereographic projection)—chúng ta có thể chiếu hình cầu lên không gian Euclid bằng cách loại bỏ một điểm.
-
-**Bước 4:** Loop $\gamma$ factors qua $S^1 \to S^n \setminus \{p\} \simeq \mathbb{R}^n$.
-
-**Bước 5:** Vì $\mathbb{R}^n$ contractible, loop $\gamma$ đồng luân với constant loop. ✓
-
-**Kết luận:** Mọi loop đều contractible, do đó $\pi_1(S^n) = 0$. ✓ **QED**
+Sự tương phản $\pi_1(S^1) \cong \mathbb{Z}$ và $\pi_1(S^2) = 0$ cho thấy nhóm cơ bản phân biệt được $S^1$ và $S^2$. Lưu ý rằng các nhóm đồng luân bậc cao của $S^n$ ($n \ge 2$) vẫn rất phong phú (chẳng hạn $\pi_3(S^2) \cong \mathbb{Z}$ gắn với phân thớ Hopf).
 
 ---
 
-### 3. Contrast with S¹
+## 🍩 $\pi_1(T^2) \cong \mathbb{Z} \times \mathbb{Z}$: Hình xuyến
 
-**Sự tương phản giữa $S^1$ và $S^2$:**
-- $\pi_1(S^1) = \mathbb{Z}$ (không tầm thường)
-- $\pi_1(S^2) = 0$ (tầm thường)
-
-**Topology phân biệt các chiều!** Đây là một khám phá sâu sắc—các không gian có chiều khác nhau có các tính chất tô-pô khác nhau một cách cơ bản, và fundamental group là một công cụ mạnh mẽ để phân biệt chúng.
-
-**Trực giác hình học:** Trong $S^1$, mọi loop đều "quấn quanh" một cách không thể tránh được—không có cách nào để một loop tránh được việc quấn quanh hình tròn. Trong $S^2$, mọi loop đều có thể "trượt ra" qua đỉnh hoặc đáy—có đủ không gian để co loop về một điểm mà không gặp chướng ngại vật nào.
-
-**Higher $\pi_n$:** Thú vị là $\pi_3(S^2) = \mathbb{Z}$ (Hopf fibration)—các higher homotopy groups không tầm thường! Điều này cho thấy rằng mặc dù fundamental group của hình cầu là tầm thường, các higher homotopy groups lại không tầm thường, và đây là một khám phá quan trọng trong topology.
-
----
-
-## 🍩 π₁(T²) = ℤ × ℤ: The Torus
-
-### 1. Product Theorem
+### 1. Định lý tích
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Product của Fundamental Groups):**  
-Cho $(X, x_0)$, $(Y, y_0)$ là các pointed spaces. Khi đó:
+**Định lý (Nhóm cơ bản của không gian tích):**  
+Với hai không gian có điểm cơ sở $(X, x_0)$ và $(Y, y_0)$:
 
 $$
 \pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0)
 $$
 </div>
 
-**Chứng minh sketch:**  
-Một loop $\gamma: [0,1] \to X \times Y$ có thể được phân tích thành các thành phần: $\gamma(t) = (\gamma_1(t), \gamma_2(t))$, trong đó $\gamma_1$ là một loop trong $X$ và $\gamma_2$ là một loop trong $Y$. Homotopy class $[\gamma]$ tương ứng với cặp $([\gamma_1], [\gamma_2])$. Phép toán concatenation hoạt động theo từng thành phần—khi chúng ta nối hai loops lại với nhau, chúng ta nối các thành phần tương ứng của chúng. Isomorphism $\phi([\gamma]) = ([\gamma_1], [\gamma_2])$ cho thấy rằng fundamental group của tích là tích của các fundamental groups. ✓
+**Ý tưởng chứng minh:** Mỗi vòng $\gamma: [0,1] \to X \times Y$ tương ứng duy nhất với cặp vòng thành phần $(\gamma_1, \gamma_2)$ qua hai phép chiếu $p_1: X \times Y \to X$ và $p_2: X \times Y \to Y$. Ánh xạ $\Phi([\gamma]) = ((p_1)_*[\gamma], (p_2)_*[\gamma])$ là một đẳng cấu nhóm vì đồng luân đường và phép nối vòng đều tác động độc lập trên từng tọa độ.
 
 ---
 
-### 2. Application to Torus
+### 2. Áp dụng cho hình xuyến $T^2$ và $T^n$
 
-**$T^2 = S^1 \times S^1$** (torus = tích của các hình tròn).
-
-**Áp dụng product theorem:**
+Vì $T^2 = S^1 \times S^1$, áp dụng định lý tích ta thu được:
 
 $$
 \pi_1(T^2) = \pi_1(S^1 \times S^1) \cong \pi_1(S^1) \times \pi_1(S^1) \cong \mathbb{Z} \times \mathbb{Z}
 $$
 
-**Generators:**
-- **$\alpha$:** Loop quanh "meridian" (hình tròn ngắn, vòng quanh theo một hướng)
-- **$\beta$:** Loop quanh "longitude" (hình tròn dài, đi qua lỗ theo hướng khác)
-
-**Relation:** $\alpha$ và $\beta$ giao hoán với nhau (nhóm abelian). Điều này phản ánh tính chất tích của torus—chúng ta có thể đi qua các loops theo bất kỳ thứ tự nào mà không thay đổi homotopy class.
-
-**Mọi loop đều có thể được biểu diễn như $\alpha^m \beta^n$** cho một số $m, n \in \mathbb{Z}$. Điều này có nghĩa là mọi loop trên torus đều có thể được hiểu như một tổ hợp của các loops cơ bản theo hai hướng độc lập.
+Hai phần tử sinh là $\alpha$ (vòng kinh tuyến) và $\beta$ (vòng vĩ tuyến), giao hoán với nhau, nên mọi phần tử đều có dạng $\alpha^m \beta^n$ ($m, n \in \mathbb{Z}$). Tổng quát, hình xuyến $n$ chiều $T^n = (S^1)^n$ có $\pi_1(T^n) \cong \mathbb{Z}^n$.
 
 ---
 
-### 3. Geometric Visualization
+## 🎭 Nhóm cơ bản của các mặt đóng
 
-Torus có hai "hướng độc lập" để tạo thành loops: một là vòng quanh ống (meridian), và một là đi qua lỗ (longitude). Hai hướng này tạo ra toàn bộ $\pi_1(T^2) \cong \mathbb{Z}^2$. Trực giác hình học là chúng ta có thể quấn một sợi dây quanh torus theo hai cách độc lập—quanh ống hoặc qua lỗ—và mọi cách quấn khác đều có thể được biểu diễn như một tổ hợp của hai cách cơ bản này.
-
-**Sự tương phản với $S^1$:**
-- $S^1$: một hướng ($\mathbb{Z}$)
-- $T^2$: hai hướng ($\mathbb{Z}^2$)
-
-Điều này cho thấy cách fundamental group phản ánh cấu trúc hình học của không gian—số lượng các hướng độc lập để tạo thành loops tương ứng với số lượng các generators của fundamental group.
-
-**Higher tori:** $T^n = (S^1)^n$ có $\pi_1(T^n) \cong \mathbb{Z}^n$—mỗi thành phần $S^1$ đóng góp một generator $\mathbb{Z}$ vào fundamental group.
-
----
-
-## 🎭 π₁ of Surfaces
-
-### 1. Orientable Surfaces (Genus g)
-
-**$\Sigma_g$ = compact orientable surface với genus $g$.**
-
-**Các ví dụ:**
-- $g = 0$: $S^2$ (hình cầu)
-- $g = 1$: $T^2$ (torus)
-- $g = 2$: "pretzel" (torus hai lỗ)
+### 1. Mặt định hướng được giống $g$ ($\Sigma_g$)
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**
@@ -250,267 +160,194 @@ $$
 $$
 </div>
 
-**Nhóm:** $2g$ generators với một relation. Mỗi "lỗ" trong surface đóng góp hai generators—một cho mỗi hướng độc lập quanh lỗ đó. Relation $[a_1,b_1] \cdots [a_g,b_g] = 1$ phản ánh cách các loops quanh các lỗ khác nhau tương tác với nhau.
-
-**Cho $g=1$ (torus):**  
-$\pi_1(T^2) = \langle a, b | aba^{-1}b^{-1} = 1 \rangle = \langle a, b | ab = ba \rangle \cong \mathbb{Z}^2$. Đây là nhóm abelian—hai generators giao hoán với nhau.
-
-**Cho $g \geq 2$:** Nhóm không abelian! Đây là một khám phá quan trọng—các surfaces với nhiều lỗ hơn có fundamental groups phức tạp hơn nhiều, và chúng không abelian. Điều này phản ánh cách các loops quanh các lỗ khác nhau không thể giao hoán với nhau một cách tự do.
+Nhóm có $2g$ phần tử sinh và một quan hệ duy nhất (với hoán tử $[a_i, b_i] = a_i b_i a_i^{-1} b_i^{-1}$).
+- Khi $g = 1$ ($T^2$): $\langle a, b \mid aba^{-1}b^{-1} = 1 \rangle \cong \mathbb{Z}^2$ (giao hoán).
+- Khi $g \geq 2$: nhóm **không giao hoán**.
 
 ---
 
-### 2. Non-Orientable Surfaces
+### 2. Mặt không định hướng được
 
-**ℝP² (Projective Plane):**
+**Mặt phẳng xạ ảnh thực $\mathbb{R}P^2$:**
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:** $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$.
 </div>
 
-**Chứng minh sketch:** $\mathbb{R}P^2 = S^2/(x \sim -x)$—projective plane được xây dựng bằng cách đồng nhất mỗi điểm trên hình cầu với điểm đối cực của nó. Chúng ta có một covering $p: S^2 \to \mathbb{R}P^2$ (2-fold covering—mỗi điểm trên projective plane có hai preimages trên hình cầu). Vì $\pi_1(S^2) = 0$, lý thuyết covering space cho chúng ta biết rằng $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$. ✓
+**Ý tưởng chứng minh:** Ánh xạ thương đối cực $p: S^2 \to \mathbb{R}P^2$ là ánh xạ phủ hai lá với không gian phủ đơn liên $S^2$, nên $\pi_1(\mathbb{R}P^2)$ đẳng cấu với nhóm phép biến đổi phủ $\mathbb{Z}/2\mathbb{Z}$. Phần tử sinh tương ứng với ảnh của một đường nối hai điểm đối cực trên $S^2$ (đi qua hai lần tạo thành vòng khép kín trên $S^2$, vốn co rút được).
 
-**Generator:** Loop từ một điểm đến điểm đối cực của nó và quay lại. Điều này tương ứng với phần tử không tầm thường trong $\mathbb{Z}/2\mathbb{Z}$—nếu chúng ta đi qua loop này hai lần, chúng ta có thể co nó về constant loop, phản ánh tính chất $2 = 0$ trong $\mathbb{Z}/2\mathbb{Z}$.
-
----
-
-**Klein Bottle K:**
+**Chai Klein $K$:**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** $\pi_1(K) = \langle a, b | aba^{-1}b = 1 \rangle$.
+**Định lý:** $\pi_1(K) = \langle a, b \mid aba^{-1}b = 1 \rangle$.
 </div>
 
-**Không abelian:** Đây là một sự khác biệt quan trọng so với torus, nơi relation là $aba^{-1}b^{-1} = 1$ (tương đương với $ab = ba$). Relation $aba^{-1}b = 1$ cho thấy rằng $a$ và $b$ không giao hoán với nhau theo cách đơn giản như trong torus. Điều này phản ánh tính chất không định hướng được của Klein bottle—nó không thể được định hướng như torus.
+Quan hệ $aba^{-1}b = 1$ (tức $aba^{-1} = b^{-1}$) cho thấy $\pi_1(K)$ là nhóm **không giao hoán**, khác hẳn với $\pi_1(T^2) \cong \mathbb{Z}^2$.
 
 ---
 
-## 🛠️ Techniques for Computing π₁
+## 🛠️ Tổng hợp các kỹ thuật tính $\pi_1$
 
-### 1. Covering Space Method
-
-**Nguyên lý:** Sử dụng covering $p: \tilde{X} \to X$. Ý tưởng cơ bản là chúng ta có thể "lift" các loops từ không gian ban đầu lên covering space, và các tính chất của covering space cho phép chúng ta tính toán fundamental group.
-
-**Lifting:** Các loops được lift thành các paths trên covering space, và các điểm cuối của các lifts này xác định homotopy class. Đây là phương pháp chúng ta đã sử dụng để chứng minh $\pi_1(S^1) \cong \mathbb{Z}$.
-
-**Ví dụ:** $\mathbb{R} \to S^1$ (đã sử dụng ở trên). Covering space này cho phép chúng ta "mở ra" hình tròn thành đường thẳng thực, và winding number xuất hiện tự nhiên như sự khác biệt giữa các điểm cuối của lift.
-
-**Mạnh mẽ cho:** Các không gian có universal covers đẹp. Universal cover là covering space đơn giản nhất—nó có fundamental group tầm thường và có thể được sử dụng để tính toán fundamental group của không gian ban đầu.
+1. **Phương pháp không gian phủ:** Tìm một không gian phủ đơn liên (phủ phổ dụng) $p: \tilde{X} \to X$ rồi tính nhóm phép biến đổi phủ (như $\mathbb{R} \to S^1$ hay $S^2 \to \mathbb{R}P^2$).
+2. **Tương đương đồng luân và co rút biến dạng:** Rút gọn không gian về một không gian con đơn giản hơn có cùng kiểu đồng luân. Chẳng hạn:
+   - $\mathbb{R}^2 \setminus \{0\} \simeq S^1 \Rightarrow \pi_1(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$.
+   - $\mathbb{R}^3 \setminus \{0\} \simeq S^2 \Rightarrow \pi_1(\mathbb{R}^3 \setminus \{0\}) = 0$.
+3. **Định lý tích:** Dùng $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$.
+4. **Định lý Seifert–van Kampen (bài 06.04):** Phân tách $X = A \cup B$ thành các tập mở liên thông đường để tính $\pi_1(X)$ từ $\pi_1(A)$, $\pi_1(B)$ và $\pi_1(A \cap B)$ (ví dụ hình số $8$ có $\pi_1(S^1 \vee S^1) \cong \mathbb{Z} * \mathbb{Z}$).
 
 ---
 
-### 2. Homotopy Equivalence
+## 🧠 Tài liệu kinh điển và tham khảo
 
-**Nguyên lý:** Nếu $X \simeq Y$ đồng luân tương đương, thì $\pi_1(X) \cong \pi_1(Y)$. Đây là một công cụ mạnh mẽ cho phép chúng ta tính toán fundamental group bằng cách tìm một không gian đồng luân tương đương đơn giản hơn.
+### Các công trình kinh điển
 
-**Ví dụ:** $\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$ (chúng ta đã thấy điều này trong bài học trước thông qua deformation retract). Do đó $\pi_1(\mathbb{R}^n \setminus \{0\}) \cong \pi_1(S^{n-1})$.
+1. **Henri Poincaré** – *"Analysis Situs"* (1895)
 
-**Các ứng dụng:**
-- $\mathbb{R}^2 \setminus \{0\} \simeq S^1$ ⇒ $\pi_1(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$—mặt phẳng trừ đi một điểm có fundamental group giống như hình tròn.
-- $\mathbb{R}^3 \setminus \{0\} \simeq S^2$ ⇒ $\pi_1(\mathbb{R}^3 \setminus \{0\}) = 0$—không gian ba chiều trừ đi một điểm có fundamental group tầm thường vì hình cầu hai chiều là simply connected.
+2. **Max Dehn & Poul Heegaard** – *Phân loại mặt* (1907)
 
-Đây là một phương pháp rất hữu ích vì nó cho phép chúng ta đơn giản hóa không gian trước khi tính toán fundamental group.
+3. **Herbert Seifert** – *"Topologie dreidimensionaler gefaserter Räume"* (1932)
 
----
+### Giáo trình
 
-### 3. Van Kampen's Theorem (Preview)
+4. **Allen Hatcher** – *Algebraic Topology*, **§1.1: Examples**
 
-**Nguyên lý:** Phân tích $X = A \cup B$, tính toán $\pi_1(X)$ từ $\pi_1(A)$, $\pi_1(B)$, và $\pi_1(A \cap B)$. Đây là một trong những công cụ mạnh mẽ nhất để tính toán fundamental group—nó cho phép chúng ta tính toán fundamental group của một không gian phức tạp bằng cách chia nó thành các phần đơn giản hơn.
+5. **James R. Munkres** – *Topology*, **§53–54: Computing $\pi_1$**
 
-**Ví dụ:** Figure-eight (hình số 8) = hai hình tròn được nối tại một điểm. $\pi_1(\text{figure-eight}) = \mathbb{Z} * \mathbb{Z}$ (free product)—mỗi hình tròn đóng góp một copy của $\mathbb{Z}$, và chúng được kết hợp theo cách tự do không có relations nào giữa chúng.
+6. **William S. Massey** – *Algebraic Topology*, **Chapters 4–5**
 
-**Bài học tiếp theo:** Chúng ta sẽ nghiên cứu phát biểu đầy đủ của định lý Van Kampen và các ứng dụng của nó. Đây là một công cụ cực kỳ mạnh mẽ cho phép chúng ta tính toán fundamental groups của nhiều không gian phức tạp.
+7. **M. A. Armstrong** – *Basic Topology*, **Chapters 5–6**
 
 ---
 
-### 4. Deformation Retract
+## 🔗 Ứng dụng và liên kết
 
-**Nguyên lý:** Nếu $A$ là deformation retract của $X$, thì $\pi_1(A) \cong \pi_1(X)$. Đây là một phương pháp rất hữu ích vì nó cho phép chúng ta tính toán fundamental group của một không gian lớn bằng cách tính toán fundamental group của một không gian con đơn giản hơn.
+### Giải tích phức – Công thức tích phân Cauchy
+Với hàm chỉnh hình $f$, $\int_\gamma \frac{f(z)\,dz}{z-a} = 2\pi i \cdot f(a) \cdot \operatorname{Ind}_\gamma(a)$ (khi $f \equiv 1$ cho $\int_\gamma \frac{dz}{z-a} = 2\pi i \cdot \operatorname{Ind}_\gamma(a)$), gắn trực tiếp với $\pi_1(\mathbb{C} \setminus \{a\}) \cong \mathbb{Z}$.
 
-**Ví dụ:** $S^1 \subseteq \mathbb{R}^2 \setminus \{0\}$ là deformation retract—chúng ta có thể co toàn bộ mặt phẳng trừ đi gốc tọa độ về hình tròn đơn vị. Do đó $\pi_1(\mathbb{R}^2 \setminus \{0\}) \cong \pi_1(S^1) \cong \mathbb{Z}$. Đây là một ví dụ tuyệt vời về cách deformation retract đơn giản hóa việc tính toán fundamental group.
+### Robotics – Tránh chướng ngại vật
+Không gian cấu hình của một điểm di chuyển trên mặt phẳng có một vật cản có kiểu đồng luân $\mathbb{R}^2 \setminus \{0\} \simeq S^1$, nên các đường đi được phân loại theo chỉ số vòng quanh vật cản.
 
----
+### Vật lý – Hiệu ứng Aharonov–Bohm
+Độ dịch pha của electron quay quanh ống từ thông tỷ lệ với chỉ số vòng của đường đi.
 
-## 🧠 Fundamental Papers & References
+### Khoa học dữ liệu – Phân tích dữ liệu tô-pô
+Nhóm cơ bản và đồng điều bậc $1$ giúp phát hiện các cấu trúc vòng $1$ chiều trong đám mây điểm.
 
-### Classic Works
-
-1. **Henri Poincaré** - *"Analysis Situs"* (1895)  
-   *Computed first examples: spheres, tori*
-
-2. **Max Dehn & Poul Heegaard** - *Surface classification* (1907)  
-   *π₁ of surfaces, genus formula*
-
-3. **Herbert Seifert** - *"Topologie dreidimensionaler gefaserter Räume"* (1932)  
-   *Seifert-van Kampen theorem*
-
-### Textbooks
-
-4. **Allen Hatcher** - *Algebraic Topology*, **§1.1: Examples**  
-   *Best geometric treatment, detailed computations*
-
-5. **James R. Munkres** - *Topology*, **§53-54: Computing π₁**  
-   *Rigorous proofs, covering space approach*
-
-6. **William S. Massey** - *Algebraic Topology*, **Chapters 4-5**  
-   *Comprehensive examples*
-
-7. **Armstrong** - *Basic Topology*, **Chapters 5-6**  
-   *Accessible computations*
-
----
-
-## 🔗 Applications and Connections
-
-### Complex Analysis - Residue Calculus
-**Winding Numbers:** ∫_γ f(z)dz/(z-a) = 2πi · winding number của γ around a. π₁(ℂ \ {a}) ≅ ℤ essential.
-
-### Robotics - Configuration Spaces
-**Obstacle Avoidance:** Robot in plane với obstacle. Configuration space ≃ ℝ² \ {point} ⇒ π₁ ≅ ℤ. Paths classified by winding around obstacle.
-
-### Physics - Aharonov-Bohm Effect
-**Quantum Phases:** Electron path around magnetic flux. Phase shift ∝ winding number. π₁ determines observable effects.
-
-### Data Science - Holes in Data
-**Topological Data Analysis:** Point cloud với hole. π₁ detects "1-dimensional holes". Applications: shape recognition, sensor networks.
-
-### Knot Theory
-**Knot Complements:** K ⊆ S³ knot. π₁(S³ \ K) = knot group, distinguishes knots.
+### Lý thuyết nút (Knot Theory)
+Với một nút $K \subseteq S^3$, nhóm nút $\pi_1(S^3 \setminus K)$ là bất biến mạnh để phân biệt các nút khác nhau.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [3. Fundamental Group of the Circle - Pierre Albin](https://www.youtube.com/watch?v=GnQ1GuXH5vw) — Mat Neth, tiếng Anh. π₁ của đường tròn là ℤ, phép tính trung tâm của bài.
-- [Algebraic topology: Calculating the fundamental group](https://www.youtube.com/watch?v=BDrKDk8PQ_A) — Richard E Borcherds, tiếng Anh. Borcherds tính nhóm cơ bản của vài không gian quen, sau khi đường tròn đã xong.
-- [M-19. Fundamental group of circle and torus](https://www.youtube.com/watch?v=VxLnh4L5LcU) — e-Content-Science, tiếng Anh. Đường tròn và xuyến cạnh nhau, đúng hai ví dụ π₁(S¹) và π₁(T²) của bài.
+- **xem trước** [3. Fundamental Group of the Circle - Pierre Albin](https://www.youtube.com/watch?v=GnQ1GuXH5vw) — Mat Neth, tiếng Anh. Chứng minh $\pi_1(S^1) \cong \mathbb{Z}$, trọng tâm của bài học.
+- [Algebraic topology: Calculating the fundamental group](https://www.youtube.com/watch?v=BDrKDk8PQ_A) — Richard E Borcherds, tiếng Anh. Tính nhóm cơ bản của một số không gian quen thuộc.
+- [M-19. Fundamental group of circle and torus](https://www.youtube.com/watch?v=VxLnh4L5LcU) — e-Content-Science, tiếng Anh. Trình bày song song $\pi_1(S^1)$ và $\pi_1(T^2)$.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Circle π₁(S¹)
+### Đường tròn $\pi_1(S^1)$
 
-1. **Winding Number:**  
-   γ(t) = e^(4πit). Compute winding number và π₁-class [γ].
+1. **Chỉ số vòng:**  
+   Với $\gamma(t) = e^{4\pi it}$, tính chỉ số vòng và lớp $[\gamma]$ trong $\pi_1(S^1, 1)$.
 
-2. **Explicit Homotopy:**  
-   γ₂(t) = e^(4πit) (wind twice). Write homotopy γ₂ ≃ γ₁ · γ₁.
+2. **Đồng luân tường minh:**  
+   Viết tường minh phép đồng luân giữa $\gamma_2(t) = e^{4\pi it}$ và $\gamma_1 \cdot \gamma_1$.
 
-3. **Lifting:**  
-   γ(t) = e^(2πit/2). Lift to ℝ starting at 0. Find γ̃(1).
+3. **Nâng đường đi:**  
+   Nâng đường đi $\gamma(t) = e^{\pi it}$ ($t \in [0,1]$) lên $\mathbb{R}$ xuất phát tại $0$ và tìm $\tilde{\gamma}(1)$.
 
-### Spheres π₁(S^n)
+### Mặt cầu $\pi_1(S^n)$
 
-4. **S² Simply Connected:**  
-   Write detailed proof any loop trong S² contractible.
+4. **$S^2$ đơn liên:**  
+   Trình bày chứng minh chi tiết rằng mọi vòng trong $S^2$ đều đồng luân với vòng hằng.
 
-5. **Higher Dimensions:**  
-   Prove π₁(S³) = 0 using dimension argument.
+5. **Mặt cầu $S^3$:**  
+   Chứng minh $\pi_1(S^3) = 0$.
 
-6. **Punctured Sphere:**  
-   S² \ {north pole} ≃ ? Compute π₁.
+6. **Mặt cầu khoét một điểm:**  
+   Xác định kiểu đồng luân và tính $\pi_1(S^2 \setminus \{\text{cực bắc}\})$.
 
-### Torus π₁(T²)
+### Hình xuyến $\pi_1(T^2)$
 
-7. **Product Theorem:**  
-   Prove π₁(X × Y) ≅ π₁(X) × π₁(Y) carefully.
+7. **Định lý tích:**  
+   Chứng minh chi tiết $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$.
 
-8. **Generators:**  
-   Describe explicit loops α (meridian) và β (longitude) trong T².
+8. **Phần tử sinh:**  
+   Viết công thức tường minh cho hai vòng sinh $\alpha$ (kinh tuyến) và $\beta$ (vĩ tuyến) trên $T^2 = S^1 \times S^1$.
 
-9. **Commutativity:**  
-   Verify α · β ≃_p β · α geometrically.
+9. **Tính giao hoán:**  
+   Giải thích hình học vì sao $\alpha \cdot \beta \simeq_p \beta \cdot \alpha$ trên $T^2$.
 
-### Surfaces
+### Các mặt
 
-10. **Genus 2:**  
-    Σ₂ (pretzel). How many generators trong π₁(Σ₂)? What relation?
+10. **Mặt giống $2$:**  
+    Nhóm $\pi_1(\Sigma_2)$ có bao nhiêu phần tử sinh và quan hệ là gì?
 
-11. **ℝP²:**  
-    π₁(ℝP²) ≅ ℤ/2ℤ. Describe generator loop geometrically.
+11. **$\mathbb{R}P^2$:**  
+    Mô tả hình học vòng sinh của $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$.
 
-12. **Klein Bottle:**  
-    π₁(K) non-abelian. Verify aba⁻¹b ≠ 1 implies non-commutativity.
+12. **Chai Klein:**  
+    Từ quan hệ $aba^{-1}b = 1$ (tức $aba^{-1} = b^{-1}$) trong $\pi_1(K)$, giải thích vì sao $a$ và $b$ không giao hoán.
 
-### Techniques
+### Kỹ thuật tính toán
 
-13. **Homotopy Equivalence:**  
-    ℝ² \ {two points} ≃ S¹ ∨ S¹ (figure-eight). Intuitive argument.
+13. **Tương đương đồng luân:**  
+    Nêu lập luận trực quan cho thấy $\mathbb{R}^2 \setminus \{p, q\} \simeq S^1 \vee S^1$.
 
-14. **Deformation Retract:**  
-    ℝ² \ {0} deformation retracts to S¹. Explicit retraction r(x) = x/||x||.
+14. **Co rút biến dạng:**  
+    Kiểm tra $r(x) = x/\|x\|$ là co rút biến dạng từ $\mathbb{R}^2 \setminus \{0\}$ về $S^1$.
 
-15. **Covering Space:**  
-    Covering p: ℝ → S¹. How does p help compute π₁(S¹)?
+15. **Không gian phủ:**  
+    Tóm tắt vai trò của ánh xạ phủ $p: \mathbb{R} \to S^1$ trong chứng minh $\pi_1(S^1) \cong \mathbb{Z}$.
 
-### Advanced
+### Nâng cao
 
-16. **Figure-Eight:**  
-    π₁(S¹ ∨ S¹) = ℤ * ℤ (free product). Research Van Kampen application.
+16. **Hình số $8$:**  
+    Tìm hiểu cách dùng định lý Van Kampen để tính $\pi_1(S^1 \vee S^1) \cong \mathbb{Z} * \mathbb{Z}$.
 
-17. **ℝⁿ \ {k points}:**  
-    What is π₁(ℝ² \ {p₁, ..., p_k})? (Answer: free group F_k.)
+17. **Mặt phẳng khoét $k$ điểm:**  
+    Xác định $\pi_1(\mathbb{R}^2 \setminus \{p_1, \ldots, p_k\})$ (đáp số: nhóm tự do $F_k$).
 
-18. **Knot Complement:**  
-    Trefoil knot K ⊆ S³. π₁(S³ \ K) ≠ ℤ. Research knot groups.
+18. **Nhóm nút:**  
+    Tìm hiểu nhóm nút của nút ba lá (trefoil knot) $K \subseteq S^3$ và lý do $\pi_1(S^3 \setminus K) \not\cong \mathbb{Z}$.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-19. **Why ℤ?:**  
-    Explain why π₁(S¹) = ℤ (not ℚ or ℝ). What makes integers natural?
+19. **Tại sao là $\mathbb{Z}$?:**  
+    Giải thích vì sao $\pi_1(S^1)$ là $\mathbb{Z}$ chứ không phải $\mathbb{Q}$ hay $\mathbb{R}$.
 
-20. **Dimension Matters:**  
-    π₁(S¹) = ℤ but π₁(S²) = 0. Why does dimension change π₁ so drastically?
+20. **Ảnh hưởng của số chiều:**  
+    Vì sao $\pi_1(S^1) \cong \mathbb{Z}$ nhưng $\pi_1(S^2) = 0$?
 
-21. **Applications:**  
-    Give real-world application where computing π₁ matters practically.
-
----
-
-## 📚 Further Reading
-
-- **Hatcher, §1.1:** Best geometric treatment
-- **Munkres, §53-54:** Rigorous covering space approach
-- **Massey, Chapters 4-5:** Comprehensive examples
-- **Armstrong, Chapters 5-6:** Accessible style
-- **Stillwell, Classical Topology:** Historical perspective
+21. **Ứng dụng thực tế:**  
+    Nêu một bài toán ứng dụng cụ thể trong đó việc tính $\pi_1$ mang lại thông tin trực tiếp.
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-Trong bài này, chúng ta computed **π₁ cho standard spaces**:
-
-✅ **π₁(S¹) ≅ ℤ:** Winding number, covering space proof  
-✅ **π₁(S^n) = 0 (n≥2):** Dimension argument, loops contractible  
-✅ **π₁(T²) ≅ ℤ²:** Product theorem, two generators  
-✅ **π₁(Σ_g):** Genus g surfaces, 2g generators with relation  
-✅ **π₁(ℝP²) ≅ ℤ/2ℤ:** Projective plane, 2-fold covering  
-✅ **Techniques:** Covering spaces, homotopy equivalence, Van Kampen (preview)  
-
-**Điểm chính:**
-- Covering space method powerful (S¹)
-- Dimension affects π₁ dramatically
-- Product theorem enables torus computation
-- Surfaces classified by genus
-- Multiple techniques available
-
-**Geometric intuition:**
-- Winding number captures loops around circle
-- Higher spheres allow contraction
-- Torus has two independent loop directions
-- Genus = # of "handles" / holes
-
-**Practical wisdom:**
-- Use homotopy equivalence first (simplify space)
-- Covering spaces excellent when available
-- Van Kampen for decomposable spaces
-- Deformation retracts preserve π₁
-
-**Tiếp theo:** Lecture 06.03 về **Covering Spaces**—systematic theory for lifting và computing π₁!
+- **Hatcher, §1.1**
+- **Munkres, §53–54**
+- **Massey, Chapters 4–5**
+- **Armstrong, Chapters 5–6**
+- **Stillwell, Classical Topology**
 
 ---
 
-*"To compute π₁, find the right tool: covering spaces, Van Kampen, or homotopy equivalence."*
+## 🎓 Tóm tắt
 
-🎯 **Master these computations! They're the foundation.** 🎯
+Trong bài học này, chúng ta đã tính nhóm cơ bản cho các không gian cơ bản:
+- $\pi_1(S^1) \cong \mathbb{Z}$ (chứng minh qua không gian phủ $\mathbb{R} \to S^1$ và chỉ số vòng),
+- $\pi_1(S^n) = 0$ với mọi $n \ge 2$,
+- $\pi_1(T^2) \cong \mathbb{Z}^2$ (từ định lý tích $\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$),
+- $\pi_1(\Sigma_g) = \langle a_1, b_1, \ldots, a_g, b_g \mid [a_1,b_1]\cdots[a_g,b_g] = 1 \rangle$, $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$, và $\pi_1(K) = \langle a, b \mid aba^{-1}b = 1 \rangle$.
+
+**Tiếp theo:** Lecture 06.03 về **Lý thuyết không gian phủ** — xây dựng hệ thống các định lý nâng, phủ phổ dụng, phép biến đổi phủ và định lý phân loại không gian phủ.
+
+---
+
+*"To compute $\pi_1$, find the right tool: covering spaces, Van Kampen, or homotopy equivalence."*
 
 ---
 

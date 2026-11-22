@@ -10,586 +10,437 @@ tags: [group-actions, orbit-spaces, quotient-by-group, covering-spaces, symmetry
 description: "Group actions trên topological spaces, orbit spaces, và applications: covering spaces, symmetry"
 ---
 
-**Group Actions and Orbit Spaces**
+**Tác động nhóm và Không gian quỹ đạo**
 
 ---
 
 ## 📖 Tổng quan
 
-Đối xứng xuất hiện ở khắp nơi trong toán học và vật lý. **Group actions** chính thức hóa đối xứng một cách toán học, cho phép chúng ta nghiên cứu các đối xứng của các không gian tô-pô một cách có hệ thống.
+Đối xứng là một cấu trúc phổ biến trong toán học và vật lý, và **tác động nhóm** (group action) là ngôn ngữ chính thức để mô tả đối xứng của các không gian tô-pô.
 
-Một **group action** là một cách mà một nhóm $G$ "tác động" lên một không gian $X$—mỗi phần tử của nhóm tương ứng với một đối xứng của $X$. Điều này có nghĩa là mỗi phần tử $g \in G$ cho chúng ta một cách biến đổi không gian $X$ mà bảo toàn một số tính chất nhất định. **Orbit space** $X/G$ là không gian của các orbits—các điểm được đồng nhất nếu chúng liên quan với nhau bởi group action. Đây là một cách tự nhiên để tạo ra các không gian mới từ các không gian đã biết bằng cách "mod out" các đối xứng.
+Một tác động của nhóm $G$ lên không gian $X$ gán cho mỗi phần tử $g \in G$ một phép biến đổi (đồng phôi) của $X$, tương thích với phép toán nhóm. **Không gian quỹ đạo** (orbit space) $X/G$ là không gian thương thu được bằng cách đồng nhất các điểm nằm trên cùng một quỹ đạo của tác động.
 
 ![Group action visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hexagonal_tiling_3-color.svg/400px-Hexagonal_tiling_3-color.svg.png)  
-*Tác động của nhóm đối xứng trên tiling - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hexagonal_tiling_3-color.svg)*
+*Minh họa tác động của nhóm đối xứng trên lát gạch lục giác – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hexagonal_tiling_3-color.svg)*
 
-Tại sao group actions lại quan trọng đến vậy? Thứ nhất, chúng nắm bắt các đối xứng hình học—rotations, reflections, translations đều có thể được mô hình hóa như các group actions. Thứ hai, nhiều không gian quan trọng xuất hiện như các orbit spaces $X/G$—ví dụ, hình tròn $S^1$ có thể được xem như $\mathbb{R}/\mathbb{Z}$ nơi $\mathbb{Z}$ tác động bằng translation. Thứ ba, trong lý thuyết covering spaces, universal cover có thể được hiểu như một quotient bởi fundamental group—đây là một kết nối sâu sắc giữa group actions và covering spaces. Cuối cùng, trong vật lý, gauge theory, particle physics, và general relativity đều sử dụng group actions để mô hình hóa các đối xứng và các không gian cấu hình.
+Nhiều không gian quen thuộc xuất hiện tự nhiên dưới dạng không gian quỹ đạo $X/G$:
+- $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng phép tịnh tiến cho $\mathbb{R}/\mathbb{Z} \cong S^1$,
+- $\mathbb{Z}/2\mathbb{Z}$ tác động lên $S^n$ bằng phép đối cực cho $S^n/(\mathbb{Z}/2\mathbb{Z}) \cong \mathbb{R}P^n$,
+- $S^1$ tác động lên $\mathbb{C}$ bằng phép quay quanh gốc tọa độ cho $\mathbb{C}/S^1 \cong [0, \infty)$ (mỗi quỹ đạo là một đường tròn bán kính $r \ge 0$),
+- Nhóm các phép biến đổi phủ (deck transformations) tác động trên không gian phủ phổ dụng $\tilde{X}$ cho thương $\tilde{X}/\pi_1(X) \cong X$.
 
-Các ví dụ quan trọng bao gồm: $S^1$ tác động lên $\mathbb{C}$ bằng rotation dẫn đến quotient là một điểm (nếu chúng ta đồng nhất tất cả các điểm trên cùng một quỹ đạo), $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng translation dẫn đến $\mathbb{R}/\mathbb{Z} \cong S^1$, $\mathbb{Z}/2\mathbb{Z}$ tác động lên $S^n$ bằng antipodal map dẫn đến $S^n/(\mathbb{Z}/2\mathbb{Z}) = \mathbb{R}P^n$, và các deck transformations của covering spaces là các ví dụ tự nhiên của group actions.
-
-Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của group actions và orbit spaces. Chúng ta bắt đầu với định nghĩa của group actions và các ví dụ quan trọng. Chúng ta sẽ nghiên cứu orbits và stabilizers—các khái niệm cơ bản cho phép chúng ta hiểu cách group action phân chia không gian. Chúng ta sẽ định nghĩa orbit space $X/G$ với quotient topology và khám phá các tính chất của nó. Chúng ta sẽ nghiên cứu free actions—các actions không có điểm cố định, và properly discontinuous actions—các actions tạo ra các quotient tốt. Cuối cùng, chúng ta sẽ khám phá các ứng dụng trong covering spaces và Lie groups.
+Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa tác động nhóm, quỹ đạo (orbit), nhóm ổn định hóa (stabilizer), định lý Quỹ đạo – Ổn định hóa, tác động tự do (free action), tác động gián đoạn thực sự (properly discontinuous action), miền cơ bản (fundamental domain) cùng các ứng dụng trong không gian phủ và nhóm Lie.
 
 ---
 
-## 🔄 Group Actions: Definition
+## 🔄 Định nghĩa tác động nhóm
 
-### 1. Basic Definition
+### 1. Định nghĩa cơ bản
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Group Action):**  
-Cho G group, X topological space.  
-**Left action** của G trên X là map:
+**Định nghĩa (Tác động nhóm):**  
+Cho $G$ là một nhóm (nhóm tô-pô hoặc nhóm rời rạc) và $X$ là không gian tô-pô. Một **tác động trái** (left action) của $G$ lên $X$ là một ánh xạ:
 
 $$
 G \times X \to X, \quad (g, x) \mapsto g \cdot x
 $$
 </div>
 
-satisfying:
+thỏa mãn hai tiên đề:
+- **(GA1) Phần tử đơn vị:** $e \cdot x = x$ với mọi $x \in X$ ($e$ là phần tử đơn vị của $G$).
+- **(GA2) Tính kết hợp:** $g \cdot (h \cdot x) = (gh) \cdot x$ với mọi $g, h \in G$ và $x \in X$.
 
-**(GA1) Identity:** e · x = x ∀x (e = identity của G)
+Tác động được gọi là **liên tục** nếu ánh xạ $G \times X \to X$ liên tục (với tô-pô tích trên $G \times X$).
 
-**(GA2) Compatibility:** g · (h · x) = (gh) · x ∀g, h ∈ G, x ∈ X
+Tương tự có thể định nghĩa tác động phải $x \cdot g$ thỏa mãn $x \cdot e = x$ và $x \cdot (gh) = (x \cdot g) \cdot h$; trong bài này ta quy ước dùng tác động trái.
 
-**Continuous action:** Map G × X → X continuous (với product topology trên G × X).
-
----
-
-**Right action:** x · g satisfying xe = x, x(gh) = (xg)h.
-
-**Convention:** Chúng ta dùng left actions.
+**Cách nhìn tương đương (khi $G$ rời rạc):** Một tác động liên tục của $G$ lên $X$ tương ứng với một đồng cấu nhóm $\varphi: G \to \operatorname{Homeo}(X)$, trong đó $\varphi(g)(x) = g \cdot x$.
 
 ---
 
-**Alternative notation:**  
-Action = group homomorphism φ: G → Homeo(X).
+### 2. Các ví dụ
 
-**φ(g) = permutation của X induced by g.**
-
-**Equivalent definitions.**
-
----
-
-### 2. Examples
-
-**Example 1: Rotation Action**
-
-G = S¹ = {e^(iθ) : θ ∈ [0, 2π)}.  
-X = ℂ.  
-Action: e^(iθ) · z = e^(iθ) z (multiply).
-
-**Geometric:** Rotate plane by angle θ.
-
-**Continuous:** ✓
+- **Ví dụ 1 (Phép quay):** $G = S^1 = \{e^{i\theta} : \theta \in [0, 2\pi)\}$ tác động lên $X = \mathbb{C}$ bởi $e^{i\theta} \cdot z = e^{i\theta} z$. Đây là tác động liên tục quay mặt phẳng phức một góc $\theta$.
+- **Ví dụ 2 (Phép tịnh tiến):** $G = \mathbb{Z}$ tác động lên $X = \mathbb{R}$ bởi $n \cdot x = x + n$. Không gian quỹ đạo là $\mathbb{R}/\mathbb{Z} \cong S^1$.
+- **Ví dụ 3 (Phép đối cực):** $G = \mathbb{Z}/2\mathbb{Z} = \{0, 1\}$ tác động lên $X = S^n$ bởi $0 \cdot x = x$ và $1 \cdot x = -x$. Không gian quỹ đạo là $S^n/(\mathbb{Z}/2\mathbb{Z}) \cong \mathbb{R}P^n$.
+- **Ví dụ 4 (Tác động tuyến tính):** $G = GL_n(\mathbb{R})$ tác động lên $X = \mathbb{R}^n$ bởi phép nhân ma trận $A \cdot x = Ax$.
+- **Ví dụ 5 (Phép biến đổi phủ – Deck Transformations):** Với không gian phủ $p: \tilde{X} \to X$, nhóm các tự đồng phôi phủ $G = \operatorname{Aut}(\tilde{X}/X)$ tác động tự nhiên lên $\tilde{X}$.
 
 ---
 
-**Example 2: Translation Action**
+## 🎯 Quỹ đạo và Nhóm ổn định hóa
 
-G = ℤ.  
-X = ℝ.  
-Action: n · x = x + n.
-
-**Geometric:** Translate by integer.
-
-**Quotient:** ℝ/ℤ ≅ S¹ (circle). ✓
-
----
-
-**Example 3: Antipodal Action**
-
-G = ℤ/2ℤ = {0, 1}.  
-X = S^n.  
-Action: 0 · x = x, 1 · x = -x (antipodal).
-
-**Quotient:** S^n / (ℤ/2ℤ) = ℝP^n (projective space). ✓
-
----
-
-**Example 4: Matrix Action**
-
-G = GL_n(ℝ) (invertible matrices).  
-X = ℝⁿ.  
-Action: A · x = Ax (matrix multiplication).
-
-**Linear action.**
-
----
-
-**Example 5: Covering Space Deck Transformations**
-
-X̃ → X covering space.  
-G = group của deck transformations (covering automorphisms).
-
-**Action:** G acts trên X̃.
-
-**Quotient:** X̃/G = X (often). ✓
-
----
-
-## 🎯 Orbits và Stabilizers
-
-### 1. Orbits
+### 1. Quỹ đạo (Orbits)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Orbit):**  
-Orbit của x ∈ X:
+**Định nghĩa (Quỹ đạo):**  
+Quỹ đạo của điểm $x \in X$ dưới tác động của $G$ là tập con:
 
 $$
 G \cdot x = \{g \cdot x : g \in G\} \subseteq X
 $$
 </div>
 
-**Trực giác:** All points reachable từ x by group action.
+Quỹ đạo $G \cdot x$ gồm tất cả các điểm mà $x$ có thể đi tới dưới tác động của các phần tử trong $G$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Proposition:**  
-Orbits partition X:
-- X = ⋃ orbits (cover)
-- Orbits disjoint or identical
+**Mệnh đề:**  
+Các quỹ đạo tạo thành một phân hoạch của $X$: mọi điểm thuộc một quỹ đạo, và hai quỹ đạo bất kỳ hoặc trùng nhau hoặc rời nhau.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Define equivalence relation x ~ y ⟺ ∃g: y = g · x. ✓
+**Chứng minh:** Xác định quan hệ tương đương $x \sim y \iff \exists g \in G: y = g \cdot x$; các lớp tương đương chính là các quỹ đạo.
 </div>
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Orbit Space):**  
-**Orbit space** (hay **quotient by group action**):
+**Định nghĩa (Không gian quỹ đạo):**  
+**Không gian quỹ đạo** (hay thương theo tác động nhóm) là tập các quỹ đạo:
 
 $$
 X/G = \{G \cdot x : x \in X\} = \text{set of orbits}
 $$
 </div>
 
-**Quotient topology:** U ⊆ X/G open ⟺ π^(-1)(U) open trong X.
+Không gian $X/G$ được trang bị tô-pô thương cảm sinh bởi ánh xạ chiếu $\pi: X \to X/G$, $\pi(x) = G \cdot x$ (tức $U \subseteq X/G$ mở $\iff \pi^{-1}(U)$ mở trong $X$). Lưu ý rằng ánh xạ chiếu $\pi: X \to X/G$ luôn là **ánh xạ mở**, vì với mọi tập mở $V \subseteq X$, $\pi^{-1}(\pi(V)) = \bigcup_{g \in G} g \cdot V$ là hợp của các tập mở nên mở trong $X$.
 
-**Projection:** π: X → X/G, π(x) = G · x.
-
----
-
-**Examples:**
-
-**Example 1:** ℝ/ℤ = S¹.  
-Orbits: {x + n : n ∈ ℤ}.
-
-**Example 2:** S^n / (ℤ/2ℤ) = ℝP^n.  
-Orbits: {x, -x}.
+**Ví dụ:**
+- Trong $\mathbb{R}/\mathbb{Z} \cong S^1$, mỗi quỹ đạo có dạng $\{x + n : n \in \mathbb{Z}\}$.
+- Trong $S^n/(\mathbb{Z}/2\mathbb{Z}) \cong \mathbb{R}P^n$, mỗi quỹ đạo là một cặp điểm đối cực $\{x, -x\}$.
 
 ---
 
-### 2. Stabilizers
+### 2. Nhóm ổn định hóa (Stabilizers)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Stabilizer):**  
-**Stabilizer** (hay **isotropy group**) của x:
+**Định nghĩa (Nhóm ổn định hóa):**  
+**Nhóm ổn định hóa** (stabilizer hay isotropy group) của điểm $x \in X$ là tập hợp:
 
 $$
 G_x = \{g \in G : g \cdot x = x\} \subseteq G
 $$
 </div>
 
-**Trực giác:** Subgroup của G fixing x.
+Đây là tập các phần tử của $G$ giữ cố định điểm $x$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Proposition:** G_x subgroup của G.
+**Mệnh đề:** $G_x$ là một nhóm con của $G$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify closed under multiplication, inverses. ✓
+**Chứng minh:** Kiểm tra trực tiếp $e \in G_x$, và $G_x$ đóng dưới phép nhân cũng như lấy nghịch đảo.
 </div>
 
 ---
 
-**Orbit-Stabilizer Theorem:**
-
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Bijection:
+**Định lý (Định lý Quỹ đạo – Ổn định hóa):**  
+Tồn tại một song ánh tự nhiên giữa tập các lớp ghép trái $G/G_x$ và quỹ đạo $G \cdot x$:
 
 $$
 G/G_x \leftrightarrow G \cdot x
 $$
 </div>
 
-(G/G_x = left cosets của G_x.)
-
-**Formula:** |G · x| = |G| / |G_x| (if finite).
+Nếu $G$ hữu hạn, ta có công thức $|G \cdot x| = |G| / |G_x|$.
 
 <div class="textbook-proof" markdown="1">
-**Proof:** gG_x ↔ g · x well-defined bijection. ✓
+**Chứng minh:** Ánh xạ $gG_x \mapsto g \cdot x$ xác định tốt và là một song ánh.
 </div>
 
----
-
-**Examples:**
-
-**Example 1:** S¹ acts trên ℂ by rotation.  
-Stabilizer của 0: entire S¹ (all rotations fix origin).  
-Stabilizer của z ≠ 0: {e} (only identity).
-
-**Example 2:** SO(3) acts trên S² (sphere).  
-Stabilizer của north pole: SO(2) (rotations around axis).
+**Ví dụ:**
+- $S^1$ tác động lên $\mathbb{C}$ bằng phép quay: $G_0 = S^1$ (mọi phép quay đều giữ cố định gốc tọa độ), còn với $z \neq 0$ thì $G_z = \{1\}$.
+- $SO(3)$ tác động lên $S^2$: nhóm ổn định hóa của cực bắc là $SO(2)$ (các phép quay quanh trục $Oz$).
 
 ---
 
-## 🌀 Free Actions và Properly Discontinuous
+## 🌀 Tác động tự do và Tác động gián đoạn thực sự
 
-### 1. Free Actions
+### 1. Tác động tự do (Free Actions)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Free Action):**  
-Action **free** nếu G_x = {e} ∀x ∈ X.
+**Định nghĩa (Tác động tự do):**  
+Tác động của $G$ lên $X$ được gọi là **tự do** (free) nếu $G_x = \{e\}$ với mọi $x \in X$.
 </div>
 
-**Nói bằng lời:** No non-identity element fixes any point.
+Nói cách khác, không có phần tử nào khác $e$ cố định bất kỳ điểm nào của $X$: nếu $g \cdot x = x$ với một điểm $x$ nào đó thì $g = e$.
 
-**Equivalent:** g · x = x ⇒ g = e.
+**Ví dụ tự do:**
+- $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng phép tịnh tiến,
+- $\mathbb{Z}/2\mathbb{Z}$ tác động lên toàn bộ $S^n$ bằng phép đối cực $x \mapsto -x$ (vì $-x \neq x$ với mọi $x \in S^n$).
+
+**Ví dụ không tự do:**
+- $S^1$ tác động lên $\mathbb{C}$ (gốc $0$ là điểm cố định),
+- $SO(3)$ tác động lên $\mathbb{R}^3$ (gốc $0$ là điểm cố định).
 
 ---
 
-**Examples:**
-
-**Free:**
-- ℤ acts trên ℝ by translation ✓
-- ℤ/2ℤ acts trên S^n \ {poles} (antipodal, excluding fixed points) ✓
-
-**NOT Free:**
-- S¹ acts trên ℂ (origin fixed by all) ✗
-- SO(3) acts trên ℝ³ (origin fixed) ✗
-
----
-
-<div class="textbook-theorem" markdown="1">
-**Theorem (Free ⇒ Covering):**  
-G discrete, acts freely và properly discontinuously trên X simply connected, Hausdorff ⇒ π: X → X/G covering map.
-</div>
-
-<div class="textbook-proof" markdown="1">
-**Proof:** See covering space theory. ✓
-</div>
-
-**Application:** ℝ → S¹ covering (ℤ acts freely).
-
----
-
-### 2. Properly Discontinuous Actions
+### 2. Tác động không gian phủ / Gián đoạn thực sự
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Properly Discontinuous):**  
-Action **properly discontinuous** nếu ∀x ∈ X: ∃ neighborhood U của x:
+**Định nghĩa (Tác động không gian phủ / Properly Discontinuous theo nghĩa Hatcher):**  
+Tác động của nhóm rời rạc $G$ lên $X$ thỏa mãn điều kiện **tác động không gian phủ** (thường gọi là *properly discontinuous* trong một số giáo trình) nếu với mọi $x \in X$, tồn tại lân cận mở $U$ của $x$ sao cho:
 
 $$
 g \cdot U \cap U \neq \emptyset \implies g = e
 $$
 </div>
 
-**Trực giác:** Orbits "spread out"—locally finite.
+Lưu ý rằng điều kiện trên tự động kéo theo tác động là tự do. Trong ngữ cảnh không gian Hausdorff compact địa phương, một khái niệm liên quan là tác động **thực sự** (proper): với mọi cặp tập compact $K, L \subseteq X$, tập $\{g \in G : gK \cap L \neq \emptyset\}$ là hữu hạn.
 
-**Equivalent (for locally compact Hausdorff):** ∀ compact K, L: {g : gK ∩ L ≠ ∅} finite.
+**Ví dụ thỏa mãn:**
+- $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng phép tịnh tiến,
+- $\mathbb{Z}/2\mathbb{Z}$ tác động lên $S^n$ bằng phép đối cực,
+- $\mathbb{Z}^2$ tác động lên $\mathbb{R}^2$ bằng phép tịnh tiến theo mạng nguyên.
 
----
-
-**Examples:**
-
-**Properly discontinuous:**
-- ℤ acts trên ℝ ✓ (translates disjoint locally)
-- ℤ/2ℤ acts trên S^n (antipodal) ✓
-- ℤ² acts trên ℝ² (lattice) ✓
-
-**NOT Properly discontinuous:**
-- ℚ acts trên ℝ (dense orbits) ✗
-- S¹ acts trên ℂ (orbits circles, not discrete) ✗
+**Ví dụ không thỏa mãn:**
+- $\mathbb{Q}$ tác động lên $\mathbb{R}$ bằng phép cộng (các quỹ đạo trù mật),
+- $S^1$ tác động lên $\mathbb{C}$ (quỹ đạo là đường tròn liên tục, không rời rạc).
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Nice Quotients):**  
-G acts properly discontinuously trên Hausdorff X ⇒ X/G Hausdorff.
+**Định lý (Phép chiếu phủ):**  
+Nếu nhóm rời rạc $G$ tác động lên $X$ thỏa mãn điều kiện tác động không gian phủ ($gU \cap U = \emptyset$ với mọi $g \neq e$), thì ánh xạ chiếu $\pi: X \to X/G$ là một **ánh xạ phủ** (covering map). Đặc biệt, nếu $X$ đơn liên và liên thông đường địa phương thì $X$ là không gian phủ phổ dụng của $X/G$ và $\pi_1(X/G) \cong G$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Properly discontinuous ⇒ can separate orbits. ✓
-</div>
-
-<div class="textbook-theorem" markdown="1">
-**Corollary:** ℝ/ℤ, S^n/(ℤ/2ℤ) Hausdorff. ✓
+**Chứng minh:** Với lân cận $U$ như định nghĩa, $\pi(U)$ mở trong $X/G$ và $\pi^{-1}(\pi(U)) = \bigsqcup_{g \in G} g \cdot U$ là hợp rời các tập mở, mỗi tập được $\pi$ ánh xạ đồng phôi lên $\pi(U)$.
 </div>
 
 ---
 
-## 🎭 Applications
-
-### 1. Covering Spaces
-
-**Connection:** Covering space theory = special case group actions.
-
-**Setup:** p: X̃ → X covering space.  
-**Deck transformation group:** Aut(X̃/X) = {f: X̃ → X̃ homeomorphism : p ∘ f = p}.
-
-**G = Aut(X̃/X) acts trên X̃.**
-
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-X̃ path-connected, locally path-connected, X path-connected ⇒ X̃/G ≅ X.
+**Định lý (Không gian quỹ đạo Hausdorff):**  
+Nếu $G$ tác động thực sự (proper) lên không gian Hausdorff compact địa phương $X$ (chẳng hạn $G$ hữu hạn hoặc tác động tịnh tiến của mạng rời rạc $\mathbb{Z}^n$ trên $\mathbb{R}^n$), thì không gian quỹ đạo $X/G$ là không gian Hausdorff.
 </div>
 
-**Special case:** X̃ universal cover, G = π₁(X) ⇒ X̃/π₁(X) = X. ✓
+<div class="textbook-proof" markdown="1">
+**Chứng minh:** Tính thực sự của tác động đảm bảo đồ thị quan hệ tương đương đóng trong $X \times X$, kết hợp với việc $\pi$ là ánh xạ mở suy ra $X/G$ Hausdorff.
+</div>
 
-**Example:** ℝ universal cover S¹, ℤ = π₁(S¹) acts by translation, ℝ/ℤ = S¹. ✓
+**Hệ quả:** $\mathbb{R}/\mathbb{Z} \cong S^1$ và $S^n/(\mathbb{Z}/2\mathbb{Z}) \cong \mathbb{R}P^n$ đều là không gian Hausdorff.
 
 ---
 
-### 2. Fundamental Domain
+## 🎭 Các ứng dụng chính
+
+### 1. Không gian phủ (Covering Spaces)
+
+Cho không gian phủ $p: \tilde{X} \to X$. Nhóm các **phép biến đổi phủ** (deck transformations) là:
+$G = \operatorname{Aut}(\tilde{X}/X) = \{f: \tilde{X} \to \tilde{X} \text{ đồng phôi} : p \circ f = p\}$.
+
+<div class="textbook-theorem" markdown="1">
+**Định lý:**  
+Nếu $p: \tilde{X} \to X$ là một không gian phủ **chuẩn tắc** (normal/regular, chẳng hạn phủ phổ dụng với $\tilde{X}$ đơn liên), trong đó $\tilde{X}$ liên thông đường và liên thông đường địa phương, thì $\tilde{X}/G \cong X$.
+</div>
+
+Đặc biệt, khi $\tilde{X}$ là phủ phổ dụng của $X$, ta có $G \cong \pi_1(X)$ và $\tilde{X}/\pi_1(X) \cong X$. Chẳng hạn $\mathbb{R}$ là phủ phổ dụng của $S^1$, $G = \mathbb{Z} = \pi_1(S^1)$ tác động bằng phép tịnh tiến và $\mathbb{R}/\mathbb{Z} \cong S^1$.
+
+---
+
+### 2. Miền cơ bản (Fundamental Domain)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Fundamental Domain):**  
-**Fundamental domain** F ⊆ X cho action:
-- ⋃_{g∈G} g · F = X (cover)
-- g · int(F) ∩ int(F) = ∅ ∀g ≠ e (disjoint interiors)
+**Định nghĩa (Miền cơ bản):**  
+Tập con $F \subseteq X$ được gọi là một **miền cơ bản** cho tác động của $G$ trên $X$ nếu:
+- $\bigcup_{g \in G} g \cdot F = X$ (các ảnh của $F$ phủ toàn bộ $X$),
+- $g \cdot \operatorname{int}(F) \cap \operatorname{int}(F) = \emptyset$ với mọi $g \neq e$ (phần trong rời nhau).
 </div>
 
-**Trực giác:** "Representative piece"—mỗi orbit intersects F đúng một lần (roughly).
+Về trực quan, $F$ là một "mảnh đại diện" cắt mỗi quỹ đạo đúng một lần (trừ có thể ở biên).
 
----
-
-**Example 1: ℤ acts trên ℝ**
-
-Fundamental domain: [0, 1).  
-ℝ = ⋃_n [n, n+1).  
-Quotient ℝ/ℤ ≅ [0,1)/(0~1) = S¹. ✓
-
----
-
-**Example 2: ℤ² acts trên ℝ²**
-
-Fundamental domain: [0,1) × [0,1) (unit square).  
-Quotient: T² (torus). ✓
-
----
-
-**Example 3: Wallpaper Groups**
-
-17 wallpaper groups = symmetries of plane tilings.  
-Each has fundamental domain (tessellates plane).
+- **$\mathbb{Z}$ tác động lên $\mathbb{R}$:** Miền cơ bản đóng là $[0,1]$ (hoặc nửa mở $[0,1)$); thương $\mathbb{R}/\mathbb{Z} \cong [0,1]/(0 \sim 1) \cong S^1$.
+- **$\mathbb{Z}^2$ tác động lên $\mathbb{R}^2$:** Miền cơ bản là hình vuông đơn vị $[0,1]^2$; thương là hình xuyến $T^2$.
+- **Các nhóm giấy dán tường (Wallpaper Groups):** Có đúng $17$ nhóm đối xứng lát mặt phẳng Euclid; mỗi nhóm có một miền cơ bản lát kín mặt phẳng.
 
 ![Wallpaper group](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Wallpaper_group-p4m-2.jpg/400px-Wallpaper_group-p4m-2.jpg)  
-*Wallpaper group p4m - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wallpaper_group-p4m-2.jpg)*
+*Nhóm giấy dán tường p4m – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wallpaper_group-p4m-2.jpg)*
 
 ---
 
-### 3. Lie Group Actions
+### 3. Tác động nhóm Lie và Không gian thuần nhất
 
-**Lie groups:** Smooth groups (SO(n), U(n), SU(n), ...).
-
-**Actions trên manifolds:** Smooth actions.
-
-**Orbit space:** Often stratified space (not manifold).
-
-**Example:** SO(3) acts trên ℝ³.  
-Orbits: {0}, spheres S²_r.  
-Orbit space: [0, ∞) (radius).
-
----
-
-**Homogeneous Spaces:**
+Các **nhóm Lie** ($SO(n), U(n), SU(n), \ldots$) là những nhóm mang cấu trúc đa tạp trơn. Khi một nhóm Lie tác động trơn lên một đa tạp, không gian quỹ đạo thường là một không gian phân tầng (stratified space). Chẳng hạn, $SO(3)$ tác động lên $\mathbb{R}^3$ có quỹ đạo là gốc $\{0\}$ và các mặt cầu $S^2_r$ ($r > 0$), cho không gian quỹ đạo $[0, \infty)$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa:** M = G/H (quotient Lie group by closed subgroup).
+**Định nghĩa (Không gian thuần nhất – Homogeneous Space):**  
+Không gian thương $M = G/H$ của một nhóm Lie $G$ theo một nhóm con đóng $H \subseteq G$.
 </div>
 
-**Examples:**
-- S^n = SO(n+1) / SO(n)
-- ℝP^n = O(n+1) / (O(n) × O(1))
-- Grassmannians = G_k(ℝⁿ) = O(n) / (O(k) × O(n-k))
-
-**Applications:** Differential geometry, representation theory.
+**Ví dụ:**
+- $S^n \cong SO(n+1) / SO(n)$,
+- $\mathbb{R}P^n \cong O(n+1) / (O(n) \times O(1))$,
+- Đa tạp Grassmann $G_k(\mathbb{R}^n) \cong O(n) / (O(k) \times O(n-k))$.
 
 ---
 
-### 4. Orbit Types và Stratification
+### 4. Kiểu quỹ đạo và Phân tầng (Stratification)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Orbit Type):**  
-Points x, y same **orbit type** if G_x, G_y conjugate subgroups.
+**Định nghĩa (Kiểu quỹ đạo – Orbit Type):**  
+Hai điểm $x, y \in X$ có cùng **kiểu quỹ đạo** nếu nhóm ổn định hóa $G_x$ và $G_y$ là hai nhóm con liên hợp trong $G$.
 </div>
 
-**Stratification:** X decomposes into strata of same orbit type.
-
-**Example:** SO(3) trên ℝ³:
-- Stratum 1: {0} (stabilizer = SO(3))
-- Stratum 2: ℝ³ \ {0} (stabilizer = SO(2))
-
-**Applications:** Singularity theory, geometric analysis.
+Không gian $X$ được phân chia thành các tầng (strata) gồm các điểm có cùng kiểu quỹ đạo. Ví dụ với $SO(3)$ tác động trên $\mathbb{R}^3$:
+- Tầng 1: $\{0\}$ (ổn định hóa $SO(3)$),
+- Tầng 2: $\mathbb{R}^3 \setminus \{0\}$ (ổn định hóa liên hợp với $SO(2)$).
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển và tham khảo
 
-### Classic Works
+### Các công trình kinh điển
 
-1. **Felix Klein** - *"Erlanger Programm"* (1872)  
-   *Geometry = study của group actions*
+1. **Felix Klein** – *"Erlanger Programm"* (1872)  
+   *Quan điểm hình học là nghiên cứu các bất biến dưới tác động nhóm.*
 
-2. **Élie Cartan** - *Lie group theory* (early 20th century)
+2. **Élie Cartan** – *Lý thuyết nhóm Lie* (đầu thế kỷ 20)
 
-3. **Claude Chevalley** - *"Theory of Lie Groups"* (1946)
+3. **Claude Chevalley** – *"Theory of Lie Groups"* (1946)
 
-### Textbooks
+### Giáo trình
 
-4. **Allen Hatcher** - *Algebraic Topology*, **§1.3: Covering Spaces**  
-   *Deck transformations*
+4. **Allen Hatcher** – *Algebraic Topology*, **§1.3: Covering Spaces**
 
-5. **John M. Lee** - *Introduction to Smooth Manifolds*, **Chapter 21**  
-   *Lie group actions*
+5. **John M. Lee** – *Introduction to Smooth Manifolds*, **Chapter 21**
 
-6. **Glen E. Bredon** - *Introduction to Compact Transformation Groups* (1972)  
-   *Comprehensive theory*
+6. **Glen E. Bredon** – *Introduction to Compact Transformation Groups* (1972)
 
-7. **Tammo tom Dieck** - *Transformation Groups* (1987)
+7. **Tammo tom Dieck** – *Transformation Groups* (1987)
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### Algebraic Topology - Covering Spaces
-**Deck Transformations:** Universal cover X̃/π₁(X) = X.
+### Tô-pô đại số – Không gian phủ
+Phủ phổ dụng cho biểu diễn $X \cong \tilde{X}/\pi_1(X)$.
 
-### Differential Geometry - Homogeneous Spaces
-**Lie Groups:** Spheres, projective spaces, Grassmannians = G/H.
+### Hình học vi phân – Không gian thuần nhất
+Mặt cầu, không gian xạ ảnh và đa tạp Grassmann đều có dạng $G/H$.
 
-### Physics - Gauge Theory
-**Principal Bundles:** Quotient by gauge group. Yang-Mills theory.
+### Vật lý – Lý thuyết chuẩn
+Phân thớ chính và lý thuyết Yang–Mills mô tả các trường vật lý qua phép lấy thương theo nhóm chuẩn.
 
-### Crystallography
-**Space Groups:** Symmetries of crystals. 230 types in 3D.
+### Tinh thể học
+Các nhóm không gian mô tả đối xứng tinh thể (gồm $230$ kiểu trong không gian $3$ chiều).
 
-### Dynamics - Symmetry Reduction
-**Hamiltonian Systems:** Quotient by symmetry group (symplectic reduction).
+### Hệ động lực – Rút gọn đối xứng
+Hệ Hamilton sử dụng phép lấy thương theo nhóm đối xứng (rút gọn symplectic).
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [7.06 Group actions and covering spaces, 1](https://www.youtube.com/watch?v=slLVD9cXryo) — Jonathan Evans, tiếng Anh. Tác động nhóm và không gian phủ, cầu nối giữa quỹ đạo và thương ở bài này.
-- [Galois Coverings are precisely Quotients by Properly Discontinuous Free Actions](https://www.youtube.com/watch?v=RvooRyHHXAo) — nptelhrd, tiếng Anh. Tác động tự do, gián đoạn đúng mức, cho một thương là phủ Galois, đúng định lý của bài.
-- [10. Covering Space Actions; the idea of Homology - Pierre Albin](https://www.youtube.com/watch?v=KudAvmWUx8s) — Mat Neth, tiếng Anh. Pierre Albin nói về tác động của nhóm phủ, nửa sau gần với biến đổi deck.
+- **xem trước** [7.06 Group actions and covering spaces, 1](https://www.youtube.com/watch?v=slLVD9cXryo) — Jonathan Evans, tiếng Anh. Trình bày mối liên hệ giữa tác động nhóm, không gian quỹ đạo và không gian phủ.
+- [Galois Coverings are precisely Quotients by Properly Discontinuous Free Actions](https://www.youtube.com/watch?v=RvooRyHHXAo) — nptelhrd, tiếng Anh. Phân tích mối liên hệ giữa phủ Galois và thương bởi tác động tự do, gián đoạn thực sự.
+- [10. Covering Space Actions; the idea of Homology - Pierre Albin](https://www.youtube.com/watch?v=KudAvmWUx8s) — Mat Neth, tiếng Anh. Bài giảng của Pierre Albin về tác động không gian phủ và phép biến đổi phủ.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Group Actions
+### Tác động nhóm
 
-1. **Verify Action:**  
-   ℤ acts trên ℝ by n · x = x + n. Verify axioms (GA1), (GA2).
+1. **Kiểm tra tác động:**  
+   $\mathbb{Z}$ tác động lên $\mathbb{R}$ bởi $n \cdot x = x + n$. Kiểm tra hai tiên đề (GA1) và (GA2).
 
-2. **Rotation:**  
-   S¹ acts trên ℂ by e^(iθ) · z = e^(iθ)z. Continuous?
+2. **Phép quay:**  
+   $S^1$ tác động lên $\mathbb{C}$ bởi $e^{i\theta} \cdot z = e^{i\theta}z$. Kiểm tra tính liên tục của tác động này.
 
-3. **Matrix Action:**  
-   GL₂(ℝ) acts trên ℝ². Verify action axioms.
+3. **Tác động ma trận:**  
+   $GL_2(\mathbb{R})$ tác động lên $\mathbb{R}^2$. Kiểm tra các tiên đề tác động nhóm.
 
-### Orbits
+### Quỹ đạo
 
-4. **Compute Orbits:**  
-   ℤ acts trên ℝ. Orbit của π = ?
+4. **Tính quỹ đạo:**  
+   Với $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng phép tịnh tiến, quỹ đạo của $\pi$ là gì?
 
-5. **Antipodal:**  
-   ℤ/2ℤ acts trên S². Orbits = ?
+5. **Tác động đối cực:**  
+   Với $\mathbb{Z}/2\mathbb{Z}$ tác động lên $S^2$ bằng phép đối cực, mô tả các quỹ đạo.
 
-6. **Partition:**  
-   Prove orbits partition space X.
+6. **Phân hoạch:**  
+   Chứng minh các quỹ đạo phân hoạch không gian $X$.
 
-### Stabilizers
+### Nhóm ổn định hóa
 
-7. **Compute Stabilizer:**  
-   S¹ acts trên ℂ by rotation. Stabilizer của 0? Của 1?
+7. **Tính nhóm ổn định hóa:**  
+   Với $S^1$ tác động lên $\mathbb{C}$ bằng phép quay, tìm nhóm ổn định hóa của $0$ và của $1$.
 
-8. **Orbit-Stabilizer:**  
-   Verify |G · x| · |G_x| = |G| cho finite G.
+8. **Định lý Quỹ đạo – Ổn định hóa:**  
+   Kiểm chứng $|G \cdot x| \cdot |G_x| = |G|$ cho một nhóm hữu hạn $G$.
 
-9. **SO(3) Action:**  
-   SO(3) acts trên S². Stabilizer của north pole = ?
+9. **Tác động của $SO(3)$:**  
+   Với $SO(3)$ tác động lên $S^2$, tìm nhóm ổn định hóa của cực bắc.
 
-### Free Actions
+### Tác động tự do
 
-10. **Verify Free:**  
-    ℤ acts trên ℝ freely. Prove.
+10. **Kiểm tra tự do:**  
+    Chứng minh $\mathbb{Z}$ tác động tự do lên $\mathbb{R}$.
 
-11. **Not Free:**  
-    S¹ acts trên ℂ không free. Fixed point?
+11. **Không tự do:**  
+    Chứng minh $S^1$ tác động lên $\mathbb{C}$ không tự do và chỉ ra điểm cố định.
 
-12. **Covering:**  
-    ℝ → S¹. ℤ acts freely, quotient = S¹. Verify covering map.
+12. **Ánh xạ phủ:**  
+    Kiểm tra ánh xạ thương $\mathbb{R} \to \mathbb{R}/\mathbb{Z} \cong S^1$ là một ánh xạ phủ.
 
-### Properly Discontinuous
+### Tác động gián đoạn thực sự
 
-13. **Verify PD:**  
-    ℤ acts trên ℝ properly discontinuously. Check definition.
+13. **Kiểm tra điều kiện:**  
+    Kiểm chứng $\mathbb{Z}$ tác động gián đoạn thực sự lên $\mathbb{R}$.
 
-14. **ℤ² Lattice:**  
-    ℤ² acts trên ℝ² by translation. Properly discontinuous? Quotient = ?
+14. **Mạng $\mathbb{Z}^2$:**  
+    $\mathbb{Z}^2$ tác động lên $\mathbb{R}^2$ bằng phép tịnh tiến có gián đoạn thực sự không? Không gian thương là gì?
 
-15. **Not PD:**  
-    ℚ acts trên ℝ không properly discontinuous. Why?
+15. **Không gián đoạn thực sự:**  
+    Giải thích vì sao tác động cộng của $\mathbb{Q}$ lên $\mathbb{R}$ không gián đoạn thực sự.
 
-### Fundamental Domain
+### Miền cơ bản
 
-16. **ℝ/ℤ:**  
-    Fundamental domain [0,1) cho ℤ action. Verify covering, disjoint interiors.
+16. **$\mathbb{R}/\mathbb{Z}$:**  
+    Kiểm tra $[0,1]$ (hoặc $[0,1)$) là miền cơ bản cho tác động của $\mathbb{Z}$ lên $\mathbb{R}$.
 
-17. **Torus:**  
-    ℤ² acts trên ℝ². Fundamental domain = unit square. Quotient T².
+17. **Hình xuyến:**  
+    Với $\mathbb{Z}^2$ tác động lên $\mathbb{R}^2$, giải thích vì sao hình vuông đơn vị là miền cơ bản và thương là $T^2$.
 
-18. **Wallpaper:**  
-    Research one wallpaper group. Fundamental domain?
+18. **Nhóm giấy dán tường:**  
+    Tìm hiểu một nhóm giấy dán tường và mô tả miền cơ bản của nó.
 
-### Applications
+### Ứng dụng
 
-19. **Covering Space:**  
-    ℝ² → T² covering. Deck transformation group = ℤ². Verify.
+19. **Không gian phủ của hình xuyến:**  
+    Với ánh xạ phủ $\mathbb{R}^2 \to T^2$, kiểm chứng nhóm các phép biến đổi phủ là $\mathbb{Z}^2$.
 
-20. **Homogeneous Space:**  
-    S^n = SO(n+1)/SO(n). Explain construction.
-
----
-
-## 📚 Further Reading
-
-- **Lee, Smooth Manifolds:** Chapter 21 (Lie group actions)
-- **Hatcher, Algebraic Topology:** §1.3 (Deck transformations)
-- **Bredon, Transformation Groups:** Comprehensive theory
-- **Armstrong:** *Groups and Symmetry* (Elementary introduction)
+20. **Không gian thuần nhất:**  
+    Giải thích đồng phôi $S^n \cong SO(n+1)/SO(n)$.
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-Trong bài học này, chúng ta đã khám phá **group actions** và **orbit spaces**—các công cụ mạnh mẽ để nghiên cứu đối xứng trong topology. Một group action là một ánh xạ $G \times X \to X$ thỏa mãn các điều kiện identity và compatibility—mỗi phần tử của nhóm tương ứng với một đối xứng của không gian. Các orbits $G \cdot x = \{g \cdot x : g \in G\}$ phân chia không gian $X$ thành các lớp tương đương, và orbit space $X/G$ là không gian của các orbits với quotient topology. Các stabilizers $G_x = \{g : g \cdot x = x\}$ là các nhóm con của $G$ cố định điểm $x$, và định lý Orbit-Stabilizer cho chúng ta biết về mối quan hệ giữa orbits và stabilizers. Free actions là các actions không có điểm cố định—không có phần tử nào khác identity cố định bất kỳ điểm nào. Properly discontinuous actions là các actions mà các orbits được "trải ra" một cách địa phương—chúng tạo ra các quotient tốt. Các ứng dụng quan trọng bao gồm covering spaces (nơi $\pi: \tilde{X} \to X$ và $G = \pi_1(X)$), và Lie groups (nơi các homogeneous spaces $G/H$ xuất hiện tự nhiên).
-
-Điểm chính của bài học là group actions chính thức hóa đối xứng—chúng cho phép chúng ta nghiên cứu các đối xứng của các không gian một cách có hệ thống. Orbit space là quotient bởi action—chúng ta đồng nhất các điểm trong cùng một orbit. Free actions kết hợp với properly discontinuous actions dẫn đến covering spaces—đây là một kết nối sâu sắc giữa group actions và covering spaces. Fundamental domain là một "mảnh đại diện"—mỗi orbit giao với fundamental domain đúng một lần, cho phép chúng ta hình dung quotient một cách trực quan. Các ứng dụng rộng rãi bao gồm covering spaces, Lie groups, và crystallography—group actions xuất hiện ở khắp nơi trong toán học và vật lý.
-
-Trực giác hình học đằng sau các ví dụ quan trọng là: $\mathbb{Z}$ tác động lên $\mathbb{R}$ bằng translation dẫn đến $\mathbb{R}/\mathbb{Z} = S^1$ (hình tròn), $\mathbb{Z}/2\mathbb{Z}$ tác động lên $S^n$ bằng antipodal map dẫn đến $\mathbb{R}P^n$ (không gian projective), các deck transformations của covering spaces là các ví dụ tự nhiên của group actions, và các homogeneous spaces $G/H$ xuất hiện trong nhiều bối cảnh hình học.
-
-Trong thực tế, chúng ta tính toán orbits và stabilizers để hiểu cách group action phân chia không gian. Chúng ta kiểm tra tính free và properly discontinuous để đảm bảo các quotient tốt—các tính chất này đảm bảo rằng orbit space có các tính chất tô-pô tốt. Fundamental domain giúp chúng ta hình dung quotient một cách trực quan—nó cho chúng ta một cách để "nhìn thấy" orbit space. Covering spaces là trường hợp đặc biệt của group actions—chúng ta có thể hiểu covering spaces thông qua group actions của deck transformation group.
-
-**Chapter 05 hoàn thành!** Quotient topology, surfaces, CW complexes, và group actions đã được nắm vững!
-
-**Tiếp theo:** Chapter 06 về **Fundamental Group và Covering Spaces**—tô-pô học đại số bắt đầu!
+- **Lee, Smooth Manifolds:** Chapter 21 (Tác động nhóm Lie)
+- **Hatcher, Algebraic Topology:** §1.3 (Phép biến đổi phủ)
+- **Bredon, Transformation Groups**
+- **Armstrong:** *Groups and Symmetry*
 
 ---
 
-*"Symmetry is the harmony of mathematics."* — Klein's vision
+## 🎓 Tóm tắt
 
-🎯 **Master group actions! They reveal hidden symmetries.** 🎯
+Trong bài học này, chúng ta đã tìm hiểu tác động nhóm và không gian quỹ đạo. Một tác động của nhóm $G$ lên $X$ phân hoạch $X$ thành các quỹ đạo $G \cdot x$, tạo nên không gian thương $X/G$ cùng nhóm ổn định hóa $G_x$ liên hệ qua định lý Quỹ đạo – Ổn định hóa. Tác động tự do và tác động không gian phủ (gián đoạn thực sự) sinh ra các ánh xạ phủ $\pi: X \to X/G$ và kết nối trực tiếp với nhóm phép biến đổi phủ, miền cơ bản, cũng như các không gian thuần nhất $G/H$ của nhóm Lie.
+
+**Hoàn thành Chapter 05.** Chúng ta đã nắm được các công cụ xây dựng không gian qua phép lấy thương: tô-pô thương, phân loại mặt đóng, phức CW và không gian quỹ đạo.
+
+**Tiếp theo:** Chapter 06 về **Nhóm cơ bản và Không gian phủ** — mở đầu cho tô-pô đại số.
+
+---
+
+*"Symmetry is the harmony of mathematics."*
 
 ---
 
 **Previous:** [Lecture 05.02: CW Complexes](/contents/vi/topology-chapter05/05_02_CW_Complexes/)  
 **Next Chapter:** [Chapter 06: Fundamental Group and Covering Spaces](/contents/vi/topology-chapter06/)
-

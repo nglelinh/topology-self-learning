@@ -10,59 +10,46 @@ tags: [four-color-theorem, bản-đồ, topology, graph-theory]
 description: "Khám phá định lý bốn màu - một trong những định lý nổi tiếng nhất trong toán học, và cách nó liên quan đến topology và graph theory"
 ---
 
-
-**Định Lý Toán Học Nổi Tiếng Và Ứng Dụng Thực Tế**
+**Định lý tô màu bản đồ và vai trò của đồ thị phẳng**
 
 ---
 
 ## 📖 Tổng quan
 
-Bạn đã bao giờ nhận thấy rằng khi tô màu một bản đồ, bạn chỉ cần tối đa bốn màu để đảm bảo rằng không có hai quốc gia nào có chung biên giới lại có cùng màu? Điều này có vẻ đơn giản, nhưng đây thực sự là một trong những bài toán khó nhất và nổi tiếng nhất trong lịch sử toán học!
+Khi tô màu một bản đồ hành chính, chỉ cần tối đa bốn màu là đủ để không có hai vùng nào có chung đường biên giới lại trùng màu nhau. Phát biểu nghe rất giản dị, nhưng đây lại là một trong những bài toán tồn tại lâu năm và khó chứng minh nhất trong lịch sử toán học.
 
-**Định lý Bốn Màu** (Four Color Theorem) phát biểu rằng: *Bất kỳ bản đồ phẳng nào cũng có thể được tô bằng bốn màu sao cho không có hai quốc gia nào có chung biên giới lại có cùng màu.*
+**Định lý Bốn màu** (Four Color Theorem) khẳng định: *Mọi bản đồ trên mặt phẳng (hoặc trên mặt cầu) đều có thể được tô bằng tối đa bốn màu sao cho hai vùng có chung một đoạn biên giới luôn khác màu nhau.*
 
-Nghe có vẻ đơn giản? Nhưng bài toán này đã làm đau đầu các nhà toán học trong hơn một thế kỷ! Được đề xuất lần đầu tiên vào năm 1852 bởi Francis Guthrie, một sinh viên đại học, bài toán này đã không được chứng minh cho đến năm 1976—hơn 120 năm sau!
+Bài toán được Francis Guthrie nêu ra năm 1852 nhưng phải đến năm 1976 — hơn 120 năm sau — mới được chứng minh hoàn chỉnh. Đáng chú ý, đây là định lý lớn đầu tiên có phần chứng minh phụ thuộc vào kiểm tra bằng máy tính trên hàng nghìn cấu hình, làm dấy lên cuộc thảo luận kéo dài về tiêu chuẩn của một chứng minh toán học.
 
-Điều đặc biệt là chứng minh cuối cùng được thực hiện bằng máy tính—đây là một trong những chứng minh toán học đầu tiên sử dụng máy tính một cách quan trọng. Chứng minh này đã kiểm tra hàng nghìn trường hợp và gây ra nhiều tranh cãi trong cộng đồng toán học về việc liệu một chứng minh bằng máy tính có được coi là "chứng minh" thực sự hay không.
-
-Trong bài học này, chúng ta sẽ khám phá định lý Bốn Màu một cách chi tiết: lịch sử của bài toán, tại sao nó lại khó đến vậy, cách chứng minh bằng máy tính hoạt động, và các ứng dụng thực tế của nó trong cuộc sống hàng ngày.
+Trong bài học này, chúng ta sẽ tìm hiểu phát biểu chính xác của định lý Bốn màu, lịch sử chứng minh, mối liên hệ với tô-pô đồ thị phẳng và các ứng dụng thực tế của bài toán tô màu đồ thị.
 
 ![Four color map](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/4-colour_problem.png/500px-4-colour_problem.png)  
 *Bản đồ được tô bằng bốn màu - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:4-colour_problem.png)*
 
-**Tại sao đây là kiến thức quan trọng?** Định lý Bốn Màu là một ví dụ tuyệt vời về cách topology và graph theory có thể giải quyết các vấn đề thực tế. Nó cũng minh họa cách toán học hiện đại sử dụng máy tính để chứng minh các định lý phức tạp, mở ra một kỷ nguyên mới trong toán học.
+**Vì sao kiến thức này quan trọng?** Định lý Bốn màu gắn kết chặt chẽ tô-pô của mặt phẳng với lý thuyết đồ thị, đồng thời mở ra hướng ứng dụng rộng rãi của bài toán tô màu đồ thị trong lập lịch, phân bổ tài nguyên và thiết kế trình biên dịch.
 
 ---
 
-## 🗺️ Bài Toán Tô Màu Bản Đồ
+## 🗺️ Bài toán tô màu bản đồ
 
-### Câu hỏi ban đầu
+### Câu hỏi khởi nguồn
 
-Năm 1852, Francis Guthrie, một sinh viên đại học ở London, đang tô màu bản đồ các quận của nước Anh. Ông nhận thấy rằng chỉ cần bốn màu là đủ để đảm bảo rằng không có hai quận nào có chung biên giới lại có cùng màu.
-
-Câu hỏi tự nhiên nảy sinh: **Liệu điều này có đúng cho mọi bản đồ không?**
-
-Guthrie đã hỏi giáo sư của mình, Augustus De Morgan, người đã viết thư cho nhà toán học nổi tiếng William Rowan Hamilton. Mặc dù Hamilton không quan tâm lắm, nhưng bài toán đã lan truyền và trở thành một trong những bài toán nổi tiếng nhất trong toán học.
+Năm 1852, khi đang tô màu bản đồ các hạt của nước Anh, Francis Guthrie nhận thấy bốn màu là đủ để các hạt tiếp giáp nhau không bị trùng màu. Ông đặt câu hỏi liệu điều này có đúng với mọi bản đồ hay không và nhờ em trai hỏi giáo sư Augustus De Morgan. De Morgan gửi bài toán cho William Rowan Hamilton, và từ đó giả thuyết bốn màu lan rộng trong giới toán học.
 
 ### Phát biểu chính xác
 
-**Định lý Bốn Màu:** Bất kỳ bản đồ phẳng nào cũng có thể được tô bằng bốn màu sao cho không có hai quốc gia nào có chung biên giới lại có cùng màu.
+**Định lý Bốn màu:** Mọi bản đồ vẽ trên mặt phẳng (với mỗi vùng là một miền liên thông) đều có thể được tô bằng không quá bốn màu sao cho không có hai vùng nào có chung một đoạn biên giới lại mang cùng một màu.
 
-**Các điều kiện quan trọng:**
+**Các điều kiện cần lưu ý:**
 
-1. **Bản đồ phẳng:** Bản đồ được vẽ trên một mặt phẳng (không phải trên một hình cầu hoặc torus)
-2. **Chung biên giới:** Hai quốc gia được coi là "chung biên giới" nếu chúng có một đoạn biên giới chung (không chỉ là một điểm)
-3. **Bốn màu:** Chỉ cần tối đa bốn màu—có thể ít hơn, nhưng không bao giờ cần nhiều hơn bốn
+1. **Bản đồ trên mặt phẳng (hoặc mặt cầu):** Nhờ phép chiếu nổi, bản đồ trên mặt cầu tương đương tô-pô với bản đồ trên mặt phẳng nên định lý cũng đúng trên mặt cầu. Tuy nhiên, trên các bề mặt có lỗ như mặt xuyến (torus), bốn màu không đủ (cần tối đa 7 màu).
+2. **Chung đoạn biên giới:** Hai vùng chỉ bị ràng buộc khác màu nếu chúng chia sẻ một đoạn biên giới có độ dài dương; nếu chỉ chạm nhau tại một điểm đơn lẻ (như bốn ô ở ngã tư bàn cờ), chúng được phép cùng màu.
+3. **Tối đa bốn màu:** Có bản đồ chỉ cần hai hoặc ba màu, nhưng không bao giờ cần quá bốn màu.
 
-### Tại sao không phải ba màu?
+### Vì sao ba màu là chưa đủ?
 
-Một câu hỏi tự nhiên là: **Tại sao không phải ba màu?**
-
-Câu trả lời là: **Ba màu không đủ!** Có những bản đồ đòi hỏi đúng bốn màu.
-
-**Ví dụ đơn giản:**
-
-Hãy tưởng tượng một bản đồ với bốn quốc gia, mỗi quốc gia đều có chung biên giới với cả ba quốc gia còn lại:
+Có những bản đồ phẳng bắt buộc cần đúng bốn màu. Xét bản đồ gồm bốn vùng A, B, C, D sao cho mỗi vùng đều có chung đoạn biên giới với cả ba vùng còn lại (đồ thị đối ngẫu là đồ thị đầy đủ $K_4$):
 
 ```
     A
@@ -74,176 +61,84 @@ Hãy tưởng tượng một bản đồ với bốn quốc gia, mỗi quốc gi
     D
 ```
 
-Trong trường hợp này:
-- Quốc gia A có chung biên giới với B, C, và D → cần một màu
-- Quốc gia B có chung biên giới với A, C, và D → cần một màu khác
-- Quốc gia C có chung biên giới với A, B, và D → cần một màu khác
-- Quốc gia D có chung biên giới với A, B, và C → cần một màu khác
-
-Tổng cộng cần **bốn màu**! Ba màu không đủ vì mỗi quốc gia đều có chung biên giới với cả ba quốc gia còn lại.
+Vì bốn vùng đôi một tiếp giáp nhau, bốn vùng này bắt buộc phải nhận bốn màu khác nhau. Do đó ba màu không đủ.
 
 ![Graph requiring four colors](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/4-colour_problem.png/500px-4-colour_problem.png)  
 *Đồ thị đòi hỏi bốn màu - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:4-colour_problem.png)*
 
-### Tại sao không cần năm màu?
+### Vì sao không cần đến năm màu?
 
-Một câu hỏi khác là: **Tại sao không cần năm màu?**
-
-Đây chính là nội dung của định lý Bốn Màu—nó khẳng định rằng **bốn màu luôn đủ**, không bao giờ cần năm màu trở lên!
-
-Tuy nhiên, việc chứng minh điều này là cực kỳ khó khăn. Trong nhiều năm, các nhà toán học chỉ có thể chứng minh rằng **năm màu luôn đủ** (định lý Năm Màu, được chứng minh vào năm 1890), nhưng không thể chứng minh rằng bốn màu đủ cho đến năm 1976.
+Trong suốt nhiều thập kỷ, các nhà toán học chứng minh được rằng **năm màu luôn đủ** (Định lý Năm màu, 1890), nhưng việc hạ cận trên từ 5 xuống 4 lại khó khăn hơn nhiều và phải chờ đến năm 1976 mới hoàn tất.
 
 ---
 
-## 🔍 Lịch Sử và Chứng Minh
+## 🔍 Lịch sử và hành trình chứng minh
 
 ### Những nỗ lực ban đầu
 
-Trong hơn một thế kỷ, nhiều nhà toán học đã cố gắng chứng minh định lý Bốn Màu:
-
-**1879 - Alfred Kempe:**
-- Kempe công bố một "chứng minh" định lý Bốn Màu
-- Chứng minh này được chấp nhận trong 11 năm
-- Năm 1890, Percy Heawood phát hiện ra một lỗi trong chứng minh của Kempe
-- Tuy nhiên, Kempe đã phát triển các kỹ thuật quan trọng được sử dụng sau này
-
-**1890 - Định lý Năm Màu:**
-- Heawood chứng minh rằng **năm màu luôn đủ** cho mọi bản đồ phẳng
-- Đây là một bước tiến quan trọng, nhưng vẫn chưa phải là câu trả lời cuối cùng
-
-**Những thập kỷ tiếp theo:**
-- Nhiều nhà toán học tiếp tục cố gắng chứng minh định lý Bốn Màu
-- Nhiều "chứng minh" được công bố nhưng đều có lỗi
-- Bài toán trở thành một trong những bài toán nổi tiếng nhất và khó nhất trong toán học
+- **1879 — Alfred Kempe:** Công bố một lời giải cho giả thuyết Bốn màu; chứng minh này được giới toán học công nhận suốt 11 năm.
+- **1890 — Percy Heawood:** Phát hiện ra một lỗ hổng trong lập luận của Kempe, nhưng tận dụng chính kỹ thuật dây chuyền Kempe (Kempe chain) để chứng minh chặt chẽ **Định lý Năm màu**.
+- **Nửa đầu thế kỷ 20:** Nhiều nhà toán học tiếp tục phát triển phương pháp rút gọn cấu hình nhưng chưa thể hoàn tất chứng minh cho 4 màu.
 
 ### Chứng minh bằng máy tính (1976)
 
-Năm 1976, Kenneth Appel và Wolfgang Haken tại Đại học Illinois đã công bố chứng minh đầu tiên của định lý Bốn Màu.
+Năm 1976, Kenneth Appel và Wolfgang Haken (Đại học Illinois) công bố chứng minh hoàn chỉnh đầu tiên cho Định lý Bốn màu dựa trên hai bước:
 
-**Phương pháp:**
+1. **Tập cấu hình không thể tránh khỏi (unavoidable set):** Chứng minh rằng mọi bản đồ phẳng tối tiểu đều phải chứa ít nhất một trong 1.936 cấu hình địa phương.
+2. **Tính rút gọn (reducibility):** Chứng minh rằng nếu một bản đồ chứa bất kỳ cấu hình nào trong số này thì việc tô 4 màu cho nó có thể quy về tô 4 màu cho một bản đồ nhỏ hơn.
 
-Chứng minh của họ sử dụng một phương pháp gọi là **"reduction"** (rút gọn):
+Vì số lượng cấu hình quá lớn để kiểm tra thủ công, Appel và Haken đã lập trình kiểm tra toàn bộ 1.936 cấu hình bằng máy tính, tiêu tốn hơn 1.200 giờ tính toán.
 
-1. **Phân loại:** Họ chứng minh rằng mọi bản đồ phẳng đều chứa ít nhất một trong 1,936 "cấu hình không thể tránh khỏi" (unavoidable configurations)
+Chứng minh này tạo ra hai luồng quan điểm trong giới toán học: một phía cho rằng phép kiểm tra bằng máy tính hoàn toàn hợp lệ miễn thuật toán đúng; phía còn lại băn khoăn vì con người không thể tự tay kiểm tra từng bước để nắm bắt toàn bộ lý do trực giác đằng sau định lý.
 
-2. **Kiểm tra:** Họ chứng minh rằng mỗi cấu hình này đều có thể được "rút gọn" (reduced)—nghĩa là nếu một bản đồ chứa cấu hình này, thì việc tô màu bản đồ đó có thể được quy về việc tô màu một bản đồ nhỏ hơn
+### Các chứng minh cải tiến (1996–2005)
 
-3. **Máy tính:** Họ sử dụng máy tính để kiểm tra tất cả 1,936 cấu hình này—một công việc quá lớn để làm bằng tay
-
-**Kết quả:**
-
-- Chứng minh đòi hỏi kiểm tra hàng trăm nghìn trường hợp
-- Mất hơn 1,200 giờ thời gian máy tính
-- Tạo ra hàng trăm trang dữ liệu
-
-**Tranh cãi:**
-
-Chứng minh này gây ra nhiều tranh cãi trong cộng đồng toán học:
-- **Vấn đề:** Liệu một chứng minh bằng máy tính có được coi là "chứng minh" thực sự hay không?
-- **Quan điểm 1:** Đây là một chứng minh hợp lệ—máy tính chỉ thực hiện các phép tính mà con người có thể làm, chỉ nhanh hơn nhiều
-- **Quan điểm 2:** Đây không phải là một chứng minh thực sự—một chứng minh phải có thể được kiểm tra và hiểu bởi con người
-
-### Chứng minh cải tiến (1996-2005)
-
-Năm 1996, Neil Robertson, Daniel Sanders, Paul Seymour, và Robin Thomas đã công bố một chứng minh cải tiến:
-
-- **Giảm số lượng cấu hình:** Từ 1,936 xuống còn 633 cấu hình
-- **Đơn giản hóa:** Chứng minh dễ hiểu và kiểm tra hơn
-- **Vẫn sử dụng máy tính:** Nhưng với số lượng kiểm tra ít hơn nhiều
-
-Năm 2005, Georges Gonthier đã sử dụng một hệ thống chứng minh tự động (proof assistant) để kiểm tra chứng minh một cách hoàn toàn tự động—đây là một bước tiến quan trọng trong việc chấp nhận các chứng minh bằng máy tính.
+- **1996:** Neil Robertson, Daniel Sanders, Paul Seymour và Robin Thomas công bố một chứng minh gọn hơn, giảm số cấu hình cần kiểm tra từ 1.936 xuống còn 633.
+- **2005:** Georges Gonthier sử dụng hệ thống hỗ trợ chứng minh hình thức (proof assistant) để kiểm chứng tự động toàn bộ định lý từ các tiên đề cơ bản, giúp củng cố độ tin cậy tuyệt đối của kết quả.
 
 ---
 
-## 🧮 Liên Hệ Với Topology và Graph Theory
+## 🧮 Liên hệ với tô-pô và lý thuyết đồ thị
 
-### Chuyển đổi sang Graph Theory
+### Chuyển bản đồ thành đồ thị
 
-Định lý Bốn Màu có thể được phát biểu lại bằng graph theory:
+Ta có thể chuyển mọi bài toán tô màu bản đồ sang ngôn ngữ **lý thuyết đồ thị** (đồ thị đối ngẫu):
+- Mỗi quốc gia (vùng) tương ứng với một **đỉnh** (vertex).
+- Hai đỉnh được nối với nhau bằng một **cạnh** (edge) nếu hai vùng tương ứng có chung đoạn biên giới.
 
-**Bước 1: Tạo đồ thị từ bản đồ**
-- Mỗi quốc gia trở thành một **đỉnh** (vertex)
-- Mỗi biên giới chung trở thành một **cạnh** (edge) nối hai đỉnh
+Khi đó, **Định lý Bốn màu** được phát biểu lại thành: *Mọi đồ thị phẳng đơn (simple planar graph) đều có thể tô đỉnh bằng không quá bốn màu sao cho hai đỉnh kề nhau luôn khác màu.*
 
-**Bước 2: Bài toán tô màu đồ thị**
-- Tô màu các đỉnh sao cho không có hai đỉnh nào được nối bởi một cạnh lại có cùng màu
-- Đây được gọi là bài toán **graph coloring**
+### Vai trò của tô-pô mặt phẳng
 
-**Định lý Bốn Màu (phát biểu bằng graph theory):**
-Mọi đồ thị phẳng (planar graph) đều có thể được tô bằng bốn màu.
+Một đồ thị gọi là **đồ thị phẳng** (planar graph) nếu có thể vẽ nó trên mặt phẳng sao cho không có hai cạnh nào cắt nhau ngoài các đỉnh chung.
 
-### Tại sao đây là topology?
+Với mọi đồ thị phẳng liên thông, công thức Euler $V - E + F = 2$ vẫn đúng. Từ công thức Euler, ta chứng minh được một tính chất cốt lõi: **mọi đồ thị phẳng đơn đều có ít nhất một đỉnh có bậc nhỏ hơn hoặc bằng 5**. Tính chất này là nền tảng cho phép chứng minh quy nạp của Định lý Năm màu (và là điểm xuất phát cho kỹ thuật xả/rút gọn trong Định lý Bốn màu).
 
-**Đồ thị phẳng:**
+### Định lý Năm màu
 
-Một đồ thị được gọi là **phẳng** (planar) nếu nó có thể được vẽ trên một mặt phẳng mà không có cạnh nào cắt nhau.
-
-**Liên hệ với topology:**
-
-- **Bản đồ phẳng:** Tương ứng với một đồ thị phẳng
-- **Topology của mặt phẳng:** Đồ thị phẳng có các tính chất topology đặc biệt
-- **Định lý Euler cho đồ thị phẳng:** $V - E + F = 2$ (tương tự như định lý Euler cho polyhedra)
-
-**Tại sao điều này quan trọng?**
-
-Các tính chất topology của đồ thị phẳng là chìa khóa để chứng minh định lý Bốn Màu. Cụ thể:
-- Mọi đồ thị phẳng đều có một đỉnh có bậc nhỏ hơn hoặc bằng 5
-- Điều này cho phép sử dụng phương pháp quy nạp để chứng minh định lý
-
-### Định lý Năm Màu (dễ chứng minh hơn)
-
-Trước khi chứng minh định lý Bốn Màu, các nhà toán học đã chứng minh định lý Năm Màu:
-
-**Định lý Năm Màu:** Mọi đồ thị phẳng đều có thể được tô bằng năm màu.
+**Định lý Năm màu:** Mọi đồ thị phẳng đơn đều có thể tô đỉnh bằng tối đa năm màu.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (tóm tắt):**
+**Chứng minh (phác thảo quy nạp theo số đỉnh):**
 
-1. **Mọi đồ thị phẳng đều có một đỉnh có bậc ≤ 5** (từ định lý Euler)
-2. **Loại bỏ đỉnh này:** Tô màu phần còn lại bằng năm màu (quy nạp)
-3. **Thêm lại đỉnh:** Đỉnh này có tối đa 5 hàng xóm, nhưng chỉ có 5 màu, nên luôn có một màu còn lại để tô
+1. Từ công thức Euler, mọi đồ thị phẳng đơn đều tồn tại ít nhất một đỉnh $v$ có bậc $\le 5$.
+2. Loại bỏ đỉnh $v$ cùng các cạnh kề nó; theo giả thiết quy nạp, đồ thị phẳng còn lại tô được bằng 5 màu.
+3. Khôi phục đỉnh $v$:
+   - Nếu các đỉnh kề của $v$ dùng tối đa 4 màu (luôn đúng khi $\deg(v) \le 4$), luôn còn ít nhất 1 màu trong 5 màu để tô cho $v$.
+   - Nếu $\deg(v) = 5$ và cả 5 đỉnh kề $v_1, v_2, v_3, v_4, v_5$ (theo thứ tự quanh $v$) mang 5 màu khác nhau, ta dùng lập luận **dây chuyền Kempe**: xét đồ thị con sinh bởi hai màu của $v_1$ và $v_3$. Nếu $v_1$ và $v_3$ nằm ở hai thành phần liên thông khác nhau, đổi hai màu trong thành phần chứa $v_1$ để giải phóng một màu cho $v$. Nếu chúng nối nhau tạo thành một đường ngăn cách $v_2$ với $v_4$, thì $v_2$ và $v_4$ không thể nối với nhau bằng dây chuyền hai màu của chúng (do tính phẳng của đồ thị), nên ta đổi màu ở thành phần chứa $v_2$ để giải phóng một màu cho $v$.
 </div>
 
-**Tại sao không áp dụng cho bốn màu?**
-
-Vấn đề là khi đỉnh có bậc 5, nó có 5 hàng xóm. Nếu cả 5 hàng xóm đều có màu khác nhau, bạn không có màu nào còn lại! Đây là lý do tại sao chứng minh định lý Bốn Màu khó hơn nhiều.
+**Vì sao lập luận đơn giản này không kéo xuống 4 màu được?** Khi chỉ có 4 màu, một đỉnh bậc 5 có thể tiếp giáp với cả 4 màu theo nhiều cấu hình phức tạp khiến việc hoán đổi một dây chuyền Kempe làm hỏng dây chuyền khác (chính là lỗ hổng trong chứng minh năm 1879 của Kempe).
 
 ---
 
-## 🔗 Ứng dụng trong Cuộc sống
+## 🔗 Ứng dụng trong thực tế và khoa học máy tính
 
-### Tô màu bản đồ thực tế
-
-**Bản đồ địa lý:**
-- Các nhà xuất bản bản đồ sử dụng định lý Bốn Màu để tạo ra các bản đồ dễ đọc
-- Đảm bảo rằng các quốc gia hoặc khu vực liền kề có màu khác nhau
-
-**Bản đồ chính trị:**
-- Phân chia khu vực bầu cử
-- Phân tích các khu vực địa lý
-
-### Lập lịch và Tổ chức
-
-**Lập lịch:**
-- Nếu bạn có các sự kiện không thể diễn ra cùng lúc (ví dụ: các lớp học sử dụng cùng một phòng)
-- Mỗi sự kiện là một đỉnh, mỗi xung đột là một cạnh
-- Tô màu đồ thị tương ứng với việc lập lịch các sự kiện vào các khung giờ khác nhau
-
-**Phân bổ tài nguyên:**
-- Phân bổ tần số radio để tránh nhiễu
-- Phân bổ kênh truyền hình
-- Phân bổ tài nguyên máy tính
-
-### Khoa học máy tính
-
-**Register allocation:**
-- Trong compiler design, cần phân bổ các biến vào các thanh ghi (registers)
-- Các biến được sử dụng cùng lúc không thể ở cùng một thanh ghi
-- Đây chính là bài toán graph coloring!
-
-**Scheduling:**
-- Lập lịch các tác vụ trong hệ điều hành
-- Phân bổ tài nguyên trong mạng lưới
+- **Xuất bản bản đồ:** Tô màu bản đồ địa lý và bản đồ hành chính rõ ràng, dễ phân biệt các khu vực giáp ranh.
+- **Lập lịch thi và thời khóa biểu:** Biểu diễn mỗi môn học (hoặc sự kiện) là một đỉnh, nối cạnh giữa hai sự kiện không thể diễn ra cùng lúc (trùng phòng học hoặc trùng sinh viên); mỗi màu tương ứng với một khung giờ.
+- **Phân bổ tần số:** Gán tần số phát sóng cho các trạm radio, truyền hình hoặc trạm di động sao cho hai trạm có vùng phủ giao nhau không dùng chung tần số gây nhiễu.
+- **Phân bổ thanh ghi (Register allocation):** Trong thiết kế trình biên dịch (compiler), hai biến cùng tồn tại tại một thời điểm không thể dùng chung một thanh ghi CPU — bài toán này được mô hình hóa trực tiếp thành tô màu đồ thị.
+- **Lý thuyết độ phức tạp:** Với đồ thị tổng quát, bài toán quyết định xem đồ thị có tô được bằng $k$ màu hay không (với $k \ge 3$) là bài toán NP-đầy đủ (NP-complete).
 
 ---
 
@@ -276,78 +171,34 @@ Vấn đề là khi đỉnh có bậc 5, nó có 5 hàng xóm. Nếu cả 5 hàn
 
 ---
 
-## 🔗 Applications and Connections
-
-### Trong toán học
-
-Định lý Bốn Màu là một trong những định lý nổi tiếng nhất trong toán học:
-
-1. **Graph Theory:** Mở ra một nhánh nghiên cứu mới về graph coloring
-2. **Topology:** Liên kết với topology của mặt phẳng và các bề mặt
-3. **Combinatorics:** Nhiều bài toán tổ hợp liên quan đến graph coloring
-
-### Trong khoa học máy tính
-
-- **Algorithms:** Nhiều thuật toán được phát triển để giải bài toán graph coloring
-- **Complexity Theory:** Bài toán graph coloring là NP-complete (khó giải)
-- **Compiler Design:** Ứng dụng trong register allocation
-
-### Trong thực tế
-
-- **Bản đồ:** Tạo ra các bản đồ dễ đọc và đẹp mắt
-- **Lập lịch:** Tổ chức các sự kiện và tài nguyên
-- **Mạng lưới:** Phân bổ tài nguyên trong các hệ thống mạng
-
----
-
 ## Video tham khảo
 
 - **xem trước** [The Four Color Map Theorem - Numberphile](https://www.youtube.com/watch?v=NgbK43jB4rQ) — Numberphile, tiếng Anh. Định lý bốn màu từ bản đồ tới đồ thị phẳng, đúng lối bài đang đi.
 - [The 4 Colour Theorem Explained](https://www.youtube.com/watch?v=siFuRrhb-cU) — The Science Biome, tiếng Anh. Một lần kể lại ngắn, nếu muốn nghe phát biểu trước chi tiết lịch sử.
 
-## 🧩 Exercises and Reflections
+## 🧩 Bài tập và suy ngẫm
 
 ### Câu hỏi suy ngẫm
 
-1. **Thử nghiệm:** Hãy vẽ một bản đồ đơn giản và thử tô màu nó bằng bốn màu. Bạn có thể làm điều này không?
-
-2. **Phân tích:** Tại sao một số bản đồ chỉ cần ba màu, trong khi một số khác cần đúng bốn màu?
-
-3. **So sánh:** Hãy so sánh định lý Bốn Màu với định lý Năm Màu. Tại sao một cái dễ chứng minh hơn cái kia?
-
-4. **Ứng dụng:** Hãy nghĩ về một ứng dụng của định lý Bốn Màu trong cuộc sống hàng ngày của bạn.
-
-5. **Thử thách:** Hãy thử tạo một bản đồ đơn giản đòi hỏi đúng bốn màu.
+1. **Thực hành vẽ bản đồ:** Vẽ một bản đồ đơn giản gồm 6–8 vùng và thử tô nó bằng tối đa bốn màu.
+2. **Phân biệt số màu:** Vì sao có những bản đồ chỉ cần hai hoặc ba màu, trong khi một số bản đồ bắt buộc phải dùng bốn màu?
+3. **So sánh hai định lý:** Giải thích sự khác biệt về độ khó chứng minh giữa Định lý Năm màu và Định lý Bốn màu.
+4. **Liên hệ thực tế:** Chọn một bài toán lập lịch quen thuộc và mô tả cách chuyển nó thành bài toán tô màu đồ thị.
+5. **Thử thách:** Thiết kế một bản đồ phẳng ít vùng nhất có thể sao cho không thể tô bằng ba màu.
 
 ### Thử nghiệm thực tế
 
-1. **Tô màu bản đồ:** Hãy lấy một bản đồ thực tế và thử tô màu nó bằng bốn màu.
-
-2. **Tạo đồ thị:** Hãy chuyển đổi một bản đồ thành một đồ thị và thử tô màu các đỉnh.
-
-3. **Lập lịch:** Hãy thử áp dụng ý tưởng graph coloring để lập lịch cho các sự kiện hoặc lớp học.
-
-4. **Khám phá:** Hãy tìm hiểu về các ứng dụng của graph coloring trong khoa học máy tính.
-
-5. **Nghiên cứu:** Hãy đọc về lịch sử của định lý Bốn Màu và các nhà toán học đã đóng góp vào việc chứng minh nó.
+1. In một bản đồ hành chính (như bản đồ các tỉnh hoặc các nước châu Âu) và tự tô màu bằng bốn màu.
+2. Chuyển một bản đồ đơn giản sang đồ thị đối ngẫu của nó rồi tô màu các đỉnh.
+3. Mô hình hóa lịch thi của 5–6 môn học có sinh viên trùng nhau thành đồ thị xung đột và tìm số ca thi tối thiểu.
 
 ---
 
 ## 📚 Tóm tắt
 
-Trong bài học này, chúng ta đã khám phá:
+Trong bài học này, chúng ta đã tìm hiểu:
 
-- **Định lý Bốn Màu:** Bất kỳ bản đồ phẳng nào cũng có thể được tô bằng bốn màu
-
-- **Lịch sử:** Bài toán đã làm đau đầu các nhà toán học trong hơn một thế kỷ
-
-- **Chứng minh:** Được chứng minh bằng máy tính vào năm 1976, gây ra nhiều tranh cãi
-
-- **Graph Theory:** Có thể được phát biểu lại bằng graph coloring
-
-- **Ứng dụng:** Từ tô màu bản đồ đến lập lịch và khoa học máy tính
-
-Định lý Bốn Màu là một ví dụ tuyệt vời về cách toán học có thể giải quyết các vấn đề thực tế và cách các công cụ hiện đại (như máy tính) có thể giúp chúng ta chứng minh các định lý phức tạp. Nó cũng minh họa mối liên hệ sâu sắc giữa topology, graph theory, và các ứng dụng thực tế.
-
-Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều khái niệm topology thú vị khác!
-
+- **Định lý Bốn màu:** Mọi bản đồ phẳng (hay đồ thị phẳng đơn) đều tô được bằng tối đa bốn màu.
+- **Lịch sử chứng minh:** Xuất phát từ câu hỏi năm 1852 của Guthrie, hoàn tất năm 1976 bởi Appel và Haken với sự hỗ trợ của máy tính, sau đó được rút gọn năm 1996 và kiểm chứng hình thức năm 2005.
+- **Liên hệ tô-pô và đồ thị:** Bản đồ phẳng chuyển về đồ thị phẳng; công thức Euler bảo đảm tồn tại đỉnh bậc $\le 5$.
+- **Ứng dụng:** Tô màu bản đồ, lập lịch, phân bổ tần số và phân bổ thanh ghi trong trình biên dịch.

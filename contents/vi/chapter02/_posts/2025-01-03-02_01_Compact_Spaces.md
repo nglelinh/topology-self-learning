@@ -10,78 +10,40 @@ tags: [compact-spaces, heine-borel, sequential-compactness, limit-point-compactn
 description: "Không gian compact, Heine-Borel theorem, và các characterizations"
 ---
 
-**Compact Spaces**
+**Không gian Compact**
 
 ---
 
 ## 📖 Tổng quan
 
-Nếu **connectedness** là về "one piece", thì **compactness** là về "finiteness in disguise" (finite ẩn trong vô hạn).
+Nếu **tính liên thông** diễn tả ý tưởng "liền thành một mảnh", thì **tính compact** là dạng tổng quát hóa tô-pô của tính hữu hạn. Trong không gian Euclid $\mathbb{R}^n$, tính compact tương đương với "đóng và bị chặn" (**Định lý Heine–Borel**), nhưng trong tô-pô đại cương không có khái niệm khoảng cách nên cần một định nghĩa thuần túy dựa trên tập mở:
 
-**Câu hỏi trực quan:** Khi nào một không gian là "small" theo nghĩa topology?
-
-Trong metric spaces, "bounded and closed" thường là câu trả lời (**Heine-Borel Theorem**). Nhưng trong general topology, chúng ta cần định nghĩa trừu tượng hơn!
-
-**Ý tưởng cốt lõi:**  
-> **Compact = "Mọi open cover có finite subcover"**
-
-Nghe phức tạp? Hãy nghĩ như sau:
-- Bạn có một space X
-- Bạn "phủ" X bằng **vô số** open sets
-- Compactness nói: "Chỉ cần **hữu hạn** trong số chúng là đủ!"
+> **Một không gian tô-pô là compact nếu mọi phủ mở của nó đều có một phủ con hữu hạn.**
 
 ![Open cover illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Compact_space.svg/400px-Compact_space.svg.png)  
-*Compact space: mọi open cover có finite subcover - Nguồn concept*
+*Không gian compact: mọi phủ mở đều trích ra được phủ con hữu hạn - Nguồn minh họa khái niệm*
 
-**Trong bài này:**
-- Định nghĩa **compactness** qua open covers
-- **Heine-Borel Theorem**: [a,b] compact trong ℝ
-- **Closed subsets** của compact spaces
-- **Continuous images** của compact spaces
-- **Sequential compactness** trong metric spaces
-- **Extreme Value Theorem**: ứng dụng trong analysis
-
-**Tại sao quan trọng?**
-- Compact spaces = "nice" spaces (nhiều theorems work!)
-- Heine-Borel: characterize compact subsets của ℝⁿ
-- EVT: continuous functions trên compact spaces đạt max/min
-- Tychonoff: products của compact spaces là compact
+Bài giảng này trình bày định nghĩa tính compact qua phủ mở, các tính chất cơ bản (tập con đóng, ảnh liên tục, **Định lý Giá trị Cực trị**), **Định lý Heine–Borel** trong $\mathbb{R}^n$, **tính compact dãy** và **bổ đề số Lebesgue** trong không gian mê-tric, khái niệm **compact địa phương**, và nhắc lại **Định lý Tychonoff**.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Hotel
+### Phép ẩn dụ phủ mở
 
-Tưởng tượng bạn quản lý một **infinite hotel** (khách sạn vô hạn) với rooms đánh số 1, 2, 3, ...
+Hãy tưởng tượng một tập hợp các phòng được phủ bởi nhiều "khu vực phục vụ" (tương ứng với các tập mở). Không gian là **compact** nếu dù ta có một họ vô hạn các tập mở phủ kín toàn bộ không gian, ta vẫn luôn chọn ra được **hữu hạn** tập trong họ đó mà vẫn đủ phủ hết không gian.
 
-**Open cover analogy:**  
-Mỗi open set = một "service area" (khu vực phục vụ). Bạn muốn:
-- **Cover toàn bộ hotel** (mọi room được serve)
-- Sử dụng **ít service areas nhất có thể** (economic!)
-
-**Compact hotel:**  
-Dù có vô số service areas available, luôn có thể chọn **hữu hạn** areas để cover toàn bộ!
-
-**Non-compact hotel (ví dụ: ℕ):**  
-Xét cover: Uₙ = {n, n+1, n+2, ...}  
-Mỗi Uₙ open, ⋃Uₙ = ℕ.  
-Nhưng **không thể** chọn hữu hạn Uₙ để cover ℕ!  
-→ ℕ không compact.
-
-**Compact space [0,1]:**  
-Bất kỳ open cover nào của [0,1], luôn có thể extract finite subcover.  
-→ [0,1] compact!
+Chẳng hạn, xét $\mathbb{N}$ với tô-pô rời rạc và họ phủ mở $U_n = \{1, 2, \dots, n\}$ ($n \in \mathbb{N}$): hợp $\bigcup_{n=1}^{\infty} U_n = \mathbb{N}$, nhưng bất kỳ họ con hữu hạn nào cũng chỉ phủ được đến chỉ số lớn nhất $N$ chứ không phủ hết $\mathbb{N}$, do đó $\mathbb{N}$ không compact. Trái lại, đoạn đóng $[0, 1]$ là không gian compact.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Compact Spaces
+### 1. Không gian compact (Compact Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Open Cover):**  
-Họ {Uα}α∈I ⊆ 𝜏 là **open cover** của X nếu:
+**Định nghĩa (Phủ mở — Open Cover):**  
+Họ các tập mở $\{U_\alpha\}_{\alpha \in I} \subseteq \tau$ là một **phủ mở** của $X$ nếu:
 
 $$
 X = \bigcup_{\alpha \in I} U_\alpha
@@ -89,8 +51,8 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Subcover):**  
-{Uβ}β∈J ⊆ {Uα}α∈I là **subcover** nếu vẫn cover X:
+**Định nghĩa (Phủ con — Subcover):**  
+Họ con $\{U_\beta\}_{\beta \in J}$ (với $J \subseteq I$) là một **phủ con** nếu nó vẫn phủ toàn bộ $X$:
 
 $$
 X = \bigcup_{\beta \in J} U_\beta, \quad J \subseteq I
@@ -98,104 +60,71 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Compact Space):**  
-X là **compact** nếu mọi open cover có **finite subcover**.
+**Định nghĩa (Không gian compact — Compact Space):**  
+Không gian $X$ là **compact** nếu mọi phủ mở của $X$ đều có ít nhất một **phủ con hữu hạn**:
 
 $$
 \forall \{U_\alpha\}_{\alpha \in I} \text{ open cover}: \exists \text{ finite } J \subseteq I: X = \bigcup_{\alpha \in J} U_\alpha
 $$
 </div>
 
-**Ví dụ 1: Finite Space**
-
-X = {1, 2, 3} với bất kỳ topology nào → **compact**!
-
-<div class="textbook-proof" markdown="1">
-**Proof:** Mọi open cover là finite (vì X finite) → tự động có finite subcover. ✓
-</div>
-
-**Ví dụ 2: [0,1] compact**
-
-Chứng minh cần Heine-Borel theorem (xem sau).
-
-**Ví dụ 3: ℕ KHÔNG compact**
-
-Cover: Uₙ = {n} (discrete topology).  
-{Uₙ}ₙ∈ℕ là open cover.  
-Không thể extract finite subcover (mỗi element cần một set riêng). ✗
-
-**Ví dụ 4: (0,1) KHÔNG compact**
-
-Cover: Uₙ = (1/n, 1) với n ≥ 2.  
-⋃ₙ≥₂ Uₙ = (0,1) (mọi x ∈ (0,1): x > 1/n với n đủ lớn).  
-Nếu chọn finite subcover: U_{n₁}, ..., U_{nₖ}, let N = max{nᵢ}.  
-⋃ᵢ U_{nᵢ} = U_N = (1/N, 1) ≠ (0,1). ✗
-
-→ (0,1) không compact.
+**Các ví dụ cơ bản:**
+1. **Không gian hữu hạn:** Mọi không gian hữu hạn với tô-pô bất kỳ đều compact vì chỉ có hữu hạn tập con (nên mọi phủ mở đều hữu hạn).
+2. **Đoạn $[0, 1]$:** Compact theo Định lý Heine–Borel (chứng minh ở mục 3).
+3. **$\mathbb{N}$ với tô-pô rời rạc:** Không compact, vì phủ mở $\{\{n\} : n \in \mathbb{N}\}$ không có phủ con hữu hạn.
+4. **Khoảng mở $(0, 1)$:** Không compact, vì phủ mở $U_n = (1/n, 1)$ ($n \ge 2$) phủ kín $(0, 1)$ nhưng mọi hợp hữu hạn $U_{n_1} \cup \dots \cup U_{n_k} = (1/N, 1)$ (với $N = \max n_i$) đều bỏ sót $(0, 1/N]$.
 
 ---
 
-### 2. Properties of Compact Spaces
+### 2. Các tính chất của không gian compact
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Closed Subspace):**  
-Nếu K ⊆ X với K compact và X Hausdorff, thì K **closed**.
+**Định lý (Tập con compact trong không gian Hausdorff):**  
+Nếu $K \subseteq X$ compact và $X$ là không gian Hausdorff, thì $K$ là **tập đóng** trong $X$.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh (sketch):**  
-Cho x ∉ K. Với mọi y ∈ K, Hausdorff → ∃ Uᵧ ∋ x, Vᵧ ∋ y disjoint.  
-{Vᵧ}ᵧ∈K là open cover của K → có finite subcover V_{y₁}, ..., V_{yₙ}.  
-U = U_{y₁} ∩ ... ∩ U_{yₙ} là neighborhood của x disjoint với K.  
-→ X \ K open → K closed. ∎
+**Phác thảo chứng minh:**  
+Lấy điểm bất kỳ $x \notin K$. Với mỗi $y \in K$, do $X$ Hausdorff nên tồn tại hai tập mở rời nhau $U_y \ni x$ và $V_y \ni y$. Họ $\{V_y\}_{y \in K}$ là phủ mở của $K$ nên trích ra được phủ con hữu hạn $V_{y_1}, \dots, V_{y_n}$. Khi đó $U = U_{y_1} \cap \dots \cap U_{y_n}$ là một tập mở chứa $x$ và rời với $K$. Do đó $X \setminus K$ mở, tức $K$ đóng. ∎
 </div>
 
-**Chú ý:** Hausdorff essential! Trong trivial topology, mọi subset compact nhưng không nhất thiết closed.
+*(Lưu ý: giả thiết Hausdorff là thiết yếu; trong tô-pô tầm thường, mọi tập con đều compact nhưng không nhất thiết đóng.)*
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Closed Subset of Compact):**  
-Nếu X compact và F ⊆ X closed, thì F **compact** (subspace topology).
+**Định lý (Tập con đóng của không gian compact):**  
+Nếu $X$ compact và $F \subseteq X$ đóng, thì $F$ (với tô-pô con) là **compact**.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Cho {Uα} open cover của F trong X.  
-Thêm X \ F (open) → {Uα} ∪ {X \ F} là open cover của X.  
-X compact → có finite subcover.  
-Bỏ X \ F đi → finite subcover của F. ∎
+Cho $\{U_\alpha\}$ là một phủ của $F$ bởi các tập mở trong $X$. Bổ sung thêm tập mở $X \setminus F$, ta thu được phủ mở $\{U_\alpha\} \cup \{X \setminus F\}$ của $X$. Vì $X$ compact nên tồn tại phủ con hữu hạn; bỏ $X \setminus F$ (nếu có mặt) ta còn lại phủ con hữu hạn của $F$. ∎
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** Trong Hausdorff space, compact ⟺ closed bounded (trong metric spaces).
+**Nhận xét:** Trong không gian Hausdorff $X$, mọi tập con compact đều đóng; nếu $X$ là không gian mê-tric thì mọi tập con compact đều đóng và bị chặn (chiều đảo chỉ đúng trong những không gian đặc biệt như $\mathbb{R}^n$, theo Định lý Heine–Borel).
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Continuous Image):**  
-Nếu f: X → Y continuous và X compact, thì **f(X) compact**.
+**Định lý (Ảnh liên tục của không gian compact):**  
+Nếu $f: X \to Y$ liên tục và $X$ compact, thì ảnh **$f(X)$ compact**.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Cho {Vα} open cover của f(X) trong Y.  
-{f⁻¹(Vα)} là open cover của X (f continuous).  
-X compact → có finite subcover f⁻¹(V_{α₁}), ..., f⁻¹(V_{αₙ}).  
-→ f(X) ⊆ V_{α₁} ∪ ... ∪ V_{αₙ}. ∎
+Cho $\{V_\alpha\}$ là một phủ của $f(X)$ bởi các tập mở trong $Y$. Do $f$ liên tục, $\{f^{-1}(V_\alpha)\}$ là phủ mở của $X$, nên có phủ con hữu hạn $f^{-1}(V_{\alpha_1}), \dots, f^{-1}(V_{\alpha_n})$. Suy ra $f(X) \subseteq V_{\alpha_1} \cup \dots \cup V_{\alpha_n}$. ∎
 </div>
 
-**Hệ quả quan trọng:**  
-**Compactness là topological invariant!**
-
-X ≅ Y và X compact → Y compact.
+**Hệ quả:** Tính compact là một **bất biến tô-pô**.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Extreme Value Theorem - EVT):**  
-Nếu X compact, f: X → ℝ continuous, thì f **đạt maximum và minimum**.
+**Định lý (Định lý Giá trị Cực trị — Extreme Value Theorem, EVT):**  
+Nếu $X$ compact khác rỗng và $f: X \to \mathbb{R}$ liên tục, thì $f$ đạt **giá trị lớn nhất và giá trị nhỏ nhất** trên $X$:
 
 $$
 \exists x_{\max}, x_{\min} \in X: \forall x \in X: f(x_{\min}) \leq f(x) \leq f(x_{\max})
@@ -204,68 +133,43 @@ $$
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-f(X) ⊆ ℝ compact (continuous image).  
-f(X) ⊆ ℝ closed and bounded (Heine-Borel).  
-f(X) bounded → sup f(X), inf f(X) tồn tại.  
-f(X) closed → sup, inf ∈ f(X). ✓
+Vì $X$ compact và $f$ liên tục nên $f(X) \subseteq \mathbb{R}$ compact, suy ra $f(X)$ đóng và bị chặn (theo Heine–Borel). Do bị chặn và khác rỗng nên $\sup f(X)$ và $\inf f(X)$ tồn tại hữu hạn; do $f(X)$ đóng nên hai giá trị này thuộc $f(X)$.
 </div>
 
 ![Extreme Value Theorem](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Extreme_value_theorem.svg/400px-Extreme_value_theorem.svg.png)  
-*EVT: continuous function trên compact đạt max/min - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Extreme_value_theorem.svg)*
-
-**Ứng dụng:** Optimization problems!
+*Định lý Giá trị Cực trị: hàm liên tục trên không gian compact đạt cực đại và cực tiểu - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Extreme_value_theorem.svg)*
 
 ---
 
-### 3. Heine-Borel Theorem
+### 3. Định lý Heine–Borel
 
-**Định lý Heine-Borel:**  
-Trong **ℝⁿ** (Euclidean topology), tập K compact ⟺ K **closed và bounded**.
+**Định lý Heine–Borel:**  
+Trong **$\mathbb{R}^n$** với tô-pô Euclid, một tập con $K \subseteq \mathbb{R}^n$ là compact khi và chỉ khi $K$ **đóng và bị chặn**.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch cho ℝ):**
+**Phác thảo chứng minh trong $\mathbb{R}$:**
 </div>
 
-**(⇒) Compact ⇒ Closed và Bounded:**
+**Chiều thuận ($\Rightarrow$):** Nếu $K$ compact, thì vì $\mathbb{R}$ Hausdorff nên $K$ đóng. Hơn nữa họ $\{(-n, n)\}_{n \in \mathbb{N}}$ là phủ mở của $K$, nên tồn tại phủ con hữu hạn và do đó $K \subseteq (-N, N)$ (bị chặn).
 
-**Bounded:** Cover ℝ bởi {(-n, n)}ₙ∈ℕ.  
-K compact → ∃ finite subcover → K ⊆ (-N, N) bounded. ✓
-
-**Closed:** ℝ Hausdorff → compact subsets closed. ✓
-
-**(⇐) Closed và Bounded ⇒ Compact:**
-
-Đủ chứng minh [a, b] compact.  
-**Proof bằng phản chứng:** (Bisection method)
-
-Giả sử [a, b] không compact. Tồn tại open cover {Uα} không có finite subcover.  
-Chia [a, b] thành [a, m], [m, b] với m = (a+b)/2.  
-Ít nhất một trong hai không có finite subcover (nếu cả hai có → [a,b] có).  
-Gọi [a₁, b₁] là interval đó.  
-Lặp lại: có nested sequence [a, b] ⊇ [a₁, b₁] ⊇ [a₂, b₂] ⊇ ...  
-với bₙ - aₙ = (b - a)/2ⁿ → 0.
-
-Completeness của ℝ → ∃ x ∈ ⋂ₙ [aₙ, bₙ].  
-x ∈ [a, b] → x ∈ Uα₀ với α₀ nào đó.  
-Uα₀ open → ∃ε: (x - ε, x + ε) ⊆ Uα₀.  
-Chọn n lớn: bₙ - aₙ < ε → [aₙ, bₙ] ⊆ Uα₀.  
-Mâu thuẫn với [aₙ, bₙ] không có finite subcover! ∎
+**Chiều đảo ($\Leftarrow$):** Nếu $K$ đóng và bị chặn, thì $K$ là tập con đóng của một đoạn đóng $[a, b]$ nào đó; do đó chỉ cần chứng minh $[a, b]$ compact.  
+Giả sử phản chứng $[a, b]$ có phủ mở $\{U_\alpha\}$ không có phủ con hữu hạn. Chia đôi $[a, b]$ thành $[a, m]$ và $[m, b]$ với $m = (a + b)/2$: ít nhất một nửa cũng không có phủ con hữu hạn, gọi là $[a_1, b_1]$. Lặp lại quy trình chia đôi, ta thu được dãy đoạn lồng nhau $[a, b] \supseteq [a_1, b_1] \supseteq [a_2, b_2] \supseteq \dots$ với độ dài $b_n - a_n = (b - a)/2^n \to 0$. Theo tính đầy đủ của $\mathbb{R}$, tồn tại điểm chung $x \in \bigcap_n [a_n, b_n]$. Vì $x \in [a, b]$, có một tập mở $U_{\alpha_0}$ chứa $x$, nên tồn tại $\varepsilon > 0$ sao cho $(x - \varepsilon, x + \varepsilon) \subseteq U_{\alpha_0}$. Chọn $n$ đủ lớn để $b_n - a_n < \varepsilon$, khi đó $[a_n, b_n] \subseteq U_{\alpha_0}$, mâu thuẫn với việc $[a_n, b_n]$ không có phủ con hữu hạn. ∎
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** [a, b], [a, b), (a, b], {closed ball trong ℝⁿ} compact.
+**Hệ quả:** Các đoạn đóng $[a, b]$ trong $\mathbb{R}$ và các hình cầu đóng trong $\mathbb{R}^n$ đều compact.
 </div>
 
-**Non-examples:** (a, b), ℝ, ℕ không compact (không closed hoặc không bounded).
+Ngược lại, các tập $(a, b)$, $[a, b)$, $(a, b]$, $\mathbb{R}$ và $\mathbb{N}$ đều không compact (vì không đóng hoặc không bị chặn).
 
 ---
 
-### 4. Sequential Compactness
+### 4. Tính compact dãy (Sequential Compactness)
 
-**Trong metric spaces**, có characterization khác của compactness!
+Trong không gian mê-tric, tính compact có thêm các đặc trưng tương đương qua dãy và điểm tụ.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Sequentially Compact):**  
-X là **sequentially compact** nếu mọi sequence có **convergent subsequence**.
+**Định nghĩa (Compact dãy — Sequentially Compact):**  
+Không gian $X$ là **compact dãy** nếu mọi dãy trong $X$ đều chứa một **dãy con hội tụ** trong $X$:
 
 $$
 \forall (x_n) \text{ sequence}: \exists \text{ subsequence } (x_{n_k}), \exists x \in X: x_{n_k} \to x
@@ -273,150 +177,120 @@ $$
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Metric Spaces):**  
-Trong metric space, các khái niệm sau **tương đương**:
-1. Compact
-2. Sequentially compact
-3. Limit point compact (mọi infinite subset có limit point)
+**Định lý (Trong không gian mê-tric):**  
+Đối với một không gian mê-tric $(X, d)$, ba tính chất sau **tương đương**:
+1. Compact (theo phủ mở).
+2. Compact dãy.
+3. Compact điểm tụ (*limit point compact*: mọi tập con vô hạn đều có điểm tụ trong $X$).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Advanced (cần Lebesgue number lemma).
+**Ghi chú chứng minh:** Chứng minh đầy đủ sử dụng bổ đề số Lebesgue và tính hoàn toàn bị chặn.
 </div>
 
-**Ví dụ:** [0,1] sequentially compact = Bolzano-Weierstrass theorem!
-
-**Chú ý:** Trong general topological spaces, equivalence **sai**!
+Trường hợp riêng cho đoạn $[0, 1]$ chính là Định lý Bolzano–Weierstrass. Lưu ý rằng trong không gian tô-pô tổng quát (không mê-tric), ba tính chất này không còn tương đương.
 
 ---
 
-### 5. Locally Compact Spaces
+### 5. Không gian compact địa phương (Locally Compact Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Locally Compact):**  
-X là **locally compact** nếu mọi x ∈ X có compact neighborhood.
+**Định nghĩa (Compact địa phương):**  
+Không gian $X$ là **compact địa phương** (*locally compact*) nếu mỗi điểm $x \in X$ đều có ít nhất một lân cận compact.
 </div>
 
-**Ví dụ:**
-- **ℝⁿ** locally compact (mọi x có compact neighborhood [x-1, x+1]ⁿ)
-- **Infinite-dimensional Hilbert space** KHÔNG locally compact
-- **ℚ** KHÔNG locally compact (không có compact intervals trong ℚ)
+Ví dụ: $\mathbb{R}^n$ là không gian compact địa phương (vì quanh mỗi $x$ có khối hộp đóng $[x - 1, x + 1]^n$ compact). Ngược lại, không gian Hilbert vô hạn chiều và tập số hữu tỉ $\mathbb{Q}$ không compact địa phương.
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Locally compact Hausdorff spaces có **one-point compactification**.
+Mọi không gian Hausdorff compact địa phương (không compact) đều có một **compact hóa một điểm** (*one-point compactification*), chẳng hạn $\mathbb{R}^n \cup \{\infty\} \cong S^n$.
 </div>
-
-**Ví dụ:** ℝⁿ → Sⁿ (add "point at infinity").
 
 ---
 
-### 6. Compact Metric Spaces
+### 6. Không gian mê-tric compact
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Totally Bounded):**  
-Metric space (X, d) compact ⟺ **complete và totally bounded**.
+**Định lý:**  
+Không gian mê-tric $(X, d)$ là compact khi và chỉ khi nó **đầy đủ và hoàn toàn bị chặn**.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Totally Bounded):**  
-∀ε > 0: X có thể cover bởi **finite** balls radius ε.
+**Định nghĩa (Hoàn toàn bị chặn — Totally Bounded):**  
+Với mọi $\varepsilon > 0$, không gian $X$ có thể phủ được bởi hữu hạn hình cầu mở bán kính $\varepsilon$.
 </div>
 
-**Ví dụ:**
-- [0,1] totally bounded và complete → compact ✓
-- ℝ không totally bounded (cần infinite balls) → không compact ✓
-- (0,1) totally bounded nhưng không complete → không compact ✓
+Chẳng hạn, $[0, 1]$ đầy đủ và hoàn toàn bị chặn nên compact; $\mathbb{R}$ đầy đủ nhưng không hoàn toàn bị chặn; còn $(0, 1)$ hoàn toàn bị chặn nhưng không đầy đủ.
 
-**Lebesgue Number Lemma:**  
-Nếu (X, d) compact metric space, {Uα} open cover, thì ∃δ > 0 (Lebesgue number):
+**Bổ đề số Lebesgue (Lebesgue Number Lemma):**  
+Nếu $(X, d)$ là không gian mê-tric compact và $\{U_\alpha\}$ là một phủ mở của $X$, thì tồn tại số $\delta > 0$ (gọi là *số Lebesgue* của phủ mở) sao cho mọi tập con có đường kính nhỏ hơn $\delta$ đều nằm trọn trong ít nhất một tập của phủ mở:
 
 $$
 \forall A \subseteq X: \text{diam}(A) < \delta \implies \exists \alpha: A \subseteq U_\alpha
 $$
 
-**Trực giác:** Cover "uniform" — không có "holes" nhỏ hơn δ.
-
 ---
 
-### 7. Tychonoff's Theorem (Statement)
+### 7. Định lý Tychonoff (Phát biểu)
 
 **Định lý Tychonoff:**
 
-> **Tích tùy ý các không gian compact là compact** (trong product topology).
+> **Tích tùy ý của các không gian compact là compact** (đối với tô-pô tích).
 
 $$
 \forall i \in I: X_i \text{ compact} \implies \prod_{i \in I} X_i \text{ compact}
 $$
 
-**Đây là một trong những định lý mạnh nhất và quan trọng nhất trong topology!**
-
-**Ý nghĩa:**
-- Cần **Axiom of Choice** để chứng minh
-- Thực tế: Tychonoff ⟺ AC
-- Không đúng trong box topology!
-
-**Ví dụ:** [0,1]^ℕ = Hilbert cube compact.
-
-**Ứng dụng:**
-- Alaoglu's theorem (functional analysis)
-- Existence theorems (PDE, optimization)
-- Compactifications
+Định lý Tychonoff tương đương với Tiên đề Lựa chọn trong ZF và không còn đúng đối với tô-pô hộp. Chẳng hạn, khối lập phương Hilbert $[0, 1]^{\mathbb{N}}$ là compact. Định lý này là nền tảng cho định lý Banach–Alaoglu trong giải tích hàm và lý thuyết compact hóa.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Requires Alexander subbase theorem hoặc ultrafilters. (Very advanced!)
+**Ghi chú chứng minh:** Chứng minh thường dùng định lý tiền cơ sở Alexander hoặc bổ đề siêu lọc.
 </div>
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Eduard Heine** - *"Über trigonometrische Reihen"* (1872)  
-   *Uniform continuity trên closed bounded intervals*
+   *Tính liên tục đều trên các đoạn đóng bị chặn.*
 
 2. **Émile Borel** - *"Sur quelques points de la théorie des fonctions"* (1895)  
-   *Finite subcover property*
+   *Tính chất phủ con hữu hạn.*
 
 3. **Andrey Tychonoff** - *"Über die topologische Erweiterung von Räumen"* (1930)  
-   *Tychonoff's theorem*
+   *Chứng minh định lý Tychonoff.*
 
 4. **Pavel Alexandroff & Pavel Urysohn** - *"Mémoire sur les espaces topologiques compacts"* (1929)  
-   *Systematic study của compactness*
+   *Nghiên cứu có hệ thống về tính compact.*
 
-### Textbooks
+### Giáo trình
 
 5. **James R. Munkres** - *Topology*, 2nd Ed., **§26–27: Compact Spaces**  
-   *Clear exposition*
+   *Trình bày rõ ràng, chuẩn mực.*
 
 6. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 10**  
-   *Accessible treatment*
+   *Trình bày dễ tiếp cận.*
 
 7. **Stephen Willard** - *General Topology*, **Chapter 5**  
-   *Comprehensive*
+   *Trình bày đầy đủ.*
 
 8. **John L. Kelley** - *General Topology*, **Chapter 5**  
-   *Advanced, nets approach*
+   *Trình bày nâng cao theo hướng lưới.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - Extreme Value Theorem
-**Optimization:** EVT guarantees global max/min tồn tại trên compact domains. Foundation cho calculus of variations.
+### Giải tích — Tối ưu hóa
+Định lý Giá trị Cực trị bảo đảm sự tồn tại cực đại và cực tiểu toàn cục của hàm liên tục trên miền compact.
 
-### Functional Analysis - Alaoglu's Theorem
-**Weak-* Compactness:** Unit ball trong dual space weak-* compact (dùng Tychonoff). Key tool trong PDE theory.
+### Giải tích hàm — Định lý Banach–Alaoglu
+Hình cầu đơn vị đóng trong không gian đối ngẫu của một không gian định chuẩn là compact theo tô-pô yếu* (suy từ định lý Tychonoff), là công cụ cốt lõi trong lý thuyết phương trình đạo hàm riêng.
 
-### Differential Equations - Existence Theorems
-**Peano's Theorem:** ODEs có solution nếu RHS continuous (dùng compactness để extract convergent subsequence).
-
-### Economics - Equilibrium Existence
-**Nash Equilibrium:** Exists trong finite games vì strategy space compact (sử dụng fixed point theorems cần compactness).
-
-### Real-World Example
-**GPS Triangulation:** Finding closest point trên compact surface của Earth. EVT guarantees minimum distance exists.
+### Phương trình vi phân và lý thuyết trò chơi
+Định lý tồn tại nghiệm Peano cho phương trình vi phân thường và định lý tồn tại cân bằng Nash cho trò chơi hữu hạn đều dựa vào tính compact để trích dãy con hội tụ hoặc áp dụng định lý điểm bất động.
 
 ---
 
@@ -426,103 +300,91 @@ $$
 - [Basic Topology 4 | Compact Sets](https://www.youtube.com/watch?v=pYli4-0hzSs) — The Bright Side of Mathematics, tiếng Anh. Định nghĩa compact và các tính chất đầu tiên, trong chuỗi Basic Topology.
 - [Không gian tô-pô compact](https://www.youtube.com/watch?v=_o4E8YTaDk4) — Cuong Nguyen, tiếng Việt. Không gian compact nói bằng tiếng Việt, để nghe lại định nghĩa trong ngôn ngữ của bài.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Compactness Definition
+### Định nghĩa tính compact
 
-1. **Verify Compact:**  
-   Các spaces sau compact không?
-   - a) {1, 2, 3} với discrete topology
-   - b) ℕ với discrete topology
-   - c) [0, 1]
-   - d) (0, 1)
+1. **Kiểm tra tính compact:**  
+   Các không gian sau có compact không?
+   - a) $\{1, 2, 3\}$ với tô-pô rời rạc
+   - b) $\mathbb{N}$ với tô-pô rời rạc
+   - c) $[0, 1]$
+   - d) $(0, 1)$
 
-2. **Find Cover:**  
-   (0, 1) ⊂ ℝ. Tìm open cover không có finite subcover.
+2. **Tìm phủ mở:**  
+   Tìm một phủ mở của $(0, 1) \subset \mathbb{R}$ không có phủ con hữu hạn.
 
-3. **Finite Space:**  
-   Chứng minh: Mọi finite space với bất kỳ topology nào đều compact.
+3. **Không gian hữu hạn:**  
+   Chứng minh mọi không gian hữu hạn với tô-pô bất kỳ đều compact.
 
-### Heine-Borel
+### Định lý Heine–Borel
 
-4. **Closed và Bounded:**  
-   Trong ℝ, tập sau compact không?
-   - a) [0, 1] ∪ [2, 3]
-   - b) {1/n : n ∈ ℕ} ∪ {0}
-   - c) [0, ∞)
-   - d) Cantor set
+4. **Đóng và bị chặn trong $\mathbb{R}$:**  
+   Các tập sau trong $\mathbb{R}$ có compact không?
+   - a) $[0, 1] \cup [2, 3]$
+   - b) $\{1/n : n \in \mathbb{N}\} \cup \{0\}$
+   - c) $[0, \infty)$
+   - d) Tập Cantor
 
-5. **ℝ² Examples:**  
-   Trong ℝ², tập sau compact không?
-   - a) Closed unit disk {(x,y) : x² + y² ≤ 1}
-   - b) Open unit disk {(x,y) : x² + y² < 1}
-   - c) Unit circle S¹
+5. **Ví dụ trong $\mathbb{R}^2$:**  
+   Các tập sau trong $\mathbb{R}^2$ có compact không?
+   - a) Đĩa đóng đơn vị $\{(x, y) : x^2 + y^2 \le 1\}$
+   - b) Đĩa mở đơn vị $\{(x, y) : x^2 + y^2 < 1\}$
+   - c) Đường tròn đơn vị $S^1$
 
-### Properties
+### Tính chất
 
-6. **Continuous Image:**  
-   f: [0, 1] → ℝ, f(x) = 1/x nếu x > 0, f(0) = 0.  
-   - f continuous không?
-   - f([0,1]) compact không?
-   - Tại sao không mâu thuẫn với theorem?
+6. **Ảnh liên tục:**  
+   Xét $f: [0, 1] \to \mathbb{R}$ cho bởi $f(x) = 1/x$ nếu $x > 0$ và $f(0) = 0$.
+   - $f$ có liên tục không?
+   - $f([0, 1])$ có compact không?
+   - Vì sao điều này không mâu thuẫn với định lý ảnh liên tục?
 
-7. **Closed Subset:**  
-   K ⊆ ℝ compact, F ⊆ K closed.  
-   Chứng minh F compact.
+7. **Tập con đóng:**  
+   Cho $K \subseteq \mathbb{R}$ compact và $F \subseteq K$ đóng. Chứng minh $F$ compact.
 
-8. **Extreme Value:**  
-   Áp dụng EVT: Tìm max và min của f(x) = x² - 2x trên [0, 3].
+8. **Giá trị cực trị:**  
+   Áp dụng Định lý Giá trị Cực trị, tìm giá trị lớn nhất và nhỏ nhất của $f(x) = x^2 - 2x$ trên $[0, 3]$.
 
-### Sequential Compactness
+### Tính compact dãy
 
-9. **Bolzano-Weierstrass:**  
-   [0, 1] sequentially compact.  
-   Cho sequence xₙ = sin(n) trong [0,1].  
-   Tìm convergent subsequence (không cần explicit formula).
+9. **Bolzano–Weierstrass:**  
+   Đoạn $[-1, 1]$ là compact dãy. Giải thích vì sao dãy $x_n = \sin(n)$ trong $[-1, 1]$ có một dãy con hội tụ (không cần tìm công thức tường minh).
 
-10. **Counterexample:**  
-    ℕ không sequentially compact. Tìm sequence không có convergent subsequence.
+10. **Phản ví dụ:**  
+    Tìm một dãy trong $\mathbb{N}$ (với tô-pô rời rạc) không có dãy con hội tụ.
 
-### Advanced
+### Nâng cao
 
-11. **Product:**  
-    [0,1] × [0,1] compact? (Dùng Tychonoff hoặc Heine-Borel cho ℝ²)
+11. **Tích hai đoạn đóng:**  
+    Chứng minh $[0, 1] \times [0, 1]$ compact (dùng Định lý Heine–Borel trong $\mathbb{R}^2$ hoặc Định lý Tychonoff).
 
-12. **Hilbert Cube:**  
-    H = [0,1]^ℕ compact? (Tychonoff!)
+12. **Khối lập phương Hilbert:**  
+    Giải thích vì sao $H = [0, 1]^{\mathbb{N}}$ compact theo tô-pô tích.
 
-13. **Locally Compact:**  
-    Chứng minh ℝ locally compact nhưng không compact.
+13. **Compact địa phương:**  
+    Chứng minh $\mathbb{R}$ là không gian compact địa phương nhưng không compact.
 
-14. **One-Point Compactification:**  
-    ℝ + {∞} với topology thích hợp = S¹ (homeomorphic).  
-    Mô tả topology này.
+14. **Compact hóa một điểm:**  
+    Mô tả cấu trúc tô-pô trên $\mathbb{R} \cup \{\infty\}$ sao cho nó đồng phôi với đường tròn $S^1$.
 
-15. **Lebesgue Number:**  
-    [0,1] với Euclidean topology, cover = {(0, 0.6), (0.4, 1)}.  
-    Tìm Lebesgue number δ.
+15. **Số Lebesgue:**  
+    Trên $[0, 1]$ với tô-pô Euclid, xét phủ mở $\{[0, 0{,}6), (0{,}4, 1]\}$. Tìm một số Lebesgue $\delta > 0$ cho phủ mở này.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-16. **Compact vs Closed:**  
-    So sánh:
-    - Trong ℝⁿ: compact ⟺ closed + bounded (Heine-Borel)
-    - General topology: compact ⇏ closed (trừ khi Hausdorff)
-    
-    Tại sao Hausdorff quan trọng?
+16. **Compact và tập đóng:**  
+    Vì sao trong không gian tô-pô tổng quát, tập con compact không nhất thiết là tập đóng nếu thiếu giả thiết Hausdorff?
 
-17. **Sequential vs General:**  
-    Trong metric spaces, compact ⟺ sequentially compact.  
-    Tại sao equivalence này fail trong general spaces?
+17. **Compact dãy và compact theo phủ mở:**  
+    Tìm hiểu vì sao hai khái niệm này tương đương trong không gian mê-tric nhưng không tương đương trong không gian tô-pô tổng quát.
 
-18. **Applications:**  
-    Liệt kê 5 theorems/applications sử dụng compactness:
-    - EVT
-    - ...
+18. **Ứng dụng:**  
+    Liệt kê một số định lý quan trọng trong giải tích và tô-pô sử dụng trực tiếp giả thiết compact.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §26–28 (Compact Spaces, Products)
 - **Morris, Topology Without Tears:** Chapter 10
@@ -531,41 +393,24 @@ $$
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta học về **compactness**—một trong hai tính chất quan trọng nhất:
+✅ **Không gian compact:** Mọi phủ mở đều có phủ con hữu hạn.  
+✅ **Định lý Heine–Borel:** Trong $\mathbb{R}^n$, compact $\iff$ đóng và bị chặn.  
+✅ **Tập con đóng & Ảnh liên tục:** Tập con đóng của không gian compact là compact; ảnh liên tục của không gian compact là compact.  
+✅ **Định lý Giá trị Cực trị:** Hàm thực liên tục trên không gian compact khác rỗng đạt giá trị lớn nhất và nhỏ nhất.  
+✅ **Không gian mê-tric:** Compact $\iff$ compact dãy $\iff$ đầy đủ và hoàn toàn bị chặn.  
+✅ **Định lý Tychonoff:** Tích tùy ý các không gian compact là compact trong tô-pô tích.
 
-✅ **Compact:** Mọi open cover có finite subcover  
-✅ **Heine-Borel:** Trong ℝⁿ, compact ⟺ closed + bounded  
-✅ **Closed Subset:** Closed subset của compact là compact  
-✅ **Continuous Image:** f(compact) = compact  
-✅ **EVT:** Continuous f: compact → ℝ đạt max/min  
-✅ **Sequential Compactness:** Trong metric spaces, tương đương với compactness  
-✅ **Tychonoff:** Products của compact spaces là compact (cần AC)  
-
-**Điểm chính:**
-- Compactness = "finiteness in disguise"
-- Heine-Borel: characterization cụ thể cho ℝⁿ
-- EVT: foundation cho optimization
-- Compact spaces are "nice" — nhiều theorems work!
-- Tychonoff cần Axiom of Choice
-
-**Practical wisdom:**
-- Trong ℝⁿ: check closed + bounded
-- Sử dụng EVT để tìm extrema
-- Continuous images preserve compactness
-- Products preserve compactness (Tychonoff)
-
-**Tiếp theo:** Lecture 02.02 về **Applications of Compactness** với Fixed Point Theorems, Uniform Continuity, và nhiều applications khác!
+**Tiếp theo:** Bài 02.02 sẽ trình bày chi tiết về **Tính compact địa phương và Phép compact hóa** (*Local Compactness and Compactification*).
 
 ---
 
 *"Compact spaces are to topology what finite sets are to set theory."* — Standard analogy
 
-🎯 **Practice với Heine-Borel! Identify compact subsets của ℝⁿ.** 🎯
+🎯 **Hãy thực hành nhận diện tập compact trong $\mathbb{R}^n$ bằng Định lý Heine–Borel và luyện tập kỹ thuật trích phủ con hữu hạn.** 🎯
 
 ---
 
 **Previous:** [Lecture 02.00: Connected Spaces](/contents/vi/topology-chapter02/02_00_Connected_Spaces/)  
 **Next:** [Lecture 02.02: Applications of Compactness](/contents/vi/topology-chapter02/02_02_Applications_Compactness/)
-

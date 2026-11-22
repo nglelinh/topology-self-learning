@@ -10,72 +10,51 @@ tags: [van-kampen, fundamental-group, free-product, amalgamated-product]
 description: "Seifert-Van Kampen Theorem: computing π₁ từ decomposition, free products, amalgamated products"
 ---
 
-**Computing π₁ from Pieces - Powerful Decomposition Method**
+**Định lý Seifert–van Kampen**
 
 ---
 
 ## 📖 Tổng quan
 
-Đến giờ, chúng ta có hai phương pháp chính để tính toán $\pi_1$:
-1. **Covering spaces:** Mạnh mẽ nhưng yêu cầu tìm covering space
-2. **Homotopy equivalence:** Tốt nhưng giới hạn ở các không gian đơn giản
+Bên cạnh phương pháp không gian phủ và tương đương đồng luân, **Định lý Seifert–van Kampen** cung cấp phương pháp thứ ba rất linh hoạt để tính nhóm cơ bản theo chiến lược chia để trị:
 
-**Van Kampen's Theorem** cung cấp phương pháp THỨ BA—có thể nói là mạnh mẽ nhất:
+> **Phân tách không gian $X = A \cup B$ thành hai tập mở liên thông đường, rồi tính $\pi_1(X)$ từ $\pi_1(A)$, $\pi_1(B)$ và $\pi_1(A \cap B)$ qua tích tự do có hợp nhất (amalgamated free product).**
 
-> **Phân tích không gian $X = A \cup B$, tính toán $\pi_1(X)$ từ $\pi_1(A)$, $\pi_1(B)$, $\pi_1(A \cap B)$.**
-
-**Tại sao đây là một cuộc cách mạng?**
-
-Trước Van Kampen (1933), việc tính toán $\pi_1$ của các không gian phức tạp là cực kỳ khó khăn. Van Kampen đã chỉ ra rằng chúng ta có thể **chia để trị**—chia không gian phức tạp thành các phần đơn giản, sau đó kết hợp chúng lại bằng cách sử dụng **free product with amalgamation**—một cách kết hợp đại số các fundamental groups. Điều này cho phép **tính toán có hệ thống**—một thuật toán cho nhiều loại không gian. Đây là một lý thuyết đẹp—đại số thuần túy xác định topology.
+Định lý này (do Herbert Seifert thiết lập năm 1931 và Egbert van Kampen tổng quát hóa năm 1933) đặc biệt hữu ích khi tính nhóm cơ bản của tổng chụm (wedge sum), các mặt đóng, phức CW và phần bù của nút trong $S^3$.
 
 ![Van Kampen decomposition](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Seifert-van_Kampen.svg/500px-Seifert-van_Kampen.svg.png)  
-*Decomposing space for Van Kampen - Nguồn concept*
+*Minh họa phân tách không gian $X = A \cup B$ trong định lý Seifert–van Kampen*
 
-Trong bài học này, chúng ta sẽ khám phá định lý Van Kampen một cách có hệ thống. Chúng ta sẽ nghiên cứu **phát biểu** của định lý sử dụng free product with amalgamation—một cách kết hợp các fundamental groups của các phần khác nhau của không gian. Chúng ta sẽ khám phá các **trường hợp đặc biệt** như intersection simply connected và wedge sums—những trường hợp này đơn giản hóa đáng kể việc tính toán. Chúng ta sẽ xem xét **chứng minh sketch** từ góc nhìn của category theory—định lý Van Kampen nói rằng $\pi_1$ bảo toàn pushouts. Chúng ta sẽ nghiên cứu các **ví dụ** cụ thể như $S^1$, figure-eight, torus, surfaces, $\mathbb{R}P^2$, và CW complexes—những ví dụ này cho thấy sức mạnh của phương pháp. Chúng ta sẽ xem xét các **ứng dụng** trong tính toán có hệ thống và **lý thuyết nhóm** về free products và amalgamated products.
-
-**Tại sao đây là kiến thức quan trọng?** Đây là **phương pháp linh hoạt nhất** để tính toán $\pi_1$—nó hoạt động cho nhiều loại không gian khác nhau. Nó **hoạt động cho CW complexes** (được xây dựng bằng cách dán các cells)—đây là một lớp không gian rất quan trọng trong topology. Nó **chứng minh các định lý tổng quát** (không chỉ các ví dụ)—cho phép chúng ta tính toán fundamental groups một cách có hệ thống. Cuối cùng, nó là một **cây cầu** giữa Topology và Group theory—cho thấy cách các công cụ đại số có thể được sử dụng để nghiên cứu topology.
+Trong bài học này, chúng ta sẽ nhắc lại khái niệm tích tự do và tích tự do có hợp nhất, phát biểu Định lý Seifert–van Kampen cùng các hệ quả đặc biệt, trình bày các ứng dụng tiêu chuẩn (hình số $8$, tổng chụm $n$ đường tròn, hình xuyến, mặt giống $g$, $\mathbb{R}P^2$) và phác thảo ý tưởng chứng minh.
 
 ---
 
-## 🎯 Statement của Van Kampen
+## 🎯 Phát biểu Định lý Seifert–van Kampen
 
-### 1. Free Product với Amalgamation
+### 1. Tích tự do và Tích tự do có hợp nhất
 
-**Nhắc lại (Free Product):**  
-Cho các nhóm $G$, $H$. **Free product** $G * H$ là nhóm được xây dựng bằng cách:
-- Generators: các phần tử của $G$ và $H$
-- Relations: chỉ những relations đã có trong $G$, $H$
-- Không có relations mới giữa $G$ và $H$
-
-Trực giác hình học là chúng ta kết hợp hai nhóm lại với nhau mà không tạo ra bất kỳ relations nào giữa chúng—mỗi nhóm giữ nguyên cấu trúc của nó, và chúng ta chỉ đơn giản là "dán" chúng lại với nhau.
-
-**Ví dụ:** $\mathbb{Z} * \mathbb{Z}$ = free group trên 2 generators (không abelian!). Đây là một ví dụ quan trọng—free product của hai nhóm cyclic vô hạn là một nhóm không abelian, mặc dù mỗi nhóm ban đầu là abelian.
+**Nhắc lại (Tích tự do – Free Product):**  
+Cho hai nhóm $G$ và $H$. **Tích tự do** $G * H$ là nhóm sinh bởi các phần tử của $G$ và $H$, chỉ giữ nguyên các quan hệ vốn có trong $G$ và trong $H$ mà không thêm quan hệ mới nào giữa hai nhóm. Ví dụ: $\mathbb{Z} * \mathbb{Z}$ là nhóm tự do trên hai phần tử sinh (nhóm không giao hoán).
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Amalgamated Free Product):**  
-Cho các nhóm $G$, $H$ với các homomorphisms $\phi: K \to G$, $\psi: K \to H$.
+**Định nghĩa (Tích tự do có hợp nhất – Amalgamated Free Product):**  
+Cho các nhóm $G, H, K$ cùng hai đồng cấu nhóm $\phi: K \to G$ và $\psi: K \to H$. **Tích tự do có hợp nhất** $G *_K H$ thu được từ tích tự do $G * H$ bằng cách lấy thương theo nhóm con chuẩn tắc sinh bởi các quan hệ $\phi(k) = \psi(k)$ với mọi $k \in K$.
 </div>
 
-**Amalgamated product** $G *_K H$ được xây dựng bằng cách:
-- Lấy free product $G * H$
-- **Thêm các relations:** $\phi(k) = \psi(k)$ cho mọi $k \in K$
-
-**Trực giác:** "Đồng nhất" các ảnh của $K$ trong $G$ và $H$. Điều này có nghĩa là nếu một phần tử $k \in K$ được ánh xạ đến $g \in G$ và $h \in H$, thì chúng ta đồng nhất $g$ và $h$ trong amalgamated product.
-
-**Ký hiệu:** $G *_K H$ (amalgamate over $K$). Đây là một cách tổng quát hóa free product—thay vì chỉ đơn giản là kết hợp hai nhóm lại với nhau, chúng ta kết hợp chúng trong khi đồng nhất các phần tử từ nhóm con chung $K$.
+Nói cách khác, $G *_K H$ kết hợp $G$ và $H$ đồng thời đồng nhất hai ảnh của nhóm trung gian $K$ trong $G$ và $H$.
 
 ---
 
-### 2. Van Kampen's Theorem
+### 2. Định lý Seifert–van Kampen
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Seifert-Van Kampen):**  
-Cho $X$ là topological space, $A$, $B$ là các open subsets:
-- **$X = A \cup B$** (cover $X$)
-- **$A$, $B$, $A \cap B$ path-connected**
-- **$x_0 \in A \cap B$** (basepoint trong intersection)
+**Định lý (Seifert–van Kampen):**  
+Cho không gian tô-pô $X$ và hai tập con mở $A, B \subseteq X$ thỏa mãn:
+- $X = A \cup B$,
+- $A$, $B$ và $A \cap B$ đều liên thông đường,
+- Chọn điểm cơ sở $x_0 \in A \cap B$.
 </div>
 
 Khi đó:
@@ -84,17 +63,10 @@ $$
 \pi_1(X, x_0) \cong \pi_1(A, x_0) *_{\pi_1(A \cap B, x_0)} \pi_1(B, x_0)
 $$
 
-**Amalgamation qua các inclusions:**
-- $i_A: A \cap B \to A$ cảm ứng $(i_A)_*: \pi_1(A \cap B) \to \pi_1(A)$
-- $i_B: A \cap B \to B$ cảm ứng $(i_B)_*: \pi_1(A \cap B) \to \pi_1(B)$
+trong đó phép hợp nhất thực hiện theo hai đồng cấu cảm sinh bởi các phép nhúng $i_A: A \cap B \hookrightarrow A$ và $i_B: A \cap B \hookrightarrow B$.
 
-**Amalgamate over $\pi_1(A \cap B)$!** Đây là điểm quan trọng—chúng ta không chỉ đơn giản là lấy free product của $\pi_1(A)$ và $\pi_1(B)$, mà chúng ta amalgamate chúng qua fundamental group của intersection. Điều này phản ánh cách các loops trong intersection có thể được hiểu như các loops trong cả $A$ và $B$, và chúng ta cần đồng nhất các cách hiểu này.
-
----
-
-**Góc nhìn Category Theory:**
-
-Van Kampen nói rằng $\pi_1$ bảo toàn **pushouts**. Điều này có nghĩa là fundamental group của không gian được xây dựng như một pushout trong category của các topological spaces là pushout của các fundamental groups trong category của các groups.
+**Góc nhìn lý thuyết phạm trù:**  
+Định lý Seifert–van Kampen khẳng định biểu đồ sau là một **pushout** trong phạm trù các nhóm:
 
 ```
 π₁(A ∩ B) -----> π₁(A)
@@ -104,409 +76,256 @@ Van Kampen nói rằng $\pi_1$ bảo toàn **pushouts**. Điều này có nghĩa
   π₁(B)  -----> π₁(X)
 ```
 
-Đây là một pushout diagram trong Grp (category của các groups). Điều này cho thấy một kết nối sâu sắc giữa topology và category theory—fundamental group là một functor bảo toàn pushouts.
-
 ---
 
-### 3. Special Cases
+### 3. Các trường hợp đặc biệt
 
-**Trường hợp 1: $A \cap B$ Simply Connected**
-
-Nếu $\pi_1(A \cap B) = \{e\}$ (tầm thường), thì:
+**Trường hợp 1: $A \cap B$ đơn liên ($\pi_1(A \cap B) = \{e\}$)**
 
 $$
 \pi_1(X) \cong \pi_1(A) * \pi_1(B)
 $$
 
-**Free product!** (Không cần amalgamation.) Đây là trường hợp đơn giản nhất—nếu intersection có fundamental group tầm thường, thì fundamental group của không gian tổng thể chỉ đơn giản là free product của các fundamental groups của các phần. Trực giác hình học là nếu intersection không có "lỗ" nào, thì các loops trong $A$ và $B$ không tương tác với nhau theo cách phức tạp.
+Không phát sinh thêm quan hệ hợp nhất nào; kết quả là tích tự do thuần túy.
 
----
-
-**Trường hợp 2: $A$ hoặc $B$ Simply Connected**
-
-Nếu $\pi_1(A) = \{e\}$, thì:
+**Trường hợp 2: $A$ đơn liên ($\pi_1(A) = \{e\}$)**
 
 $$
 \pi_1(X) \cong \pi_1(B) / N
 $$
 
-trong đó $N$ = normal subgroup được sinh bởi ảnh của $\pi_1(A \cap B)$. Điều này thường đơn giản hóa đáng kể việc tính toán—nếu một trong các phần có fundamental group tầm thường, thì fundamental group của không gian tổng thể chỉ là quotient của fundamental group của phần còn lại.
+trong đó $N$ là nhóm con chuẩn tắc nhỏ nhất của $\pi_1(B)$ chứa ảnh $(i_B)_*(\pi_1(A \cap B))$.
 
----
-
-**Trường hợp 3: Wedge Sum**
-
-$X = A \vee B$ (các không gian được nối tại một điểm duy nhất $x_0$), $A \cap B = \{x_0\}$.
+**Trường hợp 3: Tổng chụm (Wedge Sum)**  
+Với $X = A \vee B$ (dán tại điểm cơ sở $x_0$, giả sử $x_0$ có lân cận co rút được trong cả $A$ và $B$):
 
 $$
 \pi_1(A \vee B) \cong \pi_1(A) * \pi_1(B)
 $$
 
-**Beautiful:** Wedge ↔ free product!
+---
+
+## 📊 Các ứng dụng tiêu chuẩn
+
+### Ứng dụng 1: Lưu ý khi áp dụng cho $S^1$
+
+Nếu phân tách $S^1 = A \cup B$ với $A = S^1 \setminus \{N\}$ và $B = S^1 \setminus \{S\}$, thì $A \cap B$ gồm hai cung rời nhau — **không liên thông đường**, nên dạng cổ điển của định lý Van Kampen không áp dụng trực tiếp được (cần dùng phiên bản nhóm-phỏng/groupoid của Brown, hoặc dùng phương pháp không gian phủ $\mathbb{R} \to S^1$ vốn đơn giản hơn nhiều).
 
 ---
 
-## 📊 Standard Applications
+### Ứng dụng 2: Hình số $8$ ($S^1 \vee S^1$)
 
-### Application 1: π₁(S¹) = ℤ
-
-**Decomposition:**  
-S¹ = A ∪ B where:
-- A = S¹ \ {north pole} ≃ (0,1) contractible
-- B = S¹ \ {south pole} ≃ (0,1) contractible
-- A ∩ B = two arcs ≃ (0,1) ⊔ (0,1) (two contractible components)
-
-**Problem:** A ∩ B not path-connected! Modified Van Kampen needed.
-
----
-
-**Better decomposition:**  
-Use slightly different A, B ensuring A ∩ B path-connected.
-
-**Result (sketch):**  
-Careful analysis ⇒ π₁(S¹) ≅ ℤ.
-
-**Remark:** Covering space method easier for S¹! Van Kampen more useful for complex spaces.
-
----
-
-### Application 2: π₁(Figure-Eight) = ℤ * ℤ
-
-**X = S¹ ∨ S¹** (two circles joined at point x₀).
-
-**Decomposition:**  
-- A = slightly thickened first circle
-- B = slightly thickened second circle
-- A ∩ B = small neighborhood of x₀ ≃ disk (contractible)
-
-**Apply Van Kampen:**
-- π₁(A) ≅ ℤ (first circle)
-- π₁(B) ≅ ℤ (second circle)
-- π₁(A ∩ B) = {e} (contractible)
-
-**Result:**
+Chọn $A$ là đường tròn thứ nhất mở rộng thêm một lân cận nhỏ quanh điểm chung $x_0$ trên đường tròn thứ hai, và $B$ tương tự cho đường tròn thứ hai. Khi đó $A \simeq S^1$, $B \simeq S^1$, và $A \cap B$ co rút được về $x_0$. Áp dụng Van Kampen:
 
 $$
 \pi_1(X) \cong \mathbb{Z} * \mathbb{Z}
 $$
 
-**Free group on two generators!**
+(nhóm tự do trên hai phần tử sinh).
 
 ![Figure-eight fundamental group](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Wedge_of_circles.svg/400px-Wedge_of_circles.svg.png)  
-*Figure-eight và generators - Nguồn concept*
+*Minh họa hình số 8 và các vòng sinh*
 
 ---
 
-### Application 3: π₁(Torus) = ℤ × ℤ
+### Ứng dụng 3: Hình xuyến $T^2$
 
-**T² = S¹ × S¹.**
-
-**Decomposition:**  
-Write T² = solid torus glued to solid torus along boundary.
-
-Alternatively: CW complex structure (1 vertex, 2 edges, 1 face).
-
-**Better approach:** Use product theorem.
-
-**Van Kampen verification:**  
-Decompose T² cleverly ⇒ π₁(T²) ≅ ℤ × ℤ (abelian!).
-
-**Key:** Commutator relation [a,b] = 1 from attaching 2-cell.
+Xem $T^2$ như phức CW gồm $1$-khung $S^1 \vee S^1$ dán thêm một $2$-tế bào dọc theo từ biên $aba^{-1}b^{-1}$. Chọn $A$ là phần trong của $2$-tế bào (co rút được) và $B = T^2 \setminus \{p\}$ (với $p$ là tâm của $2$-tế bào, nên $B$ co rút biến dạng về $1$-khung $S^1 \vee S^1$). Giao $A \cap B$ đồng luân với $S^1$, và ảnh của phần tử sinh $\pi_1(A \cap B)$ trong $\pi_1(B) \cong \langle a, b \rangle$ chính là hoán tử $aba^{-1}b^{-1}$. Theo trường hợp 2 của Van Kampen:
+$\pi_1(T^2) \cong \langle a, b \mid aba^{-1}b^{-1} = 1 \rangle \cong \mathbb{Z} \times \mathbb{Z}$.
 
 ---
 
-### Application 4: π₁(Σ_g) - Genus g Surface
+### Ứng dụng 4: Mặt định hướng được giống $g$ ($\Sigma_g$)
 
-**Σ_g = orientable surface genus g.**
-
-**Decomposition:**  
-Build from fundamental polygon (4g-gon with edges identified).
-
-**Van Kampen application:**  
-- Decompose systematically
-- Track generators and relations
-
-**Result:**
+Tương tự như hình xuyến, biểu diễn $\Sigma_g$ bằng đa giác $4g$ cạnh có từ biên $[a_1,b_1]\cdots[a_g,b_g]$, khoét một điểm tâm để lấy $B \simeq \bigvee_{i=1}^{2g} S^1$ và $A$ là đĩa mở quanh điểm tâm. Áp dụng Van Kampen cho:
 
 $$
 \pi_1(\Sigma_g) = \langle a_1, b_1, \ldots, a_g, b_g \mid [a_1,b_1] \cdots [a_g,b_g] = 1 \rangle
 $$
 
-**2g generators, one relation (surface relation).**
-
-**For g ≥ 2:** Non-abelian!
+Với $g \geq 2$, nhóm này không giao hoán.
 
 ---
 
-### Application 5: π₁(ℝP²) = ℤ/2ℤ
+### Ứng dụng 5: Mặt phẳng xạ ảnh $\mathbb{R}P^2$
 
-**ℝP² = projective plane.**
+Xem $\mathbb{R}P^2$ là đĩa $D^2$ đồng nhất biên đối cực. Chọn $A$ là đĩa mở nhỏ hơn nằm gọn bên trong $D^2$ ($\pi_1(A) = \{e\}$) và $B = \mathbb{R}P^2 \setminus \{0\}$ (là một dải Möbius mở, co rút biến dạng về đường tròn biên $\mathbb{R}P^1 \cong S^1$, nên $\pi_1(B) \cong \mathbb{Z}$). Giao $A \cap B$ là hình vành khăn ($\pi_1(A \cap B) \cong \mathbb{Z}$).
 
-**Decomposition:**  
-ℝP² = disk D² với boundary identified antipodally.
-
-- A = slightly smaller disk (contractible)
-- B = annulus around edge
-- A ∩ B = annulus (≃ S¹)
-
-**Van Kampen:**  
-- π₁(A) = {e}
-- π₁(B) ≅ ℤ (annulus ≃ S¹)
-- π₁(A ∩ B) ≅ ℤ
-
-Inclusion (A ∩ B) → B: identity on π₁.  
-Inclusion (A ∩ B) → A: trivial.
-
-**Amalgamation forces:** γ² = e in π₁(ℝP²).
-
-**Result:** π₁(ℝP²) ≅ ℤ/2ℤ. ✓
+Khi đi một vòng quanh hình vành khăn $A \cap B$, ảnh của nó đi **hai vòng** quanh lõi của dải Möbius $B$, nên phép nhúng $A \cap B \hookrightarrow B$ cảm sinh phép nhân với $2$ trên $\pi_1$ ($\gamma \mapsto \gamma^2$), trong khi $A \cap B \hookrightarrow A$ cảm sinh đồng cấu tầm thường. Theo Van Kampen (trường hợp 2), quan hệ hợp nhất áp đặt $\gamma^2 = e$, suy ra $\pi_1(\mathbb{R}P^2) \cong \langle \gamma \mid \gamma^2 = 1 \rangle \cong \mathbb{Z}/2\mathbb{Z}$.
 
 ---
 
-### Application 6: Wedge of n Circles
+### Ứng dụng 6: Tổng chụm $n$ đường tròn
 
-**X = ⋁ᵢ₌₁ⁿ S¹** (n circles joined at point).
-
-**Van Kampen (iteratively):**
+Áp dụng quy nạp định lý Van Kampen cho $X = \bigvee_{i=1}^n S^1$:
 
 $$
 \pi_1\left(\bigvee_{i=1}^n S^1\right) \cong \mathbb{Z} * \mathbb{Z} * \cdots * \mathbb{Z} \quad (n \text{ times})
 $$
 
-**Free group F_n on n generators!**
-
-**Generators:** One loop around each circle.
-
-**Non-abelian for n ≥ 2.**
+Đây là nhóm tự do $F_n$ trên $n$ phần tử sinh (không giao hoán khi $n \geq 2$).
 
 ---
 
-## 🧮 Proof Sketch
+## 🧮 Phác thảo chứng minh
 
-### 1. Key Ideas
+### 1. Ý tưởng chính
 
-**Theorem intuition:**  
-Loops trong X can be written as:
-- Segments trong A
-- Segments trong B
-- Transitions through A ∩ B
+Mọi vòng trong $X = A \cup B$ đều có thể chia thành hữu hạn đoạn nhỏ nằm hoàn toàn trong $A$ hoặc trong $B$, với các điểm chuyển tiếp nằm trong $A \cap B$; nối các điểm chuyển tiếp với $x_0$ bên trong tập liên thông đường $A \cap B$ sẽ phân tích vòng thành tích các vòng thuộc $\pi_1(A, x_0)$ và $\pi_1(B, x_0)$.
 
-**Group structure:**  
-- Elements from π₁(A) và π₁(B)
-- Relations: those from A, B, and compatibility via A ∩ B
+### 2. Các bước xây dựng
+
+1. **Định nghĩa đồng cấu $\Phi$:** Từ các phép nhúng $j_A: A \hookrightarrow X$ và $j_B: B \hookrightarrow X$, tính chất phổ dụng của tích tự do có hợp nhất cảm sinh đồng cấu $\Phi: \pi_1(A) *_{\pi_1(A \cap B)} \pi_1(B) \to \pi_1(X)$.
+2. **Tính toàn ánh của $\Phi$:** Dùng bổ đề số Lebesgue để chia mọi vòng $\gamma: [0,1] \to X$ thành hữu hạn đoạn thuộc $A$ hoặc $B$, rồi chèn các đường nối về $x_0$ trong $A \cap B$.
+3. **Tính đơn ánh của $\Phi$:** Nếu hai tích vòng cho cùng một lớp trong $\pi_1(X)$, tồn tại phép đồng luân đường $F: [0,1]^2 \to X$. Chia $[0,1]^2$ thành lưới ô nhỏ sao cho mỗi ô rơi vào $A$ hoặc $B$, rồi kiểm tra rằng bước đi qua từng ô chỉ thay đổi từ biểu diễn bởi các quan hệ hợp nhất trong $\pi_1(A) *_{\pi_1(A \cap B)} \pi_1(B)$.
 
 ---
 
-### 2. Construction
+## 🧠 Tài liệu kinh điển và tham khảo
 
-**Step 1:** Define map Φ: π₁(A) *_{π₁(A∩B)} π₁(B) → π₁(X).
+### Các công trình kinh điển
 
-Use inclusions j_A: A → X, j_B: B → X inducing homomorphisms.
+1. **Herbert Seifert** – *"Konstruktion dreidimensionaler geschlossener Räume"* (1931)
 
-**Step 2:** Show Φ well-defined (respects amalgamation).
+2. **Egbert van Kampen** – *"On the connection between the fundamental groups"* (1933)
 
-**Step 3:** Show Φ surjective:  
-Any loop γ in X can be subdivided into pieces in A, B.  
-Each piece lifts to element of π₁(A) or π₁(B).
+3. **Ronald Brown** – *"Groupoids and Van Kampen's theorem"* (1967)  
+   *Phát biểu hiện đại bằng ngôn ngữ nhóm-phỏng (groupoids).*
 
-**Step 4:** Show Φ injective:  
-If product = identity in π₁(X), can construct homotopy showing = identity in amalgamated product.
+### Giáo trình
 
-**Technical:** Requires careful analysis of homotopies respecting A, B.
+4. **Allen Hatcher** – *Algebraic Topology*, **§1.2: Van Kampen's Theorem**
 
-**Conclusion:** Φ isomorphism. ✓ **QED**
+5. **James R. Munkres** – *Topology*, **§70: Seifert–van Kampen Theorem**
 
----
+6. **William S. Massey** – *Algebraic Topology*, **Chapter 6**
 
-## 🧠 Fundamental Papers & References
+7. **Glen E. Bredon** – *Topology and Geometry*, **Chapter II**
 
-### Classic Works
-
-1. **Herbert Seifert** - *"Konstruktion dreidimensionaler geschlossener Räume"* (1931)  
-   *First version of theorem*
-
-2. **Egbert van Kampen** - *"On the connection between the fundamental groups"* (1933)  
-   *General formulation*
-
-3. **Ronald Brown** - *"Groupoids and Van Kampen's theorem"* (1967)  
-   *Modern categorical perspective*
-
-### Textbooks
-
-4. **Allen Hatcher** - *Algebraic Topology*, **§1.2: Van Kampen's Theorem**  
-   *Best modern treatment, many examples*
-
-5. **James R. Munkres** - *Topology*, **§70: Seifert-Van Kampen Theorem**  
-   *Careful rigorous proof*
-
-6. **William S. Massey** - *Algebraic Topology*, **Chapter 6**
-
-7. **Glen E. Bredon** - *Topology and Geometry*, **Chapter II**
-
-8. **Joseph J. Rotman** - *An Introduction to Algebraic Topology*, **Chapter 7**
+8. **Joseph J. Rotman** – *An Introduction to Algebraic Topology*, **Chapter 7**
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### CW Complexes - Systematic Computation
-**Building Spaces:** CW complexes built by attaching cells. Van Kampen computes π₁ inductively: attach n-cell ⇒ π₁ changes by adding relation.
+### Phức CW – Tính toán quy nạp
+Khi xây dựng phức CW: dán $1$-tế bào thêm phần tử sinh, dán $2$-tế bào thêm quan hệ vào $\pi_1$ (theo Van Kampen), còn dán $n$-tế bào với $n \ge 3$ không làm thay đổi $\pi_1$.
 
-### Knot Theory - Knot Groups
-**Knot Complement:** K ⊆ S³ knot. Decompose S³ \ K via Van Kampen ⇒ compute knot group π₁(S³ \ K). Distinguishes knots!
+### Lý thuyết nút – Nhóm nút
+Phân tách phần bù $S^3 \setminus K$ bằng định lý Van Kampen dẫn đến biểu diễn Wirtinger của nhóm nút $\pi_1(S^3 \setminus K)$.
 
-### 3-Manifolds - Fundamental Groups
-**Heegaard Splittings:** 3-manifold = two handlebodies glued. Van Kampen computes π₁ from gluing map.
+### 3-đa tạp – Phân tách Heegaard
+Biểu diễn 3-đa tạp thành hai thể tay cầm (handlebodies) dán dọc theo biên cho phép tính $\pi_1$ từ ánh xạ dán.
 
-### Robotics - Configuration Spaces
-**Modular Robots:** Configuration space = product/union of simpler spaces. Van Kampen enables π₁ computation for motion planning.
-
-### Group Theory - Amalgamated Products
-**HNN Extensions:** Generalization of amalgamated products. Bass-Serre theory = algebraic analog of Van Kampen.
+### Lý thuyết nhóm – Lý thuyết Bass–Serre
+Tích tự do có hợp nhất và mở rộng HNN là đối tác đại số trực tiếp của định lý Van Kampen.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Algebraic Topology 6: Seifert-Van Kampen Theorem](https://www.youtube.com/watch?v=pmNcHER9K9I) — Math at Andrews University, tiếng Anh. Phát biểu Seifert–van Kampen và cách dán nhóm cơ bản theo hai mảnh.
-- [6. Applications and Proof of the van Kampen Theorem - Pierre Albin](https://www.youtube.com/watch?v=0msWLft-lT0) — Mat Neth, tiếng Anh. Pierre Albin chứng minh và áp dụng, sau khi phát biểu đã quen.
+- **xem trước** [Algebraic Topology 6: Seifert-Van Kampen Theorem](https://www.youtube.com/watch?v=pmNcHER9K9I) — Math at Andrews University, tiếng Anh. Phát biểu định lý Seifert–van Kampen và cách ghép nhóm cơ bản từ hai mảnh.
+- [6. Applications and Proof of the van Kampen Theorem - Pierre Albin](https://www.youtube.com/watch?v=0msWLft-lT0) — Mat Neth, tiếng Anh. Chứng minh và ứng dụng định lý Van Kampen.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Understanding Statement
+### Hiểu phát biểu
 
-1. **Free Product:**  
-   Compute ℤ * ℤ/2ℤ explicitly. List some elements. Is it abelian?
+1. **Tích tự do:**  
+   Mô tả cấu trúc các phần tử của $\mathbb{Z} * (\mathbb{Z}/2\mathbb{Z})$. Nhóm này có giao hoán không?
 
-2. **Amalgamated Product:**  
-   ℤ *_ℤ ℤ where both maps identity. What is this group? (Hint: ℤ.)
+2. **Tích tự do có hợp nhất:**  
+   Xác định nhóm $\mathbb{Z} *_{\mathbb{Z}} \mathbb{Z}$ khi cả hai đồng cấu $\mathbb{Z} \to \mathbb{Z}$ đều là ánh xạ đồng nhất (gợi ý: $\mathbb{Z}$).
 
-3. **Verify Hypothesis:**  
-   Why need A, B, A ∩ B path-connected? Counterexample if not?
+3. **Giả thiết liên thông đường:**  
+   Giải thích vì sao định lý yêu cầu $A, B$ và $A \cap B$ đều liên thông đường; lấy $S^1$ làm phản ví dụ khi $A \cap B$ không liên thông đường.
 
-### Applications
+### Ứng dụng trực tiếp
 
-4. **Figure-Eight:**  
-   Detailed Van Kampen calculation for π₁(S¹ ∨ S¹) = ℤ * ℤ. Verify all steps.
+4. **Hình số $8$:**  
+   Trình bày chi tiết các bước áp dụng Van Kampen để chứng minh $\pi_1(S^1 \vee S^1) \cong \mathbb{Z} * \mathbb{Z}$.
 
-5. **Three Circles:**  
-   X = S¹ ∨ S¹ ∨ S¹. Use Van Kampen: π₁(X) = ℤ * ℤ * ℤ = F₃.
+5. **Ba đường tròn chụm tại một điểm:**  
+   Áp dụng Van Kampen tính $\pi_1(S^1 \vee S^1 \vee S^1) \cong F_3$.
 
-6. **Torus Computation:**  
-   Use Van Kampen with appropriate decomposition to get π₁(T²) = ℤ².
+6. **Hình xuyến:**  
+   Trình bày chi tiết phép phân tách $T^2 = A \cup B$ để suy ra $\pi_1(T^2) \cong \mathbb{Z}^2$.
 
-### Surfaces
+### Các mặt
 
-7. **Genus 2:**  
-   Σ₂ (2-torus). Apply Van Kampen to get presentation ⟨a₁,b₁,a₂,b₂ | [a₁,b₁][a₂,b₂] = 1⟩.
+7. **Mặt giống $2$:**  
+   Áp dụng Van Kampen cho $\Sigma_2$ để thu được $\langle a_1, b_1, a_2, b_2 \mid [a_1,b_1][a_2,b_2] = 1 \rangle$.
 
-8. **Klein Bottle:**  
-   Use Van Kampen to compute π₁(K) = ⟨a,b | aba⁻¹b = 1⟩ (non-abelian).
+8. **Chai Klein:**  
+   Áp dụng Van Kampen để chứng minh $\pi_1(K) \cong \langle a, b \mid aba^{-1}b = 1 \rangle$.
 
-9. **ℝP²:**  
-   Detailed Van Kampen calculation showing π₁(ℝP²) = ℤ/2ℤ.
+9. **$\mathbb{R}P^2$:**  
+   Trình bày chi tiết phép tính $\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$ bằng Van Kampen.
 
-### CW Complexes
+### Phức CW
 
-10. **Attach 2-cell:**  
-    Start with X = S¹ (π₁ = ℤ). Attach 2-cell via loop γ² (wind twice).  
-    Use Van Kampen: π₁ = ⟨a | a² = 1⟩ = ℤ/2ℤ.
+10. **Dán một $2$-tế bào:**  
+    Xuất phát từ $S^1$ ($\pi_1 = \langle a \rangle \cong \mathbb{Z}$), dán một $2$-tế bào theo ánh xạ quấn $2$ vòng ($a^2$). Dùng Van Kampen chứng minh $\pi_1 \cong \langle a \mid a^2 = 1 \rangle \cong \mathbb{Z}/2\mathbb{Z}$.
 
-11. **Dunce Hat:**  
-    Triangle with all edges identified. Van Kampen shows contractible (π₁ = {e}).
+11. **Mũ Dunce (Dunce Hat):**  
+    Xét tam giác có ba cạnh được dán với nhau theo nhãn $a, a, a^{-1}$. Dùng Van Kampen chứng minh $\pi_1 = \{e\}$ (từ đó cùng với đồng điều bằng $0$ suy ra không gian co rút được).
 
-12. **General CW:**  
-    Explain how Van Kampen computes π₁ of any CW complex inductively.
+12. **Phức CW tổng quát:**  
+    Giải thích cách dùng định lý Van Kampen để tính $\pi_1$ của một phức CW bất kỳ từ $2$-khung của nó.
 
-### Advanced
+### Nâng cao
 
-13. **Pushout:**  
-    Research categorical formulation: Van Kampen says π₁ preserves pushouts. Explain.
+13. **Biểu đồ pushout:**  
+    Giải thích phát biểu phạm trù: định lý Van Kampen nói rằng $\pi_1$ bảo toàn pushout.
 
-14. **Groupoids:**  
-    Modern Van Kampen uses groupoids (not just groups). Read Brown's version briefly.
+14. **Nhóm-phỏng (Groupoids):**  
+    Tìm hiểu phiên bản Van Kampen của Ronald Brown sử dụng nhóm-phỏng cơ bản (xử lý được cả trường hợp $A \cap B$ không liên thông đường).
 
-15. **Higher Van Kampen:**  
-    Research higher-dimensional versions (Seifert-van Kampen for π_n). Much more complex!
+15. **Phiên bản chiều cao:**  
+    Tìm hiểu vì sao định lý kiểu Van Kampen cho các nhóm đồng luân bậc cao $\pi_n$ ($n \ge 2$) phức tạp hơn nhiều.
 
-### Comparison
+### So sánh các phương pháp
 
-16. **Three Methods:**  
-    Compare computing π₁(S¹):  
-    a) Covering space method  
-    b) Van Kampen  
-    c) Geometric argument  
-    Which easiest?
+16. **So sánh tính $\pi_1(S^1)$:**  
+    So sánh độ thuận tiện giữa phương pháp không gian phủ và định lý Van Kampen khi tính $\pi_1(S^1)$.
 
-17. **When to Use:**  
-    For each method (covering, Van Kampen, homotopy equivalence), give space where it's best choice.
+17. **Chọn công cụ phù hợp:**  
+    Nêu một ví dụ không gian phù hợp nhất cho từng phương pháp: không gian phủ, Van Kampen và tương đương đồng luân.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-18. **Why Powerful?:**  
-    Explain why Van Kampen so powerful. What types of spaces does it handle well?
+18. **Phạm vi áp dụng:**  
+    Định lý Van Kampen xử lý tốt nhất những loại không gian nào?
 
-19. **Limitations:**  
-    Van Kampen doesn't help for every space. What are limitations?
+19. **Hạn chế:**  
+    Nêu các hạn chế của định lý Van Kampen (chẳng hạn điều kiện giao liên thông đường hoặc bài toán nhận diện nhóm từ biểu diễn sinh–quan hệ).
 
-20. **Group Theory Connection:**  
-    Van Kampen theorem = pure group theory statement về amalgamated products. Explain connection topology ↔ algebra.
+20. **Kết nối tô-pô và đại số:**  
+    Phân tích cách định lý Van Kampen chuyển thao tác dán không gian tô-pô thành phép hợp nhất trong lý thuyết nhóm.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
-- **Hatcher, §1.2:** Outstanding treatment with examples
-- **Munkres, §70:** Rigorous proof
-- **Massey, Chapter 6:** Comprehensive
-- **Rotman, Chapter 7:** Detailed computations
-- **Brown, "Topology and Groupoids":** Modern perspective
+- **Hatcher, §1.2**
+- **Munkres, §70**
+- **Massey, Chapter 6**
+- **Rotman, Chapter 7**
+- **Brown, *Topology and Groupoids***
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta learned **Seifert-Van Kampen Theorem**—powerful decomposition method:
+Trong bài học này, chúng ta đã tìm hiểu **Định lý Seifert–van Kampen**: nếu $X = A \cup B$ với $A, B$ mở và $A, B, A \cap B$ liên thông đường, thì $\pi_1(X) \cong \pi_1(A) *_{\pi_1(A \cap B)} \pi_1(B)$. Khi $A \cap B$ đơn liên, kết quả rút gọn thành tích tự do $\pi_1(A) * \pi_1(B)$ (đặc biệt cho tổng chụm $A \vee B$). Định lý này cho phép tính hệ thống nhóm cơ bản của hình số $8$, các mặt đóng $\Sigma_g$, $\mathbb{R}P^2$, chai Klein và các phức CW.
 
-✅ **Statement:** π₁(X) ≅ π₁(A) *_{π₁(A∩B)} π₁(B) (amalgamated product)  
-✅ **Special Cases:** Free product when A ∩ B simply connected  
-✅ **Applications:** Figure-eight (ℤ * ℤ), surfaces, ℝP², CW complexes  
-✅ **Wedge Sum:** π₁(A ∨ B) = π₁(A) * π₁(B)  
-✅ **Systematic:** Algorithm for computing π₁  
-✅ **Group Theory:** Free products, amalgamations central  
+**Hoàn thành Chapter 06.** Chúng ta đã đi qua bốn trụ cột mở đầu của tô-pô đại số: đồng luân, nhóm cơ bản $\pi_1$, không gian phủ và định lý Seifert–van Kampen.
 
-**Điểm chính:**
-- Decompose space ⇒ compute π₁ from pieces
-- Amalgamated product captures gluing
-- Most versatile method (works for CW complexes)
-- Pure algebra determines topology
-- Proof uses pushout (category theory)
-
-**Geometric intuition:**
-- Break complex space into simple pieces
-- Each piece contributes generators
-- Intersection determines relations
-- Algebraic combination = topological structure
-
-**Practical wisdom:**
-- Choose decomposition wisely (make A, B, A∩B simple)
-- Simply connected intersection ⇒ free product
-- Works excellently for CW complexes
-- Combine with other methods when needed
-
-**Chapter 06 Complete!** Chúng ta mastered:
-- Homotopy và path homotopy
-- Fundamental group π₁(X, x₀)
-- Computing π₁ (examples, covering spaces)
-- Van Kampen's theorem
-
-**Tiếp theo:** Chapter 07 về **Homology Theory**—second algebraic invariant, more computable, detects all dimensional holes!
+**Tiếp theo:** Chapter 07 về **Lý thuyết đồng điều (Homology Theory)** — bất biến đại số có khả năng tính toán hệ thống hơn và phát hiện cấu trúc ở mọi chiều.
 
 ---
 
 *"Van Kampen: divide and conquer, from topology to algebra."*
-
-🎯 **Master Van Kampen! It's the systematic way to compute π₁.** 🎯
 
 ---
 

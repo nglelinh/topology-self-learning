@@ -10,401 +10,291 @@ tags: [topology-definition, examples, trivial-topology, discrete-topology]
 description: "Định nghĩa chính thức của topology, các axioms, và các ví dụ cơ bản"
 ---
 
-**Definition of Topology and Basic Examples**
+**Định nghĩa Tô-pô và các Ví dụ cơ bản**
 
 ---
 
 ## 📖 Tổng quan
 
-Chào mừng bạn đến với **bài giảng quan trọng nhất** trong toàn bộ khóa học! Đây là lúc chúng ta cuối cùng định nghĩa chính thức: **Topology là gì?**
+Đây là bài giảng trọng tâm mở đầu phần nội dung chính của khóa học, nơi ta đưa ra định nghĩa hình thức cho khái niệm **tô-pô** (*topology*).
 
-Sau khi đã chuẩn bị qua lý thuyết tập hợp, metric spaces, và Euclidean space, giờ đây chúng ta sẵn sàng để thực hiện một bước **trừu tượng hóa mạnh mẽ**. Chúng ta sẽ bỏ qua tất cả "khoảng cách" (distance) và chỉ giữ lại **cấu trúc** (structure) về "gần" và "xa".
+Sau khi chuẩn bị nền tảng về lý thuyết tập hợp, không gian mê-tric và không gian Euclid ở Chương 00, ta thực hiện một bước trừu tượng hóa quan trọng: bỏ đi khái niệm khoảng cách số học và chỉ giữ lại **cấu trúc tập mở** mô tả quan hệ "lân cận". Trong không gian mê-tric, tập mở được định nghĩa thông qua các hình cầu mở; tuy nhiên, nếu chỉ giữ lại họ các tập mở mà không cần đến mê-tric, ta vẫn có thể định nghĩa đầy đủ tính liên tục, sự hội tụ và nhiều tính chất hình học khác.
 
-**Ý tưởng cốt lõi:**  
-Trong metric space, chúng ta định nghĩa "open set" thông qua open balls. Nhưng nếu bỏ metric đi và **chỉ giữ lại tập hợp các open sets**, thì ta vẫn có thể nói về continuity, convergence, và nhiều khái niệm khác!
+Trong bài giảng này, ta sẽ xây dựng định nghĩa chính xác của **không gian tô-pô** cùng ba tiên đề cơ bản, khảo sát các **ví dụ nền tảng** (tô-pô tầm thường, rời rạc, Euclid, đồng hữu hạn, đồng đếm được), học cách **so sánh các tô-pô** trên cùng một tập hợp (thô hơn và mịn hơn), và định nghĩa các khái niệm **tập đóng, phần trong, bao đóng, biên** hoàn toàn từ tập mở.
 
-**Đây chính là topology**: Một cách để nói về "cấu trúc" của không gian mà không cần metric.
-
-**Trong bài này** we lay absolute foundation. First, precise **topological space** definition emerges—deceptively simple yet profoundly powerful. Understanding ba **topology axioms** reveals why they're not arbitrary rules but natural requirements ensuring consistency. Exploring **basic examples** (trivial, discrete, cofinite topologies) shows extreme cases và builds intuition. Learning to **compare topologies** (coarser vs finer) introduces partial ordering on topology space itself. Finally, **closed sets, interior, closure** get defined purely via open sets, demonstrating how much geometry lives in abstract structure.
-
-**Tại sao absolutely foundational?** Đây là bedrock của **entire topology edifice**! Every concept following—continuous functions, compactness, connectedness, separation axioms—builds exclusively on this definition. Nothing else! Topology liberates us to study "shape" và "structure" independent of "size" or "distance", enabling geometric reasoning trong spaces where distance makes no sense (function spaces, quotient spaces, infinite-dimensional spaces). This abstraction proved revolutionary, unifying previously disparate branches of mathematics.
+**Vai trò nền tảng:** Mọi khái niệm ở các chương tiếp theo — ánh xạ liên tục, tính liên thông, tính compact, các tiên đề tách — đều được xây dựng trực tiếp từ định nghĩa này. Cách tiếp cận trừu tượng giúp ta nghiên cứu hình dạng và cấu trúc của những không gian không có khoảng cách tự nhiên (như không gian hàm, không gian thương hay không gian vô hạn chiều).
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Abstraction
+### Quá trình trừu tượng hóa
 
-Hãy nhớ lại: Trong ℝ với Euclidean metric, open set là tập U sao cho mọi điểm x ∈ U có một "vùng xung quanh" còn nằm trong U.
+Nhắc lại rằng trong $\mathbb{R}$ với mê-tric Euclid, một tập $U$ là tập mở nếu quanh mỗi điểm $x \in U$ đều có một khoảng mở chứa $x$ và nằm trọn trong $U$. Họ các tập mở trong $\mathbb{R}$ thỏa mãn ba tính chất sau:
+1. $\emptyset$ và $\mathbb{R}$ đều là tập mở.
+2. **Hợp tùy ý** của các tập mở là tập mở (ví dụ $(0, 1) \cup (2, 3) \cup (4, 5) \cup \dots$ là tập mở).
+3. **Giao hữu hạn** của các tập mở là tập mở (ví dụ $(0, 2) \cap (1, 3) = (1, 2)$ là tập mở).
 
-**Tính chất của open sets trong ℝ:**
-1. **∅ và ℝ đều open**
-2. **Hợp tùy ý** các open sets là open  
-   Ví dụ: (0,1) ∪ (2,3) ∪ (4,5) ∪ ... đều open
-3. **Giao hữu hạn** các open sets là open  
-   Ví dụ: (0,2) ∩ (1,3) = (1,2) open
-
-**Quan sát kỳ diệu:**  
-Những tính chất này không phụ thuộc vào "công thức" của metric! Chúng chỉ phụ thuộc vào **cấu trúc** của họ open sets.
-
-**Ý tưởng của Hausdorff (1914):**  
-> "Thay vì định nghĩa open sets từ metric, tại sao không **chọn** một họ tập hợp làm 'open sets' ngay từ đầu, chỉ cần chúng thỏa mãn ba tính chất trên?"
-
-Và thế là **topology** ra đời!
+Điểm mấu chốt là ba tính chất này chỉ liên quan đến cấu trúc tập hợp của họ các tập mở, không cần nhắc tới công thức khoảng cách. Năm 1914, Felix Hausdorff đã phát triển ý tưởng chọn trực tiếp một họ tập con thỏa mãn các tiên đề thích hợp để định nghĩa không gian tô-pô mà không cần xuất phát từ mê-tric.
 
 ![Felix Hausdorff](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Hausdorff_1913.jpg/300px-Hausdorff_1913.jpg)  
-*Felix Hausdorff (1868–1942) - Cha đẻ của topology hiện đại - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_1913.jpg)*
+*Felix Hausdorff (1868–1942) - Một trong những người đặt nền móng cho tô-pô đại cương - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_1913.jpg)*
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Topological Space (Không gian Tô-pô)
+### 1. Không gian tô-pô (Topological Space)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Topology):**  
-Cho X là một tập hợp. Một **topology** trên X là một họ 𝜏 các tập con của X (gọi là **open sets**) thỏa mãn ba điều kiện:
+**Định nghĩa (Tô-pô):**  
+Cho $X$ là một tập hợp. Một **tô-pô** (*topology*) trên $X$ là một họ $\tau$ các tập con của $X$ (mỗi phần tử của $\tau$ gọi là một **tập mở**) thỏa mãn ba tiên đề sau:
 </div>
 
-**(T1) Empty set và whole space:**
+**(T1) Chứa tập rỗng và toàn không gian:**
 $$
 \emptyset \in \tau \quad \text{và} \quad X \in \tau
 $$
 
-**(T2) Arbitrary unions:**
+**(T2) Đóng với phép hợp tùy ý:**
 $$
 \{U_\alpha\}_{\alpha \in I} \subseteq \tau \implies \bigcup_{\alpha \in I} U_\alpha \in \tau
 $$
+(Hợp của một họ bất kỳ — hữu hạn, đếm được hay không đếm được — các tập mở là tập mở.)
 
-(Hợp của **bất kỳ** họ nào các open sets là open)
-
-**(T3) Finite intersections:**
+**(T3) Đóng với phép giao hữu hạn:**
 $$
 U_1, U_2, \ldots, U_n \in \tau \implies U_1 \cap U_2 \cap \cdots \cap U_n \in \tau
 $$
+(Giao của hữu hạn tập mở là tập mở.)
 
-(Giao của **hữu hạn** open sets là open)
+**Ký hiệu:** Cặp $(X, \tau)$ được gọi là một **không gian tô-pô** (*topological space*).
 
-**Ký hiệu:** Cặp (X, 𝜏) được gọi là **topological space** (không gian tô-pô).
-
-**Trực giác:**
-- **(T1):** "Không có gì" và "toàn bộ" đều "open"
-- **(T2):** Ghép nhiều vùng open lại vẫn open
-- **(T3):** Giao một số hữu hạn vùng open vẫn open
-
-**Chú ý quan trọng:**  
-- Unions có thể **tùy ý** (vô hạn, uncountable!)
-- Intersections chỉ **hữu hạn**!
-
-**Tại sao không cho phép giao vô hạn?**  
-Xét trong ℝ: ⋂ₙ₌₁^∞ (-1/n, 1/n) = {0}, nhưng {0} **không open** trong ℝ!
+**Lưu ý quan trọng:** Phép hợp trong (T2) là tùy ý, nhưng phép giao trong (T3) chỉ áp dụng cho **hữu hạn** tập mở. Lý do là giao vô hạn của các tập mở không nhất thiết mở; chẳng hạn trong $\mathbb{R}$, $\bigcap_{n=1}^{\infty} (-1/n, 1/n) = \{0\}$, nhưng $\{0\}$ không phải tập mở trong tô-pô Euclid.
 
 ---
 
-### 2. Basic Examples (Ví dụ Cơ bản)
+### 2. Các ví dụ cơ bản
 
-#### Example 1: Trivial Topology (Indiscrete Topology)
+#### Ví dụ 1: Tô-pô tầm thường (Trivial / Indiscrete Topology)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-Topology **thô nhất** (coarsest) trên X:
+Tô-pô **thô nhất** (*coarsest*) trên $X$ là:
 $$
 \tau_{\text{trivial}} = \{\emptyset, X\}
 $$
 </div>
 
-**Chỉ có** ∅ và X là open!
-
-**Kiểm tra axioms:**
-- (T1): ∅, X ∈ 𝜏 ✓
-- (T2): ∅ ∪ X = X ∈ 𝜏 ✓
-- (T3): ∅ ∩ X = ∅ ∈ 𝜏 ✓
-
-**Trực giác:** Topology này "không phân biệt" gì cả—mọi thứ "dính" vào nhau.
-
-**Ví dụ cụ thể:** X = {a, b, c}, 𝜏 = {∅, {a,b,c}}
+Ở đây chỉ có $\emptyset$ và $X$ là tập mở. Ba tiên đề (T1), (T2), (T3) hiển nhiên thỏa mãn vì $\emptyset \cup X = X$ và $\emptyset \cap X = \emptyset$. Về trực giác, tô-pô này không tách được bất kỳ hai điểm nào của $X$. Chẳng hạn với $X = \{a, b, c\}$, ta có $\tau = \{\emptyset, \{a, b, c\}\}$.
 
 ---
 
-#### Example 2: Discrete Topology
+#### Ví dụ 2: Tô-pô rời rạc (Discrete Topology)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-Topology **mịn nhất** (finest) trên X:
+Tô-pô **mịn nhất** (*finest*) trên $X$ là:
 $$
 \tau_{\text{discrete}} = \mathcal{P}(X) = \text{tất cả tập con của } X
 $$
 </div>
 
-**Mọi** tập con đều open!
-
-**Kiểm tra axioms:**
-- (T1): Rõ ràng ✓
-- (T2): Hợp tùy ý các tập con vẫn là tập con ✓
-- (T3): Giao hữu hạn các tập con vẫn là tập con ✓
-
-**Trực giác:** Topology này "phân biệt hoàn toàn"—mọi điểm "cô lập".
-
-**Ví dụ cụ thể:** X = {a, b}, 𝜏 = {∅, {a}, {b}, {a,b}}
-
-**Kết nối với metric:** Discrete topology = topology induced bởi discrete metric!
+Mọi tập con của $X$ đều là tập mở, nên (T1), (T2), (T3) tự động thỏa mãn. Về trực giác, mọi điểm đều "cô lập" khỏi các điểm còn lại. Ví dụ với $X = \{a, b\}$, ta có $\tau = \{\emptyset, \{a\}, \{b\}, \{a, b\}\}$. Tô-pô rời rạc chính là tô-pô cảm sinh bởi mê-tric rời rạc.
 
 ![Discrete vs Trivial topology](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Topological_structures.svg/500px-Topological_structures.svg.png)  
-*So sánh các cấu trúc tô-pô - Nguồn concept illustration*
+*So sánh các cấu trúc tô-pô - Nguồn minh họa khái niệm*
 
 ---
 
-#### Example 3: Euclidean Topology on ℝ
+#### Ví dụ 3: Tô-pô Euclid trên $\mathbb{R}$
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-𝜏 = {U ⊆ ℝ : U là hợp của các khoảng mở}
+$\tau = \{U \subseteq \mathbb{R} : U \text{ là hợp của các khoảng mở}\}$ (bao gồm hợp rỗng cho tập $\emptyset$).
 </div>
 
-**Ví dụ open sets:**
-- (a, b): khoảng mở
-- (0, 1) ∪ (2, 3): hợp hai khoảng
-- ℝ \ {0, 1, 2, ...}: bù của tập rời rạc
-- ℚ: KHÔNG open trong ℝ!
-
-**Đây chính là** topology thông thường trên ℝ—induced từ Euclidean metric.
+Một số ví dụ về tập mở trong tô-pô Euclid trên $\mathbb{R}$ là $(a, b)$, $(0, 1) \cup (2, 3)$ và $\mathbb{R} \setminus \{0, 1, 2, \dots\}$. Ngược lại, $\mathbb{Q}$ không mở trong $\mathbb{R}$. Đây chính là tô-pô thông thường cảm sinh từ mê-tric Euclid $d(x, y) = |x - y|$.
 
 ---
 
-#### Example 4: Cofinite Topology
+#### Ví dụ 4: Tô-pô đồng hữu hạn (Cofinite Topology)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-Trên tập X, cofinite topology là:
+Trên tập $X$, tô-pô đồng hữu hạn là:
 $$
 \tau_{\text{cofinite}} = \{U \subseteq X : X \setminus U \text{ hữu hạn hoặc } U = \emptyset\}
 $$
 </div>
 
-**Nói cách khác:** U open ⟺ bù của U hữu hạn (hoặc U = ∅).
+Nói cách khác, một tập con $U$ là mở khi và chỉ khi $U = \emptyset$ hoặc phần bù $X \setminus U$ hữu hạn.
 
-**Kiểm tra axioms:**
+**Kiểm tra các tiên đề:**
+- **(T1):** $\emptyset \in \tau_{\text{cofinite}}$ theo định nghĩa, và $X \in \tau_{\text{cofinite}}$ vì $X \setminus X = \emptyset$ là tập hữu hạn.
+- **(T2):** Cho họ $\{U_\alpha\} \subseteq \tau_{\text{cofinite}}$. Nếu mọi $U_\alpha = \emptyset$ thì $\bigcup U_\alpha = \emptyset \in \tau_{\text{cofinite}}$. Nếu tồn tại $U_{\alpha_0} \neq \emptyset$, thì $X \setminus \bigcup U_\alpha = \bigcap (X \setminus U_\alpha) \subseteq X \setminus U_{\alpha_0}$ là tập con của một tập hữu hạn nên hữu hạn; suy ra $\bigcup U_\alpha \in \tau_{\text{cofinite}}$.
+- **(T3):** Cho $U_1, \dots, U_n \in \tau_{\text{cofinite}}$. Nếu có một $U_i = \emptyset$ thì giao bằng $\emptyset$. Nếu mọi $U_i \neq \emptyset$, thì $X \setminus \bigcap_{i=1}^n U_i = \bigcup_{i=1}^n (X \setminus U_i)$ là hợp hữu hạn các tập hữu hạn nên hữu hạn.
 
-**(T1):**
-- ∅: bù của ∅ là X (có thể vô hạn) → ∅ open by definition ✓
-- X: bù của X là ∅ (hữu hạn: 0 phần tử) → X open ✓
-
-**(T2) Unions:**  
-Cho {Uα} là họ open sets.  
-Bù của ⋃Uα là ⋂(X \ Uα).  
-Mỗi X \ Uα hữu hạn → giao của chúng ⊆ từng cái → hữu hạn ✓
-
-**(T3) Finite intersections:**  
-Cho U₁, ..., Uₙ open.  
-Bù của U₁ ∩ ... ∩ Uₙ là (X \ U₁) ∪ ... ∪ (X \ Uₙ).  
-Mỗi X \ Uᵢ hữu hạn → hợp hữu hạn các tập hữu hạn = hữu hạn ✓
-
-**Ví dụ cụ thể:** X = ℤ
-- Open sets: ∅, ℤ, ℤ \ {0}, ℤ \ {1, 2}, ℤ \ {-5}, ...
-- Closed sets (bù của open): tập hữu hạn, ℤ
-
-**Trực giác:** "Hầu hết" các điểm phải thuộc open set—chỉ có thể loại bỏ hữu hạn điểm.
-
-**Kết nối:**  
-- Nếu X hữu hạn: cofinite = discrete
-- Nếu X vô hạn: cofinite ≠ discrete (thô hơn)
+**Ví dụ cụ thể ($X = \mathbb{Z}$):** Các tập mở khác rỗng có dạng $\mathbb{Z} \setminus F$ với $F$ hữu hạn (như $\mathbb{Z}$, $\mathbb{Z} \setminus \{0\}$, $\mathbb{Z} \setminus \{1, 2\}$), còn các tập đóng là $\mathbb{Z}$ và mọi tập con hữu hạn của $\mathbb{Z}$. Nếu $X$ hữu hạn thì tô-pô đồng hữu hạn trùng với tô-pô rời rạc; nếu $X$ vô hạn thì nó thô hơn nghiêm ngặt so với tô-pô rời rạc.
 
 ---
 
-#### Example 5: Cocountable Topology
+#### Ví dụ 5: Tô-pô đồng đếm được (Cocountable Topology)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-Trên tập X (uncountable), cocountable topology là:
+Trên tập $X$ (thường xét $X$ không đếm được), tô-pô đồng đếm được là:
 $$
-\tau_{\text{cocountable}} = \{U \subseteq X : X \setminus U \text{ đếm được hoặc } U = \emptyset\}
+\tau_{\text{cocountable}} = \{U \subseteq X : X \setminus U \text{ đếm được (kể cả hữu hạn) hoặc } U = \emptyset\}
 $$
 </div>
 
-**Ví dụ:** Trên ℝ
-- Open sets: ∅, ℝ, ℝ \ ℚ, ℝ \ {x₁, x₂, ...}, ...
-- Closed sets: tập đếm được, ℝ
-
-**Trực giác:** Chỉ có thể loại bỏ "countably many" điểm.
+Trên $\mathbb{R}$, các tập mở khác rỗng là phần bù của các tập đếm được (chẳng hạn $\mathbb{R}$, $\mathbb{R} \setminus \mathbb{Q}$, $\mathbb{R} \setminus \{x_1, x_2, \dots\}$), còn các tập đóng là $\mathbb{R}$ và mọi tập con đếm được (hoặc hữu hạn).
 
 ---
 
-### 3. Comparing Topologies (So sánh Topology)
+### 3. So sánh các tô-pô (Comparing Topologies)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Coarser/Finer):**  
-Cho 𝜏₁, 𝜏₂ là hai topologies trên X.
+**Định nghĩa (Thô hơn / Mịn hơn):**  
+Cho $\tau_1, \tau_2$ là hai tô-pô trên cùng một tập $X$.
 </div>
 
-- 𝜏₁ **coarser** (thô hơn) than 𝜏₂ nếu 𝜏₁ ⊆ 𝜏₂  
-- 𝜏₂ **finer** (mịn hơn) than 𝜏₁ nếu 𝜏₂ ⊇ 𝜏₁
+- $\tau_1$ **thô hơn** (*coarser*) $\tau_2$ nếu $\tau_1 \subseteq \tau_2$ (ít tập mở hơn).
+- $\tau_2$ **mịn hơn** (*finer*) $\tau_1$ nếu $\tau_2 \supseteq \tau_1$ (nhiều tập mở hơn).
 
-**Trực giác:**
-- **Coarser:** Ít open sets hơn → "phân biệt" ít hơn
-- **Finer:** Nhiều open sets hơn → "phân biệt" nhiều hơn
+**Ví dụ trên $X = \{a, b, c\}$:**
+1. $\tau_1 = \{\emptyset, X\}$ (tầm thường)
+2. $\tau_2 = \{\emptyset, \{a\}, X\}$
+3. $\tau_3 = \{\emptyset, \{a\}, \{b\}, \{a, b\}, X\}$
+4. $\tau_4 = \mathcal{P}(X)$ (rời rạc)
 
-**Ví dụ trên X = {a, b, c}:**
+Ta có chuỗi bao hàm $\tau_1 \subseteq \tau_2 \subseteq \tau_3 \subseteq \tau_4$. Tô-pô tầm thường luôn là tô-pô thô nhất, còn tô-pô rời rạc luôn là tô-pô mịn nhất trên mọi tập $X$.
 
-1. 𝜏₁ = {∅, X} (trivial)
-2. 𝜏₂ = {∅, {a}, X}
-3. 𝜏₃ = {∅, {a}, {b}, {a,b}, X}
-4. 𝜏₄ = 𝒫(X) (discrete)
-
-Thứ tự: 𝜏₁ ⊆ 𝜏₂ ⊆ 𝜏₃ ⊆ 𝜏₄
-
-**Mối quan hệ:**
-- **Trivial** là coarsest possible
-- **Discrete** là finest possible
-- Giữa chúng có vô số topologies khác!
-
-**Comparison trên ℝ:**
+**So sánh các tô-pô trên $\mathbb{R}$:**
 $$
-\tau_{\text{trivial}} \subseteq \tau_{\text{cofinite}} \subseteq \tau_{\text{cocountable}} \subseteq \tau_{\text{Euclidean}} \subseteq \tau_{\text{discrete}}
+\tau_{\text{trivial}} \subseteq \tau_{\text{cofinite}} \subseteq \tau_{\text{Euclidean}} \subseteq \tau_{\text{discrete}}
 $$
+Đồng thời $\tau_{\text{cofinite}} \subseteq \tau_{\text{cocountable}} \subseteq \tau_{\text{discrete}}$. Lưu ý rằng $\tau_{\text{cocountable}}$ và $\tau_{\text{Euclidean}}$ **không so sánh được với nhau**: $\mathbb{R} \setminus \mathbb{Q}$ mở trong $\tau_{\text{cocountable}}$ nhưng không mở trong $\tau_{\text{Euclidean}}$, còn $(0, 1)$ mở trong $\tau_{\text{Euclidean}}$ nhưng không mở trong $\tau_{\text{cocountable}}$.
 
 ---
 
-### 4. Closed Sets (Tập Đóng)
+### 4. Tập đóng (Closed Sets)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-Trong topological space (X, 𝜏), tập F ⊆ X là **closed** nếu:
+Trong không gian tô-pô $(X, \tau)$, tập con $F \subseteq X$ được gọi là **tập đóng** (*closed*) nếu:
 $$
 X \setminus F \in \tau
 $$
 </div>
 
-**Nói cách khác:** F closed ⟺ bù của F open.
+Nói cách khác, $F$ đóng khi và chỉ khi phần bù của $F$ là tập mở. Trong $\mathbb{R}$ với tô-pô Euclid, các đoạn $[a, b]$, tập đơn điểm $\{x\}$ và $\mathbb{N}$ đều đóng, còn $\mathbb{Q}$ không đóng vì $\mathbb{R} \setminus \mathbb{Q}$ không mở.
 
-**Ví dụ trong ℝ (Euclidean topology):**
-- **[a, b]** closed (vì ℝ \ [a,b] = (-∞,a) ∪ (b,∞) open)
-- **{x}** closed (singleton)
-- **ℕ** closed
-- **ℚ** KHÔNG closed (vì ℝ \ ℚ không open)
-
-**Tính chất của closed sets:**
-
-**Dual Axioms:**
-1. **∅ và X closed**
-2. **Giao tùy ý** các closed sets là closed
-3. **Hợp hữu hạn** các closed sets là closed
+**Tính chất đối ngẫu của tập đóng:**
+1. $\emptyset$ và $X$ là các tập đóng.
+2. **Giao tùy ý** của các tập đóng là tập đóng.
+3. **Hợp hữu hạn** của các tập đóng là tập đóng.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):** Dùng De Morgan's laws và axioms của open sets.
+**Phác thảo chứng minh:** Áp dụng công thức De Morgan cùng các tiên đề (T1)–(T3) của tập mở.
 </div>
 
-**Chú ý:**  
-- Một tập có thể vừa open vừa closed! (Ví dụ: ∅, X)
-- Một tập có thể không open không closed! (Ví dụ: [0,1) trong ℝ)
+**Lưu ý:** Một tập có thể vừa mở vừa đóng (ví dụ $\emptyset$ và $X$), và cũng có thể không mở cũng không đóng (ví dụ $[0, 1)$ trong $\mathbb{R}$).
 
 ![Open vs Closed sets](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Open_closed_sets.svg/500px-Open_closed_sets.svg.png)  
-*Phân biệt open và closed sets - Nguồn concept*
+*Phân biệt tập mở và tập đóng - Nguồn minh họa khái niệm*
 
 ---
 
-### 5. Interior, Closure, Boundary
+### 5. Phần trong, bao đóng và biên
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Interior - Phần trong):**  
-**Interior** của A ⊆ X là hợp của tất cả open sets chứa trong A:
+**Định nghĩa (Phần trong — Interior):**  
+**Phần trong** của $A \subseteq X$ là hợp của tất cả các tập mở chứa trong $A$:
 $$
 \text{int}(A) = A° = \bigcup \{U \in \tau : U \subseteq A\}
 $$
 </div>
 
-**Trực giác:** Phần "hoàn toàn bên trong" A—các điểm có "không gian xung quanh" trong A.
-
-**Ví dụ trong ℝ:**
-- int([0,1]) = (0,1)
-- int(ℚ) = ∅ (không có open interval nào trong ℚ)
-- int((0,1)) = (0,1)
+Trong $\mathbb{R}$: $\text{int}([0, 1]) = (0, 1)$, $\text{int}(\mathbb{Q}) = \emptyset$ và $\text{int}((0, 1)) = (0, 1)$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Closure - Bao đóng):**  
-**Closure** của A ⊆ X là giao của tất cả closed sets chứa A:
+**Định nghĩa (Bao đóng — Closure):**  
+**Bao đóng** của $A \subseteq X$ là giao của tất cả các tập đóng chứa $A$:
 $$
 \overline{A} = \text{cl}(A) = \bigcap \{F : F \text{ closed}, A \subseteq F\}
 $$
 </div>
 
-**Trực giác:** Tập nhỏ nhất chứa A và "ranh giới" của A.
-
-**Ví dụ trong ℝ:**
-- cl((0,1)) = [0,1]
-- cl(ℚ) = ℝ (ℚ "dense" trong ℝ)
-- cl({1/n : n ∈ ℕ}) = {1/n : n ∈ ℕ} ∪ {0}
+Trong $\mathbb{R}$: $\text{cl}((0, 1)) = [0, 1]$, $\text{cl}(\mathbb{Q}) = \mathbb{R}$ ($\mathbb{Q}$ trù mật trong $\mathbb{R}$), và $\text{cl}(\{1/n : n \in \mathbb{N}\}) = \{1/n : n \in \mathbb{N}\} \cup \{0\}$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Boundary - Biên):**  
-**Boundary** của A là:
+**Định nghĩa (Biên — Boundary):**  
+**Biên** của $A$ là:
 $$
 \partial A = \overline{A} \setminus A°
 $$
 </div>
 
-**Ví dụ trong ℝ:**
-- ∂((0,1)) = {0, 1}
-- ∂([0,1]) = {0, 1}
-- ∂(ℚ) = ℝ (mọi số thực là boundary point của ℚ!)
+Trong $\mathbb{R}$: $\partial((0, 1)) = \{0, 1\}$, $\partial([0, 1]) = \{0, 1\}$, và $\partial(\mathbb{Q}) = \mathbb{R}$.
 
-**Tính chất quan trọng:**
-1. int(A) ⊆ A ⊆ cl(A)
-2. A open ⟺ A = int(A)
-3. A closed ⟺ A = cl(A)
-4. cl(A) = A ∪ ∂A
+**Các tính chất cơ bản:**
+1. $\text{int}(A) \subseteq A \subseteq \text{cl}(A)$.
+2. $A$ mở $\iff A = \text{int}(A)$.
+3. $A$ đóng $\iff A = \text{cl}(A)$.
+4. $\text{cl}(A) = A \cup \partial A$.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Historic Papers
+### Công trình lịch sử
 
 1. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Định nghĩa đầu tiên của topological space (Hausdorff space)*
+   *Trình bày định nghĩa tiên đề hóa đầu tiên cho không gian tô-pô (không gian Hausdorff).*
 
 2. **Kazimierz Kuratowski** - *"Sur l'opération A̅ de l'Analysis Situs"* (1922)  
-   *Định nghĩa topology qua closure operator*
+   *Định nghĩa tô-pô thông qua toán tử bao đóng.*
 
 3. **Henri Poincaré** - *"Analysis Situs"* (1895)  
-   *Intuitive foundations—trước khi formal topology ra đời*
+   *Đặt nền móng trực giác cho tô-pô học trước giai đoạn tiên đề hóa.*
 
 4. **Pavel Alexandroff** - *"Über stetige Abbildungen kompakter Räume"* (1927)  
-   *Đóng góp cho general topology theory*
+   *Đóng góp quan trọng cho lý thuyết tô-pô đại cương.*
 
-### Textbooks
+### Giáo trình
 
 5. **James R. Munkres** - *Topology*, 2nd Ed., **§12–13: Topological Spaces**  
-   *Standard reference, clear exposition*
+   *Tài liệu chuẩn, trình bày mạch lạc.*
 
 6. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 2**  
-   *Gentle introduction với nhiều examples*
+   *Giới thiệu nhẹ nhàng kèm nhiều ví dụ.*
 
 7. **John L. Kelley** - *General Topology* (1955)  
-   *Classic graduate text, comprehensive*
+   *Giáo trình cao học kinh điển và toàn diện.*
 
 8. **Ryszard Engelking** - *General Topology* (1989)  
-   *Encyclopedia của general topology*
+   *Tài liệu tra cứu chuyên sâu về tô-pô đại cương.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Computer Science - Digital Topology
-**Image Processing:** Pixels trong ảnh digital có thể xem như discrete space. Định nghĩa "connectivity" và "boundary" của objects cần topology concepts!
+### Khoa học máy tính — Tô-pô số (Digital Topology)
+Trong xử lý ảnh số, lưới điểm ảnh (*pixel*) được nghiên cứu bằng các khái niệm liên thông và biên của tô-pô rời rạc; hai điểm ảnh trong ảnh 2D có thể xét lân cận theo cạnh ($4$-liên thông) hoặc cả góc ($8$-liên thông).
 
-**Ví dụ:** Trong ảnh 2D, hai pixels "adjacent" nếu chúng share edge (4-connectivity) hoặc corner (8-connectivity). Đây là các topologies khác nhau!
+### Vật lý — Đa tạp
+Trong thuyết tương đối rộng, không-thời gian được mô hình hóa bằng một đa tạp $4$ chiều — cục bộ giống $\mathbb{R}^4$ nhưng có thể mang cấu trúc tô-pô toàn cục phức tạp.
 
-### Physics - Manifolds
-**General Relativity:** Spacetime là 4-dimensional manifold—locally giống ℝ⁴ nhưng globally có thể "curved". Topology quyết định "shape" tổng thể của universe!
+### Khoa học dữ liệu — Phân tích dữ liệu tô-pô (TDA)
+Homology bền vững phân tích cấu trúc hình dạng của dữ liệu chiều cao nhằm phát hiện các cụm và "lỗ" dựa trên cấu trúc tô-pô qua nhiều tỉ lệ.
 
-### Data Science - Topological Data Analysis (TDA)
-**Persistent Homology:** Phân tích "shape" của data trong high-dimensional space. Topology giúp detect "holes", "clusters", và "structures" mà không cần metric cụ thể.
+### Toán học — Tính liên tục tổng quát
+Định nghĩa liên tục $\varepsilon$-$\delta$ trong giải tích chỉ là trường hợp riêng của định nghĩa tô-pô (nghịch ảnh của mọi tập mở là tập mở), vốn áp dụng được cho mọi không gian tô-pô.
 
-### Mathematics - Continuity
-**Calculus Generalization:** Định nghĩa ε-δ của continuity chỉ là special case. Topological definition (preimage của open set là open) áp dụng cho mọi space!
-
-### Real-World Example
-**GPS Maps:** Khi zoom in/out trong bản đồ, "topology" của đường và khu vực không thay đổi (vẫn connected, vẫn có boundary), dù "metric" (scale) thay đổi. Đây là topological thinking!
+### Ví dụ thực tế
+Khi phóng to hay thu nhỏ bản đồ GPS, tỉ lệ khoảng cách thay đổi nhưng cấu trúc kết nối và ranh giới giữa các tuyến đường, khu vực vẫn giữ nguyên — đó là góc nhìn tô-pô.
 
 ---
 
@@ -414,99 +304,92 @@ $$
 - [[TÔPÔ ĐẠI CƯƠNG] Không gian Tô pô: Định nghĩa và ví dụ.](https://www.youtube.com/watch?v=1LiNBmWl-S8) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Cùng định nghĩa và các ví dụ rời rạc, tầm thường, nói bằng tiếng Việt.
 - [This open problem taught me what topology is](https://www.youtube.com/watch?v=IQqtsm-bBRU) — 3Blue1Brown, tiếng Anh. Vì sao người ta chịu khó trừu tượng hóa như vậy, trước khi quay lại các ví dụ cực đoan.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Basic Understanding
+### Kiến thức cơ bản
 
-1. **Verify Topology:**  
-   Cho X = {a, b, c}. Các họ sau có phải là topology không? Tại sao?
-   - a) 𝜏 = {∅, {a}, {a,b}, X}
-   - b) 𝜏 = {∅, {a}, {b}, {a,b}, X}
-   - c) 𝜏 = {∅, {a}, {b}, {c}, X}
+1. **Kiểm tra tiên đề tô-pô:**  
+   Cho $X = \{a, b, c\}$. Các họ sau có phải là tô-pô trên $X$ không? Giải thích lý do:
+   - a) $\tau = \{\emptyset, \{a\}, \{a, b\}, X\}$
+   - b) $\tau = \{\emptyset, \{a\}, \{b\}, \{a, b\}, X\}$
+   - c) $\tau = \{\emptyset, \{a\}, \{b\}, \{c\}, X\}$
 
-2. **List Open Sets:**  
-   X = {1, 2, 3, 4}, 𝜏 = cofinite topology.  
-   Liệt kê tất cả open sets và closed sets.
+2. **Liệt kê tập mở và tập đóng:**  
+   Với $X = \{1, 2, 3, 4\}$ trang bị tô-pô đồng hữu hạn, hãy liệt kê tất cả các tập mở và tập đóng.
 
-3. **Topology on ℕ:**  
-   Trên ℕ với cofinite topology, các tập sau open hay closed?
-   - a) {1, 2, 3, 4, 5}
-   - b) {n ∈ ℕ : n > 100}
-   - c) {2, 4, 6, 8, ...} (số chẵn)
+3. **Tô-pô đồng hữu hạn trên $\mathbb{N}$:**  
+   Trên $\mathbb{N}$ với tô-pô đồng hữu hạn, các tập sau là tập mở hay tập đóng?
+   - a) $\{1, 2, 3, 4, 5\}$
+   - b) $\{n \in \mathbb{N} : n > 100\}$
+   - c) $\{2, 4, 6, 8, \dots\}$ (tập các số chẵn)
 
-### Interior, Closure, Boundary
+### Phần trong, bao đóng và biên
 
-4. **Compute Interior:**  
-   Trong ℝ với Euclidean topology, tìm int(A):
-   - a) A = [0, 1] ∪ {2}
-   - b) A = ℚ ∩ [0, 1]
-   - c) A = {1/n : n ∈ ℕ}
+4. **Tính phần trong:**  
+   Trong $\mathbb{R}$ với tô-pô Euclid, tìm $\text{int}(A)$:
+   - a) $A = [0, 1] \cup \{2\}$
+   - b) $A = \mathbb{Q} \cap [0, 1]$
+   - c) $A = \{1/n : n \in \mathbb{N}\}$
 
-5. **Compute Closure:**  
-   Trong ℝ, tìm cl(A):
-   - a) A = (0, 1) ∪ (2, 3)
-   - b) A = {1/n : n ∈ ℕ}
-   - c) A = ℤ
+5. **Tính bao đóng:**  
+   Trong $\mathbb{R}$ với tô-pô Euclid, tìm $\text{cl}(A)$:
+   - a) $A = (0, 1) \cup (2, 3)$
+   - b) $A = \{1/n : n \in \mathbb{N}\}$
+   - c) $A = \mathbb{Z}$
 
-6. **Boundary Examples:**  
-   Tìm ∂A trong ℝ:
-   - a) A = (0, 1]
-   - b) A = ℚ
-   - c) A = Cantor set
+6. **Tính biên:**  
+   Tìm $\partial A$ trong $\mathbb{R}$:
+   - a) $A = (0, 1]$
+   - b) $A = \mathbb{Q}$
+   - c) $A$ là tập Cantor
 
-### Comparing Topologies
+### So sánh tô-pô
 
-7. **Order Topologies:**  
-   Trên X = {a, b, c, d}, cho:
-   - 𝜏₁ = {∅, X}
-   - 𝜏₂ = {∅, {a}, X}
-   - 𝜏₃ = {∅, {a}, {b,c}, {a,b,c}, X}
+7. **Sắp xếp các tô-pô:**  
+   Trên $X = \{a, b, c, d\}$, cho:
+   - $\tau_1 = \{\emptyset, X\}$
+   - $\tau_2 = \{\emptyset, \{a\}, X\}$
+   - $\tau_3 = \{\emptyset, \{a\}, \{b, c\}, \{a, b, c\}, X\}$
    
-   Sắp xếp theo thứ tự coarser → finer.
+   Sắp xếp các tô-pô trên theo thứ tự từ thô hơn đến mịn hơn.
 
-8. **Euclidean vs Discrete:**  
-   Chứng minh rằng Euclidean topology trên ℝ coarser than discrete topology.  
-   Có tồn tại topology giữa chúng không?
+8. **Euclid và rời rạc:**  
+   Chứng minh tô-pô Euclid trên $\mathbb{R}$ thô hơn tô-pô rời rạc. Có tồn tại tô-pô nào nằm nghiêm ngặt giữa chúng không?
 
-### Advanced
+### Nâng cao
 
-9. **Construct Topology:**  
-   Trên ℝ, định nghĩa: U open ⟺ U là hợp của các khoảng [a, b).  
-   Chứng minh đây là topology. Nó có bằng Euclidean topology không?
+9. **Xây dựng tô-pô giới hạn dưới:**  
+   Trên $\mathbb{R}$, định nghĩa $U$ là tập mở khi và chỉ khi $U$ là hợp của các nửa khoảng $[a, b)$. Chứng minh đây là một tô-pô trên $\mathbb{R}$ và kiểm tra xem nó có trùng với tô-pô Euclid không.
 
-10. **Indiscrete Continuity:**  
-    Cho (X, 𝜏ₜᵣᵢᵥᵢₐₗ) và (Y, 𝜏) bất kỳ.  
-    Chứng minh: Mọi hàm f: X → Y đều continuous.  
-    (*Preview continuous functions*)
+10. **Tính liên tục với tô-pô tầm thường ở miền đích:**  
+    Cho $(X, \tau)$ là không gian tô-pô bất kỳ và $(Y, \tau_{\text{trivial}})$ mang tô-pô tầm thường. Chứng minh mọi ánh xạ $f: X \to Y$ đều liên tục (dùng định nghĩa nghịch ảnh của tập mở là tập mở).
 
-11. **Cofinite on ℝ:**  
-    Trong ℝ với cofinite topology:
-    - a) (0, 1) có open không?
-    - b) ℝ \ ℕ có open không?
-    - c) So sánh với Euclidean topology.
+11. **Tô-pô đồng hữu hạn trên $\mathbb{R}$:**  
+    Trong $\mathbb{R}$ với tô-pô đồng hữu hạn:
+    - a) $(0, 1)$ có mở không?
+    - b) $\mathbb{R} \setminus \mathbb{N}$ có mở không?
+    - c) So sánh tô-pô này với tô-pô Euclid.
 
-12. **Closure Properties:**  
-    Chứng minh trong bất kỳ topological space:
-    - a) cl(∅) = ∅
-    - b) cl(A ∪ B) = cl(A) ∪ cl(B)
-    - c) cl(cl(A)) = cl(A)
+12. **Tính chất của bao đóng:**  
+    Chứng minh trong mọi không gian tô-pô:
+    - a) $\text{cl}(\emptyset) = \emptyset$
+    - b) $\text{cl}(A \cup B) = \text{cl}(A) \cup \text{cl}(B)$
+    - c) $\text{cl}(\text{cl}(A)) = \text{cl}(A)$
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-13. **Why Three Axioms?:**  
-    Giải thích tại sao ba axioms (T1), (T2), (T3) là "tự nhiên" nếu muốn generalize khái niệm "open" từ metric spaces.
+13. **Ý nghĩa ba tiên đề:**  
+    Giải thích vì sao ba tiên đề (T1), (T2), (T3) là tự nhiên khi tổng quát hóa khái niệm tập mở từ không gian mê-tric.
 
-14. **Finite vs Infinite:**  
-    Tại sao (T2) cho phép unions vô hạn nhưng (T3) chỉ intersections hữu hạn?  
-    Cho ví dụ minh họa điều gì xảy ra nếu cho phép intersections vô hạn.
+14. **Hợp vô hạn và giao hữu hạn:**  
+    Vì sao (T2) cho phép hợp tùy ý nhưng (T3) chỉ cho phép giao hữu hạn? Nêu ví dụ minh họa điều gì xảy ra nếu yêu cầu đóng với giao vô hạn.
 
-15. **Open vs Closed:**  
-    Tại sao "closed" được định nghĩa qua "open" (không ngược lại)?  
-    Có thể xây dựng topology bằng cách chọn "closed sets" trước không?
+15. **Tập mở và tập đóng:**  
+    Có thể định nghĩa một tô-pô bằng cách chọn trước họ các tập đóng thỏa mãn các tiên đề đối ngẫu rồi mới định nghĩa tập mở không?
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §12–13 (Topological Spaces, Basis)
 - **Morris, Topology Without Tears:** Chapter 2 (Topological Spaces)
@@ -515,39 +398,31 @@ $$
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài giảng này, chúng ta đã định nghĩa **topology**—khái niệm cốt lõi của toàn bộ môn học:
+Trong bài giảng này, ta đã xây dựng định nghĩa cốt lõi của môn học:
 
-✅ **Topological Space:** (X, 𝜏) với 𝜏 thỏa mãn ba axioms  
-✅ **Three Axioms:**
-   - (T1): ∅, X ∈ 𝜏
-   - (T2): Arbitrary unions of open sets are open
-   - (T3): Finite intersections of open sets are open  
-✅ **Basic Examples:** Trivial, discrete, Euclidean, cofinite, cocountable  
-✅ **Comparing Topologies:** Coarser vs finer  
-✅ **Closed Sets:** Dual concept, defined via complement  
-✅ **Interior, Closure, Boundary:** Derived concepts từ open sets  
+✅ **Không gian tô-pô:** Cặp $(X, \tau)$ với $\tau$ thỏa mãn ba tiên đề (T1), (T2), (T3).  
+✅ **Ba tiên đề tập mở:** Chứa $\emptyset, X$; đóng với hợp tùy ý; đóng với giao hữu hạn.  
+✅ **Ví dụ cơ bản:** Tô-pô tầm thường, rời rạc, Euclid, đồng hữu hạn và đồng đếm được.  
+✅ **So sánh tô-pô:** Quan hệ thô hơn ($\subseteq$) và mịn hơn ($\supseteq$).  
+✅ **Tập đóng:** Khái niệm đối ngẫu định nghĩa qua phần bù của tập mở.  
+✅ **Phần trong, bao đóng, biên:** Các toán tử dẫn xuất trực tiếp từ tập mở.
 
 **Điểm chính:**
-- Topology = cách nói về "structure" không cần metric
-- Open sets là primitive concept—mọi thứ khác derived từ chúng
-- Axioms đơn giản nhưng powerful: cho phép reasoning về continuity, convergence, etc.
-- Có vô số topologies trên cùng một tập X!
+- Tô-pô cho phép mô tả cấu trúc không gian mà không cần mê-tric.
+- Tập mở là khái niệm nguyên thủy; mọi khái niệm khác đều suy ra từ đó.
+- Trên cùng một tập $X$ có thể trang bị nhiều cấu trúc tô-pô khác nhau.
 
-**Philosophical insight:**  
-Topology cho phép ta nói: "Cái cốc cà phê và cái bánh donut giống nhau" vì chúng có cùng **topological structure** (đều có một "hole"), dù metric khác nhau!
-
-**Tiếp theo:** Trong Lecture 01.01, chúng ta sẽ học về **Basis và Subbasis**—cách xây dựng topology từ các "building blocks" đơn giản hơn, và cách so sánh các topologies hiệu quả.
+**Tiếp theo:** Trong Bài 01.01, ta sẽ tìm hiểu **Cơ sở và Tiền cơ sở** (*Basis and Subbasis*) — cách mô tả và so sánh tô-pô gọn nhẹ hơn thông qua các họ tập sinh đơn giản.
 
 ---
 
 *"Topology is the study of continuity in its most general form."* — Anonymous
 
-🎯 **Hãy làm nhiều bài tập! Chỉ qua practice bạn mới "get used to" abstraction của topology.** 🎯
+🎯 **Hãy làm nhiều bài tập kiểm tra tiên đề và tính phần trong, bao đóng để quen với tư duy trừu tượng của tô-pô.** 🎯
 
 ---
 
 **Previous Chapter:** [Chapter 00: Foundations](/contents/vi/topology-chapter00/)  
 **Next:** [Lecture 01.01: Basis and Subbasis for a Topology](/contents/vi/topology-chapter01/01_01_Basis_Subbasis/)
-

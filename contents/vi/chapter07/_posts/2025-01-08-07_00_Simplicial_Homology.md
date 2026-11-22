@@ -10,465 +10,354 @@ tags: [simplicial-homology, chain-complex, boundary-operator, betti-numbers]
 description: "Simplicial homology: simplices, chain complexes, boundary operator, và homology groups - second algebraic invariant"
 ---
 
-**H_n(X) - Detecting Holes of All Dimensions**
+**$H_n(X)$ — Phát hiện các lỗ ở mọi chiều**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã học **fundamental group $\pi_1(X)$**—bất biến đại số đầu tiên. Nó phát hiện "1-dimensional holes" (loops).
+Ở chương trước, ta đã tìm hiểu **nhóm cơ bản $\pi_1(X)$** (fundamental group), bất biến đại số đầu tiên dùng để phát hiện các "lỗ một chiều" thông qua các vòng khép kín. Tuy nhiên, nhóm cơ bản không đủ để nhận diện các lỗ ở chiều cao hơn: chẳng hạn, mặt cầu $S^2$ bao quanh một khoảng rỗng hai chiều nhưng lại có $\pi_1(S^2) = 0$. Để phát hiện các lỗ ở mọi chiều, ta cần một công cụ tổng quát hơn là các **nhóm đồng điều $H_n(X)$** (homology groups).
 
-**Nhưng còn các lỗ ở chiều cao hơn thì sao?** Hình cầu $S^2$ có "2-dimensional hole" (hollow interior)—một khoảng trống hai chiều bên trong. Tuy nhiên, $\pi_1(S^2) = 0$ không phát hiện được điều này! Điều này cho thấy rằng fundamental group chỉ có thể phát hiện các lỗ một chiều, và chúng ta cần một công cụ mạnh mẽ hơn để phát hiện các lỗ ở mọi chiều. Đó chính là **homology groups $H_n(X)$**.
+Lý thuyết đồng điều mang lại các tính chất cơ bản sau:
 
-**Lý thuyết Homology** cung cấp:
-- **$H_n(X)$ cho mọi $n \geq 0$:** Phát hiện các lỗ $n$-chiều. Đây là một tổng quát hóa tự nhiên của fundamental group—thay vì chỉ phát hiện các lỗ một chiều, homology groups phát hiện các lỗ ở mọi chiều.
-- **Có thể tính toán được hơn** so với $\pi_1$ (abelian groups, algorithmic). Đây là một lợi thế lớn—vì các homology groups là abelian, chúng ta có thể sử dụng các kỹ thuật đại số tuyến tính để tính toán chúng một cách có hệ thống.
-- **Functorial:** $f: X \to Y$ cảm ứng $f_*: H_n(X) \to H_n(Y)$. Điều này có nghĩa là homology groups không chỉ là các nhóm được gán cho mỗi không gian, mà còn là một functor từ category của các topological spaces đến category của các abelian groups.
-- **Homotopy invariant:** $X \simeq Y$ ⇒ $H_n(X) \cong H_n(Y)$. Đây là một tính chất cực kỳ mạnh mẽ—homology groups chỉ phụ thuộc vào homotopy type của không gian, không phụ thuộc vào chi tiết cụ thể của cấu trúc tô-pô.
+- **Định nghĩa $H_n(X)$ cho mọi $n \geq 0$:** Phát hiện các lỗ $n$-chiều, mở rộng ý tưởng của nhóm cơ bản lên mọi số chiều.
+- **Thuận lợi hơn cho tính toán so với $\pi_1$:** Các nhóm đồng điều luôn là nhóm Abel (abelian groups), cho phép áp dụng các kỹ thuật đại số tuyến tính và thuật toán để tính toán có hệ thống.
+- **Tính hàm tử (functoriality):** Mỗi ánh xạ liên tục $f: X \to Y$ cảm sinh một đồng cấu nhóm $f_*: H_n(X) \to H_n(Y)$, xác định một hàm tử từ phạm trù các không gian tô-pô sang phạm trù các nhóm Abel.
+- **Bất biến đồng luân (homotopy invariance):** Nếu $X \simeq Y$ thì $H_n(X) \cong H_n(Y)$, tức là các nhóm đồng điều chỉ phụ thuộc vào kiểu đồng luân của không gian.
 
 ![Homology detecting holes](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Simplicial_complex_example.svg/500px-Simplicial_complex_example.svg.png)  
-*Simplicial complex structure - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplicial_complex_example.svg)*
+*Cấu trúc phức đơn hình - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplicial_complex_example.svg)*
 
-**Hai cách tiếp cận:**
-1. **Simplicial homology** (bài học này): Yêu cầu triangulation—chia không gian thành các simplices. Đây là cách tiếp cận cổ điển và trực quan nhất.
-2. **Singular homology** (bài học tiếp theo): Hoạt động cho mọi không gian—không yêu cầu triangulation. Đây là cách tiếp cận tổng quát hơn và mạnh mẽ hơn.
+Có hai cách tiếp cận chính đối với đồng điều:
 
-Trong bài học này, chúng ta sẽ khám phá simplicial homology một cách có hệ thống. Chúng ta sẽ nghiên cứu **Simplices**—các building blocks cơ bản (vertices, edges, triangles, tetrahedra). Chúng ta sẽ học về **Simplicial complexes**—các không gian được xây dựng từ các simplices. Chúng ta sẽ định nghĩa **Chain groups $C_n$**—các tổng hình thức của các $n$-simplices. Chúng ta sẽ nghiên cứu **Boundary operator $\partial$**—một cách đại số để tính toán boundary của một simplex. Chúng ta sẽ xây dựng **Chain complex**—một dãy các nhóm và các ánh xạ: $\cdots \to C_n \to C_{n-1} \to \cdots$. Chúng ta sẽ tính toán **Homology groups**—$H_n = \ker(\partial_n) / \text{im}(\partial_{n+1})$, các nhóm này phát hiện các lỗ $n$-chiều. Cuối cùng, chúng ta sẽ học về **Betti numbers**—$\text{rank}(H_n)$ đếm số lượng các lỗ $n$-chiều.
+1. **Đồng điều đơn hình (simplicial homology)** (bài học này): Đòi hỏi phép chia tam giác (triangulation) không gian thành các đơn hình; đây là cách tiếp cận cổ điển và trực quan.
+2. **Đồng điều kỳ dị (singular homology)** (bài học tiếp theo): Áp dụng được cho mọi không gian tô-pô mà không cần phép chia tam giác.
 
-**Tại sao đây là kiến thức quan trọng?** Đây là **nền tảng** của algebraic topology—homology là một trong những công cụ quan trọng nhất trong topology đại số. Nó **có thể tính toán được**—tồn tại các thuật toán để tính toán homology groups. Nó **phổ quát**—áp dụng cho mọi chiều, không chỉ một chiều như fundamental group. Cuối cùng, các **ứng dụng** rộng rãi trong TDA (Topological Data Analysis), data analysis, physics, và biology cho thấy tầm quan trọng của homology trong các lĩnh vực khác nhau.
+Trong bài học này, ta sẽ xây dựng đồng điều đơn hình theo trình tự: định nghĩa các đơn hình (simplices) và phức đơn hình (simplicial complexes), xây dựng các nhóm xích $C_n$ (chain groups) và toán tử biên $\partial$ (boundary operator), thiết lập phức xích $\cdots \to C_n \to C_{n-1} \to \cdots$, định nghĩa các nhóm đồng điều $H_n = \ker(\partial_n) / \text{im}(\partial_{n+1})$, và cuối cùng là các số Betti $\beta_n = \text{rank}(H_n)$ đếm số lỗ $n$-chiều. Bên cạnh vai trò nền tảng trong tô-pô đại số, đồng điều còn có tính thuật toán rõ ràng và được ứng dụng trong phân tích dữ liệu tô-pô (TDA), vật lý và sinh học.
 
 ---
 
-## 🔺 Simplices và Simplicial Complexes
+## 🔺 Đơn hình và Phức đơn hình
 
-### 1. Geometric Simplices
+### 1. Đơn hình hình học
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (n-Simplex):**  
-Cho $v_0, v_1, \ldots, v_n \in \mathbb{R}^N$ **affinely independent** (không có $v_i$ nào nằm trong affine span của các điểm còn lại).
-</div>
-
-**n-simplex** $\sigma = [v_0, v_1, \ldots, v_n]$ là convex hull:
+**Định nghĩa ($n$-đơn hình):**  
+Cho $v_0, v_1, \ldots, v_n \in \mathbb{R}^N$ là các điểm **độc lập affine** (affinely independent), nghĩa là không có điểm $v_i$ nào nằm trong bao affine của các điểm còn lại. Khi đó, **$n$-đơn hình** ($n$-simplex) $\sigma = [v_0, v_1, \ldots, v_n]$ là bao lồi của các điểm này:
 
 $$
 \sigma = \left\{\sum_{i=0}^n t_i v_i : t_i \geq 0, \sum t_i = 1\right\}
 $$
+</div>
 
-**Vertices:** $v_0, \ldots, v_n$ ($n+1$ vertices). Điều kiện affinely independent đảm bảo rằng các vertices không nằm trên cùng một hyperplane—chúng tạo thành một tập hợp độc lập về mặt affine.
-
-**Dimension:** $\dim(\sigma) = n$. Một $n$-simplex là đối tượng cơ bản nhất trong không gian $n$-chiều—nó là "filled triangle" tổng quát hóa trong $n$ chiều.
-
----
+Các điểm $v_0, \ldots, v_n$ được gọi là các **đỉnh** (vertices) của $\sigma$ (gồm $n+1$ đỉnh), và số chiều của đơn hình là $\dim(\sigma) = n$. Điều kiện độc lập affine đảm bảo các đỉnh không cùng nằm trên một siêu phẳng chiều thấp hơn.
 
 **Các ví dụ:**
 
-**0-simplex:** Một điểm duy nhất $[v_0]$ (vertex). Đây là đối tượng đơn giản nhất—chỉ là một điểm trong không gian.
-
-**1-simplex:** $[v_0, v_1]$ = đoạn thẳng giữa hai điểm (edge). Đây là một đoạn thẳng với hai đầu mút—đối tượng cơ bản nhất trong không gian một chiều.
-
-**2-simplex:** $[v_0, v_1, v_2]$ = filled triangle (face). Đây là một tam giác được "đổ đầy"—không chỉ là chu vi mà còn là toàn bộ vùng bên trong tam giác.
-
-**3-simplex:** $[v_0, v_1, v_2, v_3]$ = filled tetrahedron. Đây là một tứ diện được "đổ đầy"—không chỉ là bề mặt mà còn là toàn bộ thể tích bên trong.
-
-**n-simplex:** Generalized "filled triangle" trong $n$ dimensions. Đây là tổng quát hóa tự nhiên của tam giác đổ đầy trong không gian $n$-chiều—một đối tượng đơn giản nhất có thể có trong không gian $n$-chiều.
+- **$0$-đơn hình:** Một điểm duy nhất $[v_0]$ (một đỉnh).
+- **$1$-đơn hình:** $[v_0, v_1]$ là đoạn thẳng nối hai đỉnh (một cạnh).
+- **$2$-đơn hình:** $[v_0, v_1, v_2]$ là tam giác đặc (bao gồm cả phần bên trong).
+- **$3$-đơn hình:** $[v_0, v_1, v_2, v_3]$ là tứ diện đặc (bao gồm cả phần thể tích bên trong).
+- **$n$-đơn hình:** Dạng tổng quát của tam giác đặc trong không gian $n$-chiều.
 
 ![Simplices](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Simplexes.svg/500px-Simplexes.svg.png)  
-*0,1,2,3-simplices - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplexes.svg)*
+*Các đơn hình chiều 0, 1, 2, 3 - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplexes.svg)*
 
 ---
 
-### 2. Faces of Simplices
+### 2. Mặt của đơn hình
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Face):**  
-Một subset của vertices của $\sigma$ xác định một **face**. Trực giác hình học là một face là một "mặt" của simplex—một phần của simplex được xác định bởi một tập con các vertices.
+**Định nghĩa (Mặt):**  
+Mỗi tập con khác rỗng của tập các đỉnh của $\sigma$ xác định một **mặt** (face) của $\sigma$.
 </div>
 
-**i-th face:** Loại bỏ vertex $v_i$:
+**Mặt thứ $i$** của $\sigma$ thu được bằng cách bỏ đi đỉnh $v_i$:
 
 $$
 \partial_i \sigma = [v_0, \ldots, \hat{v}_i, \ldots, v_n]
 $$
 
-(ký hiệu hat = bỏ qua $v_i$). Đây là face đối diện với vertex $v_i$—nó là simplex được tạo thành bởi tất cả các vertices còn lại.
+trong đó dấu mũ $\hat{v}_i$ biểu thị việc loại bỏ đỉnh $v_i$. Đây là mặt $(n-1)$-chiều đối diện với đỉnh $v_i$. Một $n$-đơn hình có tổng cộng $2^{n+1} - 1$ mặt khác rỗng (hoặc $2^{n+1}$ nếu tính cả tập rỗng).
 
-**Tất cả các faces:** Tất cả các subsets của vertices. Một $n$-simplex có $2^{n+1}$ faces tổng cộng—mỗi subset của vertices xác định một face.
-
-**Ví dụ:** Tam giác $[v_0, v_1, v_2]$ có:
-- 3 vertices (0-faces): $[v_0]$, $[v_1]$, $[v_2]$—các đỉnh của tam giác
-- 3 edges (1-faces): $[v_0,v_1]$, $[v_1,v_2]$, $[v_0,v_2]$—các cạnh của tam giác
-- 1 face (chính nó): $[v_0,v_1,v_2]$—toàn bộ tam giác
+**Ví dụ:** Tam giác $[v_0, v_1, v_2]$ có $7$ mặt khác rỗng:
+- 3 đỉnh ($0$-mặt): $[v_0]$, $[v_1]$, $[v_2]$;
+- 3 cạnh ($1$-mặt): $[v_0,v_1]$, $[v_1,v_2]$, $[v_0,v_2]$;
+- 1 mặt hai chiều (chính nó): $[v_0,v_1,v_2]$.
 
 ---
 
-### 3. Simplicial Complexes
+### 3. Phức đơn hình
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Simplicial Complex):**  
-$K$ = collection của các simplices trong $\mathbb{R}^N$ sao cho:
-1. **Closed under faces:** Nếu $\sigma \in K$ và $\tau$ là face của $\sigma$, thì $\tau \in K$. Điều này có nghĩa là nếu một simplex nằm trong complex, thì tất cả các faces của nó cũng phải nằm trong complex.
-2. **Proper intersections:** Nếu $\sigma, \tau \in K$, thì $\sigma \cap \tau$ là face của cả hai (hoặc rỗng). Điều này đảm bảo rằng các simplices chỉ giao nhau tại các faces chung của chúng, không giao nhau một cách "tùy ý".
+**Định nghĩa (Phức đơn hình):**  
+Một **phức đơn hình** (simplicial complex) $K$ là một họ các đơn hình trong $\mathbb{R}^N$ thỏa mãn hai điều kiện:
+1. **Đóng với phép lấy mặt:** Nếu $\sigma \in K$ và $\tau$ là một mặt của $\sigma$ thì $\tau \in K$.
+2. **Giao đúng cách:** Nếu $\sigma, \tau \in K$ thì giao $\sigma \cap \tau$ là tập rỗng hoặc là một mặt chung của cả $\sigma$ và $\tau$.
 </div>
 
-**$|K|$ = geometric realization** = union của tất cả các simplices (topological space). Đây là không gian tô-pô được tạo thành bởi việc "dán" tất cả các simplices lại với nhau theo các faces chung của chúng.
-
----
+Hợp của tất cả các đơn hình trong $K$, ký hiệu $|K|$, được gọi là **thể hiện hình học** (geometric realization) của $K$. Đây là một không gian tô-pô tạo thành bằng cách ghép các đơn hình theo các mặt chung của chúng.
 
 **Các ví dụ:**
 
-**Ví dụ 1: Boundary của tam giác**
-- 3 vertices: $v_0$, $v_1$, $v_2$
-- 3 edges: $[v_0,v_1]$, $[v_1,v_2]$, $[v_0,v_2]$
-- KHÔNG có 2-face (hollow triangle—chỉ có chu vi, không có phần bên trong)
+**Ví dụ 1: Biên của tam giác.** Gồm 3 đỉnh $v_0, v_1, v_2$ và 3 cạnh $[v_0,v_1], [v_1,v_2], [v_0,v_2]$, không chứa $2$-mặt ở bên trong. Đây là phức $1$-chiều đồng phôi với đường tròn $S^1$.
 
-Đây là một 1-dimensional complex homeomorphic với $S^1$. Trực giác hình học là chúng ta chỉ có chu vi của tam giác, không có phần bên trong, và điều này tạo thành một hình tròn.
+**Ví dụ 2: Tam giác đặc.** Gồm 3 đỉnh, 3 cạnh và 1 tam giác đặc $[v_0,v_1,v_2]$. Đây là phức $2$-chiều đồng phôi với đĩa đóng $D^2$.
 
----
-
-**Ví dụ 2: Filled triangle**
-- 3 vertices
-- 3 edges  
-- 1 filled triangle $[v_0,v_1,v_2]$
-
-Đây là một 2-dimensional complex homeomorphic với $D^2$ (disk). Trực giác hình học là chúng ta có toàn bộ tam giác bao gồm cả phần bên trong, và điều này tạo thành một đĩa.
+**Ví dụ 3: Phép chia tam giác hình xuyến.** Ta chia một hình vuông thành các tam giác rồi đồng nhất các cạnh đối diện một cách thích hợp để thu được phức đơn hình $K$ với $|K| \cong T^2$.
 
 ---
 
-**Ví dụ 3: Torus triangulation**
-- Triangulate hình vuông, đồng nhất các cạnh một cách thích hợp
-- Kết quả là một simplicial complex với $|K| \cong T^2$
+## 🔗 Nhóm xích
 
-Đây là một ví dụ phức tạp hơn—chúng ta có thể triangulate torus bằng cách chia một hình vuông thành các tam giác và sau đó đồng nhất các cạnh đối diện để tạo thành torus.
-
----
-
-## 🔗 Chain Groups
-
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Chain Group):**  
-Cho $K$ là simplicial complex. **n-chain group:**
+**Định nghĩa (Nhóm xích):**  
+Cho $K$ là một phức đơn hình. **Nhóm $n$-xích** ($n$-chain group) của $K$ là nhóm Abel tự do sinh bởi các $n$-đơn hình có định hướng của $K$:
 
 $$
 C_n(K) = \text{free abelian group generated by oriented n-simplices}
 $$
 </div>
 
-**Các phần tử:** Các tổng hình thức với hệ số nguyên:
+Mỗi phần tử của $C_n(K)$, gọi là một **$n$-xích** ($n$-chain), là một tổng hình thức với hệ số nguyên:
 
 $$
-c = \sum_{i} n_i \sigma_i \quad (n_i \in \mathbb{Z}, \sigma_i \text{ là các n-simplices})
+c = \sum_{i} n_i \sigma_i \quad (n_i \in \mathbb{Z}, \sigma_i \text{ là các } n\text{-đơn hình})
 $$
 
-**Phép cộng:** Component-wise—chúng ta cộng các hệ số tương ứng của các simplices giống nhau.
-
-**Ví dụ:** Nếu $\sigma_1$, $\sigma_2$ là các n-simplices, thì:
-- $3\sigma_1 + 2\sigma_2 \in C_n$—một tổ hợp tuyến tính của các simplices
-- $\sigma_1 - \sigma_1 = 0$—một simplex trừ đi chính nó bằng không
-- $-\sigma_1$ = "$\sigma_1$ với opposite orientation"—đảo ngược hướng của simplex
-
-Trực giác hình học là một chain là một "tổ hợp tuyến tính" của các simplices—chúng ta có thể nhân một simplex với một số nguyên và cộng các simplices lại với nhau.
+Phép cộng được thực hiện theo từng thành phần bằng cách cộng các hệ số của cùng một đơn hình. Chẳng hạn, với hai $n$-đơn hình $\sigma_1, \sigma_2$, ta có $3\sigma_1 + 2\sigma_2 \in C_n(K)$, $\sigma_1 - \sigma_1 = 0$, và $-\sigma_1$ biểu thị đơn hình $\sigma_1$ lấy theo hướng ngược lại.
 
 ---
 
-### 2. Orientation
+### 2. Định hướng
 
-**Các n-simplices cần orientation:**
-- **Ordering vertices:** $[v_0, \ldots, v_n]$—thứ tự của các vertices xác định orientation
-- **Even permutation:** Same orientation—nếu chúng ta hoán vị các vertices bằng một even permutation, orientation không thay đổi
-- **Odd permutation:** Opposite orientation—nếu chúng ta hoán vị các vertices bằng một odd permutation, orientation đảo ngược
+Các $n$-đơn hình cần được gán **định hướng** (orientation) thông qua thứ tự liệt kê các đỉnh $[v_0, \ldots, v_n]$:
+- Một hoán vị chẵn các đỉnh giữ nguyên định hướng.
+- Một hoán vị lẻ các đỉnh đảo ngược định hướng.
 
-**Ký hiệu:** $[v_0, v_1, v_2] = -[v_1, v_0, v_2]$—đảo ngược thứ tự của hai vertices đầu tiên đảo ngược orientation.
-
-**Tại sao?** Boundary operator cần consistent signs—khi chúng ta tính toán boundary của một simplex, chúng ta cần biết hướng của các faces để có thể gán các dấu đúng. Orientation cho phép chúng ta làm điều này một cách nhất quán.
+Chẳng hạn, $[v_0, v_1, v_2] = -[v_1, v_0, v_2]$. Việc gán định hướng là cần thiết để toán tử biên xác định được các dấu một cách nhất quán trên các mặt của đơn hình.
 
 ---
 
-### 3. Properties
+### 3. Tính chất
 
-**$C_n(K)$ là free abelian group:**
-- **Generators:** Tất cả các oriented n-simplices—mỗi oriented n-simplex là một generator
-- **Rank:** Số lượng các n-simplices trong $K$—đây là số lượng các generators độc lập
+$C_n(K)$ là nhóm Abel tự do với tập sinh là toàn bộ các $n$-đơn hình có định hướng (mỗi đơn hình chọn một hướng đại diện), và hạng (rank) của nó bằng số lượng $n$-đơn hình trong $K$.
 
-**Nếu $K$ finite:** $C_n(K) \cong \mathbb{Z}^r$ trong đó $r$ = số lượng các n-simplices. Đây là một kết quả quan trọng—chain group của một simplicial complex hữu hạn là một nhóm abelian tự do với rank bằng số lượng các simplices.
-
-**Nếu $n > \dim(K)$:** $C_n(K) = 0$ (không có n-simplices). Điều này có nghĩa là nếu chiều của complex nhỏ hơn $n$, thì không có $n$-simplices nào, và do đó chain group tầm thường.
+- Nếu $K$ là phức hữu hạn có $r$ đơn hình $n$-chiều thì $C_n(K) \cong \mathbb{Z}^r$.
+- Nếu $n > \dim(K)$ thì không có $n$-đơn hình nào nên $C_n(K) = 0$.
 
 ---
 
-## ∂ Boundary Operator
+## ∂ Toán tử biên
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Boundary Operator):**  
-**$\partial_n: C_n(K) \to C_{n-1}(K)$** được định nghĩa trên n-simplex:
+**Định nghĩa (Toán tử biên):**  
+**Toán tử biên** $\partial_n: C_n(K) \to C_{n-1}(K)$ được xác định trên mỗi $n$-đơn hình bằng công thức:
 
 $$
 \partial_n([v_0, \ldots, v_n]) = \sum_{i=0}^n (-1)^i [v_0, \ldots, \hat{v}_i, \ldots, v_n]
 $$
 </div>
 
-**Mở rộng tuyến tính** đến tất cả các chains. Điều này có nghĩa là nếu chúng ta có một chain $c = \sum_i n_i \sigma_i$, thì $\partial_n(c) = \sum_i n_i \partial_n(\sigma_i)$.
+Sau đó, ta mở rộng tuyến tính $\partial_n$ lên toàn bộ nhóm xích: với $c = \sum_i n_i \sigma_i$, đặt $\partial_n(c) = \sum_i n_i \partial_n(\sigma_i)$. Về mặt hình học, $\partial(\sigma)$ là biên có định hướng của $\sigma$, là tổng đan dấu các mặt $(n-1)$-chiều của nó.
 
----
-
-**Trực giác hình học:** $\partial(\sigma)$ = oriented boundary của $\sigma$. Boundary operator tính toán boundary của một simplex một cách đại số—nó lấy tổng của tất cả các faces với các dấu phù hợp để đảm bảo orientation nhất quán.
-
-**Ví dụ 1 (Edge):**  
-$\sigma = [v_0, v_1]$ (oriented edge từ $v_0$ đến $v_1$).
+**Ví dụ 1 (Cạnh):** Với cạnh có hướng $\sigma = [v_0, v_1]$ đi từ $v_0$ đến $v_1$, ta có:
 
 $$
 \partial([v_0, v_1]) = [v_1] - [v_0]
 $$
 
-**Orientation:** "Flows" từ $v_0$ đến $v_1$. Trực giác hình học là boundary của một đoạn thẳng là hai điểm đầu mút, nhưng với các dấu khác nhau để phản ánh hướng—điểm cuối có dấu dương và điểm đầu có dấu âm.
+Biên của cạnh là hiệu giữa đỉnh cuối (dấu dương) và đỉnh đầu (dấu âm).
 
----
-
-**Ví dụ 2 (Triangle):**  
-$\sigma = [v_0, v_1, v_2]$ (counterclockwise).
+**Ví dụ 2 (Tam giác):** Với tam giác $\sigma = [v_0, v_1, v_2]$ định hướng ngược chiều kim đồng hồ:
 
 $$
 \partial([v_0, v_1, v_2]) = [v_1, v_2] - [v_0, v_2] + [v_0, v_1]
 $$
 
-**Ba edges với induced orientations.** Trực giác hình học là boundary của một tam giác là ba cạnh của nó, mỗi cạnh có orientation được cảm ứng từ orientation của tam giác. Các dấu alternating đảm bảo rằng khi chúng ta đi vòng quanh tam giác, các orientations nhất quán với nhau.
+Đây là tổng ba cạnh của tam giác với định hướng cảm sinh phù hợp khi đi một vòng quanh chu vi.
 
 ![Triangle boundary](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Triangle_boundary.svg/300px-Triangle_boundary.svg.png)  
-*Oriented boundary của triangle - Nguồn concept*
+*Biên có định hướng của tam giác - Nguồn concept*
 
----
-
-**Ví dụ 3 (Tetrahedron):**  
-$\sigma = [v_0, v_1, v_2, v_3]$.
+**Ví dụ 3 (Tứ diện):** Với tứ diện $\sigma = [v_0, v_1, v_2, v_3]$:
 
 $$
 \partial(\sigma) = [v_1, v_2, v_3] - [v_0, v_2, v_3] + [v_0, v_1, v_3] - [v_0, v_1, v_2]
 $$
 
-**Bốn faces với alternating signs.** Trực giác hình học là boundary của một tứ diện là bốn mặt tam giác của nó, mỗi mặt có orientation được cảm ứng từ orientation của tứ diện. Các dấu alternating đảm bảo rằng các orientations nhất quán với nhau.
+Biên của tứ diện gồm bốn mặt tam giác với dấu đan xen theo định hướng cảm sinh.
 
 ---
 
-### 2. Key Property: ∂² = 0
+### 2. Tính chất cốt lõi: $\partial^2 = 0$
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Fundamental):**  
-$\partial_{n-1} \circ \partial_n = 0$ (composition = zero map).
+**Định lý (Tính chất cơ bản):**  
+Ánh xạ hợp $\partial_{n-1} \circ \partial_n = 0$ là đồng cấu không.
 </div>
 
-**Ký hiệu:** $\partial^2 = 0$ hoặc $\partial\partial = 0$.
+Ta thường viết gọn là $\partial^2 = 0$ hoặc $\partial\partial = 0$, nghĩa là **biên của một biên luôn bằng $0$**.
 
-**Ý nghĩa:** Boundary của boundary = 0. Đây là một tính chất cơ bản và quan trọng nhất của boundary operator—nếu chúng ta tính boundary của một simplex, và sau đó tính boundary của kết quả đó, chúng ta luôn nhận được không.
-
----
-
-**Chứng minh (cho tam giác):**  
-$\sigma = [v_0, v_1, v_2]$.
-
-$\partial(\sigma) = [v_1, v_2] - [v_0, v_2] + [v_0, v_1]$
-
-Áp dụng $\partial$ lần nữa:
-- $\partial([v_1, v_2]) = [v_2] - [v_1]$
-- $\partial([v_0, v_2]) = [v_2] - [v_0]$
-- $\partial([v_0, v_1]) = [v_1] - [v_0]$
+**Kiểm tra cho trường hợp tam giác:** Xét $\sigma = [v_0, v_1, v_2]$. Ta đã có $\partial(\sigma) = [v_1, v_2] - [v_0, v_2] + [v_0, v_1]$. Áp dụng $\partial$ lần thứ hai với $\partial([v_1, v_2]) = [v_2] - [v_1]$, $\partial([v_0, v_2]) = [v_2] - [v_0]$ và $\partial([v_0, v_1]) = [v_1] - [v_0]$, ta thu được:
 
 $$
 \partial^2(\sigma) = ([v_2] - [v_1]) - ([v_2] - [v_0]) + ([v_1] - [v_0]) = 0
 $$
 
-Mọi thứ đều triệt tiêu! ✓ Điều này xảy ra vì mỗi vertex xuất hiện đúng hai lần với các dấu đối nhau—một lần từ một edge và một lần từ edge khác.
+Mỗi đỉnh xuất hiện đúng hai lần với dấu trái nhau nên triệt tiêu hoàn toàn. Trong trường hợp tổng quát, chứng minh tổ hợp cũng cho kết quả tương tự vì các cặp mặt thu được khi bỏ lần lượt hai đỉnh $v_i, v_j$ luôn triệt tiêu theo cặp dấu.
 
-**Chứng minh tổng quát:** Combinatorial—các dấu triệt tiêu một cách có hệ thống. ✓
-
----
-
-**Ý nghĩa hình học:**  
-Boundary của tam giác = ba edges tạo thành closed loop.  
-Boundary của closed loop = các endpoints triệt tiêu = 0.
-
-**$\partial^2 = 0$ là CƠ BẢN cho lý thuyết homology!** Đây là tính chất cho phép chúng ta định nghĩa homology groups—nếu không có tính chất này, chúng ta không thể định nghĩa cycles và boundaries một cách nhất quán.
+Về mặt trực giác, biên của tam giác là ba cạnh tạo thành một vòng khép kín, còn biên của vòng khép kín thì các đầu mút triệt tiêu hết nên bằng $0$. Tính chất $\partial^2 = 0$ là điều kiện tiên quyết để xây dựng các nhóm đồng điều.
 
 ---
 
-## 📊 Chain Complex và Homology
+## 📊 Phức xích và Đồng điều
 
-### 1. Chain Complex
+### 1. Phức xích
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa:**  
-Một dãy các abelian groups với các homomorphisms:
+**Định nghĩa (Phức xích):**  
+Một **phức xích** (chain complex) là một dãy các nhóm Abel và các đồng cấu:
 
 $$
 \cdots \xrightarrow{\partial_{n+2}} C_{n+1} \xrightarrow{\partial_{n+1}} C_n \xrightarrow{\partial_n} C_{n-1} \xrightarrow{\partial_{n-1}} \cdots \xrightarrow{\partial_1} C_0 \xrightarrow{\partial_0} 0
 $$
+
+thỏa mãn $\partial^2 = 0$, tức là $\text{im}(\partial_{n+1}) \subseteq \ker(\partial_n)$ với mọi $n$.
 </div>
 
-thỏa mãn **$\partial^2 = 0$** (im($\partial_{n+1}$) $\subseteq$ ker($\partial_n$)).
-
-**Đây là chain complex của $K$.** Trực giác hình học là một chain complex là một dãy các chain groups được kết nối bởi các boundary operators—mỗi chain group chứa các chains ở một chiều cụ thể, và boundary operator ánh xạ chúng xuống chiều thấp hơn. Điều kiện $\partial^2 = 0$ đảm bảo rằng image của một boundary operator nằm trong kernel của boundary operator tiếp theo.
+Dãy các nhóm xích $C_n(K)$ cùng với các toán tử biên $\partial_n$ lập thành phức xích của phức đơn hình $K$.
 
 ---
 
-### 2. Cycles và Boundaries
+### 2. Chu trình và Biên
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (n-Cycles):**  
-$Z_n(K) = \ker(\partial_n) = \{c \in C_n : \partial c = 0\}$
+**Định nghĩa ($n$-chu trình):**  
+Nhóm các **$n$-chu trình** ($n$-cycles) là hạt nhân của $\partial_n$:
+
+$$
+Z_n(K) = \ker(\partial_n) = \{c \in C_n : \partial c = 0\}
+$$
 </div>
 
-**Chains với no boundary.** Trực giác hình học là một cycle là một chain không có boundary—nó "đóng kín" trong một cách nào đó. Ví dụ, một closed loop trong một graph là một 1-cycle—nó không có điểm đầu và điểm cuối.
-
-**Ví dụ:** Closed loop trong graph = 1-cycle. Đây là một ví dụ trực quan—một vòng lặp đóng trong một graph là một cycle vì nó không có boundary.
-
----
+Một chu trình là một xích không có biên, tức là "khép kín". Ví dụ, một vòng khép kín trong đồ thị là một $1$-chu trình.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (n-Boundaries):**  
-$B_n(K) = \text{im}(\partial_{n+1}) = \{\partial d : d \in C_{n+1}\}$
+**Định nghĩa ($n$-biên):**  
+Nhóm các **$n$-biên** ($n$-boundaries) là ảnh của $\partial_{n+1}$:
+
+$$
+B_n(K) = \text{im}(\partial_{n+1}) = \{\partial d : d \in C_{n+1}\}
+$$
 </div>
 
-**Chains that ARE boundaries của something.** Trực giác hình học là một boundary là một chain mà chính nó là boundary của một chain ở chiều cao hơn. Ví dụ, boundary của một tam giác là boundary của chính tam giác đó.
-
-**Ví dụ:** Triangle boundary = boundary của filled triangle = 1-boundary. Đây là một ví dụ cụ thể—chu vi của một tam giác là boundary của chính tam giác đó.
-
----
+Một biên là một xích đồng thời là biên của một xích ở chiều cao hơn một bậc. Ví dụ, chu vi của một tam giác đặc là một $1$-biên.
 
 <div class="textbook-lemma" markdown="1">
-**Bổ đề:** $B_n \subseteq Z_n$ (boundaries are cycles).
+**Bổ đề:** $B_n \subseteq Z_n$ (mọi biên đều là chu trình).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Nếu $c \in B_n$, thì $c = \partial d$ cho một số $d$.  
-$\partial c = \partial(\partial d) = \partial^2 d = 0$ ⇒ $c \in Z_n$. ✓
+**Chứng minh:** Nếu $c \in B_n$ thì tồn tại $d \in C_{n+1}$ sao cho $c = \partial d$. Khi đó $\partial c = \partial(\partial d) = \partial^2 d = 0$, suy ra $c \in Z_n$. ✓
 </div>
 
-**Điều này suy ra từ $\partial^2 = 0$!** Đây là một kết quả quan trọng—mọi boundary đều là một cycle, nhưng không phải mọi cycle đều là một boundary. Sự khác biệt giữa cycles và boundaries chính là homology groups.
+Mọi biên đều là chu trình, nhưng điều ngược lại không nhất thiết đúng. Chính những chu trình không phải là biên mới phản ánh các lỗ của không gian.
 
 ---
 
-### 3. Homology Groups
+### 3. Nhóm đồng điều
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Homology Groups):**
+**Định nghĩa (Nhóm đồng điều):**
 
 $$
 H_n(K) = Z_n(K) / B_n(K) = \ker(\partial_n) / \text{im}(\partial_{n+1})
 $$
 </div>
 
-**Quotient group: cycles modulo boundaries.** Trực giác hình học là homology group đo lường các "lỗ" $n$-chiều trong không gian—nó là tập hợp các cycles không phải là boundaries, được xác định modulo các boundaries. Nếu một cycle là boundary của một chain ở chiều cao hơn, thì nó được coi là "tầm thường" trong homology group. Chỉ những cycles không phải là boundaries mới đại diện cho các "lỗ" thực sự trong không gian.
+$H_n(K)$ là nhóm thương của các $n$-chu trình theo các $n$-biên. Về mặt trực giác:
+- **Chu trình ($Z_n$):** Các xích khép kín có thể bao quanh lỗ.
+- **Biên ($B_n$):** Các chu trình bị "lấp đầy" bởi một xích chiều cao hơn, do đó không phải là lỗ thực sự.
+- **Đồng điều ($H_n$):** Đo lường các chu trình không phải là biên, tức là các lỗ $n$-chiều thực sự.
+
+Chẳng hạn, với mặt cầu rỗng $S^2$, bề mặt khép kín của nó tạo thành một $2$-chu trình nhưng không phải là biên của một $3$-xích nào (vì phần bên trong rỗng), dẫn đến một phần tử khác không trong $H_2(S^2) \cong \mathbb{Z}$.
 
 ---
 
-**Trực giác:**
+### 4. Tính chất
 
-**$H_n$ phát hiện "n-dimensional holes":**
-- **Cycles:** Bao quanh các lỗ—một cycle là một chain đóng kín có thể bao quanh một lỗ
-- **Boundaries:** Không phải lỗ thực sự (filled)—một boundary là boundary của một chain ở chiều cao hơn, nghĩa là nó "được lấp đầy"
-- **$H_n$:** Các lỗ thực sự = các cycles không phải là boundaries—đây là các cycles không thể được "lấp đầy" bởi một chain ở chiều cao hơn
-
-**Ví dụ:** Hollow sphere $S^2$:
-- Closed surface = 2-cycle—bề mặt đóng của hình cầu là một 2-cycle
-- Không phải boundary (hollow inside)—nó không phải là boundary của một 3-chain vì bên trong là rỗng
-- ⇒ Non-zero element trong $H_2(S^2) \cong \mathbb{Z}$—điều này có nghĩa là hình cầu có một lỗ hai chiều
+- **Tính Abel:** $H_n(K)$ luôn là nhóm Abel (khác với $\pi_1$ có thể không giao hoán).
+- **Hữu hạn sinh:** Nếu $K$ là phức đơn hình hữu hạn thì $H_n(K)$ là nhóm Abel hữu hạn sinh.
+- **Định lý cấu trúc:** Mọi nhóm Abel hữu hạn sinh đều phân tích được thành $H_n(K) \cong \mathbb{Z}^r \oplus (\text{phần xoắn})$, trong đó phần xoắn (torsion) là tổng trực tiếp hữu hạn các nhóm cyclic hữu hạn.
+- **Số Betti:** $\beta_n = \text{rank}(H_n)$ là số hạng tử $\mathbb{Z}$ trong phần tự do, dùng để đếm số lỗ $n$-chiều.
+- **Phần xoắn (torsion):** Các nhóm cyclic hữu hạn phản ánh các đặc trưng tô-pô tinh tế hơn mà số Betti không ghi nhận hết.
 
 ---
 
-### 4. Properties
+## 🔢 Ví dụ
 
-**$H_n(K)$ là abelian group** (luôn luôn! Khác với $\pi_1$ có thể không abelian). Đây là một lợi thế lớn của homology so với fundamental group—vì các homology groups là abelian, chúng ta có thể sử dụng các kỹ thuật đại số tuyến tính để tính toán chúng.
+### Ví dụ 1: Một điểm
 
-**Finitely generated:** Nếu $K$ là finite complex. Điều này có nghĩa là homology group có thể được biểu diễn như một tổng hữu hạn của các cyclic groups.
+Xét phức $K$ chỉ gồm một đỉnh duy nhất.
+- **Nhóm xích:** $C_0 = \mathbb{Z}$ (một đỉnh sinh), và $C_n = 0$ với mọi $n > 0$.
+- **Chu trình và biên:** $Z_0 = \mathbb{Z}$, $Z_n = 0$ ($n > 0$), và $B_n = 0$ với mọi $n$.
+- **Đồng điều:** $H_0 = \mathbb{Z}/0 = \mathbb{Z}$ và $H_n = 0$ với mọi $n > 0$.
 
-**Structure Theorem:** $H_n(K) \cong \mathbb{Z}^r \oplus$ (torsion). Đây là một kết quả quan trọng trong lý thuyết nhóm abelian—mọi nhóm abelian hữu hạn sinh đều có thể được phân tích thành một phần tự do (tổng của các $\mathbb{Z}$) và một phần torsion (các nhóm cyclic hữu hạn).
-
-**Betti number:** $\beta_n = \text{rank}(H_n)$ = số lượng các $\mathbb{Z}$ summands (đếm các lỗ). Đây là một số quan trọng trong topology—nó cho biết có bao nhiêu lỗ $n$-chiều trong không gian.
-
-**Torsion:** Các nhóm cyclic hữu hạn (subtle topology). Phần torsion của homology group phản ánh các tính chất topology tinh tế hơn—những tính chất không thể được phát hiện chỉ bằng cách đếm các lỗ.
-
----
-
-## 🔢 Examples
-
-### Ví dụ 1: Điểm
-
-$K$ = single vertex.
-
-**Chain groups:**
-- $C_0 = \mathbb{Z}$ (one generator—chỉ có một vertex)
-- $C_n = 0$ cho $n > 0$ (không có simplices ở chiều cao hơn)
-
-**Boundaries:** $B_0 = 0$, $B_n = 0$ $\forall n$ (không có boundaries vì không có simplices ở chiều cao hơn)
-
-**Cycles:** $Z_0 = \mathbb{Z}$, $Z_n = 0$ ($n > 0$) (mọi 0-chain đều là cycle vì không có boundary operator từ $C_0$)
-
-**Homology:**
-- $H_0 = \mathbb{Z}/0 = \mathbb{Z}$ (connected component)
-- $H_n = 0$ cho $n > 0$ (không có lỗ ở chiều cao hơn)
-
-**Giải thích:** Điểm là connected ($H_0 = \mathbb{Z}$), không có lỗ ở chiều cao hơn. Đây là ví dụ đơn giản nhất—một điểm chỉ có một thành phần liên thông và không có lỗ nào.
+Kết quả cho thấy một điểm có đúng một thành phần liên thông ($H_0 = \mathbb{Z}$) và không có lỗ nào ở chiều cao hơn.
 
 ---
 
-### Ví dụ 2: Hình tròn $S^1$
+### Ví dụ 2: Đường tròn $S^1$
 
-Triangulate với 3 vertices, 3 edges (minimal—triangulation nhỏ nhất có thể).
+Ta chia tam giác $S^1$ theo cách tối giản gồm 3 đỉnh và 3 cạnh (biên của một tam giác).
+- **Nhóm xích:** $C_0 = \mathbb{Z}^3$, $C_1 = \mathbb{Z}^3$, và $C_n = 0$ với $n \geq 2$.
+- **Toán tử biên:** Biên của mỗi cạnh là hiệu hai đỉnh đầu mút. Tổng ba cạnh tạo thành vòng khép kín có biên bằng $0$, và đó là phần tử sinh của $Z_1 = \ker(\partial_1) \cong \mathbb{Z}$.
+- **Kết quả:**
+  - $H_0(S^1) = \mathbb{Z}$ (một thành phần liên thông);
+  - $H_1(S^1) = \mathbb{Z}$ (một lỗ $1$-chiều tương ứng với vòng tròn);
+  - $H_n(S^1) = 0$ với mọi $n \geq 2$.
 
-**Chain groups:**
-- $C_0 = \mathbb{Z}^3$ (3 vertices—mỗi vertex là một generator)
-- $C_1 = \mathbb{Z}^3$ (3 edges—mỗi edge là một generator)
-- $C_n = 0$ ($n \geq 2$) (không có simplices ở chiều cao hơn)
-
-**Tính toán boundaries:**
-- $\partial$(mỗi edge) = difference của vertices—boundary của mỗi edge là hiệu của hai vertices đầu mút
-- Sum của 3 edges (full loop) → $\partial = 0$—tổng của ba edges tạo thành một vòng lặp đóng, và boundary của nó bằng không
-
-**Kết quả:**
-- **$H_0(S^1) = \mathbb{Z}$** (connected—hình tròn là connected)
-- **$H_1(S^1) = \mathbb{Z}$** (one 1-dimensional hole—the loop!—hình tròn có một lỗ một chiều, chính là vòng lặp)
-- $H_n = 0$ ($n \geq 2$) (không có lỗ ở chiều cao hơn)
-
-**$\beta_0 = 1$, $\beta_1 = 1$:** Hình tròn có một "lỗ". Đây là một ví dụ quan trọng—hình tròn có một thành phần liên thông và một lỗ một chiều, được phản ánh trong $H_0$ và $H_1$.
+Như vậy $\beta_0 = 1$ và $\beta_1 = 1$.
 
 ---
 
-### Ví dụ 3: Hình cầu $S^2$
+### Ví dụ 3: Mặt cầu $S^2$
 
-Triangulate (ví dụ, icosahedron—chia hình cầu thành các tam giác).
+Chia tam giác mặt cầu $S^2$ (chẳng hạn bằng mặt của một khối nhị thập diện đều — icosahedron). Tính toán đồng điều cho:
+- $H_0(S^2) = \mathbb{Z}$ (một thành phần liên thông);
+- $H_1(S^2) = 0$ (không có lỗ $1$-chiều);
+- $H_2(S^2) = \mathbb{Z}$ (một lỗ $2$-chiều là khoảng rỗng bên trong);
+- $H_n(S^2) = 0$ với mọi $n \geq 3$.
 
-**Tính toán cho:**
-- **$H_0(S^2) = \mathbb{Z}$** (connected—hình cầu là connected)
-- **$H_1(S^2) = 0$** (no 1-holes—không có lỗ một chiều vì mọi loop đều có thể co lại về một điểm)
-- **$H_2(S^2) = \mathbb{Z}$** (hollow 2-dimensional interior!—hình cầu có một lỗ hai chiều, chính là khoảng trống bên trong)
-- $H_n = 0$ ($n \geq 3$) (không có lỗ ở chiều cao hơn)
-
-**Giải thích:** Hình cầu bao quanh một lỗ hai chiều. Đây là một ví dụ quan trọng cho thấy cách homology phát hiện các lỗ ở chiều cao hơn—fundamental group không thể phát hiện lỗ hai chiều này ($\pi_1(S^2) = 0$), nhưng homology group $H_2(S^2) = \mathbb{Z}$ phát hiện được nó.
+Trong khi nhóm cơ bản $\pi_1(S^2) = 0$ không phát hiện được khoảng rỗng bên trong mặt cầu, nhóm đồng điều $H_2(S^2) = \mathbb{Z}$ lại nhận diện chính xác đặc trưng này.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển & Tham khảo
 
-### Classic Works
+### Công trình kinh điển
 
 1. **Henri Poincaré** - *"Analysis Situs"* (1895-1904)  
-   *Introduced homology implicitly*
+   *Đặt nền móng cho khái niệm đồng điều*
 
 2. **Emmy Noether** - *Group theory approach* (1920s)  
-   *Algebraic foundations*
+   *Xây dựng nền tảng đại số bằng lý thuyết nhóm*
 
 3. **Leopold Vietoris** - *"Über den höheren Zusammenhang"* (1927)  
-   *Homology theory formalized*
+   *Hình thức hóa lý thuyết đồng điều*
 
-### Textbooks
+### Giáo trình
 
 4. **Allen Hatcher** - *Algebraic Topology*, **§2.1: Simplicial Homology**  
-   *Outstanding modern treatment*
+   *Cách trình bày hiện đại và trực quan*
 
 5. **James R. Munkres** - *Elements of Algebraic Topology*, **Chapters 1-2**  
-   *Clear, computational*
+   *Trình bày rõ ràng, chú trọng tính toán*
 
 6. **Glen E. Bredon** - *Topology and Geometry*, **Chapter IV**
 
@@ -476,115 +365,103 @@ Triangulate (ví dụ, icosahedron—chia hình cầu thành các tam giác).
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và Liên kết
 
-### Topological Data Analysis (TDA)
-**Persistent Homology:** Compute H_n at multiple scales. Detects features (holes) in point cloud data. Applications: shape recognition, biology, sensor networks.
+### Phân tích dữ liệu tô-pô (TDA)
+**Đồng điều bền vững (Persistent Homology):** Tính $H_n$ trên nhiều thang đo khác nhau để phát hiện các đặc trưng (lỗ) trong dữ liệu đám mây điểm, ứng dụng trong nhận dạng hình dạng, sinh học và mạng cảm biến.
 
-### Computational Topology
-**Algorithm:** Matrix reduction computes H_n. Software: CHomP, Dionysus, GUDHI. Used in graphics, robotics.
+### Tô-pô tính toán
+**Thuật toán:** Sử dụng phép khử ma trận để tính $H_n$. Các thư viện phần mềm như CHomP, Dionysus, GUDHI được dùng trong đồ họa máy tính và robot học.
 
-### Physics - Condensed Matter
-**Topological Phases:** Homology classifies topological insulators. Betti numbers = topological invariants.
+### Vật lý chất rắn
+**Pha tô-pô:** Đồng điều được dùng để phân loại các chất cách điện tô-pô, với các số Betti đóng vai trò bất biến tô-pô.
 
-### Biology - Protein Structure
-**Void Analysis:** Cavities trong proteins characterized by H₁, H₂. Drug binding sites detection.
+### Sinh học cấu trúc protein
+**Phân tích khoang rỗng:** Các khoang bên trong cấu trúc protein được mô tả thông qua $H_1, H_2$, hỗ trợ phát hiện các vị trí gắn kết thuốc.
 
-### Sensor Networks
-**Coverage Holes:** H₁ detects gaps trong sensor coverage. Network optimization.
+### Mạng cảm biến
+**Lỗ hổng vùng phủ:** $H_1$ giúp phát hiện các khoảng trống trong vùng phủ sóng cảm biến phục vụ tối ưu hóa mạng.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Algebraic Topology 10: Simplicial Homology](https://www.youtube.com/watch?v=-bM8Gg6bOJo) — Math at Andrews University, tiếng Anh. Đơn hình, phức đơn hình, và đối biên, đúng mạch dựng của bài.
-- [11. ∆-Complexes; Simplicial Homology - Pierre Albin](https://www.youtube.com/watch?v=RGhaHydnk-Q) — Mat Neth, tiếng Anh. Pierre Albin: Δ-phức rồi đồng điều đơn hình, một buổi đầy đủ.
+- **xem trước** [Algebraic Topology 10: Simplicial Homology](https://www.youtube.com/watch?v=-bM8Gg6bOJo) — Math at Andrews University, tiếng Anh. Đơn hình, phức đơn hình và toán tử biên, đúng mạch dựng của bài.
+- [11. ∆-Complexes; Simplicial Homology - Pierre Albin](https://www.youtube.com/watch?v=RGhaHydnk-Q) — Mat Neth, tiếng Anh. Pierre Albin trình bày $\Delta$-phức rồi đến đồng điều đơn hình trong một buổi học đầy đủ.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Simplices
+### Đơn hình
 
-1. **Draw:** Sketch 0,1,2,3-simplices. Label vertices.
+1. **Vẽ hình:** Phác thảo các $0$-, $1$-, $2$-, $3$-đơn hình và gắn nhãn các đỉnh.
 
-2. **Faces:** List all faces của [v₀,v₁,v₂,v₃]. How many of each dimension?
+2. **Mặt của đơn hình:** Liệt kê tất cả các mặt của $[v_0,v_1,v_2,v_3]$. Có bao nhiêu mặt ở mỗi chiều?
 
-3. **Dimension:** n-simplex has how many k-faces? (Binomial coefficient.)
+3. **Đếm số mặt:** Một $n$-đơn hình có bao nhiêu $k$-mặt? (Sử dụng hệ số nhị thức.)
 
-### Chain Groups
+### Nhóm xích
 
-4. **Compute:** K = triangle boundary. What is C₀, C₁, C₂?
+4. **Tính toán:** Với $K$ là biên của một tam giác, hãy xác định $C_0, C_1, C_2$.
 
-5. **Orientation:** [v₀,v₁,v₂] = -[v₁,v₀,v₂]. Verify này preserves boundary formula.
+5. **Định hướng:** Kiểm tra rằng quy ước $[v_0,v_1,v_2] = -[v_1,v_0,v_2]$ bảo toàn công thức toán tử biên.
 
-### Boundary Operator
+### Toán tử biên
 
-6. **Verify ∂²=0:** For tetrahedron [v₀,v₁,v₂,v₃], compute ∂²(σ) explicitly.
+6. **Kiểm chứng $\partial^2 = 0$:** Với tứ diện $[v_0,v_1,v_2,v_3]$, tính tường minh $\partial^2(\sigma)$.
 
-7. **Geometric:** Explain intuitively why boundary of boundary = 0.
+7. **Trực giác hình học:** Giải thích trực quan vì sao biên của một biên luôn bằng $0$.
 
-### Homology Computation
+### Tính nhóm đồng điều
 
-8. **Point:** Verify H₀(point) = ℤ, H_n = 0 (n>0).
+8. **Một điểm:** Kiểm chứng $H_0(\text{point}) = \mathbb{Z}$ và $H_n = 0$ với $n > 0$.
 
-9. **Two Points:** Compute H₀(v₀ ⊔ v₁) = ℤ ⊕ ℤ (two components).
+9. **Hai điểm rời nhau:** Tính $H_0(v_0 \sqcup v_1) = \mathbb{Z} \oplus \mathbb{Z}$ (hai thành phần liên thông).
 
-10. **Circle:** Triangulate S¹ với 4 vertices. Compute H₀, H₁ carefully.
+10. **Đường tròn:** Chia tam giác $S^1$ với 4 đỉnh rồi tính chi tiết $H_0, H_1$.
 
-### Examples
+### Ví dụ mở rộng
 
-11. **Disk D²:** Triangulate. Compute H₀ = ℤ, H₁ = H₂ = 0.
+11. **Đĩa $D^2$:** Chia tam giác $D^2$ và tính $H_0 = \mathbb{Z}$, $H_1 = H_2 = 0$.
 
-12. **Torus T²:** Sketch triangulation. Predict H₀ = ℤ, H₁ = ℤ², H₂ = ℤ.
+12. **Hình xuyến $T^2$:** Phác thảo một phép chia tam giác của $T^2$ và dự đoán $H_0 = \mathbb{Z}$, $H_1 = \mathbb{Z}^2$, $H_2 = \mathbb{Z}$.
 
-### Advanced
+### Nâng cao
 
-13. **Euler Characteristic:** χ = Σ(-1)ⁿ β_n. Verify for S¹, S², T².
+13. **Đặc trưng Euler:** Với công thức $\chi = \sum (-1)^n \beta_n$, hãy kiểm chứng cho $S^1, S^2, T^2$.
 
-14. **Connected Sum:** H_*(Σ_g) for genus g surface. Research formula.
+14. **Tổng liên thông:** Tìm hiểu công thức tính $H_*(\Sigma_g)$ cho mặt định hướng giống $g$.
 
-15. **ℝP²:** Compute H₀ = ℤ, H₁ = ℤ/2ℤ, H₂ = 0 (non-orientable!).
-
----
-
-## 📚 Further Reading
-
-- **Hatcher, §2.1:** Best modern treatment
-- **Munkres, Elements:** Computational focus
-- **Rotman:** Detailed computations
-- **Edelsbrunner & Harer:** *Computational Topology* (TDA)
+15. **Mặt phẳng xạ ảnh $\mathbb{R}P^2$:** Tính $H_0 = \mathbb{Z}$, $H_1 = \mathbb{Z}/2\mathbb{Z}$, $H_2 = 0$ (mặt không định hướng được).
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-Trong bài này, chúng ta learned **simplicial homology**—foundation của homology theory:
+- **Hatcher, §2.1:** Cách tiếp cận hiện đại và đầy đủ.
+- **Munkres, Elements:** Tập trung vào kỹ thuật tính toán.
+- **Rotman:** Các tính toán chi tiết.
+- **Edelsbrunner & Harer:** *Computational Topology* (ứng dụng trong TDA).
 
-✅ **Simplices:** Geometric building blocks (vertices → tetrahedra)  
-✅ **Chain Groups:** C_n = free abelian on n-simplices  
-✅ **Boundary Operator:** ∂_n: C_n → C_(n-1) với ∂² = 0  
-✅ **Chain Complex:** ... → C_n → C_(n-1) → ...  
-✅ **Homology:** H_n = ker(∂_n) / im(∂_(n+1))  
-✅ **Examples:** H_*(point), H_*(S¹), H_*(S²)  
+---
 
-**Điểm chính:**
-- Homology detects holes of all dimensions
-- ∂² = 0 is fundamental
-- H_n = cycles / boundaries
-- Computable via matrices
-- Abelian (simpler than π₁)
+## 🎓 Tóm tắt
 
-**Geometric intuition:**
-- Cycles surround holes
-- Boundaries are "filled"
-- H_n counts true holes
+Trong bài học này, ta đã xây dựng **đồng điều đơn hình** — nền tảng tính toán của lý thuyết đồng điều:
 
-**Tiếp theo:** Lecture 07.01 về **Singular Homology**—works for ANY space!
+✅ **Đơn hình (Simplices):** Các khối xây dựng hình học từ đỉnh, cạnh, tam giác đến tứ diện và chiều cao hơn.  
+✅ **Nhóm xích (Chain Groups):** $C_n$ là nhóm Abel tự do sinh bởi các $n$-đơn hình có định hướng.  
+✅ **Toán tử biên (Boundary Operator):** $\partial_n: C_n \to C_{n-1}$ thỏa mãn $\partial^2 = 0$.  
+✅ **Phức xích (Chain Complex):** Dãy $\cdots \to C_n \to C_{n-1} \to \cdots$.  
+✅ **Nhóm đồng điều (Homology):** $H_n = \ker(\partial_n) / \text{im}(\partial_{n+1})$.  
+✅ **Các ví dụ cơ bản:** $H_*(\text{point})$, $H_*(S^1)$, $H_*(S^2)$.
+
+Các điểm cần ghi nhớ: đồng điều phát hiện lỗ ở mọi chiều thông qua thương của chu trình theo biên, dựa trên tính chất cốt lõi $\partial^2 = 0$; các nhóm đồng điều luôn là nhóm Abel và có thể tính bằng phép khử ma trận.
+
+**Tiếp theo:** Lecture 07.01 về **Đồng điều kỳ dị (Singular Homology)** — định nghĩa đồng điều cho mọi không gian tô-pô.
 
 ---
 
 *"Homology: where chains become algebra, and holes become numbers."*
-
-🎯 **Master simplicial homology! It's the computational foundation.** 🎯
 
 ---
 

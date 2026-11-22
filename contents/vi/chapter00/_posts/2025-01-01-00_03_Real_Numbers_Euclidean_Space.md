@@ -10,109 +10,85 @@ tags: [real-numbers, euclidean-space, metric, completeness]
 description: "Số thực, không gian Euclid, metric topology, và các tính chất nền tảng"
 ---
 
-**Real Numbers and Euclidean Space**
+**Số thực và Không gian Euclid**
 
 ---
 
 ## 📖 Tổng quan
 
-Sau khi xây dựng nền tảng logic và lý thuyết tập hợp, chúng ta cuối cùng đến với **ví dụ cụ thể đầu tiên**: các số thực ℝ và không gian Euclid ℝⁿ. Đây không chỉ là ví dụ—chúng là **động lực** (motivation) cho toàn bộ topology!
+Sau khi xây dựng nền tảng logic và lý thuyết tập hợp, ta đi đến ví dụ cụ thể đầu tiên và quen thuộc nhất: tập số thực $\mathbb{R}$ và không gian Euclid $\mathbb{R}^n$. Đây không chỉ là ví dụ minh họa, mà còn là nguồn gốc trực tiếp tạo động lực cho sự ra đời của tô-pô học.
 
-Hãy nghĩ lại: Topology ra đời từ câu hỏi "Liên tục là gì?" trong giải tích. Calculus định nghĩa liên tục qua ε và δ. Nhưng các nhà toán học nhận ra rằng bản chất của "liên tục" không phụ thuộc vào số—mà phụ thuộc vào **cấu trúc của không gian**.
+Tô-pô học phát triển từ câu hỏi cốt lõi của giải tích: "Tính liên tục thực chất là gì?" Giải tích định nghĩa liên tục qua $\varepsilon$ và $\delta$, dựa vào khoảng cách số học. Về sau, các nhà toán học nhận ra rằng bản chất của tính liên tục không phụ thuộc vào giá trị cụ thể của khoảng cách mà phụ thuộc vào **cấu trúc tập mở của không gian**.
 
-Trong bài này, chúng ta sẽ:
-- Xây dựng **ℝ** từ ℚ (phác thảo)
-- Hiểu **completeness** (tính đầy đủ) của ℝ
-- Định nghĩa **metric** và **metric space**
-- Khám phá **Euclidean topology** trên ℝⁿ
-- Thấy rằng topology là sự trừu tượng hóa của các khái niệm metric
+Trong bài giảng này, ta sẽ phác thảo cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$, tìm hiểu **tính đầy đủ** (*completeness*) của $\mathbb{R}$, định nghĩa **mê-tric** (*metric*) và **không gian mê-tric**, khảo sát **tô-pô Euclid** trên $\mathbb{R}^n$, và thấy rõ cách tô-pô trừu tượng hóa các khái niệm khoảng cách.
 
-**Tại sao bài này quan trọng?**
-- ℝⁿ là không gian tô-pô quan trọng nhất trong thực hành
-- Metric space là cầu nối giữa giải tích và topology
-- Mọi khái niệm topology (open, closed, continuous) đều có nguồn gốc từ ℝ
-- Completeness là tính chất quyết định sự "nice" của không gian
+**Tại sao bài này quan trọng?** Không gian $\mathbb{R}^n$ là mô hình được sử dụng phổ biến nhất trong cả lý thuyết lẫn ứng dụng. Không gian mê-tric đóng vai trò cầu nối giữa giải tích và tô-pô, nơi các khái niệm như tập mở, tập đóng và ánh xạ liên tục có ý nghĩa hình học rõ ràng. Ngoài ra, tính đầy đủ là tính chất nền tảng cho nhiều định lý hội tụ quan trọng.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Số Thực
+### Vì sao cần tập số thực?
 
-Hãy bắt đầu từ những gì bạn biết:
-- **ℕ = {1, 2, 3, ...}**: Số tự nhiên, đủ để đếm
-- **ℤ = {..., -2, -1, 0, 1, 2, ...}**: Số nguyên, đủ để trừ
-- **ℚ = {p/q : p,q ∈ ℤ, q ≠ 0}**: Số hữu tỉ, đủ để chia
+Ta đã quen thuộc với các tập số cơ bản:
+- **$\mathbb{N} = \{1, 2, 3, \dots\}$:** Tập số tự nhiên, dùng để đếm.
+- **$\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\}$:** Tập số nguyên, đóng với phép trừ.
+- **$\mathbb{Q} = \{p/q : p, q \in \mathbb{Z}, q \neq 0\}$:** Tập số hữu tỉ, đóng với phép chia (cho số khác $0$).
 
-**Nhưng:** ℚ không đủ! Chúng ta đã biết √2 ∉ ℚ.
-
-**Vấn đề sâu xa hơn:** ℚ có "lỗ hổng" (gaps).
-
-Xét tập A = {x ∈ ℚ : x² < 2}. Tập này không có **supremum** (cận trên nhỏ nhất) trong ℚ!
-- Nếu x² < 2, ta có thể tìm y ∈ ℚ với x < y và y² < 2
-- Không có "số hữu tỉ lớn nhất" trong A
-
-**Giải pháp:** Cần một hệ số "đầy đủ" hơn—đó là **ℝ**.
+Tuy nhiên, $\mathbb{Q}$ vẫn chưa đủ vì những số như $\sqrt{2}$ không thuộc $\mathbb{Q}$. Nói một cách chính xác hơn, trục số hữu tỉ $\mathbb{Q}$ tồn tại các "lỗ hổng" (*gaps*). Chẳng hạn, xét tập $A = \{x \in \mathbb{Q} : x^2 < 2\}$: với mọi $x \in A$, luôn tìm được $y \in \mathbb{Q}$ sao cho $x < y$ và $y^2 < 2$, do đó $A$ không có cận trên nhỏ nhất (*supremum*) trong $\mathbb{Q}$. Để lấp đầy các lỗ hổng này, ta cần một hệ số đầy đủ hơn là tập số thực **$\mathbb{R}$**.
 
 ![Number line with gaps](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Real_number_line.svg/500px-Real_number_line.svg.png)  
 *Trục số thực - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Real_number_line.svg)*
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Construction of ℝ (Xây dựng Số thực)
+### 1. Xây dựng tập số thực $\mathbb{R}$
 
-Có nhiều cách xây dựng ℝ từ ℚ. Hai cách phổ biến:
+Có hai cách kinh điển để xây dựng $\mathbb{R}$ từ $\mathbb{Q}$:
 
-#### Cách 1: Dedekind Cuts
+#### Cách 1: Lát cắt Dedekind (Dedekind Cuts)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Dedekind Cut):**  
-Một **Dedekind cut** là một cặp (A, B) với A, B ⊆ ℚ sao cho:
-1. A ∪ B = ℚ, A ∩ B = ∅, A ≠ ∅, B ≠ ∅
-2. ∀a ∈ A, ∀b ∈ B: a < b
-3. A không có phần tử lớn nhất
+**Định nghĩa (Lát cắt Dedekind):**  
+Một **lát cắt Dedekind** là một cặp $(A, B)$ với $A, B \subseteq \mathbb{Q}$ sao cho:
+1. $A \cup B = \mathbb{Q}$, $A \cap B = \emptyset$, $A \neq \emptyset$, $B \neq \emptyset$.
+2. $\forall a \in A, \forall b \in B: a < b$.
+3. $A$ không có phần tử lớn nhất.
 </div>
 
-**Trực giác:** Một "cắt" chia ℚ thành hai nửa: "nhỏ hơn" và "lớn hơn" một số thực.
+**Trực giác:** Mỗi lát cắt chia $\mathbb{Q}$ thành hai phần: tập các số hữu tỉ "nhỏ hơn" và tập các số hữu tỉ "lớn hơn hoặc bằng" một số thực xác định.
 
 **Ví dụ:**
-- **√2:** A = {x ∈ ℚ : x < 0 hoặc x² < 2}, B = {x ∈ ℚ : x > 0 và x² ≥ 2}
-- **π:** A = {x ∈ ℚ : x < π}, B = {x ∈ ℚ : x ≥ π}
+- **$\sqrt{2}$:** $A = \{x \in \mathbb{Q} : x < 0 \text{ hoặc } x^2 < 2\}$, $B = \{x \in \mathbb{Q} : x > 0 \text{ và } x^2 \ge 2\}$.
+- **$\pi$:** $A = \{x \in \mathbb{Q} : x < \pi\}$, $B = \{x \in \mathbb{Q} : x \ge \pi\}$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa:** ℝ = {tất cả Dedekind cuts}
+**Định nghĩa:** $\mathbb{R}$ là tập hợp tất cả các lát cắt Dedekind của $\mathbb{Q}$.
 </div>
 
-#### Cách 2: Cauchy Sequences
+#### Cách 2: Dãy Cauchy (Cauchy Sequences)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cauchy Sequence):**  
-Dãy (xₙ) trong ℚ là **Cauchy** nếu:
+**Định nghĩa (Dãy Cauchy trong $\mathbb{Q}$):**  
+Dãy $(x_n)$ trong $\mathbb{Q}$ là **dãy Cauchy** nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: |x_m - x_n| < \varepsilon
 $$
 </div>
 
-**Trực giác:** Các phần tử của dãy "tụ lại gần nhau" khi n → ∞.
+**Trực giác:** Các số hạng của dãy ngày càng tiến sát lại gần nhau khi $n \to \infty$. Tuy nhiên, một dãy Cauchy trong $\mathbb{Q}$ có thể không hội tụ đến một số hữu tỉ. Chẳng hạn, dãy $x_n = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \dots + \frac{1}{n!}$ là dãy Cauchy trong $\mathbb{Q}$, nhưng hội tụ về $e \approx 2{,}718\dots \notin \mathbb{Q}$.
 
-**Vấn đề:** Một Cauchy sequence trong ℚ có thể không hội tụ đến số hữu tỉ!
-
-**Ví dụ:**  
-Dãy xₙ = 1 + 1/2 + 1/6 + ... + 1/n! là Cauchy, nhưng hội tụ đến e ≈ 2.718... ∉ ℚ.
-
-**Giải pháp:** Định nghĩa ℝ là tập các lớp tương đương của Cauchy sequences trong ℚ (hai dãy tương đương nếu hiệu chúng → 0).
+**Cách xây dựng:** Ta định nghĩa $\mathbb{R}$ là tập các lớp tương đương của các dãy Cauchy trong $\mathbb{Q}$, trong đó hai dãy $(x_n)$ và $(y_n)$ tương đương nếu $|x_n - y_n| \to 0$ khi $n \to \infty$.
 
 ---
 
-### 2. Completeness Axiom (Tiên đề Đầy đủ)
+### 2. Tiên đề đầy đủ (Completeness Axiom)
 
-Thay vì xây dựng, ta thường **tiên đề hóa** ℝ qua tính chất quan trọng nhất:
+Thay vì xây dựng tường minh, trong giải tích và tô-pô ta thường tiên đề hóa $\mathbb{R}$ bằng **Tính chất cận trên nhỏ nhất** (*Least Upper Bound Property — LUB*):
 
-**Least Upper Bound Property (LUB):**
-
-> **Mọi tập con không rỗng, bị chặn trên của ℝ đều có supremum (cận trên nhỏ nhất) trong ℝ.**
+> **Mọi tập con khác rỗng và bị chặn trên của $\mathbb{R}$ đều có cận trên nhỏ nhất (*supremum*) trong $\mathbb{R}$.**
 
 $$
 \forall A \subseteq \mathbb{R}: (A \neq \emptyset \land A \text{ bounded above}) \implies \exists \sup A \in \mathbb{R}
@@ -120,27 +96,22 @@ $$
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa (Supremum):**  
-Số s = sup A nếu:
-1. s là cận trên của A: ∀a ∈ A: a ≤ s
-2. s là nhỏ nhất: nếu t là cận trên khác, thì s ≤ t
+Số $s = \sup A$ nếu:
+1. $s$ là cận trên của $A$: $\forall a \in A: a \le s$.
+2. $s$ là cận trên nhỏ nhất: nếu $t$ là một cận trên bất kỳ của $A$, thì $s \le t$.
 </div>
 
-**Tương tự:** Greatest Lower Bound (GLB) = Infimum (inf A)
+Tương tự, cận dưới lớn nhất (*Greatest Lower Bound — GLB*) được gọi là **infimum**, ký hiệu $\inf A$.
 
 **Ví dụ:**
-- A = (0, 1): sup A = 1 (nhưng 1 ∉ A!)
-- B = {1 - 1/n : n ∈ ℕ}: sup B = 1
-- C = ℚ ∩ [0, √2]: sup C = √2 (trong ℝ, không tồn tại trong ℚ!)
+- $A = (0, 1)$: $\sup A = 1$ (lưu ý $1 \notin A$).
+- $B = \{1 - 1/n : n \in \mathbb{N}\}$: $\sup B = 1$.
+- $C = \mathbb{Q} \cap [0, \sqrt{2}]$: $\sup C = \sqrt{2}$ (tồn tại trong $\mathbb{R}$, không tồn tại trong $\mathbb{Q}$).
 
-**Hệ quả quan trọng:**
+**Hai hệ quả quan trọng:**
 
-**Archimedean Property:**  
-∀x, y ∈ ℝ với y > 0: ∃n ∈ ℕ: ny > x
-
-**Trực giác:** Không có "infinitesimal" (vô cùng nhỏ) thực sự trong ℝ.
-
-**Density of ℚ:**  
-Giữa hai số thực bất kỳ luôn có một số hữu tỉ.
+- **Tính chất Archimedes:** Với mọi $x, y \in \mathbb{R}$ mà $y > 0$, luôn tồn tại $n \in \mathbb{N}$ sao cho $ny > x$. Về trực giác, trong $\mathbb{R}$ không tồn tại đại lượng dương "vô cùng nhỏ" thực sự.
+- **Tính trù mật của $\mathbb{Q}$ trong $\mathbb{R}$:** Giữa hai số thực phân biệt bất kỳ luôn có ít nhất một số hữu tỉ:
 
 $$
 \forall x, y \in \mathbb{R}: (x < y) \implies \exists r \in \mathbb{Q}: x < r < y
@@ -148,167 +119,153 @@ $$
 
 ---
 
-### 3. Metric Spaces (Không gian Metric)
+### 3. Không gian mê-tric (Metric Spaces)
 
-**Động lực:** Để nói về "liên tục", ta cần khái niệm "khoảng cách". Đó chính là **metric**.
+Để mở rộng khái niệm liên tục từ $\mathbb{R}$ sang các tập hợp tổng quát hơn, bước trung gian tự nhiên là hình thức hóa khái niệm "khoảng cách" thông qua **mê-tric**.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Metric):**  
-Một **metric** trên tập X là hàm d: X × X → ℝ thỏa mãn:
+**Định nghĩa (Mê-tric):**  
+Một **mê-tric** (*metric*) trên tập $X$ là ánh xạ $d: X \times X \to \mathbb{R}$ thỏa mãn với mọi $x, y, z \in X$:
 
-1. **Non-negativity:** d(x, y) ≥ 0, và d(x, y) = 0 ⟺ x = y
-2. **Symmetry:** d(x, y) = d(y, x)
-3. **Triangle Inequality:** d(x, z) ≤ d(x, y) + d(y, z)
+1. **Tính không âm và xác định:** $d(x, y) \ge 0$, và $d(x, y) = 0 \iff x = y$.
+2. **Tính đối xứng:** $d(x, y) = d(y, x)$.
+3. **Bất đẳng thức tam giác:** $d(x, z) \le d(x, y) + d(y, z)$.
 </div>
 
-**Trực giác:** d(x, y) là "khoảng cách" từ x đến y.
+**Trực giác:** Giá trị $d(x, y)$ đóng vai trò khoảng cách giữa hai điểm $x$ và $y$.
 
 ![Triangle inequality visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Triangle_inequality.svg/400px-Triangle_inequality.svg.png)  
 *Bất đẳng thức tam giác - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Triangle_inequality.svg)*
 
-**Ví dụ:**
+**Các ví dụ quan trọng:**
 
-**1. Euclidean metric trên ℝ:**
+**1. Mê-tric Euclid trên $\mathbb{R}$:**
 $$
 d(x, y) = |x - y|
 $$
 
-**2. Euclidean metric trên ℝⁿ:**
+**2. Mê-tric Euclid trên $\mathbb{R}^n$:**
 $$
 d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)²}
 $$
 
-**3. Manhattan metric (Taxicab) trên ℝ²:**
+**3. Mê-tric Manhattan (Taxicab) trên $\mathbb{R}^2$:**
 $$
 d_1((x_1, y_1), (x_2, y_2)) = |x_1 - x_2| + |y_1 - y_2|
 $$
+Tên gọi này xuất phát từ quãng đường di chuyển dọc theo lưới đường phố vuông góc ở Manhattan.
 
-**Tên gọi:** Khoảng cách đi "theo lưới đường phố" ở Manhattan.
-
-**4. Max metric (Chebyshev) trên ℝⁿ:**
+**4. Mê-tric cực đại (Chebyshev) trên $\mathbb{R}^n$:**
 $$
 d_\infty(\mathbf{x}, \mathbf{y}) = \max_{i=1,\ldots,n} |x_i - y_i|
 $$
 
-**5. Discrete metric trên bất kỳ tập X:**
+**5. Mê-tric rời rạc (Discrete metric) trên tập $X$ bất kỳ:**
 $$
 d(x, y) = \begin{cases} 0 & \text{if } x = y \\ 1 & \text{if } x \neq y \end{cases}
 $$
 
 ![Different metrics on R2](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Manhattan_distance.svg/400px-Manhattan_distance.svg.png)  
-*So sánh Euclidean và Manhattan distance - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manhattan_distance.svg)*
+*So sánh khoảng cách Euclid và khoảng cách Manhattan - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manhattan_distance.svg)*
 
 ---
 
-### 4. Metric Topology (Tô-pô Metric)
+### 4. Tô-pô mê-tric (Metric Topology)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Open Ball - Hình cầu mở):**  
-Với x ∈ X và r > 0, **open ball** tâm x bán kính r là:
+**Định nghĩa (Hình cầu mở — Open Ball):**  
+Với $x \in X$ và $r > 0$, **hình cầu mở** tâm $x$ bán kính $r$ là:
 $$
 B(x, r) = \{y \in X : d(x, y) < r\}
 $$
 </div>
 
-**Trong ℝ:** B(a, r) = (a - r, a + r) (khoảng mở)  
-**Trong ℝ²:** B(p, r) = đĩa tròn mở tâm p bán kính r  
-**Trong ℝ³:** B(p, r) = quả bóng mở tâm p bán kính r
+Cụ thể, trong $\mathbb{R}$, $B(a, r) = (a - r, a + r)$ là một khoảng mở; trong $\mathbb{R}^2$, $B(p, r)$ là đĩa tròn mở tâm $p$ bán kính $r$; và trong $\mathbb{R}^3$, $B(p, r)$ là khối cầu mở tâm $p$ bán kính $r$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Open Set in Metric Space):**  
-Tập U ⊆ X là **open** (mở) nếu:
+**Định nghĩa (Tập mở trong không gian mê-tric):**  
+Tập con $U \subseteq X$ được gọi là **tập mở** (*open set*) nếu:
 $$
 \forall x \in U: \exists r > 0: B(x, r) \subseteq U
 $$
 </div>
 
-**Trực giác:** Mọi điểm trong U có "không gian xung quanh" vẫn nằm trong U.
+**Trực giác:** Xung quanh mỗi điểm thuộc $U$ đều có một vùng lân cận nhỏ nằm trọn bên trong $U$.
 
 ![Open set visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Open_set_-_example.svg/400px-Open_set_-_example.svg.png)  
 *Tập mở trong mặt phẳng - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Open_set_-_example.svg)*
 
-**Ví dụ trong ℝ:**
-- **(a, b)** là mở (khoảng mở)
-- **[a, b]** KHÔNG mở (điểm a không có ball xung quanh nằm trong [a, b])
-- **ℝ** là mở
-- **∅** là mở (vacuously true!)
+**Ví dụ trong $\mathbb{R}$:** Khoảng mở $(a, b)$ là tập mở; đoạn đóng $[a, b]$ không mở (vì không có khoảng mở nào chứa đầu mút $a$ mà nằm trọn trong $[a, b]$); toàn bộ $\mathbb{R}$ là tập mở; và tập rỗng $\emptyset$ cũng là tập mở (theo chân lý rỗng).
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Họ tất cả các tập mở trong metric space (X, d) tạo thành một **topology** trên X.
+Họ tất cả các tập mở trong không gian mê-tric $(X, d)$ tạo thành một **tô-pô** trên $X$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**  
-Cần kiểm tra:
-1. ∅ và X mở ✓
-2. Hợp tùy ý các tập mở là mở ✓
-3. Giao hữu hạn các tập mở là mở ✓
+**Phác thảo chứng minh:**  
+Ta kiểm tra ba tiên đề của tô-pô:
+1. $\emptyset$ và $X$ là các tập mở.
+2. Hợp tùy ý của các tập mở là tập mở.
+3. Giao hữu hạn của các tập mở là tập mở.
 </div>
 
-**Ý nghĩa:** Mọi metric space tự động là topological space!
+Như vậy, mọi không gian mê-tric đều tự nhiên mang một cấu trúc không gian tô-pô.
 
 ---
 
-### 5. Euclidean Space ℝⁿ
+### 5. Không gian Euclid $\mathbb{R}^n$
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa:**  
-**Không gian Euclid n-chiều** là ℝⁿ = ℝ × ℝ × ... × ℝ (n lần) với Euclidean metric:
+**Không gian Euclid $n$ chiều** là tập $\mathbb{R}^n = \mathbb{R} \times \mathbb{R} \times \cdots \times \mathbb{R}$ ($n$ lần) trang bị mê-tric Euclid:
 $$
 d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)²}
 $$
 </div>
 
-**Các trường hợp đặc biệt:**
-- **ℝ¹ = ℝ:** Đường thẳng
-- **ℝ²:** Mặt phẳng
-- **ℝ³:** Không gian 3 chiều (thế giới vật lý)
-- **ℝ⁴:** Không-thời gian (relativity)
+Các trường hợp đặc biệt quen thuộc gồm đường thẳng $\mathbb{R}^1 = \mathbb{R}$, mặt phẳng $\mathbb{R}^2$, không gian ba chiều $\mathbb{R}^3$ và không gian bốn chiều $\mathbb{R}^4$.
 
-**Standard Basis:** ℝⁿ có topology induced bởi tất cả các open balls. Nhưng ta có thể dùng **basis** đơn giản hơn:
+**Cơ sở chuẩn (Standard Basis):** Tô-pô của $\mathbb{R}^n$ sinh bởi họ tất cả các hình cầu mở, nhưng ta cũng có thể dùng một cơ sở gọn hơn là các "hình hộp mở":
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Standard Basis for ℝⁿ):**  
-Họ tất cả các "open rectangles" (tích Cartesian của các khoảng mở) tạo thành basis cho topology của ℝⁿ:
+**Định lý (Cơ sở chuẩn của $\mathbb{R}^n$):**  
+Họ tất cả các hình hộp mở (tích Đề-các của $n$ khoảng mở) tạo thành một cơ sở cho tô-pô Euclid của $\mathbb{R}^n$:
 $$
 \mathcal{B} = \{(a_1, b_1) \times (a_2, b_2) \times \cdots \times (a_n, b_n)\}
 $$
 </div>
 
-**Ví dụ trong ℝ²:**  
-Một open rectangle: (1, 3) × (2, 5) = {(x, y) : 1 < x < 3, 2 < y < 5}
+**Ví dụ trong $\mathbb{R}^2$:** Một hình chữ nhật mở có dạng $(1, 3) \times (2, 5) = \{(x, y) : 1 < x < 3, \; 2 < y < 5\}$.
 
 ![Open rectangle in R2](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Open_rectangle.svg/300px-Open_rectangle.svg.png)  
-*Open rectangle làm basis element - Nguồn: Minh họa concept*
+*Hình chữ nhật mở làm phần tử cơ sở - Nguồn: Minh họa khái niệm*
 
-**Tính chất quan trọng của ℝⁿ:**
-- **Separable:** Có countable dense subset (ℚⁿ)
-- **Second countable:** Có countable basis
-- **Hausdorff:** Hai điểm khác nhau có neighborhoods disjoint
-- **Complete:** Mọi Cauchy sequence hội tụ (trong ℝⁿ)
-- **Locally compact:** Mọi điểm có compact neighborhood
-- **Connected:** Không thể chia thành hai open sets rời nhau
+**Các tính chất tô-pô quan trọng của $\mathbb{R}^n$:**
+- **Khả ly (Separable):** Chứa tập con trù mật đếm được là $\mathbb{Q}^n$.
+- **Đếm được thứ hai (Second countable):** Có cơ sở đếm được.
+- **Hausdorff:** Hai điểm phân biệt bất kỳ đều có các lân cận mở rời nhau.
+- **Đầy đủ (Complete):** Mọi dãy Cauchy trong $\mathbb{R}^n$ đều hội tụ trong $\mathbb{R}^n$.
+- **Compact địa phương (Locally compact):** Mọi điểm đều có lân cận compact.
+- **Liên thông (Connected):** Không thể phân tách thành hợp của hai tập mở khác rỗng rời nhau.
 
 ---
 
-### 6. Convergence in Metric Spaces
+### 6. Sự hội tụ trong không gian mê-tric
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Convergence - Hội tụ):**  
-Dãy (xₙ) trong metric space (X, d) **hội tụ** đến x ∈ X nếu:
+**Định nghĩa (Sự hội tụ — Convergence):**  
+Dãy $(x_n)$ trong không gian mê-tric $(X, d)$ **hội tụ** về $x \in X$ nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall n \geq N: d(x_n, x) < \varepsilon
 $$
 </div>
 
-**Ký hiệu:** xₙ → x hoặc lim_{n→∞} xₙ = x
-
-**Trực giác:** Khoảng cách từ xₙ đến x → 0 khi n → ∞.
+Ký hiệu: $x_n \to x$ hoặc $\lim_{n \to \infty} x_n = x$. Về trực giác, khoảng cách $d(x_n, x)$ tiến về $0$ khi $n \to \infty$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cauchy Sequence trong Metric Space):**  
-Dãy (xₙ) là **Cauchy** nếu:
+**Định nghĩa (Dãy Cauchy trong không gian mê-tric):**  
+Dãy $(x_n)$ là **dãy Cauchy** nếu:
 $$
 \forall \varepsilon > 0 \; \exists N \in \mathbb{N} \; \forall m,n \geq N: d(x_m, x_n) < \varepsilon
 $$
@@ -316,91 +273,87 @@ $$
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Mọi convergent sequence là Cauchy.
+Mọi dãy hội tụ trong không gian mê-tric đều là dãy Cauchy.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh:** Nếu xₙ → x, cho ε > 0, chọn N sao cho ∀n ≥ N: d(xₙ, x) < ε/2.  
-Khi đó với m, n ≥ N:
+**Chứng minh:** Giả sử $x_n \to x$. Với mọi $\varepsilon > 0$, chọn $N \in \mathbb{N}$ sao cho $\forall n \ge N: d(x_n, x) < \varepsilon / 2$.  
+Khi đó với mọi $m, n \ge N$:
 $$
 d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
 $$
 ∎
 </div>
 
-**Ngược lại KHÔNG đúng tổng quát!** (Trừ khi space "complete")
+Chiều ngược lại không đúng nói chung, trừ khi không gian có tính đầy đủ.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Complete Metric Space):**  
-Metric space (X, d) là **complete** nếu mọi Cauchy sequence hội tụ trong X.
+**Định nghĩa (Không gian mê-tric đầy đủ — Complete Metric Space):**  
+Không gian mê-tric $(X, d)$ được gọi là **đầy đủ** (*complete*) nếu mọi dãy Cauchy trong $X$ đều hội tụ về một điểm thuộc $X$.
 </div>
 
 **Ví dụ:**
-- **ℝ** complete ✓ (theo completeness axiom)
-- **ℚ** KHÔNG complete ✗ (√2 = lim 1.4, 1.41, 1.414, ... ∉ ℚ)
-- **(0, 1)** KHÔNG complete ✗ (dãy 1/n → 0 ∉ (0, 1))
-- **[0, 1]** complete ✓
+- **$\mathbb{R}$** đầy đủ (theo tiên đề đầy đủ).
+- **$\mathbb{Q}$** không đầy đủ (dãy xấp xỉ thập phân của $\sqrt{2}$ là dãy Cauchy nhưng giới hạn $\sqrt{2} \notin \mathbb{Q}$).
+- **$(0, 1)$** không đầy đủ (dãy $1/n$ là dãy Cauchy trong $(0, 1)$ nhưng hội tụ về $0 \notin (0, 1)$).
+- **$[0, 1]$** đầy đủ.
 
-**Định lý quan trọng:**  
-**ℝⁿ** là complete metric space.
+**Định lý quan trọng:** Với mọi $n \ge 1$, không gian Euclid **$\mathbb{R}^n$** là một không gian mê-tric đầy đủ.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Bài báo kinh điển
 
 1. **Richard Dedekind** - *Stetigkeit und irrationale Zahlen* (1872)  
-   *Xây dựng ℝ bằng Dedekind cuts*
+   *Xây dựng tập số thực $\mathbb{R}$ bằng lát cắt Dedekind.*
 
 2. **Georg Cantor** - *Grundlagen einer allgemeinen Mannigfaltigkeitslehre* (1883)  
-   *Xây dựng ℝ bằng Cauchy sequences*
+   *Xây dựng tập số thực $\mathbb{R}$ bằng dãy Cauchy.*
 
 3. **Maurice Fréchet** - *Sur quelques points du calcul fonctionnel* (1906)  
-   *Giới thiệu khái niệm metric space*
+   *Giới thiệu khái niệm không gian mê-tric.*
 
 4. **Felix Hausdorff** - *Grundzüge der Mengenlehre* (1914)  
-   *Nền tảng của topology hiện đại, metric spaces*
+   *Đặt nền móng cho tô-pô đại cương và không gian mê-tric hiện đại.*
 
-### Textbooks
+### Giáo trình
 
 5. **Walter Rudin** - *Principles of Mathematical Analysis*, 3rd Ed., **Chapter 1**  
-   *Construction và properties của ℝ*
+   *Xây dựng và các tính chất cơ bản của $\mathbb{R}$.*
 
 6. **James R. Munkres** - *Topology*, 2nd Ed., **§20: Metric Topology**  
-   *Metric spaces trong context của topology*
+   *Trình bày không gian mê-tric trong bối cảnh tô-pô.*
 
 7. **Kenneth A. Ross** - *Elementary Analysis: The Theory of Calculus* (2013)  
-   *Undergraduate-friendly approach đến ℝ*
+   *Cách tiếp cận dễ theo dõi về tập số thực $\mathbb{R}$.*
 
 8. **Charles C. Pugh** - *Real Mathematical Analysis* (2002)  
-   *Modern treatment với geometric intuition*
+   *Giáo trình giải tích hiện đại giàu trực giác hình học.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Physics - Relativity
-**Minkowski Space:** Trong special relativity, không-thời gian là ℝ⁴ với metric không phải Euclidean:
+### Vật lý — Thuyết tương đối
+**Không gian Minkowski:** Trong thuyết tương đối hẹp, không-thời gian được mô hình hóa trên $\mathbb{R}^4$ với dạng toàn phương không Euclid:
 $$
 ds² = -c²dt² + dx² + dy² + dz²
 $$
+Dạng này không xác định dương nên không phải là mê-tric theo định nghĩa không gian mê-tric ở trên; cấu trúc tô-pô nền của không-thời gian Minkowski vẫn thường được xét là tô-pô Euclid trên $\mathbb{R}^4$.
 
-Metric này không positive definite, nhưng vẫn định nghĩa topology.
+### Đồ họa máy tính
+**Kết xuất 3D (3D Rendering):** Các đối tượng hình học được mô hình hóa trong $\mathbb{R}^3$. Các phép biến đổi cứng như phép quay và phép tịnh tiến là những ánh xạ liên tục bảo toàn khoảng cách Euclid.
 
-### Computer Graphics
-**3D Rendering:** Các objects trong 3D graphics được model trong ℝ³. Transformations (rotation, translation) là continuous maps preserving Euclidean metric.
+### Khoa học dữ liệu
+**Không gian đặc trưng Euclid:** Mỗi điểm dữ liệu thường được biểu diễn dưới dạng vector trong $\mathbb{R}^n$, và các độ đo khoảng cách (Euclid, Manhattan, cosine) được dùng để đo mức độ tương đồng. Chẳng hạn, thuật toán $k$-láng giềng gần nhất (KNN) thường sử dụng mê-tric Euclid trên $\mathbb{R}^n$.
 
-### Data Science
-**Euclidean Space:** Mỗi data point thường được represent như một vector trong ℝⁿ. Distance metrics (Euclidean, Manhattan, Cosine) được dùng để "so sánh" data points.
+### Học máy
+**Không gian tham số:** Mạng nơ-ron hoạt động trên các không gian Euclid chiều cao ($\mathbb{R}^n$ với $n$ lớn), nơi cấu trúc giải tích và tô-pô của $\mathbb{R}^n$ cho phép áp dụng các phương pháp tối ưu dựa trên gradient.
 
-**Ví dụ:** K-nearest neighbors (KNN) algorithm dựa vào Euclidean metric trong ℝⁿ.
-
-### Machine Learning
-**Feature Spaces:** Neural networks hoạt động trong không gian Euclid high-dimensional (ℝⁿ với n rất lớn). Topology của ℝⁿ đảm bảo gradient descent "works".
-
-### Real-World Example
-**GPS Navigation:** Vị trí trên Trái đất được approximate bằng ℝ³ (latitude, longitude, altitude). Khoảng cách giữa hai điểm dùng metric gần Euclidean (thực tế là spherical geometry).
+### Ví dụ thực tế
+**Định vị GPS:** Vị trí trên bề mặt Trái Đất có thể biểu diễn bằng tọa độ cầu hoặc tọa độ trong $\mathbb{R}^3$; trên phạm vi hẹp, khoảng cách được xấp xỉ bởi mê-tric Euclid (trên phạm vi toàn cầu sử dụng hình học cầu).
 
 ---
 
@@ -409,107 +362,101 @@ Metric này không positive definite, nhưng vẫn định nghĩa topology.
 - **xem trước** [Construction of the Real Numbers](https://www.youtube.com/watch?v=ZWRnZhYv0G0) — Dr Peyam, tiếng Anh. Dựng ℝ từ ℚ, nền cho mặt phẳng và không gian Euclid ở nửa sau bài.
 - [Dedekind Cuts: An Introduction](https://www.youtube.com/watch?v=q4FiZ3bsa6w) — Mike, the Mathematician, tiếng Anh. Lát cắt Dedekind, một cách cụ thể để nhìn thứ tự và tính đầy đủ của đường thẳng thực.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Understanding ℝ
+### Hiểu về $\mathbb{R}$
 
 1. **Supremum và Infimum:**  
-   Tìm sup A và inf A (nếu tồn tại):
-   - a) A = {1/n : n ∈ ℕ}
-   - b) A = {x ∈ ℚ : x² < 3}
-   - c) A = {x ∈ ℝ : sin(x) = 1}
+   Tìm $\sup A$ và $\inf A$ (nếu tồn tại):
+   - a) $A = \{1/n : n \in \mathbb{N}\}$
+   - b) $A = \{x \in \mathbb{Q} : x^2 < 3\}$
+   - c) $A = \{x \in \mathbb{R} : \sin(x) = 1\}$
 
-2. **Density:**  
-   Chứng minh rằng giữa hai số thực bất kỳ a < b luôn tồn tại:
-   - a) Một số hữu tỉ
-   - b) Một số vô tỉ
+2. **Tính trù mật:**  
+   Chứng minh rằng giữa hai số thực bất kỳ $a < b$ luôn tồn tại:
+   - a) Một số hữu tỉ.
+   - b) Một số vô tỉ.
 
-3. **Archimedean Property:**  
-   Sử dụng Archimedean property để chứng minh: ∀ε > 0, ∃n ∈ ℕ: 1/n < ε.
+3. **Tính chất Archimedes:**  
+   Sử dụng tính chất Archimedes để chứng minh: $\forall \varepsilon > 0, \; \exists n \in \mathbb{N}: 1/n < \varepsilon$.
 
-### Metrics
+### Mê-tric
 
-4. **Verify Metric:**  
-   Chứng minh Manhattan metric d₁ trên ℝ² thỏa mãn triangle inequality.
+4. **Kiểm tra tiên đề mê-tric:**  
+   Chứng minh mê-tric Manhattan $d_1$ trên $\mathbb{R}^2$ thỏa mãn bất đẳng thức tam giác.
 
-5. **Different Metrics:**  
-   Trên ℝ², vẽ "unit ball" B(0, 1) trong ba metrics:
-   - a) Euclidean: d₂(x, y) = √(Σ(xᵢ - yᵢ)²)
-   - b) Manhattan: d₁(x, y) = Σ|xᵢ - yᵢ|
-   - c) Max: d∞(x, y) = max|xᵢ - yᵢ|
+5. **So sánh các mê-tric:**  
+   Trên $\mathbb{R}^2$, vẽ hình cầu đơn vị $B(0, 1)$ ứng với ba mê-tric:
+   - a) Euclid: $d_2(x, y) = \sqrt{\sum (x_i - y_i)^2}$
+   - b) Manhattan: $d_1(x, y) = \sum |x_i - y_i|$
+   - c) Cực đại: $d_\infty(x, y) = \max |x_i - y_i|$
    
-   Hình dạng của chúng khác nhau như thế nào?
+   Hình dạng của ba hình cầu đơn vị này khác nhau như thế nào?
 
-6. **Discrete Metric:**  
-   Với discrete metric trên X, mô tả tất cả open balls. Tập nào là open?
+6. **Mê-tric rời rạc:**  
+   Với mê-tric rời rạc trên $X$, mô tả tất cả các hình cầu mở. Những tập con nào của $X$ là tập mở?
 
-### Open Sets
+### Tập mở
 
-7. **Open or Not:**  
-   Trong ℝ với Euclidean metric, các tập sau mở hay không? Tại sao?
-   - a) (0, 1)
-   - b) [0, 1]
-   - c) (0, 1] ∪ (2, 3)
-   - d) ℕ
-   - e) ℚ
+7. **Kiểm tra tập mở:**  
+   Trong $\mathbb{R}$ với mê-tric Euclid, các tập sau có phải tập mở không? Giải thích lý do:
+   - a) $(0, 1)$
+   - b) $[0, 1]$
+   - c) $(0, 1] \cup (2, 3)$
+   - d) $\mathbb{N}$
+   - e) $\mathbb{Q}$
 
-8. **Open Balls:**  
-   Trong ℝ² với Euclidean metric, chứng minh rằng B((0,0), 1) là open set.
+8. **Hình cầu mở là tập mở:**  
+   Trong $\mathbb{R}^2$ với mê-tric Euclid, chứng minh rằng $B((0, 0), 1)$ là một tập mở.
 
-9. **Basis:**  
-   Chứng minh rằng họ tất cả open intervals (a, b) tạo thành basis cho topology của ℝ.
+9. **Cơ sở của $\mathbb{R}$:**  
+   Chứng minh rằng họ tất cả các khoảng mở $(a, b)$ tạo thành một cơ sở cho tô-pô Euclid trên $\mathbb{R}$.
 
-### Convergence
+### Sự hội tụ
 
-10. **Convergence Examples:**  
-    Xác định các dãy sau hội tụ hay không (trong ℝ):
-    - a) xₙ = 1/n
-    - b) xₙ = (-1)ⁿ
-    - c) xₙ = (n² + 1) / (n² + 2)
+10. **Ví dụ về hội tụ:**  
+    Xác định các dãy sau có hội tụ trong $\mathbb{R}$ không:
+    - a) $x_n = 1/n$
+    - b) $x_n = (-1)^n$
+    - c) $x_n = (n^2 + 1) / (n^2 + 2)$
 
-11. **Cauchy but not Convergent:**  
-    Tìm một Cauchy sequence trong (0, 1) (với Euclidean metric) không hội tụ trong (0, 1).  
-    Điều này cho thấy gì về completeness của (0, 1)?
+11. **Dãy Cauchy không hội tụ:**  
+    Tìm một dãy Cauchy trong $(0, 1)$ (với mê-tric Euclid) không hội tụ trong $(0, 1)$. Điều này cho thấy gì về tính đầy đủ của $(0, 1)$?
 
-12. **Convergence in ℝ²:**  
-    Trong ℝ², dãy (xₙ, yₙ) hội tụ đến (a, b) khi nào?  
-    Chứng minh rằng: (xₙ, yₙ) → (a, b) ⟺ xₙ → a và yₙ → b.
+12. **Hội tụ trong $\mathbb{R}^2$:**  
+    Chứng minh rằng trong $\mathbb{R}^2$ với mê-tric Euclid, $(x_n, y_n) \to (a, b) \iff x_n \to a$ và $y_n \to b$.
 
-### Advanced
+### Nâng cao
 
-13. **Equivalent Metrics:**  
-    Hai metrics d₁, d₂ trên X được gọi là **equivalent** nếu chúng induce cùng topology.  
-    Chứng minh rằng trên ℝⁿ, ba metrics sau equivalent:
-    - Euclidean d₂
-    - Manhattan d₁
-    - Max d∞
+13. **Mê-tric tương đương:**  
+    Hai mê-tric $d_1, d_2$ trên $X$ được gọi là **tương đương về tô-pô** nếu chúng cảm sinh cùng một tô-pô trên $X$. Chứng minh rằng trên $\mathbb{R}^n$, ba mê-tric sau tương đương nhau:
+    - Mê-tric Euclid $d_2$
+    - Mê-tric Manhattan $d_1$
+    - Mê-tric cực đại $d_\infty$
     
-    (*Hint:* Chỉ ra rằng mọi d₁-open ball chứa d₂-open ball và ngược lại)
+    (*Gợi ý:* Chứng minh mọi hình cầu mở theo một mê-tric đều chứa một hình cầu mở đồng tâm theo mê-tric kia và ngược lại.)
 
-14. **Completeness:**  
-    Chứng minh rằng [0, 1] ⊂ ℝ là complete (metric space với inherited metric).
+14. **Tính đầy đủ của tập con đóng:**  
+    Chứng minh rằng $[0, 1] \subset \mathbb{R}$ là một không gian mê-tric đầy đủ (với mê-tric cảm sinh từ $\mathbb{R}$).
 
-15. **Product Metric:**  
-    Trên ℝ² = ℝ × ℝ, định nghĩa:
+15. **Mê-tric tích:**  
+    Trên $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$, định nghĩa:
     $$
     d((x_1, y_1), (x_2, y_2)) = \max\{|x_1 - x_2|, |y_1 - y_2|\}
     $$
-    Chứng minh đây là metric. Mô tả open balls trong metric này.
+    Chứng minh $d$ là một mê-tric và mô tả hình dạng các hình cầu mở của nó.
 
-### Reflection
+### Suy ngẫm
 
-16. **Completeness vs Compactness:**  
-    (0, 1) không complete. [0, 1] complete.  
-    Sự khác biệt nào giữa chúng gây ra điều này?  
-    (*Preview:* [0, 1] còn có tính chất gì đặc biệt?)
+16. **Tính đầy đủ và tính compact:**  
+    $(0, 1)$ không đầy đủ trong khi $[0, 1]$ đầy đủ. Sự khác biệt nào giữa hai tập này tạo nên tính chất đó? (*Gợi mở:* $[0, 1]$ còn có tính chất đặc biệt nào khác trong tô-pô?)
 
-17. **Topology from Metric:**  
-    Tại sao "open balls" là concept tự nhiên để định nghĩa topology?  
-    Liên hệ với intuition về "neighborhoods" và "closeness".
+17. **Tô-pô từ mê-tric:**  
+    Vì sao hình cầu mở là khái niệm tự nhiên để xây dựng tô-pô từ một mê-tric? Hãy liên hệ với trực giác về "lân cận" và "độ gần".
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Rudin, Principles of Mathematical Analysis:** Chapter 1 (The Real Number System)
 - **Munkres, Topology:** §20 (Metric Topology), §27 (Compact Spaces in Metric Topology)
@@ -518,46 +465,37 @@ Metric này không positive definite, nhưng vẫn định nghĩa topology.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài giảng này, chúng ta đã hoàn thiện nền móng:
+Trong bài giảng này, ta đã hoàn thiện các nội dung nền tảng:
 
-✅ **Số thực ℝ:** Construction qua Dedekind cuts hoặc Cauchy sequences  
-✅ **Completeness:** LUB property, Archimedean property, density  
-✅ **Metric spaces:** Định nghĩa khoảng cách, nhiều ví dụ metrics  
-✅ **Metric topology:** Open balls → open sets → topology  
-✅ **Euclidean space ℝⁿ:** Ví dụ cụ thể quan trọng nhất  
-✅ **Convergence:** Cauchy sequences, completeness  
+✅ **Số thực $\mathbb{R}$:** Xây dựng qua lát cắt Dedekind hoặc dãy Cauchy.  
+✅ **Tính đầy đủ:** Tính chất cận trên nhỏ nhất, tính chất Archimedes và tính trù mật của $\mathbb{Q}$.  
+✅ **Không gian mê-tric:** Tiên đề khoảng cách và các mê-tric thông dụng.  
+✅ **Tô-pô mê-tric:** Từ hình cầu mở đến tập mở và cấu trúc tô-pô.  
+✅ **Không gian Euclid $\mathbb{R}^n$:** Ví dụ trung tâm của giải tích và tô-pô.  
+✅ **Hội tụ và tính đầy đủ:** Dãy hội tụ, dãy Cauchy và không gian mê-tric đầy đủ.
 
 **Điểm chính:**
-- ℝ "đầy đủ" (complete) theo nghĩa mọi Cauchy sequence hội tụ
-- Metric là cách formalize "khoảng cách"
-- Mọi metric tự động induce topology qua open balls
-- ℝⁿ là ví dụ prototype cho mọi khái niệm topology
-- Completeness là tính chất quan trọng—nhiều theorems cần nó
+- $\mathbb{R}$ đầy đủ theo nghĩa mọi dãy Cauchy đều hội tụ trong $\mathbb{R}$.
+- Mê-tric hình thức hóa khái niệm khoảng cách và tự động cảm sinh một tô-pô qua các hình cầu mở.
+- $\mathbb{R}^n$ là mô hình chuẩn giúp hình dung hầu hết các khái niệm tô-pô cơ bản.
 
-**Connection đến topology:**
-- Topology ra đời để trừu tượng hóa các properties của ℝ không phụ thuộc vào metric cụ thể
-- Open sets trong topology = generalization của open balls
-- Continuity trong topology = generalization của ε-δ definition
+**Liên hệ với tô-pô:**
+- Tô-pô học trừu tượng hóa các tính chất của $\mathbb{R}^n$ không phụ thuộc vào một mê-tric cụ thể.
+- Tập mở trong tô-pô tổng quát hóa khái niệm hình cầu mở, còn tính liên tục tô-pô tổng quát hóa định nghĩa $\varepsilon$-$\delta$.
 
-**Kết thúc Chapter 00!**  
-Chúng ta đã xây dựng đầy đủ nền tảng:
-- Set theory, functions, relations
-- Axiom of Choice, Zorn's Lemma
-- Logic, proof techniques
-- Real numbers, metric spaces
+**Kết thúc Chương 00:** Ta đã xây dựng xong nền tảng gồm lý thuyết tập hợp, ánh xạ, quan hệ, Tiên đề Lựa chọn, Bổ đề Zorn, logic chứng minh, tập số thực và không gian mê-tric.
 
-**Tiếp theo:** Chapter 01 sẽ giới thiệu **TOPOLOGICAL SPACES**—định nghĩa chính thức của topology, basis, continuous functions, và các ví dụ beyond metric spaces!
+**Tiếp theo:** Chương 01 sẽ trình bày **Không gian tô-pô và Ánh xạ liên tục** — định nghĩa chính thức của tô-pô, cơ sở, hàm liên tục và các ví dụ vượt ra ngoài khuôn khổ không gian mê-tric.
 
 ---
 
 *"In mathematics, you don't understand things. You just get used to them." — John von Neumann*
 
-🎯 **Chúc mừng hoàn thành Chapter 00! Bây giờ bạn đã sẵn sàng cho Topology thực sự!** 🎯
+🎯 **Hoàn thành Chương 00 — bạn đã có đủ nền tảng để bước vào nội dung chính của Tô-pô học.** 🎯
 
 ---
 
 **Previous:** [Lecture 00.02: Logic and Mathematical Proofs](/contents/vi/topology-chapter00/00_02_Logic_Mathematical_Proofs/)  
 **Next Chapter:** [Chapter 01: Topological Spaces and Continuous Functions](/contents/vi/topology-chapter01/)
-

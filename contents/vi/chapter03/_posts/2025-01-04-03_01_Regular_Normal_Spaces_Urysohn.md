@@ -10,57 +10,37 @@ tags: [regular-spaces, normal-spaces, urysohn-lemma, tietze-extension, T3, T4]
 description: "T₃ (Regular) và T₄ (Normal) spaces, Urysohn's Lemma, Tietze Extension Theorem"
 ---
 
-**Regular and Normal Spaces - Urysohn's Lemma**
+**Không gian Chính quy, Chuẩn tắc và Bổ đề Urysohn**
 
 ---
 
 ## 📖 Tổng quan
 
-Trong bài trước, chúng ta học về T₀, T₁, T₂ (Hausdorff)—cách "tách" hai **điểm** khác nhau. Giờ đây chúng ta nâng cấp: làm sao "tách" **điểm và tập closed**, hoặc **hai tập closed** disjoint?
-
-**Hierarchy tiếp tục:**
+Sau khi tìm hiểu cách tách hai **điểm** qua $T_0, T_1, T_2$, bài giảng này mở rộng sang việc tách **một điểm khỏi một tập đóng** và tách **hai tập đóng rời nhau**, hoàn thiện hệ phân tầng các tiên đề tách chuẩn:
 
 $$
-T_2 \subset T_3 \subset T_{3.5} \subset T_4
+T_4 \subset T_{3.5} \subset T_3 \subset T_2
 $$
 
-**Động lực:**
-- **T₃ (Regular):** Tách điểm và closed set
-- **T₄ (Normal):** Tách hai closed sets disjoint
-- **T₃.₅ (Completely Regular/Tychonoff):** Tách bằng continuous functions
-
-**Ví dụ trực quan:**
-
-Tưởng tượng Alice đứng **bên ngoài** một căn phòng (closed set). 
-- **Regular:** Có thể xây "bức tường" (open sets) ngăn cách Alice và phòng
-- **Normal:** Có hai phòng riêng biệt, có thể xây tường ngăn cách chúng
-- **Tychonoff:** Có "gradient" (continuous function) từ Alice (=0) đến phòng (=1)
+Cụ thể:
+- **$T_3$ (Chính quy + $T_1$):** Tách một điểm và một tập đóng không chứa nó bằng hai tập mở rời nhau.
+- **$T_{3.5}$ (Hoàn toàn chính quy / Tychonoff):** Tách một điểm và một tập đóng không chứa nó bằng một hàm liên tục nhận giá trị trong $[0, 1]$.
+- **$T_4$ (Chuẩn tắc + $T_1$):** Tách hai tập đóng rời nhau bằng hai tập mở rời nhau.
 
 ![Regular and Normal spaces](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Normal_space.svg/500px-Normal_space.svg.png)  
-*Normal space: hai closed sets có disjoint neighborhoods - Nguồn concept*
+*Không gian chuẩn tắc: hai tập đóng rời nhau có hai lân cận mở rời nhau - Nguồn minh họa khái niệm*
 
-**Trong bài này:**
-- **T₃ (Regular spaces):** Definition và examples
-- **T₄ (Normal spaces):** Strongest separation trong "standard" hierarchy
-- **Urysohn's Lemma:** Existence của continuous functions
-- **Tietze Extension Theorem:** Extending continuous functions
-- Applications trong analysis
-
-**Tại sao quan trọng?**
-- Urysohn's Lemma = powerful existence tool
-- Normal spaces = "nice" spaces (ℝⁿ, compact Hausdorff, metric spaces)
-- Tietze = extension property, key trong homotopy theory
-- Metrization: T₃ + second countable ⇒ metrizable
+Từ tính chuẩn tắc, ta chứng minh hai kết quả nền tảng của tô-pô đại cương là **Bổ đề Urysohn** (sự tồn tại hàm liên tục tách hai tập đóng rời nhau) và **Định lý mở rộng Tietze** (mở rộng hàm liên tục từ tập con đóng ra toàn không gian).
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. T₃ Spaces (Regular)
+### 1. Không gian $T_3$ (Chính quy — Regular)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Regular Space):**  
-X là **regular** nếu với mọi x ∈ X và closed set F không chứa x, tồn tại disjoint open neighborhoods.
+**Định nghĩa (Không gian chính quy — Regular Space):**  
+Không gian $X$ là **chính quy** (*regular*) nếu với mọi điểm $x \in X$ và mọi tập đóng $F$ không chứa $x$, tồn tại hai tập mở rời nhau tách $x$ và $F$:
 
 $$
 \forall x \in X, \forall F \text{ closed}: x \notin F \implies \exists U, V \in \tau: x \in U, F \subseteq V, U \cap V = \emptyset
@@ -68,64 +48,48 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (T₃ Space):**  
-X là **T₃** nếu X **regular** và **T₁** (hay T₀—authors vary).
+**Định nghĩa (Không gian $T_3$):**  
+Theo quy ước phổ biến trong giáo trình (như Munkres), $X$ là **$T_3$** nếu $X$ vừa **chính quy** vừa **$T_1$**.
 </div>
 
-**Convention:** Chúng ta dùng **T₃ = regular + T₁**.
-
-**Trực giác:** Có thể "separate" điểm khỏi closed set bằng open sets disjoint.
-
 ![Regular space illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Regular_space.svg/400px-Regular_space.svg.png)  
-*Regular: điểm và closed set có disjoint neighborhoods - Nguồn concept*
+*Không gian chính quy: tách điểm và tập đóng bằng hai tập mở rời nhau - Nguồn minh họa khái niệm*
 
-**Ví dụ 1: Metric Spaces**
+**Ví dụ 1: Không gian mê-tric**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi metric space là regular.
+**Định lý:** Mọi không gian mê-tric đều là không gian chính quy (và do đó $T_3$).
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho x ∉ F closed. Đặt d = d(x, F) = inf{d(x,y) : y ∈ F} > 0 (vì F closed).  
-U = B(x, d/2), V = ⋃_{y∈F} B(y, d/2).  
-U ∩ V = ∅ (triangle inequality). ✓
+Cho $x \notin F$ ($F$ đóng khác rỗng). Đặt $d = d(x, F) = \inf\{d(x, y) : y \in F\} > 0$ (vì $F$ đóng và $x \notin F$). Khi đó $U = B(x, d/2)$ và $V = \bigcup_{y \in F} B(y, d/2)$ là hai tập mở rời nhau (theo bất đẳng thức tam giác) tách $x$ và $F$.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** ℝⁿ (Euclidean) là T₃.
+**Hệ quả:** $\mathbb{R}^n$ với tô-pô Euclid là không gian $T_3$.
 </div>
 
-**Ví dụ 2: Compact Hausdorff**
+**Ví dụ 2: Không gian compact Hausdorff**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi compact Hausdorff space là regular.
+**Định lý:** Mọi không gian compact Hausdorff đều là không gian chính quy.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**  
-Cho x ∉ F closed. Với mọi y ∈ F:
-- Hausdorff → ∃U_y ∋ x, V_y ∋ y disjoint.
-{V_y} open cover của F → finite subcover (compact).
-U = ⋂ U_{y_i}, V = ⋃ V_{y_i} là disjoint neighborhoods. ✓
+**Phác thảo chứng minh:**  
+Cho $x \notin F$ ($F$ đóng, suy ra $F$ compact). Với mỗi $y \in F$, do $X$ Hausdorff nên có hai tập mở rời nhau $U_y \ni x$ và $V_y \ni y$. Họ $\{V_y\}_{y \in F}$ phủ $F$ nên có phủ con hữu hạn $V_{y_1}, \dots, V_{y_n}$. Khi đó $U = \bigcap_{i=1}^n U_{y_i}$ và $V = \bigcup_{i=1}^n V_{y_i}$ là hai tập mở rời nhau tách $x$ và $F$.
 </div>
 
-**Non-example: Countable Complement Topology**
-
-Trên uncountable set, cocountable topology **không regular**!
-
-<div class="textbook-proof" markdown="1">
-**Proof:** Xét x và F = {y} (singleton closed).  
-Mọi open U ∋ x, V ∋ y đều uncountable → U ∩ V ≠ ∅. ✗
-</div>
+**Phản ví dụ:** Tập không đếm được với tô-pô đồng đếm được không chính quy (thậm chí không Hausdorff): với $x \neq y$, tập $F = \{y\}$ đóng nhưng mọi cặp tập mở khác rỗng đều giao nhau.
 
 ---
 
-### 2. T₄ Spaces (Normal)
+### 2. Không gian $T_4$ (Chuẩn tắc — Normal)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Normal Space):**  
-X là **normal** nếu với mọi hai closed sets disjoint A, B, tồn tại disjoint open neighborhoods.
+**Định nghĩa (Không gian chuẩn tắc — Normal Space):**  
+Không gian $X$ là **chuẩn tắc** (*normal*) nếu với mọi hai tập đóng rời nhau $A, B$, tồn tại hai tập mở rời nhau $U, V$ chứa chúng:
 
 $$
 \forall A, B \text{ closed}: A \cap B = \emptyset \implies \exists U, V \in \tau: A \subseteq U, B \subseteq V, U \cap V = \emptyset
@@ -133,85 +97,65 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (T₄ Space):**  
-X là **T₄** nếu X **normal** và **T₁**.
+**Định nghĩa (Không gian $T_4$):**  
+$X$ là **$T_4$** nếu $X$ vừa **chuẩn tắc** vừa **$T_1$**.
 </div>
 
 ![Normal space illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/T4_space.svg/400px-T4_space.svg.png)  
-*Normal: hai closed sets disjoint có disjoint neighborhoods - Nguồn concept*
+*Không gian chuẩn tắc: hai tập đóng rời nhau có hai lân cận mở rời nhau - Nguồn minh họa khái niệm*
 
-**Ví dụ 1: Metric Spaces**
+**Ví dụ 1: Không gian mê-tric**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi metric space là normal.
+**Định lý:** Mọi không gian mê-tric đều là không gian chuẩn tắc (và do đó $T_4$).
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho A, B closed disjoint.  
-Define: d_A(x) = inf{d(x,a) : a ∈ A}, d_B(x) tương tự.  
-U = {x : d_A(x) < d_B(x)}, V = {x : d_B(x) < d_A(x)}.  
-U, V open, A ⊆ U, B ⊆ V, U ∩ V = ∅. ✓
+Cho $A, B$ là hai tập đóng rời nhau khác rỗng. Đặt $d_A(x) = \inf\{d(x, a) : a \in A\}$ và $d_B(x) = \inf\{d(x, b) : b \in B\}$ (hai hàm liên tục). Hai tập $U = \{x : d_A(x) < d_B(x)\}$ và $V = \{x : d_B(x) < d_A(x)\}$ đều mở, rời nhau và thỏa $A \subseteq U, B \subseteq V$.
 </div>
 
-**Ví dụ 2: Compact Hausdorff**
+**Ví dụ 2: Không gian compact Hausdorff**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi compact Hausdorff space là normal.
+**Định lý:** Mọi không gian compact Hausdorff đều là không gian chuẩn tắc.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Tương tự như regular case, sử dụng compactness. ✓
+**Chứng minh:** Tương tự trường hợp chính quy: trước hết tách từng điểm $a \in A$ với tập đóng $B$ (nhờ tính chính quy), rồi dùng tính compact của $A$ để trích ra hữu hạn tập mở.
 </div>
 
-**Non-example: Sorgenfrey Plane**
-
-**Sorgenfrey line** ℝ_ℓ = ℝ với lower limit topology (basis {[a,b)}) là normal.  
-Nhưng **Sorgenfrey plane** ℝ_ℓ × ℝ_ℓ **không normal**!
+**Phản ví dụ — Mặt phẳng Sorgenfrey:** Đường thẳng Sorgenfrey $\mathbb{R}_\ell$ (tô-pô giới hạn dưới với cơ sở $\{[a, b)\}$) là không gian chuẩn tắc, nhưng tích của nó — **mặt phẳng Sorgenfrey** $\mathbb{R}_\ell \times \mathbb{R}_\ell$ — **không chuẩn tắc**. Điều này cho thấy tính chuẩn tắc không được bảo toàn qua phép lấy tích Đề-các (kể cả tích hữu hạn).
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Kỳ diệu và phức tạp—famous counterexample.
+**Ghi chú:** Phản ví dụ này dùng tính không đếm được của đường chéo phụ $y = -x$ kết hợp với tính khả ly của $\mathbb{R}_\ell \times \mathbb{R}_\ell$.
 </div>
-
-**Ý nghĩa:** Normality **không** preserved by products (even finite!)
 
 ---
 
-### 3. Urysohn's Lemma
+### 3. Bổ đề Urysohn (Urysohn's Lemma)
 
-**Định lý Urysohn (Urysohn's Lemma):**
+**Bổ đề Urysohn:**
 
-> **Nếu X normal, A, B closed disjoint, thì tồn tại continuous function f: X → [0,1] với:**
+> **Nếu $X$ là không gian chuẩn tắc và $A, B \subseteq X$ là hai tập đóng rời nhau, thì tồn tại hàm liên tục $f: X \to [0, 1]$ sao cho:**
 > $$f(A) = \{0\}, \quad f(B) = \{1\}$$
 
-**Nói bằng lời:** Trong normal space, có thể "separate" hai closed sets bằng continuous function!
-
 ![Urysohn Lemma visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Urysohn_function.svg/500px-Urysohn_function.svg.png)  
-*Urysohn function: continuous separation - Nguồn concept*
+*Hàm Urysohn tách hai tập đóng rời nhau - Nguồn minh họa khái niệm*
 
-**Ý nghĩa:**  
-- Normality ⇒ existence của "many" continuous functions
-- Basis cho metrization theorems
-- Key tool trong homotopy theory
+Bổ đề Urysohn chuyển một tính chất thuần túy tập hợp (tách hai tập đóng bằng tập mở) thành sự tồn tại của hàm số liên tục, đóng vai trò then chốt trong định lý mở rộng Tietze và định lý mê-tric hóa Urysohn.
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (Construction):**
+**Phác thảo chứng minh (Xây dựng dãy tập mở lồng nhau):**
 </div>
 
-**Idea:** Construct f bằng cách xây dựng nested open sets.
+Nhắc lại đặc trưng tương đương của tính chuẩn tắc: với mọi tập đóng $C$ và tập mở $W \supseteq C$, tồn tại tập mở $U$ sao cho $C \subseteq U \subseteq \text{cl}(U) \subseteq W$.
 
-**Step 1:** Sử dụng normality recursively để tạo họ open sets {U_r}_{r∈ℚ∩[0,1]} sao cho:
-- A ⊆ U_0
-- U_1^c ⊇ B (hay equivalently, cl(U_1) ∩ B = ∅)
-- r < s ⇒ cl(U_r) ⊆ U_s
+**Bước 1:** Đặt $U_1 = X \setminus B$ (tập mở chứa $A$). Áp dụng liên tiếp tính chuẩn tắc theo các số hữu tỉ nhị phân (hoặc toàn bộ $\mathbb{Q} \cap [0, 1]$), ta xây dựng họ tập mở $\{U_r\}_{r \in \mathbb{Q} \cap [0, 1]}$ sao cho:
+- $A \subseteq U_0 \subseteq \text{cl}(U_0) \subseteq U_1 = X \setminus B$;
+- Với mọi $r < s$ trong $\mathbb{Q} \cap [0, 1]$, ta có $\text{cl}(U_r) \subseteq U_s$ (chẳng hạn chọn $U_{1/2}$ sao cho $\text{cl}(U_0) \subseteq U_{1/2} \subseteq \text{cl}(U_{1/2}) \subseteq U_1$, rồi tiếp tục chia đôi).
 
-**Construction of {U_r}:**
-1. U_0: normal → ∃U_0 ⊇ A với cl(U_0) ∩ B = ∅
-2. U_1: normal → ∃V ⊇ B disjoint từ cl(U_0). Set U_1 = X \ cl(V)
-3. U_{1/2}: normal applied to cl(U_0) và X \ U_1
-4. Continue binary subdivision...
-
-**Step 2:** Define f:
+**Bước 2:** Định nghĩa hàm $f: X \to [0, 1]$:
 $$
 f(x) = \begin{cases}
 \inf\{r \in \mathbb{Q} \cap [0,1] : x \in U_r\} & \text{if } x \in U_1 \\
@@ -219,25 +163,18 @@ f(x) = \begin{cases}
 \end{cases}
 $$
 
-**Step 3:** Verify f continuous:  
-f⁻¹([0,a)) = ⋃_{r<a} U_r open.  
-f⁻¹((a,1]) = ⋃_{s>a} (X \ cl(U_s)) open.  
-→ f continuous. ✓
-
-**Verification:**
-- x ∈ A → x ∈ U_r với mọi r → f(x) = 0
-- x ∈ B → x ∉ U_1 → f(x) = 1 ✓
-
-**Corollary quan trọng:**  
-Normal space có "plenty" of continuous functions!
+**Bước 3:** Kiểm tra:
+- Với mọi $x \in A$, $x \in U_r$ với mọi $r \ge 0$, nên $f(x) = 0$.
+- Với mọi $x \in B$, $x \notin U_1$, nên $f(x) = 1$.
+- Tính liên tục suy từ các đẳng thức $f^{-1}([0, a)) = \bigcup_{r < a} U_r$ (mở) và $f^{-1}((a, 1]) = \bigcup_{s > a} (X \setminus \text{cl}(U_s))$ (mở).
 
 ---
 
-### 4. Tietze Extension Theorem
+### 4. Định lý mở rộng Tietze (Tietze Extension Theorem)
 
-**Định lý Tietze (Tietze Extension Theorem):**
+**Định lý mở rộng Tietze:**
 
-> **Nếu X normal, A ⊆ X closed, f: A → [a,b] continuous, thì tồn tại extension F: X → [a,b] continuous với F|_A = f.**
+> **Nếu $X$ là không gian chuẩn tắc, $A \subseteq X$ là tập con đóng và $f: A \to [a, b]$ là hàm liên tục, thì tồn tại hàm liên tục mở rộng $F: X \to [a, b]$ sao cho $F|_A = f$.**
 
 ```
 A ---f---> [a,b]
@@ -247,72 +184,51 @@ v
 X ---F---> [a,b]
 ```
 
-**Nói bằng lời:** Continuous functions trên closed subsets có thể extend lên toàn bộ space!
-
-**Ý nghĩa:**
-- Powerful trong homotopy theory
-- Basis cho partition of unity
-- Key trong differential topology
+*(Định lý cũng đúng khi thay $[a, b]$ bằng $\mathbb{R}$.)*
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (Sketch):**
+**Phác thảo chứng minh:**
 </div>
 
-**Idea:** Approximate f bằng sequence của extensions.
-
-**WLOG:** Assume f: A → [-1,1] (scale if necessary).
-
-**Step 1:** Apply Urysohn cho A₁ = f⁻¹([-1, -1/3]), A₂ = f⁻¹([1/3, 1]).  
-Tồn tại g₁: X → [-1/3, 1/3] với g₁(A₁) = -1/3, g₁(A₂) = 1/3.
-
-**Step 2:** Set f₁ = f - g₁|_A: A → [-2/3, 2/3].
-
-**Step 3:** Iterate: construct g₂, g₃, ... với |gₙ| ≤ (2/3)ⁿ.
-
-**Step 4:** F = ∑ gₙ converges uniformly → continuous. ✓
-
-**Verification:** F|_A = ∑(f - f₁ + f₁ - f₂ + ...) = f. ✓
+Không mất tính tổng quát, co giãn miền giá trị về $[-1, 1]$, tức $f: A \to [-1, 1]$.
+1. Đặt $A_1 = f^{-1}([-1, -1/3])$ và $A_2 = f^{-1}([1/3, 1])$ (hai tập đóng rời nhau trong $A$, do đó đóng trong $X$). Áp dụng Bổ đề Urysohn (sau khi co giãn về $[-1/3, 1/3]$), tồn tại hàm liên tục $g_1: X \to [-1/3, 1/3]$ thỏa $g_1(A_1) = -1/3$ và $g_1(A_2) = 1/3$.
+2. Đặt $f_1 = f - g_1|_A$; khi đó $|f_1(x)| \le 2/3$ với mọi $x \in A$.
+3. Lặp lại quy trình, ta xây dựng dãy hàm liên tục $g_n: X \to \mathbb{R}$ thỏa $|g_n(x)| \le \frac{1}{3}\left(\frac{2}{3}\right)^{n-1}$ và $\left|f(x) - \sum_{k=1}^n g_k(x)\right| \le \left(\frac{2}{3}\right)^n$ trên $A$.
+4. Chuỗi $F(x) = \sum_{n=1}^{\infty} g_n(x)$ hội tụ đều trên $X$ (theo tiêu chuẩn Weierstrass M-test) về một hàm liên tục $F: X \to [-1, 1]$ thỏa $F|_A = f$.
 
 ---
 
-### 5. T₃.₅ Spaces (Completely Regular / Tychonoff)
+### 5. Không gian $T_{3.5}$ (Hoàn toàn chính quy / Tychonoff)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Completely Regular):**  
-X là **completely regular** nếu với mọi x ∈ X và closed F ∋ x, tồn tại continuous f: X → [0,1] với f(x) = 0, f(F) = {1}.
+**Định nghĩa (Hoàn toàn chính quy — Completely Regular):**  
+Không gian $X$ là **hoàn toàn chính quy** nếu với mọi $x \in X$ và mọi tập đóng $F$ không chứa $x$ ($x \notin F$), tồn tại hàm liên tục $f: X \to [0, 1]$ sao cho $f(x) = 0$ và $f(F) = \{1\}$.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (T₃.₅ / Tychonoff Space):**  
-X là **Tychonoff** nếu completely regular và T₁.
+**Định nghĩa (Không gian $T_{3.5}$ / Tychonoff):**  
+$X$ là **không gian Tychonoff** ($T_{3.5}$) nếu $X$ vừa hoàn toàn chính quy vừa $T_1$.
 </div>
 
-**Hierarchy:**
+Hệ phân tầng đầy đủ:
 $$
 T_4 \implies T_{3.5} \implies T_3 \implies T_2 \implies T_1 \implies T_0
 $$
 
-**Ví dụ:**
-- Metric spaces: Tychonoff ✓
-- Compact Hausdorff: Tychonoff ✓
-- Subspaces của Tychonoff: Tychonoff ✓
-
-**Ý nghĩa:** Tychonoff spaces = spaces có "enough" continuous functions.
+Mọi không gian mê-tric, mọi không gian compact Hausdorff và mọi không gian con của không gian Tychonoff đều là không gian Tychonoff.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:**  
-X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of intervals).
+**Định lý (Định lý nhúng Tychonoff):**  
+$X$ là không gian Tychonoff $\iff X$ đồng phôi với một không gian con của tích $[0, 1]^I$ (với một tập chỉ số $I$ thích hợp).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Embedding Theorem—advanced. ✓
+**Ghi chú:** Phép nhúng được cho bởi ánh xạ đánh giá $x \mapsto (f(x))_{f \in C(X, [0, 1])}$ (cơ sở xây dựng compact hóa Stone–Čech).
 </div>
 
 ---
 
-### 6. Relationships và Properties
-
-**Summary Diagram:**
+### 6. Tổng hợp quan hệ và tính bảo toàn
 
 ```
                 T₄ (Normal + T₁)
@@ -328,62 +244,48 @@ X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of interval
               T₀ (Kolmogorov)
 ```
 
-**Key Facts:**
-1. **Metric ⇒ T₄:** Mọi metric space normal
-2. **Compact Hausdorff ⇒ T₄:** Compact + Hausdorff = normal
-3. **T₄ ⇒ Urysohn's Lemma:** Existence của separating functions
-4. **T₄ + Urysohn ⇒ Tietze:** Extension property
-5. **Products:** Normality **không** preserved! (Sorgenfrey plane)
-
 <div class="textbook-theorem" markdown="1">
-**Theorem (Preservation):**
-- Subspace của T₃ là T₃
-- Subspace của Tychonoff là Tychonoff
-- Product của Tychonoff là Tychonoff (Tychonoff product theorem)
-- Product của T₄ **không nhất thiết** T₄!
+**Định lý (Tính bảo toàn):**
+- Không gian con của không gian $T_3$ là $T_3$.
+- Không gian con của không gian Tychonoff là Tychonoff.
+- Tích tùy ý các không gian Tychonoff là Tychonoff.
+- Tích (và không gian con bất kỳ) của không gian $T_4$ **không nhất thiết** là $T_4$ (ví dụ mặt phẳng Sorgenfrey).
 </div>
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Pavel Urysohn** - *"Über die Mächtigkeit der zusammenhängenden Mengen"* (1925)  
-   *Urysohn's Lemma - một trong những công cụ mạnh nhất*
+   *Trình bày Bổ đề Urysohn.*
 
 2. **Heinrich Tietze** - *"Über Funktionen, die auf einer abgeschlossenen Menge stetig sind"* (1915)  
-   *Tietze Extension Theorem*
+   *Định lý mở rộng Tietze.*
 
 3. **Andrey Tychonoff** - *"Über einen Funktionenraum"* (1935)  
-   *Completely regular spaces*
+   *Nghiên cứu không gian hoàn toàn chính quy.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§31–33: Normal Spaces**  
-   *Complete proofs của Urysohn và Tietze*
+   *Chứng minh đầy đủ Bổ đề Urysohn và Định lý Tietze.*
 
 5. **Stephen Willard** - *General Topology*, **Chapter 5**  
-   *Advanced treatment*
+   *Trình bày nâng cao.*
 
 6. **John L. Kelley** - *General Topology*, **Chapter 4**  
-   *Classic exposition*
+   *Cách tiếp cận kinh điển.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - Extension Problems
-**Hahn-Banach:** Tietze là topological analog của Hahn-Banach theorem (functional analysis).
-
-### Differential Topology - Partitions of Unity
-**Smooth Extensions:** Tietze + smoothing = partition of unity trên manifolds.
-
-### Homotopy Theory
-**CW Complexes:** Urysohn + Tietze essential trong constructing homotopies.
-
-### Metrization
-**Urysohn Metrization:** T₃ + second countable ⇒ metrizable (next lecture!)
+- **Giải tích hàm:** Định lý mở rộng Tietze là tương tự tô-pô của định lý mở rộng Hahn–Banach.
+- **Tô-pô vi phân:** Kết hợp kỹ thuật tách hàm liên tục và làm trơn để xây dựng phân hoạch đơn vị (*partition of unity*) trên đa tạp.
+- **Lý thuyết đồng luân:** Bổ đề Urysohn và định lý Tietze được dùng rộng rãi để xây dựng phép đồng luân và mở rộng ánh xạ trên phức CW.
+- **Mê-tric hóa:** Tiền đề trực tiếp cho Định lý mê-tric hóa Urysohn ở Bài 03.03.
 
 ---
 
@@ -393,116 +295,71 @@ X Tychonoff ⟺ X homeomorphic với subspace của [0,1]^I (product of interval
 - [MAST30026 Lecture 22: Urysohn's lemma](https://www.youtube.com/watch?v=UQas4Cu89D0) — metauni, tiếng Anh. Bổ đề Urysohn cho không gian normal, đúng phiên bản Munkres của bài này.
 - [The most important lemma in Topology | Urysohn Lemma | Part 1](https://www.youtube.com/watch?v=z0qUPtaOmXs) — Problemathic, tiếng Anh. Phần mở đầu chứng minh Urysohn, xem sau khi phát biểu đã nằm yên.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Regular Spaces
+### Không gian chính quy
 
-1. **Metric Regular:**  
-   Chứng minh chi tiết: mọi metric space là regular.
+1. **Không gian mê-tric:** Trình bày chứng minh chi tiết mọi không gian mê-tric đều chính quy.
+2. **Compact Hausdorff:** Chứng minh mọi không gian compact Hausdorff đều chính quy.
+3. **Không gian con:** Chứng minh nếu $X$ chính quy và $A \subseteq X$ thì không gian con $A$ cũng chính quy.
 
-2. **Compact Hausdorff:**  
-   Chứng minh: compact Hausdorff ⇒ regular.
+### Không gian chuẩn tắc
 
-3. **Subspace:**  
-   Nếu X regular, A ⊆ X, chứng minh A regular (subspace topology).
+4. **Không gian mê-tric:** Chứng minh mọi không gian mê-tric đều chuẩn tắc.
+5. **Compact Hausdorff:** Chứng minh mọi không gian compact Hausdorff đều chuẩn tắc.
+6. **Mặt phẳng Sorgenfrey:** Tìm hiểu chứng minh vì sao $\mathbb{R}_\ell \times \mathbb{R}_\ell$ không chuẩn tắc.
 
-### Normal Spaces
+### Bổ đề Urysohn
 
-4. **Metric Normal:**  
-   Chứng minh: mọi metric space là normal.
+7. **Xây dựng tường minh:** Trên $X = \mathbb{R}$ với $A = \{0\}$ và $B = \{1\}$, viết công thức tường minh một hàm Urysohn $f: \mathbb{R} \to [0, 1]$ thỏa $f(A) = \{0\}, f(B) = \{1\}$.
+8. **Tính không duy nhất:** Hàm Urysohn có duy nhất không? Giải thích.
+9. **Chiều đảo:** Nếu trong $X$ mọi cặp tập đóng rời nhau đều tách được bởi một hàm liên tục $f: X \to [0, 1]$, chứng minh $X$ là không gian chuẩn tắc.
 
-5. **Compact Hausdorff Normal:**  
-   Chứng minh: compact Hausdorff ⇒ normal.
+### Định lý mở rộng Tietze
 
-6. **Products:**  
-   Tìm hiểu Sorgenfrey plane.  
-   Tại sao ℝ_ℓ × ℝ_ℓ không normal?
+10. **Áp dụng Tietze:** Cho $X = \mathbb{R}$, $A = [0, 1]$ và $f(x) = \sin(\pi x)$. Tìm một mở rộng liên tục $F: \mathbb{R} \to [-1, 1]$.
+11. **Vai trò của giả thiết tập đóng:** Cho $X = \mathbb{R}$, $A = (0, 1)$ và $f(x) = \sin(1/x)$. Vì sao $f$ không mở rộng liên tục được lên toàn bộ $\mathbb{R}$, và điều này không mâu thuẫn với định lý Tietze?
 
-### Urysohn's Lemma
+### Nâng cao
 
-7. **Apply Urysohn:**  
-   X = ℝ, A = {0}, B = {1}.  
-   Construct explicitly một Urysohn function f: ℝ → [0,1] với f(A) = 0, f(B) = 1.
+12. **$T_4 \Rightarrow T_{3.5}$:** Dùng Bổ đề Urysohn chứng minh mọi không gian $T_4$ đều là không gian Tychonoff ($T_{3.5}$).
+13. **Định lý nhúng:** Chứng minh mọi không gian Tychonoff đều nhúng được vào $[0, 1]^I$ với tập chỉ số $I$ thích hợp.
+14. **Phản ví dụ:** Tìm một không gian $T_3$ (thậm chí $T_{3.5}$) nhưng không $T_4$ (*Gợi ý:* mặt phẳng Sorgenfrey).
+15. **Gợi mở mê-tric hóa:** Nếu $X$ là $T_3$ và thỏa mãn tiên đề đếm được thứ hai, chứng minh tồn tại họ đếm được các hàm liên tục $f_n: X \to [0, 1]$ tách mọi điểm khỏi mọi tập đóng không chứa nó.
 
-8. **Uniqueness:**  
-   Urysohn function có unique không? Nếu không, có bao nhiêu?
+### Câu hỏi suy ngẫm
 
-9. **Converse:**  
-   Nếu X có property "mọi A, B closed disjoint có Urysohn function", thì X có normal không?
-
-### Tietze Extension
-
-10. **Apply Tietze:**  
-    X = ℝ, A = [0,1], f: A → ℝ, f(x) = sin(πx).  
-    Tìm extension F: ℝ → [-1,1].
-
-11. **Non-example:**  
-    X = ℚ (rationals), A = ℚ ∩ [0,1], f(x) = x.  
-    Có thể extend f lên ℝ continuous không? Tại sao/tại sao không?
-
-### Advanced
-
-12. **T₃.₅:**  
-    Chứng minh: T₄ ⇒ T₃.₅.  
-    (*Hint:* Dùng Urysohn)
-
-13. **Embedding:**  
-    Chứng minh: Mọi Tychonoff space embeds vào [0,1]^I với I thích hợp.
-
-14. **Counterexample:**  
-    Tìm T₃ space không T₄.  
-    (*Hint:* Tìm trong uncountable spaces)
-
-15. **Metrization Preview:**  
-    Nếu X T₃ và second countable, chứng minh X có countably many Urysohn functions "separating points from closed sets".
-
-### Reflection
-
-16. **Urysohn's Power:**  
-    Giải thích tại sao Urysohn's Lemma "powerful"—nó guarantee existence của functions mà không cần construct!
-
-17. **Normality vs Products:**  
-    Tại sao normality không preserved bởi products, trong khi Hausdorff thì có?
+16. **Ý nghĩa của Bổ đề Urysohn:** Vì sao việc chứng minh tồn tại hàm liên tục chỉ từ tiên đề tập mở lại quan trọng trong tô-pô đại cương?
+17. **Tính chuẩn tắc và tích Đề-các:** So sánh tính bảo toàn qua tích của các tính chất Hausdorff, chính quy, Tychonoff và chuẩn tắc.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §31–33 (Normal Spaces, Urysohn, Tietze)
 - **Willard, General Topology:** Chapter 5 (Normal and Completely Regular Spaces)
 - **Engelking, General Topology:** Chapter 1.5 (Separation)
-- **Steen & Seebach:** *Counterexamples* (Sorgenfrey plane, etc.)
+- **Steen & Seebach:** *Counterexamples in Topology*
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta nâng cấp separation hierarchy:
+✅ **$T_3$ (Chính quy + $T_1$):** Tách điểm khỏi tập đóng bằng hai tập mở rời nhau.  
+✅ **$T_4$ (Chuẩn tắc + $T_1$):** Tách hai tập đóng rời nhau bằng hai tập mở rời nhau.  
+✅ **Bổ đề Urysohn:** Trong không gian chuẩn tắc, hai tập đóng rời nhau luôn tách được bằng một hàm liên tục nhận giá trị trong $[0, 1]$.  
+✅ **Định lý mở rộng Tietze:** Mọi hàm liên tục từ tập con đóng của không gian chuẩn tắc vào $[a, b]$ (hoặc $\mathbb{R}$) đều mở rộng liên tục được ra toàn không gian.  
+✅ **$T_{3.5}$ (Tychonoff):** Tách điểm và tập đóng bằng hàm liên tục; tương đương với việc nhúng được vào $[0, 1]^I$.
 
-✅ **T₃ (Regular):** Tách điểm khỏi closed set  
-✅ **T₄ (Normal):** Tách hai closed sets disjoint  
-✅ **Urysohn's Lemma:** Normal ⇒ existence của continuous separating functions  
-✅ **Tietze Extension:** Extend continuous functions từ closed subsets  
-✅ **T₃.₅ (Tychonoff):** Separate bằng continuous functions  
-✅ **Hierarchy:** T₄ ⇒ T₃.₅ ⇒ T₃ ⇒ T₂  
-
-**Điểm chính:**
-- Metric spaces, compact Hausdorff đều normal
-- Urysohn = existence tool (không cần explicit construction!)
-- Tietze = extension property
-- Normality **không** preserved by products
-- Applications: metrization, homotopy theory, partitions of unity
-
-**Tiếp theo:** Lecture 03.02 về **Countability Axioms**—first/second countable, separable, Lindelöf spaces!
+**Tiếp theo:** Bài 03.02 sẽ trình bày **Các tiên đề đếm được** (*Countability Axioms*) — đếm được thứ nhất, đếm được thứ hai, khả ly và Lindelöf.
 
 ---
 
 *"Urysohn's Lemma: In normal spaces, closed sets can be separated not just by open sets, but by continuous functions."* — Topological wisdom
 
-🎯 **Master Urysohn and Tietze—they're everywhere in topology!** 🎯
+🎯 **Hãy nắm vững Bổ đề Urysohn và Định lý Tietze vì chúng là hai công cụ cốt lõi trong phần còn lại của tô-pô học.** 🎯
 
 ---
 
 **Previous:** [Lecture 03.00: T₀, T₁, T₂ Spaces](/contents/vi/topology-chapter03/03_00_Separation_Axioms_T0_T1_T2/)  
 **Next:** [Lecture 03.02: Countability Axioms](/contents/vi/topology-chapter03/03_02_Countability_Axioms/)
-

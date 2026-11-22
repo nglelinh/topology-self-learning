@@ -10,215 +10,130 @@ tags: [knot-theory, DNA, sinh-học, topology-ứng-dụng]
 description: "Khám phá cách các nhà khoa học sử dụng topology và knot theory để nghiên cứu cấu trúc của DNA và các phân tử sinh học"
 ---
 
-
-**Knot Theory và Ứng Dụng Trong Sinh Học Phân Tử**
+**Lý thuyết nút và ứng dụng trong sinh học phân tử**
 
 ---
 
 ## 📖 Tổng quan
 
-DNA—phân tử mang thông tin di truyền của mọi sinh vật sống—có một cấu trúc phức tạp và đẹp đẽ. Nhưng bạn có biết rằng DNA không chỉ là một chuỗi xoắn kép đơn giản? Trong thực tế, DNA có thể tạo thành các "nút" (knots) và các cấu trúc topology phức tạp khác, và các nhà khoa học sử dụng **knot theory**—một nhánh của topology—để nghiên cứu và hiểu các cấu trúc này!
+DNA — phân tử mang thông tin di truyền của sinh vật — không chỉ tồn tại dưới dạng chuỗi xoắn kép thẳng đơn giản. Trong tế bào, sợi DNA rất dài và thường khép vòng hoặc bị cố định từng đoạn, nên nó có thể bị siêu xoắn, lồng vòng và tạo thành các nút thắt phức tạp. Để phân tích những cấu trúc này, các nhà sinh học phân tử sử dụng **lý thuyết nút** (knot theory) — một nhánh của tô-pô.
 
-Knot theory là nghiên cứu về các "nút" toán học—các đường cong khép kín trong không gian ba chiều. Nghe có vẻ trừu tượng, nhưng nó có nhiều ứng dụng thực tế, đặc biệt là trong sinh học phân tử. DNA, với cấu trúc xoắn kép và khả năng tạo thành các vòng lặp và nút, là một ví dụ hoàn hảo về cách topology có thể giúp chúng ta hiểu các hệ thống sinh học phức tạp.
-
-Trong bài học này, chúng ta sẽ khám phá cách các nhà khoa học sử dụng topology và knot theory để nghiên cứu DNA: cấu trúc xoắn kép của DNA, cách DNA tạo thành các nút, các enzyme có thể "tháo gỡ" các nút này như thế nào, và tại sao điều này lại quan trọng đối với sự sống.
+Lý thuyết nút nghiên cứu các đường cong khép kín nhúng trong không gian ba chiều. Trong bài học này, chúng ta sẽ tìm hiểu cấu trúc xoắn kép và siêu xoắn của DNA, cách DNA tạo nút thắt, cơ chế tháo gỡ nút của enzyme topoisomerase, công thức số liên kết ($Lk = Tw + Wr$) và ứng dụng trong y học cũng như công nghệ sinh học.
 
 ![DNA double helix](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/500px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png)  
 *Cấu trúc xoắn kép của DNA - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png)*
 
-**Tại sao đây là kiến thức quan trọng?** Topology của DNA không chỉ là một chủ đề học thuật thú vị—nó có những ứng dụng thực tế quan trọng trong y học và công nghệ sinh học. Hiểu được topology của DNA giúp các nhà khoa học phát triển các loại thuốc mới, hiểu các bệnh di truyền, và tạo ra các công nghệ sinh học mới.
+**Vì sao kiến thức này quan trọng?** Việc kiểm soát trạng thái xoắn và nút thắt của DNA là điều kiện sống còn cho quá trình sao chép và phiên mã. Hiểu rõ tô-pô của DNA giúp phát triển nhiều nhóm thuốc điều trị ung thư, giải thích một số rối loạn di truyền và thúc đẩy các kỹ thuật công nghệ sinh học mới.
 
 ---
 
-## 🧬 Cấu Trúc Cơ Bản của DNA
+## 🧬 Cấu trúc cơ bản của DNA
 
-### Xoắn kép (Double Helix)
+### Cấu trúc xoắn kép (Double Helix)
 
-DNA có cấu trúc **xoắn kép** (double helix), được phát hiện bởi James Watson và Francis Crick vào năm 1953:
+Cấu trúc xoắn kép của DNA do James Watson và Francis Crick đề xuất năm 1953 có các đặc điểm chính:
+- **Hai mạch đơn:** Gồm hai chuỗi polynucleotide xoắn quanh một trục chung.
+- **Xoắn phải (right-handed):** Dạng phổ biến trong tự nhiên (B-DNA) xoắn theo chiều phải.
+- **Bước xoắn:** Mỗi vòng xoắn gồm khoảng 10–11 cặp base.
+- **Khoảng cách giữa các cặp base:** Khoảng 0,34 nanomet.
 
-**Cấu trúc:**
-- **Hai chuỗi:** DNA bao gồm hai chuỗi polynucleotide xoắn quanh nhau
-- **Xoắn phải:** Hai chuỗi xoắn theo chiều kim đồng hồ (right-handed)
-- **Bước xoắn:** Mỗi vòng xoắn có khoảng 10-11 cặp base
-- **Khoảng cách:** Khoảng cách giữa các base là khoảng 0.34 nanomet
+Cấu trúc này giúp phân tử DNA bền vững về mặt hóa học, thuận lợi cho cơ chế tự sao chép bán bảo toàn và có thể đóng gói gọn gàng trong nhân tế bào.
 
-**Tại sao cấu trúc này quan trọng?**
+### Siêu xoắn (Supercoiling)
 
-Cấu trúc xoắn kép không chỉ đẹp—nó có những chức năng quan trọng:
-- **Ổn định:** Cấu trúc xoắn giúp DNA ổn định và bảo vệ thông tin di truyền
-- **Sao chép:** Cấu trúc này cho phép DNA tự sao chép một cách hiệu quả
-- **Đóng gói:** DNA có thể được đóng gói chặt chẽ trong nhân tế bào
-
-### Supercoiling (Siêu Xoắn)
-
-Một khái niệm quan trọng trong topology của DNA là **supercoiling** (siêu xoắn):
-
-**Supercoiling là gì?**
-
-Khi DNA xoắn kép được xoắn thêm một lần nữa, nó tạo thành một cấu trúc gọi là supercoil. Điều này giống như khi bạn xoắn một sợi dây đã được xoắn—nó tạo thành các vòng xoắn phức tạp hơn.
+Khi một phân tử DNA xoắn kép khép vòng (hoặc bị cố định hai đầu) tiếp tục bị xoắn quanh trục của chính nó, nó tạo thành cấu trúc **siêu xoắn** (supercoil) — tương tự hiện tượng sợi dây điện thoại xoắn chồng lên nhau thành nhiều vòng cuộn.
 
 ![DNA supercoiling](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/DNA_supercoiling.svg/500px-DNA_supercoiling.svg.png)  
 *Supercoiling của DNA - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DNA_supercoiling.svg)*
 
-**Hai loại supercoiling:**
+**Hai dạng siêu xoắn:**
+1. **Siêu xoắn dương (positive supercoiling):** Xoắn tăng cường cùng chiều với xoắn kép tự nhiên, làm mạch DNA căng hơn và khó tách hai mạch đơn.
+2. **Siêu xoắn âm (negative supercoiling):** Xoắn ngược chiều với xoắn kép tự nhiên (phổ biến trong tế bào), giúp hai mạch đơn dễ tách nhau ra hơn khi sao chép và phiên mã.
 
-1. **Positive supercoiling:** DNA được xoắn theo cùng chiều với xoắn kép tự nhiên
-   - Làm cho DNA căng thẳng hơn
-   - Khó tách hai chuỗi ra
-
-2. **Negative supercoiling:** DNA được xoắn ngược chiều với xoắn kép tự nhiên
-   - Làm cho DNA lỏng lẻo hơn
-   - Dễ tách hai chuỗi ra hơn
-   - Thường gặp trong tự nhiên
-
-**Tại sao supercoiling quan trọng?**
-
-Supercoiling ảnh hưởng đến cách DNA hoạt động:
-- **Sao chép:** Supercoiling ảnh hưởng đến tốc độ và hiệu quả của quá trình sao chép DNA
-- **Phiên mã:** Supercoiling ảnh hưởng đến cách DNA được đọc để tạo ra protein
-- **Đóng gói:** Supercoiling giúp DNA được đóng gói chặt chẽ trong nhân tế bào
-
-**Liên hệ với topology:** Supercoiling là một tính chất topology—nó không thay đổi khi bạn kéo dãn hoặc bóp méo DNA (miễn là không cắt hoặc nối). Đây là một ví dụ tuyệt vời về cách topology xuất hiện trong sinh học!
+Trạng thái siêu xoắn ảnh hưởng trực tiếp đến tốc độ sao chép, phiên mã và mức độ đóng gói DNA trong nhân tế bào. Với một vòng DNA khép kín, trạng thái tô-pô tổng thể của nó không thể thay đổi nếu không cắt mạch.
 
 ---
 
-## 🔗 Knot Theory và DNA
+## 🔗 Lý thuyết nút và DNA
 
-### Nút là gì trong toán học?
+### Nút trong toán học
 
-Trong toán học, một **nút** (knot) là một đường cong khép kín trong không gian ba chiều. Điều quan trọng là nút không thể được "tháo gỡ" chỉ bằng cách kéo dãn hoặc bóp méo—bạn phải cắt và nối lại.
+Trong tô-pô, một **nút** (knot) là một đường cong khép kín đơn nhúng trong không gian ba chiều. Hai nút được coi là tương đương nếu có thể biến dạng liên tục nút này thành nút kia trong không gian mà không cắt hay cho dây tự xuyên qua chính nó.
 
-**Ví dụ đơn giản:**
-
-- **Unknot (nút không):** Một vòng tròn đơn giản—có thể "tháo gỡ" thành một đường thẳng
-- **Trefoil knot (nút ba lá):** Nút đơn giản nhất không phải unknot—có ba vòng lặp
-- **Figure-eight knot:** Nút với hình dạng số 8
+**Một vài nút cơ bản:**
+- **Nút tầm thường / nút không (unknot):** Đường cong khép kín có thể biến dạng liên tục thành một vòng tròn phẳng đơn giản không tự cắt.
+- **Nút ba lá (trefoil knot):** Nút không tầm thường đơn giản nhất, có số giao điểm tối thiểu bằng 3.
+- **Nút số tám (figure-eight knot):** Nút có số giao điểm tối thiểu bằng 4.
 
 ![Mathematical knots](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Knot_table.svg/500px-Knot_table.svg.png)  
 *Các loại nút toán học cơ bản - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Knot_table.svg)*
 
-### DNA có thể tạo thành nút không?
+### Sự hình thành nút thắt trên DNA
 
-**Câu trả lời: Có!** DNA có thể tạo thành các nút phức tạp trong một số tình huống:
-
-**Khi nào DNA tạo thành nút?**
-
-1. **Trong quá trình sao chép:** Khi DNA tự sao chép, các chuỗi mới có thể tạo thành các nút
-2. **Trong quá trình tái tổ hợp:** Khi các đoạn DNA được trao đổi, chúng có thể tạo thành nút
-3. **Trong quá trình đóng gói:** Khi DNA được đóng gói chặt chẽ trong nhiễm sắc thể, nó có thể tạo thành các cấu trúc giống nút
-
-**Tại sao điều này quan trọng?**
-
-Các nút trong DNA có thể gây ra vấn đề:
-- **Cản trở sao chép:** Nút có thể ngăn cản quá trình sao chép DNA
-- **Cản trở phiên mã:** Nút có thể ngăn cản quá trình đọc DNA
-- **Gây đột biến:** Nút có thể dẫn đến các đột biến gen
+Trong các quá trình như sao chép, tái tổ hợp di truyền hoặc đóng gói chặt trong nhiễm sắc thể, sợi DNA có thể tự thắt nút hoặc lồng vòng vào nhau. Nếu không được xử lý, các nút thắt này sẽ cản trở bộ máy sao chép và phiên mã, thậm chí làm đứt gãy mạch và gây đột biến.
 
 ### Enzyme Topoisomerase
 
-May mắn thay, các tế bào có các enzyme đặc biệt gọi là **topoisomerase** có thể "tháo gỡ" các nút trong DNA!
+Tế bào giải quyết vấn đề nút thắt và siêu xoắn nhờ nhóm enzyme **topoisomerase**:
 
-**Topoisomerase hoạt động như thế nào?**
-
-1. **Cắt DNA:** Enzyme cắt một hoặc cả hai chuỗi của DNA
-2. **Tháo gỡ nút:** Enzyme xoay hoặc di chuyển các phần của DNA để tháo gỡ nút
-3. **Nối lại:** Enzyme nối lại DNA sau khi đã tháo gỡ nút
+1. **Cắt mạch:** Enzyme cắt tạm thời một mạch đơn hoặc cả hai mạch của DNA.
+2. **Thay đổi cấu trúc tô-pô:** Cho phép mạch DNA xoay giảm ứng suất xoắn hoặc cho một đoạn xoắn kép khác đi xuyên qua khe cắt để tháo nút.
+3. **Nối lại:** Hàn kín lại mạch DNA mà không làm thay đổi trình tự cặp base.
 
 ![Topoisomerase mechanism](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Topoisomerase_I_mechanism.svg/500px-Topoisomerase_I_mechanism.svg.png)  
 *Cơ chế hoạt động của Topoisomerase - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Topoisomerase_I_mechanism.svg)*
 
-**Hai loại topoisomerase:**
+**Hai nhóm chính:**
+- **Topoisomerase loại I:** Cắt một mạch đơn của DNA để giải tỏa ứng suất siêu xoắn rồi nối lại.
+- **Topoisomerase loại II:** Cắt đồng thời cả hai mạch của một đoạn DNA, cho một đoạn xoắn kép khác đi qua để tháo nút hoặc tách hai vòng DNA lồng nhau, sau đó nối kín lại.
 
-- **Type I:** Cắt một chuỗi DNA, tháo gỡ nút, và nối lại
-- **Type II:** Cắt cả hai chuỗi DNA, tháo gỡ nút phức tạp hơn, và nối lại
-
-**Liên hệ với topology:** Topoisomerase thực chất đang thực hiện các phép biến đổi topology trên DNA! Chúng có thể thay đổi số lượng nút và supercoiling mà không thay đổi trình tự base của DNA.
+Về bản chất, topoisomerase thực hiện các phép biến đổi tô-pô trên phân tử DNA mà vẫn bảo toàn nguyên vẹn thông tin di truyền.
 
 ---
 
-## 🧮 Các Khái Niệm Topology trong DNA
+## 🧮 Các đại lượng tô-pô của DNA
 
-### Linking Number
+### Số liên kết (Linking Number)
 
-Một khái niệm quan trọng trong topology của DNA là **linking number** (số liên kết):
-
-**Linking number là gì?**
-
-Linking number đo lường số lần một chuỗi DNA xoắn quanh chuỗi kia trong một phân tử DNA xoắn kép đóng (closed).
-
-**Công thức:**
+Đối với một phân tử DNA xoắn kép khép vòng, **số liên kết** (linking number, ký hiệu $Lk$) là một số nguyên đo số lần một mạch đơn quấn quanh mạch đơn kia. Đại lượng này liên hệ với hình học không gian của phân tử qua định lý White–Fuller:
 
 $$
 Lk = Tw + Wr
 $$
 
 trong đó:
-- **$Lk$** = Linking number (số liên kết)
-- **$Tw$** = Twist (số vòng xoắn)
-- **$Wr$** = Writhe (số vòng xoắn của trục)
+- **$Lk$ (Linking number):** Số liên kết — là một **bất biến tô-pô**, không đổi khi DNA bị uốn cong hay kéo giãn mà không bị cắt mạch.
+- **$Tw$ (Twist):** Số vòng xoắn cục bộ của hai mạch quanh trục xoắn kép.
+- **$Wr$ (Writhe):** Độ quấn (siêu xoắn) của bản thân trục xoắn kép trong không gian ba chiều.
 
-**Ý nghĩa:**
+Vì $Lk$ không đổi khi không có enzyme cắt mạch, mọi thay đổi của $Tw$ (chẳng hạn khi tách cục bộ hai mạch DNA) đều kéo theo sự thay đổi bù trừ tương ứng ở $Wr$. Muốn thay đổi $Lk$, tế bào bắt buộc phải nhờ đến enzyme topoisomerase.
 
-- **Linking number là bất biến:** Nó không thay đổi khi bạn kéo dãn hoặc bóp méo DNA (miễn là không cắt hoặc nối)
-- **Thay đổi linking number:** Cần topoisomerase để cắt và nối lại DNA
+### Một số bất biến tô-pô khác
 
-**Liên hệ với phần chính:** Linking number là một bất biến topology quan trọng—nó cho phép các nhà khoa học đo lường và hiểu cấu trúc topology của DNA mà không cần biết chi tiết cụ thể của cách DNA được đóng gói!
-
-### Topological Invariants
-
-Các nhà khoa học sử dụng nhiều bất biến topology khác để nghiên cứu DNA:
-
-**1. Knot Type (Loại nút):**
-- Phân loại các nút trong DNA theo loại của chúng
-- Ví dụ: unknot, trefoil, figure-eight
-
-**2. Catenation (Liên kết vòng):**
-- Đo lường số lượng các vòng DNA được liên kết với nhau
-- Giống như các vòng trong một chuỗi khóa
-
-**3. Supercoiling Density:**
-- Đo lường mức độ supercoiling của DNA
-- Liên quan đến linking number và chiều dài của DNA
+- **Loại nút (knot type):** Phân loại vòng DNA theo dạng nút (unknot, trefoil, figure-eight, ...).
+- **Sự lồng vòng (catenation):** Mô tả trạng thái hai hay nhiều vòng DNA móc nối vào nhau như các mắt xích (thường xuất hiện ngay sau khi DNA vòng hoàn tất sao chép).
+- **Mật độ siêu xoắn (supercoiling density):** Đo mức độ chênh lệch của số liên kết so với trạng thái thư giãn trên một đơn vị chiều dài DNA.
 
 ---
 
-## 🔬 Ứng dụng trong Y học và Công nghệ Sinh học
+## 🔬 Ứng dụng trong y học và công nghệ sinh học
 
-### Thuốc kháng ung thư
+### Thuốc điều trị ung thư
 
-Nhiều loại thuốc kháng ung thư hoạt động bằng cách can thiệp vào topology của DNA:
+Nhiều thuốc hóa trị hoạt động theo cơ chế **ức chế topoisomerase** (topoisomerase inhibitors): chúng khóa chặt phức hợp enzyme–DNA ở giai đoạn cắt mạch hoặc ngăn enzyme tháo nút và giảm siêu xoắn. Khi tế bào ung thư phân chia nhanh không thể hoàn tất quá trình sao chép DNA, các đứt gãy tích tụ khiến tế bào chết theo chương trình.
 
-**Topoisomerase inhibitors:**
-- Ngăn cản topoisomerase tháo gỡ các nút trong DNA
-- Dẫn đến sự tích tụ các nút và supercoiling
-- Làm cho DNA không thể sao chép hoặc phiên mã
-- Kết quả: Tế bào ung thư chết
+**Hai ví dụ tiêu biểu:**
+- **Camptothecin** (và các dẫn xuất): ức chế topoisomerase I.
+- **Etoposide:** ức chế topoisomerase II.
 
-**Ví dụ:**
-- **Camptothecin:** Ức chế topoisomerase I
-- **Etoposide:** Ức chế topoisomerase II
+### Nghiên cứu bệnh lý và đột biến
 
-### Nghiên cứu bệnh di truyền
+Các đột biến ở gen mã hóa topoisomerase hoặc sai lỗi trong cơ chế giải tỏa nút thắt có thể gây mất ổn định bộ gen, đứt gãy nhiễm sắc thể và liên quan đến nhiều rối loạn di truyền.
 
-Topology của DNA có thể giúp hiểu các bệnh di truyền:
+### Công nghệ nano và tính toán DNA
 
-**Rối loạn topoisomerase:**
-- Một số bệnh di truyền liên quan đến đột biến trong gen mã hóa topoisomerase
-- Dẫn đến các vấn đề với sao chép và phiên mã DNA
-
-**Nghiên cứu đột biến:**
-- Các nút và supercoiling có thể dẫn đến đột biến gen
-- Hiểu topology giúp các nhà khoa học hiểu cách đột biến xảy ra
-
-### Công nghệ sinh học
-
-**DNA origami:**
-- Sử dụng topology để tạo ra các cấu trúc DNA phức tạp
-- Ứng dụng trong nano-technology và y học
-
-**DNA computing:**
-- Sử dụng các tính chất topology của DNA để tính toán
-- Một lĩnh vực mới nổi trong khoa học máy tính
+- **DNA origami:** Khai thác khả năng bắt cặp bổ sung và thiết kế tô-pô mạch để gấp DNA thành các cấu trúc nano hai chiều và ba chiều có hình dạng xác định.
+- **Tính toán DNA (DNA computing):** Dùng phản ứng sinh hóa và cấu trúc mạch DNA để mã hóa và giải một số bài toán tổ hợp.
 
 ---
 
@@ -248,74 +163,32 @@ Topology của DNA có thể giúp hiểu các bệnh di truyền:
 
 ---
 
-## 🔗 Applications and Connections
-
-### Trong sinh học
-
-Topology của DNA có nhiều ứng dụng trong sinh học:
-
-1. **Hiểu cấu trúc:** Topology giúp các nhà khoa học hiểu cách DNA được đóng gói và tổ chức
-2. **Nghiên cứu chức năng:** Topology ảnh hưởng đến cách DNA hoạt động
-3. **Phát triển thuốc:** Hiểu topology giúp phát triển các loại thuốc mới
-
-### Trong y học
-
-- **Điều trị ung thư:** Nhiều loại thuốc kháng ung thư hoạt động bằng cách can thiệp vào topology của DNA
-- **Nghiên cứu bệnh:** Topology giúp hiểu các bệnh di truyền
-- **Chẩn đoán:** Topology có thể được sử dụng để chẩn đoán một số bệnh
-
-### Trong công nghệ
-
-- **Nano-technology:** Sử dụng topology để tạo ra các cấu trúc nano
-- **DNA computing:** Sử dụng DNA để tính toán
-- **Công nghệ sinh học:** Tạo ra các sản phẩm sinh học mới
-
----
-
 ## Video tham khảo
 
 - **xem trước** [What are...knots and DNA?](https://www.youtube.com/watch?v=WFBWtpXTE5Q) — VisualMath, tiếng Anh. Nút thắt gặp DNA, đúng cầu nối của bài.
 - [DNA Topology || Linking number || Twist || Writhe](https://www.youtube.com/watch?v=DxREU4puGyc) — Rethink Biology, tiếng Anh. Linking number, twist và writhe, ba số mà bài dùng để nói topo của DNA.
 
-## 🧩 Exercises and Reflections
+## 🧩 Bài tập và suy ngẫm
 
 ### Câu hỏi suy ngẫm
 
-1. **Tưởng tượng:** Hãy tưởng tượng bạn có một sợi dây dài. Bạn có thể tạo ra những loại nút nào? Bạn có thể tháo gỡ chúng không?
-
-2. **So sánh:** Hãy so sánh cấu trúc xoắn kép của DNA với một Möbius strip. Chúng có điểm gì giống và khác nhau?
-
-3. **Ứng dụng:** Hãy nghĩ về các ứng dụng khác của topology trong sinh học mà bạn biết.
-
-4. **Thử thách:** Hãy tìm hiểu về cách các enzyme topoisomerase hoạt động chi tiết hơn.
-
-5. **Suy ngẫm:** Tại sao topology lại quan trọng đối với sự sống?
+1. **Phân biệt nút:** Với một sợi dây được nối kín hai đầu, làm thế nào phân biệt một nút không (unknot) với một nút ba lá (trefoil)?
+2. **Quan hệ $Lk = Tw + Wr$:** Nếu một phân tử DNA khép vòng không bị cắt mạch và số vòng xoắn $Tw$ giảm đi 2 vòng, đại lượng $Wr$ sẽ thay đổi như thế nào?
+3. **So sánh enzyme:** Phân biệt vai trò và cơ chế cắt mạch của topoisomerase loại I và loại II.
+4. **Liên hệ y học:** Giải thích vì sao thuốc ức chế topoisomerase lại có tác động mạnh lên các tế bào ung thư đang phân chia nhanh.
 
 ### Thử nghiệm thực tế
 
-1. **Tạo nút:** Hãy lấy một sợi dây và thử tạo ra các loại nút khác nhau. Bạn có thể tháo gỡ chúng không?
-
-2. **Nghiên cứu:** Hãy tìm hiểu về cấu trúc của DNA và cách nó được đóng gói trong nhân tế bào.
-
-3. **Khám phá:** Hãy tìm hiểu về các ứng dụng của topology trong y học và công nghệ sinh học.
-
-4. **Sáng tạo:** Hãy nghĩ về các ứng dụng mới của topology trong sinh học.
+1. Dùng một sợi dây mềm, tạo thử nút ba lá và nút số tám rồi nối tạm hai đầu lại; kiểm tra xem có thể kéo giãn chúng thành vòng tròn phẳng mà không tháo mối nối hay không.
+2. Cầm hai sợi dây xoắn chặt vào nhau giống dây thừng rồi đưa hai đầu lại gần nhau để quan sát trực tiếp hiện tượng siêu xoắn (writhe).
 
 ---
 
 ## 📚 Tóm tắt
 
-Trong bài học này, chúng ta đã khám phá:
+Trong bài học này, chúng ta đã tìm hiểu:
 
-- **Cấu trúc DNA:** Xoắn kép và supercoiling
-
-- **Knot Theory:** Cách DNA tạo thành nút và cách các enzyme tháo gỡ chúng
-
-- **Topological Invariants:** Linking number và các bất biến khác
-
-- **Ứng dụng:** Từ thuốc kháng ung thư đến công nghệ sinh học
-
-Topology của DNA là một ví dụ tuyệt vời về cách toán học trừu tượng có thể giúp chúng ta hiểu các hệ thống sinh học phức tạp. Nó cho thấy rằng topology không chỉ là toán học thuần túy—nó có những ứng dụng thực tế quan trọng trong cuộc sống hàng ngày!
-
-Trong các bài học tiếp theo, chúng ta sẽ khám phá thêm nhiều ứng dụng của topology trong các lĩnh vực khác!
-
+- **Cấu trúc tô-pô của DNA:** Xoắn kép, siêu xoắn dương và siêu xoắn âm.
+- **Lý thuyết nút và topoisomerase:** Cách DNA hình thành nút thắt/lồng vòng và cách enzyme topoisomerase loại I, II cắt – tháo – nối mạch.
+- **Bất biến số liên kết:** Hệ thức $Lk = Tw + Wr$ liên kết bất biến tô-pô $Lk$ với hình học xoắn $Tw$ và siêu xoắn $Wr$.
+- **Ứng dụng:** Thuốc ức chế topoisomerase trong điều trị ung thư, nghiên cứu cơ chế ổn định bộ gen và công nghệ DNA origami.

@@ -10,315 +10,222 @@ tags: [mayer-vietoris, exact-sequence, homology-computations]
 description: "Mayer-Vietoris Sequence: powerful computational tool via decomposition, long exact sequences, connecting homomorphisms"
 ---
 
-**Divide and Conquer for Homology**
+**Phương pháp chia để trị cho đồng điều**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã biết:
-- **Van Kampen:** Tính toán $\pi_1(X)$ từ decomposition $X = A \cup B$—một công cụ mạnh mẽ để tính toán fundamental group
-- **Cellular homology:** Cho CW complexes—một phương pháp tính toán homology cho các không gian có cấu trúc CW
+Trước đây, ta đã có định lý Seifert–van Kampen để tính nhóm cơ bản $\pi_1(X)$ từ phép phân rã $X = A \cup B$, và đồng điều tế bào để tính đồng điều cho các phức CW. Để tính đồng điều của những không gian tổng quát mà không cần cấu trúc phức CW, ta sử dụng **dãy Mayer–Vietoris** — công cụ đóng vai trò tương tự định lý van Kampen trong lý thuyết đồng điều.
 
-**Cần gì nữa?** Một phương pháp tổng quát cho arbitrary spaces! Chúng ta cần một công cụ có thể tính toán homology của bất kỳ không gian nào, không chỉ các CW complexes.
+Khi phân rã không gian thành hợp của hai tập mở $X = A \cup B$, dãy khớp dài Mayer–Vietoris liên hệ trực tiếp các nhóm đồng điều của phần giao $H_n(A \cap B)$, tổng trực tiếp của hai mảnh $H_n(A) \oplus H_n(B)$, và toàn bộ không gian $H_n(X)$:
 
-> **Mayer-Vietoris Sequence = "Van Kampen cho homology"**
-
-**Ý tưởng chính:** $X = A \cup B$ (cover) ⇒ long exact sequence liên kết:
-- $H_n(A \cap B)$—homology của intersection
-- $H_n(A) \oplus H_n(B)$—tổng trực tiếp của homology của các phần
-- $H_n(X)$—homology của không gian tổng thể
-
-**Cách mạng vì:**
-- **Universal:** Hoạt động cho mọi không gian $X$, mọi decomposition—không cần cấu trúc đặc biệt
-- **Powerful:** Giảm không gian phức tạp $X$ xuống các phần đơn giản hơn—chia để trị
-- **Systematic:** Thuật toán qua exact sequences—một phương pháp có hệ thống để tính toán
-- **Inductive:** Tính toán $H_n$ từ $H_{n-1}$ (connecting homomorphism)—cho phép tính toán quy nạp
+- **Tính tổng quát:** Áp dụng được cho mọi không gian tô-pô và mọi phép phủ mở $X = A \cup B$ (tổng quát hơn là khi phần trong của $A$ và $B$ phủ $X$).
+- **Giảm độ phức tạp:** Quy việc tính đồng điều của không gian phức tạp $X$ về các mảnh đơn giản hơn.
+- **Tính hệ thống và quy nạp:** Thông qua đồng cấu nối $\partial$, ta có thể tính $H_n$ quy nạp theo $H_{n-1}$.
 
 ![Mayer-Vietoris decomposition](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Mayer-Vietoris.svg/500px-Mayer-Vietoris.svg.png)  
-*Decomposing space for Mayer-Vietoris - Nguồn concept*
+*Phân rã không gian cho dãy Mayer–Vietoris - Nguồn concept*
 
-Trong bài học này, chúng ta sẽ khám phá Mayer-Vietoris sequence một cách có hệ thống. Chúng ta sẽ nghiên cứu **Exact sequences**—nền tảng đại số cho lý thuyết này. Chúng ta sẽ học **Mayer-Vietoris theorem**—phát biểu và chứng minh sketch. Chúng ta sẽ tìm hiểu **Connecting homomorphism $\partial$**—ý nghĩa hình học của nó. Chúng ta sẽ xem xét các **ví dụ** cụ thể như $S^n$, $T^2$, surfaces, $\mathbb{R}P^n$—những ví dụ này cho thấy sức mạnh của phương pháp. Chúng ta sẽ học về **Snake Lemma**—kỹ thuật chứng minh quan trọng. Cuối cùng, chúng ta sẽ xem xét các **ứng dụng** trong tính toán có hệ thống.
-
-**Tại sao đây là kiến thức quan trọng?** Đây là **công cụ tính toán linh hoạt nhất**—Mayer-Vietoris sequence có thể được áp dụng cho nhiều loại không gian khác nhau. Nó **bổ sung** cho cellular homology (hoạt động mà không cần cấu trúc CW)—đây là một công cụ bổ sung mạnh mẽ. Nó **chứng minh các định lý** (không chỉ các ví dụ)—cho phép chúng ta chứng minh các kết quả tổng quát. Cuối cùng, nó là **nền tảng** cho spectral sequences (advanced)—một công cụ nâng cao trong topology đại số.
+Trong bài học này, ta sẽ ôn lại khái niệm dãy khớp, phát biểu định lý Mayer–Vietoris, tìm hiểu ý nghĩa hình học của đồng cấu nối $\partial$, áp dụng vào các ví dụ kinh điển ($S^2$, $S^n$, $T^2$, $\mathbb{R}P^2$) và phác thảo chứng minh qua Bổ đề con rắn (Snake Lemma). Dãy Mayer–Vietoris bổ sung cho đồng điều tế bào, giúp chứng minh nhiều định lý tổng quát và là bước đệm sang dãy phổ (spectral sequences).
 
 ---
 
-## 🔗 Exact Sequences Review
+## 🔗 Ôn tập về Dãy khớp
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Exact Sequence):**  
-Một dãy các abelian groups và các homomorphisms:
+**Định nghĩa (Dãy khớp):**  
+Một dãy các nhóm Abel và các đồng cấu:
 
 $$
 \cdots \to A_{n+1} \xrightarrow{f_{n+1}} A_n \xrightarrow{f_n} A_{n-1} \to \cdots
 $$
-</div>
 
-là **exact** nếu:
+được gọi là **dãy khớp** (exact sequence) nếu tại mọi vị trí $n$, ảnh của ánh xạ trước trùng với hạt nhân của ánh xạ sau:
 
 $$
 \text{im}(f_{n+1}) = \ker(f_n) \quad \forall n
 $$
+</div>
 
-**"Output của map trước = kernel của map sau."** Trực giác hình học là một exact sequence là một dãy các groups và maps sao cho image của mỗi map bằng kernel của map tiếp theo—điều này đảm bảo rằng thông tin được "bảo toàn" qua dãy.
-
----
-
-**Các ví dụ:**
-
-**Short exact sequence:**
+**Dãy khớp ngắn (short exact sequence)** có dạng:
 
 $$
 0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0
 $$
 
-Exactness ngụ ý:
-- $f$ injective ($\ker f = 0$)—$f$ là đơn ánh
-- $g$ surjective ($\text{im } g = C$)—$g$ là toàn ánh
-- $\text{im } f = \ker g$ (middle exactness)—image của $f$ bằng kernel của $g$
+Tính khớp tương đương với ba điều kiện: $f$ là đơn ánh ($\ker f = 0$), $g$ là toàn ánh ($\text{im}\,g = C$), và $\text{im}\,f = \ker g$. Về mặt đại số, $B$ là một mở rộng kết hợp $A$ (nhúng vào $B$) và $C$ (nhóm thương $B/f(A)$).
 
-**Trực giác:** $B$ "kết hợp" $A$ và $C$. Điều này có nghĩa là $B$ có thể được hiểu như một cách kết hợp $A$ và $C$ lại với nhau, với $A$ được nhúng vào $B$ và $B$ được ánh xạ lên $C$.
+**Dãy khớp tách (split exact sequence):** Nếu tồn tại đồng cấu lát cắt (section) $s: C \to B$ sao cho $g \circ s = \text{id}_C$, thì dãy khớp tách và ta có $B \cong A \oplus C$.
 
 ---
 
-**Split exact sequence:**  
-Tồn tại section $s: C \to B$ với $g \circ s = id$.
+### 2. Dãy khớp dài trong đồng điều
 
-Khi đó: $B \cong A \oplus C$ (direct sum). Đây là một trường hợp đặc biệt—nếu exact sequence "split", thì $B$ là tổng trực tiếp của $A$ và $C$.
-
----
-
-### 2. Long Exact Sequence
-
-**Chain complexes:**  
-C_•: ... → C_{n+1} → C_n → C_{n-1} → ...
-
-Short exact sequence of chain complexes induces **long exact sequence in homology:**
+Cho một dãy khớp ngắn các phức xích $0 \to A_\bullet \to B_\bullet \to C_\bullet \to 0$. Khi đó nó cảm sinh một **dãy khớp dài trong đồng điều**:
 
 $$
 \cdots \to H_n(A) \to H_n(B) \to H_n(C) \xrightarrow{\partial} H_{n-1}(A) \to \cdots
 $$
 
-**Connecting homomorphism ∂** = key!
+trong đó $\partial$ là **đồng cấu nối** (connecting homomorphism) hạ số chiều đi một bậc.
 
 ---
 
-## 🎯 Mayer-Vietoris Theorem
+## 🎯 Định lý Mayer–Vietoris
 
-### 1. Statement
+### 1. Phát biểu
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Mayer-Vietoris):**  
-Cho $X$ là topological space, $A$, $B$ là các open subsets với $X = A \cup B$.
-</div>
-
-**Long exact sequence:**
+**Định lý (Mayer–Vietoris):**  
+Cho $X$ là một không gian tô-pô, $A$ và $B$ là hai tập con mở của $X$ sao cho $X = A \cup B$. Khi đó tồn tại dãy khớp dài:
 
 $$
 \cdots \to H_n(A \cap B) \xrightarrow{\phi_n} H_n(A) \oplus H_n(B) \xrightarrow{\psi_n} H_n(X) \xrightarrow{\partial_n} H_{n-1}(A \cap B) \to \cdots
 $$
+</div>
 
-**Các maps:**
-- **$\phi_n([c]) = ([c], -[c])$** (include trong $A$ và $B$ với dấu)—map này nhúng homology của intersection vào tổng trực tiếp của homology của các phần, với dấu trừ để đảm bảo exactness
-- **$\psi_n([a], [b]) = [a] + [b]$** (sum trong $X$)—map này cộng các homology classes từ các phần để tạo thành homology class trong không gian tổng thể
-- **$\partial_n$ = connecting homomorphism** (sẽ được giải thích)—map này liên kết homology ở chiều $n$ với homology ở chiều $n-1$
+Các ánh xạ trong dãy được xác định như sau:
+- **$\phi_n([c]) = ([c], -[c])$:** Nhúng lớp đồng điều từ $A \cap B$ vào tổng trực tiếp $H_n(A) \oplus H_n(B)$ với dấu ngược nhau để bảo đảm $\psi_n \circ \phi_n = 0$.
+- **$\psi_n([a], [b]) = [a] + [b]$:** Cộng hai lớp đồng điều từ $A$ và $B$ trong $X$.
+- **$\partial_n$:** Đồng cấu nối liên hệ $H_n(X)$ với $H_{n-1}(A \cap B)$.
 
----
-
-**Exactness:** Tại mỗi vị trí, image = kernel. Điều này đảm bảo rằng dãy là exact—thông tin được "bảo toàn" qua dãy.
-
-**Giải thích:** Liên kết homology của:
-- **$A \cap B$:** Vùng overlap—phần giao của hai tập mở
-- **$A \oplus B$:** Tổng trực tiếp (các phần riêng biệt)—homology của các phần được xem xét riêng biệt
-- **$X = A \cup B$:** Toàn bộ không gian—homology của không gian tổng thể
+Tính khớp tại mọi vị trí giúp liên kết đồng điều của phần giao $A \cap B$, hai mảnh $A, B$, và không gian tổng thể $X = A \cup B$.
 
 ---
 
-### 2. Connecting Homomorphism ∂
+### 2. Đồng cấu nối $\partial$
 
-**Xây dựng hình học:**
+Cách xây dựng hình học của $\partial_n: H_n(X) \to H_{n-1}(A \cap B)$ gồm bốn bước cho một lớp $[\alpha] \in H_n(X)$:
 
-Lấy $[\alpha] \in H_n(X)$.
+1. Chọn một chu trình đại diện $\alpha \in Z_n(X)$.
+2. Chia nhỏ (subdivide) xích $\alpha$ để viết $\alpha = a + b$, trong đó $a \in C_n(A)$ và $b \in C_n(B)$. Dù $\alpha$ khép kín ($\partial\alpha = 0$), bản thân $a$ và $b$ nói chung không phải là chu trình.
+3. Vì $\partial a + \partial b = \partial(a+b) = 0$, ta có $\partial a = -\partial b$. Xích này vừa nằm trong $A$ vừa nằm trong $B$, nên nằm trong $C_{n-1}(A \cap B)$ và là một $(n-1)$-chu trình.
+4. Định nghĩa $\partial_n([\alpha]) = [\partial a] \in H_{n-1}(A \cap B)$.
 
-**Bước 1:** Biểu diễn $\alpha$ = chain trong $X$.
-
-**Bước 2:** Subdivide: viết $\alpha = a + b$ ($a$ trong $A$, $b$ trong $B$).  
-Không duy nhất, nhưng $\partial\alpha = 0$ trong $X$. Trực giác hình học là chúng ta chia chain thành hai phần, mỗi phần nằm trong một tập mở.
-
-**Bước 3:** $\partial a = -\partial b$ (trong $A \cap B$).  
-(Vì $\partial(a+b) = 0$ trong $X$) Điều này có nghĩa là boundaries của các phần triệt tiêu lẫn nhau trong intersection.
-
-**Bước 4:** $\partial([\alpha]) = [\partial a] \in H_{n-1}(A \cap B)$.
-
-**Điểm quan trọng:** Mặc dù $\alpha$ đóng, các phần $a$, $b$ KHÔNG đóng, nhưng boundaries tương thích! Đây là điểm quan trọng—connecting homomorphism đo lường cách các phần không đóng một cách riêng biệt, nhưng boundaries của chúng tương thích trong intersection.
+Về trực giác, $\partial$ đo lường mức độ mà các mảnh $a, b$ của chu trình $\alpha$ không tự đóng kín trong từng phần $A, B$, nhưng biên của chúng lại khớp nhau trên phần giao $A \cap B$.
 
 ---
 
-**Trực giác:** $\partial$ đo lường "cách các phần không đóng một cách riêng biệt." Đây là ý nghĩa hình học của connecting homomorphism—nó đo lường cách một cycle trong không gian tổng thể được "chia" thành các phần trong các tập mở, và cách các boundaries của các phần này tương tác trong intersection.
+## 🧮 Các ví dụ
+
+### Ví dụ 1: Tính $H_n(S^2)$
+
+Phân rã $S^2 = U \cup V$, trong đó:
+- $U$ là bán cầu bắc mở rộng qua xích đạo ($U \simeq D^2$, co rút được);
+- $V$ là bán cầu nam mở rộng qua xích đạo ($V \simeq D^2$, co rút được);
+- $U \cap V$ là một dải mở quanh xích đạo ($U \cap V \simeq S^1$).
+
+Ta đã biết $H_0(U) = H_0(V) = \mathbb{Z}$, $H_n(U) = H_n(V) = 0$ với $n > 0$; và $H_n(U \cap V) = H_n(S^1)$ bằng $\mathbb{Z}$ khi $n = 0, 1$ và bằng $0$ ở các bậc khác.
+
+**Tính $H_2(S^2)$:** Xét đoạn dãy Mayer–Vietoris quanh bậc $2$:
+
+$$
+H_2(U) \oplus H_2(V) \to H_2(S^2) \xrightarrow{\partial} H_1(U \cap V) \to H_1(U) \oplus H_1(V)
+$$
+
+Thay các nhóm đã biết vào:
+
+$$
+0 \to H_2(S^2) \xrightarrow{\partial} \mathbb{Z} \to 0
+$$
+
+Từ tính khớp tại $H_2(S^2)$ ta có $\ker\partial = 0$ ($\partial$ đơn ánh), và từ tính khớp tại $\mathbb{Z}$ ta có $\text{im}\,\partial = \mathbb{Z}$ ($\partial$ toàn ánh). Do đó $\partial$ là đẳng cấu và $H_2(S^2) \cong \mathbb{Z}$. ✓
+
+**Tính $H_1(S^2)$:** Xét đoạn dãy quanh bậc $1$:
+
+$$
+H_1(U) \oplus H_1(V) \to H_1(S^2) \to H_0(U \cap V) \xrightarrow{\phi_0} H_0(U) \oplus H_0(V)
+$$
+
+Thay các nhóm đã biết vào:
+
+$$
+0 \to H_1(S^2) \to \mathbb{Z} \xrightarrow{\phi_0} \mathbb{Z} \oplus \mathbb{Z}
+$$
+
+Vì $U, V$ và $U \cap V$ đều liên thông đường, ánh xạ $\phi_0(1) = (1, -1)$ là đơn ánh, nên $\ker\phi_0 = 0$. Theo tính khớp, ánh xạ $H_1(S^2) \to \mathbb{Z}$ vừa đơn ánh vừa có ảnh bằng $0$, suy ra $H_1(S^2) = 0$. ✓
+
+Kết luận: $H_0(S^2) = \mathbb{Z}$, $H_1(S^2) = 0$, $H_2(S^2) = \mathbb{Z}$ và $H_n(S^2) = 0$ với $n \geq 3$. ✓
 
 ---
 
-## 🧮 Examples
+### Ví dụ 2: Tính $H_n(S^n)$ bằng quy nạp
 
-### Example 1: Computing H_n(S²)
-
-**Decomposition:**  
-S² = U ∪ V where:
-- U = northern hemisphere + equator (≃ D² contractible)
-- V = southern hemisphere + equator (≃ D² contractible)
-- U ∩ V = equator (≃ S¹)
-
-**Homology:**
-- H_n(U) = H_n(V) = 0 (n > 0), H₀ = ℤ
-- H_n(U ∩ V) = H_n(S¹) = ℤ (n=0,1), 0 else
+Ta đã biết trường hợp cơ sở $H_*(S^0)$ (và $H_*(S^1)$). Giả sử đã biết $H_*(S^{n-1})$. Phân rã $S^n = U \cup V$ thành hai bán cầu mở rộng co rút được sao cho $U \cap V \simeq S^{n-1}$. Với $k \geq 2$, dãy Mayer–Vietoris cho $0 \to H_k(S^n) \xrightarrow{\partial} H_{k-1}(S^{n-1}) \to 0$, suy ra $H_k(S^n) \cong H_{k-1}(S^{n-1})$. Phân tích thêm bậc $k = 1$ tương tự trường hợp $S^2$ cho kết quả $H_n(S^n) \cong \mathbb{Z}$ và $H_k(S^n) = 0$ với $0 < k < n$. ✓
 
 ---
 
-**Mayer-Vietoris (n=2):**
+### Ví dụ 3: Hình xuyến $T^2$
+
+Viết $T^2 = S^1 \times S^1$ và phủ đường tròn thứ hai $S^1 = U \cup V$ bởi hai cung mở co rút được có giao gồm hai đoạn rời nhau. Đặt $A = S^1 \times U$ và $B = S^1 \times V$. Khi đó $A$ và $B$ là hai hình trụ mở đều co rút biến dạng về $S^1$, còn $A \cap B \simeq S^1 \sqcup S^1$ gồm hai đường tròn rời nhau, nên $H_1(A \cap B) \cong \mathbb{Z}^2$.
+
+Đoạn dãy Mayer–Vietoris ở bậc $2$ có dạng:
 
 $$
-H_2(U) \oplus H_2(V) \to H_2(S^2) \xrightarrow{\partial} H_1(U \cap V)
+H_2(A) \oplus H_2(B) \to H_2(T^2) \xrightarrow{\partial} H_1(A \cap B) \xrightarrow{\phi_1} H_1(A) \oplus H_1(B)
 $$
 
 $$
-0 \to H_2(S^2) \xrightarrow{\partial} \mathbb{Z}
+0 \to H_2(T^2) \xrightarrow{\partial} \mathbb{Z}^2 \xrightarrow{\phi_1} \mathbb{Z} \oplus \mathbb{Z}
 $$
 
-Exactness: ∂ must be 0 (to have ker ∂ = H₂(S²)).
-
-Next term: H₁(U) ⊕ H₁(V) = 0.
-
-Exactness: im ∂ = 0.
-
-**Conclusion:** H₂(S²) ≅ ℤ. ✓
+Ánh xạ $\phi_1$ gửi hai đường tròn giao vào cùng một phần tử sinh của $H_1(A)$ và $H_1(B)$ theo công thức $(m, n) \mapsto (m + n, -(m + n))$, nên $\ker\phi_1 \cong \mathbb{Z}$ (gồm các cặp $(m, -m)$). Theo tính khớp, $H_2(T^2) \cong \ker\phi_1 \cong \mathbb{Z}$. ✓ Tiếp tục phân tích đoạn dãy tại $H_1(T^2)$ cho $H_1(T^2) \cong \mathbb{Z}^2$. ✓
 
 ---
 
-**Mayer-Vietoris (n=1):**
+### Ví dụ 4: Mặt phẳng xạ ảnh $\mathbb{R}P^2$
 
-$$
-H_1(S^1) \to H_1(U) \oplus H_1(V) \to H_1(S^2) \to H_0(S^1)
-$$
-
-$$
-\mathbb{Z} \to 0 \to H_1(S^2) \to \mathbb{Z}
-$$
-
-Exactness: H₁(S²) = 0. ✓
-
-**Result:** H₀(S²) = ℤ, H₁ = 0, H₂ = ℤ. ✓
+Xem $\mathbb{R}P^2$ như đĩa $D^2$ đã đồng nhất các điểm đối cực trên biên. Chọn $A$ là một đĩa mở ở phần trong ($A \simeq \mathbb{R}^2$, co rút được) và $B$ là lân cận mở của biên ($B$ co rút biến dạng về đường tròn trung tâm của dải Möbius, tức $B \simeq S^1$), khi đó $A \cap B \simeq S^1$. Ánh xạ cảm sinh $H_1(A \cap B) \to H_1(B)$ là phép nhân với $2$ (do biên của dải Möbius quấn hai vòng quanh đường tròn trung tâm), và dãy Mayer–Vietoris cho ngay $H_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$ (phần xoắn) cùng $H_2(\mathbb{R}P^2) = 0$.
 
 ---
 
-### Example 2: Computing H_n(Sⁿ) Inductively
+## 🔍 Phác thảo chứng minh
 
-**Induction:**
+### 1. Dãy khớp ngắn của các phức xích
 
-**Base:** H_*(S⁰) known.
+Xét các nhóm xích kỳ dị và dãy:
 
-**Step:** Assume H_*(Sⁿ⁻¹) known. Decompose Sⁿ as above.
+$$
+0 \to C_n(A \cap B) \xrightarrow{\alpha} C_n(A) \oplus C_n(B) \xrightarrow{\beta} C_n(A + B) \to 0
+$$
 
-**Mayer-Vietoris:**  
-H_n(Sⁿ) → H_{n-1}(Sⁿ⁻¹).
+trong đó $C_n(A + B) \subseteq C_n(X)$ là nhóm con sinh bởi các đơn hình nằm trọn trong $A$ hoặc trong $B$, còn các đồng cấu được cho bởi:
+- $\alpha(c) = (i_A(c), -i_B(c))$,
+- $\beta(a, b) = j_A(a) + j_B(b)$.
 
-Careful analysis của exact sequence ⇒ H_n(Sⁿ) ≅ ℤ. ✓
-
-**Recursive algorithm!**
+Ta kiểm tra trực tiếp được dãy trên là khớp ngắn. Nhờ phép chia nhỏ trọng tâm (barycentric subdivision), phép nhúng $C_\bullet(A + B) \hookrightarrow C_\bullet(X)$ cảm sinh đẳng cấu trên đồng điều $H_n(A + B) \cong H_n(X)$.
 
 ---
 
-### Example 3: Torus T²
+### 2. Bổ đề con rắn (Snake Lemma)
 
-**Decomposition:**  
-T² = S¹ × S¹.
-
-Alternative: T² = (solid torus) ∪ (solid torus).
-
-**Choose:** A = T² \ {meridian disk}, B = T² \ {longitudinal disk}.  
-Both ≃ S¹ (deformation retract).  
-A ∩ B ≃ S¹ ∨ S¹.
-
-**Mayer-Vietoris (n=2):**
-
-$$
-H_2(A) \oplus H_2(B) \to H_2(T^2) \to H_1(A \cap B)
-$$
-
-$$
-0 \to H_2(T^2) \to \mathbb{Z}^2
-$$
-
-Analysis: H₂(T²) ≅ ℤ. ✓
-
-**Similar for H₁:** Get ℤ². ✓
+Theo Bổ đề con rắn (hoặc bổ đề ngoằn ngoèo trong đại số đồng điều), mỗi dãy khớp ngắn của các phức xích đều cảm sinh một dãy khớp dài trên đồng điều kèm theo đồng cấu nối $\partial$, được xây dựng tường minh bằng kỹ thuật truy đuổi biểu đồ (diagram chasing).
 
 ---
 
-### Example 4: Computing H_n(ℝP²)
+### 3. Kết luận
 
-**Decomposition:**  
-ℝP² = D² với antipodal boundary identification.
-
-Let:
-- A = interior (≃ ℝ² contractible)
-- B = neighborhood of boundary (≃ Möbius strip)
-- A ∩ B ≃ S¹
-
-**Mayer-Vietoris reveals:** H₁(ℝP²) = ℤ/2ℤ (torsion!).
+Kết hợp dãy khớp dài của $0 \to C_\bullet(A\cap B) \to C_\bullet(A) \oplus C_\bullet(B) \to C_\bullet(A+B) \to 0$ với đẳng cấu $H_n(A+B) \cong H_n(X)$, ta thu được dãy khớp dài Mayer–Vietoris. ✓ Chứng minh đầy đủ có thể xem trong Hatcher §2.2 hoặc Bredon Chương IV.
 
 ---
 
-## 🔍 Proof Sketch
+## 🧠 Tài liệu kinh điển & Tham khảo
 
-### 1. Short Exact Sequence của Chain Complexes
-
-**Chain groups:**
-
-$$
-C_n(A \cap B) \xrightarrow{\alpha} C_n(A) \oplus C_n(B) \xrightarrow{\beta} C_n(X)
-$$
-
-**Maps:**
-- α(c) = (i_A(c), -i_B(c)) (include with sign)
-- β(a, b) = j_A(a) + j_B(b) (sum)
-
-**Exactness:** Verify im α = ker β (subdivision argument).
-
----
-
-### 2. Snake Lemma
-
-**Snake Lemma:** Short exact sequence of chain complexes induces long exact sequence in homology với connecting homomorphism ∂.
-
-**Diagram chasing:** Construct ∂ explicitly.
-
----
-
-### 3. Result
-
-**Long exact Mayer-Vietoris sequence.** ✓
-
-**Full proof:** See Hatcher §2.2 or Bredon Chapter IV.
-
----
-
-## 🧠 Fundamental Papers & References
-
-### Classic Works
+### Công trình kinh điển
 
 1. **Leopold Vietoris** - *"Über den höheren Zusammenhang kompakter Räume"* (1927)  
-   *Early formulation*
+   *Dạng phát biểu ban đầu*
 
 2. **Walther Mayer** - *"Über abstrakte Topologie"* (1929)  
-   *General version*
+   *Phiên bản tổng quát*
 
 3. **Solomon Eilenberg, Norman Steenrod** - *"Foundations of Algebraic Topology"* (1952)  
-   *Modern systematic treatment*
+   *Hệ thống hóa hiện đại theo lối tiên đề*
 
-### Textbooks
+### Giáo trình
 
 4. **Allen Hatcher** - *Algebraic Topology*, **§2.2: Mayer-Vietoris Sequence**
 
@@ -330,142 +237,106 @@ $$
 
 ---
 
-## 🔗 Applications
+## 🔗 Ứng dụng
 
-### Computational Topology
-**Algorithm:** Decompose complicated space ⇒ compute homology inductively via Mayer-Vietoris.
+### Tô-pô tính toán
+**Thuật toán phân rã:** Chia không gian phức tạp thành các mảnh đơn giản rồi tính đồng điều quy nạp qua dãy Mayer–Vietoris.
 
-### Robotics - Motion Planning
-**Configuration Space:** Decompose complex configuration space. Compute homology to understand connectivity, holes, obstructions.
+### Robot học — Lập kế hoạch chuyển động
+**Không gian cấu hình:** Phân rã không gian cấu hình phức tạp để tính đồng điều, từ đó phân tích tính liên thông, lỗ và các vật cản tô-pô.
 
-### Data Science - TDA
-**Persistent Homology:** Mayer-Vietoris enables efficient computation on large datasets. Union of patches ⇒ global homology.
+### Khoa học dữ liệu — TDA
+**Đồng điều bền vững:** Dãy Mayer–Vietoris hỗ trợ tính toán hiệu quả trên tập dữ liệu lớn bằng cách ghép đồng điều từ các mảnh cục bộ sang toàn cục.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Algebraic Topology 18: Mayer-Vietoris](https://www.youtube.com/watch?v=LdJlbh7Tpls) — Math at Andrews University, tiếng Anh. Dãy Mayer–Vietoris: dán đồng điều của hai mảnh và của giao.
-- [20. Euler Characteristic; Mayer-Vietoris Sequence - Pierre Albin](https://www.youtube.com/watch?v=W1RVwbeQy48) — Mat Neth, tiếng Anh. Pierre Albin: đặc trưng Euler rồi dãy Mayer–Vietoris, đúng cặp công cụ của bài.
+- **xem trước** [Algebraic Topology 18: Mayer-Vietoris](https://www.youtube.com/watch?v=LdJlbh7Tpls) — Math at Andrews University, tiếng Anh. Dãy Mayer–Vietoris: ghép đồng điều của hai mảnh và của phần giao.
+- [20. Euler Characteristic; Mayer-Vietoris Sequence - Pierre Albin](https://www.youtube.com/watch?v=W1RVwbeQy48) — Mat Neth, tiếng Anh. Pierre Albin trình bày đặc trưng Euler rồi dãy Mayer–Vietoris, đúng cặp công cụ của chương.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Exact Sequences
+### Dãy khớp
 
-1. **Verify Exactness:**  
-   0 → ℤ →^(×2) ℤ →^(mod 2) ℤ/2ℤ → 0. Check at each position.
+1. **Kiểm chứng tính khớp:** Kiểm tra tính khớp tại mỗi vị trí của dãy $0 \to \mathbb{Z} \xrightarrow{\times 2} \mathbb{Z} \xrightarrow{\bmod 2} \mathbb{Z}/2\mathbb{Z} \to 0$.
 
-2. **Split:**  
-   When does 0 → A → B → C → 0 split? Give example and counterexample.
+2. **Dãy khớp tách:** Khi nào dãy khớp ngắn $0 \to A \to B \to C \to 0$ tách? Hãy nêu một ví dụ tách và một phản ví dụ không tách.
 
-### Mayer-Vietoris
+### Dãy Mayer–Vietoris
 
-3. **S²:**  
-   Verify full Mayer-Vietoris sequence for S² = U ∪ V (hemispheres). Check all H_n.
+3. **Mặt cầu $S^2$:** Kiểm chứng toàn bộ dãy Mayer–Vietoris cho phép phân rã $S^2 = U \cup V$ theo hai bán cầu và tính tất cả các $H_n(S^2)$.
 
-4. **S³:**  
-   Decompose S³ similar to S². Compute H_n(S³) = ℤ, 0, 0, ℤ.
+4. **Mặt cầu $S^3$:** Phân rã $S^3$ tương tự như $S^2$ và tính $H_n(S^3) = \mathbb{Z}, 0, 0, \mathbb{Z}$.
 
-### Computations
+### Tính toán
 
-5. **Figure-Eight:**  
-   X = S¹ ∨ S¹. Decompose và use Mayer-Vietoris to get H₁ = ℤ².
+5. **Hình số tám:** Phân rã $X = S^1 \vee S^1$ và dùng Mayer–Vietoris để chứng minh $H_1(X) = \mathbb{Z}^2$.
 
-6. **Genus 2 Surface:**  
-   Compute H_n(Σ₂) via Mayer-Vietoris.
+6. **Mặt giống 2:** Tính $H_n(\Sigma_2)$ bằng dãy Mayer–Vietoris.
 
-### Torus
+### Hình xuyến
 
-7. **Product:**  
-   T² = S¹ × S¹. Try decomposition T² = (S¹ × D¹) ∪ (S¹ × D¹).  
-   Use Mayer-Vietoris: H₁(T²) = ℤ².
+7. **Cấu trúc tích:** Với $T^2 = S^1 \times S^1$, dùng phép phủ $T^2 = (S^1 \times U) \cup (S^1 \times V)$ (với hai cung mở $U, V$ phủ $S^1$) và dãy Mayer–Vietoris để tính $H_1(T^2) = \mathbb{Z}^2$.
 
-### Advanced
+### Nâng cao
 
-8. **Klein Bottle:**  
-   Compute H_n(Klein bottle) using Mayer-Vietoris.  
-   (Answer: H₁ = ℤ ⊕ ℤ/2ℤ)
+8. **Chai Klein:** Tính $H_n$ của chai Klein bằng dãy Mayer–Vietoris. (Đáp số: $H_1 = \mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$.)
 
-9. **ℝP³:**  
-   Decompose và compute H_n.
+9. **Không gian xạ ảnh $\mathbb{R}P^3$:** Phân rã $\mathbb{R}P^3$ và tính $H_n(\mathbb{R}P^3)$.
 
-10. **Complement:**  
-    X = S³ \ (knot K). Use Mayer-Vietoris to relate H_n(X) to knot properties.
+10. **Phần bù của nút:** Với $X = S^3 \setminus K$ (nút $K$), dùng Mayer–Vietoris để liên hệ $H_n(X)$ với các tính chất tô-pô của nút.
 
-### Connecting Homomorphism
+### Đồng cấu nối
 
-11. **Geometric Understanding:**  
-    For S² decomposition, describe ∂: H₂(S²) → H₁(S¹) geometrically.
+11. **Trực giác hình học:** Trong phép phân rã $S^2 = U \cup V$, hãy mô tả ý nghĩa hình học của $\partial: H_2(S^2) \to H_1(S^1)$.
 
-12. **Compute:**  
-    Explicit element [α] ∈ H₂(S²), compute ∂([α]) step by step.
+12. **Tính tường minh:** Chọn một phần tử đại diện $[\alpha] \in H_2(S^2)$ và tính $\partial([\alpha])$ từng bước.
 
-### Long Exact Sequence
+### Dãy khớp dài
 
-13. **Deduce Relations:**  
-    From exactness at H₁(X) in Mayer-Vietoris, derive relation between ranks.
+13. **Quan hệ giữa các hạng:** Từ tính khớp tại $H_1(X)$ trong dãy Mayer–Vietoris, suy ra mối liên hệ giữa hạng của các nhóm đồng điều liên quan.
 
-14. **Betti Numbers:**  
-    Use Mayer-Vietoris to prove: β_n(X) ≤ β_n(A) + β_n(B) + β_{n-1}(A∩B).
+14. **Bất đẳng thức số Betti:** Dùng dãy Mayer–Vietoris để chứng minh $\beta_n(X) \leq \beta_n(A) + \beta_n(B) + \beta_{n-1}(A \cap B)$.
 
-### Applications
+### Ứng dụng
 
-15. **CW Complex:**  
-    Compare Mayer-Vietoris vs cellular homology for T². Which easier?
+15. **So sánh phương pháp:** Đối với $T^2$, hãy so sánh việc tính đồng điều bằng Mayer–Vietoris và bằng đồng điều tế bào. Cách nào gọn hơn?
 
-16. **Union:**  
-    X = union of two solid tori glued along boundary tori. Compute H_n(X).
+16. **Hợp của hai hình xuyến đặc:** Cho $X$ là không gian thu được khi dán hai hình xuyến đặc dọc theo biên $T^2$ của chúng. Tính $H_n(X)$.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-17. **Van Kampen vs Mayer-Vietoris:**  
-    Compare similarities and differences.
+17. **Van Kampen và Mayer–Vietoris:** So sánh những điểm tương đồng và khác biệt giữa hai định lý.
 
-18. **Why Exact?:**  
-    Explain why Mayer-Vietoris gives exact sequence (not just random maps).
+18. **Vì sao dãy lại khớp?** Giải thích vì sao cấu trúc phép phủ tạo ra một dãy khớp thay vì chỉ các đồng cấu rời rạc.
 
-19. **Connecting ∂:**  
-    Why does ∂ decrease dimension by 1?
+19. **Đồng cấu nối $\partial$:** Vì sao $\partial$ luôn làm giảm số chiều đi $1$?
 
-20. **Power:**  
-    Give example where Mayer-Vietoris essential (can't easily use cellular homology).
+20. **Phạm vi áp dụng:** Nêu một ví dụ mà dãy Mayer–Vietoris tỏ ra thiết yếu khi khó xây dựng cấu trúc phức CW trực tiếp.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
-- **Hatcher, §2.2:** Best modern exposition với detailed examples
-- **Bredon, Chapter IV:** Comprehensive advanced treatment
-- **Munkres, Elements:** Careful proofs
-- **Spanier:** Encyclopedic reference
+- **Hatcher, §2.2:** Trình bày hiện đại cùng nhiều ví dụ chi tiết.
+- **Bredon, Chapter IV:** Cách tiếp cận nâng cao và hệ thống.
+- **Munkres, Elements:** Chứng minh chi tiết.
+- **Spanier:** Tài liệu tra cứu đầy đủ.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-**Mayer-Vietoris = powerful computational tool:**
+Dãy Mayer–Vietoris là công cụ chủ lực để tính đồng điều bằng cách phân rã không gian:
 
-✅ **Decomposition:** X = A ∪ B ⇒ relate homologies  
-✅ **Long exact sequence:** ... → H_n(A∩B) → H_n(A)⊕H_n(B) → H_n(X) → ...  
-✅ **Connecting ∂:** Measures how pieces fail to close  
-✅ **Examples:** Spheres, torus, surfaces systematically  
-✅ **Inductive:** Compute H_n from simpler spaces  
-✅ **Universal:** Works for any decomposition  
-✅ **Foundation:** Exact sequences central to algebraic topology  
+✅ **Phân rã:** $X = A \cup B$ liên hệ đồng điều của $A, B, A \cap B$ và $X$.  
+✅ **Dãy khớp dài:** $\cdots \to H_n(A \cap B) \to H_n(A) \oplus H_n(B) \to H_n(X) \to H_{n-1}(A \cap B) \to \cdots$.  
+✅ **Đồng cấu nối $\partial$:** Đo lường cách các mảnh của chu trình khớp biên trên phần giao.  
+✅ **Tính quy nạp:** Cho phép tính $H_n(S^n)$, hình xuyến và các mặt một cách hệ thống.  
+✅ **Bổ sung cho đồng điều tế bào:** Không yêu cầu cấu trúc CW, đặc biệt hiệu quả khi chọn $A, B$ co rút được và kết hợp với tương đương đồng luân.
 
-**Key insight:**
-- Divide complex space into simple pieces
-- Exact sequence encodes gluing information
-- Inductively determine H_n(X)
-- Complements cellular homology (different perspective)
-
-**Practical wisdom:**
-- Choose decomposition with A, B, A∩B as simple as possible
-- Use contractible pieces when possible
-- Connecting homomorphism often vanishes (simplifies sequence)
-- Combine with homotopy equivalence for maximum power
-
-**Tiếp theo:** Cohomology—dual theory with rich algebraic structure!
+**Tiếp theo:** Đối đồng điều (Cohomology) — lý thuyết đối ngẫu với cấu trúc đại số vành phong phú hơn.
 
 ---
 

@@ -10,397 +10,279 @@ tags: [basis, subbasis, generated-topology, standard-basis]
 description: "Basis và subbasis cho topology, cách sinh topology từ họ tập hợp đơn giản"
 ---
 
-**Basis and Subbasis for a Topology**
+**Cơ sở và Tiền cơ sở của một Tô-pô**
 
 ---
 
 ## 📖 Tổng quan
 
-Trong bài trước, chúng ta đã định nghĩa topology như một họ các open sets thỏa mãn ba axioms. Nhưng việc **kiểm tra** tất cả axioms cho một họ lớn các tập hợp có thể rất phức tạp.
+Ở bài trước, ta định nghĩa tô-pô là một họ các tập mở thỏa mãn ba tiên đề. Tuy nhiên, trên các không gian lớn như $\mathbb{R}$, việc liệt kê toàn bộ các tập mở hay kiểm tra trực tiếp ba tiên đề thường rất cồng kềnh.
 
-Hãy tưởng tượng: Trong ℝ với Euclidean topology, có **vô số** open sets (mọi hợp của các khoảng mở). Làm sao chúng ta mô tả topology này một cách compact?
+Tương tự như trong đại số tuyến tính — nơi một không gian vector được sinh bởi một cơ sở — một tô-pô cũng có thể được xác định gọn gàng bằng một họ nhỏ hơn gọi là **cơ sở** (*basis*). Chẳng hạn, trên $\mathbb{R}$ với tô-pô Euclid, thay vì mô tả mọi tập mở, ta chỉ cần xét họ các khoảng mở $(a, b)$: mọi tập mở khác đều là hợp của các khoảng mở như vậy.
 
-**Ý tưởng:** Giống như trong đại số tuyến tính, một không gian vector được sinh bởi một **basis**, một topology cũng có thể được sinh bởi một họ nhỏ hơn gọi là **basis**.
+Bài giảng này trình bày các nội dung chính: định nghĩa và tiêu chuẩn nhận biết **cơ sở**, **cơ sở chuẩn** của $\mathbb{R}^n$, cách **so sánh hai cơ sở**, khái niệm **tiền cơ sở** (*subbasis*) và **tô-pô sinh bởi một họ tập hợp**, cùng **cơ sở lân cận** tại một điểm.
 
-**Ví dụ:** Trong ℝ, thay vì liệt kê tất cả open sets, ta chỉ cần nói: "Tất cả các khoảng mở (a, b) là basis". Mọi open set khác đều là hợp của các khoảng này!
-
-**Trong bài này:**
-- **Basis for a topology**: Định nghĩa và tiêu chuẩn
-- **Standard basis** cho ℝⁿ
-- **Subbasis**: Họ nhỏ hơn nữa sinh ra topology
-- **Generated topology**: Cách tạo topology từ basis/subbasis
-- **Comparing bases**: Khi nào hai bases sinh cùng topology?
-
-**Tại sao quan trọng?**
-- Basis đơn giản hóa việc work với topology
-- Nhiều topologies được định nghĩa qua basis
-- Continuity dễ check hơn với basis
-- Product topology được định nghĩa qua basis
+**Tại sao bài này quan trọng?** Cơ sở giúp định nghĩa tô-pô, so sánh hai tô-pô và kiểm tra tính liên tục của ánh xạ đơn giản hơn nhiều; ngoài ra, tô-pô tích và tô-pô thứ tự đều được xây dựng trực tiếp qua cơ sở hoặc tiền cơ sở.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Building Blocks
+### Ý tưởng các khối ghép cơ bản
 
-Hãy nghĩ về **LEGO**. Bạn không cần vô số mảnh LEGO độc nhất để xây mọi thứ. Bạn chỉ cần một số "basic pieces" (cơ bản), và ghép chúng lại theo nhiều cách khác nhau để tạo ra structures phức tạp.
-
-**Topology hoạt động tương tự!**
-
-- **Basic pieces** = Basis elements (ví dụ: khoảng mở (a,b) trong ℝ)
-- **Complex structures** = Arbitrary open sets (hợp của basis elements)
-- **Construction rule** = "Take unions"
-
-**Ví dụ cụ thể trong ℝ:**
-
-Muốn mô tả open set U = (0, 1) ∪ (2, 5) ∪ (7, 10)?
-- Không cần định nghĩa U riêng!
-- Chỉ cần: U là **hợp** của ba basis elements: (0,1), (2,5), (7,10)
+Có thể hình dung cơ sở của một tô-pô giống như các mảnh ghép LEGO cơ bản: ta không cần chuẩn bị sẵn mọi mô hình phức tạp, mà chỉ cần một tập hợp mảnh ghép chuẩn rồi ghép chúng lại với nhau. Trong tô-pô, các phần tử cơ sở (như các khoảng mở $(a, b)$ trong $\mathbb{R}$) là những mảnh ghép cơ bản, còn mọi tập mở bất kỳ đều thu được bằng phép lấy hợp. Chẳng hạn, tập mở $U = (0, 1) \cup (2, 5) \cup (7, 10)$ đơn giản là hợp của ba phần tử cơ sở $(0, 1)$, $(2, 5)$ và $(7, 10)$.
 
 ![LEGO analogy for basis](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lego_Color_Bricks.jpg/400px-Lego_Color_Bricks.jpg)  
-*LEGO blocks như basis elements - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lego_Color_Bricks.jpg)*
+*Các mảnh ghép LEGO minh họa cho phần tử cơ sở - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lego_Color_Bricks.jpg)*
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Basis for a Topology
+### 1. Cơ sở của một tô-pô (Basis for a Topology)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Basis):**  
-Cho (X, 𝜏) là topological space. Một họ ℬ ⊆ 𝜏 là **basis** cho 𝜏 nếu:
+**Định nghĩa (Cơ sở — Basis):**  
+Cho $(X, \tau)$ là một không gian tô-pô. Một họ $\mathcal{B} \subseteq \tau$ được gọi là **cơ sở** (*basis*) cho $\tau$ nếu mọi tập mở đều viết được dưới dạng hợp các phần tử của $\mathcal{B}$:
 
 $$
 \forall U \in \tau: U = \bigcup_{\alpha \in I} B_\alpha \quad \text{với } B_\alpha \in \mathcal{B}
 $$
 </div>
 
-**Nói cách khác:** Mọi open set đều là hợp của các basis elements.
+*(Quy ước hợp của họ rỗng là $\emptyset$.)*
 
-**Phát biểu tương đương:**  
-ℬ là basis nếu với mọi x ∈ U ∈ 𝜏, tồn tại B ∈ ℬ sao cho x ∈ B ⊆ U.
+**Phát biểu tương đương:** Họ $\mathcal{B} \subseteq \tau$ là cơ sở cho $\tau$ khi và chỉ khi với mọi $U \in \tau$ và mọi $x \in U$, tồn tại $B \in \mathcal{B}$ sao cho $x \in B \subseteq U$.
 
-**Trực giác:** Mọi điểm trong mọi open set đều có một basis element "bao quanh" nó.
-
-**Ví dụ 1: Standard basis cho ℝ**
-
+**Ví dụ 1: Cơ sở chuẩn trên $\mathbb{R}$**
 $$
 \mathcal{B} = \{(a, b) : a, b \in \mathbb{R}, a < b\}
 $$
+Mọi tập mở trong tô-pô Euclid trên $\mathbb{R}$ đều là hợp của các khoảng mở dạng này.
 
-(Tất cả các khoảng mở)
-
-**Kiểm tra:** Mọi open set trong ℝ (Euclidean topology) đều là hợp của các khoảng mở ✓
-
-**Ví dụ 2: Alternative basis cho ℝ**
-
+**Ví dụ 2: Cơ sở với đầu mút hữu tỉ trên $\mathbb{R}$**
 $$
 \mathcal{B}' = \{(a, b) : a, b \in \mathbb{Q}, a < b\}
 $$
-
-(Các khoảng mở với endpoints hữu tỉ)
-
-**Surprise!** ℬ' cũng là basis cho Euclidean topology trên ℝ!
-
-**Tại sao?** Vì ℚ dense trong ℝ: mọi khoảng (a,b) (a,b ∈ ℝ) đều là hợp của các khoảng (r,s) với r,s ∈ ℚ.
-
-**Kết luận quan trọng:** Một topology có thể có **nhiều bases khác nhau**!
+Họ $\mathcal{B}'$ cũng là một cơ sở cho tô-pô Euclid trên $\mathbb{R}$, vì nhờ tính trù mật của $\mathbb{Q}$ trong $\mathbb{R}$, mọi khoảng mở $(a, b)$ đều là hợp của các khoảng mở $(r, s)$ với $r, s \in \mathbb{Q}$. Điều này cho thấy một tô-pô có thể có nhiều cơ sở khác nhau.
 
 ---
 
-### 2. Basis Criterion (Tiêu chuẩn Basis)
+### 2. Tiêu chuẩn cơ sở (Basis Criterion)
 
-**Làm sao biết** một họ tập hợp ℬ có thể là basis cho một topology nào đó?
+Khi nào một họ tập con $\mathcal{B}$ của $X$ có thể làm cơ sở cho một tô-pô nào đó trên $X$?
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Basis Criterion):**  
-Họ ℬ các tập con của X là basis cho một topology trên X nếu và chỉ nếu:
+**Định lý (Tiêu chuẩn cơ sở):**  
+Một họ $\mathcal{B}$ các tập con của $X$ là cơ sở cho một tô-pô trên $X$ khi và chỉ khi nó thỏa mãn hai điều kiện:
 </div>
 
-**(B1)** ℬ phủ X:
+**(B1) Phủ toàn bộ $X$:**
 $$
 X = \bigcup_{B \in \mathcal{B}} B
 $$
 
-**(B2)** "Intersection property":
+**(B2) Tính chất giao:**
 $$
 \forall B_1, B_2 \in \mathcal{B}, \forall x \in B_1 \cap B_2: \exists B_3 \in \mathcal{B}: x \in B_3 \subseteq B_1 \cap B_2
 $$
 
-**Trực giác (B2):** Nếu hai basis elements giao nhau, giao đó phải chứa basis elements nhỏ hơn.
+Về trực giác, (B2) bảo đảm rằng quanh mỗi điểm nằm trong phần giao của hai phần tử cơ sở luôn có một phần tử cơ sở nhỏ hơn nằm trọn trong phần giao đó.
 
 ![Basis intersection property](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Basis_for_a_Topology_%28Illustration%29.svg/500px-Basis_for_a_Topology_%28Illustration%29.svg.png)  
-*Intersection property của basis - Nguồn concept*
+*Tính chất giao của cơ sở - Nguồn minh họa khái niệm*
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**
+**Phác thảo chứng minh:**
 </div>
 
-**Necessity (⇒):** Nếu ℬ là basis cho 𝜏:
-- (B1): X ∈ 𝜏, nên X là hợp của các B ∈ ℬ ✓
-- (B2): B₁ ∩ B₂ ∈ 𝜏 (vì 𝜏 closed under finite intersections), nên B₁ ∩ B₂ là hợp của các B₃ ∈ ℬ ✓
+**Chiều thuận ($\Rightarrow$):** Nếu $\mathcal{B}$ là cơ sở cho $\tau$, thì vì $X \in \tau$ nên $X$ là hợp các phần tử của $\mathcal{B}$ (suy ra B1); hơn nữa với mọi $B_1, B_2 \in \mathcal{B}$, ta có $B_1 \cap B_2 \in \tau$, nên $B_1 \cap B_2$ là hợp của các phần tử thuộc $\mathcal{B}$ (suy ra B2).
 
-**Sufficiency (⇐):** Cho ℬ thỏa mãn (B1), (B2). Định nghĩa:
+**Chiều đảo ($\Leftarrow$):** Giả sử $\mathcal{B}$ thỏa (B1) và (B2). Ta định nghĩa:
 $$
 \tau = \left\{U \subseteq X : U = \bigcup_{\alpha} B_\alpha, B_\alpha \in \mathcal{B}\right\}
 $$
+(bao gồm $\emptyset$ như hợp rỗng). Việc kiểm tra $\tau$ thỏa mãn ba tiên đề tô-pô là bài tập cơ bản.
 
-Cần chứng minh 𝜏 là topology. (Exercise!)
+**Ví dụ áp dụng:** Xét họ $\mathcal{B} = \{[a, b) : a < b\}$ trên $\mathbb{R}$.
+- (B1): $\mathbb{R} = \bigcup_{n \in \mathbb{Z}} [n, n+1)$, thỏa mãn.
+- (B2): $[a, b) \cap [c, d) = [\max(a, c), \min(b, d))$; nếu giao khác rỗng thì chính nó thuộc $\mathcal{B}$.
 
-**Ví dụ ứng dụng:**
-
-**Claim:** ℬ = {[a, b) : a < b} là basis cho một topology trên ℝ.
-
-**Kiểm tra:**
-- (B1): ℝ = ⋃ₙ [n, n+1) ✓
-- (B2): [a, b) ∩ [c, d) = [max(a,c), min(b,d))  
-  Nếu không rỗng, đây lại là một [e, f) ∈ ℬ ✓
-
-**Kết luận:** ℬ sinh ra một topology (gọi là **lower limit topology** trên ℝ).
-
-**Chú ý:** Đây là topology **khác** với Euclidean topology!
+Do đó $\mathcal{B}$ sinh ra một tô-pô trên $\mathbb{R}$, gọi là **tô-pô giới hạn dưới** (*lower limit topology* hay *tô-pô Sorgenfrey*), khác với tô-pô Euclid.
 
 ---
 
-### 3. Comparing Bases
-
-**Câu hỏi:** Khi nào hai bases sinh ra **cùng** topology?
+### 3. So sánh hai cơ sở (Comparing Bases)
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-ℬ và ℬ' sinh cùng topology trên X ⟺ 
-- ∀B ∈ ℬ, ∀x ∈ B: ∃B' ∈ ℬ': x ∈ B' ⊆ B
-- ∀B' ∈ ℬ', ∀x ∈ B': ∃B ∈ ℬ: x ∈ B ⊆ B'
+Hai cơ sở $\mathcal{B}$ và $\mathcal{B}'$ sinh ra cùng một tô-pô trên $X$ khi và chỉ khi:
+- $\forall B \in \mathcal{B}, \forall x \in B: \exists B' \in \mathcal{B}': x \in B' \subseteq B$; và
+- $\forall B' \in \mathcal{B}', \forall x \in B': \exists B \in \mathcal{B}: x \in B \subseteq B'$.
 </div>
 
-**Trực giác:** Mỗi basis element của ℬ "chứa" basis elements của ℬ', và ngược lại.
-
-**Ví dụ:**
-
-ℬ = {(a, b) : a,b ∈ ℝ}  
-ℬ' = {(a, b) : a,b ∈ ℚ}
-
-Chúng sinh cùng Euclidean topology trên ℝ!
-
-**Ứng dụng quan trọng:**  
-ℬ' **countable**, nên Euclidean topology trên ℝ có countable basis → ℝ là **second countable**!
+Áp dụng định lý này cho $\mathcal{B} = \{(a, b) : a, b \in \mathbb{R}\}$ và $\mathcal{B}' = \{(a, b) : a, b \in \mathbb{Q}\}$, ta thấy hai cơ sở này sinh cùng tô-pô Euclid trên $\mathbb{R}$. Vì $\mathcal{B}'$ đếm được, ta suy ra $\mathbb{R}$ thỏa mãn **tiên đề đếm được thứ hai** (*second countable*).
 
 ---
 
-### 4. Standard Basis for ℝⁿ
+### 4. Cơ sở chuẩn cho $\mathbb{R}^n$
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Standard Basis for ℝⁿ):**
+**Định nghĩa (Cơ sở chuẩn cho $\mathbb{R}^n$):**
 
 $$
 \mathcal{B} = \{(a_1, b_1) \times (a_2, b_2) \times \cdots \times (a_n, b_n) : a_i < b_i\}
 $$
 </div>
 
-(Tất cả các "open rectangles" / "open boxes")
-
-**Trong ℝ²:**  
-B = (a₁, b₁) × (a₂, b₂) = {(x, y) : a₁ < x < b₁, a₂ < y < b₂}
-
-Đây là **hình chữ nhật** (không chứa biên)!
+Đây là họ tất cả các hình hộp mở (*open boxes*). Chẳng hạn trong $\mathbb{R}^2$, mỗi phần tử cơ sở là một hình chữ nhật mở $(a_1, b_1) \times (a_2, b_2) = \{(x, y) : a_1 < x < b_1, \; a_2 < y < b_2\}$.
 
 ![Open rectangle in R2](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Open_rectangle.svg/300px-Open_rectangle.svg.png)  
-*Open rectangle là basis element trong ℝ² - Nguồn concept*
+*Hình chữ nhật mở là phần tử cơ sở trong $\mathbb{R}^2$ - Nguồn minh họa khái niệm*
 
-**Ví dụ open set trong ℝ²:**
-
-Open disk B((0,0), 1) = {(x,y) : x² + y² < 1}
-
-Đây **không phải** open rectangle! Nhưng nó là **hợp** của vô số open rectangles:
-
+Đĩa mở $B((0, 0), 1) = \{(x, y) : x^2 + y^2 < 1\}$ trong $\mathbb{R}^2$ không phải là hình chữ nhật mở, nhưng vẫn là tập mở vì nó là hợp của tất cả các hình chữ nhật mở nằm bên trong nó:
 $$
 B((0,0), 1) = \bigcup_{\text{rectangles } R \subseteq B((0,0),1)} R
 $$
 
-**Alternative basis cho ℝⁿ:**
-
+Ta cũng có thể dùng họ tất cả các hình cầu mở làm cơ sở thay thế:
 $$
 \mathcal{B}_{\text{balls}} = \{B(\mathbf{x}, r) : \mathbf{x} \in \mathbb{R}^n, r > 0\}
 $$
 
-(Tất cả các open balls)
-
 <div class="textbook-theorem" markdown="1">
-**Định lý:** ℬ (rectangles) và ℬ_balls sinh **cùng** topology trên ℝⁿ (Euclidean topology)!
+**Định lý:** $\mathcal{B}$ (các hình hộp mở) và $\mathcal{B}_{\text{balls}}$ (các hình cầu mở) sinh ra cùng một tô-pô trên $\mathbb{R}^n$ (tô-pô Euclid).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**
-- Mỗi rectangle chứa một ball
-- Mỗi ball chứa rectangles
-- Apply comparison theorem ✓
+**Phác thảo chứng minh:**
+- Quanh mỗi điểm thuộc một hình hộp mở đều có một hình cầu mở chứa trong hình hộp đó.
+- Quanh mỗi điểm thuộc một hình cầu mở đều có một hình hộp mở chứa trong hình cầu đó.
+- Áp dụng định lý so sánh hai cơ sở, suy ra hai tô-pô trùng nhau.
 </div>
 
 ---
 
-### 5. Subbasis (Cơ sở Con)
+### 5. Tiền cơ sở (Subbasis)
 
-**Đôi khi** basis vẫn còn "lớn". Ta muốn something nhỏ hơn nữa!
+Đôi khi ta muốn sinh một tô-pô từ một họ tập hợp còn nhỏ hơn cả cơ sở.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Subbasis):**  
-Một họ 𝒮 các tập con của X là **subbasis** cho topology 𝜏 nếu:
+**Định nghĩa (Tiền cơ sở — Subbasis):**  
+Một họ $\mathcal{S}$ các tập con của $X$ (thường yêu cầu $\bigcup_{S \in \mathcal{S}} S = X$, hoặc quy ước giao của họ rỗng là $X$) là **tiền cơ sở** (*subbasis*) cho tô-pô $\tau$ nếu họ tất cả các giao hữu hạn phần tử của $\mathcal{S}$:
 
 $$
 \mathcal{B} = \left\{\bigcap_{i=1}^n S_i : S_i \in \mathcal{S}, n \in \mathbb{N}\right\}
 $$
 </div>
+(cùng với $X$ theo quy ước giao rỗng nếu cần) tạo thành một cơ sở cho $\tau$.
 
-(Tất cả **giao hữu hạn** của các subbasis elements) là basis cho 𝜏.
+Tóm lại, quy trình sinh tô-pô từ tiền cơ sở gồm hai bước:
+- **Tiền cơ sở** $\xrightarrow{\text{lấy giao hữu hạn}}$ **Cơ sở** $\xrightarrow{\text{lấy hợp tùy ý}}$ **Tô-pô**.
 
-**Nói cách khác:**  
-- **Subbasis** → (take finite intersections) → **Basis** → (take arbitrary unions) → **Topology**
-
-**Ví dụ 1: Standard subbasis cho ℝ**
-
+**Ví dụ 1: Tiền cơ sở chuẩn trên $\mathbb{R}$**
 $$
 \mathcal{S} = \{(a, \infty) : a \in \mathbb{R}\} \cup \{(-\infty, b) : b \in \mathbb{R}\}
 $$
+Giao của một tia phải và một tia trái cho $(a, \infty) \cap (-\infty, b) = (a, b)$ (khi $a < b$), còn giao của hai tia cùng chiều vẫn là một tia. Do đó cơ sở sinh ra chứa mọi khoảng mở $(a, b)$ và sinh đúng tô-pô Euclid trên $\mathbb{R}$.
 
-(Tất cả "rays": tia phải và tia trái)
-
-**Giao hữu hạn:**
-- (a, ∞) ∩ (-∞, b) = (a, b) nếu a < b
-- (a₁, ∞) ∩ (a₂, ∞) = (max(a₁, a₂), ∞)
-
-**Kết quả:** Basis sinh ra = {tất cả khoảng mở} = Standard basis cho ℝ!
-
-**Ví dụ 2: Product topology (preview)**
-
-Cho (X, 𝜏_X) và (Y, 𝜏_Y). Trên X × Y, xét:
-
+**Ví dụ 2: Tô-pô tích (gợi mở)**  
+Cho $(X, \tau_X)$ và $(Y, \tau_Y)$. Trên $X \times Y$, họ
 $$
 \mathcal{S} = \{U \times Y : U \in \tau_X\} \cup \{X \times V : V \in \tau_Y\}
 $$
-
-Subbasis này sinh ra **product topology** trên X × Y!
-
-**Tại sao dùng subbasis?**
-- Đơn giản hơn basis trong một số constructions
-- Order topology, product topology thường định nghĩa qua subbasis
-- Elegance: compact description
+là một tiền cơ sở sinh ra **tô-pô tích** trên $X \times Y$ (vì $(U \times Y) \cap (X \times V) = U \times V$). Tiền cơ sở đặc biệt gọn gàng khi xây dựng tô-pô thứ tự và tô-pô tích vô hạn.
 
 ---
 
-### 6. Generated Topology
+### 6. Tô-pô sinh bởi một họ tập hợp (Generated Topology)
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Existence of Generated Topology):**  
-Cho 𝒮 là họ tùy ý các tập con của X. Tồn tại **duy nhất** topology 𝜏 trên X sao cho:
-1. 𝒮 ⊆ 𝜏 (mọi S ∈ 𝒮 đều open)
-2. 𝜏 là **coarsest** (thô nhất) topology thỏa mãn (1)
+**Định lý (Sự tồn tại của tô-pô sinh):**  
+Cho $\mathcal{S}$ là một họ tùy ý các tập con của $X$. Tồn tại **duy nhất** một tô-pô $\tau$ trên $X$ sao cho:
+1. $\mathcal{S} \subseteq \tau$ (mọi phần tử của $\mathcal{S}$ đều mở).
+2. $\tau$ là tô-pô **thô nhất** thỏa mãn (1).
 </div>
 
-**Ký hiệu:** 𝜏 = ⟨𝒮⟩ (topology generated by 𝒮)
-
-**Construction:**
-
+Ký hiệu: $\tau = \langle \mathcal{S} \rangle$. Tô-pô này có thể mô tả tường minh (với quy ước giao rỗng bằng $X$ và hợp rỗng bằng $\emptyset$):
 $$
 \tau = \left\{U \subseteq X : U = \bigcup_{\alpha} \left(\bigcap_{i=1}^{n_\alpha} S_{\alpha,i}\right), S_{\alpha,i} \in \mathcal{S}\right\}
 $$
 
-**Nói bằng lời:**
-1. Take finite intersections of subbasis elements → basis
-2. Take arbitrary unions of basis elements → topology
-
-**Ví dụ:**
-
-𝒮 = {(0, 1), (0.5, 1.5)} trên ℝ.
-
-Generated topology chứa:
-- (0, 1), (0.5, 1.5) (subbasis)
-- (0, 1) ∩ (0.5, 1.5) = (0.5, 1) (basis)
-- Mọi hợp của các tập trên
-- ...
-
-**Chú ý:** Generated topology thường **không bằng** Euclidean topology!
+**Ví dụ:** Trên $\mathbb{R}$, xét $\mathcal{S} = \{(0, 1), (0{,}5, 1{,}5)\}$. Tô-pô sinh bởi $\mathcal{S}$ gồm $\emptyset$, $\mathbb{R}$, hai tập trong $\mathcal{S}$, phần giao $(0{,}5, 1)$ và hợp $(0, 1{,}5)$ — nhỏ hơn rất nhiều so với tô-pô Euclid.
 
 ---
 
-### 7. Neighborhood Basis
+### 7. Cơ sở lân cận (Neighborhood Basis)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Neighborhood):**  
-Tập N ⊆ X là **neighborhood** của điểm x nếu tồn tại U ∈ 𝜏 với x ∈ U ⊆ N.
+**Định nghĩa (Lân cận — Neighborhood):**  
+Tập $N \subseteq X$ là một **lân cận** của điểm $x$ nếu tồn tại tập mở $U \in \tau$ sao cho $x \in U \subseteq N$.
 </div>
 
-**Trực giác:** N chứa một open set xung quanh x.
-
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Neighborhood Basis):**  
-Họ ℬₓ các neighborhoods của x là **neighborhood basis** tại x nếu:
+**Định nghĩa (Cơ sở lân cận — Neighborhood Basis):**  
+Họ $\mathcal{B}_x$ gồm các lân cận của $x$ là một **cơ sở lân cận** tại $x$ nếu:
 
 $$
 \forall N \text{ neighborhood của } x: \exists B \in \mathcal{B}_x: B \subseteq N
 $$
 </div>
 
-**Ví dụ trong ℝ:**
-
+**Ví dụ trong $\mathbb{R}$:** Họ các khoảng mở thu nhỏ quanh $x$:
 $$
 \mathcal{B}_x = \{(x - 1/n, x + 1/n) : n \in \mathbb{N}\}
 $$
+là một cơ sở lân cận đếm được tại $x$.
 
-là neighborhood basis tại x.
-
-**Ứng dụng:**  
-- **Convergence:** xₙ → x ⟺ với mọi B ∈ ℬₓ, tồn tại N sao cho ∀n ≥ N: xₙ ∈ B
-- **Continuity:** f continuous tại x ⟺ với mọi neighborhood của f(x), preimage chứa neighborhood của x
+**Ứng dụng:** Cơ sở lân cận giúp phát biểu gọn các tính chất cục bộ:
+- Dãy $x_n \to x$ khi và chỉ khi với mọi $B \in \mathcal{B}_x$, tồn tại $N$ sao cho $\forall n \ge N: x_n \in B$.
+- Ánh xạ $f$ liên tục tại $x$ khi và chỉ khi với mọi lân cận của $f(x)$, nghịch ảnh của nó chứa một phần tử thuộc $\mathcal{B}_x$.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Định nghĩa neighborhood bases*
+   *Đưa ra định nghĩa cơ sở lân cận.*
 
 2. **Pavel Alexandroff & Heinz Hopf** - *"Topologie I"* (1935)  
-   *Systematic treatment of bases and subbases*
+   *Trình bày có hệ thống về cơ sở và tiền cơ sở.*
 
 3. **Nicolas Bourbaki** - *"Éléments de mathématique: Topologie générale"* (1940)  
-   *Modern axiomatic approach, bases and filters*
+   *Cách tiếp cận tiên đề hóa hiện đại qua cơ sở và bộ lọc.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§13: Basis for a Topology**  
-   *Clear exposition với nhiều examples*
+   *Trình bày rõ ràng kèm nhiều ví dụ.*
 
 5. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 2, §2.2**  
-   *Gentle introduction to bases*
+   *Nhập môn dễ theo dõi về cơ sở.*
 
 6. **Stephen Willard** - *General Topology*, **Chapter 2**  
-   *Comprehensive treatment*
+   *Trình bày đầy đủ, chặt chẽ.*
 
 7. **John L. Kelley** - *General Topology*, **Chapter 2**  
-   *Nets và filters approach*
+   *Cách tiếp cận qua lưới và bộ lọc.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Computer Science - Data Structures
-**Spatial Indexing:** Trong databases, "R-trees" sử dụng "bounding rectangles" (tương tự basis elements trong ℝⁿ) để organize spatial data hiệu quả.
+### Khoa học máy tính — Cấu trúc dữ liệu không gian
+Trong cơ sở dữ liệu địa lý, cây R-tree dùng các hình chữ nhật bao (*bounding rectangles*) — tương tự các phần tử cơ sở dạng hình hộp trong $\mathbb{R}^n$ — để lập chỉ mục và truy vấn nhanh các đối tượng lân cận (chẳng hạn trong hệ thống bản đồ số).
 
-**Ví dụ:** Google Maps sử dụng spatial indexing với basis-like structures để quickly find nearby locations.
+### Giải tích — Không gian vector định chuẩn
+Trong giải tích hàm, tô-pô của không gian định chuẩn được xác định từ cơ sở các hình cầu mở; các kiểm tra về hội tụ và liên tục đều quy về cơ sở này.
 
-### Analysis - Topological Vector Spaces
-**Normed Spaces:** Trong functional analysis, topology thường defined qua basis của open balls. Convergence, continuity đều check qua basis elements.
+### Hình học vi phân — Bản đồ tọa độ và át-lát
+Một đa tạp được mô tả bởi họ các bản đồ tọa độ (*charts*) phủ toàn không gian cùng điều kiện tương thích trên phần giao — cấu trúc rất gần với hai điều kiện cơ sở.
 
-### Differential Geometry - Charts and Atlases
-**Manifolds:** Được định nghĩa locally giống ℝⁿ. "Charts" act như basis elements—cover space và có "overlap conditions" (tương tự intersection property).
-
-### Physics - Phase Space
-**Classical Mechanics:** Phase space có topology natural. Basis elements = "small regions" trong position-momentum space. Evolution preserves topology.
-
-### Real-World Example
-**Weather Maps:** Các vùng "high pressure", "low pressure" có thể xem như basis elements. Union của chúng mô tả entire weather pattern (topology của atmospheric conditions).
+### Vật lý — Không gian pha
+Trong cơ học cổ điển, các vùng nhỏ trong không gian vị trí–động lượng đóng vai trò phần tử cơ sở cho tô-pô tự nhiên của không gian pha.
 
 ---
 
@@ -410,120 +292,108 @@ là neighborhood basis tại x.
 - [[TÔ PÔ ĐẠI CƯƠNG] Bài 2. Cơ sở của một tô pô (phần 2)](https://www.youtube.com/watch?v=y_Eqq1QKyXM) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Phần 2 của cùng bài giảng, dùng khi cơ sở đã có và ta sinh ra tô-pô.
 - [Topology Lecture 08: Basis for a Topology](https://www.youtube.com/watch?v=dUfNktEkwPo) — Marius Furter, tiếng Anh. Một lối tiếng Anh chậm, có ví dụ, cho hai điều kiện của cơ sở.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Understanding Bases
+### Hiểu về cơ sở
 
-1. **Verify Basis:**  
-   Cho X = {a, b, c, d}. Các họ sau có phải là basis cho một topology không?
-   - a) ℬ = {% raw %}{{a}, {b}, {c,d}, X}{% endraw %}
-   - b) ℬ = {% raw %}{{a,b}, {b,c}, {c,d}}{% endraw %}
-   - c) ℬ = {% raw %}{{a}, {a,b}, {a,b,c}, X}{% endraw %}
+1. **Kiểm tra tiêu chuẩn cơ sở:**  
+   Cho $X = \{a, b, c, d\}$. Các họ sau có phải là cơ sở cho một tô-pô trên $X$ không?
+   - a) $\mathcal{B} =$ {% raw %}{{a}, {b}, {c,d}, X}{% endraw %}
+   - b) $\mathcal{B} =$ {% raw %}{{a,b}, {b,c}, {c,d}}{% endraw %}
+   - c) $\mathcal{B} =$ {% raw %}{{a}, {a,b}, {a,b,c}, X}{% endraw %}
 
-2. **Generate Topology:**  
-   X = {1, 2, 3}, ℬ = {% raw %}{{1}, {2,3}}{% endraw %}.  
-   Liệt kê tất cả open sets trong topology sinh bởi ℬ.
+2. **Sinh tô-pô từ cơ sở:**  
+   Với $X = \{1, 2, 3\}$ và $\mathcal{B} =$ {% raw %}{{1}, {2,3}}{% endraw %}, hãy liệt kê tất cả các tập mở trong tô-pô sinh bởi $\mathcal{B}$.
 
-3. **Standard Basis:**  
-   Chứng minh rằng ℬ = {(a, b) : a,b ∈ ℝ} thỏa mãn basis criterion (B1) và (B2).
+3. **Cơ sở chuẩn trên $\mathbb{R}$:**  
+   Chứng minh họ $\mathcal{B} = \{(a, b) : a, b \in \mathbb{R}, a < b\}$ thỏa mãn tiêu chuẩn cơ sở (B1) và (B2).
 
-### Comparing Bases
+### So sánh các cơ sở
 
-4. **Same Topology?**  
-   Trên ℝ, xét hai bases:
-   - ℬ₁ = {(a, b) : a < b}
-   - ℬ₂ = {[a, b) : a < b}
+4. **Có sinh cùng tô-pô không?**  
+   Trên $\mathbb{R}$, xét hai cơ sở:
+   - $\mathcal{B}_1 = \{(a, b) : a < b\}$
+   - $\mathcal{B}_2 = \{[a, b) : a < b\}$
    
-   Chúng có sinh cùng topology không? Tại sao?
+   Chúng có sinh cùng một tô-pô không? Giải thích lý do.
 
-5. **Rational Endpoints:**  
-   Chứng minh rằng ℬ = {(r, s) : r,s ∈ ℚ, r < s} là basis cho Euclidean topology trên ℝ.  
-   (*Hint:* Sử dụng density của ℚ)
+5. **Đầu mút hữu tỉ:**  
+   Chứng minh $\mathcal{B} = \{(r, s) : r, s \in \mathbb{Q}, r < s\}$ là cơ sở cho tô-pô Euclid trên $\mathbb{R}$. (*Gợi ý:* Dùng tính trù mật của $\mathbb{Q}$.)
 
-6. **Countable Basis:**  
-   Chứng minh rằng ℝ với Euclidean topology có countable basis.  
-   Điều này gợi ý gì về "size" của topology?
+6. **Cơ sở đếm được:**  
+   Chứng minh $\mathbb{R}$ với tô-pô Euclid có một cơ sở đếm được. Điều này nói lên điều gì về "độ lớn" của tô-pô này?
 
-### ℝⁿ and Products
+### Không gian $\mathbb{R}^n$ và không gian tích
 
-7. **Open Rectangles:**  
-   Trong ℝ², vẽ các basis elements:
-   - a) (0, 1) × (0, 1)
-   - b) (-1, 2) × (0, 3)
-   - c) Giao của (a) và (b)
+7. **Hình chữ nhật mở:**  
+   Trong $\mathbb{R}^2$, vẽ các tập sau:
+   - a) $(0, 1) \times (0, 1)$
+   - b) $(-1, 2) \times (0, 3)$
+   - c) Phần giao của (a) và (b)
    
-   Giao có phải là basis element không?
+   Phần giao đó có phải là một phần tử cơ sở không?
 
-8. **Open Disk:**  
-   Open disk B((0,0), 1) trong ℝ² **không phải** open rectangle.  
-   Chứng minh rằng nó **là** open set bằng cách biểu diễn như hợp của open rectangles.
+8. **Đĩa mở trong $\mathbb{R}^2$:**  
+   Đĩa mở $B((0, 0), 1)$ không phải là một hình chữ nhật mở. Chứng minh nó vẫn là tập mở bằng cách biểu diễn nó như hợp của các hình chữ nhật mở.
 
-9. **Different Metrics:**  
-   Trong ℝ² với Manhattan metric d₁(x,y) = |x₁-y₁| + |x₂-y₂|:
-   - a) Vẽ "open ball" B((0,0), 1) trong metric này
-   - b) Nó có phải là open rectangle không?
-   - c) Topology induced có bằng Euclidean topology không?
+9. **Các mê-tric khác nhau:**  
+   Trong $\mathbb{R}^2$ với mê-tric Manhattan $d_1(x, y) = |x_1 - y_1| + |x_2 - y_2|$:
+   - a) Vẽ hình cầu mở $B((0, 0), 1)$ theo mê-tric này.
+   - b) Nó có phải là hình chữ nhật mở có cạnh song song trục tọa độ không?
+   - c) Tô-pô cảm sinh có trùng với tô-pô Euclid không?
 
-### Subbases
+### Tiền cơ sở
 
-10. **Ray Subbasis:**  
-    Trên ℝ, cho 𝒮 = {(a, ∞) : a ∈ ℝ} ∪ {(-∞, b) : b ∈ ℝ}.  
-    - a) Chứng minh 𝒮 là subbasis
-    - b) Mô tả basis sinh từ 𝒮
-    - c) So sánh với standard basis
+10. **Tiền cơ sở gồm các tia:**  
+    Trên $\mathbb{R}$, xét $\mathcal{S} = \{(a, \infty) : a \in \mathbb{R}\} \cup \{(-\infty, b) : b \in \mathbb{R}\}$.
+    - a) Chứng minh $\mathcal{S}$ là tiền cơ sở cho tô-pô Euclid.
+    - b) Mô tả cơ sở sinh từ $\mathcal{S}$.
+    - c) So sánh với cơ sở chuẩn của $\mathbb{R}$.
 
-11. **Minimal Subbasis:**  
-    X = {a, b, c}, 𝒮 = {% raw %}{{a,b}, {b,c}}{% endraw %}.  
-    - a) Tìm basis sinh từ 𝒮
-    - b) Liệt kê tất cả open sets trong topology sinh ra
-    - c) Topology này có tên gọi đặc biệt không?
+11. **Tiền cơ sở trên tập hữu hạn:**  
+    Cho $X = \{a, b, c\}$ và $\mathcal{S} =$ {% raw %}{{a,b}, {b,c}}{% endraw %}.
+    - a) Tìm cơ sở sinh từ $\mathcal{S}$.
+    - b) Liệt kê tất cả các tập mở trong tô-pô sinh ra.
+    - c) Nhận xét về tính chất tách của tô-pô này.
 
-12. **Product Preview:**  
-    Trên ℝ × ℝ, xét subbasis:  
-    𝒮 = {(a,b) × ℝ : a<b} ∪ {ℝ × (c,d) : c<d}
-    
-    Chứng minh rằng basis sinh ra = {(a,b) × (c,d)} = standard basis cho ℝ².
+12. **Gợi mở về tô-pô tích:**  
+    Trên $\mathbb{R} \times \mathbb{R}$, xét tiền cơ sở $\mathcal{S} = \{(a, b) \times \mathbb{R} : a < b\} \cup \{\mathbb{R} \times (c, d) : c < d\}$. Chứng minh cơ sở sinh ra cho cùng tô-pô với cơ sở chuẩn của $\mathbb{R}^2$.
 
-### Advanced
+### Nâng cao
 
-13. **Lower Limit Topology:**  
-    Topology sinh bởi ℬ = {[a, b) : a<b} trên ℝ gọi là "lower limit topology" 𝜏_ℓ.
-    - a) Chứng minh [0, 1) open trong 𝜏_ℓ
-    - b) (0, 1) có open trong 𝜏_ℓ không?
-    - c) So sánh 𝜏_ℓ với Euclidean topology 𝜏_E
+13. **Tô-pô giới hạn dưới (Sorgenfrey):**  
+    Gọi $\tau_\ell$ là tô-pô sinh bởi $\mathcal{B} = \{[a, b) : a < b\}$ trên $\mathbb{R}$.
+    - a) Chứng minh $[0, 1)$ mở trong $\tau_\ell$.
+    - b) $(0, 1)$ có mở trong $\tau_\ell$ không?
+    - c) So sánh $\tau_\ell$ với tô-pô Euclid $\tau_E$.
 
-14. **Finer Topology:**  
-    Chứng minh: Nếu ℬ₁ ⊆ ℬ₂ (cả hai đều bases), thì topology sinh bởi ℬ₂ finer than topology sinh bởi ℬ₁.
+14. **So sánh tô-pô từ bao hàm cơ sở:**  
+    Chứng minh: nếu $\mathcal{B}_1 \subseteq \mathcal{B}_2$ (cả hai đều là cơ sở trên $X$), thì tô-pô sinh bởi $\mathcal{B}_2$ mịn hơn tô-pô sinh bởi $\mathcal{B}_1$.
 
-15. **Neighborhood Basis:**  
-    Trong metric space (X, d), chứng minh rằng:
+15. **Cơ sở lân cận trong không gian mê-tric:**  
+    Trong không gian mê-tric $(X, d)$, chứng minh rằng:
     $$
     \mathcal{B}_x = \{B(x, 1/n) : n \in \mathbb{N}\}
     $$
-    là neighborhood basis tại x.
+    là một cơ sở lân cận tại $x$.
 
-16. **Characterize Topology:**  
-    Chứng minh: Topology 𝜏 hoàn toàn determined bởi neighborhood bases tại mọi điểm.  
-    (*Hint:* U open ⟺ U là neighborhood của mọi x ∈ U)
+16. **Đặc trưng hóa tô-pô bằng cơ sở lân cận:**  
+    Chứng minh tô-pô $\tau$ được xác định hoàn toàn bởi họ các cơ sở lân cận tại mọi điểm. (*Gợi ý:* $U$ mở $\iff U$ là lân cận của mọi $x \in U$.)
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-17. **Why Finite Intersections?**  
-    Trong subbasis definition, tại sao chỉ lấy **finite** intersections?  
-    Điều gì xảy ra nếu allow infinite intersections?
+17. **Vì sao chỉ lấy giao hữu hạn?**  
+    Trong định nghĩa tiền cơ sở, tại sao chỉ lấy giao **hữu hạn** các phần tử? Điều gì sẽ xảy ra nếu lấy giao vô hạn?
 
-18. **Bases vs Spanning Sets:**  
-    So sánh "basis" trong topology với "basis" trong linear algebra.  
-    - Điểm giống: cả hai "span" entire structure
-    - Điểm khác: linear independence có tương đương gì không?
+18. **Cơ sở tô-pô và cơ sở không gian vector:**  
+    So sánh khái niệm "cơ sở" trong tô-pô với "cơ sở" trong đại số tuyến tính. Điểm giống nhau là cả hai đều sinh ra toàn bộ cấu trúc; vậy điều kiện độc lập tuyến tính có khái niệm tương đương trong tô-pô không?
 
-19. **Minimal Basis:**  
-    Có tồn tại "minimal basis" (basis nhỏ nhất) cho một topology không?  
-    So sánh với linear algebra.
+19. **Cơ sở tối tiểu:**  
+    Một tô-pô có nhất thiết tồn tại cơ sở nhỏ nhất (theo nghĩa bao hàm) không? Hãy liên hệ với trường hợp tô-pô Euclid trên $\mathbb{R}$.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §13 (Basis for a Topology), §15 (Product Topology)
 - **Morris, Topology Without Tears:** Chapter 2.2–2.3 (Bases)
@@ -532,40 +402,31 @@ là neighborhood basis tại x.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài giảng này, chúng ta học cách **simplify** việc work với topologies:
+Trong bài giảng này, ta đã học các công cụ giúp làm việc với tô-pô gọn gàng hơn:
 
-✅ **Basis:** Họ tập hợp mà mọi open set là hợp của chúng  
-✅ **Basis Criterion:** (B1) phủ X, (B2) intersection property  
-✅ **Standard Bases:** ℝⁿ có basis từ open rectangles hoặc open balls  
-✅ **Comparing Bases:** Khi nào hai bases sinh cùng topology  
-✅ **Subbasis:** Họ nhỏ hơn, sinh basis qua finite intersections  
-✅ **Generated Topology:** Từ subbasis → basis → topology  
-✅ **Neighborhood Basis:** Local version của basis concept  
+✅ **Cơ sở (Basis):** Họ tập mở mà mọi tập mở khác đều là hợp của chúng.  
+✅ **Tiêu chuẩn cơ sở:** Điều kiện phủ (B1) và tính chất giao (B2).  
+✅ **Cơ sở chuẩn của $\mathbb{R}^n$:** Các hình hộp mở (tương đương với các hình cầu mở).  
+✅ **So sánh cơ sở:** Tiêu chuẩn để hai cơ sở sinh ra cùng một tô-pô.  
+✅ **Tiền cơ sở (Subbasis):** Sinh ra cơ sở qua giao hữu hạn, rồi sinh tô-pô qua hợp tùy ý.  
+✅ **Cơ sở lân cận:** Phiên bản cục bộ của cơ sở tại từng điểm.
 
 **Điểm chính:**
-- Basis = "building blocks" của topology
-- Một topology có thể có nhiều bases khác nhau
-- Basis giúp check continuity, convergence dễ hơn
-- Subbasis cho elegant constructions (product, order topology)
-- ℝⁿ có countable basis → second countable
+- Một tô-pô có thể có nhiều cơ sở khác nhau.
+- Khi định nghĩa tô-pô mới, so sánh hai tô-pô hoặc kiểm tra tính liên tục, làm việc trực tiếp trên cơ sở thường đơn giản hơn nhiều.
+- $\mathbb{R}^n$ có cơ sở đếm được nên thỏa mãn tiên đề đếm được thứ hai.
 
-**Practical wisdom:**
-- Khi định nghĩa topology: dùng basis (đơn giản hơn liệt kê tất cả open sets)
-- Khi so sánh topologies: so sánh bases
-- Khi chứng minh continuous: đủ check trên basis elements
-
-**Tiếp theo:** Trong Lecture 01.02, chúng ta sẽ học về **Closed Sets, Closure, and Interior**—các khái niệm dual của open sets, và các operators quan trọng nhất trong topology.
+**Tiếp theo:** Trong Bài 01.02, ta sẽ nghiên cứu **Tập đóng, Bao đóng và Phần trong** — các khái niệm đối ngẫu của tập mở và những toán tử cốt lõi trong tô-pô.
 
 ---
 
 *"A basis is to topology what a basis is to a vector space—it spans the structure."* — Topology wisdom
 
-🎯 **Practice với nhiều bases khác nhau! Đây là key để mastery.** 🎯
+🎯 **Hãy thực hành kiểm tra và so sánh nhiều cơ sở khác nhau để nắm chắc công cụ này.** 🎯
 
 ---
 
 **Previous:** [Lecture 01.00: Definition of Topology](/contents/vi/topology-chapter01/01_00_Definition_Topology_Basic_Examples/)  
 **Next:** [Lecture 01.02: Closed Sets, Closure, and Interior](/contents/vi/topology-chapter01/01_02_Closed_Sets_Closure_Interior/)
-

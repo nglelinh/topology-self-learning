@@ -10,121 +10,117 @@ tags: [metric-spaces, distance, isometry, completeness, cauchy-sequences]
 description: "Không gian metric: định nghĩa, ví dụ, isometries, và tính chất cơ bản"
 ---
 
-**Metric Spaces - Fundamentals**
+**Không gian metric – Các khái niệm cơ bản**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã học về các không gian tô-pô—một sự trừu tượng hóa rất tổng quát. Giờ đây, chúng ta quay lại một lớp đặc biệt quan trọng: các không gian metric—những không gian có khái niệm "khoảng cách" (distance).
+Sau khi nghiên cứu không gian tô-pô ở mức độ tổng quát, chúng ta chuyển sang một lớp không gian đặc biệt quan trọng: **không gian metric** — những không gian được trang bị khái niệm khoảng cách (distance).
 
-Tại sao các không gian metric lại đặc biệt? Chúng có nhiều tính chất tốt mà các không gian tô-pô tổng quát không có. Khoảng cách trở nên có thể định lượng được—chúng ta có thể đo lường "xa bao nhiêu" giữa hai điểm, không chỉ đơn giản là chúng có "gần nhau" hay không. Các dãy là đủ để mô tả tô-pô—không cần các nets hoặc filters trừu tượng như trong các không gian tổng quát. Completeness có ý nghĩa rõ ràng: các dãy Cauchy hội tụ, cho phép các kỹ thuật giải tích mạnh mẽ. Chúng rất trực quan, cung cấp hiểu biết hình học và trực quan. Quan trọng nhất, chúng có mặt ở khắp nơi: $\mathbb{R}^n$, các không gian hàm $C([0,1])$, các không gian xác suất—hầu hết các không gian trong giải tích đều là metric.
+Không gian metric sở hữu nhiều tính chất thuận lợi mà không gian tô-pô tổng quát không nhất thiết có. Trước hết, khoảng cách cho phép định lượng mức độ xa gần giữa hai điểm thay vì chỉ xét quan hệ lân cận. Thứ hai, các dãy điểm đủ để mô tả cấu trúc tô-pô mà không cần dùng đến lưới (net) hay bộ lọc (filter) tổng quát. Thứ ba, tính đầy đủ (completeness) — tức mọi dãy Cauchy đều hội tụ — mở ra nhiều công cụ giải tích hữu ích. Ngoài ra, phần lớn các đối tượng quen thuộc trong giải tích như $\mathbb{R}^n$, không gian hàm $C([0,1])$ hay các không gian xác suất đều mang cấu trúc metric.
 
 ![Metric space visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Metric_space_illustration.svg/500px-Metric_space_illustration.svg.png)  
-*Không gian metric với hàm khoảng cách - Nguồn: Wikimedia Commons*
+*Minh họa không gian metric với hàm khoảng cách – Nguồn: Wikimedia Commons*
 
-Mối liên hệ với tô-pô học là sâu sắc nhưng tinh tế. Mọi metric đều tạo ra một tô-pô tự nhiên thông qua các quả cầu mở, làm cho các không gian metric trở thành trường hợp đặc biệt của các không gian tô-pô. Tuy nhiên, điều ngược lại không đúng: không phải mọi tô-pô đều đến từ một metric (các không gian metrizable tạo thành một lớp con nghiêm ngặt). Định lý Metrization của Urysohn mô tả chính xác những tô-pô nào là metrizable—một kết quả phân loại đẹp đẽ mà chúng ta sẽ nghiên cứu sau.
+Mối liên hệ giữa không gian metric và không gian tô-pô có tính một chiều. Mọi metric đều sinh ra một tô-pô tự nhiên thông qua các quả cầu mở, nên mọi không gian metric đều là không gian tô-pô. Tuy nhiên, chiều ngược lại không đúng: không phải mọi không gian tô-pô đều sinh bởi một metric (các không gian *metric hóa được* – metrizable – chỉ là một lớp con thực sự). Định lý metric hóa Urysohn đưa ra tiêu chuẩn đặc trưng cho lớp không gian này và sẽ được xem xét trong các bài sau.
 
-Trong bài học này, chúng ta sẽ phát triển một cách có hệ thống lý thuyết về không gian metric. Định nghĩa metric bắt đầu với ba tiên đề cơ bản đặc trưng cho khái niệm khoảng cách. Các ví dụ trải dài từ quen thuộc (Euclidean $d_2$, Manhattan $d_1$, metric max $d_\infty$) đến bất ngờ (discrete metric, các metric không gian hàm). Metric topology xuất hiện một cách tự nhiên: các quả cầu mở định nghĩa cơ sở, tạo ra tô-pô làm cho metric trở thành hàm liên tục. Các isometry bảo toàn khoảng cách một cách hoàn hảo, đại diện cho các "chuyển động cứng" trong bối cảnh trừu tượng. Completeness phân biệt các không gian mà các dãy Cauchy hội tụ (complete) với những không gian có "lỗ hổng" (incomplete).
+Trong bài học này, chúng ta xây dựng một cách hệ thống các khái niệm nền tảng của không gian metric: định nghĩa metric qua ba tiên đề, các ví dụ tiêu chuẩn (metric Euclid $d_2$, metric Manhattan $d_1$, metric cực đại $d_\infty$, metric rời rạc, metric trên không gian hàm và họ metric $L^p$), tô-pô sinh bởi metric qua các quả cầu mở, sự hội tụ, dãy Cauchy, tính đầy đủ, phép đẳng cự (isometry) và tập bị chặn.
 
-Tại sao các không gian metric lại là nền tảng? Chúng tạo thành nền tảng cho giải tích thực—giới hạn, tính liên tục, đạo hàm đều được xây dựng trên cấu trúc metric. Chúng kết nối tô-pô học và hình học, cung cấp trực giác hình học cho các khái niệm tô-pô trừu tượng. Các ứng dụng lan tỏa khắp toán học: giải tích hàm nghiên cứu các không gian metric vô hạn chiều, hình học vi phân sử dụng các metric Riemannian, lý thuyết xác suất dựa vào các không gian xác suất metric. Trong khoa học dữ liệu và machine learning, các metric khoảng cách là hoàn toàn cần thiết—clustering, classification, giảm chiều đều phụ thuộc quan trọng vào việc chọn các metric phù hợp.
+Không gian metric là nền tảng trực tiếp của giải tích thực (giới hạn, tính liên tục, đạo hàm), đồng thời kết nối tô-pô với hình học. Cấu trúc metric xuất hiện rộng rãi trong giải tích hàm (không gian vô hạn chiều), hình học vi phân (metric Riemann), lý thuyết xác suất, cũng như trong khoa học dữ liệu và học máy (phân cụm, phân loại, giảm chiều dữ liệu).
 
 ---
 
-## 📐 Định nghĩa và Axioms
+## 📐 Định nghĩa và các tiên đề
 
-### 1. Metric Spaces
+### 1. Không gian metric
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa (Metric):**  
-Cho X là tập hợp. Một **metric** (hay **distance function**) trên X là hàm:
+Cho $X$ là một tập hợp. Một **metric** (hay **hàm khoảng cách**) trên $X$ là một ánh xạ
 
 $$
 d: X \times X \to \mathbb{R}
 $$
 </div>
 
-thỏa mãn ba axioms:
+thỏa mãn ba tiên đề sau với mọi $x, y, z \in X$:
 
-**(M1) Positive Definiteness:**
+**(M1) Tính xác định dương (Positive Definiteness):**
 $$
 d(x,y) \geq 0, \quad d(x,y) = 0 \iff x = y
 $$
 
-**(M2) Symmetry:**
+**(M2) Tính đối xứng (Symmetry):**
 $$
 d(x,y) = d(y,x)
 $$
 
-**(M3) Triangle Inequality:**
+**(M3) Bất đẳng thức tam giác (Triangle Inequality):**
 $$
 d(x,z) \leq d(x,y) + d(y,z)
 $$
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Metric Space):**  
-Cặp (X, d) gọi là **metric space**.
+**Định nghĩa (Không gian metric):**  
+Cặp $(X, d)$ được gọi là một **không gian metric** (metric space).
 </div>
 
-**Trực giác về ba axioms:**
-- **(M1):** Khoảng cách không âm, chỉ bằng 0 khi hai điểm trùng nhau
-- **(M2):** Khoảng cách từ A đến B = từ B đến A
-- **(M3):** Đi trực tiếp ngắn hơn đi vòng
+**Ý nghĩa trực quan của ba tiên đề:**
+- **(M1):** Khoảng cách luôn không âm và chỉ bằng $0$ khi hai điểm trùng nhau.
+- **(M2):** Khoảng cách từ $x$ đến $y$ bằng khoảng cách từ $y$ đến $x$.
+- **(M3):** Độ dài đường đi trực tiếp không vượt quá độ dài đường đi qua một điểm trung gian.
 
 ![Triangle inequality](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Triangle_inequality.svg/400px-Triangle_inequality.svg.png)  
-*Triangle inequality: d(x,z) ≤ d(x,y) + d(y,z) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Triangle_inequality.svg)*
+*Bất đẳng thức tam giác: $d(x,z) \le d(x,y) + d(y,z)$ – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Triangle_inequality.svg)*
 
 ---
 
-### 2. Standard Examples
+### 2. Các ví dụ tiêu chuẩn
 
-**Example 1: Euclidean Metric on ℝⁿ**
+**Ví dụ 1: Metric Euclid trên $\mathbb{R}^n$**
 
 $$
 d_2(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)^2}
 $$
 
-**Verify axioms:**
-- (M1): Rõ ràng ✓
-- (M2): Symmetry của |xᵢ - yᵢ| ✓  
-- (M3): Minkowski inequality (from linear algebra) ✓
+Kiểm tra các tiên đề:
+- (M1): Hiển nhiên từ tính không âm của tổng bình phương.
+- (M2): Suy trực tiếp từ $|x_i - y_i| = |y_i - x_i|$.
+- (M3): Suy từ bất đẳng thức Minkowski trong đại số tuyến tính.
 
-Đây là metric "thông thường" trên ℝⁿ.
+Đây là metric thông thường trên $\mathbb{R}^n$.
 
 ---
 
-**Example 2: Manhattan Metric (Taxicab)**
+**Ví dụ 2: Metric Manhattan (Taxicab)**
 
 $$
 d_1(\mathbf{x}, \mathbf{y}) = \sum_{i=1}^n |x_i - y_i|
 $$
 
-**Tên gọi:** Khoảng cách "đi theo lưới đường phố" như ở Manhattan.
+Tên gọi xuất phát từ hình ảnh khoảng cách di chuyển dọc theo lưới đường vuông góc như ở khu Manhattan.
 
-**Example trong ℝ²:**  
-d₁((0,0), (3,4)) = |3| + |4| = 7  
-(So với Euclidean: d₂ = 5)
+Chẳng hạn trong $\mathbb{R}^2$, ta có $d_1((0,0), (3,4)) = |3| + |4| = 7$, trong khi với metric Euclid thì $d_2((0,0), (3,4)) = 5$.
 
 ![Manhattan vs Euclidean](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Manhattan_distance.svg/400px-Manhattan_distance.svg.png)  
-*Manhattan distance visualization - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manhattan_distance.svg)*
+*Minh họa khoảng cách Manhattan – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manhattan_distance.svg)*
 
 ---
 
-**Example 3: Maximum Metric (Chebyshev)**
+**Ví dụ 3: Metric cực đại (Chebyshev)**
 
 $$
 d_\infty(\mathbf{x}, \mathbf{y}) = \max_{i=1,\ldots,n} |x_i - y_i|
 $$
 
-**Example:** d∞((0,0), (3,4)) = max{3, 4} = 4
-
-**Geometric interpretation:** "Square" balls thay vì circles.
+Chẳng hạn $d_\infty((0,0), (3,4)) = \max\{3, 4\} = 4$. Về mặt hình học trong $\mathbb{R}^2$, các quả cầu mở theo metric này là các hình vuông thay vì hình tròn.
 
 ---
 
-**Example 4: Discrete Metric**
+**Ví dụ 4: Metric rời rạc (Discrete Metric)**
 
-Trên **bất kỳ** tập X:
+Trên **bất kỳ** tập hợp $X$ nào, ta có thể định nghĩa:
 
 $$
 d(x,y) = \begin{cases}
@@ -133,26 +129,25 @@ d(x,y) = \begin{cases}
 \end{cases}
 $$
 
-**Verify axioms:**
-- (M1): Trivial ✓
-- (M2): Symmetric ✓
-- (M3): d(x,z) ≤ 1 = d(x,y) + d(y,z) nếu x ≠ z ✓
+Kiểm tra các tiên đề:
+- (M1) và (M2) thỏa mãn trực tiếp từ định nghĩa.
+- (M3): Nếu $x = z$ thì $d(x,z) = 0 \le d(x,y) + d(y,z)$. Nếu $x \neq z$ thì với mọi $y$, ít nhất một trong hai điều kiện $x \neq y$ hoặc $y \neq z$ xảy ra, nên $d(x,y) + d(y,z) \ge 1 = d(x,z)$.
 
-**Property:** Topology induced = discrete topology!
+Tô-pô sinh bởi metric rời rạc chính là tô-pô rời rạc trên $X$.
 
 ---
 
-**Example 5: Function Spaces**
+**Ví dụ 5: Không gian hàm**
 
-**Uniform metric** trên $C([0,1], \mathbb{R})$ (các hàm liên tục):
+**Metric đều (uniform metric)** trên không gian các hàm liên tục $C([0,1], \mathbb{R})$ được định nghĩa bởi:
 
 $$
 d_\infty(f,g) = \sup_{x \in [0,1]} |f(x) - g(x)|
 $$
 
-Đây là metric "supremum norm"—nó đo khoảng cách giữa hai hàm bằng giá trị lớn nhất của sự khác biệt giữa chúng trên toàn bộ miền.
+Metric này gắn với chuẩn supremum, đo độ lệch lớn nhất giữa hai hàm trên toàn bộ đoạn $[0,1]$.
 
-**Example 6: L^p Metrics**
+**Ví dụ 6: Họ metric $L^p$**
 
 Trên $\mathbb{R}^n$ với $1 \leq p < \infty$:
 
@@ -160,20 +155,18 @@ $$
 d_p(\mathbf{x}, \mathbf{y}) = \left(\sum_{i=1}^n |x_i - y_i|^p\right)^{1/p}
 $$
 
-Họ các metric này thống nhất nhiều ví dụ:
-- $p = 1$: Manhattan metric
-- $p = 2$: Euclidean metric  
-- $p \to \infty$: Maximum metric
-
-Họ các metric này thống nhất nhiều ví dụ quen thuộc trong một công thức tổng quát!
+Họ metric này gộp các ví dụ quen thuộc ở trên vào cùng một công thức tổng quát:
+- $p = 1$: metric Manhattan,
+- $p = 2$: metric Euclid,
+- $p \to \infty$: metric cực đại.
 
 ---
 
-### 3. Metric Topology
+### 3. Tô-pô sinh bởi metric
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Open Ball):**  
-**Open ball** tâm x, bán kính r > 0:
+**Định nghĩa (Quả cầu mở – Open Ball):**  
+Quả cầu mở tâm $x \in X$, bán kính $r > 0$ là tập hợp:
 
 $$
 B(x, r) = B_d(x, r) = \{y \in X : d(x,y) < r\}
@@ -181,7 +174,7 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Closed Ball):**
+**Định nghĩa (Quả cầu đóng – Closed Ball):**
 
 $$
 \overline{B}(x, r) = \{y \in X : d(x,y) \leq r\}
@@ -189,7 +182,7 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Sphere):**
+**Định nghĩa (Mặt cầu – Sphere):**
 
 $$
 S(x, r) = \{y \in X : d(x,y) = r\}
@@ -197,349 +190,334 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Induced Topology):**  
-Topology **induced** bởi metric d:
+**Định nghĩa (Tô-pô sinh bởi metric):**  
+Tô-pô sinh bởi metric $d$ là họ tập hợp:
 
 $$
 \tau_d = \{U \subseteq X : \forall x \in U: \exists r > 0: B(x,r) \subseteq U\}
 $$
 </div>
 
-**Nói bằng lời:** U open ⟺ U là union của open balls.
+Nói cách khác, $U$ là tập mở trong $\tau_d$ khi và chỉ khi $U$ là hợp của một họ các quả cầu mở.
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-τ_d thỏa mãn topology axioms.
+Họ $\tau_d$ thỏa mãn các tiên đề của một tô-pô trên $X$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Exercise (straightforward verification).
+**Chứng minh:** Kiểm tra trực tiếp ba tiên đề tô-pô (xem phần bài tập).
 </div>
 
 ---
 
-**Basis for Metric Topology:**
+**Cơ sở của tô-pô metric:**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** ℬ = {B(x,r) : x ∈ X, r > 0} là basis cho τ_d.
+**Định lý:** Họ $\mathcal{B} = \{B(x,r) : x \in X, r > 0\}$ là một cơ sở (basis) của tô-pô $\tau_d$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Trivial từ definition.
+**Chứng minh:** Suy trực tiếp từ định nghĩa của $\tau_d$ và bất đẳng thức tam giác.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Corollary:** Metric topology second countable nếu X separable.
+**Hệ quả:** Tô-pô metric thỏa mãn tiên đề đếm được thứ hai (second countable) khi và chỉ khi $X$ khả ly (separable).
 </div>
 
 ---
 
-### 4. Convergence in Metric Spaces
+### 4. Sự hội tụ trong không gian metric
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Convergence):**  
-Sequence (xₙ) **converges** to x nếu:
+**Định nghĩa (Sự hội tụ):**  
+Dãy $(x_n)$ **hội tụ** đến $x \in X$ nếu:
 
 $$
 \forall \varepsilon > 0: \exists N: \forall n \geq N: d(x_n, x) < \varepsilon
 $$
 </div>
 
-**Notation:** xₙ → x hay lim xₙ = x.
+Ta ký hiệu $x_n \to x$ hoặc $\lim x_n = x$.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Uniqueness):**  
-Trong metric space, limits **unique**.
+**Định lý (Tính duy nhất của giới hạn):**  
+Trong một không gian metric, giới hạn của một dãy hội tụ là duy nhất.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Metric spaces Hausdorff (đã chứng minh trước). ✓
+**Chứng minh:** Mọi không gian metric đều là không gian Hausdorff (đã chứng minh ở chương trước), nên giới hạn của dãy là duy nhất.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Sequential Characterization):**  
-Trong metric space:
-- x ∈ cl(A) ⟺ ∃ sequence trong A converging to x
-- f continuous ⟺ xₙ → x ⇒ f(xₙ) → f(x)
+**Định lý (Đặc trưng bằng dãy):**  
+Trong không gian metric $(X, d)$:
+- $x \in \operatorname{cl}(A)$ khi và chỉ khi tồn tại một dãy trong $A$ hội tụ đến $x$.
+- Ánh xạ $f$ liên tục tại $x$ khi và chỉ khi với mọi dãy $x_n \to x$, ta có $f(x_n) \to f(x)$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Metric spaces first countable. ✓
+**Chứng minh:** Suy từ việc mọi không gian metric đều thỏa mãn tiên đề đếm được thứ nhất (first countable).
 </div>
 
 ---
 
-### 5. Cauchy Sequences và Completeness
+### 5. Dãy Cauchy và tính đầy đủ
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cauchy Sequence):**  
-Sequence (xₙ) là **Cauchy** nếu:
+**Định nghĩa (Dãy Cauchy):**  
+Dãy $(x_n)$ được gọi là **dãy Cauchy** nếu:
 
 $$
 \forall \varepsilon > 0: \exists N: \forall m,n \geq N: d(x_m, x_n) < \varepsilon
 $$
 </div>
 
-**Trực giác:** Terms "cluster together" khi n → ∞.
+Về mặt trực quan, các phần tử của dãy Cauchy tiến lại gần nhau tùy ý khi chỉ số đủ lớn.
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Mọi convergent sequence là Cauchy.
+Mọi dãy hội tụ đều là dãy Cauchy.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-xₙ → x. Cho ε > 0, ∃N: ∀n ≥ N: d(xₙ, x) < ε/2.  
-Với m, n ≥ N:
+**Chứng minh:**  
+Giả sử $x_n \to x$. Với mọi $\varepsilon > 0$, tồn tại $N$ sao cho $d(x_n, x) < \varepsilon/2$ với mọi $n \geq N$. Khi đó, với mọi $m, n \geq N$:
 $$
 d(x_m, x_n) \leq d(x_m, x) + d(x, x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
 $$
-✓
+Do đó $(x_n)$ là dãy Cauchy.
 </div>
 
-**Converse KHÔNG đúng tổng quát!**
-
-**Counterexample:** (0,1) với Euclidean metric.  
-xₙ = 1/n Cauchy nhưng limit 0 ∉ (0,1).
+**Chiều ngược lại không đúng trong trường hợp tổng quát.** Chẳng hạn, trong khoảng mở $(0,1)$ với metric Euclid, dãy $x_n = 1/n$ là dãy Cauchy nhưng giới hạn $0$ không thuộc $(0,1)$.
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Complete Metric Space):**  
-(X, d) là **complete** nếu mọi Cauchy sequence converges trong X.
+**Định nghĩa (Không gian metric đầy đủ – Complete Metric Space):**  
+Không gian metric $(X, d)$ được gọi là **đầy đủ** (complete) nếu mọi dãy Cauchy trong $X$ đều hội tụ đến một điểm thuộc $X$.
 </div>
 
-**Examples Complete:**
-- ℝⁿ complete (completeness axiom)
-- [a, b] complete
-- C([0,1]) với uniform metric complete
-- ℓ^p complete (p ≥ 1)
+**Các ví dụ về không gian đầy đủ:**
+- $\mathbb{R}^n$ với metric Euclid (từ tiên đề đầy đủ của $\mathbb{R}$),
+- Đoạn đóng $[a, b] \subset \mathbb{R}$,
+- $C([0,1])$ với metric đều $d_\infty$,
+- Các không gian dãy $\ell^p$ với $p \geq 1$.
 
-**Examples NOT Complete:**
-- (0, 1) không complete
-- ℚ không complete  
-- C([0,1]) với L¹ metric không complete
+**Các ví dụ về không gian không đầy đủ:**
+- Khoảng mở $(0, 1)$,
+- Tập số hữu tỉ $\mathbb{Q}$ với metric Euclid,
+- $C([0,1])$ với metric tích phân $L^1$.
 
-**Ý nghĩa:** Completeness = "no holes"—mọi Cauchy sequence "should" converge.
+Về trực quan, tính đầy đủ có nghĩa là không gian không bị "khuyết điểm": mọi dãy Cauchy đều có giới hạn nằm ngay trong không gian đó.
 
 ---
 
-### 6. Isometries
+### 6. Phép đẳng cự (Isometries)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Isometry):**  
-f: (X, d_X) → (Y, d_Y) là **isometry** nếu:
+**Định nghĩa (Phép đẳng cự – Isometry):**  
+Ánh xạ $f: (X, d_X) \to (Y, d_Y)$ được gọi là một **phép đẳng cự** nếu:
 
 $$
 d_Y(f(x), f(y)) = d_X(x, y) \quad \forall x, y \in X
 $$
 </div>
 
-**Nói bằng lời:** f preserves distances exactly.
+Nói cách khác, $f$ bảo toàn chính xác khoảng cách giữa mọi cặp điểm.
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Mọi isometry là injective và continuous.
+Mọi phép đẳng cự đều là đơn ánh và liên tục.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**
-- **Injective:** f(x) = f(y) ⇒ d(x,y) = d(f(x), f(y)) = 0 ⇒ x = y ✓
-- **Continuous:** ε-δ trivial với δ = ε ✓
+**Chứng minh:**
+- **Tính đơn ánh:** Nếu $f(x) = f(y)$ thì $d_X(x,y) = d_Y(f(x), f(y)) = 0$, suy ra $x = y$.
+- **Tính liên tục:** Với mọi $\varepsilon > 0$, chọn $\delta = \varepsilon$; khi đó $d_X(x,y) < \delta$ kéo theo $d_Y(f(x), f(y)) = d_X(x,y) < \varepsilon$.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Isometric):**  
-(X, d_X) và (Y, d_Y) **isometric** nếu ∃ isometry f: X → Y **surjective**.
+**Định nghĩa (Đẳng cự – Isometric):**  
+Hai không gian metric $(X, d_X)$ và $(Y, d_Y)$ được gọi là **đẳng cự** với nhau nếu tồn tại một phép đẳng cự **toàn ánh** (song ánh) $f: X \to Y$.
 </div>
 
-**Notation:** X ≅ Y (as metric spaces).
+Ký hiệu: $X \cong Y$ (với tư cách là không gian metric). Hai không gian đẳng cự có cùng cấu trúc metric, chỉ khác nhau ở cách đặt tên điểm.
 
-**Ý nghĩa:** Isometric spaces = "same" as metric spaces (up to relabeling).
+**Ví dụ:** $[0, 1]$ và $[2, 3]$ đẳng cự với nhau qua phép tịnh tiến $f(x) = x + 2$ (lưu ý rằng $g(x) = 3x + 2$ biến $[0,1]$ lên $[2,5]$ là một phép đồng phôi nhưng không phải phép đẳng cự vì làm giãn khoảng cách $3$ lần).
 
-**Example:**  
-[0, 1] và [2, 5] isometric qua f(x) = 3x + 2.
-
-**Chú ý:**  
-- Isometry ⇒ homeomorphism
-- Homeomorphism ⇏ isometry
-
-**Example:** [0,1] homeomorphic với [0,2] nhưng không isometric (khác "size").
+**Lưu ý về mối quan hệ với đồng phôi:**
+- Một phép đẳng cự **song ánh** luôn là một phép đồng phôi (còn phép đẳng cự nói chung là phép nhúng đẳng cự, tức đồng phôi lên ảnh của nó).
+- Phép đồng phôi không nhất thiết là phép đẳng cự. Chẳng hạn, $[0,1]$ đồng phôi với $[0,2]$ qua $f(x) = 2x$, nhưng hai đoạn này không đẳng cự vì độ dài khác nhau.
 
 ---
 
-### 7. Bounded Sets và Diameter
+### 7. Tập bị chặn và đường kính
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Bounded Set):**  
-A ⊆ X **bounded** nếu ∃M: ∀x, y ∈ A: d(x,y) ≤ M.
+**Định nghĩa (Tập bị chặn – Bounded Set):**  
+Tập con $A \subseteq X$ được gọi là **bị chặn** nếu tồn tại $M \ge 0$ sao cho $d(x,y) \leq M$ với mọi $x, y \in A$.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Diameter):**
+**Định nghĩa (Đường kính – Diameter):**
 
 $$
 \text{diam}(A) = \sup\{d(x,y) : x, y \in A\}
 $$
 </div>
 
-**Examples:**
-- [0, 1] trong ℝ: diam = 1
-- ℝ: diam = ∞ (unbounded)
-- Finite set: bounded (obviously)
+**Ví dụ:**
+- Đoạn $[0, 1]$ trong $\mathbb{R}$ có $\operatorname{diam}([0,1]) = 1$.
+- Toàn bộ $\mathbb{R}$ có $\operatorname{diam}(\mathbb{R}) = \infty$ (không bị chặn).
+- Mọi tập hữu hạn đều bị chặn.
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-A compact (trong metric space) ⇒ A bounded.
+Nếu $A$ là tập compact trong một không gian metric thì $A$ bị chặn.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Cover by balls B(x₀, n) → finite subcover → bounded. ✓
+**Chứng minh:** Cố định $x_0 \in X$. Họ các quả cầu mở $\{B(x_0, n)\}_{n=1}^\infty$ tạo thành một phủ mở của $A$. Vì $A$ compact nên tồn tại phủ con hữu hạn, suy ra $A \subseteq B(x_0, N)$ với $N$ đủ lớn, do đó $A$ bị chặn.
 </div>
 
-**Converse sai:** (0,1) bounded nhưng không compact.
+**Chiều ngược lại không đúng:** Khoảng $(0,1)$ bị chặn nhưng không compact.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển và tham khảo
 
-### Classic Works
+### Các công trình kinh điển
 
-1. **Maurice Fréchet** - *"Sur quelques points du calcul fonctionnel"* (1906)  
-   *Introduced abstract metric spaces*
+1. **Maurice Fréchet** – *"Sur quelques points du calcul fonctionnel"* (1906)  
+   *Giới thiệu khái niệm không gian metric trừu tượng.*
 
-2. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Systematic treatment*
+2. **Felix Hausdorff** – *"Grundzüge der Mengenlehre"* (1914)  
+   *Trình bày có hệ thống về lý thuyết không gian metric và tô-pô.*
 
-3. **Stefan Banach** - *"Sur les opérations dans les ensembles abstraits"* (1922)  
-   *Complete metric spaces, Banach spaces*
+3. **Stefan Banach** – *"Sur les opérations dans les ensembles abstraits"* (1922)  
+   *Nghiên cứu không gian metric đầy đủ và không gian Banach.*
 
-### Textbooks
+### Giáo trình
 
-4. **James R. Munkres** - *Topology*, 2nd Ed., **§20: Metric Topology**  
-   *Standard reference*
+4. **James R. Munkres** – *Topology*, 2nd Ed., **§20: Metric Topology**  
+   *Tài liệu tham khảo tiêu chuẩn.*
 
-5. **Walter Rudin** - *Principles of Mathematical Analysis*, **Chapters 2-3**  
-   *Analysis perspective*
+5. **Walter Rudin** – *Principles of Mathematical Analysis*, **Chapters 2-3**  
+   *Tiếp cận từ góc độ giải tích.*
 
-6. **Seymour Lipschutz** - *General Topology* (Schaum's)  
-   *Accessible với examples*
+6. **Seymour Lipschutz** – *General Topology* (Schaum's)  
+   *Trình bày ngắn gọn kèm nhiều ví dụ.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### Analysis - Completeness
-**Fixed Point Theorems:** Banach Fixed Point Theorem requires complete metric spaces. Applications: solving differential equations.
+### Giải tích – Tính đầy đủ
+**Các định lý điểm bất động:** Định lý điểm bất động Banach đòi hỏi tính đầy đủ của không gian metric và được ứng dụng trực tiếp để chứng minh sự tồn tại, duy nhất nghiệm của phương trình vi phân.
 
-### Computer Science - Algorithms
-**Nearest Neighbor:** k-NN algorithm uses distance metrics (Euclidean, Manhattan) trong feature spaces.
+### Khoa học máy tính – Thuật toán
+**Tìm láng giềng gần nhất (Nearest Neighbor):** Thuật toán $k$-NN sử dụng các metric khoảng cách (như Euclid, Manhattan) trong không gian đặc trưng.
 
-### Data Science - Clustering
-**k-Means:** Uses Euclidean distance để cluster data points. Choice của metric affects results!
+### Khoa học dữ liệu – Phân cụm
+**$k$-Means:** Sử dụng khoảng cách Euclid để phân cụm dữ liệu; việc lựa chọn metric ảnh hưởng trực tiếp đến kết quả phân cụm.
 
-### Physics - Special Relativity
-**Minkowski Metric:** Spacetime với metric không positive-definite. Still satisfies modified axioms.
+### Vật lý – Thuyết tương đối hẹp
+**Metric Minkowski:** Không-thời gian sử dụng dạng song tuyến tính không xác định dương, thỏa mãn một phiên bản điều chỉnh của các tiên đề khoảng cách.
 
-### Machine Learning - Embeddings
-**Word Embeddings:** Words mapped to ℝⁿ với metric measuring semantic similarity.
+### Học máy – Biểu diễn nhúng (Embeddings)
+**Word Embeddings:** Biểu diễn từ ngữ thành các vector trong $\mathbb{R}^n$, nơi khoảng cách hoặc góc giữa các vector phản ánh mức độ tương đồng ngữ nghĩa.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Basic Topology 1 | Introduction and Open Sets in Metric Spaces](https://www.youtube.com/watch?v=D7ioHVbqWLA) — The Bright Side of Mathematics, tiếng Anh. Metric, hình cầu mở, và tập mở sinh ra từ chúng, đúng mở đầu của bài.
-- [[Không gian metric] I - Khái niệm, sự hội tụ, tập mở & tập đóng](https://www.youtube.com/watch?v=VTRHEyFDpA0) — Hatsune's Maticious, tiếng Việt. Cùng các khái niệm bằng tiếng Việt: hội tụ, tập mở, tập đóng.
-- [Metric Spaces 1: Definition and Examples](https://www.youtube.com/watch?v=6LFIav3C_lY) — Math at Andrews University, tiếng Anh. Định nghĩa và vài ví dụ chuẩn, nếu muốn nghe lại từng tiên đề của metric.
+- **xem trước** [Basic Topology 1 | Introduction and Open Sets in Metric Spaces](https://www.youtube.com/watch?v=D7ioHVbqWLA) — The Bright Side of Mathematics, tiếng Anh. Giới thiệu metric, quả cầu mở và tập mở sinh bởi chúng, bám sát phần mở đầu của bài.
+- [[Không gian metric] I - Khái niệm, sự hội tụ, tập mở & tập đóng](https://www.youtube.com/watch?v=VTRHEyFDpA0) — Hatsune's Maticious, tiếng Việt. Trình bày các khái niệm cơ bản về hội tụ, tập mở và tập đóng bằng tiếng Việt.
+- [Metric Spaces 1: Definition and Examples](https://www.youtube.com/watch?v=6LFIav3C_lY) — Math at Andrews University, tiếng Anh. Trình bày định nghĩa và một số ví dụ chuẩn để ôn lại từng tiên đề của metric.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Metric Definition
+### Định nghĩa metric
 
-1. **Verify Axioms:**  
-   Với d₁ Manhattan metric, verify chi tiết ba metric axioms.
+1. **Kiểm tra tiên đề:**  
+   Với metric Manhattan $d_1$, hãy kiểm tra chi tiết cả ba tiên đề metric.
 
-2. **Discrete Metric:**  
-   Chứng minh discrete metric thỏa mãn triangle inequality.
+2. **Metric rời rạc:**  
+   Chứng minh metric rời rạc thỏa mãn bất đẳng thức tam giác.
 
-3. **Not a Metric:**  
-   Cho d(x,y) = (x - y)². Điều này có phải metric trên ℝ không? Tại sao?
+3. **Không phải metric:**  
+   Xét $d(x,y) = (x - y)^2$ trên $\mathbb{R}$. Đây có phải là một metric không? Giải thích.
 
-### Examples
+### Ví dụ
 
-4. **Compute Distances:**  
-   Trong ℝ² với x = (1,2), y = (4,6):
-   - a) d₂ (Euclidean)
-   - b) d₁ (Manhattan)
-   - c) d∞ (Max)
+4. **Tính khoảng cách:**  
+   Trong $\mathbb{R}^2$ với $x = (1,2)$ và $y = (4,6)$, hãy tính:
+   - a) $d_2$ (Euclid)
+   - b) $d_1$ (Manhattan)
+   - c) $d_\infty$ (Cực đại)
 
-5. **Function Space:**  
-   Trong C([0,1]), tính d∞(f,g) với:
-   - f(x) = x, g(x) = x²
+5. **Không gian hàm:**  
+   Trong $C([0,1])$, tính $d_\infty(f,g)$ với $f(x) = x$ và $g(x) = x^2$.
 
-6. **L^p Norms:**  
-   Với x = (1,2,3) ∈ ℝ³, tính ||x||_p với p = 1, 2, ∞.
+6. **Chuẩn $L^p$:**  
+   Với $x = (1,2,3) \in \mathbb{R}^3$, tính $\|x\|_p$ với $p = 1, 2, \infty$.
 
-### Topology
+### Tô-pô
 
-7. **Open Balls:**  
-   Trong ℝ² với Manhattan metric, vẽ B((0,0), 1).  
-   Hình dạng gì?
+7. **Quả cầu mở:**  
+   Trong $\mathbb{R}^2$ với metric Manhattan, vẽ quả cầu mở $B((0,0), 1)$. Nó có hình dạng gì?
 
-8. **Induced Topology:**  
-   Discrete metric induces topology nào?
+8. **Tô-pô sinh bởi metric:**  
+   Metric rời rạc sinh ra tô-pô nào?
 
-9. **Basis:**  
-   Chứng minh {B(x,r) : x ∈ X, r > 0} là basis cho metric topology.
+9. **Cơ sở:**  
+   Chứng minh họ $\{B(x,r) : x \in X, r > 0\}$ là một cơ sở của tô-pô metric.
 
-### Convergence
+### Sự hội tụ
 
-10. **Sequence:**  
-    xₙ = 1/n trong ℝ. Chứng minh xₙ → 0 bằng ε-N definition.
+10. **Dãy số:**  
+    Với dãy $x_n = 1/n$ trong $\mathbb{R}$, chứng minh $x_n \to 0$ theo định nghĩa $\varepsilon$-$N$.
 
-11. **Cauchy:**  
-    Chứng minh: convergent ⇒ Cauchy.
+11. **Dãy Cauchy:**  
+    Chứng minh mọi dãy hội tụ đều là dãy Cauchy.
 
-12. **Non-Complete:**  
-    Trong (0,1), tìm Cauchy sequence không converge trong (0,1).
+12. **Không gian không đầy đủ:**  
+    Trong $(0,1)$, tìm một dãy Cauchy không hội tụ trong $(0,1)$.
 
-### Isometries
+### Phép đẳng cự
 
-13. **Verify Isometry:**  
-    f: ℝ → ℝ, f(x) = 2x có phải isometry không?
+13. **Kiểm tra phép đẳng cự:**  
+    Ánh xạ $f: \mathbb{R} \to \mathbb{R}$ xác định bởi $f(x) = 2x$ có phải là phép đẳng cự không?
 
-14. **Isometric:**  
-    [0,1] và [a,b] isometric. Construct explicit isometry.
+14. **Đẳng cự giữa các đoạn:**  
+    Với điều kiện nào thì $[0,1]$ và $[a,b]$ đẳng cự với nhau? Hãy xây dựng tường minh một phép đẳng cự trong trường hợp đó.
 
-15. **Homeomorphism vs Isometry:**  
-    Tìm homeomorphism f: [0,1] → [0,2] không phải isometry.
+15. **Đồng phôi và đẳng cự:**  
+    Tìm một phép đồng phôi $f: [0,1] \to [0,2]$ không phải là phép đẳng cự.
 
-### Advanced
+### Nâng cao
 
-16. **Triangle Inequality:**  
-    Chứng minh từ triangle inequality:  
-    |d(x,z) - d(y,z)| ≤ d(x,y)
+16. **Bất đẳng thức tam giác ngược:**  
+    Từ bất đẳng thức tam giác, chứng minh $|d(x,z) - d(y,z)| \leq d(x,y)$.
 
-17. **Equivalent Metrics:**  
-    d₁, d₂ **equivalent** nếu induce same topology.  
-    Chứng minh d₁, d₂, d∞ trên ℝⁿ equivalent.
+17. **Metric tương đương:**  
+    Hai metric $d_1, d_2$ gọi là tương đương nếu chúng sinh ra cùng một tô-pô. Chứng minh $d_1, d_2, d_\infty$ trên $\mathbb{R}^n$ tương đương với nhau.
 
-18. **Completion:**  
-    Mọi metric space có "completion" (complete metric space chứa X dense).  
-    Ví dụ: completion của ℚ = ℝ.
+18. **Đầy đủ hóa (Completion):**  
+    Mọi không gian metric đều có một đầy đủ hóa (không gian metric đầy đủ chứa $X$ như một tập con trù mật). Ví dụ: đầy đủ hóa của $\mathbb{Q}$ là $\mathbb{R}$.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-19. **Why Three Axioms?:**  
-    Giải thích ý nghĩa geometric của từng axiom.
+19. **Tại sao cần ba tiên đề?:**  
+    Giải thích ý nghĩa hình học của từng tiên đề metric.
 
-20. **Metric vs Topology:**  
-    Topology chỉ cần "open sets". Metric thêm "distance".  
-    Tradeoff gì giữa generality và structure?
+20. **Metric và tô-pô:**  
+    Tô-pô chỉ cần khái niệm tập mở, trong khi metric bổ sung thêm khái niệm khoảng cách. Sự đánh đổi giữa tính tổng quát và độ phong phú của cấu trúc là gì?
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §20 (Metric Topology)
 - **Rudin, PMA:** Chapters 2-3 (Metric Spaces)
@@ -548,24 +526,19 @@ A compact (trong metric space) ⇒ A bounded.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài học này, chúng ta đã khám phá các không gian metric—nền tảng của giải tích hiện đại. Một metric là một hàm $d: X \times X \to \mathbb{R}$ với ba tiên đề: tính xác định dương, tính đối xứng, và bất đẳng thức tam giác. Các ví dụ quan trọng bao gồm Euclidean metric, Manhattan metric, maximum metric, discrete metric, và các metric $L^p$. Metric topology được tạo ra một cách tự nhiên bởi các quả cầu mở—chúng định nghĩa một cơ sở cho tô-pô làm cho metric trở thành hàm liên tục. Sự hội tụ được định nghĩa bằng định nghĩa $\varepsilon$-$N$ cổ điển, và các giới hạn là duy nhất trong không gian metric. Các dãy Cauchy là những dãy mà các phần tử gần nhau tùy ý, và completeness đảm bảo rằng mọi dãy Cauchy đều hội tụ. Các isometry là các ánh xạ bảo toàn khoảng cách một cách hoàn hảo, đại diện cho các "chuyển động cứng" trong bối cảnh trừu tượng.
+Trong bài học này, chúng ta đã hệ thống hóa các khái niệm nền tảng của không gian metric. Một metric là hàm $d: X \times X \to \mathbb{R}$ thỏa mãn ba tiên đề: xác định dương, đối xứng và bất đẳng thức tam giác. Các ví dụ tiêu biểu gồm metric Euclid, metric Manhattan, metric cực đại, metric rời rạc và họ metric $L^p$. Các quả cầu mở tạo thành cơ sở cho tô-pô metric $\tau_d$. Trong không gian metric, sự hội tụ được đặc trưng qua định nghĩa $\varepsilon$-$N$ với giới hạn duy nhất; dãy Cauchy là dãy có các phần tử tiến gần nhau tùy ý, và không gian đầy đủ là không gian trong đó mọi dãy Cauchy đều hội tụ. Phép đẳng cự là ánh xạ bảo toàn chính xác khoảng cách.
 
-Điểm chính của bài học là metric = tô-pô + khoảng cách—chúng ta có cả cấu trúc tô-pô và khả năng đo lường khoảng cách. Mọi không gian metric tự động là Hausdorff, regular, normal, và first countable—các tính chất tốt mà các không gian tô-pô tổng quát không nhất thiết có. Completeness là một tính chất riêng biệt khỏi tô-pô—nó phụ thuộc vào metric cụ thể, không chỉ vào tô-pô. $\mathbb{R}^n$ với Euclidean metric là nguyên mẫu của không gian metric—nó là ví dụ quan trọng nhất và được nghiên cứu kỹ nhất. Các ứng dụng của metric spaces lan tỏa khắp toán học: giải tích, khoa học máy tính, khoa học dữ liệu, và vật lý.
+Về mặt cấu trúc, mọi không gian metric đều tự động là Hausdorff, chính quy (regular), chuẩn tắc (normal) và thỏa mãn tiên đề đếm được thứ nhất. Tính đầy đủ là tính chất của bản thân metric chứ không chỉ của tô-pô sinh bởi nó. Các metric khác nhau trên cùng một tập hợp có thể tạo ra các tính chất hình học rất khác nhau, nên việc lựa chọn metric phù hợp đóng vai trò quan trọng trong cả lý thuyết lẫn ứng dụng.
 
-Trong thực tế, các metric khác nhau tạo ra các hình học khác nhau—cùng một tập hợp có thể có các tính chất hình học rất khác nhau tùy thuộc vào metric mà chúng ta chọn. Chúng ta cần kiểm tra completeness khi làm việc với các định lý điểm bất động—chúng cần completeness để đảm bảo sự hội tụ. Các isometry bảo toàn các tính chất hình học—chúng là các ánh xạ "cứng" không làm thay đổi hình dạng. Việc chọn metric là quan trọng trong các ứng dụng—metric phù hợp có thể làm cho các bài toán trở nên dễ giải quyết hơn nhiều.
-
-**Tiếp theo:** Lecture 04.01 về **Completeness và Baire Category Theorem**—nghiên cứu sâu hơn về các không gian complete và các ứng dụng!
+**Tiếp theo:** Lecture 04.01 về **Tính đầy đủ và Định lý phạm trù Baire** — nghiên cứu sâu hơn về các không gian đầy đủ và các hệ quả của chúng.
 
 ---
 
-*"A metric space is a topological space with a ruler."* — Geometric intuition
-
-🎯 **Master the metrics! They're everywhere in mathematics.** 🎯
+*"A metric space is a topological space with a ruler."*
 
 ---
 
 **Previous Chapter:** [Chapter 03: Separation Axioms](/contents/vi/topology-chapter03/)  
 **Next:** [Lecture 04.01: Completeness and Baire Category](/contents/vi/topology-chapter04/04_01_Completeness_Baire_Category/)
-
