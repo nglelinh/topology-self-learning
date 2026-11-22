@@ -10,255 +10,252 @@ tags: [logic, proof-techniques, induction, contradiction]
 description: "Logic toán học, các kỹ thuật chứng minh: trực tiếp, phản chứng, quy nạp"
 ---
 
-**Logic and Mathematical Proofs**
+**Logic và Chứng minh Toán học**
 
 ---
 
 ## 📖 Tổng quan
 
-Topology là một môn học đòi hỏi **reasoning** chặt chẽ. Không giống như calculus nơi bạn "tính toán" để tìm đáp án, trong topology bạn **chứng minh** các mệnh đề bằng logic thuần túy. Một định lý topology có thể nói: "Mọi không gian compact và Hausdorff đều normal"—không có số, không có công thức, chỉ có logic và cấu trúc.
+Tô-pô học đòi hỏi lập luận chặt chẽ. Khác với giải tích sơ cấp vốn thường tập trung vào việc tính toán ra một giá trị cụ thể, trong tô-pô ta chủ yếu **chứng minh** các mệnh đề dựa trên định nghĩa và cấu trúc logic. Chẳng hạn, mệnh đề "Mọi không gian compact và Hausdorff đều chuẩn tắc" không dùng đến phép tính số học mà hoàn toàn dựa trên suy luận từ các tiên đề.
 
-Để thành công trong topology, bạn cần thành thạo **proof techniques** (kỹ thuật chứng minh). Đây không phải "tricks"—chúng là cách tư duy có hệ thống để biến trực giác thành lập luận nghiêm ngặt.
+Để học tốt tô-pô, cần nắm vững các **kỹ thuật chứng minh** (*proof techniques*). Đây không phải là mẹo rời rạc, mà là phương pháp tư duy có hệ thống giúp chuyển hóa trực giác thành lập luận nghiêm ngặt.
 
-Trong bài này, chúng ta sẽ học bốn pillars của mathematical reasoning. Đầu tiên, **propositional logic** teaches us làm sao combine simple statements thành complex ones using connectives như "and", "or", và crucially "implies". Thứ hai, **quantifiers** ("for all" và "there exists") cho phép ta make general statements about infinite collections—backbone của topology definitions. Thứ ba, **proof techniques** (direct, contrapositive, contradiction, induction) provide systematic strategies để transform intuition thành rigorous arguments. Cuối cùng, understanding **common pitfalls** helps us avoid logical traps mà even experienced mathematicians sometimes fall into.
+Bài giảng này trình bày bốn trụ cột của lập luận toán học. Thứ nhất là **logic mệnh đề** (*propositional logic*), giúp kết hợp các phát biểu đơn giản bằng các phép toán logic như "và", "hoặc" và đặc biệt là phép kéo theo ("nếu... thì..."). Thứ hai là **lượng từ** (*quantifiers*) — "với mọi" ($\forall$) và "tồn tại" ($\exists$) — xương sống của hầu hết các định nghĩa trong tô-pô. Thứ ba là các **kỹ thuật chứng minh** cơ bản gồm chứng minh trực tiếp, phản đảo, phản chứng và quy nạp. Cuối cùng là nhận diện một số **lỗi logic phổ biến** để tránh sai sót trong quá trình suy luận.
 
-**Tại sao bài này fundamental?** Mọi single theorem trong topology—from basic definitions đến deep results—relies on rigorous proof. Khi bạn đọc một topology textbook, understanding logical structure cho phép bạn "parse" complex proofs thành manageable pieces. Hơn nữa, these techniques không chỉ là tools để verify existing results; chúng empower bạn để discover new mathematics, to ask "what if" questions và answer them rigorously.
+**Tại sao bài này quan trọng?** Mọi định lý trong tô-pô đều dựa trên chứng minh chặt chẽ. Hiểu rõ cấu trúc logic giúp bạn phân tích các chứng minh phức tạp trong giáo trình thành từng bước rõ ràng, đồng thời giúp bạn tự kiểm tra tính đúng đắn của các lập luận khi giải bài tập.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Chứng minh
+### Bản chất của một chứng minh
 
-Tưởng tượng bạn là một thám tử. Bạn có một giả thuyết: "Người A là thủ phạm". Có nhiều cách tiếp cận: **Direct proof** involves chỉ ra bằng chứng trực tiếp—A có động cơ, có mặt tại hiện trường, fingerprints match. **Proof by contradiction** starts bằng cách giả sử opposite (A không phải thủ phạm), rồi show rằng điều này leads to một absurdity contradicting known evidence. **Proof by contrapositive** reasons: nếu ai đó không có mặt tại hiện trường, họ không thể là thủ phạm—establishing contrapositive của "thủ phạm ⇒ có mặt tại hiện trường".
+Có thể ví việc chứng minh toán học với suy luận của một thám tử khi kiểm tra giả thuyết "Người $A$ là thủ phạm". **Chứng minh trực tiếp** chỉ ra bằng chứng cụ thể nối từ các dữ kiện đã biết đến kết luận. **Chứng minh phản chứng** bắt đầu bằng việc giả sử điều ngược lại ($A$ không phải thủ phạm), rồi suy ra một mâu thuẫn với chứng cứ đã xác nhận. **Chứng minh phản đảo** lập luận rằng nếu một người không có mặt tại hiện trường thì người đó không thể là thủ phạm — tức chứng minh mệnh đề phản đảo của "là thủ phạm $\Rightarrow$ có mặt tại hiện trường".
 
-Mathematical proofs work exactly như vậy! Một **chứng minh** là một carefully constructed chain of logical steps starting từ accepted **giả thiết** (hypotheses, axioms, previously proven theorems) và leading inexorably đến **kết luận** (conclusion). Mỗi step phải follow from previous ones by pure logic, creating an argument mà any reasonable person must accept một khi họ accept the starting assumptions.
+Chứng minh toán học hoạt động theo nguyên tắc tương tự: đó là một chuỗi các bước suy luận hợp lệ xuất phát từ **giả thiết** (tiên đề, định nghĩa, định lý đã chứng minh) và dẫn đến **kết luận**. Mỗi bước đều phải suy ra từ các bước trước theo đúng quy tắc logic.
 
 **Ví dụ đơn giản:**
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề:** Nếu n là số chẵn, thì n² là số chẵn.
+**Mệnh đề:** Nếu $n$ là số chẵn, thì $n^2$ là số chẵn.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Giả sử n chẵn. Theo định nghĩa, tồn tại k ∈ ℤ sao cho n = 2k.  
-Khi đó: n² = (2k)² = 4k² = 2(2k²).  
-Vì 2k² ∈ ℤ, nên n² chẵn. ∎
+Giả sử $n$ chẵn. Theo định nghĩa, tồn tại $k \in \mathbb{Z}$ sao cho $n = 2k$.  
+Khi đó: $n^2 = (2k)^2 = 4k^2 = 2(2k^2)$.  
+Vì $2k^2 \in \mathbb{Z}$, nên $n^2$ là số chẵn. ∎
 </div>
 
-Đơn giản! Nhưng đây là nền tảng của mọi chứng minh topology phức tạp.
+Cấu trúc suy luận đơn giản này chính là khuôn mẫu cơ bản cho mọi chứng minh tô-pô phức tạp hơn.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Propositional Logic (Logic Mệnh đề)
+### 1. Logic mệnh đề (Propositional Logic)
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề (Proposition):** Một câu có giá trị đúng (T) hoặc sai (F).
+**Mệnh đề (Proposition):** Một phát biểu khẳng định có giá trị chân lý xác định: hoặc đúng (T), hoặc sai (F).
 </div>
 
 **Ví dụ:**
-- "2 + 2 = 4" → T
-- "Paris là thủ đô của Đức" → F
-- "x > 5" → Không phải mệnh đề (phụ thuộc vào x)
+- "$2 + 2 = 4$" $\to$ Đúng (T).
+- "Paris là thủ đô của Đức" $\to$ Sai (F).
+- "$x > 5$" $\to$ Không phải mệnh đề (vì tính đúng/sai phụ thuộc vào giá trị của $x$).
 
-#### Logical Connectives (Liên từ Logic)
+#### Các phép toán (liên từ) logic
 
 | Ký hiệu | Tên | Định nghĩa | Ví dụ |
 |---------|-----|------------|-------|
-| ¬P | NOT (Phủ định) | Đảo giá trị P | Nếu P: "n chẵn", ¬P: "n lẻ" |
-| P ∧ Q | AND (Hội) | Đúng khi cả P, Q đúng | "n chẵn VÀ n > 10" |
-| P ∨ Q | OR (Tuyển) | Đúng khi ít nhất một đúng | "n chẵn HOẶC n > 10" |
-| P ⇒ Q | Implication (Kéo theo) | "Nếu P thì Q" | "Nếu n chẵn thì n² chẵn" |
-| P ⇔ Q | Biconditional (Tương đương) | P ⇒ Q và Q ⇒ P | "n chẵn ⇔ n = 2k" |
+| $\neg P$ | Phủ định (NOT) | Đảo giá trị chân lý của $P$ | Nếu $P$: "$n$ chẵn", $\neg P$: "$n$ lẻ" |
+| $P \land Q$ | Hội (AND) | Đúng khi cả $P$ và $Q$ cùng đúng | "$n$ chẵn VÀ $n > 10$" |
+| $P \lor Q$ | Tuyển (OR) | Đúng khi ít nhất một trong $P, Q$ đúng | "$n$ chẵn HOẶC $n > 10$" |
+| $P \Rightarrow Q$ | Kéo theo (Implication) | "Nếu $P$ thì $Q$" | "Nếu $n$ chẵn thì $n^2$ chẵn" |
+| $P \Leftrightarrow Q$ | Tương đương (Biconditional) | $P \Rightarrow Q$ và $Q \Rightarrow P$ | "$n$ chẵn $\Leftrightarrow n = 2k$" |
 
-**Truth Table của Implication:**
+**Bảng chân trị của phép kéo theo:**
 
-| P | Q | P ⇒ Q |
+| $P$ | $Q$ | $P \Rightarrow Q$ |
 |---|---|-------|
 | T | T | T |
 | T | F | F |
 | F | T | T |
 | F | F | T |
 
-**Chú ý quan trọng:** P ⇒ Q đúng khi P sai! (Vacuous truth)
+**Lưu ý quan trọng:** Phép kéo theo $P \Rightarrow Q$ luôn đúng khi giả thiết $P$ sai (gọi là *đúng một cách hiển nhiên / chân lý rỗng*, tiếng Anh: *vacuous truth*).
 
-**Ví dụ kỳ lạ:** "Nếu 1 + 1 = 3 thì tôi là Napoleon" → Mệnh đề này ĐÚNG!
+**Ví dụ:** Mệnh đề "Nếu $1 + 1 = 3$ thì tôi là Napoleon" là mệnh đề ĐÚNG theo bảng chân trị vì giả thiết "$1 + 1 = 3$" sai.
 
 ![Logic gates visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Venn_diagram_for_OR.svg/300px-Venn_diagram_for_OR.svg.png)  
-*Biểu đồ Venn cho OR logic - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Venn_diagram_for_OR.svg)*
+*Biểu đồ Venn cho phép tuyển (OR) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Venn_diagram_for_OR.svg)*
 
 ---
 
-### 2. Quantifiers (Lượng từ)
+### 2. Lượng từ (Quantifiers)
 
-#### Universal Quantifier (∀)
+#### Lượng từ phổ quát ($\forall$)
 
-**∀x ∈ S: P(x)** đọc là "Với mọi x trong S, P(x) đúng"
+**$\forall x \in S: P(x)$** đọc là "Với mọi $x$ thuộc $S$, $P(x)$ đúng".
 
 **Ví dụ:**
-- ∀n ∈ ℕ: n² ≥ 0
-- ∀x ∈ ℝ: x² - 1 = (x-1)(x+1)
+- $\forall n \in \mathbb{N}: n^2 \ge 0$
+- $\forall x \in \mathbb{R}: x^2 - 1 = (x - 1)(x + 1)$
 
 **Phủ định:**
 $$
 \neg(\forall x: P(x)) \equiv \exists x: \neg P(x)
 $$
 
-"Không phải mọi x đều thỏa P" ⇔ "Tồn tại x không thỏa P"
+"Không phải mọi $x$ đều thỏa $P$" $\iff$ "Tồn tại ít nhất một $x$ không thỏa $P$".
 
-#### Existential Quantifier (∃)
+#### Lượng từ tồn tại ($\exists$)
 
-**∃x ∈ S: P(x)** đọc là "Tồn tại x trong S sao cho P(x) đúng"
+**$\exists x \in S: P(x)$** đọc là "Tồn tại $x$ thuộc $S$ sao cho $P(x)$ đúng".
 
 **Ví dụ:**
-- ∃n ∈ ℕ: n² = 16 (Đúng, n = 4)
-- ∃x ∈ ℝ: x² = -1 (Sai trong ℝ, đúng trong ℂ)
+- $\exists n \in \mathbb{N}: n^2 = 16$ (Đúng, với $n = 4$)
+- $\exists x \in \mathbb{R}: x^2 = -1$ (Sai trong $\mathbb{R}$, đúng trong $\mathbb{C}$)
 
 **Phủ định:**
 $$
 \neg(\exists x: P(x)) \equiv \forall x: \neg P(x)
 $$
 
-"Không tồn tại x thỏa P" ⇔ "Mọi x đều không thỏa P"
+"Không tồn tại $x$ thỏa $P$" $\iff$ "Mọi $x$ đều không thỏa $P$".
 
-#### Nested Quantifiers (Lượng từ lồng nhau)
+#### Lượng từ lồng nhau (Nested Quantifiers)
 
-**Thứ tự quan trọng!**
+Thứ tự của các lượng từ khác loại không thể tùy ý đổi chỗ:
 
-- **∀x ∃y: P(x,y)** ≠ **∃y ∀x: P(x,y)**
+- **$\forall x \, \exists y: P(x, y)$** nói chung khác với **$\exists y \, \forall x: P(x, y)$**.
 
 **Ví dụ:**
-1. **∀x ∈ ℝ ∃y ∈ ℝ: y > x**  
-   "Với mọi x, tồn tại y lớn hơn x" → ĐÚNG (chọn y = x + 1)
+1. **$\forall x \in \mathbb{R} \, \exists y \in \mathbb{R}: y > x$**  
+   "Với mọi $x$, tồn tại $y$ lớn hơn $x$" $\to$ ĐÚNG (chọn $y = x + 1$).
 
-2. **∃y ∈ ℝ ∀x ∈ ℝ: y > x**  
-   "Tồn tại y lớn hơn mọi x" → SAI (không có số lớn nhất)
+2. **$\exists y \in \mathbb{R} \, \forall x \in \mathbb{R}: y > x$**  
+   "Tồn tại một số $y$ lớn hơn mọi $x$" $\to$ SAI (tập số thực không có phần tử lớn nhất).
 
-**Trong topology:**
+**Trong giải tích và tô-pô:**
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Continuity):**
+**Định nghĩa (Tính liên tục tại $a$):**
 $$
 \forall \varepsilon > 0 \; \exists \delta > 0 \; \forall x: (|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon)
 $$
 </div>
 
-Thứ tự quantifiers xác định chính xác khái niệm "liên tục"!
+Chính thứ tự các lượng từ xác định bản chất của tính liên tục ($\delta$ được phép phụ thuộc vào $\varepsilon$).
 
 ---
 
-### 3. Proof Techniques (Kỹ thuật Chứng minh)
+### 3. Các kỹ thuật chứng minh (Proof Techniques)
 
-#### A. Direct Proof (Chứng minh Trực tiếp)
+#### A. Chứng minh trực tiếp (Direct Proof)
 
-**Cấu trúc:** Giả sử P đúng → Suy luận từng bước → Kết luận Q đúng
+**Cấu trúc:** Giả sử $P$ đúng $\to$ suy luận từng bước hợp lệ $\to$ kết luận $Q$ đúng.
 
 **Ví dụ:**
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề:** Nếu a, b là số lẻ, thì a + b chẵn.
+**Mệnh đề:** Nếu $a, b$ là các số lẻ, thì $a + b$ là số chẵn.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Giả sử a, b lẻ. Theo định nghĩa:
-- a = 2k + 1 với k ∈ ℤ
-- b = 2m + 1 với m ∈ ℤ
+Giả sử $a, b$ lẻ. Theo định nghĩa:
+- $a = 2k + 1$ với $k \in \mathbb{Z}$
+- $b = 2m + 1$ với $m \in \mathbb{Z}$
 
 Do đó:
 $$
 a + b = (2k + 1) + (2m + 1) = 2(k + m + 1)
 $$
 
-Vì k + m + 1 ∈ ℤ, nên a + b chẵn. ∎
+Vì $k + m + 1 \in \mathbb{Z}$, nên $a + b$ là số chẵn. ∎
 </div>
 
-**Khi nào dùng:** Khi có "đường" rõ ràng từ giả thiết đến kết luận.
+**Khi nào dùng:** Khi có đường suy luận thẳng từ giả thiết sang kết luận.
 
 ---
 
-#### B. Proof by Contrapositive (Chứng minh bằng Mệnh đề Đảo)
+#### B. Chứng minh bằng mệnh đề phản đảo (Proof by Contrapositive)
 
-**Nguyên tắc:** Để chứng minh P ⇒ Q, ta chứng minh ¬Q ⇒ ¬P (tương đương logic!)
+**Nguyên tắc:** Để chứng minh $P \Rightarrow Q$, ta chứng minh mệnh đề tương đương logic $\neg Q \Rightarrow \neg P$ (mệnh đề phản đảo).
 
 **Ví dụ:**
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề:** Nếu n² chẵn, thì n chẵn.
+**Mệnh đề:** Nếu $n^2$ chẵn, thì $n$ chẵn.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh (bằng contrapositive):**  
-Ta chứng minh: Nếu n lẻ, thì n² lẻ.
+**Chứng minh (bằng mệnh đề phản đảo):**  
+Ta chứng minh: nếu $n$ lẻ, thì $n^2$ lẻ.
 
-Giả sử n lẻ, tức n = 2k + 1.  
+Giả sử $n$ lẻ, tức $n = 2k + 1$ với $k \in \mathbb{Z}$.  
 Khi đó:
 $$
 n² = (2k + 1)² = 4k² + 4k + 1 = 2(2k² + 2k) + 1
 $$
 
-Nên n² lẻ. ∎
+Vì $2k^2 + 2k \in \mathbb{Z}$, nên $n^2$ lẻ. ∎
 </div>
 
-**Khi nào dùng:** Khi ¬Q dễ làm việc hơn Q (ví dụ: Q là phủ định)
+**Khi nào dùng:** Khi giả thiết $\neg Q$ dễ khai thác hơn $P$ (chẳng hạn khi $P$ hoặc $Q$ ở dạng phủ định).
 
 ---
 
-#### C. Proof by Contradiction (Chứng minh bằng Phản chứng)
+#### C. Chứng minh bằng phản chứng (Proof by Contradiction)
 
-**Cấu trúc:** Giả sử kết luận SAI → Suy luận → Dẫn đến mâu thuẫn → Kết luận ban đầu ĐÚNG
+**Cấu trúc:** Giả sử kết luận cần chứng minh là SAI $\to$ suy luận hợp lệ $\to$ dẫn tới một mâu thuẫn với giả thiết hoặc sự thật đã biết $\to$ suy ra kết luận ban đầu ĐÚNG.
 
 **Ví dụ kinh điển:**
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề:** √2 là số vô tỉ.
+**Mệnh đề:** $\sqrt{2}$ là số vô tỉ.
 </div>
 
 **Chứng minh:**  
-Giả sử (phản chứng) √2 hữu tỉ. Khi đó:
+Giả sử phản chứng rằng $\sqrt{2}$ là số hữu tỉ. Khi đó tồn tại $p, q \in \mathbb{Z}$ ($q \neq 0$) với $\gcd(p, q) = 1$ (phân số tối giản) sao cho:
 $$
 \sqrt{2} = \frac{p}{q}
 $$
-với p, q ∈ ℤ, gcd(p,q) = 1 (tối giản).
 
 Bình phương hai vế:
 $$
 2 = \frac{p²}{q²} \implies p² = 2q²
 $$
 
-Do đó p² chẵn ⇒ p chẵn (theo ví dụ trước) ⇒ p = 2k.
-
-Thay vào:
+Do đó $p^2$ chẵn $\Rightarrow p$ chẵn (theo ví dụ ở mục B), nên viết được $p = 2k$ với $k \in \mathbb{Z}$. Thay vào đẳng thức trên:
 $$
 (2k)² = 2q² \implies 4k² = 2q² \implies q² = 2k²
 $$
 
-Do đó q² chẵn ⇒ q chẵn.
+Do đó $q^2$ chẵn $\Rightarrow q$ chẵn.
 
-**Mâu thuẫn!** Cả p và q đều chẵn → gcd(p,q) ≥ 2, trái với giả thiết tối giản.
+Điều này dẫn đến mâu thuẫn: cả $p$ và $q$ đều chẵn nên $\gcd(p, q) \ge 2$, trái với giả thiết phân số tối giản $\gcd(p, q) = 1$.
 
-Vậy √2 vô tỉ. ∎
+Vậy $\sqrt{2}$ là số vô tỉ. ∎
 
 ![Proof by contradiction flowchart](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Proof_by_Contradiction_Diagram.svg/400px-Proof_by_Contradiction_Diagram.svg.png)  
 *Sơ đồ chứng minh phản chứng - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Proof_by_Contradiction_Diagram.svg)*
 
-**Khi nào dùng:** Khi khó chứng minh trực tiếp, đặc biệt với các mệnh đề về sự "không tồn tại".
+**Khi nào dùng:** Khi khó chứng minh trực tiếp, đặc biệt với các mệnh đề khẳng định tính duy nhất hoặc sự "không tồn tại".
 
 ---
 
-#### D. Mathematical Induction (Quy nạp Toán học)
+#### D. Quy nạp toán học (Mathematical Induction)
 
-**Nguyên tắc:** Để chứng minh P(n) đúng với mọi n ∈ ℕ:
-1. **Base case:** Chứng minh P(1) đúng (hoặc P(0))
-2. **Inductive step:** Giả sử P(k) đúng (inductive hypothesis), chứng minh P(k+1) đúng
+**Nguyên tắc:** Để chứng minh $P(n)$ đúng với mọi số nguyên dương $n \ge 1$:
+1. **Bước cơ sở (Base case):** Chứng minh $P(1)$ đúng (hoặc $P(0)$ nếu xét từ $0$).
+2. **Bước quy nạp (Inductive step):** Giả sử $P(k)$ đúng (giả thiết quy nạp), chứng minh $P(k + 1)$ cũng đúng.
 
 **Ví dụ:**
 
 <div class="textbook-theorem" markdown="1">
-**Mệnh đề:** Với mọi n ≥ 1:
+**Mệnh đề:** Với mọi số nguyên $n \ge 1$:
 $$
 1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}
 $$
@@ -268,23 +265,23 @@ $$
 **Chứng minh:**
 </div>
 
-**Base case (n = 1):**
+**Bước cơ sở ($n = 1$):**
 $$
 1 = \frac{1 \cdot 2}{2} = 1 \quad \checkmark
 $$
 
-**Inductive step:**  
-Giả sử công thức đúng với n = k:
+**Bước quy nạp:**  
+Giả sử công thức đúng với $n = k$:
 $$
 1 + 2 + \cdots + k = \frac{k(k+1)}{2}
 $$
 
-Ta cần chứng minh đúng với n = k + 1:
+Ta cần chứng minh công thức cũng đúng với $n = k + 1$:
 $$
 1 + 2 + \cdots + k + (k+1) = \frac{(k+1)(k+2)}{2}
 $$
 
-Theo giả thiết quy nạp:
+Áp dụng giả thiết quy nạp:
 $$
 1 + 2 + \cdots + k + (k+1) = \frac{k(k+1)}{2} + (k+1)
 $$
@@ -292,100 +289,94 @@ $$
 = \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2} \quad \checkmark
 $$
 
-Vậy công thức đúng với mọi n ∈ ℕ. ∎
+Vậy công thức đúng với mọi số nguyên $n \ge 1$. ∎
 
 ![Mathematical induction dominoes](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Dominoeffect.png/400px-Dominoeffect.png)  
 *Hiệu ứng domino minh họa quy nạp - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dominoeffect.png)*
 
-**Biến thể:**
-- **Strong induction:** Giả sử P(1), ..., P(k) đều đúng → chứng minh P(k+1)
-- **Well-ordering principle:** Tương đương với induction
+**Các biến thể thường gặp:**
+- **Quy nạp mạnh (Strong induction):** Giả sử $P(1), \dots, P(k)$ đều đúng để chứng minh $P(k + 1)$.
+- **Nguyên lý thứ tự tốt (Well-ordering principle):** Tương đương với nguyên lý quy nạp trên $\mathbb{N}$.
 
-**Khi nào dùng:** Chứng minh công thức, tính chất phụ thuộc vào n ∈ ℕ
-
----
-
-### 4. Common Logical Mistakes (Lỗi Logic Phổ biến)
-
-#### Mistake 1: Converse Error
-
-**Sai lầm:** P ⇒ Q đúng KHÔNG có nghĩa là Q ⇒ P đúng!
-
-**Ví dụ:**
-- **Đúng:** "Nếu trời mưa, đường ướt" (P ⇒ Q)
-- **SAI:** "Nếu đường ướt, trời mưa" (Q ⇒ P) — có thể ai đó tưới nước!
-
-**Trong topology:**
-- **Đúng:** "Nếu không gian compact, mọi dãy có dãy con hội tụ"
-- **SAI:** "Nếu mọi dãy có dãy con hội tụ, không gian compact" (Sai trong không gian không metric!)
-
-#### Mistake 2: Quantifier Order
-
-**Sai lầm:** Đổi thứ tự ∀ và ∃
-
-**Ví dụ:**
-- **∀ε ∃δ:** "Với mọi ε, tồn tại δ" → Continuity
-- **∃δ ∀ε:** "Tồn tại δ với mọi ε" → Nonsense!
-
-#### Mistake 3: Vacuous Truth Confusion
-
-**Sai lầm:** Quên rằng P ⇒ Q đúng khi P sai
-
-**Ví dụ:** "Mọi số chẵn lẻ đều chia hết cho 7" → ĐÚNG (vì không có số chẵn lẻ!)
+**Khi nào dùng:** Khi chứng minh các công thức hoặc tính chất phụ thuộc vào chỉ số $n \in \mathbb{N}$.
 
 ---
 
-## 🧠 Fundamental Papers & References
+### 4. Các lỗi logic phổ biến (Common Logical Mistakes)
 
-### Classic Logic Texts
+#### Lỗi 1: Nhầm lẫn mệnh đề kéo theo với mệnh đề đảo (Converse Error)
+
+**Sai lầm:** $P \Rightarrow Q$ đúng KHÔNG kéo theo mệnh đề đảo $Q \Rightarrow P$ đúng.
+
+**Ví dụ đời thường:**
+- **Đúng:** "Nếu trời mưa thì đường ướt" ($P \Rightarrow Q$).
+- **Sai:** "Nếu đường ướt thì trời mưa" ($Q \Rightarrow P$) — đường có thể ướt do xe tưới nước.
+
+**Ví dụ trong tô-pô:**
+- **Đúng:** "Nếu một không gian tô-pô là compact và Hausdorff, thì nó là không gian chuẩn tắc."
+- **Sai:** "Nếu một không gian là chuẩn tắc, thì nó compact" (phản ví dụ: đường thẳng thực $\mathbb{R}$ là chuẩn tắc nhưng không compact).
+
+#### Lỗi 2: Đảo thứ tự lượng từ (Quantifier Order)
+
+**Sai lầm:** Tự ý đổi vị trí $\forall$ và $\exists$.
+
+**Ví dụ:**
+- **$\forall \varepsilon > 0 \, \exists \delta > 0 \dots$:** "Với mỗi $\varepsilon > 0$, tồn tại $\delta > 0$ phụ thuộc vào $\varepsilon$" $\to$ định nghĩa liên tục.
+- **$\exists \delta > 0 \, \forall \varepsilon > 0 \dots$:** "Tồn tại một $\delta > 0$ duy nhất dùng chung cho mọi $\varepsilon > 0$" $\to$ kéo theo $f$ là hàm hằng trên lân cận $a$, hoàn toàn khác với tính liên tục.
+
+#### Lỗi 3: Hiểu nhầm chân lý rỗng (Vacuous Truth)
+
+**Sai lầm:** Quên rằng $P \Rightarrow Q$ luôn đúng khi $P$ sai.
+
+**Ví dụ:** Mệnh đề "Mọi số nguyên vừa chẵn vừa lẻ đều chia hết cho $7$" là ĐÚNG, vì không tồn tại số nguyên nào vừa chẵn vừa lẻ để làm phản ví dụ.
+
+---
+
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
+
+### Tác phẩm kinh điển về logic
 
 1. **Aristotle** - *Organon* (~350 BCE)  
-   *Nền tảng của logic hình thức phương Tây*
+   *Nền tảng của logic hình thức phương Tây.*
 
 2. **Gottlob Frege** - *Begriffsschrift* (1879)  
-   *Phát minh ký hiệu logic hiện đại, quantifiers*
+   *Đưa ra ký hiệu logic hiện đại và hệ thống lượng từ.*
 
 3. **Bertrand Russell & Alfred N. Whitehead** - *Principia Mathematica* (1910–1913)  
-   *Cố gắng xây dựng toàn bộ toán học từ logic*
+   *Nỗ lực xây dựng toàn bộ toán học từ nền tảng logic.*
 
 4. **Kurt Gödel** - *Incompleteness Theorems* (1931)  
-   *Chứng minh giới hạn của logic hình thức*
+   *Chứng minh những giới hạn căn bản của các hệ thống hình thức.*
 
-### Textbooks for Topology
+### Giáo trình tham khảo cho tô-pô
 
 5. **James R. Munkres** - *Topology*, 2nd Ed., **§2: Logical Implications**  
-   *Brief nhưng đủ cho topology*
+   *Ngắn gọn, tập trung vào các phép suy luận dùng trong tô-pô.*
 
 6. **Daniel J. Velleman** - *How to Prove It* (2006)  
-   *Giáo trình proof-writing xuất sắc cho beginners*
+   *Giáo trình hướng dẫn kỹ năng viết chứng minh rất rõ ràng cho người mới học.*
 
 7. **Richard Hammack** - *Book of Proof* (2013)  
-   *Free online, rất accessible*
+   *Tài liệu miễn phí trực tuyến, dễ tiếp cận.*
 
 8. **Patrick Suppes** - *Introduction to Logic* (1957)  
-   *Classic text, formal approach*
+   *Giáo trình kinh điển theo hướng trình bày hình thức.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Computer Science - Formal Verification
-**Proof Assistants** như Coq, Lean, Isabelle sử dụng logic hình thức để verify tính đúng đắn của phần mềm. Mọi chứng minh toán học có thể được "formalize" thành code!
+### Khoa học máy tính — Kiểm chứng hình thức
+Các **trợ lý chứng minh** (*proof assistants*) như Coq, Lean và Isabelle sử dụng logic hình thức để kiểm tra tính đúng đắn của phần mềm cũng như các chứng minh toán học phức tạp. Ví dụ, Định lý Bốn màu (*Four Color Theorem*) đã được hình thức hóa và kiểm chứng hoàn toàn trên máy tính bằng Coq.
 
-**Ví dụ:** Định lý Four Color Theorem đã được chứng minh hoàn toàn bằng computer (Coq).
+### Toán học — Các định lý bất toàn của Gödel
+Trong bất kỳ hệ hình thức nhất quán nào đủ mạnh để chứa số học cơ bản, luôn tồn tại những mệnh đề đúng nhưng không thể chứng minh hay bác bỏ bên trong hệ đó. Kết quả này cho thấy giới hạn nội tại của khái niệm "chứng minh hình thức".
 
-### Mathematics - Gödel's Theorems
-**Incompleteness Theorems:** Trong bất kỳ hệ thống hình thức đủ mạnh (chứa số học), luôn tồn tại mệnh đề không thể chứng minh hoặc bác bỏ được.
+### Triết học và nền móng toán học
+**Logic trực giác (Intuitionistic Logic):** Một trường phái toán học không chấp nhận Luật bài trung ($P \lor \neg P$ luôn đúng) và do đó hạn chế phép chứng minh phản chứng. Trong toán học kiến thiết (*constructive mathematics*), để chứng minh $\exists x: P(x)$, ta cần chỉ ra thuật toán hoặc cách xây dựng tường minh đối tượng $x$.
 
-**Ý nghĩa:** Có giới hạn của "proof"—không phải mọi sự thật toán học đều chứng minh được!
-
-### Philosophy - Foundations of Mathematics
-**Intuitionistic Logic:** Một số toán học gia từ chối Law of Excluded Middle (P ∨ ¬P luôn đúng) và proof by contradiction.
-
-**Ví dụ:** Trong toán học constructive, chứng minh "∃x: P(x)" cần phải chỉ ra tường minh x là gì!
-
-### Real-World Example
-**Legal Reasoning:** Hệ thống pháp luật sử dụng logic: "Nếu X phạm tội Y, thì X bị phạt Z". Proof by contradiction xuất hiện: "Giả sử bị cáo vô tội, nhưng bằng chứng cho thấy..."
+### Ví dụ thực tế
+**Lập luận pháp lý:** Tư duy pháp luật cũng sử dụng cấu trúc kéo theo ("Nếu hành vi $X$ thỏa điều kiện $Y$, thì áp dụng chế tài $Z$") và phép lập luận phản chứng khi bác bỏ một giả thuyết dựa trên mâu thuẫn với chứng cứ.
 
 ---
 
@@ -394,87 +385,87 @@ Vậy công thức đúng với mọi n ∈ ℕ. ∎
 - **xem trước** [How To Write Your First Math Proof](https://www.youtube.com/watch?v=nISrZ80Oa50) — BriTheMathGuy, tiếng Anh. Một chứng minh viết tay đầu tiên: giả thiết, kết luận, và từng bước ở giữa.
 - [An Introduction to Mathematical Proofs](https://www.youtube.com/watch?v=YYgepDY3rHw) — zeropercent, tiếng Anh. Khung rộng hơn về cách đọc và viết chứng minh, dùng kèm phần logic của bài.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Basic Logic
+### Logic cơ bản
 
-1. **Truth Tables:**  
-   Tạo truth table cho (P ∨ Q) ⇒ (P ∧ Q). Điều kiện nào làm cho mệnh đề này đúng?
+1. **Bảng chân trị:**  
+   Lập bảng chân trị cho $(P \lor Q) \Rightarrow (P \land Q)$. Mệnh đề này đúng trong những trường hợp nào?
 
-2. **Negations:**  
-   Viết phủ định của các mệnh đề sau:
-   - a) ∀x ∈ ℝ: x² ≥ 0
-   - b) ∃n ∈ ℕ: n² < n
-   - c) ∀ε > 0 ∃δ > 0: |x - a| < δ ⇒ |f(x) - f(a)| < ε
+2. **Viết phủ định:**  
+   Viết mệnh đề phủ định của các phát biểu sau:
+   - a) $\forall x \in \mathbb{R}: x^2 \ge 0$
+   - b) $\exists n \in \mathbb{N}: n^2 < n$
+   - c) $\forall \varepsilon > 0 \, \exists \delta > 0 \, \forall x: |x - a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon$
 
-3. **Quantifier Order:**  
-   Phát biểu bằng lời nói và xác định đúng/sai:
-   - a) ∀x ∈ ℝ ∃y ∈ ℝ: x + y = 0
-   - b) ∃y ∈ ℝ ∀x ∈ ℝ: x + y = 0
-   - c) ∀x ∈ ℝ ∀y ∈ ℝ: (x < y ⇒ x² < y²)
+3. **Thứ tự lượng từ:**  
+   Diễn đạt bằng lời và xác định tính đúng/sai của từng mệnh đề:
+   - a) $\forall x \in \mathbb{R} \, \exists y \in \mathbb{R}: x + y = 0$
+   - b) $\exists y \in \mathbb{R} \, \forall x \in \mathbb{R}: x + y = 0$
+   - c) $\forall x \in \mathbb{R} \, \forall y \in \mathbb{R}: (x < y \Rightarrow x^2 < y^2)$
 
-### Proof Practice
+### Thực hành chứng minh
 
-4. **Direct Proof:**  
-   Chứng minh: Nếu n chia hết cho 6, thì n chia hết cho 2 và 3.
+4. **Chứng minh trực tiếp:**  
+   Chứng minh rằng nếu $n$ chia hết cho $6$, thì $n$ chia hết cho $2$ và $3$.
 
-5. **Contrapositive:**  
-   Chứng minh: Nếu n² không chia hết cho 3, thì n không chia hết cho 3.
+5. **Chứng minh phản đảo:**  
+   Chứng minh rằng nếu $n^2$ không chia hết cho $3$, thì $n$ không chia hết cho $3$.
 
-6. **Contradiction:**  
-   Chứng minh: Không tồn tại số hữu tỉ r sao cho r² = 3.
+6. **Chứng minh phản chứng:**  
+   Chứng minh rằng không tồn tại số hữu tỉ $r$ sao cho $r^2 = 3$.
 
-7. **Induction:**  
-   Chứng minh: Với mọi n ≥ 1,
+7. **Quy nạp toán học:**  
+   Chứng minh rằng với mọi $n \ge 1$:
    $$
    1² + 2² + 3² + \cdots + n² = \frac{n(n+1)(2n+1)}{6}
    $$
 
-### Topology-Related
+### Liên hệ với tô-pô
 
-8. **Logical Structure:**  
-   Định nghĩa topology: "Một họ 𝜏 của các tập con của X là topology nếu:
-   - (i) ∅, X ∈ 𝜏
-   - (ii) Hợp tùy ý các tập trong 𝜏 thuộc 𝜏
-   - (iii) Giao hữu hạn các tập trong 𝜏 thuộc 𝜏"
+8. **Cấu trúc logic của định nghĩa tô-pô:**  
+   Một họ $\tau$ các tập con của $X$ là một tô-pô trên $X$ nếu:
+   - (i) $\emptyset, X \in \tau$
+   - (ii) Hợp tùy ý của các tập trong $\tau$ thuộc $\tau$
+   - (iii) Giao hữu hạn của các tập trong $\tau$ thuộc $\tau$
    
-   Viết lại (ii) và (iii) bằng ký hiệu logic với quantifiers.
+   Hãy viết lại điều kiện (ii) và (iii) bằng ký hiệu logic có sử dụng lượng từ.
 
-9. **Continuity:**  
-   Định nghĩa ε-δ của continuity:
+9. **Tính liên tục:**  
+   Cho định nghĩa $\varepsilon$-$\delta$ của tính liên tục tại $a$:
    $$
    \forall \varepsilon > 0 \; \exists \delta > 0 \; \forall x: (|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon)
    $$
    
-   Viết định nghĩa "f không liên tục tại a" (phủ định).
+   Hãy viết phủ định để thu được định nghĩa "$f$ không liên tục tại $a$".
 
-10. **Proof Analysis:**  
-    Đọc chứng minh sau và xác định kỹ thuật nào được dùng:
+10. **Phân tích chứng minh:**  
+    Đọc chứng minh sau và xác định kỹ thuật chứng minh được sử dụng:
     
-    **Mệnh đề:** Tập số nguyên tố là vô hạn.
+    **Mệnh đề:** Tập hợp các số nguyên tố là vô hạn.
     
-    **Chứng minh:** Giả sử (phản chứng) chỉ có hữu hạn số nguyên tố: p₁, p₂, ..., pₙ.  
-    Xét N = p₁p₂...pₙ + 1.  
-    N không chia hết cho bất kỳ pᵢ nào (dư 1).  
-    Do đó N nguyên tố hoặc có ước nguyên tố khác không nằm trong danh sách → Mâu thuẫn! ∎
+    **Chứng minh:** Giả sử phản chứng chỉ có hữu hạn số nguyên tố $p_1, p_2, \dots, p_n$.  
+    Xét số $N = p_1 p_2 \cdots p_n + 1$.  
+    Số $N$ không chia hết cho bất kỳ $p_i$ nào (luôn dư $1$).  
+    Do đó $N$ hoặc là số nguyên tố mới, hoặc có một ước nguyên tố không nằm trong danh sách trên — mâu thuẫn. ∎
 
-### Advanced
+### Nâng cao
 
-11. **Constructive vs Non-constructive:**  
-    Chứng minh: Tồn tại hai số vô tỉ a, b sao cho a^b hữu tỉ.
+11. **Chứng minh kiến thiết và phi kiến thiết:**  
+    Chứng minh rằng tồn tại hai số vô tỉ $a, b$ sao cho $a^b$ là số hữu tỉ.
     
-    **Hint:** Xét √2^√2. Nếu nó hữu tỉ → done. Nếu vô tỉ, xét (√2^√2)^√2 = √2^2 = 2.
+    **Gợi ý:** Xét số $\sqrt{2}^{\sqrt{2}}$. Nếu nó là số hữu tỉ thì chọn $a = b = \sqrt{2}$. Nếu nó là số vô tỉ, xét $(\sqrt{2}^{\sqrt{2}})^{\sqrt{2}} = \sqrt{2}^2 = 2$.
     
-    Chứng minh này có "constructive" không? (Có chỉ ra tường minh a, b không?)
+    Chứng minh này có mang tính kiến thiết (*constructive*) không? Nó có chỉ ra cụ thể cặp $(a, b)$ nào thỏa mãn hay không?
 
-12. **Meta-mathematics:**  
-    Tìm hiểu về "Law of Excluded Middle": P ∨ ¬P luôn đúng.  
-    - Tại sao intuitionistic logic từ chối nó?
-    - Ứng dụng gì trong topology?
+12. **Siêu toán học:**  
+    Tìm hiểu về Luật bài trung (*Law of Excluded Middle*): $P \lor \neg P$ luôn đúng.  
+    - Vì sao logic trực giác không chấp nhận tiên đề này?
+    - Logic trực giác có liên hệ như thế nào với tô-pô (chẳng hạn mô hình tô-pô của đại số Heyting)?
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Velleman, How to Prove It:** Chapters 1–3 (Propositional and Quantificational Logic)
 - **Hammack, Book of Proof:** Chapters 4–6 (Direct Proof, Contrapositive, Contradiction)
@@ -483,40 +474,38 @@ Vậy công thức đúng với mọi n ∈ ℕ. ∎
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài giảng này, chúng ta đã học:
+Trong bài giảng này, ta đã hệ thống lại các công cụ suy luận cơ bản:
 
-✅ **Propositional Logic:** Connectives (¬, ∧, ∨, ⇒, ⇔)  
-✅ **Quantifiers:** ∀ (universal), ∃ (existential), và thứ tự quan trọng  
-✅ **Proof Techniques:**
-   - Direct proof: P → ... → Q
-   - Contrapositive: ¬Q → ... → ¬P
-   - Contradiction: ¬Q → ... → False
-   - Induction: P(1) ∧ [P(k) ⇒ P(k+1)] → ∀n: P(n)  
-✅ **Common Mistakes:** Converse error, quantifier order, vacuous truth  
+✅ **Logic mệnh đề:** Các phép toán logic ($\neg, \land, \lor, \Rightarrow, \Leftrightarrow$) và bảng chân trị.  
+✅ **Lượng từ:** $\forall$ (với mọi), $\exists$ (tồn tại), quy tắc phủ định và vai trò của thứ tự lượng từ.  
+✅ **Kỹ thuật chứng minh:**
+   - Chứng minh trực tiếp: $P \to \dots \to Q$.
+   - Chứng minh phản đảo: $\neg Q \to \dots \to \neg P$.
+   - Chứng minh phản chứng: giả sử $\neg Q \to \dots \to$ mâu thuẫn.
+   - Quy nạp toán học: $P(1) \land [P(k) \Rightarrow P(k+1)] \to \forall n \ge 1: P(n)$.  
+✅ **Lỗi thường gặp:** Nhầm với mệnh đề đảo, đảo thứ tự lượng từ và hiểu nhầm chân lý rỗng.
 
 **Điểm chính:**
-- Logic là ngôn ngữ của toán học—hiểu logic = hiểu chứng minh
-- Mỗi kỹ thuật chứng minh có điểm mạnh riêng
-- Quantifiers phải được sắp xếp cẩn thận
-- Practice là chìa khóa: làm nhiều bài tập!
+- Logic là ngôn ngữ lập luận của toán học; nắm chắc cấu trúc logic giúp đọc và viết chứng minh chính xác.
+- Mỗi kỹ thuật chứng minh thích hợp với những dạng mệnh đề khác nhau.
+- Thứ tự lượng từ quyết định hoàn toàn ý nghĩa của định nghĩa.
 
-**Connection đến topology:**
-- Mọi định nghĩa topology đều có cấu trúc quantifier phức tạp
-- Proof by contradiction rất phổ biến (compactness, connectedness)
-- Induction dùng cho các construction quy nạp (CW complexes)
+**Liên hệ với tô-pô:**
+- Nhiều định nghĩa cốt lõi trong tô-pô chứa các lượng từ lồng nhau.
+- Chứng minh phản chứng xuất hiện thường xuyên khi nghiên cứu tính compact và tính liên thông.
+- Quy nạp được dùng trong các phép xây dựng từng bước (chẳng hạn phức CW).
 
-**Tiếp theo:** Trong Lecture 00.03, chúng ta sẽ học về **Real Numbers và Euclidean Space**—chuẩn bị cho việc hiểu topology trên ℝⁿ, ví dụ cụ thể đầu tiên về không gian tô-pô.
+**Tiếp theo:** Trong Bài 00.03, ta sẽ tìm hiểu **Số thực và Không gian Euclid** — ví dụ cụ thể đầu tiên dẫn dắt sang định nghĩa không gian tô-pô.
 
 ---
 
 *"A mathematician is a device for turning coffee into theorems." — Paul Erdős*
 
-🎯 **Hãy practice chứng minh mỗi ngày! Logic như muscle: càng luyện càng mạnh.** 🎯
+🎯 **Hãy rèn luyện kỹ năng viết chứng minh qua bài tập mỗi ngày.** 🎯
 
 ---
 
 **Previous:** [Lecture 00.01: Cartesian Products and Zorn's Lemma](/contents/vi/topology-chapter00/00_01_Cartesian_Products_Zorns_Lemma/)  
 **Next:** [Lecture 00.03: Real Numbers and Euclidean Space](/contents/vi/topology-chapter00/00_03_Real_Numbers_Euclidean_Space/)
-

@@ -10,158 +10,146 @@ tags: [homotopy, path-homotopy, homotopy-equivalence, contractible]
 description: "Homotopy: continuous deformation, path homotopy, homotopy equivalence, và contractible spaces"
 ---
 
-**Homotopy and Path Homotopy**
+**Đồng luân và Đồng luân đường**
 
 ---
 
 ## 📖 Tổng quan
 
-Lý thuyết homotopy là trái tim của tô-pô học đại số. Ý tưởng cốt lõi là:
+Lý thuyết đồng luân (homotopy theory) là nền tảng của tô-pô đại số. Ý tưởng trung tâm của nó là:
 
-> **Hai đối tượng được coi là "giống nhau" nếu một đối tượng có thể biến dạng liên tục thành đối tượng kia.**
+> **Hai đối tượng được coi là tương đương nếu một đối tượng có thể biến dạng liên tục thành đối tượng kia.**
 
-Homotopy chính là sự biến dạng liên tục này. Nó cho phép chúng ta phân loại các không gian "theo homotopy" (một quan hệ yếu hơn homeomorphism), định nghĩa fundamental group $\pi_1$ (các vòng lặp theo homotopy), và chứng minh các định lý mạnh mẽ như định lý điểm cố định Brouwer và định lý quả bóng có lông.
+Phép biến dạng liên tục đó được gọi là **đồng luân** (homotopy). Khái niệm này cho phép phân loại không gian theo *kiểu đồng luân* (yếu hơn đồng phôi nhưng dễ nghiên cứu hơn bằng đại số), xây dựng nhóm cơ bản $\pi_1$ từ các lớp đồng luân của vòng khép kín, và chứng minh nhiều kết quả kinh điển như định lý điểm bất động Brouwer hay định lý quả bóng có lông.
 
 ![Homotopy visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Homotopy_Illustration.svg/500px-Homotopy_Illustration.svg.png)  
-*Sự biến dạng liên tục (homotopy) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Homotopy_Illustration.svg)*
+*Minh họa phép biến dạng liên tục (đồng luân) – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Homotopy_Illustration.svg)*
 
-Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của homotopy theory. Chúng ta bắt đầu với homotopy của các ánh xạ—một ánh xạ liên tục $F: X \times I \to Y$ kết nối hai ánh xạ $f$ và $g$ một cách liên tục. Chúng ta sẽ nghiên cứu homotopy equivalence—một quan hệ yếu hơn homeomorphism nhưng vẫn bảo toàn nhiều tính chất đại số quan trọng. Chúng ta sẽ khám phá path homotopy—sự biến dạng của các đường đi với các điểm đầu và cuối cố định, đây là nền tảng cho fundamental group. Chúng ta sẽ nghiên cứu các không gian contractible—các không gian đồng luân tương đương với một điểm, và các ví dụ quan trọng như hình tròn, hình cầu, và torus.
+Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa đồng luân giữa hai ánh xạ, tương đương đồng luân, không gian co rút được (contractible), đường đi và vòng khép kín, đồng luân đường (path homotopy), cũng như các khái niệm bổ trợ như tính chất mở rộng đồng luân (HEP) và co rút biến dạng (deformation retract).
 
-Các bài học tiếp theo sẽ khám phá $\pi_1$, covering spaces, và định lý van Kampen—đây là nơi tô-pô học đại số thực sự nở rộ!
+Các bài học tiếp theo trong chương sẽ xây dựng nhóm cơ bản $\pi_1$, lý thuyết không gian phủ và định lý Seifert–van Kampen.
 
 ---
 
-## 🔄 Homotopy of Maps
+## 🔄 Đồng luân giữa các ánh xạ (Homotopy of Maps)
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Homotopy):**  
-Cho $f, g: X \to Y$ là các ánh xạ liên tục. **Homotopy** từ $f$ đến $g$ là một ánh xạ liên tục:
+**Định nghĩa (Đồng luân – Homotopy):**  
+Cho $f, g: X \to Y$ là hai ánh xạ liên tục. Một **phép đồng luân** từ $f$ đến $g$ là một ánh xạ liên tục:
 
 $$
 F: X \times [0,1] \to Y
 $$
 </div>
 
-sao cho $F(x, 0) = f(x)$ và $F(x, 1) = g(x)$ cho mọi $x \in X$.
+thỏa mãn $F(x, 0) = f(x)$ và $F(x, 1) = g(x)$ với mọi $x \in X$.
 
-**Ký hiệu:** $F: f \simeq g$ (hay $f \sim g$).
+**Ký hiệu:** $F: f \simeq g$ (hoặc $f \sim g$). Hai ánh xạ $f, g$ được gọi là **đồng luân** (homotopic) nếu tồn tại một phép đồng luân giữa chúng.
 
-Trực giác hình học đằng sau định nghĩa này là chúng ta tưởng tượng một "bộ phim" của sự biến dạng liên tục từ ánh xạ $f$ đến ánh xạ $g$. Tham số $t \in [0,1]$ đóng vai trò như "thời gian" trong bộ phim này—tại thời điểm $t=0$, chúng ta có ánh xạ $f$, và tại thời điểm $t=1$, chúng ta có ánh xạ $g$. Với mỗi giá trị trung gian $t \in (0,1)$, $F(x, t)$ cho chúng ta một ánh xạ trung gian—một "khung hình" trong bộ phim biến dạng. Tính liên tục của $F$ đảm bảo rằng sự biến dạng này diễn ra một cách mượt mà, không có "nhảy vọt" đột ngột. Đây chính là ý tưởng cốt lõi của homotopy: chúng ta có thể biến dạng một ánh xạ thành ánh xạ khác một cách liên tục, giống như cách chúng ta có thể kéo giãn và uốn cong một tấm cao su mà không làm rách nó.
-
----
-
-**Homotopic:** $f$, $g$ **homotopic** nếu $\exists$ homotopy $F: f \simeq g$.
+Về trực quan, có thể xem tham số $t \in [0,1]$ là "thời gian": tại $t = 0$ ta có ánh xạ $f$, tại $t = 1$ ta có ánh xạ $g$, và tại mỗi thời điểm trung gian $t \in (0,1)$, ánh xạ $f_t(x) = F(x,t)$ là một "khung hình" biến đổi liên tục từ $f$ sang $g$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** $\sim$ là quan hệ tương đương.
+**Định lý:** Quan hệ đồng luân $\simeq$ là một quan hệ tương đương trên tập các ánh xạ liên tục từ $X$ vào $Y$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Chúng ta cần kiểm tra ba tính chất của quan hệ tương đương. Tính phản xạ được thỏa mãn một cách tầm thường—mỗi ánh xạ đồng luân với chính nó thông qua constant homotopy $F(x,t) = f(x)$, nghĩa là chúng ta không thay đổi ánh xạ trong suốt quá trình biến dạng. Tính đối xứng được thiết lập bằng cách đảo ngược thời gian—nếu $F: f \simeq g$ là một homotopy từ $f$ đến $g$, thì $G(x,t) = F(x, 1-t)$ là một homotopy từ $g$ đến $f$, đơn giản là chạy bộ phim ngược lại. Tính bắc cầu được chứng minh bằng cách nối các homotopies—nếu chúng ta có $F: f \simeq g$ và $G: g \simeq h$, chúng ta có thể tạo ra một homotopy từ $f$ đến $h$ bằng cách chạy $F$ trong nửa đầu của khoảng thời gian và $G$ trong nửa sau, với một reparametrization thích hợp để đảm bảo tính liên tục tại điểm nối.
+**Chứng minh:**
+- **Phản xạ:** $F(x,t) = f(x)$ là đồng luân từ $f$ đến chính nó.
+- **Đối xứng:** Nếu $F: f \simeq g$ thì $G(x,t) = F(x, 1-t)$ là đồng luân từ $g$ đến $f$.
+- **Bắc cầu:** Nếu $F: f \simeq g$ và $G: g \simeq h$, thì ánh xạ $H(x,t) = F(x, 2t)$ khi $0 \le t \le 1/2$ và $H(x,t) = G(x, 2t-1)$ khi $1/2 \le t \le 1$ liên tục (theo bổ đề dán) và là đồng luân từ $f$ đến $h$.
 </div>
 
 ---
 
-### 2. Examples
+### 2. Các ví dụ
 
-**Ví dụ 1: Ánh xạ đồng nhất đồng luân với chính nó**
+**Ví dụ 1: Đồng luân tầm thường**  
+Mọi ánh xạ liên tục $f: X \to Y$ (chẳng hạn $f = \operatorname{id}_X$) đều đồng luân với chính nó qua $F(x,t) = f(x)$.
 
-Ví dụ đơn giản nhất của homotopy là trường hợp một ánh xạ đồng luân với chính nó. Cho $f = \text{id}_X$ là ánh xạ đồng nhất trên $X$. Chúng ta có thể định nghĩa một homotopy tầm thường bằng cách đặt $F(x,t) = x$ cho mọi $t \in [0,1]$. Điều này có nghĩa là chúng ta không thay đổi ánh xạ trong suốt quá trình biến dạng—mỗi điểm được ánh xạ đến chính nó tại mọi thời điểm. Đây là một ví dụ quan trọng vì nó cho thấy rằng mỗi ánh xạ đều đồng luân với chính nó, đảm bảo tính phản xạ của quan hệ homotopy.
+**Ví dụ 2: Các ánh xạ hằng vào không gian liên thông đường**  
+Giả sử $f(x) = y_0$ và $g(x) = y_1$ là hai ánh xạ hằng từ $X$ vào không gian liên thông đường $Y$. Chọn đường đi liên tục $\alpha: [0,1] \to Y$ nối $y_0$ đến $y_1$; khi đó $F(x,t) = \alpha(t)$ là một đồng luân từ $f$ đến $g$.
 
-**Ví dụ 2: Các ánh xạ hằng đồng luân**
-
-Một ví dụ thú vị hơn là trường hợp các ánh xạ hằng. Giả sử $X$ là một không gian liên thông và $f, g: X \to Y$ là các ánh xạ hằng, nghĩa là $f(x) = y_0$ và $g(x) = y_1$ cho mọi $x \in X$, trong đó $y_0$ và $y_1$ là hai điểm cố định trong $Y$. Nếu $Y$ là path-connected, thì tồn tại một đường đi liên tục $\alpha: [0,1] \to Y$ từ $y_0$ đến $y_1$. Chúng ta có thể định nghĩa một homotopy $F: X \times [0,1] \to Y$ bằng cách đặt $F(x,t) = \alpha(t)$ cho mọi $x \in X$. Điều này có nghĩa là tại mỗi thời điểm $t$, tất cả các điểm của $X$ đều được ánh xạ đến cùng một điểm $\alpha(t)$ trên đường đi từ $y_0$ đến $y_1$. Kết quả là $f \simeq g$, cho thấy rằng trong một không gian path-connected, tất cả các ánh xạ hằng đều đồng luân với nhau.
-
-**Ví dụ 3: Ánh xạ đối cực trên $S^1$**
-
-Một ví dụ quan trọng về hai ánh xạ không đồng luân là ánh xạ đối cực trên hình tròn. Cho $f: S^1 \to S^1$ được định nghĩa bởi $f(z) = -z$, đây là ánh xạ ánh xạ mỗi điểm trên hình tròn đến điểm đối diện của nó. Cho $\text{id}: S^1 \to S^1$ là ánh xạ đồng nhất. Mặc dù cả hai ánh xạ đều liên tục, nhưng chúng không đồng luân với nhau. Lý do sâu xa là ánh xạ đối cực "quấn" hình tròn một cách khác với ánh xạ đồng nhất—nó có winding number khác nhau. Nếu chúng ta cố gắng biến dạng liên tục ánh xạ đồng nhất thành ánh xạ đối cực, chúng ta sẽ phải "xé" hình tròn tại một số điểm, điều này vi phạm tính liên tục. Một cách chính thức hơn, nếu $f \simeq \text{id}$, thì chúng sẽ cảm ứng cùng một đồng cấu trên fundamental group $\pi_1(S^1) \cong \mathbb{Z}$, nhưng ánh xạ đối cực cảm ứng phép nhân với $-1$, trong khi ánh xạ đồng nhất cảm ứng phép nhân với $1$. Điều này cho thấy rằng homotopy không chỉ là một khái niệm hình học mà còn có ý nghĩa đại số sâu sắc.
+**Ví dụ 3: Phép đối xứng gương và ánh xạ đồng nhất trên $S^1$**  
+Xét đường tròn đơn vị $S^1 \subset \mathbb{C}$. Phép đối xứng gương (liên hợp phức) $f(z) = \bar{z}$ và ánh xạ đồng nhất $\operatorname{id}(z) = z$ **không** đồng luân với nhau: trên nhóm cơ bản $\pi_1(S^1) \cong \mathbb{Z}$, $\operatorname{id}$ cảm sinh phép nhân với $+1$ còn $f$ cảm sinh phép nhân với $-1$ (đảo ngược chiều quấn). (Lưu ý rằng phép đối cực $z \mapsto -z = e^{i\pi}z$ trên $S^1$ lại *đồng luân* với ánh xạ đồng nhất qua phép quay liên tục $F(z,t) = e^{i\pi t}z$.)
 
 ---
 
-## 🏠 Homotopy Equivalence
+## 🏠 Tương đương đồng luân (Homotopy Equivalence)
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Homotopy Equivalence):**  
-Cho $f: X \to Y$ là một ánh xạ liên tục. $f$ là **homotopy equivalence** nếu $\exists g: Y \to X$:
-- $g \circ f \simeq \text{id}_X$
-- $f \circ g \simeq \text{id}_Y$
+**Định nghĩa (Tương đương đồng luân):**  
+Ánh xạ liên tục $f: X \to Y$ được gọi là một **tương đương đồng luân** nếu tồn tại ánh xạ liên tục $g: Y \to X$ sao cho:
+- $g \circ f \simeq \text{id}_X$,
+- $f \circ g \simeq \text{id}_Y$.
 </div>
 
-**$g$ được gọi là homotopy inverse của $f$.**
-
-**Các không gian $X$, $Y$ được gọi là **homotopy equivalent:** $X \simeq Y$.
+Khi đó $g$ được gọi là **nghịch đảo đồng luân** (homotopy inverse) của $f$, và hai không gian $X, Y$ được gọi là **tương đương đồng luân** (homotopy equivalent), ký hiệu $X \simeq Y$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** $\simeq$ là quan hệ tương đương trên các không gian.
+**Định lý:** Quan hệ $\simeq$ là một quan hệ tương đương trên lớp các không gian tô-pô.
 </div>
 
 ---
 
-### 2. Examples
+### 2. Các ví dụ
 
-**Ví dụ 1: Các không gian Contractible**
+**Ví dụ 1: Không gian co rút được (Contractible Spaces)**
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa:** Một không gian $X$ được gọi là **contractible** nếu $X \simeq \{pt\}$, nghĩa là $X$ đồng luân tương đương với một điểm.
+**Định nghĩa:** Không gian $X$ được gọi là **co rút được** (contractible) nếu $X \simeq \{pt\}$ (tương đương đồng luân với một không gian một điểm).
 </div>
 
-Điều này tương đương với việc ánh xạ đồng nhất $\text{id}_X$ đồng luân với một ánh xạ hằng. Trực giác hình học là chúng ta có thể "co" toàn bộ không gian về một điểm một cách liên tục, giống như cách một con sứa co lại khi bị chạm vào. Đây là một tính chất hình học mạnh mẽ—một không gian contractible không có "lỗ" hoặc "vòng lặp" nào mà không thể co lại được.
+Điều này tương đương với việc ánh xạ đồng nhất $\operatorname{id}_X$ đồng luân với một ánh xạ hằng.
 
-Các ví dụ quan trọng của không gian contractible bao gồm $\mathbb{R}^n$—chúng ta có thể co toàn bộ không gian Euclid về gốc tọa độ bằng cách nhân mỗi điểm với một hệ số $(1-t)$ khi $t$ chạy từ $0$ đến $1$. Tương tự, đĩa đóng $D^n$ là contractible vì chúng ta có thể co nó về tâm của nó. Cone $CX$ của một không gian $X$ cũng là contractible—cone về bản chất là một cách xây dựng một không gian contractible từ một không gian bất kỳ. Các tập star-shaped (các tập có một điểm sao cho mọi điểm khác đều có thể được nối với điểm đó bằng một đoạn thẳng nằm trong tập) cũng là contractible vì chúng ta có thể co chúng về điểm sao.
-
-Ngược lại, các không gian như $S^1$ (hình tròn), $S^n$ (hình cầu), và $T^2$ (torus) không phải là contractible. Lý do là chúng có "lỗ" hoặc "vòng lặp" không thể co lại được. Ví dụ, trên hình tròn $S^1$, bất kỳ vòng lặp nào đi một vòng quanh hình tròn đều không thể co lại về một điểm mà không "xé" hình tròn. Điều này được phản ánh trong fundamental group không tầm thường của chúng—$\pi_1(S^1) \cong \mathbb{Z}$ và $\pi_1(T^2) \cong \mathbb{Z}^2$.
+Các không gian co rút được quen thuộc gồm $\mathbb{R}^n$, đĩa đóng $D^n$, hình nón $CX$ trên bất kỳ không gian $X$ nào, và mọi tập hình sao (star-shaped) trong $\mathbb{R}^n$. Ngược lại, $S^1$, $S^n$ ($n \ge 1$) và hình xuyến $T^2$ không co rút được.
 
 ---
 
-**Ví dụ 2: $D^2 \simeq \{pt\}$**
+**Ví dụ 2: $D^2 \simeq \{pt\}$**  
+Ánh xạ $F: D^2 \times [0,1] \to D^2$ cho bởi $F(x,t) = (1-t)x$ là đồng luân giữa $\operatorname{id}_{D^2}$ và ánh xạ hằng tại gốc tọa độ $0$, chứng tỏ $D^2$ co rút được.
 
-Một ví dụ cụ thể và trực quan của không gian contractible là đĩa đóng $D^2$. Chúng ta có thể chứng minh rằng $D^2$ đồng luân tương đương với một điểm bằng cách xây dựng một homotopy rõ ràng. Đặt $F: D^2 \times I \to D^2$ được định nghĩa bởi $F(x,t) = (1-t)x$. Tại thời điểm $t=0$, chúng ta có $F(x,0) = x$, nghĩa là ánh xạ đồng nhất. Tại thời điểm $t=1$, chúng ta có $F(x,1) = 0$, nghĩa là ánh xạ hằng ánh xạ mọi điểm đến gốc tọa độ. Quá trình này có thể được hình dung như việc "thu nhỏ" đĩa về tâm của nó một cách liên tục—mỗi điểm di chuyển dọc theo đường thẳng từ vị trí ban đầu của nó đến gốc tọa độ với tốc độ tỷ lệ với khoảng cách của nó đến gốc. Đây là một ví dụ đẹp về cách một không gian có thể được co lại về một điểm mà không làm thay đổi topology cơ bản của nó.
-
-**Ví dụ 3: $\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$**
-
-Một ví dụ quan trọng khác là mối quan hệ giữa không gian $\mathbb{R}^n \setminus \{0\}$ (không gian Euclid trừ đi gốc tọa độ) và hình cầu $S^{n-1}$. Mặc dù hai không gian này không homeomorphic (một không gian là không compact và một không gian là compact), chúng đồng luân tương đương với nhau. Cách xây dựng homotopy equivalence này thông qua khái niệm deformation retract. Chúng ta định nghĩa một retraction $r: \mathbb{R}^n \setminus \{0\} \to S^{n-1}$ bằng cách đặt $r(x) = x/||x||$, nghĩa là chúng ta chiếu mỗi điểm về hình cầu đơn vị bằng cách chuẩn hóa vector của nó. Cho $i: S^{n-1} \to \mathbb{R}^n \setminus \{0\}$ là ánh xạ bao hàm. Khi đó hợp thành $r \circ i$ là ánh xạ đồng nhất trên $S^{n-1}$, và hợp thành $i \circ r$ đồng luân với ánh xạ đồng nhất trên $\mathbb{R}^n \setminus \{0\}$ thông qua homotopy $F(x,t) = (1-t)x + t(x/||x||)$, nghĩa là chúng ta di chuyển mỗi điểm từ vị trí ban đầu của nó đến hình chiếu của nó trên hình cầu. Trực giác hình học là chúng ta có thể "kéo" tất cả các điểm trong $\mathbb{R}^n \setminus \{0\}$ về hình cầu đơn vị một cách liên tục mà không làm thay đổi topology cơ bản của không gian.
+**Ví dụ 3: $\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$**  
+Xét phép co rút $r: \mathbb{R}^n \setminus \{0\} \to S^{n-1}$ cho bởi $r(x) = x/\|x\|$ và phép nhúng $i: S^{n-1} \hookrightarrow \mathbb{R}^n \setminus \{0\}$. Ta có $r \circ i = \operatorname{id}_{S^{n-1}}$, còn $i \circ r \simeq \operatorname{id}_{\mathbb{R}^n \setminus \{0\}}$ qua đồng luân $F(x,t) = (1-t)x + t(x/\|x\|)$ (luôn khác $0$ với mọi $t \in [0,1]$). Do đó $\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$ dù hai không gian không đồng phôi (một bên không compact, một bên compact).
 
 ---
 
-### 3. Homotopy Invariants
+### 3. Bất biến đồng luân (Homotopy Invariants)
 
-**Homotopy invariant:** Một tính chất được gọi là **homotopy invariant** nếu nó được bảo toàn bởi homotopy equivalence. Điều này có nghĩa là nếu hai không gian đồng luân tương đương, thì chúng phải có cùng tính chất đó. Đây là một khái niệm quan trọng vì nó cho phép chúng ta phân loại các không gian theo homotopy type thay vì chỉ theo homeomorphism type.
+Một tính chất hoặc đối tượng gán cho không gian tô-pô gọi là **bất biến đồng luân** nếu nó được bảo toàn qua tương đương đồng luân. Các bất biến đại số quan trọng như nhóm cơ bản $\pi_1(X)$, các nhóm đồng luân bậc cao $\pi_n(X)$, các nhóm đồng điều $H_n(X)$ và đối đồng điều $H^n(X)$ đều là bất biến đồng luân.
 
-Các ví dụ quan trọng của homotopy invariants bao gồm fundamental group $\pi_1(X)$—nhóm các lớp đồng luân của các vòng lặp, homology groups $H_n(X)$—các nhóm đo lường "lỗ" trong các chiều khác nhau, cohomology groups $H^n(X)$—các nhóm đối ngẫu của homology groups, và homotopy groups $\pi_n(X)$—các nhóm tổng quát hóa của fundamental group cho các chiều cao hơn. Tất cả các bất biến này đều được bảo toàn bởi homotopy equivalence, nghĩa là nếu $X \simeq Y$, thì $\pi_1(X) \cong \pi_1(Y)$, $H_n(X) \cong H_n(Y)$, và tương tự cho các bất biến khác. Đây là lý do tại sao homotopy theory lại mạnh mẽ đến vậy—nó cho phép chúng ta nghiên cứu các không gian thông qua các bất biến đại số mà không cần biết chi tiết về cấu trúc hình học của chúng.
-
-Tuy nhiên, không phải tất cả các tính chất đều là homotopy invariants. Ví dụ, compactness không phải là homotopy invariant—$\mathbb{R}^n \simeq \{pt\}$ (một điểm là compact), nhưng $\mathbb{R}^n$ không compact. Tính chất Hausdorff cũng không phải là homotopy invariant. Connectedness thường được bảo toàn bởi homotopy equivalence, nhưng có những sắc thái phức tạp khi làm việc với các không gian không path-connected. Điều này cho thấy rằng homotopy equivalence là một quan hệ yếu hơn homeomorphism—nó bảo toàn các tính chất đại số nhưng không nhất thiết bảo toàn các tính chất tô-pô như compactness.
+Ngược lại, các tính chất tô-pô thuần túy như tính compact hay tính Hausdorff không phải là bất biến đồng luân (chẳng hạn $\mathbb{R}^n \simeq \{pt\}$ nhưng $\mathbb{R}^n$ không compact). Tính liên thông và tính liên thông đường được bảo toàn qua tương đương đồng luân.
 
 ---
 
-## 🛤️ Paths và Loops
+## 🛤️ Đường đi và Vòng khép kín (Paths và Loops)
 
-### 1. Paths
+### 1. Đường đi (Paths)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Path):**  
-Một **path** trong không gian $X$ từ điểm $x_0$ đến điểm $x_1$ là một ánh xạ liên tục:
+**Định nghĩa (Đường đi – Path):**  
+Một **đường đi** trong $X$ từ $x_0$ đến $x_1$ là một ánh xạ liên tục:
 
 $$
 \gamma: [0,1] \to X
 $$
 </div>
 
-thỏa mãn $\gamma(0) = x_0$ và $\gamma(1) = x_1$. Trực giác hình học là một path là một "đường đi liên tục" từ điểm này đến điểm khác trong không gian—chúng ta có thể tưởng tượng một con kiến đi từ $x_0$ đến $x_1$ dọc theo đường đi $\gamma$. Tham số $t \in [0,1]$ đại diện cho "thời gian" trong hành trình này—tại thời điểm $t=0$, con kiến ở điểm xuất phát $x_0$, và tại thời điểm $t=1$, con kiến đến điểm đích $x_1$.
+thỏa mãn $\gamma(0) = x_0$ và $\gamma(1) = x_1$.
 
-Một **loop** (hay **based loop**) là một path đặc biệt trong đó điểm xuất phát và điểm đích trùng nhau, nghĩa là $\gamma(0) = \gamma(1) = x_0$ cho một điểm cố định $x_0$ được gọi là **basepoint**. Trực giác hình học là một loop là một đường đi khép kín—con kiến bắt đầu tại $x_0$, đi vòng quanh không gian, và quay lại điểm xuất phát. Các loops là đối tượng cơ bản trong nghiên cứu fundamental group vì chúng nắm bắt cách không gian có thể được "quấn" hoặc "vòng lặp" xung quanh các điểm cố định.
+Một **vòng khép kín** (loop) có điểm cơ sở (basepoint) $x_0$ là một đường đi có điểm đầu và điểm cuối trùng nhau: $\gamma(0) = \gamma(1) = x_0$.
 
 ---
 
-**Concatenation:**  
-Khi chúng ta có hai paths $\gamma$ và $\delta$ với điểm cuối của $\gamma$ trùng với điểm đầu của $\delta$, nghĩa là $\gamma(1) = \delta(0)$, chúng ta có thể "nối" chúng lại với nhau để tạo thành một path mới. **Product path** $\gamma \cdot \delta$ được định nghĩa bằng cách đi qua $\gamma$ với tốc độ gấp đôi trong nửa đầu của khoảng thời gian, sau đó đi qua $\delta$ với tốc độ gấp đôi trong nửa sau:
+**Phép nối đường đi (Concatenation):**  
+Nếu $\gamma$ và $\delta$ là hai đường đi thỏa $\gamma(1) = \delta(0)$, đường đi tích $\gamma \cdot \delta$ đi qua $\gamma$ trên $[0, 1/2]$ và $\delta$ trên $[1/2, 1]$:
 
 $$
 (\gamma \cdot \delta)(t) = \begin{cases}
@@ -170,292 +158,255 @@ $$
 \end{cases}
 $$
 
-Trực giác hình học là chúng ta đi qua $\gamma$ rồi tiếp tục đi qua $\delta$—giống như cách chúng ta đi từ điểm A đến điểm B, rồi từ điểm B đến điểm C. Reparametrization (thay đổi tốc độ) là cần thiết để đảm bảo rằng path mới vẫn được định nghĩa trên khoảng $[0,1]$. Điều này cho phép chúng ta định nghĩa một phép toán trên các paths, và khi chúng ta xét các lớp đồng luân của các loops, phép toán này sẽ trở thành phép nhóm trong fundamental group.
-
-**Inverse path:** Cho một path $\gamma$ từ $x_0$ đến $x_1$, chúng ta có thể định nghĩa **inverse path** $\gamma^{-1}$ bằng cách đảo ngược hướng: $\gamma^{-1}(t) = \gamma(1-t)$. Điều này có nghĩa là chúng ta đi ngược lại đường đi ban đầu—nếu $\gamma$ đi từ $x_0$ đến $x_1$, thì $\gamma^{-1}$ đi từ $x_1$ đến $x_0$ dọc theo cùng một đường đi nhưng theo hướng ngược lại. Trực giác hình học là chúng ta quay lại con đường mà chúng ta đã đi. Khi chúng ta xét các lớp đồng luân của các loops, inverse path sẽ trở thành phần tử nghịch đảo trong fundamental group.
+**Đường đi ngược (Inverse path):** Với đường đi $\gamma$ từ $x_0$ đến $x_1$, đường đi ngược $\gamma^{-1}$ từ $x_1$ về $x_0$ được định nghĩa bởi $\gamma^{-1}(t) = \gamma(1-t)$.
 
 ---
 
-### 2. Path Homotopy
+### 2. Đồng luân đường (Path Homotopy)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Path Homotopy):**  
-Cho $\gamma$, $\delta$: $[0,1] \to X$ là các paths với cùng các điểm đầu và cuối, nghĩa là $\gamma(0) = \delta(0) = x_0$ và $\gamma(1) = \delta(1) = x_1$. Một **path homotopy** $F: \gamma \simeq \delta$ (rel endpoints) là một ánh xạ liên tục:
+**Định nghĩa (Đồng luân đường):**  
+Cho $\gamma, \delta: [0,1] \to X$ là hai đường đi có cùng điểm đầu $x_0$ và điểm cuối $x_1$. Một **đồng luân đường** từ $\gamma$ đến $\delta$ (cố định hai đầu mút) là một ánh xạ liên tục:
 
 $$
 F: [0,1] \times [0,1] \to X
 $$
 </div>
 
-thỏa mãn $F(s,0) = \gamma(s)$ và $F(s,1) = \delta(s)$ cho mọi $s \in [0,1]$, và quan trọng là $F(0,t) = x_0$ và $F(1,t) = x_1$ cho mọi $t \in [0,1]$, nghĩa là các điểm đầu và cuối được giữ cố định trong suốt quá trình biến dạng.
+thỏa mãn $F(s,0) = \gamma(s)$, $F(s,1) = \delta(s)$ với mọi $s \in [0,1]$, và $F(0,t) = x_0$, $F(1,t) = x_1$ với mọi $t \in [0,1]$.
 
-**Ký hiệu:** $\gamma \simeq_p \delta$ (path homotopic).
+**Ký hiệu:** $\gamma \simeq_p \delta$.
 
-Trực giác hình học đằng sau path homotopy là chúng ta có thể biến dạng liên tục đường đi $\gamma$ thành đường đi $\delta$ trong khi giữ các điểm đầu và cuối được "dán chặt" tại vị trí của chúng. Hãy tưởng tượng một sợi dây được căng giữa hai điểm cố định—chúng ta có thể uốn cong và kéo giãn sợi dây này một cách liên tục, nhưng chúng ta không thể di chuyển hai đầu của nó. Điều kiện giữ các điểm đầu và cuối cố định là rất quan trọng vì nó đảm bảo rằng khi chúng ta xét các lớp đồng luân của các loops, chúng ta có thể định nghĩa một phép toán nhóm một cách nhất quán. Nếu chúng ta cho phép các điểm đầu và cuối di chuyển, thì phép toán concatenation sẽ không được định nghĩa tốt.
+Việc giữ cố định hai đầu mút trong suốt quá trình biến dạng là cần thiết để phép nối đường đi cảm sinh một phép toán nhóm xác định tốt trên các lớp đồng luân của vòng khép kín.
 
 ![Path homotopy](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Path_homotopy.svg/400px-Path_homotopy.svg.png)  
-*Path homotopy with fixed endpoints - Nguồn concept*
+*Minh họa đồng luân đường với hai đầu mút cố định*
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** $\simeq_p$ là quan hệ tương đương.
+**Định lý:** Quan hệ $\simeq_p$ là một quan hệ tương đương trên tập các đường đi có cùng điểm đầu và điểm cuối.
 </div>
 
 ---
 
-### 3. Homotopy Classes
+### 3. Lớp đồng luân
 
-**$[\gamma]$ = homotopy class của path $\gamma$.**
-
-**Tập các based loops tại $x_0$:**
+Ký hiệu $[\gamma]$ là lớp đồng luân đường của $\gamma$. Tập các vòng khép kín tại $x_0$ là:
 
 $$
 \Omega(X, x_0) = \{\text{loops } \gamma: [0,1] \to X, \gamma(0)=\gamma(1)=x_0\}
 $$
 
-**Quotient:** $\Omega(X,x_0) / \simeq_p$ = các homotopy classes.
-
-**Đây sẽ trở thành fundamental group $\pi_1(X, x_0)$!** (Bài học tiếp theo.)
+Tập thương $\Omega(X,x_0) / {\simeq_p}$ gồm các lớp đồng luân của vòng khép kín tại $x_0$ sẽ trở thành **nhóm cơ bản** $\pi_1(X, x_0)$ ở bài học tiếp theo.
 
 ---
 
-## 🎯 Key Theorems
+## 🎯 Một số khái niệm và định lý hỗ trợ
 
-### 1. Homotopy Extension Property (HEP)
+### 1. Tính chất mở rộng đồng luân (Homotopy Extension Property – HEP)
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Cho $(X, A)$ là một cặp "nice" (ví dụ, CW pair). Cho trước:
-- $f: X \to Y$
-- $F: A \times I \to Y$ là homotopy bắt đầu tại $f|_A$
+Cho $(X, A)$ là một cặp không gian thỏa điều kiện chuẩn (chẳng hạn cặp phức CW). Cho trước ánh xạ liên tục $f: X \to Y$ và một phép đồng luân $F: A \times [0,1] \to Y$ thỏa $F(a, 0) = f(a)$ với mọi $a \in A$. Khi đó tồn tại phép đồng luân $\tilde{F}: X \times [0,1] \to Y$ mở rộng $F$ và thỏa $\tilde{F}(x, 0) = f(x)$.
 </div>
-
-Khi đó $\exists$ extension $\tilde{F}: X \times I \to Y$ mở rộng $F$.
-
-**Application:** Construct homotopies.
 
 ---
 
-### 2. Deformation Retract
+### 2. Co rút biến dạng (Deformation Retract)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Deformation Retract):**  
-Cho $A \subseteq X$. $A$ là **deformation retract** của $X$ nếu $\exists r: X \to A$:
-- $r|_A = \text{id}_A$ (retraction)
-- $ir \simeq \text{id}_X$ ($i: A \to X$ là inclusion, homotopy rel $A$)
+**Định nghĩa (Co rút biến dạng):**  
+Tập con $A \subseteq X$ được gọi là một **co rút biến dạng** (deformation retract) của $X$ nếu tồn tại phép co rút $r: X \to A$ ($r|_A = \operatorname{id}_A$) sao cho $i \circ r \simeq \operatorname{id}_X$ (với $i: A \hookrightarrow X$ là phép nhúng; nếu phép đồng luân cố định từng điểm trên $A$ thì gọi là *co rút biến dạng mạnh*).
 </div>
 
-**Ví dụ:** $S^{n-1}$ là deformation retract của $\mathbb{R}^n \setminus \{0\}$. ✓
-
----
+**Ví dụ:** $S^{n-1}$ là co rút biến dạng mạnh của $\mathbb{R}^n \setminus \{0\}$.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Nếu $A$ là deformation retract của $X$, thì $A \simeq X$.
+**Định lý:** Nếu $A$ là co rút biến dạng của $X$, thì $A \simeq X$.
 </div>
 
 ---
 
-### 3. Contractibility
+### 3. Hệ quả của tính co rút được
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-Nếu $X$ contractible, thì $X$ path-connected, $\pi_1(X) = \{e\}$, $H_n(X) = 0$ ($n \geq 1$).
+Nếu $X$ co rút được, thì $X$ liên thông đường, $\pi_1(X) = \{e\}$ và $H_n(X) = 0$ với mọi $n \geq 1$.
 </div>
 
-**Điều ngược lại sai:** (Whitehead manifold counterexample—nâng cao.)
+Chiều ngược lại không đúng trong trường hợp tổng quát (ví dụ nâng cao: đa tạp Whitehead).
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển và tham khảo
 
-### Classic Works
+### Các công trình kinh điển
 
-1. **Henri Poincaré** - *"Analysis Situs"* (1895)  
-   *Founded algebraic topology, introduced notion of continuous deformation*
+1. **Henri Poincaré** – *"Analysis Situs"* (1895)  
+   *Đặt nền móng cho tô-pô đại số và khái niệm biến dạng liên tục.*
 
-2. **L.E.J. Brouwer** - *"Über Abbildung von Mannigfaltigkeiten"* (1911)  
-   *Fixed point theorem using homotopy theory*
+2. **L.E.J. Brouwer** – *"Über Abbildung von Mannigfaltigkeiten"* (1911)  
+   *Chứng minh định lý điểm bất động Brouwer bằng phương pháp tô-pô.*
 
-3. **Heinz Hopf** - *"Über die Abbildungen der dreidimensionalen Sphäre"* (1931)  
-   *Hopf fibration, foundational homotopy theory*
+3. **Heinz Hopf** – *"Über die Abbildungen der dreidimensionalen Sphäre"* (1931)  
+   *Phân thớ Hopf và lý thuyết đồng luân bậc cao.*
 
-4. **Witold Hurewicz** - *"Beiträge zur Topologie der Deformationen"* (1935-36)  
-   *Systematized homotopy theory*
+4. **Witold Hurewicz** – *"Beiträge zur Topologie der Deformationen"* (1935–36)  
+   *Hệ thống hóa lý thuyết đồng luân.*
 
-### Textbooks
+### Giáo trình
 
-5. **James R. Munkres** - *Topology*, 2nd Ed., **§51-52: Homotopy**
+5. **James R. Munkres** – *Topology*, 2nd Ed., **§51–52: Homotopy**
 
-6. **Allen Hatcher** - *Algebraic Topology*, **§0-1: Homotopy and Fundamental Group**  
-   *Modern comprehensive treatment với geometric intuition*
+6. **Allen Hatcher** – *Algebraic Topology*, **§0–1: Homotopy and Fundamental Group**
 
-7. **Edwin Spanier** - *Algebraic Topology*, **Chapter 1: Homotopy Theory**
+7. **Edwin Spanier** – *Algebraic Topology*, **Chapter 1: Homotopy Theory**
 
-8. **Glen E. Bredon** - *Topology and Geometry*, **Chapter I**
+8. **Glen E. Bredon** – *Topology and Geometry*, **Chapter I**
 
-9. **Tammo tom Dieck** - *Algebraic Topology*, **Chapter 2**
+9. **Tammo tom Dieck** – *Algebraic Topology*, **Chapter 2**
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### Topology - Classification
+### Tô-pô – Phân loại theo kiểu đồng luân
+Tương đương đồng luân phân loại không gian thô hơn đồng phôi nhưng vẫn bảo toàn các bất biến đại số ($\pi_n$, $H_n$).
 
-Homotopy type là một cách phân loại các không gian tô-pô dựa trên homotopy equivalence thay vì homeomorphism. Đây là một quan hệ yếu hơn homeomorphism nhưng lại nắm bắt được các tính chất đại số quan trọng của không gian. Ví dụ, $\mathbb{R}^n$ đồng luân tương đương với một điểm mặc dù chúng không homeomorphic—điều này cho thấy rằng từ quan điểm của homotopy theory, không gian Euclid không có "lỗ" hoặc "vòng lặp" nào. Ngược lại, $S^1$ không đồng luân tương đương với một điểm vì nó có một vòng lặp không thể co lại được, được phản ánh trong fundamental group không tầm thường $\pi_1(S^1) \cong \mathbb{Z}$.
+### Giải tích – Định lý điểm bất động Brouwer
+Mọi ánh xạ liên tục $f: D^n \to D^n$ đều có ít nhất một điểm bất động. Chứng minh phản chứng chỉ ra rằng nếu $f$ không có điểm bất động thì sẽ tồn tại một phép co rút $r: D^n \to S^{n-1}$, mâu thuẫn với tính chất đồng luân/đồng điều của đĩa và mặt cầu.
 
-### Analysis - Fixed Point Theorems
+### Giải tích phức – Chỉ số vòng (Winding Numbers)
+Tích phân đường $\int_\gamma f(z)\,dz$ của hàm chỉnh hình $f$ không thay đổi khi biến dạng đồng luân đường đi $\gamma$ (cố định hai đầu mút) bên trong miền chỉnh hình.
 
-Định lý điểm cố định Brouwer là một trong những ứng dụng nổi tiếng nhất của homotopy theory trong giải tích. Định lý phát biểu rằng mọi ánh xạ liên tục $f: D^n \to D^n$ từ đĩa đóng $n$-chiều vào chính nó đều có ít nhất một điểm cố định. Chứng minh của định lý này sử dụng homotopy theory một cách tinh tế—nếu $f$ không có điểm cố định, thì chúng ta có thể xây dựng một retraction từ $S^{n-1}$ (biên của đĩa) vào $D^n$, điều này mâu thuẫn với một kết quả cơ bản trong homotopy theory rằng không thể có một retraction như vậy. Đây là một ví dụ tuyệt vời về cách homotopy theory cung cấp các công cụ mạnh mẽ để chứng minh các định lý trong các lĩnh vực khác của toán học.
+### Robotics – Không gian cấu hình
+Các lớp đồng luân đường trong không gian cấu hình mô tả các chiến lược di chuyển khác nhau về mặt tô-pô (ví dụ vòng bên trái hay bên phải một chướng ngại vật).
 
-### Complex Analysis - Winding Numbers
+### Vật lý – Lý thuyết chuẩn
+Các lớp đồng luân của trường chuẩn giúp phân loại các cấu hình tô-pô như instanton trong lý thuyết Yang–Mills.
 
-Trong giải tích phức, tích phân đường $\int_\gamma f(z)dz$ của một hàm holomorphic $f$ chỉ phụ thuộc vào homotopy class của đường đi $\gamma$, không phụ thuộc vào đường đi cụ thể. Điều này có nghĩa là nếu chúng ta biến dạng liên tục đường đi $\gamma$ thành đường đi $\delta$ (với các điểm đầu và cuối cố định), thì tích phân sẽ không thay đổi. Đây là một kết quả sâu sắc kết nối giải tích phức với topology—winding number của một đường đi quanh một điểm là một bất biến homotopy, và nó đóng vai trò quan trọng trong định lý thặng dư Cauchy.
-
-### Robotics - Configuration Spaces
-
-Trong robotics, không gian cấu hình của một robot là không gian của tất cả các vị trí và hướng có thể của robot. Mỗi điểm trong không gian cấu hình đại diện cho một "trạng thái" của robot. Khi robot cần di chuyển từ một cấu hình này sang cấu hình khác trong khi tránh các chướng ngại vật, các đường đi hợp lệ tương ứng với các homotopy classes của paths trong không gian cấu hình. Các homotopy classes khác nhau đại diện cho các cách "về mặt tô-pô khác nhau" để robot có thể di chuyển—ví dụ, đi bên trái hoặc bên phải của một chướng ngại vật là hai homotopy classes khác nhau. Hiểu được cấu trúc homotopy của không gian cấu hình giúp các nhà robotics thiết kế các thuật toán lập kế hoạch đường đi hiệu quả.
-
-### Physics - Gauge Theory
-
-Trong vật lý, gauge theory là một khung lý thuyết quan trọng để mô tả các tương tác cơ bản trong tự nhiên. Các gauge transformations là các phép biến đổi của các connections trên principal bundles, và chúng có thể được hiểu như các homotopy equivalences. Các instantons—các nghiệm của phương trình Yang-Mills—tương ứng với các homotopy classes của gauge fields. Điều này cho thấy rằng topology đóng vai trò quan trọng trong việc phân loại các trạng thái vật lý, và homotopy theory cung cấp các công cụ để nghiên cứu các cấu trúc này.
-
-### Data Science - Topological Data Analysis
-
-Topological Data Analysis (TDA) là một lĩnh vực mới nổi sử dụng các công cụ từ topology để phân tích dữ liệu. Persistent homology là một kỹ thuật quan trọng trong TDA—nó nghiên cứu "hình dạng" của dữ liệu thông qua các homology groups, là các homotopy invariants. Các homotopy types khác nhau tương ứng với các cấu trúc dữ liệu khác nhau—ví dụ, một tập dữ liệu có thể có các "lỗ" hoặc "vòng lặp" mà persistent homology có thể phát hiện. Điều này cho phép chúng ta phân loại và so sánh các tập dữ liệu dựa trên cấu trúc tô-pô của chúng, không chỉ dựa trên các tính chất metric hoặc thống kê.
+### Khoa học dữ liệu – Phân tích dữ liệu tô-pô (TDA)
+Các nhóm đồng điều (bất biến đồng luân) được dùng trong đồng điều bền vững để phát hiện cấu trúc vòng và hốc của dữ liệu.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Algebraic Topology 1: Homotopy Equivalence](https://www.youtube.com/watch?v=crQdC-k6AZE) — Math at Andrews University, tiếng Anh. Đồng luân ánh xạ và tương đương đồng luân, đúng hai khái niệm mở đầu bài.
-- [Lec 3.  Deformation Retract](https://www.youtube.com/watch?v=KMiNqTV2TAA) — The Trefoil, tiếng Anh. Co rút biến dạng, trường hợp đặc biệt mà bài dùng để nhận ra một không gian co được.
-- [1. History of Algebraic Topology; Homotopy Equivalence - Pierre Albin](https://www.youtube.com/watch?v=XxFGokyYo6g) — Mat Neth, tiếng Anh. Pierre Albin mở đầu giáo trình: lịch sử ngắn rồi tới tương đương đồng luân.
+- **xem trước** [Algebraic Topology 1: Homotopy Equivalence](https://www.youtube.com/watch?v=crQdC-k6AZE) — Math at Andrews University, tiếng Anh. Trình bày đồng luân ánh xạ và tương đương đồng luân, bám sát phần mở đầu của bài.
+- [Lec 3.  Deformation Retract](https://www.youtube.com/watch?v=KMiNqTV2TAA) — The Trefoil, tiếng Anh. Giải thích co rút biến dạng và cách nhận biết không gian co rút được.
+- [1. History of Algebraic Topology; Homotopy Equivalence - Pierre Albin](https://www.youtube.com/watch?v=XxFGokyYo6g) — Mat Neth, tiếng Anh. Lược sử tô-pô đại số và giới thiệu tương đương đồng luân.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Homotopy Definition
+### Định nghĩa đồng luân
 
-1. **Verify Equivalence Relation:**  
-   Prove carefully that homotopy ~ is equivalence relation: reflexive, symmetric, transitive.
+1. **Kiểm tra quan hệ tương đương:**  
+   Chứng minh chi tiết đồng luân $\simeq$ là quan hệ tương đương (phản xạ, đối xứng, bắc cầu).
 
-2. **Constant Homotopy:**  
-   f: X → Y. Show F(x,t) = f(x) is homotopy f ≃ f.
+2. **Đồng luân hằng:**  
+   Với $f: X \to Y$, chứng minh $F(x,t) = f(x)$ là đồng luân từ $f$ đến chính nó.
 
-3. **Explicit Homotopy:**  
-   ℝ² contractible. Write explicit F: [0,1] × ℝ² → ℝ² với F₀ = id, F₁ = const.
+3. **Đồng luân tường minh:**  
+   Viết công thức tường minh $F: [0,1] \times \mathbb{R}^2 \to \mathbb{R}^2$ cho thấy $\mathbb{R}^2$ co rút được.
 
-### Homotopy Equivalence
+### Tương đương đồng luân
 
-4. **Verify Homotopy Equivalence:**  
-   D² và {pt} homotopy equivalent. Write explicit maps f, g và homotopies.
+4. **Kiểm tra tương đương đồng luân:**  
+   Viết tường minh các ánh xạ $f, g$ và các phép đồng luân chứng tỏ $D^2 \simeq \{pt\}$.
 
-5. **ℝⁿ \ {0} ≃ S^(n-1):**  
-   Construct explicit homotopy equivalence. Verify r ∘ i = id và i ∘ r ≃ id.
+5. **$\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$:**  
+   Kiểm tra tường minh $r \circ i = \operatorname{id}$ và $i \circ r \simeq \operatorname{id}$.
 
-6. **Cylinder:**  
-   S¹ × [0,1] homotopy equivalent với S¹. Find explicit homotopy equivalence.
+6. **Hình trụ:**  
+   Tìm một tương đương đồng luân tường minh giữa $S^1 \times [0,1]$ và $S^1$.
 
-### Contractible Spaces
+### Không gian co rút được
 
-7. **Star-Shaped:**  
-   X ⊆ ℝⁿ star-shaped (∃x₀: line segment [x₀,x] ⊆ X ∀x) ⇒ X contractible. Prove.
+7. **Tập hình sao:**  
+   Chứng minh mọi tập hình sao $X \subseteq \mathbb{R}^n$ đều co rút được.
 
-8. **Cone:**  
-   Cone CX = (X × [0,1])/(X × {0}) contractible. Prove.
+8. **Hình nón:**  
+   Chứng minh hình nón $CX = (X \times [0,1])/(X \times \{0\})$ luôn co rút được.
 
-9. **KHÔNG Contractible:**  
-   $S^1$ không contractible. Lập luận trực quan (chứng minh chính thức yêu cầu $\pi_1(S^1) \cong \mathbb{Z}$).
+9. **Không co rút được:**  
+   Nêu lập luận trực quan vì sao $S^1$ không co rút được (chứng minh chặt chẽ dựa trên $\pi_1(S^1) \cong \mathbb{Z}$).
 
-### Path Homotopy
+### Đồng luân đường
 
-10. **Path Concatenation:**  
-    Cho $\gamma$, $\delta$ là các paths. Xác minh $(\gamma \cdot \delta)(t)$ well-defined và continuous.
+10. **Nối đường đi:**  
+    Kiểm tra $(\gamma \cdot \delta)(t)$ xác định tốt và liên tục.
 
-11. **Inverse Path:**  
-    Cho $\gamma$ là path từ $x_0$ đến $x_1$. Chứng minh $\gamma \cdot \gamma^{-1} \simeq_p$ constant path tại $x_0$.
+11. **Đường đi ngược:**  
+    Chứng minh $\gamma \cdot \gamma^{-1} \simeq_p e_{x_0}$ (đường hằng tại $x_0$).
 
-12. **Associativity:**  
-    Chứng minh $(\gamma \cdot \delta) \cdot \varepsilon \simeq_p \gamma \cdot (\delta \cdot \varepsilon)$ (associative up to homotopy).
+12. **Tính kết hợp sai khác đồng luân:**  
+    Chứng minh $(\gamma \cdot \delta) \cdot \varepsilon \simeq_p \gamma \cdot (\delta \cdot \varepsilon)$.
 
-### Deformation Retracts
+### Co rút biến dạng
 
 13. **$S^{n-1} \subseteq \mathbb{R}^n \setminus \{0\}$:**  
-    Chứng minh $S^{n-1}$ là deformation retract của $\mathbb{R}^n \setminus \{0\}$. Retraction rõ ràng $r(x) = x/||x||$.
+    Chứng minh $S^{n-1}$ là co rút biến dạng của $\mathbb{R}^n \setminus \{0\}$ với $r(x) = x/\|x\|$.
 
-14. **Properties:**  
-    Cho $A$ là deformation retract của $X$. Chứng minh:  
-    a) $A \simeq X$  
-    b) $i_*: \pi_1(A) \to \pi_1(X)$ là isomorphism (sẽ chứng minh sau)
+14. **Tính chất:**  
+    Cho $A$ là co rút biến dạng của $X$. Chứng minh $A \simeq X$ (và nhận xét rằng $i_*: \pi_1(A) \to \pi_1(X)$ là đẳng cấu).
 
-15. **Strong Deformation Retract:**  
-    $r: X \to A$ là strong deformation retract nếu homotopy $F: \text{id}_X \simeq ir$ cố định $A$ từng điểm. Ví dụ: $S^1 \subseteq \mathbb{R}^2 \setminus \{0\}$.
+15. **Co rút biến dạng mạnh:**  
+    Kiểm tra $S^1 \subseteq \mathbb{R}^2 \setminus \{0\}$ là co rút biến dạng mạnh.
 
-### Homotopy Extension
+### Tính chất mở rộng đồng luân (HEP)
 
-16. **HEP Example:**  
-    $(D^2, S^1)$ có HEP. Cho trước $f: D^2 \to Y$, $F: S^1 \times I \to Y$. Xây dựng $\tilde{F}: D^2 \times I \to Y$ mở rộng $F$.
+16. **Ví dụ HEP:**  
+    Cặp $(D^2, S^1)$ thỏa mãn HEP. Cho $f: D^2 \to Y$ và $F: S^1 \times I \to Y$, phác thảo cách dựng mở rộng $\tilde{F}: D^2 \times I \to Y$.
 
-17. **Applications:**  
-    Why HEP important cho proving theorems về homotopy?
+17. **Vai trò của HEP:**  
+    Giải thích vì sao HEP hữu ích khi chứng minh các định lý về đồng luân.
 
-### Advanced
+### Nâng cao
 
-18. **Homotopy Equivalence KHÔNG phải Homeomorphism:**  
-    Tìm $X$, $Y$: $X \simeq Y$ nhưng $X \not\cong Y$ (không homeomorphic).  
-    Gợi ý: $\mathbb{R} \simeq$ điểm nhưng $\mathbb{R}$ không compact.
+18. **Tương đương đồng luân nhưng không đồng phôi:**  
+    Chỉ ra hai không gian $X \simeq Y$ nhưng $X \not\cong Y$ (gợi ý: $\mathbb{R}$ và một điểm).
 
-19. **Whitehead Theorem Preview:**  
-    Cho $f: X \to Y$ là ánh xạ giữa các CW complexes. Nếu $f$ cảm ứng isomorphism $\pi_n$ $\forall n$, thì $f$ là homotopy equivalence.  
-    Nghiên cứu phát biểu này.
+19. **Định lý Whitehead:**  
+    Tìm hiểu phát biểu của định lý Whitehead cho ánh xạ giữa hai phức CW.
 
-20. **Applications:**  
-    Give three examples applications của homotopy theory trong different fields (physics, CS, data science).
+20. **Ứng dụng:**  
+    Nêu $3$ ứng dụng của lý thuyết đồng luân trong vật lý, khoa học máy tính hoặc khoa học dữ liệu.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-21. **Homotopy vs Homeomorphism:**  
-    So sánh: homeomorphism preserves gì? Homotopy equivalence preserves gì?  
-    Which coarser?
+21. **Đồng luân và đồng phôi:**  
+    So sánh các tính chất được bảo toàn bởi đồng phôi và bởi tương đương đồng luân; quan hệ nào thô hơn?
 
-22. **Intuition:**  
-    Explain homotopy concept đến người không học topology. Use rubber sheet / deformation analogy.
+22. **Trực giác:**  
+    Giải thích khái niệm đồng luân bằng hình ảnh biến dạng liên tục mà không dùng công thức.
 
-23. **Why Path Homotopy?:**  
-    Tại sao fix endpoints khi define path homotopy? Ý nghĩa cho fundamental group?
+23. **Vai trò của việc cố định đầu mút:**  
+    Tại sao định nghĩa đồng luân đường yêu cầu giữ cố định điểm đầu và điểm cuối?
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
-- **Hatcher, Algebraic Topology:** §0-1 (Geometric intuition excellent)
-- **Munkres, Topology:** §51-52 (Rigorous treatment)
-- **Spanier, Algebraic Topology:** Chapter 1 (Comprehensive)
-- **Bredon, Topology and Geometry:** Chapter I (Modern perspective)
-- **May, Concise Course:** Homotopy theory foundations
-
----
-
-## 🎓 Summary
-
-Trong bài học này, chúng ta đã khám phá các nền tảng của **homotopy theory**—một trong những công cụ mạnh mẽ nhất trong tô-pô học đại số. Homotopy là một ánh xạ liên tục $F: X \times I \to Y$ kết nối hai ánh xạ $f$ và $g$ một cách liên tục—nó cho phép chúng ta biến dạng một ánh xạ thành ánh xạ khác. Homotopy equivalence là một quan hệ giữa các không gian—một ánh xạ $f: X \to Y$ là homotopy equivalence nếu tồn tại một ánh xạ ngược $g: Y \to X$ sao cho các hợp thành là đồng luân với ánh xạ đồng nhất. Một không gian contractible là một không gian đồng luân tương đương với một điểm—$X \simeq \{pt\}$, tương đương với việc ánh xạ đồng nhất đồng luân với một ánh xạ hằng. Path homotopy là sự biến dạng của các đường đi với các điểm đầu và cuối cố định—đây là nền tảng cho fundamental group. Deformation retract là một không gian con $A \subseteq X$ mà $X$ có thể co lại về $A$ thông qua một homotopy—đây là một cách tự nhiên để xây dựng các homotopy equivalences. Các ví dụ quan trọng bao gồm: $\mathbb{R}^n$ là contractible, $\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$, và $D^2 \simeq$ điểm.
-
-Điểm chính của bài học là homotopy là sự biến dạng liên tục—một quan hệ yếu hơn homeomorphism nhưng vẫn bảo toàn nhiều tính chất đại số quan trọng. Homotopy equivalence bảo toàn các bất biến đại số như $\pi_1$ và $H_n$—đây là lý do tại sao homotopy theory lại mạnh mẽ đến vậy. Path homotopy là nền tảng cho fundamental group—các lớp đồng luân của các đường đi tạo thành các phần tử của fundamental group. Các không gian contractible là đơn giản nhất về mặt đại số—chúng có fundamental group tầm thường và homology groups bằng không. Deformation retracts bảo toàn homotopy type—nếu $A$ là deformation retract của $X$, thì $A \simeq X$.
-
-Trực giác hình học đằng sau homotopy là hãy tưởng tượng sự biến dạng của một tấm cao su—chúng ta có thể kéo giãn, uốn cong, và biến dạng không gian một cách liên tục. Homotopy giống như một bộ phim từ $f$ đến $g$—mỗi khung hình là một ánh xạ trung gian. Path homotopy là biến dạng đường đi trong khi giữ các điểm đầu và cuối được dán chặt—điều này đảm bảo rằng các đường đi vẫn có cùng điểm đầu và cuối. Contractible có nghĩa là chúng ta có thể co không gian về một điểm—đây là một tính chất hình học mạnh mẽ.
-
-Trong thực tế, chúng ta kiểm tra homotopy equivalence bằng cách tìm các ánh xạ rõ ràng và các homotopies—chúng ta cần chứng minh rằng các hợp thành là đồng luân với ánh xạ đồng nhất. Deformation retracts đơn giản hóa các tính toán—nếu chúng ta có thể tìm thấy một deformation retract đơn giản hơn, chúng ta có thể tính toán các bất biến đại số dễ dàng hơn. Các lớp path homotopy là các phần tử của $\pi_1$—chúng ta sẽ thấy điều này trong bài học tiếp theo. Các bất biến homotopy phân biệt các không gian—nếu hai không gian có các bất biến homotopy khác nhau, chúng không thể đồng luân tương đương.
-
-**Tiếp theo:** Lecture 06.01 về **Fundamental Group $\pi_1(X, x_0)$**—bất biến đại số đầu tiên từ homotopy theory! Chúng ta sẽ gán một nhóm cho mỗi không gian có điểm cơ sở, nắm bắt các vòng lặp và các "lỗ".
+- **Hatcher, Algebraic Topology:** §0–1
+- **Munkres, Topology:** §51–52
+- **Spanier, Algebraic Topology:** Chapter 1
+- **Bredon, Topology and Geometry:** Chapter I
+- **May, Concise Course:** Nền tảng lý thuyết đồng luân
 
 ---
 
-*"Homotopy is the art of continuous deformation."* — Algebraic topologist's motto
+## 🎓 Tóm tắt
 
-🎯 **Master homotopy! It's the gateway to algebraic topology.** 🎯
+Trong bài học này, chúng ta đã giới thiệu các khái niệm mở đầu của lý thuyết đồng luân: phép đồng luân giữa hai ánh xạ liên tục, tương đương đồng luân giữa các không gian, không gian co rút được, co rút biến dạng và đồng luân đường cố định đầu mút. Tương đương đồng luân yếu hơn đồng phôi nhưng bảo toàn các bất biến đại số như $\pi_1$ và $H_n$; các lớp đồng luân đường của vòng khép kín tạo nền tảng trực tiếp để xây dựng nhóm cơ bản ở bài học kế tiếp.
+
+**Tiếp theo:** Lecture 06.01 về **Nhóm cơ bản $\pi_1(X, x_0)$** — bất biến đại số đầu tiên từ lý thuyết đồng luân.
+
+---
+
+*"Homotopy is the art of continuous deformation."*
 
 ---
 
 **Previous Chapter:** [Chapter 05: Quotient Spaces](/contents/vi/topology-chapter05/)  
 **Next:** [Lecture 06.01: Fundamental Group](/contents/vi/topology-chapter06/06_01_Fundamental_Group/)
-

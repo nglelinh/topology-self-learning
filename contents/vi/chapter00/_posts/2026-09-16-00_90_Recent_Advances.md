@@ -12,24 +12,24 @@ tags: [optional, recent-advances, tda, finite-spaces, point-clouds]
 description: "Bài tùy chọn: các tiến bộ 2022–2026 nối nền tảng tập hợp/Euclid với TDA trên dữ liệu hữu hạn. Không thay thế lý thuyết."
 ---
 
-**Bài tùy chọn.** Lý thuyết của Chapter 00 không đổi. Bài này chỉ chỉ ra *chỗ* các tiên đề tập hợp, hàm, và không gian Euclid đang sống trong khoa học dữ liệu gần đây.
+**Bài tùy chọn.** Phần lý thuyết cốt lõi của Chương 00 không thay đổi; bài này chỉ giới thiệu nơi các khái niệm tập hợp, ánh xạ và không gian Euclid được vận dụng trực tiếp trong khoa học dữ liệu gần đây.
 
 ---
 
 ## 📖 Tổng quan
 
-Chapter 00 dạy rằng mọi không gian tô-pô bắt đầu từ một **tập** $X$ và một họ tập con. Trong thực hành hiện đại, $X$ hầu như luôn hữu hạn: một đám mây điểm $\{x_1,\ldots,x_N\}\subset\mathbb{R}^d$, một bảng số, hoặc một đồ thị. Câu hỏi không còn là “$\mathbb{R}$ có đầy đủ không?” mà là “từ một tập hữu hạn, làm sao khôi phục hình dạng của không gian liên tục mà nó lấy mẫu?”
+Chương 00 cho thấy mọi không gian tô-pô đều bắt đầu từ một **tập hợp** $X$ cùng một họ tập con. Trong thực hành khoa học dữ liệu hiện đại, $X$ hầu như luôn là tập hữu hạn: một đám mây điểm $\{x_1,\ldots,x_N\}\subset\mathbb{R}^d$, một bảng dữ liệu, hoặc một đồ thị. Câu hỏi trọng tâm khi đó không còn là "$\mathbb{R}$ có đầy đủ không?" mà là "từ một tập điểm hữu hạn, làm thế nào khôi phục hình dạng của không gian liên tục mà nó lấy mẫu?"
 
-Đó chính là cầu nối từ lý thuyết tập hợp sang **Topological Data Analysis (TDA)**. Ba–bốn tiến bộ dưới đây cho thấy nền tảng Chapter 00 không “chỉ để chuẩn bị”: chúng đang được viết lại thành thuật toán.
+Đó chính là cầu nối từ lý thuyết tập hợp sang **Phân tích dữ liệu tô-pô** (*Topological Data Analysis* — TDA). Bốn hướng nghiên cứu gần đây dưới đây cho thấy nền tảng của Chương 00 không chỉ là bước chuẩn bị lý thuyết, mà đang được chuyển hóa trực tiếp thành các công cụ thuật toán.
 
 ![Đám mây điểm trên torus](https://upload.wikimedia.org/wikipedia/commons/4/4c/Point_cloud_torus.gif)
-*Một torus được lấy mẫu hữu hạn — đúng loại đối tượng mà TDA cố gắng đọc lại. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Point_cloud_torus.gif)*
+*Một hình xuyến được lấy mẫu hữu hạn — đúng loại đối tượng mà TDA tìm cách nhận diện hình dạng. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Point_cloud_torus.gif)*
 
 ---
 
 ## 🎯 Trực giác
 
-Hãy tưởng tượng bạn không được nhìn chiếc bánh donut, chỉ được một túi hạt muối rắc lên bề mặt nó. Bạn vẫn “thấy” một lỗ nếu, khi nối các hạt gần nhau thành cạnh rồi tam giác, lỗ đó **sống đủ lâu** khi bán kính nối tăng. Tập hợp hữu hạn cộng quan hệ “gần” đã đủ để nói về lỗ — không cần công thức khoảng cách đầy đủ trên toàn $\mathbb{R}^n$ ngay từ đầu.
+Hãy tưởng tượng bạn không nhìn thấy chiếc bánh donut, mà chỉ có một tập các hạt muối rắc trên bề mặt nó. Dù vậy, bạn vẫn có thể phát hiện ra "lỗ" ở giữa nếu nối các hạt nằm gần nhau thành cạnh và tam giác rồi tăng dần bán kính nối: một lỗ thực sự sẽ **tồn tại bền vững** qua một khoảng bán kính đủ rộng. Một tập hợp hữu hạn kèm quan hệ "gần nhau" đã đủ để mô tả đặc trưng lỗ mà chưa cần đến toàn bộ cấu trúc giải tích trên $\mathbb{R}^n$.
 
 ---
 
@@ -37,34 +37,34 @@ Hãy tưởng tượng bạn không được nhìn chiếc bánh donut, chỉ đ
 
 ### 1. Homology bền vững qua không gian tô-pô hữu hạn
 
-Kayacan (2025) chỉ ra rằng persistent homology có thể được diễn đạt hoàn toàn trên **không gian tô-pô hữu hạn** (Alexandroff): mỗi giai đoạn lọc là một tập hữu hạn với topology xác định bởi một thứ tự. Điều này đưa Chapter 00 — tập, quan hệ, hàm — sát với pipeline tính toán: dữ liệu không cần được nhúng sẵn vào $\mathbb{R}^d$ mới có homology.
+Kayacan (2025) chỉ ra rằng homology bền vững (*persistent homology*) có thể được diễn đạt hoàn toàn trên **không gian tô-pô hữu hạn** (không gian Alexandroff): mỗi bước lọc là một tập hữu hạn với tô-pô xác định bởi một quan hệ thứ tự. Cách tiếp cận này nối trực tiếp các khái niệm tập hợp, quan hệ và ánh xạ của Chương 00 với quy trình tính toán: dữ liệu không nhất thiết phải nhúng sẵn vào $\mathbb{R}^d$ mới xác định được homology.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (nhắc lại, không thay lý thuyết):** một không gian Alexandroff hữu hạn có basis các lân cận tối thiểu $U_x$. Filtration hữu hạn là một dãy đơn điệu
+**Định nghĩa (nhắc lại, không thay thế lý thuyết):** Một không gian Alexandroff hữu hạn có cơ sở gồm các lân cận tối thiểu $U_x$. Một phép lọc (*filtration*) hữu hạn là một dãy đơn điệu
 $$
 X_0\subseteq X_1\subseteq\cdots\subseteq X_m
 $$
-và persistent homology đọc các lớp $[z]\in H_n(X_i)$ còn sống ở $X_j$.
+và homology bền vững theo dõi các lớp $[z]\in H_n(X_i)$ còn tồn tại khi chuyển sang $X_j$.
 </div>
 
 - Selçuk Kayacan, *Persistent Homology via Finite Topological Spaces*, arXiv:2512.23348 (2025).
 
-### 2. TDA như hình học của mẫu Euclid — khung cho nhà khoa học dữ liệu
+### 2. TDA như hình học của mẫu Euclid — khung làm việc cho khoa học dữ liệu
 
-Khảo sát chuẩn của Chazal–Michel (vẫn là cửa vào 2022–2026) nhấn mạnh: một điểm dữ liệu là một phần tử của tập hữu hạn, và “hình dạng” là bất biến của các phức được xây từ khoảng cách Euclid. Su, Liu, Bou Hamdan, Maroulas, Wu, Carlsson và Wei (2025) cập nhật bức tranh: TDA không còn chỉ là persistent homology trên $\mathbb{R}^d$, mà là một họ bất biến (homotopy, sheaf, phức tế bào) xuất phát từ cùng một ý tưởng tập-và-quan-hệ.
+Bài khảo sát của Chazal–Michel (vẫn là tài liệu nhập môn phổ biến trong giai đoạn 2022–2026) nhấn mạnh rằng mỗi điểm dữ liệu là một phần tử của tập hữu hạn, còn "hình dạng" được nắm bắt qua các bất biến của phức đơn hình xây từ khoảng cách Euclid. Su, Liu, Bou Hamdan, Maroulas, Wu, Carlsson và Wei (2025) cập nhật bức tranh rộng hơn: TDA hiện nay không chỉ dừng ở homology bền vững trên $\mathbb{R}^d$, mà mở rộng sang cả một họ bất biến (đồng luân, bó, phức tế bào) phát triển từ cùng nền tảng tập hợp và quan hệ.
 
 - Frédéric Chazal, Bertrand Michel, *An introduction to Topological Data Analysis: fundamental and practical aspects for data scientists*, *Frontiers in Artificial Intelligence* (2021), arXiv:1710.04019.
 - Zhe Su et al., *Topological Data Analysis and Topological Deep Learning Beyond Persistent Homology — A Review*, arXiv:2507.19504 (2025).
 
-### 3. Ổn định Gromov–Hausdorff cho tập có nhãn
+### 3. Ổn định Gromov–Hausdorff cho tập dữ liệu có nhãn
 
-Fu, Lagoda, Li, Needham và Ver Hoef (2025) chứng minh một dạng ổn định Gromov–Hausdorff cho persistent homology của **tập có nhãn**. Đây là định lý kiểu Chapter 00+04: nếu hai tập hữu hạn gần nhau theo khoảng cách giữa các metric space, barcode không thể nhảy xa. Nền tảng “tập + ánh xạ + khoảng cách Euclid” trở thành định lý ổn định cho học máy.
+Fu, Lagoda, Li, Needham và Ver Hoef (2025) chứng minh một định lý ổn định kiểu Gromov–Hausdorff cho homology bền vững của **tập dữ liệu có nhãn**. Nếu hai tập hữu hạn gần nhau theo khoảng cách giữa các không gian mê-tric, thì biểu đồ thanh (*barcode*) của chúng cũng không thay đổi đột ngột. Nền tảng tập hợp, ánh xạ và khoảng cách Euclid từ đó trở thành cơ sở cho các định lý ổn định trong học máy.
 
 - Yaoying Fu, Evgeniya Lagoda, Shiying Li, Tom Needham, Lander Ver Hoef, *Persistent Homology for Labeled Datasets: Gromov–Hausdorff Stability and Generalized Landscapes*, arXiv:2512.08794 (2025).
 
-### 4. TDA/TDL trong khoa học phân tử: dữ liệu là tập nguyên tử
+### 4. TDA và học sâu tô-pô trong khoa học phân tử: dữ liệu là tập nguyên tử
 
-Wee và Jiang (2025) tổng kết cách các tập hữu hạn nguyên tử — đúng nghĩa tập hợp, không phải đa tạp trơn — được biến thành đặc trưng tô-pô cho AI hóa học. Chapter 00 cho phép đọc các bài này mà không sợ “thiếu giải tích”: đối tượng ban đầu là tập và hàm.
+Wee và Jiang (2025) tổng kết cách các tập hữu hạn nguyên tử — xét trực tiếp như các tập hợp rời rạc thay vì đa tạp trơn — được chuyển hóa thành đặc trưng tô-pô cho trí tuệ nhân tạo trong hóa học. Nền tảng của Chương 00 giúp người học tiếp cận các công trình này dễ dàng hơn vì đối tượng khởi đầu chính là tập hợp và ánh xạ.
 
 - JunJie Wee, Jian Jiang, *A review of topological data analysis and topological deep learning in molecular sciences*, arXiv:2509.16877 (2025).
 
@@ -72,13 +72,13 @@ Wee và Jiang (2025) tổng kết cách các tập hữu hạn nguyên tử — 
 
 ## 🧠 Tài liệu nền và bài báo
 
-- James R. Munkres, *Topology*, 2nd ed., Ch. 1 (tập, hàm, tích).
+- James R. Munkres, *Topology*, 2nd ed., Ch. 1 (tập hợp, ánh xạ, tích Đề-các).
 - Sidney A. Morris, *Topology without Tears*, Ch. 1–2.
-- Các arXiv nêu trên (2021–2025).
+- Các bài báo arXiv trích dẫn ở trên (2021–2025).
 
 ## 🔗 Ứng dụng
 
-Trong hóa tin, một phân tử là một tập hữu hạn nguyên tử với quan hệ liên kết. Persistent homology đọc “lỗ” của tập đó qua nhiều tỉ lệ — cùng ngôn ngữ tập/hàm của bài 00.00–00.03.
+Trong hóa tin học, một phân tử được biểu diễn như một tập hữu hạn các nguyên tử kèm quan hệ liên kết. Homology bền vững đo các cấu trúc "lỗ" và khoang rỗng của tập đó qua nhiều tỉ lệ — sử dụng đúng ngôn ngữ tập hợp và ánh xạ đã học ở các bài 00.00–00.03.
 
 ## Video tham khảo
 
@@ -88,6 +88,6 @@ Trong hóa tin, một phân tử là một tập hữu hạn nguyên tử với 
 
 ## 🧩 Bài tập
 
-1. Lấy 8 điểm trên một vòng tròn. Mô tả, không tính máy, khi nào phức “gần nhau” xuất hiện một $1$-cycle.
-2. Vì sao một không gian Alexandroff hữu hạn luôn $T_0$ nhưng hiếm khi Hausdorff? Liên hệ bài 00.00 với Chapter 03.
-3. Giải thích bằng lời: ổn định Gromov–Hausdorff nói gì về việc *thêm một điểm nhiễu* vào đám mây.
+1. Lấy $8$ điểm phân bố đều trên một vòng tròn. Mô tả bằng lời (không dùng máy tính) khi nào phức xây từ quan hệ "gần nhau" xuất hiện một chu trình $1$-chiều ($1$-cycle).
+2. Vì sao một không gian Alexandroff hữu hạn xác định bởi một thứ tự bộ phận luôn thỏa mãn tiên đề $T_0$ nhưng hiếm khi Hausdorff (chỉ Hausdorff khi là không gian rời rạc)? Liên hệ Bài 00.00 với Chương 03.
+3. Giải thích bằng lời: tính ổn định Gromov–Hausdorff nói lên điều gì khi ta *thêm một điểm nhiễu* vào đám mây điểm?

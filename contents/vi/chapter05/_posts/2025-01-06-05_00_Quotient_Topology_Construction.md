@@ -10,51 +10,45 @@ tags: [quotient-topology, equivalence-relations, quotient-map, identification]
 description: "Quotient topology: định nghĩa, construction, equivalence relations, và quotient maps"
 ---
 
-**Quotient Topology and Construction**
+**Tô-pô thương và Phép xây dựng không gian thương**
 
 ---
 
 ## 📖 Tổng quan
 
-Đến giờ chúng ta đã học nhiều cách xây dựng các không gian tô-pô: không gian con, tích, và metric topology. Giờ đây, chúng ta sẽ học một trong những cách mạnh mẽ nhất: **quotient topology**—cách "dán các điểm lại với nhau" hay "đồng nhất các điểm". Đây là một công cụ cơ bản cho phép chúng ta tạo ra các không gian mới từ các không gian đã biết bằng cách xác định các điểm nào đó là "giống nhau".
+Trong các chương trước, chúng ta đã tìm hiểu những cách cơ bản để xây dựng không gian tô-pô mới: không gian con, không gian tích và tô-pô sinh bởi metric. Bài học này giới thiệu một phương pháp tổng quát khác: **tô-pô thương** (quotient topology) — kỹ thuật "dán" hay "đồng nhất" các điểm của một không gian cho trước.
 
-Các không gian quotient cho phép chúng ta làm nhiều điều đẹp đẽ và quan trọng. Chúng ta có thể dán các cạnh của các hình lại với nhau để tạo ra các bề mặt phức tạp như torus, Klein bottle, và không gian projective. Chúng ta có thể "co lại" các tập con thành các điểm—một kỹ thuật quan trọng trong nhiều ứng dụng. Chúng ta có thể mô hình hóa các phép đồng nhất như số học modular ($\mathbb{Z}/n\mathbb{Z}$). Và quan trọng nhất, chúng ta có thể nghiên cứu các bề mặt và manifolds—những đối tượng cơ bản trong hình học và tô-pô học.
+Không gian thương cho phép tạo ra nhiều đối tượng hình học quan trọng từ các không gian đơn giản: dán các cạnh của hình vuông để thu được hình xuyến (torus), chai Klein (Klein bottle) hay dải Möbius; co một tập con về một điểm duy nhất; đồng nhất các điểm đối cực trên mặt cầu để xây dựng không gian xạ ảnh thực $\mathbb{R}P^n$; hay mô hình hóa phép lấy thương đại số như $\mathbb{Z}/n\mathbb{Z}$.
 
 ![Quotient space visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Quotient_group_diagram.svg/400px-Quotient_group_diagram.svg.png)  
-*Khái niệm về quotient construction - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quotient_group_diagram.svg)*
+*Minh họa khái niệm phép lấy thương – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quotient_group_diagram.svg)*
 
-Trực giác đằng sau quotient topology là đơn giản nhưng sâu sắc: bắt đầu với một không gian $X$. Xác định hoặc dán một số điểm lại với nhau theo một quan hệ tương đương. Kết quả là không gian quotient $X/\sim$. Điều này cho phép chúng ta "gấp" hoặc "dán" không gian theo những cách cụ thể để tạo ra các hình dạng mới.
+Ý tưởng cốt lõi rất trực quan: xuất phát từ một không gian tô-pô $X$ và một quan hệ tương đương $\sim$ chỉ rõ những điểm nào cần đồng nhất với nhau, ta lập tập hợp các lớp tương đương $X/{\sim}$ và trang bị cho nó tô-pô mịn nhất sao cho ánh xạ chiếu $\pi: X \to X/{\sim}$ liên tục.
 
-Các ví dụ quan trọng bao gồm hình tròn $S^1 = [0,1]$ với $0 \sim 1$ (dán hai đầu mút lại với nhau), torus được tạo ra từ một hình vuông bằng cách dán các cạnh đối diện lại với nhau, không gian projective $\mathbb{R}P^n = S^n$ với các điểm đối cực được đồng nhất, và các bề mặt như cylinder và Möbius strip.
+Trong bài học này, chúng ta sẽ ôn lại quan hệ tương đương, định nghĩa tô-pô thương và tính chất phổ dụng (universal property) của nó, khảo sát ánh xạ thương (quotient map), phân tích các ví dụ tiêu chuẩn ($S^1$, $T^2$, hình trụ, dải Möbius, $\mathbb{R}P^n$, hình nón và phép treo), cũng như các điều kiện để không gian thương có tính chất Hausdorff.
 
-Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của quotient topology. Chúng ta bắt đầu với các quan hệ tương đương—nền tảng cho việc xây dựng quotient spaces. Chúng ta sẽ định nghĩa quotient topology thông qua universal property—một cách tiếp cận mạnh mẽ cho thấy quotient topology là "tốt nhất có thể" theo một nghĩa nhất định. Chúng ta sẽ nghiên cứu các quotient maps—các ánh xạ liên tục toàn ánh tạo ra quotient topology. Chúng ta sẽ xem xét các ví dụ quan trọng như hình tròn, torus, và không gian projective. Cuối cùng, chúng ta sẽ khám phá các tính chất của quotient spaces—khi nào chúng có các tính chất tốt như Hausdorff, và khi nào các quotient maps là open hoặc closed.
-
-Tại sao quotient topology lại quan trọng đến vậy? Thứ nhất, trong lý thuyết bề mặt, định lý phân loại sử dụng quotient construction để phân loại tất cả các bề mặt compact. Thứ hai, trong hình học vi phân, các manifolds được định nghĩa thông qua các charts và atlases, và nhiều manifolds quan trọng được xây dựng như các quotient spaces. Thứ ba, trong tô-pô học đại số, các CW complexes được xây dựng bằng cách dán các cells lại với nhau—một quá trình quotient. Cuối cùng, trong vật lý, các phase spaces và gauge theory sử dụng quotient spaces để mô hình hóa các đối xứng và các không gian cấu hình.
+Tô-pô thương xuất hiện xuyên suốt nhiều nhánh toán học và vật lý: định lý phân loại các mặt compact, xây dựng phức CW trong tô-pô đại số, lý thuyết đa tạp trong hình học vi phân và các không gian pha hay không gian cấu hình trong vật lý lý thuyết.
 
 ---
 
-## 🔗 Equivalence Relations
+## 🔗 Quan hệ tương đương (Equivalence Relations)
 
-### 1. Basics
+### 1. Các khái niệm cơ bản
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Equivalence Relation):**  
-Relation ~ trên X là **equivalence relation** nếu:
+**Định nghĩa (Quan hệ tương đương):**  
+Quan hệ $\sim$ trên tập hợp $X$ được gọi là một **quan hệ tương đương** nếu thỏa mãn ba tính chất sau với mọi $x, y, z \in X$:
 </div>
 
-**(ER1) Reflexive:** x ~ x ∀x
-
-**(ER2) Symmetric:** x ~ y ⇒ y ~ x
-
-**(ER3) Transitive:** x ~ y, y ~ z ⇒ x ~ z
-
-**Trực giác:** ~ captures "sameness" in some sense.
+- **(ER1) Phản xạ (Reflexive):** $x \sim x$.
+- **(ER2) Đối xứng (Symmetric):** $x \sim y \Rightarrow y \sim x$.
+- **(ER3) Bắc cầu (Transitive):** $x \sim y$ và $y \sim z \Rightarrow x \sim z$.
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Equivalence Class):**  
-**Equivalence class** của x:
+**Định nghĩa (Lớp tương đương):**  
+**Lớp tương đương** của $x \in X$ là tập hợp:
 
 $$
 [x] = \{y \in X : y \sim x\}
@@ -62,14 +56,14 @@ $$
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Quotient Set):**
+**Định nghĩa (Tập thương):**
 
 $$
 X/{\sim} = \{[x] : x \in X\} = \text{set of equivalence classes}
 $$
 </div>
 
-**Projection map:**
+**Ánh xạ chiếu chính tắc (Projection map):**
 
 $$
 \pi: X \to X/{\sim}, \quad \pi(x) = [x]
@@ -78,130 +72,95 @@ $$
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Partition):**  
-Equivalence relation ~ induces **partition** của X:
-- X = ⋃[x] (cover)
-- [x] = [y] hay [x] ∩ [y] = ∅ (disjoint)
+**Định lý (Phân hoạch):**  
+Một quan hệ tương đương $\sim$ sinh ra một **phân hoạch** của $X$:
+- $X = \bigcup_{x \in X} [x]$ (phủ toàn bộ $X$),
+- Với mọi $x, y \in X$, hoặc $[x] = [y]$ hoặc $[x] \cap [y] = \emptyset$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Straightforward từ axioms. ✓
+**Chứng minh:** Kiểm tra trực tiếp từ ba tính chất phản xạ, đối xứng và bắc cầu.
 </div>
 
-**Converse:** Mọi partition induces equivalence relation.
+Ngược lại, mọi phân hoạch của $X$ đều xác định duy nhất một quan hệ tương đương trên $X$.
 
 ---
 
-### 2. Examples
+### 2. Các ví dụ
 
-**Example 1: Congruence Modulo n**
-
-X = ℤ, x ~ y ⟺ x ≡ y (mod n).
-
-Equivalence classes: [0], [1], ..., [n-1].  
-Quotient: ℤ/nℤ.
+**Ví dụ 1: Đồng dư modulo $n$**  
+Trên $X = \mathbb{Z}$, định nghĩa $x \sim y \iff x \equiv y \pmod n$. Các lớp tương đương là $[0], [1], \ldots, [n-1]$, và tập thương là $\mathbb{Z}/n\mathbb{Z}$.
 
 ---
 
-**Example 2: Gluing Endpoints**
-
-X = [0,1], 0 ~ 1 (plus reflexivity, transitivity).
-
-Equivalence classes:
-- [0] = [1] = {0, 1}
-- [x] = {x} ∀x ∈ (0,1)
-
-Quotient: [0,1]/~ ≅ S¹ (circle).
+**Ví dụ 2: Dán hai đầu mút đoạn thẳng**  
+Trên $X = [0,1]$, xét quan hệ tương đương sinh bởi $0 \sim 1$. Các lớp tương đương gồm $[0] = [1] = \{0, 1\}$ và $[x] = \{x\}$ với mọi $x \in (0,1)$. Không gian thương $[0,1]/{\sim}$ đồng phôi với đường tròn $S^1$.
 
 ---
 
-**Example 3: Identify Subspace to Point**
-
-X space, A ⊆ X. Define:
-- x ~ y ⟺ x, y ∈ A
-- x ~ x (reflexive)
-
-Equivalence classes:
-- [A] = A (one big class)
-- [x] = {x} ∀x ∉ A
-
-Quotient: X/A (collapse A to point).
-
-**Notation:** X/A means X với A identified to point.
+**Ví dụ 3: Co một không gian con về một điểm**  
+Cho không gian $X$ và tập con khác rỗng $A \subseteq X$. Định nghĩa $x \sim y$ nếu $x = y$ hoặc $x, y \in A$. Các lớp tương đương gồm một lớp $[A] = A$ và các lớp đơn điểm $[x] = \{x\}$ với mọi $x \notin A$. Không gian thương được ký hiệu là $X/A$.
 
 ---
 
-**Example 4: Antipodal Points trên Sphere**
-
-X = S^n, x ~ -x (antipodal).
-
-Quotient: S^n/~ = ℝP^n (**real projective space**).
-
-**Geometric:** Lines through origin trong ℝ^(n+1).
+**Ví dụ 4: Đồng nhất các điểm đối cực trên mặt cầu**  
+Trên $X = S^n$, định nghĩa $x \sim -x$ (đồng nhất mỗi điểm với điểm đối cực của nó). Không gian thương $S^n/{\sim} = \mathbb{R}P^n$ là **không gian xạ ảnh thực** chiều $n$, có thể hiểu hình học là tập hợp các đường thẳng đi qua gốc tọa độ trong $\mathbb{R}^{n+1}$.
 
 ---
 
-## 🏗️ Quotient Topology
+## 🏗️ Tô-pô thương (Quotient Topology)
 
-### 1. Definition
+### 1. Định nghĩa
 
-**Setup:** X topological space, ~ equivalence relation.  
-Quotient set X/~ với projection π: X → X/~.
-
-**Goal:** Topology trên X/~ making π continuous và "best possible".
+Cho $X$ là không gian tô-pô, $\sim$ là một quan hệ tương đương trên $X$ và $\pi: X \to X/{\sim}$ là ánh xạ chiếu. Ta muốn trang bị trên $X/{\sim}$ một tô-pô sao cho $\pi$ liên tục và giữ lại nhiều tập mở nhất có thể.
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Quotient Topology):**  
-**Quotient topology** trên X/~ là topology:
+**Định nghĩa (Tô-pô thương):**  
+**Tô-pô thương** trên $X/{\sim}$ là họ tập hợp:
 
 $$
 \tau_{X/\sim} = \{U \subseteq X/{\sim} : \pi^{-1}(U) \text{ open in } X\}
 $$
 </div>
 
-**Nói bằng lời:** U open trong X/~ ⟺ π^(-1)(U) open trong X.
-
-**Notation:** (X/~, τ) gọi là **quotient space**.
+Nói cách khác, $U \subseteq X/{\sim}$ mở trong $X/{\sim}$ khi và chỉ khi nghịch ảnh $\pi^{-1}(U)$ mở trong $X$. Cặp $(X/{\sim}, \tau_{X/\sim})$ gọi là **không gian thương** (quotient space).
 
 ---
 
-**Verification:**
-
 <div class="textbook-theorem" markdown="1">
-**Theorem:** τ_X/~ thật sự là topology.
+**Định lý:**  
+Họ $\tau_{X/\sim}$ là một tô-pô trên $X/{\sim}$.
 </div>
 
-**Proof:**
-- ∅, X/~ trong τ: π^(-1)(∅) = ∅, π^(-1)(X/~) = X open ✓
-- Unions: π^(-1)(⋃Uᵢ) = ⋃π^(-1)(Uᵢ) open ✓
-- Finite intersections: π^(-1)(⋂Uᵢ) = ⋂π^(-1)(Uᵢ) open ✓
+**Chứng minh:**
+- $\pi^{-1}(\emptyset) = \emptyset$ và $\pi^{-1}(X/{\sim}) = X$ đều mở trong $X$, nên $\emptyset, X/{\sim} \in \tau_{X/\sim}$.
+- Với mọi họ $\{U_i\} \subseteq \tau_{X/\sim}$, $\pi^{-1}\left(\bigcup_i U_i\right) = \bigcup_i \pi^{-1}(U_i)$ mở trong $X$.
+- Với mọi họ hữu hạn $U_1, \ldots, U_k \in \tau_{X/\sim}$, $\pi^{-1}\left(\bigcap_{i=1}^k U_i\right) = \bigcap_{i=1}^k \pi^{-1}(U_i)$ mở trong $X$.
 
-Vậy τ topology. ✓
+Vậy $\tau_{X/\sim}$ là một tô-pô.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Proposition:** π: X → X/~ continuous.
+**Mệnh đề:** Ánh xạ chiếu $\pi: X \to X/{\sim}$ là ánh xạ liên tục.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** By definition: U open in X/~ ⇒ π^(-1)(U) open in X. ✓
+**Chứng minh:** Suy trực tiếp từ định nghĩa: nếu $U$ mở trong $X/{\sim}$ thì $\pi^{-1}(U)$ mở trong $X$.
 </div>
 
 ---
 
-### 2. Universal Property
-
-**Universal Property của Quotient Topology:**
+### 2. Tính chất phổ dụng (Universal Property)
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-f: X/~ → Y continuous ⟺ f ∘ π: X → Y continuous.
+**Định lý (Tính chất phổ dụng của tô-pô thương):**  
+Ánh xạ $f: X/{\sim} \to Y$ liên tục khi và chỉ khi ánh xạ hợp $f \circ \pi: X \to Y$ liên tục.
 </div>
 
-**Diagram:**
+**Biểu đồ giao hoán:**
 ```
 X ---π---> X/~
  \         /
@@ -213,450 +172,346 @@ X ---π---> X/~
 ```
 
 <div class="textbook-proof" markdown="1">
-**Proof (⇒):**  
-f continuous, π continuous ⇒ f ∘ π continuous. ✓
+**Chứng minh ($\Rightarrow$):**  
+Nếu $f$ liên tục và $\pi$ liên tục thì hợp $f \circ \pi$ liên tục.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof (⇐):**  
-Suppose f ∘ π continuous. Need: f continuous.  
-V open in Y.  
-(f ∘ π)^(-1)(V) = π^(-1)(f^(-1)(V)) open in X.  
-By definition quotient topology: f^(-1)(V) open in X/~.  
-Vậy f continuous. ✓
+**Chứng minh ($\Leftarrow$):**  
+Giả sử $f \circ \pi$ liên tục. Với mọi tập mở $V \subseteq Y$, ta có $(f \circ \pi)^{-1}(V) = \pi^{-1}(f^{-1}(V))$ mở trong $X$. Theo định nghĩa tô-pô thương, $f^{-1}(V)$ mở trong $X/{\sim}$. Do đó $f$ liên tục.
 </div>
 
----
-
-**Consequence (Uniqueness):**  
-Quotient topology là **finest** (largest) topology trên X/~ making π continuous.
-
-**Trực giác:** Most open sets possible while keeping π continuous.
+**Hệ quả:** Tô-pô thương là tô-pô **mịn nhất** (chứa nhiều tập mở nhất) trên $X/{\sim}$ làm cho $\pi$ liên tục.
 
 ---
 
-### 3. Quotient Maps
+### 3. Ánh xạ thương (Quotient Maps)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Quotient Map):**  
-f: X → Y continuous surjection là **quotient map** nếu:
+**Định nghĩa (Ánh xạ thương):**  
+Một toàn ánh liên tục $f: X \to Y$ được gọi là **ánh xạ thương** (quotient map) nếu với mọi $U \subseteq Y$:
 
 $$
 U \text{ open in } Y \iff f^{-1}(U) \text{ open in } X
 $$
 </div>
 
-**Nói bằng lời:** Y có quotient topology induced by f.
+Điều này có nghĩa là tô-pô trên $Y$ chính là tô-pô thương cảm sinh bởi $f$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Proposition:**  
-Projection π: X → X/~ luôn là quotient map (by definition).
+**Mệnh đề:**  
+Ánh xạ chiếu $\pi: X \to X/{\sim}$ luôn là ánh xạ thương theo định nghĩa.
 </div>
 
 ---
 
-**Example (Open Map):**
-
 <div class="textbook-theorem" markdown="1">
-**Theorem:** f: X → Y continuous surjection, **open** (or **closed**) ⇒ f quotient map.
+**Định lý:** Nếu $f: X \to Y$ là toàn ánh liên tục và là **ánh xạ mở** (hoặc **ánh xạ đóng**), thì $f$ là ánh xạ thương.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof (open case):**  
-V ⊆ Y. Suppose f^(-1)(V) open.  
-V = f(f^(-1)(V)) (surjective).  
-f open ⇒ V open. ✓  
-Converse (V open ⇒ f^(-1)(V) open) = continuity. ✓
+**Chứng minh (trường hợp ánh xạ mở):**  
+Chiều $(\Rightarrow)$ suy từ tính liên tục của $f$. Với chiều $(\Leftarrow)$, giả sử $V \subseteq Y$ thỏa mãn $f^{-1}(V)$ mở trong $X$. Vì $f$ là toàn ánh nên $V = f(f^{-1}(V))$; do $f$ là ánh xạ mở nên $V$ mở trong $Y$. Trường hợp ánh xạ đóng chứng minh tương tự bằng cách lấy phần bù.
 </div>
 
-**Remark:** Open/closed maps automatically quotient.
-
 ---
 
-### 4. Checking Topology trên Quotient
+### 4. Kiểm tra tập mở và tập đóng trên không gian thương
 
-**Problem:** How to verify U ⊆ X/~ open?
-
-**Answer:** Check π^(-1)(U) open trong X.
-
-**Practical:** Often easier check closed sets: F closed ⟺ π^(-1)(F) closed.
-
----
+Để kiểm tra một tập $U \subseteq X/{\sim}$ có mở hay không, ta kiểm tra xem $\pi^{-1}(U)$ có mở trong $X$ hay không. Trong nhiều tình huống, việc kiểm tra tập đóng thuận tiện hơn:
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Closed Sets):**  
-F ⊆ X/~ closed ⟺ π^(-1)(F) closed trong X.
+**Định lý (Tập đóng trong không gian thương):**  
+$F \subseteq X/{\sim}$ đóng trong $X/{\sim}$ khi và chỉ khi $\pi^{-1}(F)$ đóng trong $X$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Complement. ✓
+**Chứng minh:** Lấy phần bù vì $\pi^{-1}((X/{\sim}) \setminus F) = X \setminus \pi^{-1}(F)$.
 </div>
 
 ---
 
-<div class="textbook-theorem" markdown="1">
-**Corollary:**  
-Quotient space có nice properties if π open or closed map.
-</div>
+## 🌀 Các ví dụ về không gian thương
+
+### 1. Đường tròn $S^1$ từ đoạn $[0,1]$
+
+Xét $X = [0,1]$ với quan hệ $0 \sim 1$ và ánh xạ $\pi: [0,1] \to S^1 \subseteq \mathbb{C}$ cho bởi $\pi(t) = e^{2\pi it}$.
+
+Ta kiểm tra:
+- $\pi$ liên tục, toàn ánh, và $\pi(0) = \pi(1) = 1$.
+- $\pi$ **không phải** ánh xạ mở: tập $[0, \varepsilon)$ mở trong tô-pô không gian con của $[0,1]$, nhưng ảnh $\pi([0, \varepsilon))$ là cung nửa mở bắt đầu tại $1 \in S^1$, không mở trong $S^1$.
+- Tuy nhiên, vì $[0,1]$ compact và $S^1$ Hausdorff, $\pi$ là ánh xạ đóng, do đó $\pi$ là ánh xạ thương.
+
+Kết luận: $[0,1]/{\sim} \cong S^1$.
 
 ---
 
-## 🌀 Examples của Quotient Spaces
+### 2. Hình xuyến $T^2$ từ hình vuông
 
-### 1. Circle S¹ từ [0,1]
+Xét hình vuông $X = [0,1] \times [0,1]$ với hai phép dán cạnh đối diện:
+- $(0, t) \sim (1, t)$ (dán cạnh trái với cạnh phải),
+- $(s, 0) \sim (s, 1)$ (dán cạnh dưới với cạnh trên).
 
-**Construction:**  
-X = [0,1], 0 ~ 1.  
-X/~ = S¹ (circle).
-
-**Verification:**  
-π: [0,1] → S¹ ⊆ ℂ, π(t) = e^(2πit).
-
-**Check quotient map:**  
-- π continuous ✓
-- π surjective ✓  
-- π(0) = π(1) = 1 ✓
-- Need: π open or closed?
-
-**π NOT open:** (0, ε) open, nhưng π((0, ε)) = arc, not open in S¹ if ε small. ✗
-
-**π closed?** Yes! [0,1] compact, S¹ Hausdorff ⇒ π closed. ✓
-
-**Conclusion:** [0,1]/~ ≅ S¹ với quotient topology.
-
----
-
-### 2. Torus T² từ Square
-
-**Construction:**  
-X = [0,1] × [0,1] (square).
-
-**Identifications:**
-- (0, t) ~ (1, t) (glue left-right)
-- (s, 0) ~ (s, 1) (glue top-bottom)
-
-**Result:** T² = torus (doughnut shape).
+Kết quả thu được là hình xuyến $T^2$.
 
 ![Torus from square](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Torus_from_rectangle.gif/400px-Torus_from_rectangle.gif)  
-*Gluing square to form torus - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus_from_rectangle.gif)*
+*Dán các cạnh hình vuông để tạo hình xuyến – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus_from_rectangle.gif)*
 
-**Topology:** Quotient topology induced by π: [0,1]² → T².
-
-**Embedding:** T² ⊆ ℝ³ as surface of revolution.
-
-**Parametrization:**  
-π(s,t) = ((R + r cos(2πt))cos(2πs), (R + r cos(2πt))sin(2πs), r sin(2πt))  
-với R > r > 0.
+Hình xuyến có thể nhúng vào $\mathbb{R}^3$ dưới dạng mặt tròn xoay với tham số hóa ($R > r > 0$):
+$\pi(s,t) = \bigl((R + r \cos(2\pi t))\cos(2\pi s),\; (R + r \cos(2\pi t))\sin(2\pi s),\; r \sin(2\pi t)\bigr)$.
 
 ---
 
-### 3. Cylinder
+### 3. Hình trụ (Cylinder)
 
-**Construction:**  
-X = [0,1] × [0,1].  
-Identify (0, t) ~ (1, t) (glue left-right only).
-
-**Result:** S¹ × [0,1] = cylinder.
-
-**Note:** Different từ torus—không glue top-bottom.
+Trên $X = [0,1] \times [0,1]$, nếu chỉ đồng nhất $(0, t) \sim (1, t)$ (dán cạnh trái với cạnh phải mà không dán trên–dưới), ta thu được hình trụ $S^1 \times [0,1]$.
 
 ---
 
-### 4. Möbius Strip
+### 4. Dải Möbius (Möbius Strip)
 
-**Construction:**  
-X = [0,1] × [0,1].  
-Identify (0, t) ~ (1, 1-t) (glue với twist).
-
-**Result:** Non-orientable surface!
+Trên $X = [0,1] \times [0,1]$, đồng nhất $(0, t) \sim (1, 1-t)$ (dán cạnh trái với cạnh phải sau khi xoắn ngược chiều). Kết quả là một mặt không định hướng được (chỉ có một phía duy nhất).
 
 ![Möbius strip](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/M%C3%B6bius_strip.jpg/400px-M%C3%B6bius_strip.jpg)  
-*Möbius strip - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%B6bius_strip.jpg)*
-
-**Property:** Single-sided surface (bug can walk từ "inside" to "outside" without crossing edge).
+*Dải Möbius – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%B6bius_strip.jpg)*
 
 ---
 
-### 5. Real Projective Space ℝP^n
+### 5. Không gian xạ ảnh thực $\mathbb{R}P^n$
 
-**Construction:**  
-X = S^n ⊆ ℝ^(n+1).  
-x ~ -x (antipodal points).
+Trên $X = S^n \subseteq \mathbb{R}^{n+1}$, đồng nhất các cặp điểm đối cực $x \sim -x$. Ta thu được $\mathbb{R}P^n = S^n/{\sim}$, biểu diễn tập hợp các đường thẳng qua gốc tọa độ trong $\mathbb{R}^{n+1}$.
+- $\mathbb{R}P^1 \cong S^1$.
+- $\mathbb{R}P^2$ là mặt phẳng xạ ảnh thực (không định hướng được và không nhúng được vào $\mathbb{R}^3$).
 
-**Result:** ℝP^n = S^n/~.
-
-**Interpretation:** Lines through origin trong ℝ^(n+1).
-
-**Examples:**
-- ℝP¹ = S¹/~ ≅ S¹ (circle)
-- ℝP² = projective plane (non-orientable, can't embed trong ℝ³)
-
-**Applications:**  
-- Geometry (projective geometry)
-- Computer vision (homogeneous coordinates)
-- Physics (quantum states = points trong projective space)
+Không gian xạ ảnh được dùng trong hình học xạ ảnh, thị giác máy tính (tọa độ thuần nhất) và cơ học lượng tử (không gian trạng thái lượng tử).
 
 ---
 
-### 6. Collapsing Subspace
+### 6. Co một không gian con về một điểm
 
-**Construction:**  
-X space, A ⊆ X nonempty.  
-X/A = quotient với A identified to single point.
+Cho tập con khác rỗng $A \subseteq X$, không gian $X/A$ thu được bằng cách co toàn bộ $A$ thành một điểm.
 
-**Example:** D²/S¹ (disk với boundary identified).  
-Result = S² (sphere)!
+**Ví dụ:** Đĩa đóng $D^2$ co biên $S^1$ thành một điểm cho ta mặt cầu: $D^2/S^1 \cong S^2$.
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Stereographic projection from sphere to disk. ✓
+**Chứng minh:** Dùng phép chiếu lập thể (hoặc ánh xạ liên tục từ $D^2$ lên $S^2$ đưa biên $S^1$ về cực bắc; vì $D^2$ compact và $S^2$ Hausdorff nên đó là ánh xạ thương).
 </div>
 
 ---
 
-### 7. Cone và Suspension
+### 7. Hình nón (Cone) và Phép treo (Suspension)
 
-**Cone:** X topological space.  
-CX = (X × [0,1]) / (X × {0}).
-
-**Trực giác:** Collapse one end to point—forms "cone" over X.
-
-**Suspension:** ΣX = (X × [0,1]) / (X×{0} ∪ X×{1}).
-
-**Trực giác:** Collapse both ends—"suspend" X between two points.
-
-**Example:** ΣS^n = S^(n+1).
+- **Hình nón trên $X$:** $CX = (X \times [0,1]) / (X \times \{0\})$, thu được bằng cách co đáy $X \times \{0\}$ của hình trụ $X \times [0,1]$ thành một điểm đỉnh.
+- **Phép treo của $X$:** $\Sigma X = (X \times [0,1]) / {\sim}$, trong đó $X \times \{0\}$ được co thành một điểm cực nam và $X \times \{1\}$ được co thành một điểm cực bắc riêng biệt.
+- **Ví dụ:** $\Sigma S^n \cong S^{n+1}$.
 
 ---
 
-## 🔍 Properties của Quotient Maps
+## 🔍 Tính chất của ánh xạ thương và không gian thương
 
-### 1. When is Quotient Map Open/Closed?
+### 1. Khi nào một toàn ánh liên tục là ánh xạ thương?
 
-**Not automatic:** π: X → X/~ may not be open or closed.
+Không phải mọi toàn ánh liên tục hay ánh xạ chiếu $\pi: X \to X/{\sim}$ đều là ánh xạ mở hoặc đóng. Chẳng hạn, với $X = \mathbb{R}^2$ và $A$ là trục hoành, ánh xạ chiếu $\pi: \mathbb{R}^2 \to \mathbb{R}^2/A$ không phải là ánh xạ mở (một tập mở trong $\mathbb{R}^2$ cắt trục hoành có ảnh không nhất thiết chứa toàn bộ lân cận của điểm $[A]$).
 
-**Example (Not Open):**  
-X = ℝ², A = x-axis.  
-π: ℝ² → ℝ²/A.  
-Open set in ℝ² có thể have preimage not open. ✗
+<div class="textbook-theorem" markdown="1">
+**Định lý (Điều kiện đủ):**  
+Nếu $X$ compact, $Y$ Hausdorff và $f: X \to Y$ là toàn ánh liên tục, thì $f$ là ánh xạ đóng và do đó là ánh xạ thương.
+</div>
+
+<div class="textbook-proof" markdown="1">
+**Chứng minh:** Mọi ánh xạ liên tục từ không gian compact vào không gian Hausdorff đều là ánh xạ đóng.
+</div>
+
+---
+
+### 2. Tính Hausdorff của không gian thương
+
+Ngay cả khi $X$ là không gian Hausdorff, không gian thương $X/{\sim}$ **không nhất thiết** Hausdorff.
+
+**Ví dụ:** Xét $X = \mathbb{R}$ và co khoảng mở $A = (0,1)$ thành một điểm (tức không gian thương $\mathbb{R}/(0,1)$). Trong $\mathbb{R}/(0,1)$, không thể tách điểm $[A]$ khỏi điểm $[0]$ (hoặc $[1]$) bằng hai tập mở rời nhau, nên $\mathbb{R}/(0,1)$ không Hausdorff.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Sufficient Conditions):**
+**Định lý (Điều kiện đủ để không gian thương là Hausdorff):**  
+Đặt $R = \{(x,y) \in X \times X : x \sim y\}$. Nếu $R$ đóng trong $X \times X$ và ánh xạ thương $\pi: X \to X/{\sim}$ là ánh xạ mở (hoặc $X$ là không gian compact Hausdorff), thì $X/{\sim}$ là không gian Hausdorff.
 </div>
-
-**If X compact, Y Hausdorff, f: X → Y continuous surjection ⇒ f quotient map.**
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Compact → Hausdorff = closed map. ✓
+**Chứng minh:** Nếu $[x] \neq [y]$ thì $(x,y) \notin R$. Vì $R$ đóng trong $X \times X$, tồn tại các lân cận mở $U$ của $x$ và $V$ của $y$ sao cho $(U \times V) \cap R = \emptyset$. Khi $\pi$ là ánh xạ mở, $\pi(U)$ và $\pi(V)$ là hai lân cận mở rời nhau tách $[x]$ và $[y]$ (xem thêm Munkres, §22).
 </div>
 
-**Application:** Many geometric quotients (sphere → projective space).
+**Ví dụ:** Quan hệ đối cực trên mặt cầu compact $S^n$ là tập đóng trong $S^n \times S^n$ (và $\pi$ là ánh xạ mở), nên $\mathbb{R}P^n$ là không gian Hausdorff.
 
 ---
 
-### 2. Hausdorff Quotients
-
-**Problem:** X Hausdorff ≠ X/~ Hausdorff.
-
-**Example:**  
-X = ℝ với equivalence: 0 ~ 1, else reflexive.  
-X/~ NOT Hausdorff (can't separate [0] từ nearby points). ✗
-
----
+### 3. Định lý đẳng cấu thứ nhất (tô-pô)
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Sufficient Condition):**  
-R = {(x,y) : x ~ y} ⊆ X × X.  
-If R closed trong X × X, thì X/~ Hausdorff.
+**Định lý:**  
+Cho $f: X \to Y$ là một **ánh xạ thương**. Định nghĩa quan hệ tương đương $x \sim y \iff f(x) = f(y)$. Khi đó $X/{\sim} \cong Y$ (đồng phôi).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Technical. See Munkres §22. ✓
+**Chứng minh:**  
+Ánh xạ cảm sinh $\overline{f}: X/{\sim} \to Y$ xác định bởi $\overline{f}([x]) = f(x)$ là một song ánh liên tục theo tính chất phổ dụng. Vì $f$ là ánh xạ thương, với mọi $U \subseteq X/{\sim}$ mở thì $\pi^{-1}(U) = f^{-1}(\overline{f}(U))$ mở trong $X$, suy ra $\overline{f}(U)$ mở trong $Y$. Vậy $\overline{f}^{-1}$ cũng liên tục, nên $\overline{f}$ là một phép đồng phôi.
 </div>
 
-**Example:** Antipodal relation trên S^n closed ⇒ ℝP^n Hausdorff. ✓
+Định lý này là công cụ tiêu chuẩn để nhận diện một không gian thương $X/{\sim}$ với một không gian cụ thể $Y$.
 
 ---
 
-### 3. First Isomorphism Theorem
+## 🧠 Tài liệu kinh điển và tham khảo
 
-<div class="textbook-theorem" markdown="1">
-**Theorem:**  
-f: X → Y continuous surjection.  
-Define ~ : x ~ y ⟺ f(x) = f(y).  
-Thì X/~ ≅ Y (homeomorphic).
-</div>
+### Các công trình kinh điển
 
-<div class="textbook-proof" markdown="1">
-**Proof:**  
-Induced map f̄: X/~ → Y, f̄([x]) = f(x).  
-f̄ bijection, continuous (universal property).  
-f̄ homeomorphism if quotient map. ✓
-</div>
+1. **Henri Poincaré** – *Analysis Situs* (1895)  
+   *Công trình đặt nền móng cho tô-pô học và lý thuyết mặt.*
 
-**Application:** Identify quotient spaces với concrete spaces.
+2. **Felix Hausdorff** – *Grundzüge der Mengenlehre* (1914)  
+   *Trình bày có hệ thống về tô-pô đại cương.*
 
----
+### Giáo trình
 
-## 🧠 Fundamental Papers & References
+3. **James R. Munkres** – *Topology*, 2nd Ed., **§22: Quotient Topology**
 
-### Classic Works
+4. **John M. Lee** – *Introduction to Topological Manifolds*, **Chapter 3**  
+   *Không gian thương và các mặt.*
 
-1. **Henri Poincaré** - *Analysis Situs* (1895)  
-   *Foundational work on topology, surfaces*
+5. **Allen Hatcher** – *Algebraic Topology*, **§0.2: Surfaces**  
+   *Góc nhìn hình học.*
 
-2. **Felix Hausdorff** - *Grundzüge der Mengenlehre* (1914)  
-   *Systematic treatment topology*
-
-### Textbooks
-
-3. **James R. Munkres** - *Topology*, 2nd Ed., **§22: Quotient Topology**
-
-4. **John M. Lee** - *Introduction to Topological Manifolds*, **Chapter 3**  
-   *Quotient spaces, surfaces*
-
-5. **Allen Hatcher** - *Algebraic Topology*, **§0.2: Surfaces**  
-   *Geometric perspective*
-
-6. **Sidney A. Morris** - *Topology without Tears*, **Chapter 7**
+6. **Sidney A. Morris** – *Topology without Tears*, **Chapter 7**
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### Geometry - Surfaces
-**Classification:** Compact surfaces classified via quotient construction (sphere, torus, projective plane, Klein bottle).
+### Hình học – Các mặt
+Phân loại các mặt compact (mặt cầu, hình xuyến, mặt phẳng xạ ảnh, chai Klein) được mô tả trực tiếp qua phép dán cạnh (không gian thương của đa giác).
 
-### Differential Geometry - Manifolds
-**Charts:** Local homeomorphisms with quotient structure define manifolds.
+### Hình học vi phân – Đa tạp
+Nhiều đa tạp quan trọng (như không gian xạ ảnh, hình xuyến, không gian thấu kính) được xây dựng dưới dạng không gian thương.
 
-### Algebraic Topology
-**CW Complexes:** Built by gluing cells—quotient construction.
+### Tô-pô đại số
+Phức CW được xây dựng quy nạp bằng cách dán các đĩa đóng dọc theo biên — một chuỗi phép lấy thương liên tiếp.
 
-### Physics - Gauge Theory
-**Principal Bundles:** Quotient by group actions (gauge symmetries).
+### Vật lý – Lý thuyết chuẩn (Gauge Theory)
+Các phân thớ chính và không gian cấu hình vật lý xuất hiện dưới dạng thương theo tác động của nhóm đối xứng chuẩn.
 
-### Computer Graphics
-**Texture Mapping:** Torus parametrized as quotient của square.
+### Đồ họa máy tính
+Ánh xạ kết cấu (texture mapping) trên hình xuyến khai thác trực tiếp biểu diễn thương của hình vuông.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [[Tôpô đại cương] Bài 38. Ánh xạ thương, tôpô thương và Ví dụ](https://www.youtube.com/watch?v=n8XSQwXw8Gc) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Ánh xạ thương và tô-pô thương bằng tiếng Việt, đúng phép dựng của bài.
-- [Quotient Topology for Equivalence Relations (Identification Spaces)](https://www.youtube.com/watch?v=s3LL3KQp7pQ) — Andrew McCrady, tiếng Anh. Cùng phép dán qua một quan hệ tương đương, nói chậm bằng tiếng Anh.
-- [Topology Lecture 14: Quotient Spaces I](https://www.youtube.com/watch?v=P7mTDR8FRMc) — Marius Furter, tiếng Anh. Một bài giảng đủ dài về không gian thương, để đối chiếu ví dụ.
+- **xem trước** [[Tôpô đại cương] Bài 38. Ánh xạ thương, tôpô thương và Ví dụ](https://www.youtube.com/watch?v=n8XSQwXw8Gc) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Trình bày ánh xạ thương, tô-pô thương và các ví dụ minh họa bằng tiếng Việt.
+- [Quotient Topology for Equivalence Relations (Identification Spaces)](https://www.youtube.com/watch?v=s3LL3KQp7pQ) — Andrew McCrady, tiếng Anh. Giải thích phép dán qua quan hệ tương đương với nhịp độ chậm.
+- [Topology Lecture 14: Quotient Spaces I](https://www.youtube.com/watch?v=P7mTDR8FRMc) — Marius Furter, tiếng Anh. Bài giảng đầy đủ về không gian thương kèm nhiều ví dụ đối chiếu.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Equivalence Relations
+### Quan hệ tương đương
 
-1. **Verify:**  
-   x ~ y ⟺ x - y ∈ ℤ trên ℝ. Verify equivalence relation axioms.
+1. **Kiểm tra quan hệ tương đương:**  
+   Trên $\mathbb{R}$, định nghĩa $x \sim y \iff x - y \in \mathbb{Z}$. Kiểm tra ba tính chất của quan hệ tương đương.
 
-2. **Equivalence Classes:**  
-   Trong bài 1, mô tả [0], [π], [1/2].
+2. **Lớp tương đương:**  
+   Trong bài 1, mô tả các lớp tương đương $[0]$, $[\pi]$ và $[1/2]$.
 
-3. **Partition:**  
-   Equivalence relation induces partition. Prove carefully.
+3. **Phân hoạch:**  
+   Chứng minh chi tiết rằng mọi quan hệ tương đương đều sinh ra một phân hoạch.
 
-### Quotient Topology
+### Tô-pô thương
 
-4. **Definition:**  
-   Verify quotient topology thật sự là topology.
+4. **Kiểm tra tô-pô:**  
+   Chứng minh họ $\tau_{X/\sim}$ thỏa mãn các tiên đề tô-pô.
 
-5. **π Continuous:**  
-   π: X → X/~ continuous. Prove từ definition.
+5. **Tính liên tục của $\pi$:**  
+   Chứng minh $\pi: X \to X/{\sim}$ liên tục trực tiếp từ định nghĩa.
 
-6. **Universal Property:**  
-   f: X/~ → Y continuous ⟺ f ∘ π continuous. Verify both directions.
+6. **Tính chất phổ dụng:**  
+   Chứng minh cả hai chiều: $f: X/{\sim} \to Y$ liên tục $\iff f \circ \pi$ liên tục.
 
-### Quotient Maps
+### Ánh xạ thương
 
-7. **Open Map:**  
-   f: X → Y continuous open surjection ⇒ quotient map. Prove.
+7. **Ánh xạ mở:**  
+   Chứng minh mọi toàn ánh liên tục mở $f: X \to Y$ đều là ánh xạ thương.
 
-8. **Closed Map:**  
-   f compact → Hausdorff ⇒ closed map. Sketch proof.
+8. **Ánh xạ đóng:**  
+   Phác thảo chứng minh: mọi ánh xạ liên tục từ không gian compact vào không gian Hausdorff đều là ánh xạ đóng.
 
-9. **Counterexample:**  
-   Continuous surjection không phải quotient map. Example?
+9. **Phản ví dụ:**  
+   Tìm một toàn ánh liên tục nhưng không phải là ánh xạ thương.
 
-### Examples
+### Các ví dụ hình học
 
-10. **Circle:**  
-    [0,1] với 0 ~ 1. Verify X/~ ≅ S¹.
+10. **Đường tròn:**  
+    Với $[0,1]$ và $0 \sim 1$, chứng minh $[0,1]/{\sim} \cong S^1$.
 
-11. **Torus:**  
-    Sketch gluing square to torus. Label identifications.
+11. **Hình xuyến:**  
+    Vẽ sơ đồ dán hình vuông tạo thành hình xuyến $T^2$ và ghi rõ các cạnh được đồng nhất.
 
-12. **Möbius Strip:**  
-    Construct từ rectangle. Where's twist?
+12. **Dải Möbius:**  
+    Xây dựng dải Möbius từ hình chữ nhật và chỉ rõ chiều dán ngược.
 
-### ℝP^n
+### Không gian xạ ảnh $\mathbb{R}P^n$
 
-13. **ℝP¹:**  
-    ℝP¹ = S¹/~. Show ℝP¹ ≅ S¹.
+13. **$\mathbb{R}P^1$:**  
+    Chứng minh $\mathbb{R}P^1 = S^1/{\sim} \cong S^1$.
 
-14. **ℝP²:**  
-    ℝP² non-orientable. Research proof sketch.
+14. **$\mathbb{R}P^2$:**  
+    Tìm hiểu phác thảo chứng minh mặt phẳng xạ ảnh $\mathbb{R}P^2$ không định hướng được.
 
-15. **Homogeneous Coordinates:**  
-    ℝP^n = (ℝ^(n+1) \ {0}) / ~, [x₀:...:xₙ]. Explain.
+15. **Tọa độ thuần nhất:**  
+    Giải thích đồng phôi $\mathbb{R}P^n \cong (\mathbb{R}^{n+1} \setminus \{0\}) / {\sim}$ với tọa độ thuần nhất $[x_0 : \cdots : x_n]$.
 
-### Hausdorff
+### Tính Hausdorff
 
-16. **Not Hausdorff:**  
-    ℝ với 0 ~ 1. Show X/~ không Hausdorff.
+16. **Không gian thương không Hausdorff:**  
+    Chứng minh không gian thương $\mathbb{R}/(0,1)$ (co khoảng mở $(0,1)$ thành một điểm) không phải là không gian Hausdorff.
 
-17. **Sufficient Condition:**  
-    R closed trong X × X ⇒ X/~ Hausdorff. Research proof.
+17. **Điều kiện đủ:**  
+    Tìm hiểu chứng minh: nếu $R$ đóng trong $X \times X$ và $\pi$ là ánh xạ mở thì $X/{\sim}$ là không gian Hausdorff.
 
-18. **Antipodal:**  
-    Antipodal relation trên S^n closed? Verify ⇒ ℝP^n Hausdorff.
+18. **Quan hệ đối cực:**  
+    Kiểm tra quan hệ đối cực trên $S^n$ là tập đóng trong $S^n \times S^n$, từ đó suy ra $\mathbb{R}P^n$ là không gian Hausdorff.
 
-### Advanced
+### Nâng cao
 
-19. **Cone:**  
-    CX = (X × [0,1]) / (X × {0}). CS^n = ?
+19. **Hình nón:**  
+    Với $CX = (X \times [0,1]) / (X \times \{0\})$, hãy xác định không gian $CS^n$ đồng phôi với không gian quen thuộc nào.
 
-20. **Suspension:**  
-    ΣS^n ≅ S^(n+1). Sketch geometric argument.
+20. **Phép treo:**  
+    Phác thảo lập luận hình học cho thấy $\Sigma S^n \cong S^{n+1}$.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §22 (Quotient Topology)
 - **Lee, Topological Manifolds:** Chapter 3 (Quotient spaces)
 - **Hatcher, Algebraic Topology:** §0.2 (Surfaces)
-- **Armstrong:** *Basic Topology* (Geometric intuition)
+- **Armstrong:** *Basic Topology* (Trực giác hình học)
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài học này, chúng ta đã khám phá quotient topology—một công cụ mạnh mẽ để xây dựng các không gian mới. Các quan hệ tương đương là nền tảng cho việc xây dựng quotient spaces—chúng là các quan hệ phản xạ, đối xứng, và bắc cầu cho phép chúng ta xác định các điểm nào là "giống nhau". Tập quotient $X/\sim$ là tập hợp tất cả các lớp tương đương, và quotient topology được định nghĩa bởi điều kiện: $U$ mở trong $X/\sim$ nếu và chỉ nếu $\pi^{-1}(U)$ mở trong $X$. Universal property đặc trưng cho quotient topology: một hàm $f: X/\sim \to Y$ là liên tục nếu và chỉ nếu $f \circ \pi: X \to Y$ là liên tục. Các quotient maps là các ánh xạ liên tục toàn ánh tạo ra quotient topology, và các ví dụ quan trọng bao gồm $S^1$, torus, Möbius strip, $\mathbb{R}P^n$, và các không gian thu được bằng cách co lại các tập con.
+Trong bài học này, chúng ta đã tìm hiểu tô-pô thương — kỹ thuật xây dựng không gian mới bằng cách đồng nhất các điểm theo một quan hệ tương đương $\sim$. Tô-pô thương trên $X/{\sim}$ được xác định bởi điều kiện $U$ mở trong $X/{\sim} \iff \pi^{-1}(U)$ mở trong $X$, là tô-pô mịn nhất làm cho ánh xạ chiếu $\pi$ liên tục và được đặc trưng bởi tính chất phổ dụng ($f$ liên tục $\iff f \circ \pi$ liên tục).
 
-Điểm chính của bài học là quotient topology tương đương với việc "dán" hoặc "đồng nhất" các điểm—chúng ta xác định các điểm nào đó là giống nhau và tạo ra một không gian mới từ không gian gốc. Ánh xạ chiếu $\pi: X \to X/\sim$ luôn liên tục theo định nghĩa—đây là một tính chất cơ bản của quotient topology. Universal property đặc trưng cho quotient topology—nó cho chúng ta biết cách xây dựng các ánh xạ từ quotient space. Một kết quả quan trọng là nếu $X$ compact và $Y$ Hausdorff, thì mọi ánh xạ liên tục toàn ánh $f: X \to Y$ đều là quotient map closed. Tuy nhiên, cần lưu ý rằng $X$ Hausdorff không đảm bảo $X/\sim$ Hausdorff—chúng ta cần điều kiện bổ sung về quan hệ tương đương.
+Nhiều đối tượng hình học quan trọng được xây dựng dưới dạng không gian thương: đường tròn $S^1$, hình xuyến $T^2$, dải Möbius, không gian xạ ảnh $\mathbb{R}P^n$, hình nón $CX$ và phép treo $\Sigma X$. Mọi toàn ánh liên tục từ không gian compact vào không gian Hausdorff đều là ánh xạ thương đóng, nhưng cần chú ý rằng không gian thương của một không gian Hausdorff không tự động là Hausdorff.
 
-Trực giác hình học đằng sau các ví dụ quan trọng là: hình tròn được tạo ra từ đoạn $[0,1]$ bằng cách dán hai đầu mút lại với nhau, torus được tạo ra từ một hình vuông bằng cách dán các cạnh đối diện lại với nhau, và không gian projective được tạo ra từ hình cầu bằng cách đồng nhất các điểm đối cực. Những ví dụ này minh họa cách quotient topology cho phép chúng ta tạo ra các hình dạng phức tạp từ các hình dạng đơn giản.
-
-Trong thực tế, chúng ta kiểm tra xem một tập $U$ có mở trong quotient space hay không bằng cách kiểm tra $\pi^{-1}(U)$ có mở trong không gian gốc hay không. Chúng ta sử dụng universal property để xây dựng các ánh xạ từ quotient space—đây là một kỹ thuật mạnh mẽ và phổ biến. Để xác minh rằng một quotient space là Hausdorff, chúng ta kiểm tra xem quan hệ tương đương $R = \{(x,y) : x \sim y\}$ có đóng trong $X \times X$ hay không—đây là một điều kiện đủ quan trọng.
-
-**Tiếp theo:** Lecture 05.01 về **Classification of Surfaces**—phân loại hoàn chỉnh các bề mặt compact thông qua quotient!
+**Tiếp theo:** Lecture 05.01 về **Phân loại các mặt compact** — ứng dụng trực tiếp phép dán thương để phân loại các mặt đóng liên thông.
 
 ---
 
-*"Quotient topology: the art of gluing things together."* — Topologist's wisdom
-
-🎯 **Master quotients! They create surfaces and manifolds.** 🎯
+*"Quotient topology: the art of gluing things together."*
 
 ---
 
 **Previous Chapter:** [Chapter 04: Metric Spaces](/contents/vi/topology-chapter04/)  
 **Next:** [Lecture 05.01: Classification of Surfaces](/contents/vi/topology-chapter05/05_01_Classification_Surfaces/)
-

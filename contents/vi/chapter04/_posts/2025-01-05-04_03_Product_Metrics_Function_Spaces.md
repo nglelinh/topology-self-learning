@@ -10,114 +10,90 @@ tags: [product-metrics, function-spaces, uniform-convergence, pointwise-converge
 description: "Product metrics, function spaces, uniform vs pointwise convergence, và Banach spaces"
 ---
 
-**Product Metrics and Function Spaces**
+**Metric tích và Không gian hàm**
 
 ---
 
 ## 📖 Tổng quan
 
-Đến giờ chúng ta đã học về các không gian metric hữu hạn chiều như $\mathbb{R}^n$. Nhưng trong toán học, chúng ta thường xuyên làm việc với các **không gian vô hạn chiều**—đặc biệt là các **function spaces** (không gian hàm).
+Các bài học trước tập trung chủ yếu vào những không gian metric hữu hạn chiều như $\mathbb{R}^n$. Tuy nhiên, trong giải tích và toán ứng dụng, ta thường xuyên làm việc với các **không gian vô hạn chiều**, đặc biệt là **không gian hàm** (function spaces) — những không gian mà mỗi "điểm" là một hàm số hoặc một dãy số. Các ví dụ tiêu biểu gồm không gian các hàm liên tục $C([0,1])$, không gian các hàm khả tích bậc $p$ ký hiệu $L^p([0,1])$, và không gian các dãy số $\ell^p$.
 
-Function spaces là các không gian mà các điểm là các hàm số! Các ví dụ quan trọng bao gồm $C([0,1])$ = các hàm liên tục trên $[0,1]$, $L^p([0,1])$ = các hàm khả tích bậc $p$, và $\ell^p$ = các dãy số có tổng hữu hạn. Đây là những không gian vô hạn chiều—chúng ta không thể mô tả chúng bằng các tọa độ hữu hạn như trong $\mathbb{R}^n$.
-
-Metrics trên function spaces là cực kỳ quan trọng để định nghĩa sự hội tụ của các dãy hàm số, nghiên cứu các phương trình vi phân, phát triển functional analysis, và trong cơ học lượng tử (Hilbert spaces). Không có metric, chúng ta không thể nói về sự hội tụ của các dãy hàm, và điều này là cần thiết cho hầu hết các ứng dụng trong giải tích và vật lý.
+Việc trang bị metric trên không gian hàm cho phép định nghĩa sự hội tụ của dãy hàm số, phục vụ trực tiếp cho nghiên cứu phương trình vi phân đạo hàm riêng (PDE), giải tích hàm (không gian Banach, không gian Hilbert), cơ học lượng tử và xử lý tín hiệu.
 
 ![Function space visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Uniform_convergence.gif/400px-Uniform_convergence.gif)  
-*Hoạt hình về uniform convergence - Nguồn concept*
+*Minh họa sự hội tụ đều của dãy hàm*
 
-Trong bài học này, chúng ta sẽ khám phá các khái niệm cơ bản của product metrics và function spaces. Chúng ta bắt đầu với product metrics—các metrics trên $X \times Y$ và các tích vô hạn. Chúng ta sẽ nghiên cứu các metrics trên function spaces—uniform metric, pointwise convergence, và $L^p$ metrics. Chúng ta sẽ khám phá sự khác biệt quan trọng giữa uniform convergence và pointwise convergence—hai khái niệm này rất khác nhau và có các tính chất khác nhau. Chúng ta sẽ nghiên cứu Banach spaces—các không gian vector định chuẩn đầy đủ, và các ví dụ quan trọng như $C([0,1])$, $\ell^p$, và $L^p$.
-
-Tại sao những khái niệm này lại quan trọng đến vậy? Thứ nhất, chúng tạo thành nền tảng của functional analysis—Banach spaces và Hilbert spaces là xương sống của giải tích hàm hiện đại. Thứ hai, trong các phương trình vi phân đạo hàm riêng (PDEs), các nghiệm sống trong function spaces—chúng ta cần các không gian này để nghiên cứu các nghiệm của PDEs. Thứ ba, trong cơ học lượng tử, các wave functions sống trong $L^2$—không gian Hilbert với inner product cho phép chúng ta tính toán các xác suất. Cuối cùng, trong xử lý tín hiệu, không gian $L^2$ là cơ bản cho Fourier analysis và các kỹ thuật xử lý tín hiệu khác.
+Trong bài học này, chúng ta sẽ tìm hiểu cách xây dựng metric trên tích hữu hạn và tích vô hạn đếm được của các không gian metric, khảo sát các metric quan trọng trên không gian hàm (metric đều và metric $L^1$), phân biệt hội tụ đều với hội tụ từng điểm, đồng thời giới thiệu các không gian dãy $\ell^p$, không gian hàm $L^p$, không gian Banach và không gian Hilbert.
 
 ---
 
-## 🔢 Product Metrics
+## 🔢 Metric tích (Product Metrics)
 
-### 1. Finite Products
+### 1. Tích hữu hạn
 
-**Setup:** (X₁, d₁), (X₂, d₂) metric spaces.
+Cho hai không gian metric $(X_1, d_1)$ và $(X_2, d_2)$. Để định nghĩa metric trên tích Descartes $X_1 \times X_2$, có ba cách tự nhiên:
 
-**Goal:** Define metric trên X₁ × X₂.
-
-**Natural options:**
-
-**(1) Maximum metric:**
+**(1) Metric cực đại:**
 $$
 d_\infty((x_1, x_2), (y_1, y_2)) = \max\{d_1(x_1, y_1), d_2(x_2, y_2)\}
 $$
 
-**(2) Sum metric:**
+**(2) Metric tổng:**
 $$
 d_1((x_1, x_2), (y_1, y_2)) = d_1(x_1, y_1) + d_2(x_2, y_2)
 $$
 
-**(3) Euclidean metric:**
+**(3) Metric Euclid:**
 $$
 d_2((x_1, x_2), (y_1, y_2)) = \sqrt{d_1(x_1, y_1)^2 + d_2(x_2, y_2)^2}
 $$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Cả ba đều metrics trên X₁ × X₂.
+**Định lý:**  
+Cả ba hàm trên đều là metric trên $X_1 \times X_2$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify axioms (exercise). ✓
+**Chứng minh:** Kiểm tra trực tiếp ba tiên đề metric (xem phần bài tập).
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Equivalence):**  
-d₁, d₂, d∞ equivalent trên X₁ × X₂ (finite product).
+**Định lý (Tính tương đương):**  
+Các metric $d_1, d_2, d_\infty$ tương đương mạnh với nhau trên tích hữu hạn $X_1 \times X_2$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-d∞ ≤ d₂ ≤ d₁ ≤ 2·d∞. ✓
+**Chứng minh:**  
+Ta có $d_\infty \leq d_2 \leq d_1 \leq 2 \cdot d_\infty$.
 </div>
-
-**Consequence:** Topology của product well-defined.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Relation với Product Topology):**  
-Mọi product metric (d₁, d₂, d∞) induces **product topology** τ_{X₁} × τ_{X₂}.
+**Định lý (Quan hệ với tô-pô tích):**  
+Mỗi metric tích $d_1, d_2, d_\infty$ đều sinh ra đúng **tô-pô tích** $\tau_{X_1} \times \tau_{X_2}$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-Basis cho product topology: U₁ × U₂, Uᵢ open.  
-Open balls trong product metric contain products of balls. ✓
+**Chứng minh:**  
+Cơ sở của tô-pô tích gồm các tập dạng $U_1 \times U_2$ với $U_i$ mở trong $X_i$. Trong metric $d_\infty$, quả cầu mở $B_{d_\infty}((x_1, x_2), r)$ chính là tích $B_{d_1}(x_1, r) \times B_{d_2}(x_2, r)$, nên tô-pô sinh bởi $d_\infty$ (và do đó cả $d_1, d_2$) trùng với tô-pô tích.
 </div>
 
----
-
-**Example: ℝⁿ = ℝ × ℝ × ... × ℝ**
-
-Product metrics trên ℝⁿ = d₁, d₂, d∞ (đã học trước).  
-All equivalent, induce standard topology. ✓
+**Ví dụ:** Với $\mathbb{R}^n = \mathbb{R} \times \cdots \times \mathbb{R}$, các metric tích $d_1, d_2, d_\infty$ tương đương nhau và đều sinh ra tô-pô chuẩn của $\mathbb{R}^n$.
 
 ---
 
-### 2. Infinite Products
+### 2. Tích vô hạn đếm được
 
-**Setup:** (Xₙ, dₙ) metric spaces, n = 1, 2, 3, ...
-
-**Goal:** Metric trên ∏ Xₙ = X₁ × X₂ × X₃ × ...
-
-**Problem:** Naive generalizations fail!
-- Σdₙ có thể diverge
-- sup dₙ có thể = ∞
-
-**Solution:** Normalize!
+Cho dãy không gian metric $(X_n, d_n)$ với $n = 1, 2, 3, \ldots$. Khi mở rộng lên tích vô hạn $\prod_{n=1}^\infty X_n$, việc lấy tổng $\sum d_n$ có thể phân kỳ và $\sup_n d_n$ có thể bằng $\infty$. Để khắc phục, ta chuẩn hóa các metric (chẳng hạn thay $d_n$ bởi $\min(d_n, 1)$) sao cho $d_n \leq 1$.
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Uniform Metric trên Infinite Product):**  
-Assume dₙ ≤ 1 (bounded). Define:
+**Định nghĩa (Metric đều trên tích vô hạn):**  
+Giả sử $d_n \leq 1$ với mọi $n$. Định nghĩa:
 
 $$
 d((x_n), (y_n)) = \sup_n d_n(x_n, y_n)
@@ -125,291 +101,253 @@ $$
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** Nếu dₙ ≤ 1, d là metric.
+**Định lý:** Nếu $d_n \leq 1$ với mọi $n$, thì $d$ là một metric trên $\prod_{n=1}^\infty X_n$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify axioms (straightforward). ✓
+**Chứng minh:** Kiểm tra trực tiếp ba tiên đề metric.
 </div>
 
 ---
 
-**Alternative (Weighted Metric):**
+**Metric có trọng số (Weighted Metric):**
 
 $$
 d((x_n), (y_n)) = \sum_{n=1}^\infty \frac{1}{2^n} d_n(x_n, y_n)
 $$
 
-(Assume dₙ ≤ 1 để series converge.)
+(vẫn giả sử $d_n \leq 1$ để chuỗi hội tụ).
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** d metric, induces product topology.
+**Định lý:** Metric có trọng số trên là một metric và sinh ra đúng tô-pô tích trên $\prod_{n=1}^\infty X_n$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Technical. See Munkres §20. ✓
+**Chứng minh:** Mang tính kỹ thuật; xem Munkres, §20.
 </div>
 
 ---
 
-**Remark:** Different metrics trên infinite products có thể **not equivalent**!  
-Sup metric và weighted metric induce same topology (product topology), nhưng convergence properties differ.
+**Lưu ý quan trọng:** Trên tích vô hạn, các metric khác nhau có thể **không tương đương**. Cụ thể, metric có trọng số sinh ra **tô-pô tích**, còn metric đều $\sup_n d_n$ sinh ra **tô-pô đều** (uniform topology), vốn mịn hơn thực sự so với tô-pô tích (nên hai metric này không tương đương nhau trên tích vô hạn).
 
 ---
 
-### 3. Completeness của Products
+### 3. Tính đầy đủ của không gian tích
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Finite Products):**  
-(X₁, d₁), (X₂, d₂) complete ⇒ (X₁ × X₂, d) complete.
+**Định lý (Tích hữu hạn):**  
+Nếu $(X_1, d_1)$ và $(X_2, d_2)$ đầy đủ, thì $(X_1 \times X_2, d)$ cũng đầy đủ (với bất kỳ metric tích chuẩn nào).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-(xₙ) = ((x₁ⁿ, x₂ⁿ)) Cauchy trong X₁ × X₂.  
-⇒ (x₁ⁿ) Cauchy trong X₁, (x₂ⁿ) Cauchy trong X₂.  
-X₁, X₂ complete ⇒ x₁ⁿ → x₁, x₂ⁿ → x₂.  
-⇒ (x₁ⁿ, x₂ⁿ) → (x₁, x₂). ✓
+**Chứng minh:**  
+Nếu $(x_1^{(k)}, x_2^{(k)})$ là dãy Cauchy trong $X_1 \times X_2$, thì $(x_1^{(k)})$ là dãy Cauchy trong $X_1$ và $(x_2^{(k)})$ là dãy Cauchy trong $X_2$. Do $X_1, X_2$ đầy đủ nên $x_1^{(k)} \to x_1 \in X_1$ và $x_2^{(k)} \to x_2 \in X_2$, suy ra $(x_1^{(k)}, x_2^{(k)}) \to (x_1, x_2)$.
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Infinite Products - Weighted Metric):**  
-(Xₙ, dₙ) complete ∀n ⇒ (∏Xₙ, d_weighted) complete.
+**Định lý (Tích vô hạn với metric có trọng số):**  
+Nếu $(X_n, d_n)$ đầy đủ với mọi $n$ (và $d_n \le 1$ hoặc dùng metric cắt cụt $\min(d_n, 1)$), thì $\left(\prod_{n=1}^\infty X_n, d_{\text{weighted}}\right)$ đầy đủ.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Tychonoff-style argument (technical). ✓
+**Chứng minh:** Dãy Cauchy theo metric có trọng số kéo theo từng tọa độ là dãy Cauchy trong $X_n$, nên hội tụ theo từng tọa độ, và do đuôi chuỗi $\sum_{n > N} 2^{-n}$ nhỏ tùy ý nên dãy hội tụ theo metric có trọng số.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Corollary:** ℝ^∞ = ℝ × ℝ × ... complete với weighted metric.
+**Hệ quả:** $\mathbb{R}^\infty = \mathbb{R} \times \mathbb{R} \times \cdots$ đầy đủ với metric có trọng số (dùng metric cắt cụt trên từng nhân tử).
 </div>
 
 ---
 
-## 📊 Function Spaces
+## 📊 Không gian hàm (Function Spaces)
 
-### 1. Space of Continuous Functions: C([0,1])
+### 1. Không gian các hàm liên tục $C([0,1])$
 
 <div class="textbook-definition" markdown="1">
-**Definition:**  
-C([0,1]) = {f: [0,1] → ℝ : f continuous}
+**Định nghĩa:**  
+$C([0,1]) = \{f: [0,1] \to \mathbb{R} : f \text{ liên tục}\}$.
 </div>
 
-**This is vector space:** (f + g)(x) = f(x) + g(x), (λf)(x) = λf(x).
-
-**Goal:** Define metric.
+Đây là một không gian vector với phép cộng và nhân vô hướng xác định từng điểm: $(f + g)(x) = f(x) + g(x)$ và $(\lambda f)(x) = \lambda f(x)$.
 
 ---
 
-**Metric 1: Uniform (Supremum) Metric**
+**Metric 1: Metric đều (Supremum Metric)**
 
 $$
 d_\infty(f, g) = \sup_{x \in [0,1]} |f(x) - g(x)|
 $$
 
-**Also called:** Supremum norm, uniform norm.
-
-**Notation:** ||f - g||∞ = d∞(f,g).
+Còn gọi là chuẩn supremum hay chuẩn đều, ký hiệu $\|f - g\|_\infty = d_\infty(f,g)$.
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** d∞ is metric.
+**Định lý:** $d_\infty$ là một metric trên $C([0,1])$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**
-- (M1): sup |f - g| ≥ 0, = 0 ⟺ f = g ✓
-- (M2): Symmetric ✓
-- (M3): sup |f - h| ≤ sup |f - g| + sup |g - h| ✓
+**Chứng minh:**
+- (M1): $\sup |f - g| \geq 0$, và bằng $0$ khi và chỉ khi $f = g$.
+- (M2): Đối xứng hiển nhiên.
+- (M3): $\sup |f - h| \leq \sup |f - g| + \sup |g - h|$.
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Completeness):**  
-(C([0,1]), d∞) complete.
+**Định lý (Tính đầy đủ):**  
+$(C([0,1]), d_\infty)$ là không gian metric đầy đủ.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-(fₙ) Cauchy trong d∞ ⇒ uniformly Cauchy.  
-∀x: (fₙ(x)) Cauchy trong ℝ ⇒ f(x) = lim fₙ(x) exists.  
-Uniform convergence ⇒ f continuous (standard analysis theorem).  
-fₙ → f uniformly ⇒ fₙ → f trong d∞. ✓
+**Chứng minh:**  
+Nếu $(f_n)$ là dãy Cauchy theo $d_\infty$, thì $(f_n)$ là dãy Cauchy đều. Với mỗi $x \in [0,1]$, dãy số thực $(f_n(x))$ là dãy Cauchy nên tồn tại giới hạn $f(x) = \lim_{n \to \infty} f_n(x)$. Hơn nữa, $f_n \to f$ đều trên $[0,1]$. Theo định lý cơ bản của giải tích, giới hạn đều của dãy hàm liên tục là hàm liên tục, nên $f \in C([0,1])$ và $d_\infty(f_n, f) \to 0$.
 </div>
-
-**Remark:** Uniform convergence preserves continuity—key property!
 
 ---
 
-**Metric 2: L¹ Metric (Integral Metric)**
+**Metric 2: Metric $L^1$ (Metric tích phân)**
 
 $$
 d_1(f,g) = \int_0^1 |f(x) - g(x)| \, dx
 $$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** d₁ is metric trên C([0,1]).
+**Định lý:** $d_1$ là một metric trên $C([0,1])$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify axioms (use integral properties). ✓
+**Chứng minh:** Kiểm tra các tiên đề metric dựa trên tính chất tuyến tính, không âm của tích phân và tính liên tục của $|f - g|$.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** d₁ ≁ d∞ (not equivalent).
+**Định lý:** $d_1 \nsim d_\infty$ trên $C([0,1])$.
 </div>
 
-**Proof (Counterexample):**  
-fₙ(x) = xⁿ.
-- d₁(fₙ, 0) = ∫₀¹ xⁿ dx = 1/(n+1) → 0
-- d∞(fₙ, 0) = sup xⁿ = 1 ≠ 0
+**Chứng minh (Phản ví dụ):**  
+Xét dãy $f_n(x) = x^n$:
+- $d_1(f_n, 0) = \int_0^1 x^n\,dx = \frac{1}{n+1} \to 0$,
+- $d_\infty(f_n, 0) = \sup_{x \in [0,1]} x^n = 1 \neq 0$.
 
-Vậy convergence trong d₁ ≠ convergence trong d∞. ✓
+Do sự hội tụ khác nhau nên hai metric không tương đương.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (NOT Complete):**  
-(C([0,1]), d₁) **không complete**.
+**Định lý (Không đầy đủ):**  
+$(C([0,1]), d_1)$ **không** đầy đủ.
 </div>
 
-**Proof sketch:**  
-Construct sequence fₙ continuous converging trong d₁ to discontinuous function.
-
-**Example:**  
-fₙ(x) = piecewise linear approximation của step function.  
-fₙ Cauchy trong d₁, nhưng limit = step function ∉ C([0,1]). ✗
-
-**Lesson:** Completeness depends on metric!
+**Ý tưởng chứng minh:**  
+Xây dựng một dãy hàm liên tục tuyến tính từng khúc $(f_n)$ xấp xỉ một hàm bậc thang gián đoạn. Dãy $(f_n)$ là dãy Cauchy theo metric $d_1$, nhưng giới hạn của nó là hàm bậc thang không thuộc $C([0,1])$. Điều này một lần nữa minh họa rằng tính đầy đủ phụ thuộc vào metric được chọn.
 
 ---
 
-### 2. Uniform vs Pointwise Convergence
+### 2. Hội tụ đều và hội tụ từng điểm
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Uniform Convergence):**  
-fₙ **uniformly converges** to f nếu:
+**Định nghĩa (Hội tụ đều):**  
+Dãy hàm $(f_n)$ **hội tụ đều** về $f$ (ký hiệu $f_n \rightrightarrows f$) nếu:
 
 $$
 \sup_x |f_n(x) - f(x)| \to 0
 $$
 </div>
 
-**Notation:** fₙ ⇉ f.
-
-**Trong metric language:** fₙ → f trong (C([0,1]), d∞).
+Trong ngôn ngữ không gian metric, $f_n \rightrightarrows f$ chính là $f_n \to f$ trong $(C([0,1]), d_\infty)$.
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Pointwise Convergence):**  
-fₙ **pointwise converges** to f nếu:
+**Định nghĩa (Hội tụ từng điểm):**  
+Dãy hàm $(f_n)$ **hội tụ từng điểm** về $f$ nếu:
 
 $$
 \forall x: f_n(x) \to f(x)
 $$
 </div>
 
-**Notation:** fₙ → f pointwise.
-
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Uniform convergence ⇒ pointwise convergence.
+**Định lý:**  
+Hội tụ đều $\Rightarrow$ hội tụ từng điểm.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Trivial. ✓
+**Chứng minh:** Với mọi $x$, $|f_n(x) - f(x)| \le \sup_t |f_n(t) - f(t)| \to 0$.
 </div>
 
-**Converse sai:**
-
-**Example:** fₙ(x) = xⁿ trên [0,1].
-- Pointwise: fₙ(x) → f(x) = {0 if x < 1; 1 if x = 1}
-- Không uniform: sup|fₙ(x) - f(x)| = 1 ≠ 0 ✗
+**Chiều ngược lại không đúng.** Xét $f_n(x) = x^n$ trên $[0,1]$:
+- Hội tụ từng điểm về hàm $f(x) = 0$ với $x < 1$ và $f(1) = 1$.
+- Không hội tụ đều vì $\sup_{x \in [0,1]} |f_n(x) - f(x)| = 1$ với mọi $n$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Preservation của Continuity):**
-- Uniform convergence của continuous functions ⇒ limit continuous ✓
-- Pointwise convergence ⇒ limit có thể discontinuous ✗
+**Định lý (Bảo toàn tính liên tục):**
+- Giới hạn đều của một dãy hàm liên tục là hàm liên tục.
+- Giới hạn từng điểm của một dãy hàm liên tục có thể gián đoạn (như ví dụ $f_n(x) = x^n$ ở trên).
 </div>
-
-**Example:** fₙ(x) = xⁿ above—limit discontinuous.
-
-**Moral:** Uniform convergence = "good" convergence (preserves properties).
 
 ---
 
-### 3. Sequence Spaces: ℓ^p
+### 3. Không gian dãy $\ell^p$
 
 <div class="textbook-definition" markdown="1">
-**Definition:**  
-ℓ^p = {sequences (xₙ) : Σ|xₙ|^p < ∞}, 1 ≤ p < ∞.
+**Định nghĩa:**  
+Với $1 \leq p < \infty$, đặt $\ell^p = \left\{(x_n) : \sum_{n=1}^\infty |x_n|^p < \infty\right\}$.
 </div>
 
-**Metric:**
+**Metric trên $\ell^p$:**
 $$
 d_p((x_n), (y_n)) = \left(\sum_{n=1}^\infty |x_n - y_n|^p\right)^{1/p}
 $$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** d_p is metric (use Minkowski inequality).
+**Định lý:** $d_p$ là một metric trên $\ell^p$ (chứng minh dùng bất đẳng thức Minkowski).
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** ℓ^p complete ∀p ≥ 1.
+**Định lý:** Không gian $\ell^p$ đầy đủ với mọi $p \geq 1$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Technical (dominated convergence). ✓
+**Chứng minh:** Dùng tính hội tụ theo tọa độ kết hợp với định lý hội tụ bị chặn (hoặc bổ đề Fatou).
 </div>
 
 ---
 
-**Special case: ℓ²**
+**Trường hợp đặc biệt: $\ell^2$**
 
-ℓ² = {(xₙ) : Σxₙ² < ∞} = **Hilbert space** (với inner product).
-
-**Inner product:**
+$\ell^2 = \left\{(x_n) : \sum_{n=1}^\infty x_n^2 < \infty\right\}$ là một **không gian Hilbert** với tích vô hướng:
 $$
 \langle (x_n), (y_n) \rangle = \sum_{n=1}^\infty x_n y_n
 $$
 
-**Norm:** ||x|| = √⟨x,x⟩.
-
-**Metric:** d(x,y) = ||x - y||.
-
-**Applications:**
-- Quantum mechanics (wave functions)
-- Signal processing (Fourier series)
-- Statistics (L² random variables)
+Chuẩn tương ứng là $\|x\| = \sqrt{\langle x,x \rangle}$ và metric là $d(x,y) = \|x - y\|$. Không gian $\ell^2$ xuất hiện trong cơ học lượng tử, xử lý tín hiệu (chuỗi Fourier) và thống kê (biến ngẫu nhiên khả tích bình phương).
 
 ---
 
-**ℓ^∞:**
+**Không gian $\ell^\infty$:**
 
-ℓ^∞ = {bounded sequences (xₙ)} với metric:
+$\ell^\infty$ là không gian các dãy bị chặn $(x_n)$ với metric:
 $$
 d_\infty((x_n), (y_n)) = \sup_n |x_n - y_n|
 $$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** ℓ^∞ complete.
+**Định lý:** $\ell^\infty$ là không gian metric đầy đủ.
 </div>
 
 ---
 
-### 4. L^p Spaces
+### 4. Không gian hàm $L^p$
 
 <div class="textbook-definition" markdown="1">
-**Definition (Informal):**  
-L^p([0,1]) = {measurable functions f : ∫|f|^p < ∞} / equivalence a.e.
+**Định nghĩa (mô tả sơ lược):**  
+$L^p([0,1])$ là tập các lớp tương đương (bằng nhau hầu khắp nơi) của các hàm đo được $f$ thỏa mãn $\int_0^1 |f(x)|^p\,dx < \infty$.
 </div>
 
 **Metric:**
@@ -418,334 +356,303 @@ d_p(f,g) = \left(\int_0^1 |f(x) - g(x)|^p \, dx\right)^{1/p}
 $$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** L^p complete (Riesz-Fischer Theorem).
+**Định lý (Riesz–Fischer):** Không gian $L^p([0,1])$ đầy đủ với mọi $1 \le p \le \infty$.
 </div>
 
-**Relation với C([0,1]):**
-- C([0,1]) ⊊ L^p (continuous ⊆ integrable)
-- C([0,1]) dense trong L^p
-- Completion của (C([0,1]), d_p) = L^p
+**Mối liên hệ với $C([0,1])$:**
+- $C([0,1]) \subsetneq L^p([0,1])$ (mọi hàm liên tục trên $[0,1]$ đều khả tích bậc $p$),
+- $C([0,1])$ trù mật trong $L^p([0,1])$ (với $1 \le p < \infty$),
+- Đầy đủ hóa của $(C([0,1]), d_p)$ chính là $L^p([0,1])$.
 
 ---
 
-**L²:**
+**Không gian $L^2$:**
 
-L²([0,1]) = Hilbert space với inner product:
+$L^2([0,1])$ là một không gian Hilbert với tích vô hướng:
 $$
 \langle f, g \rangle = \int_0^1 f(x)g(x) \, dx
 $$
 
-**Applications:**
-- Fourier series
-- PDEs (weak solutions)
-- Quantum mechanics
+Không gian này là môi trường tự nhiên cho chuỗi Fourier, nghiệm yếu của PDE và hàm sóng trong cơ học lượng tử.
 
 ---
 
-## 🎓 Banach Spaces
+## 🎓 Không gian Banach và không gian Hilbert
 
-### 1. Normed Vector Spaces
+### 1. Không gian vector định chuẩn
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Norm):**  
-V vector space. **Norm** là hàm ||·|| : V → ℝ thỏa:
+**Định nghĩa (Chuẩn – Norm):**  
+Cho $V$ là một không gian vector (trên $\mathbb{R}$ hoặc $\mathbb{C}$). Một **chuẩn** trên $V$ là hàm $\|\cdot\| : V \to \mathbb{R}$ thỏa mãn:
 </div>
 
-**(N1) Positive definite:** ||x|| ≥ 0, ||x|| = 0 ⟺ x = 0
-
-**(N2) Homogeneity:** ||λx|| = |λ| · ||x||
-
-**(N3) Triangle inequality:** ||x + y|| ≤ ||x|| + ||y||
+- **(N1) Xác định dương:** $\|x\| \geq 0$, và $\|x\| = 0 \iff x = 0$.
+- **(N2) Thuần nhất:** $\|\lambda x\| = |\lambda| \cdot \|x\|$.
+- **(N3) Bất đẳng thức tam giác:** $\|x + y\| \leq \|x\| + \|y\|$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Normed Space):** (V, ||·||) = normed vector space.
+**Định nghĩa (Không gian định chuẩn):** Cặp $(V, \|\cdot\|)$ được gọi là một **không gian vector định chuẩn**.
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Mọi norm induces metric: d(x,y) = ||x - y||.
+**Định lý:**  
+Mọi chuẩn đều sinh ra một metric qua công thức $d(x,y) = \|x - y\|$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify metric axioms từ norm axioms. ✓
+**Chứng minh:** Kiểm tra trực tiếp ba tiên đề metric từ ba tiên đề chuẩn.
 </div>
 
 ---
 
-**Examples:**
-
-**Example 1: ℝⁿ**
-- ||x||₁ = Σ|xᵢ|
-- ||x||₂ = (Σxᵢ²)^(1/2)
-- ||x||∞ = maxᵢ |xᵢ|
-
-**Example 2: C([0,1])**
-- ||f||∞ = sup|f(x)|
-
-**Example 3: ℓ^p**
-- ||(xₙ)||_p = (Σ|xₙ|^p)^(1/p)
-
-**Example 4: L^p**
-- ||f||_p = (∫|f|^p)^(1/p)
+**Ví dụ:**
+- **$\mathbb{R}^n$:** $\|x\|_1 = \sum |x_i|$, $\|x\|_2 = \left(\sum x_i^2\right)^{1/2}$, $\|x\|_\infty = \max_i |x_i|$.
+- **$C([0,1])$:** $\|f\|_\infty = \sup_{x \in [0,1]} |f(x)|$.
+- **$\ell^p$:** $\|(x_n)\|_p = \left(\sum |x_n|^p\right)^{1/p}$.
+- **$L^p$:** $\|f\|_p = \left(\int |f|^p\right)^{1/p}$.
 
 ---
 
-### 2. Banach Spaces
+### 2. Không gian Banach
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Banach Space):**  
-Normed vector space (V, ||·||) **complete** (as metric space) gọi là **Banach space**.
+**Định nghĩa (Không gian Banach):**  
+Một không gian vector định chuẩn $(V, \|\cdot\|)$ đầy đủ (theo metric sinh bởi chuẩn) được gọi là một **không gian Banach**.
 </div>
 
-**Trực giác:** Banach space = complete normed vector space.
+**Ví dụ về không gian Banach:**
+- $\mathbb{R}^n$ với bất kỳ chuẩn nào,
+- $C([0,1])$ với $\|\cdot\|_\infty$,
+- $\ell^p$ với $1 \leq p \leq \infty$,
+- $L^p([0,1])$ với $1 \leq p \leq \infty$.
 
----
-
-**Examples của Banach Spaces:**
-
-✅ ℝⁿ (finite-dimensional, mọi norm)  
-✅ C([0,1]) với ||·||∞  
-✅ ℓ^p với 1 ≤ p ≤ ∞  
-✅ L^p([0,1]) với 1 ≤ p ≤ ∞  
-
-**Non-example:**
-
-✗ C([0,1]) với ||·||₁ (không complete)
+**Phản ví dụ:** $C([0,1])$ với chuẩn $\|\cdot\|_1$ không phải là không gian Banach (vì không đầy đủ).
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Finite-Dimensional):**  
-Mọi finite-dimensional normed vector space là Banach space.
+**Định lý (Trường hợp hữu hạn chiều):**  
+Mọi không gian vector định chuẩn hữu hạn chiều (trên $\mathbb{R}$ hoặc $\mathbb{C}$) đều là không gian Banach.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Equivalent với ℝⁿ, which complete. ✓
+**Chứng minh:** Mọi chuẩn trên không gian hữu hạn chiều đều tương đương với chuẩn Euclid trên $\mathbb{R}^n$ (hoặc $\mathbb{C}^n$), vốn đầy đủ.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Corollary:** ℝⁿ với bất kỳ norm nào = Banach space.
+**Hệ quả:** $\mathbb{R}^n$ với bất kỳ chuẩn nào cũng là không gian Banach.
 </div>
 
 ---
 
-### 3. Hilbert Spaces
+### 3. Không gian Hilbert
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Inner Product Space):**  
-V vector space với **inner product** ⟨·,·⟩ thỏa:
+**Định nghĩa (Không gian có tích vô hướng):**  
+Không gian vector $V$ trang bị **tích vô hướng** $\langle \cdot, \cdot \rangle$ thỏa mãn:
 </div>
 
-**(IP1) Linearity:** ⟨ax + by, z⟩ = a⟨x,z⟩ + b⟨y,z⟩  
-**(IP2) Symmetry:** ⟨x,y⟩ = ⟨y,x⟩ (or conjugate in ℂ)  
-**(IP3) Positive definite:** ⟨x,x⟩ ≥ 0, ⟨x,x⟩ = 0 ⟺ x = 0
+- **(IP1) Tính tuyến tính:** $\langle ax + by, z \rangle = a\langle x,z \rangle + b\langle y,z \rangle$.
+- **(IP2) Tính đối xứng:** $\langle x,y \rangle = \langle y,x \rangle$ (hoặc liên hợp phức $\overline{\langle y,x \rangle}$ trên $\mathbb{C}$).
+- **(IP3) Xác định dương:** $\langle x,x \rangle \geq 0$, và $\langle x,x \rangle = 0 \iff x = 0$.
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Inner product induces norm: ||x|| = √⟨x,x⟩.
+**Định lý:**  
+Tích vô hướng sinh ra một chuẩn qua công thức $\|x\| = \sqrt{\langle x,x \rangle}$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Verify norm axioms (use Cauchy-Schwarz). ✓
+**Chứng minh:** Kiểm tra các tiên đề chuẩn bằng bất đẳng thức Cauchy–Schwarz.
 </div>
 
 ---
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Hilbert Space):**  
-Inner product space **complete** (as metric space) gọi là **Hilbert space**.
+**Định nghĩa (Không gian Hilbert):**  
+Một không gian có tích vô hướng đầy đủ (theo metric sinh bởi chuẩn tương ứng) được gọi là một **không gian Hilbert**.
 </div>
 
-**Trực giác:** Hilbert space = complete inner product space = Banach space với inner product.
+Nói cách khác, không gian Hilbert là không gian Banach mà chuẩn được sinh ra từ một tích vô hướng.
 
 ---
 
-**Examples của Hilbert Spaces:**
+**Ví dụ về không gian Hilbert:**
+- $\mathbb{R}^n$ với tích vô hướng chuẩn,
+- $\ell^2$,
+- $L^2([0,1])$.
 
-✅ ℝⁿ với standard inner product  
-✅ ℓ²  
-✅ L²([0,1])  
-
-**Remark:** ℓ¹, L¹ Banach nhưng không Hilbert (norm không từ inner product).
+**Lưu ý:** $\ell^1$ và $L^1$ là các không gian Banach nhưng không phải không gian Hilbert vì chuẩn của chúng không sinh từ tích vô hướng nào.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Parallelogram Law):**  
-Norm từ inner product ⟺ satisfies:
+**Định lý (Đẳng thức hình bình hành):**  
+Một chuẩn được sinh bởi tích vô hướng khi và chỉ khi nó thỏa mãn:
 
 $$
 ||x + y||^2 + ||x - y||^2 = 2(||x||^2 + ||y||^2)
 $$
 </div>
 
-**Application:** Test if norm từ inner product.
-
-**Example:** ||·||₁ trên ℝ² không satisfy ⇒ không từ inner product. ✓
+Đây là tiêu chuẩn trực tiếp để kiểm tra xem một chuẩn có đến từ tích vô hướng hay không. Chẳng hạn, chuẩn $\|\cdot\|_1$ trên $\mathbb{R}^2$ không thỏa mãn đẳng thức hình bình hành (thử với $x = (1,0), y = (0,1)$), nên không sinh bởi tích vô hướng nào.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển và tham khảo
 
-### Classic Works
+### Các công trình kinh điển
 
-1. **Stefan Banach** - *"Théorie des opérations linéaires"* (1932)  
-   *Foundation của Banach spaces*
+1. **Stefan Banach** – *"Théorie des opérations linéaires"* (1932)  
+   *Đặt nền móng cho lý thuyết không gian Banach.*
 
-2. **David Hilbert** - *"Grundzüge einer allgemeinen Theorie der linearen Integralgleichungen"* (1912)  
-   *Hilbert spaces*
+2. **David Hilbert** – *"Grundzüge einer allgemeinen Theorie der linearen Integralgleichungen"* (1912)  
+   *Khởi nguồn lý thuyết không gian Hilbert.*
 
-3. **Frigyes Riesz & Ernst Fischer** - *Riesz-Fischer Theorem* (1907)  
-   *Completeness của L^p*
+3. **Frigyes Riesz & Ernst Fischer** – *Định lý Riesz–Fischer* (1907)  
+   *Tính đầy đủ của không gian $L^p$.*
 
-### Textbooks
+### Giáo trình
 
-4. **James R. Munkres** - *Topology*, 2nd Ed., **§20, §21, §43**
+4. **James R. Munkres** – *Topology*, 2nd Ed., **§20, §21, §43**
 
-5. **Walter Rudin** - *Real and Complex Analysis*, **Chapters 3-4**  
-   *L^p spaces*
+5. **Walter Rudin** – *Real and Complex Analysis*, **Chapters 3-4**  
+   *Không gian $L^p$.*
 
-6. **Walter Rudin** - *Functional Analysis*, 2nd Ed.  
-   *Comprehensive treatment*
+6. **Walter Rudin** – *Functional Analysis*, 2nd Ed.
 
-7. **Elias Stein & Rami Shakarchi** - *Functional Analysis*, **Chapters 1-2**
+7. **Elias Stein & Rami Shakarchi** – *Functional Analysis*, **Chapters 1-2**
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên kết
 
-### Functional Analysis
-**Foundation:** Banach và Hilbert spaces = backbone của modern functional analysis.
+### Giải tích hàm
+Không gian Banach và không gian Hilbert là khung lý thuyết chính của giải tích hàm hiện đại.
 
-### Quantum Mechanics
-**Wave Functions:** Live trong L²(ℝ³). Inner product = probability amplitudes.
+### Cơ học lượng tử
+Hàm sóng của hệ lượng tử thuộc không gian Hilbert $L^2(\mathbb{R}^3)$, trong đó tích vô hướng gắn với biên độ xác suất.
 
-### PDEs
-**Weak Solutions:** Formulated trong Sobolev spaces (completions của smooth functions).
+### Phương trình vi phân đạo hàm riêng (PDE)
+Nghiệm yếu của nhiều lớp PDE được xét trong các không gian Sobolev (đầy đủ hóa của các không gian hàm trơn theo chuẩn chứa đạo hàm).
 
-### Signal Processing
-**Fourier Analysis:** L² space với orthonormal basis {e^(inx)}.
+### Xử lý tín hiệu
+Phân tích Fourier dựa trên hệ cơ sở trực chuẩn $\{e^{inx}\}$ trong không gian $L^2$.
 
-### Machine Learning
-**Reproducing Kernel Hilbert Spaces (RKHS):** Foundation cho kernel methods, SVMs.
+### Học máy
+Không gian Hilbert nhân tái tạo (RKHS) là nền tảng của các phương pháp nhân (kernel methods) và máy vector hỗ trợ (SVM).
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [Product metrics (revised)](https://www.youtube.com/watch?v=jBe5jkrzsV4) — Andrew McCrady, tiếng Anh. Metric tích, đúng phép dựng ở nửa đầu bài.
-- [MAST30026 Lecture 13: Metrics on function spaces (Part 2)](https://www.youtube.com/watch?v=t6B7UCHvz18) — metauni, tiếng Anh. Metric trên không gian hàm, nửa sau của bài, trong giáo trình MAST30026.
-- [Metric Spaces | Lecture 15 | Example of Norm on set of Continuous Functions](https://www.youtube.com/watch?v=10geqkzytCA) — Ranjan Khatu, tiếng Anh. Chuẩn sup trên hàm liên tục, ví dụ cụ thể của metric hàm mà bài đang dùng.
+- **xem trước** [Product metrics (revised)](https://www.youtube.com/watch?v=jBe5jkrzsV4) — Andrew McCrady, tiếng Anh. Trình bày cách dựng metric tích, ứng với nửa đầu bài học.
+- [MAST30026 Lecture 13: Metrics on function spaces (Part 2)](https://www.youtube.com/watch?v=t6B7UCHvz18) — metauni, tiếng Anh. Metric trên không gian hàm trong giáo trình MAST30026, ứng với nửa sau bài học.
+- [Metric Spaces | Lecture 15 | Example of Norm on set of Continuous Functions](https://www.youtube.com/watch?v=10geqkzytCA) — Ranjan Khatu, tiếng Anh. Ví dụ cụ thể về chuẩn supremum trên không gian hàm liên tục.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Product Metrics
+### Metric tích
 
-1. **Verify Metric:**  
-   d∞((x₁,x₂), (y₁,y₂)) = max{d₁(x₁,y₁), d₂(x₂,y₂)} satisfies metric axioms.
+1. **Kiểm tra metric:**  
+   Chứng minh $d_\infty((x_1,x_2), (y_1,y_2)) = \max\{d_1(x_1,y_1), d_2(x_2,y_2)\}$ thỏa mãn ba tiên đề metric.
 
-2. **Equivalence:**  
-   Chứng minh d₁, d₂, d∞ equivalent trên ℝ × ℝ.
+2. **Tính tương đương:**  
+   Chứng minh $d_1, d_2, d_\infty$ tương đương nhau trên $\mathbb{R} \times \mathbb{R}$.
 
-3. **Completeness:**  
-   X, Y complete ⇒ X × Y complete. Prove.
+3. **Tính đầy đủ:**  
+   Chứng minh nếu $X$ và $Y$ đầy đủ thì $X \times Y$ đầy đủ.
 
-### Function Spaces
+### Không gian hàm
 
-4. **Uniform Metric:**  
-   Compute d∞(f,g) với f(x) = x, g(x) = x² trong C([0,1]).
+4. **Metric đều:**  
+   Tính $d_\infty(f,g)$ với $f(x) = x$ và $g(x) = x^2$ trong $C([0,1])$.
 
-5. **L¹ Metric:**  
-   Compute d₁(f,g) với same f, g.
+5. **Metric $L^1$:**  
+   Tính $d_1(f,g)$ với cùng cặp hàm $f, g$ ở bài 4.
 
-6. **Not Equivalent:**  
-   fₙ(x) = xⁿ. Show d₁(fₙ, 0) → 0 nhưng d∞(fₙ, 0) ≠ 0.
+6. **Không tương đương:**  
+   Với $f_n(x) = x^n$, chứng minh $d_1(f_n, 0) \to 0$ nhưng $d_\infty(f_n, 0) \not\to 0$.
 
-### Convergence
+### Sự hội tụ
 
-7. **Pointwise:**  
-   fₙ(x) = x/n pointwise converges to? Uniformly?
+7. **Hội tụ từng điểm và hội tụ đều:**  
+   Dãy $f_n(x) = x/n$ trên $[0,1]$ hội tụ từng điểm về hàm nào? Có hội tụ đều không?
 
-8. **Uniform:**  
-   fₙ(x) = sin(x/n) uniformly converges to f(x) = 0. Verify bằng ε-N.
+8. **Kiểm tra hội tụ đều:**  
+   Chứng minh $f_n(x) = \sin(x/n)$ hội tụ đều về $f(x) = 0$ trên $[0,1]$ bằng định nghĩa $\varepsilon$-$N$.
 
-9. **Continuous Limit:**  
-   fₙ continuous, fₙ ⇉ f ⇒ f continuous. Prove carefully.
+9. **Giới hạn của dãy hàm liên tục:**  
+   Chứng minh chi tiết: nếu các hàm $f_n$ liên tục và $f_n \rightrightarrows f$, thì $f$ liên tục.
 
-### ℓ^p Spaces
+### Không gian $\ell^p$
 
-10. **Verify:**  
-    (1, 1/2, 1/3, ...) ∈ ℓ²? ℓ¹?
+10. **Kiểm tra phần tử:**  
+    Dãy $(1, 1/2, 1/3, \ldots)$ có thuộc $\ell^2$ không? Có thuộc $\ell^1$ không?
 
-11. **Compute:**  
-    ||(1, 1/2, 1/4, ...)||₂.
+11. **Tính chuẩn:**  
+    Tính $\|(1, 1/2, 1/4, \ldots)\|_2$.
 
-12. **Cauchy-Schwarz:**  
-    ⟨x,y⟩ ≤ ||x||₂ · ||y||₂ trong ℓ². Verify với explicit x, y.
+12. **Bất đẳng thức Cauchy–Schwarz:**  
+    Kiểm chứng $|\langle x,y \rangle| \leq \|x\|_2 \cdot \|y\|_2$ trong $\ell^2$ với một cặp dãy $x, y$ cụ thể.
 
-### Banach Spaces
+### Không gian Banach và Hilbert
 
-13. **Verify Norm:**  
-    ||f||∞ = sup|f(x)| satisfies norm axioms trên C([0,1]).
+13. **Kiểm tra chuẩn:**  
+    Chứng minh $\|f\|_\infty = \sup |f(x)|$ thỏa mãn ba tiên đề chuẩn trên $C([0,1])$.
 
-14. **Not from Inner Product:**  
-    ||·||₁ trên ℝ² không satisfy parallelogram law. Verify.
+14. **Không sinh từ tích vô hướng:**  
+    Kiểm chứng chuẩn $\|\cdot\|_1$ trên $\mathbb{R}^2$ không thỏa mãn đẳng thức hình bình hành.
 
-15. **Completeness:**  
-    ℓ² complete. Sketch proof.
+15. **Tính đầy đủ của $\ell^2$:**  
+    Phác thảo chứng minh $\ell^2$ đầy đủ.
 
-### Advanced
+### Nâng cao
 
-16. **Sobolev Spaces:**  
-    Research W^{1,2}([0,1]) = {f : f, f' ∈ L²}. Banach space?
+16. **Không gian Sobolev:**  
+    Tìm hiểu không gian $W^{1,2}([0,1]) = \{f : f, f' \in L^2\}$. Đây có phải là không gian Banach không?
 
-17. **Dual Space:**  
-    Dual của ℓ^p = ℓ^q với 1/p + 1/q = 1. Example: dual(ℓ²) = ℓ².
+17. **Không gian đối ngẫu (Dual Space):**  
+    Không gian đối ngẫu của $\ell^p$ là $\ell^q$ với $1/p + 1/q = 1$ ($1 < p < \infty$); đặc biệt, đối ngẫu của $\ell^2$ là $\ell^2$.
 
-18. **Operator Norm:**  
-    T: V → W linear continuous. ||T|| = sup{||Tx|| : ||x|| ≤ 1}. Verify norm axioms.
+18. **Chuẩn toán tử:**  
+    Với toán tử tuyến tính liên tục $T: V \to W$, chứng minh $\|T\| = \sup\{\|Tx\| : \|x\| \leq 1\}$ thỏa mãn các tiên đề chuẩn.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-19. **Why Completeness?:**  
-    Tại sao completeness crucial trong functional analysis?
+19. **Vai trò của tính đầy đủ:**  
+    Tại sao tính đầy đủ lại đóng vai trò thiết yếu trong giải tích hàm?
 
-20. **Applications:**  
-    Explain vai trò của L² trong quantum mechanics hoặc signal processing.
-
----
-
-## 📚 Further Reading
-
-- **Rudin, Functional Analysis:** Comprehensive
-- **Reed & Simon, Vol. 1:** Physics perspective
-- **Brezis, Functional Analysis:** Modern approach
-- **Munkres, Topology:** §20-21 (metric spaces)
+20. **Ứng dụng của $L^2$:**  
+    Trình bày vai trò của không gian $L^2$ trong cơ học lượng tử hoặc xử lý tín hiệu.
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-Trong bài học này, chúng ta đã khám phá **product metrics** và **function spaces**—các công cụ cơ bản để nghiên cứu các không gian vô hạn chiều. Product metrics bao gồm $d_1$, $d_2$, và $d_\infty$ trên $X \times Y$—tất cả đều tương đương cho các tích hữu hạn và tạo ra cùng topology. Trong không gian các hàm liên tục $C([0,1])$, uniform metric $d_\infty$ là complete—đây là một tính chất quan trọng cho phép chúng ta chứng minh sự tồn tại của các nghiệm. Uniform convergence và pointwise convergence là hai khái niệm rất khác nhau—uniform convergence kéo theo pointwise convergence và bảo toàn tính liên tục, trong khi pointwise convergence không nhất thiết bảo toàn tính liên tục. Các không gian dãy $\ell^p$ là các không gian của các dãy số với metric $d_p$, và chúng đều complete. Các không gian hàm $L^p$ là các không gian của các hàm khả tích bậc $p$ với metric $d_p$, và chúng cũng complete nhờ định lý Riesz-Fischer. Banach spaces là các không gian vector định chuẩn đầy đủ—chúng là nền tảng của functional analysis. Hilbert spaces là các không gian inner product đầy đủ—chúng có cấu trúc hình học phong phú hơn nhờ inner product, và các ví dụ quan trọng bao gồm $\ell^2$ và $L^2$.
-
-Điểm chính của bài học là function spaces là các không gian vô hạn chiều—chúng ta không thể mô tả chúng bằng các tọa độ hữu hạn như trong $\mathbb{R}^n$. Uniform convergence là "tốt"—nó bảo toàn các tính chất như tính liên tục và tính khả tích, trong khi pointwise convergence có thể không bảo toàn các tính chất này. Completeness phụ thuộc vào metric—cùng một không gian có thể complete với metric này nhưng không complete với metric khác. Banach spaces là nền tảng của functional analysis—chúng cho phép chúng ta nghiên cứu các toán tử tuyến tính và các phương trình vi phân. Hilbert spaces có cấu trúc hình học phong phú nhờ inner product—chúng cho phép chúng ta định nghĩa các khái niệm như góc và trực giao.
-
-Trong thực tế, chúng ta kiểm tra completeness để chứng minh các định lý tồn tại—nhiều định lý trong functional analysis yêu cầu không gian phải complete. Chúng ta sử dụng uniform convergence trong các ứng dụng—nó đảm bảo rằng các tính chất được bảo toàn khi chúng ta lấy giới hạn. Không gian $L^2$ xuất hiện ở khắp nơi—trong cơ học lượng tử, xử lý tín hiệu, và Fourier analysis. Các không gian $\ell^p$ mô hình hóa các dãy số—chúng cho phép chúng ta nghiên cứu các dãy số một cách có hệ thống.
-
-**Chapter 04 hoàn thành!** Chúng ta đã nắm vững metric spaces: định nghĩa, completeness, Baire, equivalence, function spaces, và Banach/Hilbert spaces.
-
-**Tiếp theo:** Chapter 05 về **Quotient Spaces và Surfaces**—topology của gluing và manifolds!
+- **Rudin, Functional Analysis**
+- **Reed & Simon, Vol. 1** (Góc nhìn vật lý toán)
+- **Brezis, Functional Analysis** (Tiếp cận hiện đại)
+- **Munkres, Topology:** §20–21 (Không gian metric)
 
 ---
 
-*"Infinite-dimensional spaces are where analysis truly lives."* — Functional analyst's motto
+## 🎓 Tóm tắt
 
-🎯 **Master the function spaces! They're everywhere in modern mathematics.** 🎯
+Trong bài học này, chúng ta đã mở rộng lý thuyết metric sang không gian tích và không gian hàm vô hạn chiều. Trên tích hữu hạn $X_1 \times X_2$, các metric $d_1, d_2, d_\infty$ tương đương nhau và đều sinh ra tô-pô tích; trên tích vô hạn đếm được, metric có trọng số sinh ra tô-pô tích trong khi metric đều sinh ra tô-pô mịn hơn.
+
+Trên $C([0,1])$, metric đều $d_\infty$ là đầy đủ và gắn với sự hội tụ đều (bảo toàn tính liên tục), trong khi metric $L^1$ không đầy đủ (và đầy đủ hóa của nó là $L^1([0,1])$). Các không gian dãy $\ell^p$ và không gian hàm $L^p$ ($1 \le p \le \infty$) đều là không gian Banach, còn $\ell^2$ và $L^2$ là các không gian Hilbert nhờ có tích vô hướng.
+
+**Hoàn thành Chapter 04.** Chúng ta đã đi qua các trụ cột của không gian metric: định nghĩa, tính đầy đủ, Định lý phạm trù Baire, metric tương đương, không gian hàm, không gian Banach và không gian Hilbert.
+
+**Tiếp theo:** Chapter 05 về **Không gian thương và Mặt** — cấu trúc tô-pô của phép dán và đa tạp.
+
+---
+
+*"Infinite-dimensional spaces are where analysis truly lives."*
 
 ---
 
 **Previous:** [Lecture 04.02: Equivalent Metrics and Uniform Continuity](/contents/vi/topology-chapter04/04_02_Equivalent_Metrics_Uniform_Continuity/)  
 **Next Chapter:** [Chapter 05: Quotient Spaces and Surfaces](/contents/vi/topology-chapter05/)
-

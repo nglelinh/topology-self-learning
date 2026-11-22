@@ -10,383 +10,261 @@ tags: [first-countable, second-countable, separable, lindelof, countability]
 description: "First countable, second countable, separable, và Lindelöf spaces"
 ---
 
-**Countability Axioms**
+**Các Tiên đề Đếm được**
 
 ---
 
 ## 📖 Tổng quan
 
-Sau khi học về separation (cách tách các điểm và tập hợp), chúng ta chuyển sang **countability**—khái niệm về "size" của topology.
-
-**Câu hỏi động lực:** Khi nào một topological space "không quá lớn" theo nghĩa có countable structure?
-
-**Các khái niệm chính:**
-1. **First Countable:** Mỗi điểm có countable neighborhood basis
-2. **Second Countable:** Toàn bộ topology có countable basis  
-3. **Separable:** Có countable dense subset
-4. **Lindelöf:** Mọi open cover có countable subcover
-
-**Ví dụ trực quan:**
-- **ℝ** (Euclidean): First countable, second countable, separable, Lindelöf ✓✓✓✓
-- **Discrete topology trên ℝ:** First countable, không second countable ✓✗
-- **Uncountable space với cofinite:** Không first countable ✗
+Bên cạnh các tiên đề tách, nhóm điều kiện quan trọng thứ hai trong tô-pô đại cương là **các tiên đề đếm được** (*countability axioms*) nhằm đo lường "độ lớn" của cấu trúc tô-pô:
+1. **Đếm được thứ nhất (First countable):** Mỗi điểm có một cơ sở lân cận đếm được.
+2. **Đếm được thứ hai (Second countable):** Toàn bộ tô-pô có một cơ sở đếm được.
+3. **Khả ly (Separable):** Tồn tại tập con trù mật đếm được.
+4. **Lindelöf:** Mọi phủ mở đều có phủ con đếm được.
 
 ![Countability hierarchy](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Separation_and_countability.svg/500px-Separation_and_countability.svg.png)  
-*Relationships giữa countability properties - Nguồn concept*
+*Quan hệ giữa các tính chất đếm được - Nguồn minh họa khái niệm*
 
-**Tại sao quan trọng?**
-- **Metrization:** Second countable + T₃ ⇒ metrizable
-- **Sequences:** First countable cho phép dùng sequences thay vì nets
-- **Separable:** ℚ dense trong ℝ—foundation cho analysis
-- **Lindelöf + Hausdorff + paracompact ⇒ normal**
+Các tiên đề này có vai trò trực tiếp trong giải tích và tô-pô: tiên đề đếm được thứ nhất cho phép dùng dãy để đặc trưng bao đóng và tính liên tục; tiên đề đếm được thứ hai kết hợp với $T_3$ dẫn đến Định lý mê-tric hóa Urysohn; và tính khả ly là nền tảng của lý thuyết xấp xỉ.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. First Countable Spaces
+### 1. Không gian đếm được thứ nhất (First Countable Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Neighborhood Basis):**  
-**Neighborhood basis** tại x là họ {Bₙ} các neighborhoods của x sao cho mọi neighborhood N của x, tồn tại Bₙ ⊆ N.
+**Định nghĩa (Cơ sở lân cận):**  
+Họ $\{B_n\}$ các lân cận của điểm $x$ là một **cơ sở lân cận** tại $x$ nếu với mọi lân cận $N$ của $x$, tồn tại $B_n \subseteq N$.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (First Countable):**  
-X là **first countable** nếu mọi điểm có **countable neighborhood basis**.
+**Định nghĩa (Đếm được thứ nhất — First Countable):**  
+Không gian $X$ thỏa mãn **tiên đề đếm được thứ nhất** nếu mọi điểm $x \in X$ đều có một **cơ sở lân cận đếm được** (hữu hạn hoặc vô hạn đếm được):
 
 $$
 \forall x \in X: \exists \{B_n\}_{n=1}^\infty \text{ neighborhoods of } x: \forall N \ni x: \exists n: B_n \subseteq N
 $$
 </div>
 
-**Trực giác:** "Local" property—mỗi điểm có countable "local structure".
-
-**Ví dụ 1: Metric Spaces**
+**Ví dụ 1: Không gian mê-tric**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi metric space là first countable.
+**Định lý:** Mọi không gian mê-tric đều thỏa mãn tiên đề đếm được thứ nhất.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Với x ∈ X, neighborhood basis: {B(x, 1/n)}_{n=1}^∞.  
-Với mọi neighborhood N của x, ∃ε: B(x,ε) ⊆ N.  
-Chọn n > 1/ε → B(x, 1/n) ⊆ N. ✓
+Tại mỗi $x \in X$, họ $\{B(x, 1/n)\}_{n=1}^{\infty}$ là một cơ sở lân cận đếm được: với mọi lân cận $N$ của $x$, tồn tại $\varepsilon > 0$ sao cho $B(x, \varepsilon) \subseteq N$; chọn $n > 1/\varepsilon$ ta có $B(x, 1/n) \subseteq N$.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** ℝⁿ first countable.
+**Hệ quả:** $\mathbb{R}^n$ thỏa mãn tiên đề đếm được thứ nhất.
 </div>
 
-**Ví dụ 2: Discrete Topology**
+**Ví dụ 2:** Mọi không gian rời rạc đều đếm được thứ nhất (với cơ sở lân cận $\{\{x\}\}$ tại $x$).
 
-Mọi space với discrete topology first countable: {{x}} là countable neighborhood basis.
-
-**Non-example: Cocountable Topology (Uncountable Set)**
-
-X uncountable với cocountable topology **không** first countable!
+**Phản ví dụ — Tô-pô đồng đếm được trên tập không đếm được:**
 
 <div class="textbook-proof" markdown="1">
-**Proof:**  
-Neighborhood của x = sets chứa x với countable complement.  
-Giả sử {Bₙ} countable neighborhood basis tại x.  
-Mỗi Bₙ có countable complement Cₙ.  
-C = ⋃Cₙ countable (countable union of countable sets).  
-N = X \ C là neighborhood của x.  
-Nhưng không có Bₙ ⊆ N (vì mỗi Bₙ intersects C). Mâu thuẫn! ✗
+**Chứng minh:**  
+Giả sử $\{B_n\}$ là cơ sở lân cận mở đếm được tại $x$. Khi đó mỗi phần bù $C_n = X \setminus B_n$ đều đếm được, nên $C = \bigcup_n C_n$ cũng đếm được và $C \not\ni x$. Vì $X$ không đếm được, chọn $y \in X \setminus (C \cup \{x\})$ và xét lân cận mở $N = X \setminus \{y\}$ của $x$ (hoặc đặt trực tiếp $C' = C \cup \{y\}$). Khi đó $y \in B_n$ với mọi $n$, nên không có $B_n$ nào nằm trong $N$ — mâu thuẫn.
 </div>
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Sequential Characterization):**  
-Trong first countable space, A̅ = {x : ∃ sequence trong A converging to x}.
+**Định lý (Đặc trưng bao đóng bằng dãy):**  
+Trong không gian đếm được thứ nhất, $\overline{A} = \{x \in X : \exists \text{ dãy } (x_n) \text{ trong } A \text{ hội tụ về } x\}$.
 </div>
-
-**Nói bằng lời:** Closure có thể described hoàn toàn bằng sequences!
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-(⊆) Luôn đúng.  
-(⊇) Cho x ∈ A̅. {Bₙ} countable neighborhood basis tại x.  
-Vₙ = B₁ ∩ ... ∩ Bₙ cũng là neighborhood basis.  
-Mỗi Vₙ ∩ A ≠ ∅ → chọn xₙ ∈ Vₙ ∩ A.  
-Sequence {xₙ} → x. ✓
+- **($\supseteq$):** Luôn đúng trong mọi không gian tô-pô.
+- **($\subseteq$):** Cho $x \in \overline{A}$ và $\{B_n\}$ là cơ sở lân cận đếm được tại $x$. Đặt $V_n = B_1 \cap \dots \cap B_n$ (dãy lân cận giảm dần). Vì $x \in \overline{A}$ nên $V_n \cap A \neq \emptyset$; chọn $x_n \in V_n \cap A$ ta được dãy $(x_n)$ trong $A$ hội tụ về $x$.
 </div>
 
-**Ý nghĩa:** Trong first countable spaces, có thể dùng sequences thay vì general nets!
+Nhờ tính chất này, trong không gian đếm được thứ nhất ta có thể dùng dãy thay cho lưới (*nets*) để khảo sát bao đóng và tính liên tục.
 
 ---
 
-### 2. Second Countable Spaces
+### 2. Không gian đếm được thứ hai (Second Countable Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Second Countable):**  
-X là **second countable** nếu topology có **countable basis**.
+**Định nghĩa (Đếm được thứ hai — Second Countable):**  
+Không gian $X$ thỏa mãn **tiên đề đếm được thứ hai** nếu tô-pô của nó có một **cơ sở đếm được**:
 
 $$
 \exists \{B_n\}_{n=1}^\infty \text{ basis}: \forall U \in \tau: U = \bigcup_{n \in I} B_n, I \subseteq \mathbb{N}
 $$
 </div>
 
-**Trực giác:** "Global" property—toàn bộ topology có countable structure.
-
-**Ví dụ 1: ℝ với Euclidean Topology**
+**Ví dụ 1: $\mathbb{R}$ và $\mathbb{R}^n$ (tô-pô Euclid)**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** ℝ second countable.
+**Định lý:** $\mathbb{R}$ (và tổng quát $\mathbb{R}^n$) thỏa mãn tiên đề đếm được thứ hai.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Basis ℬ = {(a,b) : a,b ∈ ℚ} countable.  
-Mọi open U là union của intervals với rational endpoints. ✓
+Họ $\mathcal{B} = \{(a, b) : a, b \in \mathbb{Q}, a < b\}$ là một cơ sở đếm được cho $\mathbb{R}$ (tương tự, họ các hình hộp mở với tọa độ đỉnh hữu tỉ là cơ sở đếm được cho $\mathbb{R}^n$).
 </div>
 
-**Tổng quát:** ℝⁿ second countable (basis = open rectangles với rational corners).
+**Ví dụ 2: Không gian hữu hạn và không gian rời rạc đếm được**  
+Mọi không gian hữu hạn với tô-pô bất kỳ, cũng như mọi tập đếm được với tô-pô rời rạc (cơ sở $\{\{x\} : x \in X\}$), đều đếm được thứ hai. *(Lưu ý: một tập vô hạn đếm được với tô-pô tùy ý chưa chắc đếm được thứ hai, vì $\mathcal{P}(X)$ không đếm được.)*
 
-**Ví dụ 2: Countable Sets**
+**Phản ví dụ 1:** Tập không đếm được với tô-pô rời rạc không đếm được thứ hai, vì mọi cơ sở đều phải chứa mọi tập đơn điểm $\{x\}$.
 
-Mọi countable set với bất kỳ topology nào có countable basis (vì 𝒫(X) countable).
-
-**Non-example: Discrete Topology (Uncountable)**
-
-Discrete topology trên uncountable set X **không** second countable.
-
-<div class="textbook-proof" markdown="1">
-**Proof:**  
-Trong discrete topology, mọi singleton {x} open.  
-Basis phải chứa {x} với mọi x.  
-→ Basis uncountable. ✗
-</div>
-
-**Non-example: Lower Limit Topology ℝ_ℓ**
-
-ℝ với lower limit topology (basis {[a,b)}) **không** second countable!
-
-<div class="textbook-proof" markdown="1">
-**Proof (sketch):** Counting argument—không thể cover tất cả [a,b) bằng countable basis.
-</div>
+**Phản ví dụ 2:** Đường thẳng Sorgenfrey $\mathbb{R}_\ell$ (cơ sở $\{[a, b)\}$) không đếm được thứ hai vì với mỗi $x \in \mathbb{R}$, bất kỳ cơ sở nào cũng phải chứa một phần tử có dạng $B_x \subseteq [x, x+1)$ nhận $x$ làm phần tử nhỏ nhất, dẫn đến cơ sở có lực lượng ít nhất bằng $|\mathbb{R}|$.
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Second ⇒ First):**  
-Second countable ⇒ first countable.
+**Định lý (Đếm được thứ hai $\Rightarrow$ Đếm được thứ nhất):**  
+Mọi không gian đếm được thứ hai đều đếm được thứ nhất.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho {Bₙ} countable basis cho X.  
-Với x ∈ X, neighborhood basis tại x = {Bₙ : x ∈ Bₙ} (countable subset). ✓
+Nếu $\{B_n\}$ là cơ sở đếm được của $X$, thì tại mỗi $x \in X$, họ $\{B_n : x \in B_n\}$ là cơ sở lân cận đếm được.
 </div>
 
-**Chú ý:** Ngược lại **sai**! (Discrete topology trên uncountable set)
+Chiều ngược lại không đúng (ví dụ tập không đếm được với tô-pô rời rạc).
 
 ---
 
-### 3. Separable Spaces
+### 3. Không gian khả ly (Separable Spaces)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Dense Set):**  
-D ⊆ X là **dense** nếu D̅ = X.
+**Định nghĩa (Tập trù mật):**  
+$D \subseteq X$ là **trù mật** (*dense*) trong $X$ nếu $\overline{D} = X$.
 </div>
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Separable):**  
-X là **separable** nếu có **countable dense subset**.
+**Định nghĩa (Khả ly — Separable):**  
+$X$ là **không gian khả ly** nếu tồn tại tập con trù mật đếm được:
 
 $$
 \exists D \subseteq X: |D| \leq \aleph_0 \land \overline{D} = X
 $$
 </div>
 
-**Trực giác:** "Approximation" property—countable subset "fill" entire space.
-
-**Ví dụ 1: ℝ**
-
-ℚ dense trong ℝ → ℝ separable.
-
-**Ví dụ 2: ℝⁿ**
-
-ℚⁿ dense trong ℝⁿ → ℝⁿ separable.
-
-**Ví dụ 3: Hilbert Space ℓ²**
-
-{sequences với finitely many rational entries} dense → ℓ² separable.
-
-**Non-example: Discrete Topology (Uncountable)**
-
-Uncountable set X với discrete topology **không** separable.
-
-<div class="textbook-proof" markdown="1">
-**Proof:**  
-D dense → D̅ = X → D = X (mọi point closed trong discrete).  
-Nhưng D countable, X uncountable. Mâu thuẫn! ✗
-</div>
-
----
+**Ví dụ:** $\mathbb{R}$ khả ly (nhờ $\mathbb{Q}$), $\mathbb{R}^n$ khả ly (nhờ $\mathbb{Q}^n$), và không gian Hilbert $\ell^2$ khả ly (nhờ tập các dãy có hữu hạn tọa độ hữu tỉ khác $0$). Ngược lại, tập không đếm được với tô-pô rời rạc không khả ly (vì mọi tập con đều đóng, nên chỉ có chính $X$ mới trù mật).
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Second Countable ⇒ Separable):**  
-Second countable ⇒ separable.
+**Định lý (Đếm được thứ hai $\Rightarrow$ Khả ly):**  
+Mọi không gian đếm được thứ hai đều khả ly.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho {Bₙ} countable basis.  
-Chọn xₙ ∈ Bₙ (mỗi Bₙ non-empty).  
-D = {xₙ} countable.  
-Mọi open U ≠ ∅ chứa Bₙ nào đó → chứa xₙ.  
-→ U ∩ D ≠ ∅ → D dense. ✓
+Cho $\{B_n\}$ là cơ sở đếm được gồm các tập khác rỗng. Chọn $x_n \in B_n$ cho mỗi $n$ và đặt $D = \{x_n\}$. Mọi tập mở khác rỗng $U$ đều chứa một $B_n$ nào đó nên chứa $x_n \in D$; suy ra $\overline{D} = X$.
 </div>
 
-**Chú ý:** Ngược lại **sai** trong general!  
-Separable không implies second countable.
-
-**Counterexample:** Có separable spaces không second countable (e.g., uncountable products).
+Chiều ngược lại sai trong không gian tô-pô tổng quát (ví dụ đường thẳng Sorgenfrey $\mathbb{R}_\ell$ khả ly nhờ $\mathbb{Q}$, nhưng không đếm được thứ hai).
 
 ---
 
-### 4. Lindelöf Spaces
+### 4. Không gian Lindelöf (Lindelöf Spaces)
 
 <div class="textbook-definition" markdown="1">
 **Định nghĩa (Lindelöf):**  
-X là **Lindelöf** nếu mọi open cover có **countable subcover**.
+$X$ là **không gian Lindelöf** nếu mọi phủ mở của $X$ đều có một **phủ con đếm được**:
 
 $$
 \forall \{U_\alpha\}_{\alpha \in I} \text{ open cover}: \exists \text{ countable } J \subseteq I: X = \bigcup_{\alpha \in J} U_\alpha
 $$
 </div>
 
-**Trực giác:** "Compactness-like" nhưng yêu cầu countable subcover thay vì finite.
-
-**Ví dụ 1: Compact Spaces**
-
-Mọi compact space là Lindelöf (finite ⊆ countable).
-
-**Ví dụ 2: Second Countable**
+Mọi không gian compact đều là không gian Lindelöf (vì hữu hạn là trường hợp riêng của đếm được).
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Second countable ⇒ Lindelöf.
+**Định lý (Đếm được thứ hai $\Rightarrow$ Lindelöf):**  
+Mọi không gian đếm được thứ hai đều là không gian Lindelöf.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho {Bₙ} countable basis, {Uα} open cover.  
-Mỗi x ∈ X: x ∈ Uα(x) nào đó → ∃Bₙ(x): x ∈ Bₙ(x) ⊆ Uα(x).  
-{Bₙ(x)} countable subcover bởi basis elements.  
-Với mỗi Bₙ(x), chọn Uα chứa nó → countable subcover. ✓
+Cho $\{B_n\}$ là cơ sở đếm được và $\{U_\alpha\}$ là một phủ mở của $X$. Với mỗi $x \in X$, chọn $U_{\alpha(x)} \ni x$ và chọn phần tử cơ sở $B_{n(x)}$ sao cho $x \in B_{n(x)} \subseteq U_{\alpha(x)}$. Tập các $B_{n(x)}$ thu được chỉ có tối đa đếm được phần tử; ứng với mỗi phần tử đó, chọn một $U_\alpha$ chứa nó ta được một phủ con đếm được của $X$.
 </div>
 
-**Ví dụ 3: ℝ**
-
-ℝ Lindelöf (vì second countable).
-
-**Non-example: Discrete Topology (Uncountable)**
-
-Uncountable discrete space **không** Lindelöf.
-
-<div class="textbook-proof" markdown="1">
-**Proof:**  
-Cover {{x}}_{x∈X} không có countable subcover. ✗
-</div>
-
----
+Do đó $\mathbb{R}$ và $\mathbb{R}^n$ đều là không gian Lindelöf. Ngược lại, tập không đếm được với tô-pô rời rạc không phải Lindelöf (phủ mở $\{\{x\} : x \in X\}$ không có phủ con đếm được).
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Lindelöf + Hausdorff ⇒ Normal):**  
-Trong Hausdorff space, Lindelöf + paracompact ⇒ normal.
+**Định lý ($T_3$ + Lindelöf $\Rightarrow$ Chuẩn tắc):**  
+Mọi không gian chính quy ($T_3$) và Lindelöf đều là không gian chuẩn tắc ($T_4$). (Hơn nữa, mọi không gian Hausdorff paracompact cũng chuẩn tắc.)
 </div>
-
-(Paracompact = every open cover has locally finite refinement—advanced topic)
 
 ---
 
-### 5. Relationships
-
-**Summary of Implications:**
+### 5. Quan hệ giữa các tính chất đếm được
 
 ```
 Second Countable ⟹ Lindelöf
         ↓
 First Countable    Separable
         ↘         ↙
-     (no direct implication)
+     (không kéo theo nhau nói chung)
 ```
 
-**Key Facts:**
-1. Second countable ⇒ first countable
-2. Second countable ⇒ separable
-3. Second countable ⇒ Lindelöf
-4. Separable **⇏** second countable
-5. First countable **⇏** second countable
-6. Lindelöf **⇏** second countable
+Trong trường hợp không gian mê-tric hóa được, ba tính chất toàn cục trở nên tương đương:
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Metrizable):**  
-Trong metrizable spaces: separable ⟺ second countable.
+**Định lý (Trong không gian mê-tric hóa được):**  
+Đối với không gian mê-tric hóa được, ba điều kiện sau tương đương: **đếm được thứ hai $\iff$ khả ly $\iff$ Lindelöf**.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Exercise (sử dụng properties của metric topology).
+**Chứng minh:** Dành làm bài tập (nếu $D$ trù mật đếm được, xét họ hình cầu mở $\{B(d, 1/n) : d \in D, n \in \mathbb{N}\}$).
 </div>
 
----
+**Bảng tổng hợp ví dụ:**
 
-**Table of Examples:**
-
-| Space | 1st Count | 2nd Count | Separable | Lindelöf |
+| Không gian | Đếm được thứ nhất | Đếm được thứ hai | Khả ly | Lindelöf |
 |-------|-----------|-----------|-----------|----------|
-| ℝⁿ (Euclidean) | ✓ | ✓ | ✓ | ✓ |
-| Discrete (countable) | ✓ | ✓ | ✓ | ✓ |
-| Discrete (uncountable) | ✓ | ✗ | ✗ | ✗ |
-| Cocountable (uncountable) | ✗ | ✗ | ✓ | ✓ |
-| ℝ_ℓ (Lower limit) | ✓ | ✗ | ✓ | ✓ |
-| [0,1]^ℝ (product) | ✓ | ✗ | ✗ | ✗ |
+| $\mathbb{R}^n$ (Euclid) | ✓ | ✓ | ✓ | ✓ |
+| Rời rạc (đếm được) | ✓ | ✓ | ✓ | ✓ |
+| Rời rạc (không đếm được) | ✓ | ✗ | ✗ | ✗ |
+| Đồng đếm được (không đếm được) | ✗ | ✗ | ✗ | ✓ |
+| $\mathbb{R}_\ell$ (Sorgenfrey) | ✓ | ✗ | ✓ | ✓ |
+| $[0, 1]^{\mathbb{R}}$ (tô-pô tích) | ✗ | ✗ | ✓ | ✓ |
+
+*(Lưu ý: trong tô-pô đồng đếm được trên tập không đếm được $X$, mọi tập đếm được đều đóng nên không tồn tại tập trù mật đếm được; còn $[0, 1]^{\mathbb{R}}$ với tô-pô tích thì compact nên Lindelöf, và khả ly theo định lý Hewitt–Marczewski–Pondiczery, nhưng không đếm được thứ nhất.)*
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Early work on countability axioms*
+   *Các khảo sát nền tảng về tiên đề đếm được.*
 
 2. **Ernst Lindelöf** - *"Sur quelques points de la théorie des ensembles"* (1903)  
-   *Lindelöf covering property*
+   *Tính chất phủ con đếm được (Lindelöf).*
 
 3. **René-Maurice Fréchet** - *"Sur quelques points du calcul fonctionnel"* (1906)  
-   *First countable spaces (sequential spaces)*
+   *Nghiên cứu không gian hội tụ bằng dãy.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§30: Countability Axioms**  
-   *Clear systematic treatment*
+   *Trình bày hệ thống, rõ ràng.*
 
 5. **Stephen Willard** - *General Topology*, **Chapter 4**  
-   *Comprehensive coverage*
+   *Trình bày đầy đủ.*
 
 6. **Ryszard Engelking** - *General Topology*, **Chapter 1.2**  
-   *Detailed technical treatment*
+   *Trình bày chuyên sâu.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - Approximation Theory
-**Weierstrass Approximation:** ℝ separable (ℚ dense) → polynomials dense trong C[0,1].
-
-### Functional Analysis - Hilbert Spaces
-**Separable Hilbert Spaces:** Most "useful" Hilbert spaces separable (ℓ², L²).
-
-### Metrization Theory
-**Urysohn Metrization:** T₃ + second countable ⟹ metrizable (next lecture!).
-
-### Topology - Stone-Čech
-**βℕ:** Stone-Čech compactification của ℕ không first countable tại points trong βℕ \ ℕ.
+- **Lý thuyết xấp xỉ:** Không gian hàm liên tục $C([0, 1])$ khả ly nhờ định lý xấp xỉ Weierstrass (đa thức với hệ số hữu tỉ trù mật).
+- **Giải tích hàm:** Các không gian Hilbert khả ly ($\ell^2, L^2$) đều có cơ sở trực chuẩn đếm được.
+- **Lý thuyết mê-tric hóa:** Tiên đề đếm được thứ hai là điều kiện then chốt trong Định lý mê-tric hóa Urysohn (Bài 03.03).
+- **Compact hóa Stone–Čech:** $\beta\mathbb{N}$ không đếm được thứ nhất tại mọi điểm thuộc phần dư $\beta\mathbb{N} \setminus \mathbb{N}$.
 
 ---
 
@@ -396,99 +274,52 @@ Trong metrizable spaces: separable ⟺ second countable.
 - [1st/2nd countable and Lindelöf spaces --Topology Video 21](https://www.youtube.com/watch?v=7ZIrSxNan8o) — MathMajor, tiếng Anh. Thêm Lindelöf vào cùng bức tranh, đúng cụm tiên đề đếm được của bài.
 - [Countability axioms | Part 2 | Topology](https://www.youtube.com/watch?v=oL06FkGQttM) — Problemathic, tiếng Anh. Một lối thứ hai, chậm hơn, nếu hai video trên còn đặc.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### First Countable
+### Đếm được thứ nhất
 
-1. **Metric First Countable:**  
-   Chứng minh chi tiết: mọi metric space first countable.
+1. **Không gian mê-tric:** Trình bày chứng minh chi tiết mọi không gian mê-tric đều đếm được thứ nhất.
+2. **Đặc trưng tập đóng bằng dãy:** Trong không gian đếm được thứ nhất, chứng minh $A$ đóng $\iff A$ chứa giới hạn của mọi dãy hội tụ nằm trong $A$.
+3. **Tích hữu hạn:** Chứng minh nếu $X, Y$ đếm được thứ nhất thì $X \times Y$ đếm được thứ nhất.
 
-2. **Sequential:**  
-   Trong first countable space, chứng minh:  
-   A closed ⟺ A chứa limits của mọi convergent sequences trong A.
+### Đếm được thứ hai
 
-3. **Product:**  
-   Nếu X, Y first countable, chứng minh X × Y first countable.
+4. **$\mathbb{R}$ đếm được thứ hai:** Chứng minh $\{(a, b) : a, b \in \mathbb{Q}, a < b\}$ là cơ sở đếm được của $\mathbb{R}$.
+5. **$\mathbb{R}^n$ đếm được thứ hai:** Mở rộng kết quả trên sang $\mathbb{R}^n$.
+6. **Không gian con:** Chứng minh không gian con của không gian đếm được thứ hai là đếm được thứ hai.
+7. **Rời rạc không đếm được:** Chứng minh tập không đếm được với tô-pô rời rạc không đếm được thứ hai.
 
-### Second Countable
+### Không gian khả ly
 
-4. **ℝ Second Countable:**  
-   Chứng minh ℝ second countable bằng basis {(a,b) : a,b ∈ ℚ}.
+8. **$\mathbb{Q}$ trù mật:** Chứng minh $\mathbb{Q}$ trù mật trong $\mathbb{R}$.
+9. **$\ell^2$ khả ly:** Chứng minh không gian Hilbert $\ell^2 = \{(x_n) : \sum x_n^2 < \infty\}$ khả ly (*Gợi ý:* dùng các dãy có hữu hạn tọa độ hữu tỉ khác $0$).
+10. **Tích của hai không gian khả ly:** Nếu $X, Y$ khả ly, chứng minh $X \times Y$ khả ly.
 
-5. **ℝⁿ Second Countable:**  
-   Mở rộng sang ℝⁿ.
+### Không gian Lindelöf
 
-6. **Subspace:**  
-   Nếu X second countable, A ⊆ X, chứng minh A second countable.
+11. **Đếm được thứ hai $\Rightarrow$ Lindelöf:** Trình bày chứng minh chi tiết.
+12. **$\mathbb{R}$ là Lindelöf:** Kiểm tra trực tiếp $\mathbb{R}$ thỏa tính chất Lindelöf.
+13. **Compact $\Rightarrow$ Lindelöf:** Giải thích ngắn gọn vì sao mọi không gian compact đều Lindelöf.
 
-7. **Discrete Uncountable:**  
-   Chứng minh: discrete topology trên uncountable set không second countable.
+### Quan hệ giữa các tính chất
 
-### Separable
+14. **Khả ly $\not\Rightarrow$ Đếm được thứ hai:** Chứng minh đường thẳng Sorgenfrey $\mathbb{R}_\ell$ khả ly nhưng không đếm được thứ hai.
+15. **Đếm được thứ nhất $\not\Rightarrow$ Đếm được thứ hai:** Kiểm tra ví dụ tập không đếm được với tô-pô rời rạc.
+16. **Không gian mê-tric:** Chứng minh trong không gian mê-tric, khả ly $\iff$ đếm được thứ hai.
 
-8. **ℚ Dense:**  
-   Chứng minh ℚ dense trong ℝ.
+### Nâng cao
 
-9. **ℓ² Separable:**  
-   Hilbert space ℓ² = {(xₙ) : ∑xₙ² < ∞}.  
-   Chứng minh ℓ² separable.  
-   (*Hint:* Sequences với finitely many rational entries)
+17. **Tô-pô đồng đếm được:** Trên tập không đếm được $X$ với tô-pô đồng đếm được, chứng minh $X$ không đếm được thứ nhất, không khả ly, nhưng là không gian Lindelöf.
+18. **Không gian tích $[0, 1]^{\mathbb{R}}$:** Với tô-pô tích trên $[0, 1]^{\mathbb{R}}$, chứng minh không gian này là Lindelöf (nhờ compact) nhưng không đếm được thứ nhất và không đếm được thứ hai.
+19. **Tích đếm được:** Chứng minh tích đếm được của các không gian đếm được thứ hai là đếm được thứ hai.
 
-10. **Product:**  
-    Nếu X, Y separable, X × Y có separable không?
+### Câu hỏi suy ngẫm
 
-### Lindelöf
-
-11. **Second ⇒ Lindelöf:**  
-    Chứng minh chi tiết: second countable ⇒ Lindelöf.
-
-12. **ℝ Lindelöf:**  
-    Verify ℝ là Lindelöf.
-
-13. **Compact ⇒ Lindelöf:**  
-    Trivial, nhưng giải thích tại sao.
-
-### Relationships
-
-14. **Separable ⇏ Second:**  
-    Tìm ví dụ separable space không second countable.  
-    (*Hint:* Lower limit topology)
-
-15. **First ⇏ Second:**  
-    Discrete topology trên uncountable set: first countable nhưng không second countable.
-
-16. **Metrizable:**  
-    Trong metric spaces, chứng minh:  
-    Separable ⟺ second countable.
-
-### Advanced
-
-17. **Cocountable:**  
-    X uncountable với cocountable topology:
-    - First countable? ✗
-    - Separable? ✓
-    - Lindelöf? ✓
-
-18. **[0,1]^ℝ:**  
-    Product [0,1]^ℝ (uncountable product):
-    - First countable? ✓
-    - Second countable? ✗
-    - Separable? ✗
-
-19. **Tychonoff Product:**  
-    Product của countably many second countable spaces có second countable không?
-
-### Reflection
-
-20. **Why Countability?**  
-    Giải thích tại sao countability axioms quan trọng trong:
-    - Metrization
-    - Sequential characterizations
-    - Analysis
+20. **Vai trò của tiên đề đếm được:** Tóm tắt vai trò của các tiên đề đếm được trong việc sử dụng dãy, lý thuyết xấp xỉ và bài toán mê-tric hóa.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §30 (Countability Axioms)
 - **Willard, General Topology:** Chapter 4
@@ -497,42 +328,23 @@ Trong metrizable spaces: separable ⟺ second countable.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta học về **countability properties**:
+✅ **Đếm được thứ nhất:** Mỗi điểm có cơ sở lân cận đếm được; cho phép dùng dãy để mô tả bao đóng.  
+✅ **Đếm được thứ hai:** Toàn bộ tô-pô có cơ sở đếm được; kéo theo cả ba tính chất đếm được thứ nhất, khả ly và Lindelöf.  
+✅ **Khả ly:** Tồn tại tập con trù mật đếm được.  
+✅ **Lindelöf:** Mọi phủ mở đều có phủ con đếm được; kết hợp với $T_3$ suy ra $T_4$.  
+✅ **Không gian mê-tric hóa được:** Đếm được thứ hai $\iff$ khả ly $\iff$ Lindelöf.
 
-✅ **First Countable:** Mọi điểm có countable neighborhood basis  
-✅ **Second Countable:** Topology có countable basis  
-✅ **Separable:** Có countable dense subset  
-✅ **Lindelöf:** Mọi open cover có countable subcover  
-✅ **Implications:**
-   - Second countable ⇒ first countable
-   - Second countable ⇒ separable
-   - Second countable ⇒ Lindelöf  
-✅ **Metrizable:** Separable ⟺ second countable (trong metric spaces)  
-
-**Điểm chính:**
-- ℝⁿ satisfies tất cả countability properties
-- Second countable = strongest condition
-- First countable cho phép dùng sequences
-- Separable = approximation property
-- Countability key trong metrization
-
-**Practical wisdom:**
-- Check second countable để prove metrizable
-- First countable → sequences sufficient
-- Separable useful trong analysis
-
-**Tiếp theo:** Lecture 03.03 về **Urysohn Metrization Theorem**—khi nào space metrizable? T₃ + second countable ⇒ metrizable!
+**Tiếp theo:** Bài 03.03 sẽ kết hợp tiên đề tách và tiên đề đếm được trong **Định lý Mê-tric hóa Urysohn**.
 
 ---
 
 *"Second countability: the topology is not too large to describe."* — Topological intuition
 
-🎯 **Countability = tractability! Smaller = nicer.** 🎯
+🎯 **Hãy nắm vững bảng so sánh bốn tính chất đếm được qua các ví dụ chuẩn và phản ví dụ.** 🎯
 
 ---
 
 **Previous:** [Lecture 03.01: Regular and Normal Spaces](/contents/vi/topology-chapter03/03_01_Regular_Normal_Spaces_Urysohn/)  
 **Next:** [Lecture 03.03: Urysohn Metrization Theorem](/contents/vi/topology-chapter03/03_03_Urysohn_Metrization_Theorem/)
-

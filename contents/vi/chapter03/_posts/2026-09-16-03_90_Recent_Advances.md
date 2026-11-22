@@ -12,68 +12,68 @@ tags: [optional, recent-advances, hausdorff, embedding, stability]
 description: "Bài tùy chọn: tiên đề phân ly và metrization gặp ổn định TDA và phê bình UMAP. Không viết lại lý thuyết."
 ---
 
-**Bài tùy chọn.** Các tiên đề $T_0$–$T_4$, Urysohn, và metrization giữ nguyên. Ta chỉ hỏi: dữ liệu và các bất biến TDA “tách điểm” theo nghĩa nào?
+**Bài tùy chọn.** Các tiên đề tách $T_0$–$T_4$, Bổ đề Urysohn và định lý mê-tric hóa của Chương 03 vẫn giữ nguyên. Bài này đặt câu hỏi: trong khoa học dữ liệu hiện đại, các dữ liệu và bất biến TDA "tách điểm" theo nghĩa nào?
 
 ---
 
 ## 📖 Tổng quan
 
-Hausdorff nghĩa là hai điểm khác nhau có hai lân cận rời nhau — giới hạn, nếu tồn tại, là duy nhất. Trong học máy ta thường *giả* điều này khi vẽ UMAP: hai điểm khác nhau phải đứng ở hai chỗ. Các tiến bộ 2022–2026 cho thấy giả định đó vừa cần thiết (ổn định barcode) vừa dễ vỡ (UMAP không phải nhúng tô-pô).
+Tính chất Hausdorff khẳng định hai điểm phân biệt luôn có hai lân cận mở rời nhau — nhờ đó giới hạn (nếu tồn tại) là duy nhất. Trong trực quan hóa dữ liệu bằng UMAP, người dùng thường mặc định rằng hai điểm khác nhau sẽ tách bạch trên mặt phẳng biểu diễn. Tuy nhiên, các nghiên cứu giai đoạn 2022–2026 cho thấy cấu trúc Hausdorff vừa là nền tảng cho định lý ổn định của biểu đồ bền vững, vừa là điều mà nhiều thuật toán giảm chiều phổ biến không thực sự bảo toàn.
 
 ![Khoảng cách Hausdorff](https://upload.wikimedia.org/wikipedia/commons/2/21/Hausdorff_distance_sample.svg)
-*Khoảng cách Hausdorff giữa hai tập: ngôn ngữ $T_2$ đã được số hóa. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_distance_sample.svg)*
+*Khoảng cách Hausdorff giữa hai tập hợp: phiên bản định lượng gắn với tư duy tách điểm. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_distance_sample.svg)*
 
 ---
 
 ## 🎯 Trực giác
 
-Urysohn’s lemma nói: nếu không gian đủ “hiền” (normal), hai tập đóng rời nhau bị một hàm liên tục $[0,1]$ tách. Mapper và UMAP là những nỗ lực *vẽ* hàm đó cho dữ liệu. Khi không gian không Hausdorff — thí dụ không gian Alexandroff hữu hạn của Kayacan (Chapter 00.90) — “tách điểm” thất bại và các thuật toán nhúng bắt đầu bịa ra khoảng cách.
+Bổ đề Urysohn khẳng định trong không gian chuẩn tắc, hai tập đóng rời nhau có thể tách bằng một hàm liên tục nhận giá trị trên $[0, 1]$. Các thuật toán như Mapper hay UMAP có thể nhìn như nỗ lực xấp xỉ các ánh xạ tách cấu trúc trên dữ liệu thực. Ngược lại, khi không gian nền không Hausdorff — chẳng hạn không gian Alexandroff hữu hạn trong công trình của Kayacan (Bài 00.90) — khả năng tách điểm bị giới hạn và các thuật toán nhúng dễ tạo ra khoảng cách giả tạo.
 
 ---
 
 ## 📐 Bốn tiến bộ cụ thể
 
-### 1. Không gian diagram là Hausdorff — và đó là lý do ổn định có nghĩa
+### 1. Không gian biểu đồ bền vững là không gian mê-tric (Hausdorff)
 
-Metric bottleneck $d_B$ trên persistence diagrams thỏa
+Mê-tric nút cổ chai (*bottleneck metric*) $d_B$ trên không gian các biểu đồ bền vững thỏa mãn bất đẳng thức ổn định:
 $$
 d_B(\mathrm{Dgm}(X),\mathrm{Dgm}(Y))\le d_{GH}(X,Y)
 $$
-(trong các giả thiết compact). Không gian $(\mathrm{Dgm},d_B)$ là metric, nên $T_2$: hai barcode khác nhau bị tách bởi quả cầu. Fu et al. (2025) mở rộng ổn định Gromov–Hausdorff sang tập có nhãn — một định lý metrization *ứng dụng*: ta được phép coi barcode như điểm trong một không gian Hausdorff.
+(dưới các giả thiết compact thích hợp). Vì $(\mathrm{Dgm}, d_B)$ là không gian mê-tric nên nó là không gian Hausdorff ($T_2$): hai biểu đồ khác nhau luôn tách được bởi các hình cầu mở rời nhau. Fu et al. (2025) mở rộng định lý ổn định Gromov–Hausdorff cho tập dữ liệu có nhãn, củng cố việc xem mỗi barcode như một điểm tách biệt trong không gian mê-tric.
 
 - Yaoying Fu et al., *Persistent Homology for Labeled Datasets: Gromov–Hausdorff Stability and Generalized Landscapes*, arXiv:2512.08794 (2025).
 
-### 2. Phê bình UMAP: không phải mọi “nhúng” đều là embedding
+### 2. Phê bình UMAP: không phải mọi phép giảm chiều đều là phép nhúng tô-pô
 
-Yang (2026) chứng minh UMAP, ở dạng thông dụng, là **spectral clustering trên đồ thị láng giềng mờ** — không phải một embedding tô-pô của đa tạp ẩn. Li và Zhang (2026) thêm prior hình học/tô-pô (JORC-UMAP) để vá đúng chỗ UMAP phá $T_2$ địa phương. Bài học Chapter 03: “vẽ được trên $\mathbb{R}^2$” $\neq$ “tồn tại embedding”.
+Yang (2026) chứng minh rằng UMAP, ở dạng thông dụng, thực chất hoạt động như **phân cụm phổ (*spectral clustering*) trên đồ thị láng giềng mờ** chứ không phải một phép nhúng tô-pô đúng nghĩa của đa tạp ẩn. Li và Zhang (2026) bổ sung các ràng buộc tiên nghiệm hình học và tô-pô (thuật toán JORC-UMAP) để khắc phục những điểm mà UMAP làm sai lệch cấu trúc tách cục bộ. Thông điệp từ Chương 03 rất rõ ràng: "biểu diễn được lên $\mathbb{R}^2$" không đồng nghĩa với "tồn tại một phép nhúng tô-pô".
 
 - Yang Yang, *UMAP Is Spectral Clustering on the Fuzzy Nearest-Neighbor Graph*, arXiv:2602.11662 (2026).
 - Xiaobin Li, Run Zhang, *Understanding and Improving UMAP with Geometric and Topological Priors: The JORC-UMAP Algorithm*, arXiv:2601.16552 (2026).
 
-### 3. $T_0$ hữu hạn như mô hình tính toán
+### 3. Không gian hữu hạn $T_0$ như tầng tính toán trung gian
 
-Kayacan (2025) làm việc trên không gian hữu hạn $T_0$ không Hausdorff. Điều này không mâu thuẫn Chapter 03: nó giải thích vì sao pipeline TDA rời rạc *phải* đi qua một không gian không-$T_2$ trước khi barcode — hồ sơ Hausdorff — được xuất ra.
+Kayacan (2025) xây dựng homology bền vững trực tiếp trên không gian tô-pô hữu hạn $T_0$ (không Hausdorff). Điều này cho thấy trong thực hành TDA rời rạc, quy trình tính toán có thể đi qua các không gian trung gian không-$T_2$ trước khi xuất ra biểu đồ bền vững nằm trong không gian mê-tric Hausdorff.
 
 - Selçuk Kayacan, *Persistent Homology via Finite Topological Spaces*, arXiv:2512.23348 (2025).
 
-### 4. Vectorization ổn định: Lipschitz thay cho chỉ liên tục
+### 4. Vector hóa ổn định: điều kiện Lipschitz thay cho chỉ liên tục
 
-Một hàm liên tục trên không gian diagram chưa đủ cho học máy; ta cần Lipschitz để nhiễu nhỏ không nổ feature. Loiseaux et al. (2023) và Bravetti et al. (2024) xây các vectorization (kể cả multiparameter) với chứng minh ổn định — phiên bản định lượng của “hàm liên tục tách tập” trong Urysohn.
+Trong học máy, một ánh xạ chỉ liên tục trên không gian biểu đồ bền vững là chưa đủ vì nhiễu nhỏ ở đầu vào vẫn có thể khuếch đại mạnh ở đặc trưng đầu ra; ta cần tính liên tục Lipschitz. Loiseaux et al. (2023) và Bravetti, Mijangos và Padilla (2024) xây dựng các phương pháp vector hóa (kể cả cho homology bền vững đa tham số) kèm chứng minh ổn định định lượng.
 
 - David Loiseaux et al., *Stable Vectorization of Multiparameter Persistent Homology using Signed Barcodes as Measures*, arXiv:2306.03801 (2023).
 - Alessandro Bravetti, Martín Mijangos, Pablo Padilla, *New divergence measures between persistence diagrams and stability of vectorizations*, arXiv:2410.03910 (2024).
 
 ---
 
-## 🧠 Tài liệu
+## 🧠 Tài liệu tham khảo
 
-- Munkres, *Topology*, Ch. 4–5 (separation, Urysohn, metrization).
+- Munkres, *Topology*, Ch. 4–5 (tiên đề tách, Urysohn, mê-tric hóa).
 - Willard, *General Topology*, Ch. 13–23.
-- Các arXiv trên.
+- Các bài báo arXiv trích dẫn ở trên.
 
 ## 🔗 Ứng dụng
 
-Khi một dashboard UMAP “tách” hai nhóm bệnh nhân, Chapter 03 buộc ta hỏi: đó là $T_2$ thật của dữ liệu, hay artifact của spectral clustering?
+Khi một biểu đồ trực quan hóa UMAP tách hai nhóm bệnh nhân thành hai cụm riêng biệt, góc nhìn của Chương 03 nhắc ta kiểm tra xem đó là sự tách biệt thực sự trong dữ liệu gốc hay chỉ là hệ quả giả tạo của phân cụm phổ.
 
 ## Video tham khảo
 
@@ -82,6 +82,6 @@ Khi một dashboard UMAP “tách” hai nhóm bệnh nhân, Chapter 03 buộc t
 
 ## 🧩 Bài tập
 
-1. Chỉ ra một không gian $T_0$ không $T_1$ có 3 điểm. Nó có thể là output trung gian của một filtration không?
-2. Vì sao bottleneck metric biến không gian diagram thành Hausdorff, trong khi union-find thô thì không?
-3. Đọc abstract của Yang (2026) và viết một câu: UMAP bảo toàn thứ gì, không bảo toàn thứ gì.
+1. Xây dựng một không gian tô-pô $3$ điểm thỏa $T_0$ nhưng không thỏa $T_1$. Không gian này có thể xuất hiện làm tầng trung gian của một phép lọc hữu hạn không?
+2. Giải thích vì sao mê-tric nút cổ chai biến không gian biểu đồ bền vững thành không gian Hausdorff.
+3. Đọc phần tóm tắt (*abstract*) bài báo của Yang (2026) và tóm gọn trong một câu: UMAP bảo toàn tính chất nào và không bảo toàn tính chất nào?

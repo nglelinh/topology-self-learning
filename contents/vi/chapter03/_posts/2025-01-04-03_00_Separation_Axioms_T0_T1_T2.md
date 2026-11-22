@@ -10,361 +10,234 @@ tags: [kolmogorov, frechet, hausdorff, separation, T0, T1, T2]
 description: "Các tiên đề phân ly T₀, T₁, T₂: Kolmogorov, Fréchet, và Hausdorff spaces"
 ---
 
-**Separation Axioms - T₀, T₁, T₂ (Hausdorff)**
+**Các Tiên đề tách — $T_0$, $T_1$, $T_2$ (Hausdorff)**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã học về compact và connected spaces—hai tính chất "global" quan trọng. Giờ đây chúng ta nghiên cứu **separation axioms**—các điều kiện về cách mà các điểm hoặc tập hợp có thể được "tách rời" bởi open sets.
+Sau khi tìm hiểu hai tính chất toàn cục là tính liên thông và tính compact ở Chương 02, ta chuyển sang **các tiên đề tách** (*separation axioms*) — hệ thống điều kiện mô tả mức độ phân biệt giữa các điểm và các tập đóng bằng tập mở.
 
-**Câu hỏi động lực:**  
-Trong một topological space, làm sao để "distinguish" (phân biệt) hai điểm khác nhau?
+Câu hỏi xuất phát rất tự nhiên: trong một không gian tô-pô, ta có thể dùng các tập mở để phân biệt hai điểm khác nhau ở mức độ nào?
+- Trong **tô-pô tầm thường** trên $\{a, b\}$, chỉ có $\emptyset$ và $\{a, b\}$ là tập mở, nên không thể tách $a$ và $b$.
+- Trong **tô-pô rời rạc**, hai tập mở $\{a\}$ và $\{b\}$ rời nhau tách hoàn toàn $a$ và $b$.
+- Trong **không gian Euclid $\mathbb{R}$**, với mọi $x \neq y$ luôn tồn tại hai hình cầu mở rời nhau chứa $x$ và $y$.
 
-**Ví dụ trực quan:**
-- **Trivial topology** trên {a, b}: Chỉ có ∅ và {a,b} là open  
-  → **Không thể** tách a và b bởi open sets!
-  
-- **Discrete topology**: Mọi subset open  
-  → Có thể tách hoàn toàn: {a} và {b} là open disjoint sets
-
-- **Euclidean ℝ**: Với x ≠ y, luôn có open balls B(x,ε), B(y,δ) disjoint  
-  → Có thể tách rời hoàn toàn
-
-**Separation axioms** formalize mức độ "separability" này qua hierarchy:
+Các tiên đề tách tạo thành một hệ phân tầng từ mạnh đến yếu (theo quan hệ bao hàm giữa các lớp không gian):
 
 $$
-T_0 \subset T_1 \subset T_2 \subset T_3 \subset T_{3.5} \subset T_4
+T_4 \subset T_{3.5} \subset T_3 \subset T_2 \subset T_1 \subset T_0
 $$
 
 ![Separation axioms hierarchy](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Separation_axioms.svg/500px-Separation_axioms.svg.png)  
-*Hierarchy của separation axioms - Nguồn concept*
+*Hệ phân tầng các tiên đề tách - Nguồn minh họa khái niệm*
 
-**Trong bài này:**
-- **T₀ (Kolmogorov)**: Điểm có thể distinguish topologically
-- **T₁ (Fréchet)**: Singletons closed
-- **T₂ (Hausdorff)**: Điểm có disjoint neighborhoods
-- Examples và counterexamples
-- Importance trong topology
-
-**Tại sao quan trọng?**
-- Hausdorff = "standard" assumption trong topology
-- Limits unique trong Hausdorff spaces
-- Compact subsets closed (trong Hausdorff)
-- Metrizable spaces luôn Hausdorff
+Bài giảng này tập trung vào ba bậc đầu tiên: **$T_0$ (Kolmogorov)**, **$T_1$ (Fréchet)** và **$T_2$ (Hausdorff)** — đặc biệt là không gian Hausdorff, điều kiện chuẩn bảo đảm tính duy nhất của giới hạn và tính đóng của mọi tập con compact.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Tách biệt
+### Các mức độ phân biệt hai điểm
 
-Tưởng tượng bạn có hai người: **Alice** và **Bob**.
-
-**Level 0 (Trivial):** Không có cách nào distinguish Alice và Bob  
-→ Giống như trivial topology
-
-**Level 1 (T₀ - Kolmogorov):** Có ít nhất một neighborhood của Alice không chứa Bob, hoặc ngược lại  
-→ "Asymmetric" separation
-
-**Level 2 (T₁ - Fréchet):** Alice có neighborhood không chứa Bob **VÀ** Bob có neighborhood không chứa Alice  
-→ "Symmetric" nhưng neighborhoods có thể overlap
-
-**Level 3 (T₂ - Hausdorff):** Alice và Bob có **completely disjoint** neighborhoods  
-→ "Complete separation"
+Xét hai điểm phân biệt $x$ và $y$:
+- **Không thỏa $T_0$:** Mọi tập mở chứa $x$ đều chứa $y$ và ngược lại (như tô-pô tầm thường).
+- **$T_0$ (Kolmogorov):** Có ít nhất một tập mở chứa điểm này mà không chứa điểm kia (phân biệt bất đối xứng).
+- **$T_1$ (Fréchet):** $x$ có lân cận mở không chứa $y$, **và** $y$ có lân cận mở không chứa $x$ (phân biệt đối xứng, nhưng hai lân cận vẫn có thể giao nhau).
+- **$T_2$ (Hausdorff):** $x$ và $y$ có hai lân cận mở **hoàn toàn rời nhau**.
 
 ![T0 T1 T2 illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/T0-T2_spaces.svg/600px-T0-T2_spaces.svg.png)  
-*T₀, T₁, T₂ spaces minh họa - Nguồn concept*
+*Minh họa các không gian $T_0$, $T_1$, $T_2$ - Nguồn minh họa khái niệm*
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. T₀ Spaces (Kolmogorov)
+### 1. Không gian $T_0$ (Kolmogorov)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (T₀ Space):**  
-X là **T₀** (Kolmogorov) nếu với mọi x ≠ y ∈ X, tồn tại open set U chứa một điểm nhưng không chứa điểm kia.
+**Định nghĩa (Không gian $T_0$):**  
+Không gian $X$ là **$T_0$** (*Kolmogorov*) nếu với mọi $x \neq y \in X$, tồn tại tập mở $U$ chứa đúng một trong hai điểm đó:
 
 $$
 \forall x \neq y: \exists U \in \tau: (x \in U \land y \notin U) \lor (y \in U \land x \notin U)
 $$
 </div>
 
-**Trực giác:** Topology có thể "distinguish" hai điểm khác nhau.
+**Ví dụ 1: Không gian Sierpiński**  
+$X = \{0, 1\}$, $\tau = \{\emptyset, \{0\}, \{0, 1\}\}$. Tập mở $U = \{0\}$ chứa $0$ nhưng không chứa $1$, nên $X$ là không gian $T_0$ (dù không có tập mở nào chứa $1$ mà không chứa $0$).
 
-**Ví dụ 1: Sierpiński Space**
+**Ví dụ 2:** Mọi không gian rời rạc và mọi không gian có tô-pô đồng hữu hạn đều là $T_0$.
 
-X = {0, 1}, τ = {∅, {0}, {0,1}}
-
-- U = {0} chứa 0 nhưng không chứa 1
-- → T₀ space ✓
-- Nhưng không có open set chứa 1 mà không chứa 0
-- → Không symmetric!
-
-**Ví dụ 2: Discrete Topology**
-
-Mọi space với discrete topology là T₀ (thực ra là T₂!).
-
-**Non-example: Trivial Topology**
-
-X = {a, b}, τ = {∅, X}
-
-- Mọi open set chứa a cũng chứa b
-- → Không T₀ ✗
-
-**Ví dụ 3: Cofinite Topology trên Infinite Set**
-
-X infinite, τ = cofinite topology
-
-- Với x ≠ y: U = X \ {y} open, chứa x, không chứa y
-- → T₀ ✓
+**Phản ví dụ:** Không gian có ít nhất $2$ điểm với tô-pô tầm thường không phải $T_0$.
 
 ---
 
-### 2. T₁ Spaces (Fréchet)
+### 2. Không gian $T_1$ (Fréchet)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (T₁ Space):**  
-X là **T₁** (Fréchet) nếu với mọi x ≠ y, mỗi điểm có neighborhood không chứa điểm kia.
+**Định nghĩa (Không gian $T_1$):**  
+Không gian $X$ là **$T_1$** (*Fréchet*) nếu với mọi $x \neq y$, mỗi điểm đều có một lân cận mở không chứa điểm kia:
 
 $$
 \forall x \neq y: \exists U, V \in \tau: (x \in U, y \notin U) \land (y \in V, x \notin V)
 $$
 </div>
 
-**Phát biểu tương đương:**  
-X là T₁ ⟺ Mọi singleton {x} là **closed**.
+**Đặc trưng tương đương:** $X$ là không gian $T_1 \iff$ mọi tập đơn điểm $\{x\}$ đều là **tập đóng**.
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**
 </div>
 
-**(⇒)** Giả sử X là T₁, cần chứng minh {x} closed.  
-Tương đương: X \ {x} open.  
-Với mọi y ∈ X \ {x}, tồn tại Uᵧ ∋ y với x ∉ Uᵧ (T₁ property).  
-X \ {x} = ⋃_{y≠x} Uᵧ open. ✓
+- **($\Rightarrow$):** Nếu $X$ là $T_1$, với mỗi $y \in X \setminus \{x\}$ tồn tại tập mở $U_y \ni y$ sao cho $x \notin U_y$. Khi đó $X \setminus \{x\} = \bigcup_{y \neq x} U_y$ mở, nên $\{x\}$ đóng.
+- **($\Leftarrow$):** Nếu mọi tập đơn điểm đều đóng, thì với $x \neq y$, hai tập $U = X \setminus \{y\}$ và $V = X \setminus \{x\}$ là các tập mở thỏa $x \in U, y \notin U$ và $y \in V, x \notin V$.
 
-**(⇐)** Giả sử mọi {x} closed.  
-X \ {x} open ∋ y với mọi y ≠ x.  
-Tương tự X \ {y} open ∋ x.  
-→ T₁. ✓
-
-**Ví dụ 1: Euclidean ℝ**
-
-ℝ là T₁: {x} closed với mọi x.
-
-**Ví dụ 2: Cofinite Topology**
-
-X infinite, cofinite topology là T₁:
-- {x} finite → X \ {x} cofinite → open
-- → {x} closed ✓
-
-**Non-example: Sierpiński Space**
-
-{0,1} với τ = {∅, {0}, {0,1}}
-- {1} không closed (X \ {1} = {0} không open)
-- → Không T₁ ✗
+**Ví dụ:** $\mathbb{R}$ (tô-pô Euclid) và mọi tập vô hạn với tô-pô đồng hữu hạn đều là không gian $T_1$. Ngược lại, không gian Sierpiński $\{0, 1\}$ với $\tau = \{\emptyset, \{0\}, \{0, 1\}\}$ không phải $T_1$ vì $\{0\}$ không đóng (phần bù $X \setminus \{0\} = \{1\}$ không mở).
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (T₁ ⇒ T₀):**  
-Mọi T₁ space là T₀.
+**Định lý ($T_1 \Rightarrow T_0$):**  
+Mọi không gian $T_1$ đều là không gian $T_0$.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh:** Trivial từ definitions. ∎
+**Chứng minh:** Suy trực tiếp từ định nghĩa. ∎
 </div>
 
 ---
 
-### 3. T₂ Spaces (Hausdorff)
+### 3. Không gian $T_2$ (Hausdorff)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Hausdorff Space):**  
-X là **T₂** (Hausdorff) nếu với mọi x ≠ y, tồn tại **disjoint** open neighborhoods.
+**Định nghĩa (Không gian Hausdorff):**  
+Không gian $X$ là **$T_2$** (*Hausdorff*) nếu với mọi $x \neq y$, tồn tại hai lân cận mở **rời nhau** tách $x$ và $y$:
 
 $$
 \forall x \neq y: \exists U, V \in \tau: x \in U, y \in V, U \cap V = \emptyset
 $$
 </div>
 
-**Trực giác:** Hai điểm khác nhau có thể "completely separated" bởi open sets.
-
 ![Hausdorff property](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Hausdorff_space.svg/400px-Hausdorff_space.svg.png)  
-*Hausdorff property: disjoint neighborhoods - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_space.svg)*
+*Tính chất Hausdorff: hai lân cận mở rời nhau - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_space.svg)*
 
-**Ví dụ 1: Metric Spaces**
+**Ví dụ 1: Không gian mê-tric**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Mọi metric space là Hausdorff.
+**Định lý:** Mọi không gian mê-tric đều là không gian Hausdorff.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho x ≠ y trong (X, d).  
-Đặt ε = d(x,y)/2 > 0.  
-U = B(x, ε), V = B(y, ε).  
-U ∩ V = ∅ (triangle inequality). ✓
+Với $x \neq y$ trong $(X, d)$, đặt $\varepsilon = d(x, y)/2 > 0$. Hai hình cầu mở $U = B(x, \varepsilon)$ và $V = B(y, \varepsilon)$ rời nhau theo bất đẳng thức tam giác.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** ℝⁿ với Euclidean metric là Hausdorff.
+**Hệ quả:** $\mathbb{R}^n$ với mê-tric Euclid là không gian Hausdorff.
 </div>
 
-**Ví dụ 2: Discrete Topology**
+**Ví dụ 2:** Mọi không gian rời rạc đều là Hausdorff (chọn $U = \{x\}$ và $V = \{y\}$).
 
-Discrete topology trên bất kỳ set nào là Hausdorff.  
-U = {x}, V = {y} disjoint.
-
-**Non-example 1: Cofinite Topology (Infinite)**
-
-X infinite, cofinite topology **không** Hausdorff!
-
-<div class="textbook-proof" markdown="1">
-**Proof:**  
-Cho x ≠ y, U, V open chứa x, y.  
-U = X \ A, V = X \ B với A, B finite.  
-U ∩ V = X \ (A ∪ B) còn lại infinite ≠ ∅. ✗
-</div>
-
-**Non-example 2: Trivial Topology**
-
-Trivial topology không Hausdorff (chỉ có X là open set chứa bất kỳ điểm nào).
+**Phản ví dụ:** Tập vô hạn $X$ với tô-pô đồng hữu hạn **không** Hausdorff, vì nếu $U = X \setminus A$ và $V = X \setminus B$ ($A, B$ hữu hạn) thì $U \cap V = X \setminus (A \cup B)$ vẫn vô hạn nên khác rỗng. Tô-pô tầm thường (trên tập có ít nhất $2$ điểm) cũng không Hausdorff.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (T₂ ⇒ T₁):**  
-Mọi Hausdorff space là T₁.
+**Định lý ($T_2 \Rightarrow T_1$):**  
+Mọi không gian Hausdorff đều là không gian $T_1$.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho x ≠ y. Hausdorff → ∃U ∋ x, V ∋ y disjoint.  
-U không chứa y, V không chứa x.  
-→ T₁. ✓
+Nếu $U \ni x$ và $V \ni y$ rời nhau thì hiển nhiên $y \notin U$ và $x \notin V$.
 </div>
 
-**Hierarchy:**
+Tóm lại:
 $$
 \text{Hausdorff (T₂)} \implies \text{Fréchet (T₁)} \implies \text{Kolmogorov (T₀)}
 $$
 
 ---
 
-### 4. Properties of Hausdorff Spaces
+### 4. Các tính chất quan trọng của không gian Hausdorff
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Limits Unique):**  
-Trong Hausdorff space, nếu sequence hội tụ, limit là **unique**.
+**Định lý (Tính duy nhất của giới hạn):**  
+Trong không gian Hausdorff, nếu một dãy hội tụ thì giới hạn của nó là **duy nhất**.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Giả sử xₙ → x và xₙ → y với x ≠ y.  
-Hausdorff → ∃U ∋ x, V ∋ y disjoint.  
-xₙ → x → ∃N₁: ∀n ≥ N₁: xₙ ∈ U.  
-xₙ → y → ∃N₂: ∀n ≥ N₂: xₙ ∈ V.  
-Cho n ≥ max{N₁, N₂}: xₙ ∈ U ∩ V = ∅. Mâu thuẫn! ∎
+Giả sử $x_n \to x$ và $x_n \to y$ với $x \neq y$. Do $X$ Hausdorff, tồn tại hai tập mở rời nhau $U \ni x$ và $V \ni y$. Theo định nghĩa hội tụ, tồn tại $N_1, N_2$ sao cho $x_n \in U$ với mọi $n \ge N_1$ và $x_n \in V$ với mọi $n \ge N_2$. Với $n \ge \max\{N_1, N_2\}$, ta có $x_n \in U \cap V = \emptyset$ — mâu thuẫn. ∎
 </div>
 
-**Ý nghĩa:** Hausdorff condition đảm bảo uniqueness của limits—essential cho analysis!
-
 <div class="textbook-theorem" markdown="1">
-**Định lý (Compact Subsets Closed):**  
-Trong Hausdorff space, mọi compact subset là closed.
+**Định lý (Tập con compact là tập đóng):**  
+Trong không gian Hausdorff, mọi tập con compact đều là tập đóng.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-Cho K ⊆ X compact, cần chứng minh X \ K open.  
-Cho x ∈ X \ K. Với mọi y ∈ K:  
-- Hausdorff → ∃Uᵧ ∋ x, Vᵧ ∋ y disjoint.  
-{Vᵧ}ᵧ∈K open cover của K.  
-K compact → ∃ finite subcover V_{y₁}, ..., V_{yₙ}.  
-U = U_{y₁} ∩ ... ∩ U_{yₙ} neighborhood của x.  
-U ∩ K = ∅ (vì U ∩ Vᵧᵢ = ∅).  
-→ X \ K open. ✓
+Cho $K \subseteq X$ compact và $x \in X \setminus K$. Với mỗi $y \in K$, chọn hai tập mở rời nhau $U_y \ni x$ và $V_y \ni y$. Vì $\{V_y\}_{y \in K}$ phủ $K$ nên có phủ con hữu hạn $V_{y_1}, \dots, V_{y_n}$. Khi đó $U = U_{y_1} \cap \dots \cap U_{y_n}$ là tập mở chứa $x$ và rời với $K$, chứng tỏ $X \setminus K$ mở.
 </div>
 
-**Chú ý:** Điều này **sai** trong non-Hausdorff spaces!
-
 <div class="textbook-theorem" markdown="1">
-**Định lý (Diagonal Closed):**  
-X Hausdorff ⟺ Diagonal Δ = {(x,x) : x ∈ X} closed trong X × X.
+**Định lý (Đường chéo đóng):**  
+$X$ là không gian Hausdorff $\iff$ đường chéo $\Delta = \{(x, x) : x \in X\}$ là tập đóng trong $X \times X$ (với tô-pô tích).
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Exercise (sử dụng product topology).
+**Chứng minh:** Dành làm bài tập (kiểm tra phần bù $(X \times X) \setminus \Delta$ là tập mở).
 </div>
 
 ---
 
-### 5. Examples và Counterexamples
+### 5. Bảng tổng hợp các ví dụ
 
-**Summary Table:**
-
-| Space | T₀ | T₁ | T₂ (Hausdorff) |
+| Không gian | $T_0$ | $T_1$ | $T_2$ (Hausdorff) |
 |-------|----|----|----------------|
-| Discrete | ✓ | ✓ | ✓ |
-| Trivial (≥2 pts) | ✗ | ✗ | ✗ |
-| Cofinite (infinite) | ✓ | ✓ | ✗ |
-| Sierpiński {0,1} | ✓ | ✗ | ✗ |
-| ℝⁿ (Euclidean) | ✓ | ✓ | ✓ |
-| Metric spaces | ✓ | ✓ | ✓ |
+| Rời rạc | ✓ | ✓ | ✓ |
+| Tầm thường ($\ge 2$ điểm) | ✗ | ✗ | ✗ |
+| Đồng hữu hạn (vô hạn) | ✓ | ✓ | ✗ |
+| Sierpiński $\{0, 1\}$ | ✓ | ✗ | ✗ |
+| $\mathbb{R}^n$ (Euclid) | ✓ | ✓ | ✓ |
+| Không gian mê-tric | ✓ | ✓ | ✓ |
 
-**Pathological Example:**
-
-**Zariski Topology trên ℂⁿ:**  
-Closed sets = algebraic varieties (zero sets của polynomials).  
-- T₀: ✓
-- T₁: ✓ (points are varieties)
-- T₂: ✗ (open sets "too large"—any two non-empty open sets intersect!)
-
-**Importance:** Algebraic geometry uses non-Hausdorff topology!
+**Ví dụ đáng chú ý — Tô-pô Zariski trên $\mathbb{C}^n$:** Các tập đóng là các tập nghiệm chung của các họ đa thức (đa tạp đại số). Tô-pô này là $T_1$ (mỗi điểm là tập đóng) nhưng không phải $T_2$ (mọi cặp tập mở khác rỗng đều giao nhau) — cho thấy hình học đại số làm việc tự nhiên với các không gian không Hausdorff.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Định nghĩa Hausdorff spaces (original T₂ axiom)*
+   *Định nghĩa tiên đề $T_2$ (không gian Hausdorff).*
 
 2. **Andrey Kolmogorov** - *"Zur Begründung der projektiven Geometrie"* (1932)  
-   *T₀ axiom trong projective geometry*
+   *Tiên đề $T_0$ trong hình học xạ ảnh.*
 
 3. **Maurice Fréchet** - *"Sur quelques points du calcul fonctionnel"* (1906)  
-   *Early work liên quan đến T₁ condition*
+   *Các khảo sát sớm liên quan đến điều kiện $T_1$.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§31–32: Separation Axioms**  
-   *Clear systematic treatment*
+   *Trình bày hệ thống, rõ ràng.*
 
 5. **Stephen Willard** - *General Topology*, **Chapter 4**  
-   *Comprehensive coverage*
+   *Trình bày đầy đủ.*
 
 6. **John L. Kelley** - *General Topology*, **Chapter 3**  
-   *Advanced perspective*
+   *Trình bày nâng cao.*
 
 7. **Ryszard Engelking** - *General Topology*, **Chapter 1**  
-   *Encyclopedia-level detail*
+   *Tài liệu tra cứu chi tiết.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - Uniqueness of Limits
-**Convergence:** Trong metric spaces (Hausdorff), limits unique. Foundation cho calculus, functional analysis.
-
-### Algebraic Geometry - Non-Hausdorff Topology
-**Zariski Topology:** Schemes trong algebraic geometry often non-Hausdorff. Generic points không có disjoint neighborhoods.
-
-### Physics - Quantum Mechanics
-**State Space:** Hilbert space với weak topology (not Hausdorff). Physical observables correspond to closed operators.
-
-### Computer Science - Domain Theory
-**Scott Topology:** Trên partially ordered sets, often T₀ but not T₁. Used trong semantics của programming languages.
+- **Giải tích:** Tính Hausdorff bảo đảm tính duy nhất của giới hạn trong không gian mê-tric và không gian định chuẩn (kể cả dưới tô-pô yếu trên không gian Hilbert).
+- **Hình học đại số:** Tô-pô Zariski trên các lược đồ (*schemes*) nói chung không Hausdorff.
+- **Khoa học máy tính — Lý thuyết miền (*Domain Theory*):** Tô-pô Scott trên các tập sắp thứ tự bộ phận thường là $T_0$ nhưng không $T_1$, được dùng trong ngữ nghĩa học ngôn ngữ lập trình.
 
 ---
 
@@ -374,127 +247,90 @@ Closed sets = algebraic varieties (zero sets của polynomials).
 - [Basic Topology 6 | Hausdorff Spaces](https://www.youtube.com/watch?v=wHIu3Js30Uk) — The Bright Side of Mathematics, tiếng Anh. Hai điểm tách được bằng hai tập mở, định nghĩa Hausdorff trong Basic Topology.
 - [Intuitive Topology 7: Hausdorff](https://www.youtube.com/watch?v=-wbRSq7ExdM) — Hausdorff, tiếng Anh. Cùng tính chất, vẽ chậm, để thấy T2 mạnh hơn T1 ở chỗ nào.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### T₀ Spaces
+### Không gian $T_0$
 
-1. **Verify T₀:**  
-   Các spaces sau có T₀ không?
-   - a) {a,b,c} với τ = {∅, {a}, {a,b}, X}
-   - b) ℕ với cofinite topology
-   - c) {0,1} với τ = {∅, {0}, X}
+1. **Kiểm tra $T_0$:**  
+   Các không gian sau có phải $T_0$ không?
+   - a) $\{a, b, c\}$ với $\tau = \{\emptyset, \{a\}, \{a, b\}, X\}$
+   - b) $\mathbb{N}$ với tô-pô đồng hữu hạn
+   - c) $\{0, 1\}$ với $\tau = \{\emptyset, \{0\}, X\}$
 
-2. **Sierpiński:**  
-   Chứng minh Sierpiński space {0,1} với τ = {∅, {0}, X} là T₀ nhưng không T₁.
+2. **Không gian Sierpiński:**  
+   Chứng minh $\{0, 1\}$ với $\tau = \{\emptyset, \{0\}, X\}$ là $T_0$ nhưng không $T_1$.
 
-### T₁ Spaces
+### Không gian $T_1$
 
-3. **Singleton Closed:**  
-   Chứng minh: X là T₁ ⟺ mọi singleton closed.
+3. **Tập đơn điểm đóng:**  
+   Chứng minh $X$ là $T_1 \iff$ mọi tập đơn điểm $\{x\}$ đều đóng.
 
-4. **Cofinite T₁:**  
-   Chứng minh cofinite topology trên infinite set là T₁.
+4. **Tô-pô đồng hữu hạn:**  
+   Chứng minh tô-pô đồng hữu hạn trên tập vô hạn là $T_1$.
 
-5. **Finite T₁:**  
-   Nếu X finite và T₁, chứng minh X có discrete topology.
+5. **Không gian $T_1$ hữu hạn:**  
+   Chứng minh nếu $X$ hữu hạn và là $T_1$, thì tô-pô trên $X$ bắt buộc là tô-pô rời rạc.
 
-### Hausdorff Spaces
+### Không gian Hausdorff
 
-6. **Metric Hausdorff:**  
-   Chứng minh chi tiết: mọi metric space là Hausdorff.
+6. **Không gian mê-tric:**  
+   Trình bày chứng minh chi tiết: mọi không gian mê-tric đều Hausdorff.
 
-7. **Limits Unique:**  
-   Cho ví dụ non-Hausdorff space với sequence hội tụ đến nhiều limits.
+7. **Giới hạn không duy nhất:**  
+   Nêu một ví dụ không gian không Hausdorff có một dãy hội tụ đồng thời về nhiều điểm khác nhau.
 
-8. **Compact Closed:**  
-   Trong ℝ với cofinite topology:
-   - a) [0,1] có compact không?
-   - b) [0,1] có closed không?
-   - c) Có vi phạm "compact → closed" không?
+8. **Tập compact không đóng:**  
+   Trong $\mathbb{R}$ với tô-pô đồng hữu hạn:
+   - a) $[0, 1]$ có compact không?
+   - b) $[0, 1]$ có đóng không?
+   - c) Điều này có mâu thuẫn với định lý "tập con compact là đóng" không?
 
-### Properties
+### Tính bảo toàn
 
-9. **Product:**  
-   Nếu X, Y Hausdorff, chứng minh X × Y Hausdorff.
+9. **Tích:** Chứng minh nếu $X, Y$ Hausdorff thì $X \times Y$ Hausdorff.
+10. **Không gian con:** Chứng minh nếu $X$ Hausdorff và $A \subseteq X$ thì không gian con $A$ cũng Hausdorff.
+11. **Ảnh liên tục:** Cho $f: X \to Y$ là toàn ánh liên tục với $X$ Hausdorff. $Y$ có nhất thiết Hausdorff không? Nếu không, hãy nêu phản ví dụ.
 
-10. **Subspace:**  
-    Nếu X Hausdorff, A ⊆ X, chứng minh A (subspace topology) Hausdorff.
+### Nâng cao
 
-11. **Continuous Image:**  
-    Cho f: X → Y continuous surjection, X Hausdorff.  
-    Y có nhất thiết Hausdorff không? Counterexample?
+12. **Đường chéo đóng:** Chứng minh $X$ Hausdorff $\iff \Delta = \{(x, x) : x \in X\}$ đóng trong $X \times X$.
+13. **Hoàn toàn Hausdorff (*Urysohn / Completely Hausdorff*):** Không gian $X$ gọi là hoàn toàn Hausdorff nếu với mọi $x \neq y$, tồn tại hàm liên tục $f: X \to [0, 1]$ sao cho $f(x) = 0, f(y) = 1$. Chứng minh hoàn toàn Hausdorff $\Rightarrow$ Hausdorff và kiểm tra tính chất này trên $\mathbb{R}$.
+14. **Tô-pô Zariski:** Tìm hiểu tô-pô Zariski trên $\mathbb{C}$ (trùng với tô-pô đồng hữu hạn) và giải thích vì sao nó $T_1$ nhưng không $T_2$.
 
-### Advanced
+### Câu hỏi suy ngẫm
 
-12. **Diagonal:**  
-    Chứng minh: X Hausdorff ⟺ Δ = {(x,x)} closed trong X × X.
-
-13. **Completely Hausdorff:**  
-    X là **completely Hausdorff** nếu với x ≠ y, ∃f: X → [0,1] continuous với f(x) = 0, f(y) = 1.  
-    - Chứng minh: completely Hausdorff ⇒ Hausdorff
-    - ℝ có completely Hausdorff không?
-
-14. **Zariski Topology:**  
-    Tìm hiểu Zariski topology trên ℂ.  
-    Tại sao nó T₁ nhưng không T₂?
-
-### Reflection
-
-15. **Why Hausdorff?**  
-    Liệt kê 5 lý do tại sao Hausdorff condition "standard" trong topology.
-
-16. **Non-Hausdorff Examples:**  
-    Tìm 3 ví dụ "natural" non-Hausdorff spaces trong toán học.
-
-17. **Hierarchy:**  
-    Tại sao T₂ ⇒ T₁ ⇒ T₀ nhưng không ngược lại?  
-    Cho examples chứng minh implications không reverse.
+15. **Vai trò của Hausdorff:** Liệt kê các lý do khiến giả thiết Hausdorff thường được mặc định trong giải tích và hình học.
+16. **Không gian không Hausdorff:** Nêu ba ví dụ tự nhiên của không gian không Hausdorff trong toán học và khoa học máy tính.
+17. **Tính một chiều của hệ phân tầng:** Nêu các ví dụ chứng tỏ $T_2 \Rightarrow T_1 \Rightarrow T_0$ không có chiều đảo.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §31–32 (Separation Axioms)
 - **Willard, General Topology:** Chapter 4 (Separation Axioms)
 - **Engelking, General Topology:** Chapter 1.5 (Separation Properties)
-- **Steen & Seebach:** *Counterexamples in Topology* (Encyclopedia của examples!)
+- **Steen & Seebach:** *Counterexamples in Topology*
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta học về **separation axioms**—hierarchy của conditions về "separability":
+✅ **$T_0$ (Kolmogorov):** Phân biệt được hai điểm bất kỳ bằng ít nhất một tập mở.  
+✅ **$T_1$ (Fréchet):** Phân biệt đối xứng $\iff$ mọi tập đơn điểm đều đóng.  
+✅ **$T_2$ (Hausdorff):** Hai điểm phân biệt có hai lân cận mở rời nhau.  
+✅ **Hệ phân tầng:** $T_2 \Rightarrow T_1 \Rightarrow T_0$ (các chiều đảo đều sai).  
+✅ **Tính chất của không gian Hausdorff:** Giới hạn dãy là duy nhất, mọi tập con compact đều đóng và đường chéo $\Delta$ đóng trong $X \times X$.
 
-✅ **T₀ (Kolmogorov):** Topology distinguish hai điểm khác nhau  
-✅ **T₁ (Fréchet):** Singletons closed ⟺ symmetric separation  
-✅ **T₂ (Hausdorff):** Disjoint neighborhoods ⟺ complete separation  
-✅ **Hierarchy:** T₂ ⇒ T₁ ⇒ T₀ (không reverse!)  
-✅ **Hausdorff Properties:**
-   - Limits unique
-   - Compact subsets closed
-   - Diagonal closed  
-
-**Điểm chính:**
-- Hausdorff = "standard" assumption (metric spaces, manifolds)
-- Non-Hausdorff có ứng dụng (algebraic geometry, domain theory)
-- T₁ ⟺ points closed
-- Separation về "distinguishing" points topologically
-
-**Practical wisdom:**
-- Nếu working với metric spaces → automatically Hausdorff
-- Check Hausdorff để ensure limits unique
-- Non-Hausdorff spaces = special, careful reasoning needed!
-
-**Tiếp theo:** Lecture 03.01 về **T₃ (Regular) và T₄ (Normal) Spaces**—stronger separation conditions, Urysohn's Lemma, Tietze Extension Theorem!
+**Tiếp theo:** Bài 03.01 sẽ mở rộng lên các bậc tách cao hơn là **Không gian chính quy ($T_3$), chuẩn tắc ($T_4$), Bổ đề Urysohn và Định lý mở rộng Tietze**.
 
 ---
 
 *"Hausdorff spaces are to topology what metric spaces are to geometry."* — Standard analogy
 
-🎯 **Distinguish the distinctions! Understand the hierarchy T₀ ⊂ T₁ ⊂ T₂.** 🎯
+🎯 **Hãy nắm chắc sự khác biệt giữa các bậc $T_2 \Rightarrow T_1 \Rightarrow T_0$ qua các ví dụ cụ thể.** 🎯
 
 ---
 
 **Previous Chapter:** [Chapter 02: Connectedness and Compactness](/contents/vi/topology-chapter02/)  
 **Next:** [Lecture 03.01: Regular and Normal Spaces](/contents/vi/topology-chapter03/03_01_Regular_Normal_Spaces/)
-

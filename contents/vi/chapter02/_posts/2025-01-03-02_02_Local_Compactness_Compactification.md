@@ -10,213 +10,151 @@ tags: [locally-compact, compactification, one-point-compactification, stone-cech
 description: "Locally compact spaces, one-point compactification, và Stone-Čech compactification"
 ---
 
-**Local Compactness and Compactification**
+**Tính Compact địa phương và Phép Compact hóa**
 
 ---
 
 ## 📖 Tổng quan
 
-Trong bài trước, chúng ta học về **compact spaces**—spaces "finite in disguise". Nhưng nhiều spaces quan trọng **không compact**: ℝ, ℝⁿ, open manifolds...
+Nhiều không gian quen thuộc trong giải tích và hình học như $\mathbb{R}$, $\mathbb{R}^n$ hay các đa tạp mở đều **không compact**. Điều này dẫn tới hai câu hỏi tự nhiên:
+1. Có tính chất nào yếu hơn tính compact nhưng vẫn bảo đảm các đặc trưng hữu ích ở quy mô địa phương không? Câu trả lời là **tính compact địa phương** (*local compactness*).
+2. Có thể bổ sung thêm điểm vào một không gian không compact để thu được một không gian compact chứa nó như một tập con trù mật không? Đó chính là **phép compact hóa** (*compactification*).
 
-**Câu hỏi tự nhiên:**
-1. Có property "weaker" than compactness nhưng vẫn useful không?  
-   → **Locally compact**: mọi điểm có compact neighborhood
-
-2. Có thể "compactify" non-compact space không?  
-   → **Compactification**: add points để làm compact!
-
-**Ví dụ trực quan:**
-- **ℝ** không compact, nhưng **locally compact** (mỗi x có compact neighborhood [x-1, x+1])
-- **ℝ + {∞}** = S¹ (circle) = compact! (one-point compactification)
-- **ℝⁿ + {∞}** = Sⁿ (sphere)
+Chẳng hạn, $\mathbb{R}$ không compact nhưng là không gian compact địa phương (mỗi điểm $x \in \mathbb{R}$ đều nằm trong lân cận compact $[x - 1, x + 1]$), và khi bổ sung một "điểm ở vô cực" $\infty$ ta thu được đường tròn $\mathbb{R} \cup \{\infty\} \cong S^1$. Tương tự, $\mathbb{R}^n \cup \{\infty\} \cong S^n$.
 
 ![One-point compactification of R](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Compactification.svg/400px-Compactification.svg.png)  
-*One-point compactification: ℝ → S¹ - Nguồn concept*
+*Compact hóa một điểm của $\mathbb{R}$ thành $S^1$ - Nguồn minh họa khái niệm*
 
-**Trong bài này:**
-- **Locally compact spaces**: định nghĩa và examples
-- **One-point compactification**: thêm "point at infinity"
-- **Stone-Čech compactification**: universal compactification
-- **Applications**: analysis, algebraic topology
-
-**Tại sao quan trọng?**
-- Locally compact = property của ℝⁿ, manifolds
-- Compactification = tool để apply compact theorems
-- Stone-Čech = categorical perspective
-- Geometry at infinity (in algebraic topology)
+Bài giảng này trình bày **không gian compact địa phương**, **compact hóa một điểm** (*one-point / Alexandroff compactification*) và **compact hóa Stone–Čech** (*Stone–Čech compactification*).
 
 ---
 
-## 📐 Locally Compact Spaces
+## 📐 Không gian compact địa phương (Locally Compact Spaces)
 
-### 1. Định nghĩa
+### 1. Định nghĩa và ví dụ
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Locally Compact):**  
-X là **locally compact** nếu mọi x ∈ X có **compact neighborhood**.
+**Định nghĩa (Compact địa phương):**  
+Không gian tô-pô $X$ là **compact địa phương** (*locally compact*) nếu mỗi điểm $x \in X$ đều có ít nhất một **lân cận compact**, tức tồn tại tập compact $K$ và tập mở $U$ sao cho:
 
 $$
 \forall x \in X: \exists K \text{ compact}, \exists U \in \tau: x \in U \subseteq K
 $$
 </div>
 
-**Phiên bản mạnh hơn:** Mọi x và mọi neighborhood V của x, tồn tại compact K với x ∈ int(K) ⊆ K ⊆ V.
+*(Trong không gian Hausdorff, điều kiện này tương đương với dạng mạnh hơn: với mọi $x \in X$ và mọi lân cận $V$ của $x$, tồn tại tập compact $K$ sao cho $x \in \text{int}(K) \subseteq K \subseteq V$.)*
 
-**Ví dụ 1: ℝⁿ**
+**Ví dụ:**
+- **$\mathbb{R}^n$:** Compact địa phương vì mọi điểm $x$ đều có hình cầu đóng $\overline{B}(x, 1)$ compact (theo Định lý Heine–Borel).
+- **Đa tạp $n$ chiều:** Mọi đa tạp đều compact địa phương vì cục bộ đồng phôi với $\mathbb{R}^n$.
+- **Không gian rời rạc:** Compact địa phương vì $\{x\}$ là lân cận compact của $x$.
 
-ℝⁿ locally compact: mọi x ∈ ℝⁿ, closed ball B̄(x, 1) compact (Heine-Borel).
-
-**Ví dụ 2: Manifolds**
-
-Mọi n-dimensional manifold locally compact (locally homeomorphic với ℝⁿ).
-
-**Ví dụ 3: Discrete Space**
-
-Mọi discrete space locally compact: {x} là compact neighborhood của x.
-
-**Non-example 1: ℚ**
-
-ℚ (với topology từ ℝ) **không** locally compact!
+**Phản ví dụ:**
+- **$\mathbb{Q}$ (với tô-pô con từ $\mathbb{R}$):** Không compact địa phương.
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Mọi compact subset của ℚ là finite union của points (no intervals).  
-Nhưng mọi neighborhood của x ∈ ℚ chứa infinitely many rationals.  
-→ Không có compact neighborhood. ✗
+**Chứng minh:** Mọi tập con compact $K$ của $\mathbb{Q}$ đều có phần trong rỗng trong $\mathbb{Q}$ (vì nếu $K$ chứa một khoảng $(a, b) \cap \mathbb{Q}$, ta chọn số vô tỉ $r \in (a, b)$ và một dãy trong $(a, b) \cap \mathbb{Q}$ hội tụ về $r \notin \mathbb{Q}$, trái với tính compact của $K$). Do đó không có điểm nào của $\mathbb{Q}$ có lân cận compact.
 </div>
 
-**Non-example 2: Infinite-Dimensional Spaces**
-
-Hilbert space ℓ² **không** locally compact (Riesz's theorem).
+- **Không gian Hilbert vô hạn chiều $\ell^2$:** Không compact địa phương (theo định lý Riesz).
 
 ---
 
-### 2. Properties
+### 2. Tính chất
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Closed Subspace):**  
-Nếu X locally compact Hausdorff và F ⊆ X closed, thì F locally compact.
+**Định lý (Không gian con đóng):**  
+Nếu $X$ compact địa phương Hausdorff và $F \subseteq X$ đóng, thì $F$ compact địa phương.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Open Subspace):**  
-Nếu X locally compact Hausdorff và U ⊆ X open, thì U locally compact.
+**Định lý (Không gian con mở):**  
+Nếu $X$ compact địa phương Hausdorff và $U \subseteq X$ mở, thì $U$ compact địa phương.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Exercise (sử dụng compact neighborhoods).
+**Chứng minh:** Dành làm bài tập (sử dụng cơ sở lân cận compact trong không gian Hausdorff).
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Product):**  
-Nếu X, Y locally compact, thì X × Y locally compact.
+**Định lý (Tích hữu hạn):**  
+Nếu $X$ và $Y$ compact địa phương, thì $X \times Y$ compact địa phương.
 </div>
 
-**Chú ý:** Infinite products của locally compact spaces **không** locally compact (nói chung).
+*(Lưu ý: tích vô hạn của các không gian compact địa phương nói chung không còn compact địa phương, trừ khi hầu hết các nhân tử đều compact.)*
 
 ---
 
-## 📐 One-Point Compactification
+## 📐 Compact hóa một điểm (One-Point Compactification)
 
-### 1. Construction
+### 1. Cách xây dựng (Alexandroff Compactification)
 
-**Động lực:** Làm sao "compactify" non-compact space bằng cách thêm **one point**?
-
-**Idea:** Add "point at infinity" ∞.
-
-**Construction (Alexandroff Compactification):**
-
-Cho X locally compact Hausdorff, **không compact**.  
-Define:
+Cho $X$ là không gian Hausdorff compact địa phương và **không compact**. Bổ sung một điểm mới $\infty \notin X$ và đặt:
 $$
 X^* = X \cup \{\infty\}
 $$
 
-**Topology trên X^*:**
-- Open sets in X remain open
-- Neighborhoods của ∞: {∞} ∪ (X \ K) với K ⊆ X compact
+Ta trang bị cho $X^*$ tô-pô $\tau^*$ gồm:
+- Tất cả các tập mở $U \in \tau$ của $X$;
+- Các tập dạng $X^* \setminus K = \{\infty\} \cup (X \setminus K)$, với $K \subseteq X$ là tập con compact (và do đó đóng trong $X$).
 
-Formally:
+Viết gọn lại:
 $$
 \tau^* = \tau \cup \{X^* \setminus K : K \subseteq X \text{ compact closed}\}
 $$
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-X^* là compact Hausdorff space.
+Không gian $X^*$ là một không gian **compact Hausdorff**, chứa $X$ như một không gian con mở và trù mật.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**
+**Phác thảo chứng minh:**
 </div>
 
-**Hausdorff:** Nếu x, y ∈ X: dùng Hausdorff của X.  
-Nếu x ∈ X, y = ∞: x có compact neighborhood K, nên U = int(K), V = X^* \ K separate chúng.
-
-**Compact:** Cho {Uα} open cover của X^*.  
-Nếu ∞ ∈ Uα₀, thì Uα₀ = X^* \ K với K compact.  
-K ⊆ ⋃_{α≠α₀} Uα → finite subcover cho K.  
-→ Finite subcover cho X^*. ∎
+- **Tính Hausdorff:** Hai điểm phân biệt trong $X$ được tách bằng tính Hausdorff của $X$. Nếu một điểm là $x \in X$ và điểm kia là $\infty$, chọn lân cận compact $K$ của $x$; khi đó $U = \text{int}(K)$ và $V = X^* \setminus K$ là hai tập mở rời nhau tách $x$ và $\infty$.
+- **Tính compact:** Cho $\{U_\alpha\}$ là một phủ mở của $X^*$. Chọn $U_{\alpha_0}$ chứa $\infty$; khi đó $U_{\alpha_0} = X^* \setminus K$ với $K \subseteq X$ compact. Phần còn lại $K$ được phủ bởi $\{U_\alpha\}_{\alpha \neq \alpha_0}$ nên có phủ con hữu hạn; hợp phủ con đó với $U_{\alpha_0}$ ta được phủ con hữu hạn của $X^*$. ∎
 
 ---
 
-### 2. Examples
+### 2. Các ví dụ kinh điển
 
-**Example 1: ℝ**
-
-ℝ^* = ℝ ∪ {∞} homeomorphic với **S¹** (circle)!
-
-**Homeomorphism:** Stereographic projection  
-f: ℝ → S¹ \ {north pole}, extend với f(∞) = north pole.
+- **Đường thẳng thực $\mathbb{R}$:** $\mathbb{R}^* = \mathbb{R} \cup \{\infty\} \cong S^1$ thông qua phép chiếu nổi (ánh xạ $\infty$ vào cực Bắc của đường tròn).
 
 ![Stereographic projection](https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Stereoprojzero.svg/400px-Stereoprojzero.svg.png)  
-*Stereographic projection: ℝ ∪ {∞} ≅ S¹ - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stereoprojzero.svg)*
+*Phép chiếu nổi: $\mathbb{R} \cup \{\infty\} \cong S^1$ - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stereoprojzero.svg)*
 
-**Example 2: ℝⁿ**
-
-(ℝⁿ)^* ≅ **Sⁿ** (n-sphere)
-
-**Example 3: ℂ (Complex Plane)**
-
-ℂ^* = ℂ ∪ {∞} = **Riemann sphere** ≅ S²
-
-**Applications:** Complex analysis, meromorphic functions.
-
-**Example 4: Open Disk**
-
-D² (open unit disk) → D²^* ≅ S² (2-sphere)
+- **Không gian Euclid $\mathbb{R}^n$:** $(\mathbb{R}^n)^* \cong S^n$.
+- **Mặt phẳng phức $\mathbb{C}$:** $\mathbb{C}^* = \mathbb{C} \cup \{\infty\} \cong S^2$ được gọi là **mặt cầu Riemann** (*Riemann sphere*), công cụ trung tâm trong giải tích phức để nghiên cứu hàm phân hình.
+- **Đĩa mở đơn vị $D^2$:** Vì $D^2 \cong \mathbb{R}^2$, ta có $(D^2)^* \cong S^2$.
 
 ---
 
-### 3. Uniqueness
+### 3. Tính duy nhất
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Uniqueness):**  
-Nếu X locally compact Hausdorff không compact, one-point compactification **unique** (up to homeomorphism).
+**Định lý (Tính duy nhất):**  
+Nếu $X$ là không gian Hausdorff compact địa phương không compact, thì compact hóa một điểm của $X$ là duy nhất sai khác một phép đồng phôi cố định trên $X$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Universal property (xem sau).
+**Ghi chú chứng minh:** Nếu $Y$ là không gian compact Hausdorff chứa $X$ với $Y \setminus X = \{p\}$, thì ánh xạ đồng nhất trên $X$ và gửi $\infty \mapsto p$ là một phép đồng phôi $X^* \to Y$.
 </div>
 
 ---
 
-## 📐 Stone-Čech Compactification
+## 📐 Compact hóa Stone–Čech (Stone–Čech Compactification)
 
-### 1. Universal Property
+### 1. Tính chất phổ dụng
 
-**Vấn đề:** One-point compactification **không** universal!
-
-**Ví dụ:** Continuous f: ℝ → [0,1] không extend được lên ℝ^* = S¹ (nói chung).
-
-**Giải pháp:** **Stone-Čech compactification** βX—largest possible compactification!
+Compact hóa một điểm tuy đơn giản nhưng không bảo đảm mọi hàm thực liên tục bị chặn trên $X$ đều mở rộng liên tục lên $X^*$ (ví dụ $f(x) = \arctan(x)$ trên $\mathbb{R}$ có hai giới hạn khác nhau ở $+\infty$ và $-\infty$ nên không mở rộng được lên $\mathbb{R}^* = S^1$). **Compact hóa Stone–Čech** $\beta X$ khắc phục điều này bằng cách trở thành compact hóa Hausdorff "lớn nhất" có thể.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Stone-Čech):**  
-Với mọi Tychonoff space X (T₃.₅), tồn tại compact Hausdorff βX và embedding i: X → βX sao cho:
+**Định lý (Stone–Čech):**  
+Với mọi không gian Tychonoff ($T_{3\frac{1}{2}}$) $X$, tồn tại một không gian compact Hausdorff $\beta X$ cùng một phép nhúng $i: X \to \beta X$ (với $i(X)$ trù mật trong $\beta X$) thỏa mãn tính chất phổ dụng sau:
 </div>
 
-**Universal Property:**  
-Với mọi compact Hausdorff K và continuous f: X → K, tồn tại **duy nhất** continuous extension f̄: βX → K.
+**Tính chất phổ dụng:** Với mọi không gian compact Hausdorff $K$ và mọi ánh xạ liên tục $f: X \to K$, tồn tại **duy nhất** một ánh xạ liên tục mở rộng $\bar{f}: \beta X \to K$ sao cho $\bar{f} \circ i = f$.
 
 ```
 X ---f---> K
@@ -226,75 +164,35 @@ v
 βX --f̄--> K
 ```
 
-**Trực giác:** βX = "largest" compactification—mọi continuous map extend được!
-
 ---
 
-### 2. Construction (Sketch)
+### 2. Phác thảo cách xây dựng
 
-**Construction via C(X, [0,1]):**
-
-Xét tất cả bounded continuous functions f: X → [0,1].  
-Embed X vào [0,1]^{C(X,[0,1])} bởi:
+Xét tập $\mathcal{F} = C(X, [0, 1])$ tất cả các hàm liên tục từ $X$ vào $[0, 1]$. Định nghĩa ánh xạ đánh giá $e: X \to [0, 1]^{\mathcal{F}}$ bởi:
 $$
 x \mapsto (\ldots, f(x), \ldots)
 $$
+Vì $X$ là không gian Tychonoff, $e$ là một phép nhúng. Lấy bao đóng $\beta X = \overline{e(X)}$ trong không gian compact $[0, 1]^{\mathcal{F}}$ (compact theo Định lý Tychonoff), ta thu được compact hóa Stone–Čech của $X$.
 
-Take closure → βX!
-
-**Tính chất:**
-- |βℕ| = 2^{2^{ℵ₀}} (extremely large!)
-- β(ℝ) \ ℝ gọi là "space of ultrafilters"
-- Very non-constructive (cần Axiom of Choice)
+Cách xây dựng này mang tính phi xây dựng (dựa trên Định lý Tychonoff / Tiên đề Lựa chọn) và tạo ra không gian rất lớn: chẳng hạn $|\beta\mathbb{N}| = 2^{2^{\aleph_0}}$, và phần dư $\beta\mathbb{N} \setminus \mathbb{N}$ đồng nhất với không gian các siêu lọc tự do trên $\mathbb{N}$.
 
 ---
 
-### 3. Examples
+### 3. Một số ví dụ
 
-**Example 1: Compact Space**
-
-Nếu X đã compact, βX = X.
-
-**Example 2: ℕ**
-
-βℕ = Stone-Čech compactification của ℕ (discrete).  
-|βℕ| = 2^{2^{ℵ₀}} >> |ℕ^*| = ℵ₀ + 1.
-
-βℕ có cấu trúc algebraic phức tạp (semigroup operations).
-
-**Example 3: (0,1)**
-
-β(0,1) = [0,1] (vì (0,1) dense trong [0,1] compact).
-
-**Example 4: ℝ**
-
-βℝ ≠ ℝ^* = S¹ (βℝ much larger!)
+- **Không gian compact Hausdorff $X$:** Khi $X$ đã compact, $\beta X = X$.
+- **$\mathbb{N}$ (tô-pô rời rạc):** $|\beta\mathbb{N}| = 2^{2^{\aleph_0}}$, lớn hơn rất nhiều so với compact hóa một điểm $\mathbb{N}^* = \mathbb{N} \cup \{\infty\}$ (đếm được).
+- **Khoảng mở $(0, 1)$:** Mặc dù $[0, 1]$ là một compact hóa của $(0, 1)$, nhưng $\beta(0, 1) \neq [0, 1]$ vì hàm liên tục bị chặn $f(x) = \sin(1/x)$ trên $(0, 1)$ không thể mở rộng liên tục tại $0$; thực tế vì $(0, 1) \cong \mathbb{R}$ nên $\beta(0, 1) \cong \beta\mathbb{R}$.
+- **Đường thẳng thực $\mathbb{R}$:** $\beta\mathbb{R}$ khác và lớn hơn rất nhiều so với $\mathbb{R}^* \cong S^1$.
 
 ---
 
-## 🔗 Applications
+## 🔗 Ứng dụng
 
-### Algebraic Topology - Ends
-
-**Ends of Space:** βX \ X mô tả "geometry at infinity".  
-- ℝ: 2 ends (±∞)
-- ℝⁿ (n ≥ 2): 1 end
-- Infinite graph: số ends = topological invariant
-
-### Complex Analysis - Riemann Sphere
-
-**Meromorphic Functions:** Functions ℂ → ℂ^* = Riemann sphere.  
-Poles = values at ∞.
-
-### Functional Analysis - Banach Algebras
-
-**Maximal Ideals:** Maximal ideal space của C_b(X) ≅ βX.  
-Gelfand transform uses Stone-Čech!
-
-### Set Theory - Ultrafilters
-
-**βℕ \ ℕ** = space của non-principal ultrafilters trên ℕ.  
-Applications trong logic, combinatorics.
+- **Tô-pô đại số — Đầu vô cực (*Ends*):** Phần dư của các phép compact hóa (như compact hóa Freudenthal và $\beta X \setminus X$) mô tả hành vi hình học ở vô cực: $\mathbb{R}$ có $2$ đầu vô cực ($\pm\infty$), còn $\mathbb{R}^n$ ($n \ge 2$) có $1$ đầu vô cực.
+- **Giải tích phức — Mặt cầu Riemann:** Hàm phân hình trên $\mathbb{C}$ được hiểu là ánh xạ chỉnh hình từ $\mathbb{C}$ vào mặt cầu Riemann $\mathbb{C}^*$, trong đó các cực điểm nhận giá trị $\infty$.
+- **Giải tích hàm — Đại số Banach:** Không gian các i-đê-an cực đại của đại số hàm liên tục bị chặn $C_b(X)$ đồng phôi với $\beta X$ (qua phép biến đổi Gelfand).
+- **Lý thuyết tập hợp và tổ hợp:** $\beta\mathbb{N} \setminus \mathbb{N}$ tương ứng với không gian các siêu lọc không chính (*non-principal ultrafilters*) trên $\mathbb{N}$.
 
 ---
 
@@ -304,80 +202,54 @@ Applications trong logic, combinatorics.
 - [one point compactification -- Topology Video 18](https://www.youtube.com/watch?v=5tdsgjHlMtA) — MathMajor, tiếng Anh. Compact hóa một điểm, phép thêm một điểm ở vô cực mà bài xây ở nửa sau.
 - [Lecture 31: One point compactification](https://www.youtube.com/watch?v=os9m6Q4gAzM) — NPTEL IIT Bombay, tiếng Anh. Cùng phép compact hóa một điểm, trong một bài giảng đại học đủ chậm để đối chiếu chứng minh.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Locally Compact
+### Tính compact địa phương
 
-1. **Verify:** ℝⁿ locally compact.
+1. **Kiểm tra:** Chứng minh $\mathbb{R}^n$ là không gian compact địa phương.
+2. **$\mathbb{Q}$ không compact địa phương:** Trình bày chứng minh chi tiết rằng $\mathbb{Q}$ không compact địa phương.
+3. **Tích hữu hạn:** Chứng minh rằng nếu $X, Y$ compact địa phương thì $X \times Y$ compact địa phương.
 
-2. **ℚ Not Locally Compact:**  
-   Chứng minh chi tiết ℚ không locally compact.
+### Compact hóa một điểm
 
-3. **Product:**  
-   X, Y locally compact → X × Y locally compact?
+4. **Compact hóa của $\mathbb{R}$:** Mô tả các tập mở chứa $\infty$ trong $\mathbb{R}^* = \mathbb{R} \cup \{\infty\}$ và chứng minh $\mathbb{R}^* \cong S^1$.
+5. **Compact hóa của $\mathbb{R}^n$:** Xây dựng phép đồng phôi tường minh giữa $(\mathbb{R}^n)^*$ và $S^n$ bằng phép chiếu nổi.
+6. **Vai trò của tính compact địa phương:** Giải thích vì sao phép xây dựng $X^*$ trên $X = \mathbb{Q}$ không tạo ra không gian Hausdorff.
 
-### One-Point Compactification
+### Compact hóa Stone–Čech
 
-4. **ℝ^*:**  
-   Mô tả topology trên ℝ^* = ℝ ∪ {∞}.  
-   Chứng minh ℝ^* ≅ S¹.
+7. **Tính chất phổ dụng:** Cho $f: \mathbb{N} \to [0, 1]$ xác định bởi $f(n) = 1/n$. Ánh xạ mở rộng $\bar{f}: \beta\mathbb{N} \to [0, 1]$ nhận giá trị bằng bao nhiêu trên phần dư $\beta\mathbb{N} \setminus \mathbb{N}$?
+8. **Lực lượng của $\beta\mathbb{N}$:** Tìm hiểu vì sao $|\beta\mathbb{N}| = 2^{2^{\aleph_0}}$ (*Gợi ý:* liên hệ với số siêu lọc trên $\mathbb{N}$).
 
-5. **ℝⁿ^*:**  
-   (ℝⁿ)^* ≅ Sⁿ. Construct homeomorphism tường minh.
+### Nâng cao
 
-6. **Not Locally Compact:**  
-   Tại sao ℚ không có one-point compactification?
-
-### Stone-Čech
-
-7. **Universal Property:**  
-   f: ℕ → [0,1], f(n) = 1/n.  
-   f extend lên βℕ như thế nào?
-
-8. **Size:**  
-   Tại sao |βℕ| = 2^{2^{ℵ₀}}?  
-   (*Hint:* Ultrafilters)
-
-### Advanced
-
-9. **Alexandroff vs Stone-Čech:**  
-   So sánh ℝ^* và βℝ. Tại sao khác nhau?
-
-10. **Ends:**  
-    Số ends của ℝ, ℝ², ℝ³?
+9. **So sánh hai compact hóa:** So sánh $\mathbb{R}^*$ và $\beta\mathbb{R}$; nêu một hàm liên tục bị chặn trên $\mathbb{R}$ mở rộng được lên $\beta\mathbb{R}$ nhưng không mở rộng được lên $\mathbb{R}^*$.
+10. **Số đầu vô cực:** Giải thích trực quan vì sao $\mathbb{R}$ có $2$ đầu vô cực còn $\mathbb{R}^2$ và $\mathbb{R}^3$ chỉ có $1$ đầu vô cực.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
-- **Munkres, Topology:** §29 (Local Compactness), §38 (Stone-Čech)
+- **Munkres, Topology:** §29 (Local Compactness), §38 (Stone–Čech)
 - **Willard, General Topology:** Chapter 6
 - **Engelking, General Topology:** Chapter 3.5–3.6
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-✅ **Locally Compact:** Mọi điểm có compact neighborhood  
-✅ **One-Point Compactification:** X^* = X ∪ {∞}  
-✅ **ℝⁿ^* ≅ Sⁿ:** Stereographic projection  
-✅ **Stone-Čech βX:** Universal compactification  
-✅ **Universal Property:** Mọi continuous map extend  
+✅ **Compact địa phương:** Mọi điểm đều có một lân cận compact (ví dụ $\mathbb{R}^n$ và các đa tạp).  
+✅ **Compact hóa một điểm:** $X^* = X \cup \{\infty\}$ với tô-pô Alexandroff cho không gian compact Hausdorff duy nhất.  
+✅ **Các trường hợp chuẩn:** $(\mathbb{R}^n)^* \cong S^n$ qua phép chiếu nổi.  
+✅ **Compact hóa Stone–Čech $\beta X$:** Compact hóa phổ dụng cho không gian Tychonoff, cho phép mở rộng duy nhất mọi ánh xạ liên tục vào không gian compact Hausdorff.
 
-**Điểm chính:**
-- Locally compact = ℝⁿ, manifolds
-- One-point: simple, geometric
-- Stone-Čech: universal, abstract
-- Compactification = tool để apply compact theorems
-
-**Tiếp theo:** Chapter 03 về **Separation Axioms**!
+**Tiếp theo:** Chương 03 sẽ nghiên cứu các **Tiên đề tách** (*Separation Axioms*).
 
 ---
 
-🎯 **Visualize compactifications! Vẽ ℝ → S¹, ℝ² → S².** 🎯
+🎯 **Hãy vẽ hình minh họa phép chiếu nổi biến $\mathbb{R}$ thành $S^1$ và $\mathbb{R}^2$ thành $S^2$.** 🎯
 
 ---
 
 **Previous:** [Lecture 02.01: Compact Spaces](/contents/vi/topology-chapter02/02_01_Compact_Spaces/)  
 **Next Chapter:** [Chapter 03: Separation Axioms](/contents/vi/topology-chapter03/)
-

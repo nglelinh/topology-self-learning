@@ -12,69 +12,69 @@ tags: [optional, recent-advances, materials, neuroscience, graph-tda, applicatio
 description: "Bài tùy chọn: topology đại chúng gặp ứng dụng TDA 2022–2026 (vật liệu, não, đồ thị, NLP). Không viết lại các câu chuyện lý thuyết."
 ---
 
-**Bài tùy chọn.** Các câu chuyện cà phê–donut, Königsberg, Möbius, Euler, bốn màu, DNA, vật lý, Poincaré giữ nguyên. Ta chỉ thêm *chỗ* chúng đang chạy trong các paper ứng dụng gần đây.
+**Bài đọc thêm (tùy chọn):** Các chủ đề nền tảng của Chương 09 — từ ly cà phê và bánh donut, bảy cầu Königsberg, dải Möbius, đặc trưng Euler, định lý bốn màu đến DNA, vật lý và giả thuyết Poincaré — vẫn giữ nguyên giá trị. Bài này chỉ điểm qua những nơi các ý tưởng đó đang được đưa vào nghiên cứu ứng dụng giai đoạn 2022–2026.
 
 ---
 
 ## 📖 Tổng quan
 
-Chapter 09 dạy topology bằng hình ảnh. Các nhóm 2022–2026 làm điều đối xứng: lấy hình ảnh đó — lỗ, nút, mạng, mặt — và đo trên vật liệu xốp, mạng nơ-ron sinh học, đồ thị xã hội, và ngôn ngữ. Bài này là bản đồ đọc, không phải bài vật lý hay sinh học mới.
+Trong khi các bài trước của Chương 09 dùng hình ảnh trực quan (lỗ, nút, đồ thị, bề mặt) để giải thích tô-pô, nhiều nhóm nghiên cứu giai đoạn 2022–2026 đi theo chiều ngược lại: dùng chính những đặc trưng tô-pô đó để đo đạc và phân tích vật liệu xốp, mạng nơ-ron sinh học, đồ thị xã hội và dữ liệu ngôn ngữ. Bài viết này đóng vai trò bản đồ dẫn đọc các công trình tiêu biểu, không nhằm thay thế giáo trình vật lý hay sinh học chuyên sâu.
 
 ![Mạng não](https://upload.wikimedia.org/wikipedia/commons/0/0e/Brain_network.png)
-*Một mạng não: đồ thị mà TDA đọc lỗ và tỉ lệ. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brain_network.png)*
+*Một mạng não: cấu trúc đồ thị mà phân tích dữ liệu tô-pô (TDA) khai thác để đo lỗ và cấu trúc đa tỉ lệ. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brain_network.png)*
 
 ![Đồ thị](https://upload.wikimedia.org/wikipedia/commons/3/3d/Undirected_graph.svg)
-*Đồ thị vô hướng: hậu duệ trực tiếp của bảy cầu Königsberg. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Undirected_graph.svg)*
+*Đồ thị vô hướng: mô hình kế thừa trực tiếp từ bài toán bảy cây cầu ở Königsberg. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Undirected_graph.svg)*
 
 ---
 
-## 🎯 Trực giác
+## 🎯 Trực giác kết nối
 
-Công thức Euler $V-E+F$ đếm “lỗ” của đa diện. Persistent homology đếm lỗ của một đồ thị hoặc một đám mây nguyên tử *qua nhiều tỉ lệ*. Không cần công thức mới: cần một filtration. Đó là lý do Chapter 09 và Chapter 07 gặp nhau ở phòng thí nghiệm.
+Công thức Euler $V-E+F$ giúp đo cấu trúc "lỗ" của một khối đa diện hay bề mặt cố định. **Đồng điều bền vững** (persistent homology) mở rộng ý tưởng đó sang dữ liệu thực: nó theo dõi các lỗ của một đồ thị hoặc đám mây nguyên tử *xuyên suốt nhiều thang tỉ lệ* thông qua một dãy lọc (filtration). Chính ở đây, trực giác của Chương 09 gặp công cụ đồng điều của Chương 07 trong thực tế phòng thí nghiệm.
 
 ---
 
-## 📐 Bốn tiến bộ cụ thể
+## 📐 Bốn hướng tiến bộ tiêu biểu
 
-### 1. Vật liệu và phân tử: lỗ là đặc trưng vật lý
+### 1. Khoa học vật liệu và phân tử: lỗ trở thành đặc trưng vật lý
 
-Wee và Jiang (2025) tổng kết TDA/TDL trong khoa học phân tử — đúng chỗ bài DNA-nút (09.06) gặp hóa học tính toán. Topolnicki, Bogdan, Malinowski, Naskręcki và Harańczyk (2026) dùng mô tả tử tô-pô có hướng để dự đoán tensor độ cứng của vật liệu xốp: “lỗ” không còn ẩn dụ, mà là đầu vào của mô hình đàn hồi.
+Wee và Jiang (2025) tổng quan các ứng dụng của phân tích dữ liệu tô-pô (TDA) và học sâu tô-pô (TDL) trong khoa học phân tử — điểm giao giữa bài toán nút DNA (Bài 09.06) với hóa học tính toán. Topolnicki, Bogdan, Malinowski, Naskręcki và Harańczyk (2026) sử dụng các bộ mô tả tô-pô có hướng để dự đoán tensor độ cứng đàn hồi của vật liệu xốp: ở đây, khái niệm "lỗ" không còn là ví dụ minh họa trừu tượng mà trở thành đặc trưng đầu vào trực tiếp cho mô hình cơ học.
 
 - JunJie Wee, Jian Jiang, *A review of topological data analysis and topological deep learning in molecular sciences*, arXiv:2509.16877 (2025).
 - Rafał Topolnicki et al., *Direction-aware topological descriptors for elastic stiffness tensor prediction in porous materials*, arXiv:2604.08105 (2026).
 
-### 2. Thần kinh học: mạng, tỉ lệ, và tín hiệu
+### 2. Khoa học thần kinh: mạng lưới, tính bất biến tỉ lệ và tín hiệu
 
-Gisolf, Santos và Wierstra (2023/24) dùng persistent homology để tách “tín hiệu / nhiễu” khỏi tính bất biến tỉ lệ trong mạng thần kinh và mạng tài chính. Connectome là một đồ thị khổng lồ — Königsberg viết lại. Ballester–Casacuberta–Escalera (2023) bổ sung cách TDA đọc *mạng nhân tạo*, tạo cặp so sánh não / máy.
+Gisolf, Santos và Wierstra (2023) áp dụng đồng điều bền vững để phân tách tín hiệu, nhiễu và tính bất biến tỉ lệ trong mạng thần kinh sinh học cũng như mạng tài chính — nơi đồ thị kết nối (connectome) là phiên bản quy mô lớn của bài toán đồ thị Königsberg. Ở hướng song song, Ballester, Casacuberta và Escalera (2023) khảo sát cách TDA phân tích *mạng nơ-ron nhân tạo*, tạo cầu nối so sánh giữa mạng sinh học và mô hình máy học.
 
 - Roel Gisolf, Fernando A. N. Santos, Felix Wierstra, *Beyond Signal and Noise: Unraveling Scale Invariance in Neuroscience and Financial Networks with TDA*, arXiv:2311.17912 (2023).
 - Rubén Ballester, Carles Casacuberta, Sergio Escalera, *TDA for Neural Network Analysis*, arXiv:2312.05840 (2023).
 
-### 3. TDA trên đồ thị và trên ngôn ngữ
+### 3. TDA trên đồ thị và ngôn ngữ tự nhiên
 
-Uchendu và Le (2024/26) khảo sát TDA trong NLP: câu và corpus được xem như đồ thị hoặc đám mây điểm ngữ nghĩa, rồi đo $H_0,H_1$. Grelier, Kaufmann và Pfau (2026) vẽ Games Mapper — Mapper trên thể loại Steam — một ứng dụng đại chúng đúng tinh thần Chapter 09.
+Uchendu và Le (2024) khảo sát ứng dụng TDA trong xử lý ngôn ngữ tự nhiên (NLP): các câu văn và kho ngữ liệu được biểu diễn dưới dạng đồ thị hoặc đám mây điểm ngữ nghĩa, sau đó trích xuất các đặc trưng đồng điều $H_0,H_1$. Trong khi đó, Grelier, Kaufmann và Pfau (2026) giới thiệu *Games Mapper* — áp dụng thuật toán Mapper lên dữ liệu thể loại trò chơi trên Steam, mang lại một ví dụ ứng dụng gần gũi đúng tinh thần tô-pô đại chúng của Chương 09.
 
 - Adaku Uchendu, Thai Le, *Topological Data Analysis Applications in Natural Language Processing: A Survey*, arXiv:2411.10298 (2024).
 - Nicolas Grelier, Stéphane Kaufmann, Johannes Pfau, *Games Mapper: Topological Data Analysis of Steam Genres*, arXiv:2606.14376 (2026).
 
-### 4. Vị trí của TDL: từ câu chuyện đến kiến trúc
+### 4. Học sâu tô-pô (TDL): từ trực giác đến kiến trúc mạng
 
-Papamarkou et al. (2024) và Su et al. (2025) đặt các ứng dụng trên vào một chương trình: học trên phức, không chỉ trên đồ thị. Với độc giả Chapter 09, thông điệp là đơn giản — cái tách cà phê và cái donut giờ là *inductive bias* của một layer.
+Papamarkou và cộng sự (2024) cùng Su và cộng sự (2025) hệ thống hóa các hướng ứng dụng trên thành một chương trình nghiên cứu thống nhất: học biểu diễn trên các cấu trúc bậc cao (phức đơn hình, phức tế bào) thay vì chỉ dừng ở đồ thị cạnh đôi. Với người đọc Chương 09, thông điệp cốt lõi khá rõ ràng: cấu trúc tô-pô giờ đây đóng vai trò *thiên kiến quy nạp* (inductive bias) ngay bên trong các tầng tính toán của mô hình học máy.
 
 - Theodore Papamarkou et al., *Position: Topological Deep Learning is the New Frontier for Relational Learning*, ICML 2024, arXiv:2402.08871.
 - Zhe Su et al., *TDA and TDL Beyond Persistent Homology — A Review*, arXiv:2507.19504 (2025).
 
 ---
 
-## 🧠 Tài liệu
+## 🧠 Tài liệu tham khảo
 
 - Adams & Franzosa, *Introduction to Topology: Pure and Applied* (các chương ứng dụng).
-- Poincaré, *Analysis Situs* (1895) — nguồn gốc câu chuyện lỗ.
-- Các arXiv trên.
+- Poincaré, *Analysis Situs* (1895) — nguồn gốc lý thuyết của các bất biến về lỗ.
+- Các bài báo arXiv liệt kê trong bốn mục trên.
 
-## 🔗 Ứng dụng
+## 🔗 Minh họa ứng dụng
 
-Một lab vật liệu xốp có thể thay “nhìn ảnh SEM và đoán độ cứng” bằng barcode hướng của phần rỗng — Euler characteristic theo từng hướng. Đó là bài 09.04 đang chạy trên tensor đàn hồi.
+Trong nghiên cứu vật liệu xốp, thay vì ước lượng độ cứng một cách định tính từ ảnh hiển vi điện tử quét (SEM), phòng thí nghiệm có thể trích xuất biểu đồ vạch (barcode) có hướng hoặc đặc trưng Euler theo từng hướng của hệ thống lỗ rỗng để dự đoán tensor đàn hồi — một ứng dụng trực tiếp của ý tưởng Bài 09.04 vào cơ học vật liệu.
 
 ## Video tham khảo
 
@@ -84,6 +84,6 @@ Một lab vật liệu xốp có thể thay “nhìn ảnh SEM và đoán độ 
 
 ## 🧩 Bài tập
 
-1. Giải thích bằng một câu vì sao connectome cần $H_1$ chứ không chỉ số nút/cạnh (Königsberg).
-2. Lấy một câu 6 từ, vẽ một đồ thị đồng xuất hiện, và đoán $H_0$.
-3. Tìm trong Wee–Jiang (2025) một ví dụ TDA trên protein và viết nó lại bằng ngôn ngữ “cà phê / donut / lỗ”.
+1. Giải thích ngắn gọn trong một câu vì sao phân tích mạng kết nối não (connectome) cần đến thông tin đồng điều $H_1$ (chu trình, vòng lặp) chứ không chỉ dừng ở số đỉnh và số cạnh như trong bài toán Königsberg.
+2. Lấy một câu tiếng Việt gồm 6 từ, dựng đồ thị đồng xuất hiện đơn giản giữa các từ liền kề và dự đoán bậc của $H_0$ (số thành phần liên thông).
+3. Chọn một ví dụ ứng dụng TDA trên cấu trúc protein trong tổng quan của Wee–Jiang (2025) và diễn giải lại ý tưởng chính bằng ngôn ngữ trực quan "lỗ và bề mặt" của Chương 09.

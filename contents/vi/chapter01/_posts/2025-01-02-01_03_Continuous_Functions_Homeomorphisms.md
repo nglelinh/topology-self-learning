@@ -10,399 +10,265 @@ tags: [continuous-functions, homeomorphisms, topological-equivalence]
 description: "Hàm liên tục trong topology, các đặc trưng tương đương, và homeomorphisms"
 ---
 
-**Continuous Functions and Homeomorphisms**
+**Ánh xạ liên tục và Phép đồng phôi**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã học cách định nghĩa **không gian tô-pô** (topological spaces). Bây giờ đến câu hỏi quan trọng: **Làm sao so sánh hai không gian?**
+Sau khi định nghĩa không gian tô-pô, câu hỏi tự nhiên tiếp theo là: **làm thế nào để so sánh hai không gian tô-pô với nhau?** Trong đại số tuyến tính ta dùng ánh xạ tuyến tính, trong lý thuyết nhóm ta dùng đồng cấu nhóm; tương tự, trong tô-pô công cụ bảo toàn cấu trúc là **ánh xạ liên tục** (*continuous function*).
 
-Trong đại số tuyến tính, chúng ta so sánh vector spaces qua **linear maps**.  
-Trong lý thuyết nhóm, chúng ta so sánh groups qua **homomorphisms**.  
-Trong topology, chúng ta so sánh spaces qua **continuous functions**!
-
-Nhưng định nghĩa nào của "continuous"? Trong calculus, bạn học định nghĩa ε-δ. Nhưng định nghĩa đó **phụ thuộc vào metric**—không thể dùng cho general topological spaces!
-
-**Khám phá vĩ đại:** Có một định nghĩa **thuần tô-pô** của continuity chỉ dùng open sets!
+Định nghĩa $\varepsilon$-$\delta$ quen thuộc trong giải tích phụ thuộc vào khoảng cách mê-tric nên không áp dụng trực tiếp được cho không gian tô-pô tổng quát. Tuy nhiên, tính liên tục có thể phát biểu hoàn toàn bằng ngôn ngữ tập mở:
 
 $$
 f: X \to Y \text{ continuous} \iff \text{preimage của mọi open set là open}
 $$
 
-Định nghĩa này:
-- Không cần metric
-- Tương đương với ε-δ khi có metric
-- Elegant và powerful
-- Nền tảng của **toàn bộ** topology
-
-**Trong bài này:**
-- Định nghĩa continuity qua open sets
-- Các đặc trưng tương đương (closed sets, closure, basis)
-- **Homeomorphisms**: "isomorphisms" của topology
-- Topological properties và invariants
-- Ví dụ kinh điển: coffee cup ≅ doughnut
-
-**Tại sao quan trọng?**
-- Continuous functions = "morphisms" trong category của topological spaces
-- Homeomorphism = topological equivalence
-- Mọi topological property phải invariant under homeomorphisms
-- Đây là ngôn ngữ để nói về "deformations" và "shapes"
+Định nghĩa này không cần mê-tric, khớp hoàn toàn với định nghĩa $\varepsilon$-$\delta$ trong trường hợp không gian mê-tric, và là nền tảng cho mọi phần tiếp theo của môn học. Trong bài giảng này, ta sẽ trình bày định nghĩa ánh xạ liên tục, các đặc trưng tương đương (qua tập đóng, bao đóng, cơ sở), **phép đồng phôi** (*homeomorphism*), **tính chất tô-pô** (bất biến tô-pô), cùng hai khái niệm bổ trợ là phép nhúng và ánh xạ thương.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Rubber Sheet Geometry
+### Hình học tấm cao su
 
-Topology thường được gọi là **"rubber sheet geometry"** (hình học tấm cao su). Tưởng tượng shapes được làm từ cao su—bạn có thể:
-- **Stretch** (kéo dài)
-- **Bend** (uốn cong)
-- **Twist** (vặn xoắn)
-
-Nhưng KHÔNG được:
-- **Tear** (xé rách)
-- **Glue** (dán)
-- **Cut** (cắt)
-
-Nếu hai shapes có thể biến đổi từ cái này sang cái kia qua các phép "continuous deformation", chúng **topologically equivalent** (homeomorphic)!
+Tô-pô học thường được ví là "hình học tấm cao su" (*rubber sheet geometry*). Nếu hình dung các vật thể làm bằng cao su đàn hồi, ta được phép kéo giãn, uốn cong hoặc vặn xoắn, nhưng **không được** xé rách, cắt đứt hay dán các điểm tách rời lại với nhau. Hai hình biến đổi được cho nhau qua những phép biến dạng liên tục hai chiều như vậy được gọi là **đồng phôi** (*homeomorphic*).
 
 ![Mug to Torus](https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif)  
-*Coffee mug ≅ Torus (homeomorphic) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif)*
+*Chiếc cốc có quai đồng phôi với hình xuyến (torus) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif)*
 
-**Ví dụ kinh điển:**
-- **Coffee mug ≅ Doughnut (torus)**: Cả hai có một "hole"
-- **Sphere ≠ Torus**: Không thể biến sphere thành torus không cắt/dán
-- **Line segment [0,1] ≅ [2,5]**: Chỉ khác "scale", cùng topology
-- **[0,1] ≠ (0,1)**: Một có endpoints, một không—topologically khác nhau!
+Một số ví dụ kinh điển:
+- Chiếc cốc có quai và hình xuyến (bánh donut) đồng phôi nhau vì đều có một lỗ xuyên qua.
+- Mặt cầu $S^2$ không đồng phôi với hình xuyến $T^2$ vì không thể biến đổi qua lại mà không cắt hoặc dán.
+- Hai đoạn đóng $[0, 1]$ và $[2, 5]$ đồng phôi nhau (chỉ khác tỉ lệ và vị trí).
+- Đoạn đóng $[0, 1]$ không đồng phôi với khoảng mở $(0, 1)$.
 
-**Câu hỏi:** Làm sao formalize "continuous deformation"?  
-**Trả lời:** Homeomorphisms—bijective continuous functions với continuous inverse!
+Công cụ hình thức hóa trực giác này chính là **phép đồng phôi** — một song ánh liên tục có ánh xạ ngược cũng liên tục.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Continuous Functions
+### 1. Ánh xạ liên tục (Continuous Functions)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Continuity - Open Sets):**  
-Cho (X, 𝜏_X) và (Y, 𝜏_Y) là topological spaces. Hàm f: X → Y là **continuous** nếu:
+**Định nghĩa (Tính liên tục qua tập mở):**  
+Cho $(X, \tau_X)$ và $(Y, \tau_Y)$ là hai không gian tô-pô. Ánh xạ $f: X \to Y$ được gọi là **liên tục** (*continuous*) nếu nghịch ảnh của mọi tập mở trong $Y$ là tập mở trong $X$:
 
 $$
 \forall V \in \tau_Y: f^{-1}(V) \in \tau_X
 $$
 </div>
 
-**Nói bằng lời:** Preimage (nghịch ảnh) của mọi open set trong Y là open trong X.
+Lưu ý rằng $f^{-1}(V) = \{x \in X : f(x) \in V\}$ là **nghịch ảnh** (*preimage*) của tập $V$, luôn xác định ngay cả khi $f$ không có ánh xạ ngược.
 
-**Ký hiệu:** f⁻¹(V) = {x ∈ X : f(x) ∈ V} (preimage, không phải inverse!)
-
-**Ví dụ 1: Identity map**
-
-f: ℝ → ℝ, f(x) = x (Euclidean topology trên cả hai)
-
-Với mọi open V ⊆ ℝ: f⁻¹(V) = V (open) ✓  
-→ f continuous
-
-**Ví dụ 2: Constant map**
-
-f: X → Y, f(x) = y₀ với mọi x (y₀ ∈ Y fixed)
-
-- f⁻¹(V) = X nếu y₀ ∈ V
-- f⁻¹(V) = ∅ nếu y₀ ∉ V
-
-Cả hai đều open → f continuous (luôn!)
-
-**Ví dụ 3: Inclusion map**
-
-A ⊆ X với subspace topology. i: A → X, i(a) = a
-
-Với V ∈ 𝜏_X: i⁻¹(V) = V ∩ A ∈ 𝜏_A (theo định nghĩa subspace topology!) ✓
-
-**Ví dụ 4: Projection maps**
-
-π₁: X × Y → X, π₁(x,y) = x (product topology)
-
-π₁ continuous! (Chứng minh: exercise với basis)
+**Ví dụ cơ bản:**
+1. **Ánh xạ đồng nhất:** $f: \mathbb{R} \to \mathbb{R}$, $f(x) = x$ (với cùng tô-pô Euclid) liên tục vì $f^{-1}(V) = V$.
+2. **Ánh xạ hằng:** $f: X \to Y$, $f(x) = y_0$ luôn liên tục với mọi tô-pô trên $X$ và $Y$, vì $f^{-1}(V)$ bằng $X$ (nếu $y_0 \in V$) hoặc $\emptyset$ (nếu $y_0 \notin V$), và cả hai đều mở trong $X$.
+3. **Ánh xạ bao hàm:** Với $A \subseteq X$ mang tô-pô con, ánh xạ $i: A \to X$, $i(a) = a$ liên tục vì $i^{-1}(V) = V \cap A \in \tau_A$.
+4. **Ánh xạ chiếu:** $\pi_1: X \times Y \to X$, $\pi_1(x, y) = x$ liên tục đối với tô-pô tích.
 
 ---
 
-### 2. Equivalent Characterizations
+### 2. Các đặc trưng tương đương của tính liên tục
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Equivalent Definitions of Continuity):**  
-Các phát biểu sau **tương đương**:
+**Định lý (Các đặc trưng tương đương):**  
+Với ánh xạ $f: X \to Y$, năm mệnh đề sau **tương đương**:
 
-1. **f continuous** (định nghĩa)
-2. **Preimage của closed sets là closed:**  
-   ∀F ⊆ Y closed: f⁻¹(F) closed
-3. **Closure condition:**  
-   ∀A ⊆ X: f(cl_X(A)) ⊆ cl_Y(f(A))
-4. **Interior condition:**  
-   ∀B ⊆ Y: f⁻¹(int_Y(B)) ⊆ int_X(f⁻¹(B))
-5. **Basis condition:**  
-   Nếu ℬ là basis cho 𝜏_Y, thì ∀B ∈ ℬ: f⁻¹(B) ∈ 𝜏_X
+1. $f$ liên tục (nghịch ảnh của mọi tập mở là tập mở).
+2. **Qua tập đóng:** Với mọi tập đóng $F \subseteq Y$, $f^{-1}(F)$ đóng trong $X$.
+3. **Qua bao đóng:** Với mọi $A \subseteq X$, $f(\text{cl}_X(A)) \subseteq \text{cl}_Y(f(A))$.
+4. **Qua phần trong:** Với mọi $B \subseteq Y$, $f^{-1}(\text{int}_Y(B)) \subseteq \text{int}_X(f^{-1}(B))$.
+5. **Qua cơ sở:** Nếu $\mathcal{B}$ là một cơ sở của $\tau_Y$, thì $\forall B \in \mathcal{B}: f^{-1}(B) \in \tau_X$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:**
+**Chứng minh (các chiều chính):**
 </div>
 
-**(1 ⇒ 2):**  
-Cho F ⊆ Y closed. Khi đó Y \ F open.  
-f⁻¹(Y \ F) = X \ f⁻¹(F) open (theo (1)).  
-→ f⁻¹(F) closed ✓
+- **(1 $\Rightarrow$ 2):** Nếu $F \subseteq Y$ đóng thì $Y \setminus F$ mở, nên $f^{-1}(Y \setminus F) = X \setminus f^{-1}(F)$ mở, suy ra $f^{-1}(F)$ đóng.
+- **(2 $\Rightarrow$ 1):** Lập luận tương tự bằng cách lấy phần bù của tập mở $V \subseteq Y$.
+- **(1 $\Rightarrow$ 3):** Với $A \subseteq X$, ta có $f(A) \subseteq \text{cl}_Y(f(A))$, nên $A \subseteq f^{-1}(\text{cl}_Y(f(A)))$. Vì $\text{cl}_Y(f(A))$ đóng, theo (2) tập $f^{-1}(\text{cl}_Y(f(A)))$ cũng đóng và chứa $A$, do đó $\text{cl}_X(A) \subseteq f^{-1}(\text{cl}_Y(f(A)))$, tức $f(\text{cl}_X(A)) \subseteq \text{cl}_Y(f(A))$.
+- **(5):** Suy từ tính chất nghịch ảnh bảo toàn phép hợp tùy ý (dành làm bài tập).
 
-**(2 ⇒ 1):**  
-Cho V ⊆ Y open. Khi đó Y \ V closed.  
-f⁻¹(Y \ V) = X \ f⁻¹(V) closed (theo (2)).  
-→ f⁻¹(V) open ✓
-
-**(1 ⇒ 3):**  
-Cho A ⊆ X. Cần chứng minh: f(cl(A)) ⊆ cl(f(A)).  
-Tương đương: cl(A) ⊆ f⁻¹(cl(f(A))).
-
-f(A) ⊆ cl(f(A)) → A ⊆ f⁻¹(cl(f(A))).  
-cl(f(A)) closed → f⁻¹(cl(f(A))) closed (theo (2)).  
-→ cl(A) ⊆ f⁻¹(cl(f(A))) ✓
-
-**(5):** Exercise (sử dụng: mọi open set là hợp của basis elements).
-
-**Ứng dụng practical:**
-
-**Basis condition (5)** rất hữu ích! Để check continuity:
-- Không cần check **tất cả** open sets trong Y
-- Chỉ cần check **basis elements**!
-
-**Ví dụ:** f: ℝ → ℝ continuous ⟺ f⁻¹((a,b)) open với mọi (a,b).
+Trong thực hành, tiêu chuẩn (5) rất tiện lợi: để kiểm tra $f: \mathbb{R} \to \mathbb{R}$ liên tục, chỉ cần kiểm tra $f^{-1}((a, b))$ mở với mọi khoảng mở $(a, b)$.
 
 ---
 
-### 3. Continuity at a Point
+### 3. Tính liên tục tại một điểm
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Continuity at a Point):**  
-f: X → Y continuous **tại x₀** nếu:
+**Định nghĩa (Liên tục tại điểm $x_0$):**  
+Ánh xạ $f: X \to Y$ **liên tục tại $x_0 \in X$** nếu với mọi tập mở $V$ chứa $f(x_0)$, tồn tại tập mở $U$ chứa $x_0$ sao cho $f(U) \subseteq V$:
 
 $$
 \forall V \in \tau_Y, f(x_0) \in V: \exists U \in \tau_X, x_0 \in U: f(U) \subseteq V
 $$
 </div>
 
-**Nói bằng lời:** Với mọi neighborhood V của f(x₀), tồn tại neighborhood U của x₀ sao cho f(U) ⊆ V.
-
 <div class="textbook-theorem" markdown="1">
 **Định lý:**  
-f continuous (trên toàn X) ⟺ f continuous tại mọi x ∈ X.
+Ánh xạ $f: X \to Y$ liên tục trên $X$ khi và chỉ khi $f$ liên tục tại mọi điểm $x \in X$.
 </div>
 
-**Connection với ε-δ:**
-
-Trong metric spaces (X,d_X), (Y,d_Y):
-
-**Topology definition:** f continuous tại x₀ ⟺  
-∀ε > 0: ∃δ > 0: d_X(x,x₀) < δ ⇒ d_Y(f(x),f(x₀)) < ε
-
-**Đây chính là định nghĩa ε-δ từ calculus!**
-
-**Kết luận:** Topological continuity **generalizes** ε-δ continuity.
+Trong hai không gian mê-tric $(X, d_X)$ và $(Y, d_Y)$, điều kiện trên trùng khớp chính xác với định nghĩa $\varepsilon$-$\delta$ trong giải tích: $\forall \varepsilon > 0, \exists \delta > 0: d_X(x, x_0) < \delta \Rightarrow d_Y(f(x), f(x_0)) < \varepsilon$. Như vậy, tính liên tục tô-pô là sự tổng quát hóa tự nhiên của tính liên tục mê-tric.
 
 ---
 
-### 4. Properties of Continuous Functions
+### 4. Các tính chất của ánh xạ liên tục
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Composition):**  
-Nếu f: X → Y và g: Y → Z đều continuous, thì g ∘ f: X → Z continuous.
+**Định lý (Hợp thành):**  
+Nếu $f: X \to Y$ và $g: Y \to Z$ đều liên tục, thì ánh xạ hợp $g \circ f: X \to Z$ cũng liên tục.
 </div>
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
 **Chứng minh:**  
-Cho W ∈ 𝜏_Z open.  
-(g ∘ f)⁻¹(W) = f⁻¹(g⁻¹(W)).  
-g⁻¹(W) ∈ 𝜏_Y (g continuous).  
-f⁻¹(g⁻¹(W)) ∈ 𝜏_X (f continuous). ∎
+Với mọi tập mở $W \in \tau_Z$, ta có $(g \circ f)^{-1}(W) = f^{-1}(g^{-1}(W))$. Vì $g$ liên tục nên $g^{-1}(W) \in \tau_Y$, và vì $f$ liên tục nên $f^{-1}(g^{-1}(W)) \in \tau_X$. ∎
 </div>
 
-**Ý nghĩa:** Continuous functions form a **category**!
-
 <div class="textbook-theorem" markdown="1">
-**Định lý (Restriction):**  
-Nếu f: X → Y continuous và A ⊆ X (subspace topology), thì f|_A: A → Y continuous.
+**Định lý (Thu hẹp):**  
+Nếu $f: X \to Y$ liên tục và $A \subseteq X$ mang tô-pô con, thì ánh xạ thu hẹp $f|_A: A \to Y$ cũng liên tục.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Exercise.
+**Chứng minh:** Dành làm bài tập (sử dụng $f|_A = f \circ i$).
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Pasting Lemma):**  
-Cho X = A ∪ B với A, B closed. Nếu f: A → Y và g: B → Y đều continuous và f|_{A∩B} = g|_{A∩B}, thì:
+**Định lý (Bổ đề dán — Pasting Lemma):**  
+Cho $X = A \cup B$ với $A, B$ đều là các tập đóng trong $X$. Nếu $f: A \to Y$ và $g: B \to Y$ đều liên tục và trùng nhau trên giao ($f|_{A \cap B} = g|_{A \cap B}$), thì ánh xạ:
 
 $$
 h: X \to Y, \quad h(x) = \begin{cases} f(x) & x \in A \\ g(x) & x \in B \end{cases}
 $$
 </div>
-
-continuous.
-
-**Ứng dụng:** "Glue" các continuous functions lại!
+là ánh xạ liên tục. Bổ đề này cho phép ghép các ánh xạ liên tục trên các mảnh đóng lại với nhau (kết quả cũng đúng nếu $A, B$ đều mở).
 
 ---
 
-### 5. Homeomorphisms
+### 5. Phép đồng phôi (Homeomorphisms)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Homeomorphism):**  
-f: X → Y là **homeomorphism** nếu:
-1. f **bijective** (1-1 và onto)
-2. f **continuous**
-3. f⁻¹: Y → X **continuous**
+**Định nghĩa (Phép đồng phôi):**  
+Ánh xạ $f: X \to Y$ là một **phép đồng phôi** (*homeomorphism*) nếu:
+1. $f$ là song ánh;
+2. $f$ liên tục;
+3. Ánh xạ ngược $f^{-1}: Y \to X$ cũng liên tục.
 </div>
 
-**Ký hiệu:** X ≅ Y (hoặc X ≃ Y) nếu tồn tại homeomorphism giữa chúng.
-
-**Trực giác:** Homeomorphism = "topological isomorphism". X và Y có "same topology" (sau khi relabeling points).
+Ký hiệu $X \cong Y$ (hoặc $X \simeq Y$) nếu tồn tại phép đồng phôi giữa $X$ và $Y$. Phép đồng phôi đóng vai trò như đẳng cấu trong tô-pô: hai không gian đồng phôi có cùng hoàn toàn cấu trúc tập mở.
 
 ![Homeomorphism examples](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Homeomorphism-cont-bis.svg/400px-Homeomorphism-cont-bis.svg.png)  
-*Homeomorphism giữa intervals - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Homeomorphism-cont-bis.svg)*
+*Minh họa phép đồng phôi giữa các khoảng - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Homeomorphism-cont-bis.svg)*
 
-**Ví dụ 1: Linear stretch**
+**Ví dụ 1: Phép co giãn tuyến tính**  
+Ánh xạ $f: [0, 1] \to [2, 5]$, $f(x) = 3x + 2$ là song ánh liên tục có ánh xạ ngược $f^{-1}(y) = (y - 2)/3$ cũng liên tục, nên $[0, 1] \cong [2, 5]$.
 
-f: [0,1] → [2,5], f(x) = 3x + 2
-
-- Bijective ✓
-- Continuous (linear!) ✓
-- f⁻¹(y) = (y-2)/3 continuous ✓
-
-→ [0,1] ≅ [2,5]
-
-**Ví dụ 2: Open vs Closed interval**
-
-**Claim:** [0,1] ≇ (0,1) (không homeomorphic!)
+**Ví dụ 2: Đoạn đóng và khoảng mở không đồng phôi**  
+Ta có $[0, 1] \not\cong (0, 1)$.
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh (sketch):**  
-Giả sử f: [0,1] → (0,1) homeomorphism.  
-Xét g = f|_{(0,1)}: (0,1) → (0,1) \ {f(0), f(1)} homeomorphism.  
-Nhưng remove 1 point từ (0,1) → disconnected.  
-Remove 2 points từ [0,1] → still connected (middle part).  
-Contradiction! ∎
+**Phác thảo chứng minh:**  
+Giả sử tồn tại phép đồng phôi $f: [0, 1] \to (0, 1)$. Khi bỏ đi điểm đầu mút $0$, ánh xạ thu hẹp $f|_{(0, 1]}: (0, 1] \to (0, 1) \setminus \{f(0)\}$ vẫn là một phép đồng phôi. Tuy nhiên, $(0, 1]$ là tập liên thông, trong khi bỏ bất kỳ một điểm nào khỏi khoảng mở $(0, 1)$ đều tách nó thành hai khoảng mở rời nhau nên không liên thông — mâu thuẫn. ∎
 </div>
 
-**Ví dụ 3: Circle vs Line**
+**Ví dụ 3: Đường tròn và đường thẳng**  
+$S^1 \not\cong \mathbb{R}$, vì $S^1$ compact còn $\mathbb{R}$ không compact.
 
-**S¹ ≇ ℝ:** Circle compact, ℝ not compact.
-
-**Ví dụ 4: Stereographic Projection**
-
-f: S² \ {north pole} → ℝ² là homeomorphism!
-
-**Construction:** Project từ north pole xuống equatorial plane.
+**Ví dụ 4: Phép chiếu nổi (Stereographic Projection)**  
+Phép chiếu từ cực Bắc $N \in S^2$ xuống mặt phẳng xích đạo tạo nên một phép đồng phôi $f: S^2 \setminus \{N\} \to \mathbb{R}^2$.
 
 ---
 
-### 6. Topological Properties
+### 6. Tính chất tô-pô (Topological Properties)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Topological Property):**  
-Một property P là **topological property** (hoặc **topological invariant**) nếu:
+**Định nghĩa (Tính chất tô-pô / Bất biến tô-pô):**  
+Một tính chất $P$ được gọi là **tính chất tô-pô** (*topological property* hay *topological invariant*) nếu nó được bảo toàn qua phép đồng phôi:
 
 $$
 X \text{ has } P \land (X \cong Y) \implies Y \text{ has } P
 $$
 </div>
 
-**Nói bằng lời:** Property được bảo toàn qua homeomorphisms.
+**Ví dụ các tính chất tô-pô:** Tính compact, tính liên thông, tính Hausdorff và lực lượng tập hợp.
 
-**Ví dụ Topological Properties:**
-- **Compactness**: X compact → f(X) compact
-- **Connectedness**: X connected → f(X) connected
-- **Hausdorff**: X Hausdorff → Y Hausdorff (nếu X ≅ Y)
-- **Cardinality**: |X| = |Y| nếu X ≅ Y (bijection!)
+**Ví dụ các tính chất KHÔNG phải tính chất tô-pô:**
+- **Tính bị chặn** (theo mê-tric): $(0, 1)$ bị chặn, nhưng $(0, 1) \cong \mathbb{R}$ không bị chặn thông qua phép đồng phôi $f(x) = \tan(\pi x - \pi/2)$.
+- **Tính đầy đủ mê-tric:** $\mathbb{R}$ đầy đủ, còn $(0, 1)$ không đầy đủ với mê-tric Euclid, dù hai không gian này đồng phôi với nhau.
 
-**Ví dụ NON-Topological Properties:**
-- **Boundedness** (trong metric sense): [0,1] bounded, nhưng [0,1] ≅ ℝ unbounded (sử dụng f(x) = tan(πx - π/2))
-- **Metric completeness**: ℝ complete, (0,1) không complete, nhưng homeomorphic qua bijection
-
-**Cách dùng:**  
-Để chứng minh X ≇ Y, tìm một topological property mà X có nhưng Y không!
+Để chứng minh $X \not\cong Y$, phương pháp chuẩn là chỉ ra một tính chất tô-pô mà $X$ có nhưng $Y$ không có.
 
 ---
 
-### 7. Embedding và Quotient Maps
+### 7. Phép nhúng và ánh xạ thương
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Embedding):**  
-f: X → Y là **embedding** nếu f homeomorphism giữa X và f(X) (với subspace topology).
+**Định nghĩa (Phép nhúng — Embedding):**  
+Ánh xạ $f: X \to Y$ là một **phép nhúng** nếu $f$ là một phép đồng phôi từ $X$ lên ảnh $f(X)$ (trang bị tô-pô con cảm sinh từ $Y$).
 </div>
 
-**Trực giác:** X "embeds" vào Y—có thể xem X như một subspace của Y.
-
-**Ví dụ:**
-- (0,1) ↪ ℝ: inclusion map là embedding
-- S¹ ↪ ℝ²: circle embeds trong plane
-- Graph(f) = {(x,f(x))} ↪ ℝ²: graph của continuous f embeds trong ℝ²
+Ví dụ: ánh xạ bao hàm $(0, 1) \hookrightarrow \mathbb{R}$, đường tròn $S^1 \hookrightarrow \mathbb{R}^2$, và đồ thị $\text{Graph}(f) = \{(x, f(x))\} \hookrightarrow \mathbb{R}^2$ của một hàm liên tục $f: \mathbb{R} \to \mathbb{R}$.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Quotient Map - Preview):**  
-p: X → Y là **quotient map** nếu:
-1. p surjective
-2. U ⊆ Y open ⟺ p⁻¹(U) open trong X
+**Định nghĩa (Ánh xạ thương — Quotient Map, gợi mở):**  
+Ánh xạ $p: X \to Y$ là một **ánh xạ thương** nếu:
+1. $p$ toàn ánh;
+2. $U \subseteq Y$ mở trong $Y \iff p^{-1}(U)$ mở trong $X$.
 </div>
 
-**Trực giác:** Y có topology "induced" từ X via p.
-
-**Ví dụ:** [0,1] → S¹ bằng cách "glue" endpoints → quotient map.
+Ví dụ: ánh xạ $[0, 1] \to S^1$, $t \mapsto (\cos 2\pi t, \sin 2\pi t)$ dán hai đầu mút $0$ và $1$ lại với nhau là một ánh xạ thương.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Henri Poincaré** - *"Analysis Situs"* (1895)  
-   *Intuitive foundation của continuous deformations*
+   *Nền tảng trực giác cho khái niệm biến dạng liên tục.*
 
 2. **L.E.J. Brouwer** - *"Zur Analysis Situs"* (1910)  
-   *Topological invariants, fixed point theorems*
+   *Các bất biến tô-pô và định lý điểm bất động.*
 
 3. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Formalization của continuous functions*
+   *Hình thức hóa ánh xạ liên tục trên không gian tô-pô.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§18–19: Continuous Functions**  
-   *Clear exposition*
+   *Trình bày rõ ràng, đầy đủ.*
 
 5. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 5**  
-   *Nhiều examples*
+   *Giàu ví dụ minh họa.*
 
 6. **M.A. Armstrong** - *Basic Topology*, **Chapter 2**  
-   *Geometric intuition*
+   *Trực giác hình học rõ nét.*
 
 7. **Allen Hatcher** - *Algebraic Topology*, **§0**  
-   *Homotopy perspective*
+   *Góc nhìn đồng luân và tô-pô đại số.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Computer Graphics - Morphing
-**Animation:** Morphing giữa hai shapes = continuous deformation. Homeomorphisms guarantee topology preserved (số holes không đổi).
+### Đồ họa máy tính — Biến hình (Morphing)
+Các phép biến hình mượt giữa hai mô hình 3D tương ứng với phép biến dạng liên tục bảo toàn cấu trúc tô-pô (chẳng hạn số lỗ của bề mặt).
 
-### Physics - Phase Transitions
-**Thermodynamics:** Phase space topology changes tại critical points. Continuity của physical quantities = continuous maps between phase spaces.
+### Vật lý — Chuyển pha
+Trong nhiệt động lực học và vật lý thống kê, các đại lượng vật lý thường biến thiên liên tục trên không gian pha trừ tại các điểm tới hạn nơi cấu trúc pha thay đổi.
 
-### Data Science - Manifold Learning
-**Dimensionality Reduction:** t-SNE, UMAP cố gắng preserve topological structure (neighborhoods) khi project high-dim data → low-dim. Ideally homeomorphic embeddings!
+### Khoa học dữ liệu — Học đa tạp và giảm chiều
+Các thuật toán giảm chiều phi tuyến như t-SNE và UMAP tìm cách xây dựng ánh xạ từ dữ liệu chiều cao xuống không gian chiều thấp sao cho bảo toàn càng nhiều càng tốt cấu trúc lân cận địa phương.
 
-### Neuroscience - Brain Mapping
-**Cortical Surface:** Brain surface topologically sphere (with handles). Flattening for visualization = continuous map (not homeomorphism—distortion unavoidable!).
+### Khoa học thần kinh — Bản đồ vỏ não
+Bề mặt vỏ não có cấu trúc tô-pô tương đương mặt cầu (với nhiều nếp gấp); việc trải phẳng vỏ não để trực quan hóa đòi hỏi phép chiếu liên tục (có biến dạng khoảng cách không tránh khỏi).
 
-### Real-World Example
-**Subway Maps:** Topologically correct (connections preserved) nhưng không preserve metric (distances distorted). Continuous deformation of actual geography!
+### Ví dụ thực tế
+Sơ đồ tàu điện ngầm chỉ bảo toàn cấu trúc kết nối tô-pô (thứ tự các ga và điểm giao tuyến) mà bỏ qua khoảng cách địa lý thực tế.
 
 ---
 
@@ -412,125 +278,100 @@ p: X → Y là **quotient map** nếu:
 - [[Tôpô đại cương] Bài 22. Ánh xạ liên tục: định nghĩa và Ví dụ](https://www.youtube.com/watch?v=cU8HZcRSpFM) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Định nghĩa ánh xạ liên tục qua nghịch ảnh tập mở, kèm ví dụ.
 - [Basic Topology 19 | Homeomorphic Spaces](https://www.youtube.com/watch?v=1FFwuZbzbjE) — The Bright Side of Mathematics, tiếng Anh. Khi nào một song ánh liên tục thực sự là đồng phôi, và vì sao hai không gian khi đó là một.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Continuity
+### Tính liên tục
 
-1. **Verify Continuous:**  
-   Cho f: ℝ → ℝ. Kiểm tra continuity (topology sense):
-   - a) f(x) = 2x + 3
-   - b) f(x) = x²
-   - c) f(x) = ⌊x⌋ (floor function)
+1. **Kiểm tra liên tục:**  
+   Xét $f: \mathbb{R} \to \mathbb{R}$ (với tô-pô Euclid). Kiểm tra tính liên tục theo định nghĩa tô-pô:
+   - a) $f(x) = 2x + 3$
+   - b) $f(x) = x^2$
+   - c) $f(x) = \lfloor x \rfloor$ (hàm phần nguyên)
 
-2. **Constant Map:**  
-   Chứng minh: Mọi constant map f: X → Y continuous (với topologies bất kỳ).
+2. **Ánh xạ hằng:**  
+   Chứng minh mọi ánh xạ hằng $f: X \to Y$ đều liên tục với mọi tô-pô trên $X$ và $Y$.
 
-3. **Discrete to Any:**  
-   Cho X có discrete topology, Y bất kỳ.  
-   Chứng minh: Mọi f: X → Y continuous.
+3. **Từ tô-pô rời rạc:**  
+   Cho $X$ mang tô-pô rời rạc và $Y$ bất kỳ. Chứng minh mọi ánh xạ $f: X \to Y$ đều liên tục.
 
-4. **Trivial from Any:**  
-   Cho Y có trivial topology, X bất kỳ.  
-   Chứng minh: Mọi f: X → Y continuous.
+4. **Đến tô-pô tầm thường:**  
+   Cho $Y$ mang tô-pô tầm thường và $X$ bất kỳ. Chứng minh mọi ánh xạ $f: X \to Y$ đều liên tục.
 
-5. **Composition:**  
-   f: X → Y, g: Y → Z continuous.  
-   Chứng minh g ∘ f continuous bằng định nghĩa (preimage của open sets).
+5. **Hợp thành:**  
+   Cho $f: X \to Y$ và $g: Y \to Z$ liên tục. Chứng minh $g \circ f$ liên tục trực tiếp bằng định nghĩa nghịch ảnh tập mở.
 
-### Characterizations
+### Các đặc trưng tương đương
 
-6. **Closed Sets:**  
-   Chứng minh: f continuous ⟺ preimage của mọi closed set là closed.
+6. **Tập đóng:**  
+   Chứng minh $f$ liên tục $\iff$ nghịch ảnh của mọi tập đóng là tập đóng.
 
-7. **Basis Check:**  
-   f: ℝ → ℝ, f(x) = x² (Euclidean topology).  
-   Sử dụng basis ℬ = {(a,b)} để check continuity.  
-   f⁻¹((a,b)) có dạng gì?
+7. **Kiểm tra qua cơ sở:**  
+   Với $f: \mathbb{R} \to \mathbb{R}$, $f(x) = x^2$, dùng cơ sở $\mathcal{B} = \{(a, b)\}$ để kiểm tra tính liên tục. Mô tả dạng của $f^{-1}((a, b))$ theo dấu của $a, b$.
 
-8. **Closure Condition:**  
-   Cho f: X → Y continuous, A ⊆ X.  
-   Chứng minh: f(cl(A)) ⊆ cl(f(A)).  
-   Có thể strict inequality không? Cho ví dụ.
+8. **Điều kiện bao đóng:**  
+   Cho $f: X \to Y$ liên tục và $A \subseteq X$. Chứng minh $f(\text{cl}(A)) \subseteq \text{cl}(f(A))$. Cho ví dụ khi bao hàm là nghiêm ngặt.
 
-### Homeomorphisms
+### Phép đồng phôi
 
-9. **Verify Homeomorphism:**  
-   f: (0,1) → ℝ, f(x) = tan(π(x - 1/2)).  
-   - a) Chứng minh f bijective
-   - b) Chứng minh f continuous
-   - c) Chứng minh f⁻¹ continuous
-   - d) Kết luận: (0,1) ≅ ℝ
+9. **Kiểm tra phép đồng phôi:**  
+   Xét $f: (0, 1) \to \mathbb{R}$, $f(x) = \tan(\pi(x - 1/2))$.
+   - a) Chứng minh $f$ là song ánh.
+   - b) Chứng minh $f$ liên tục.
+   - c) Chứng minh $f^{-1}$ liên tục.
+   - d) Kết luận $(0, 1) \cong \mathbb{R}$.
 
-10. **Not Homeomorphic:**  
-    Chứng minh [0,1] ≇ (0,1) bằng cách:
-    - a) Remove một điểm từ (0,1) → disconnected
-    - b) Remove một điểm từ [0,1] → still connected (nếu không phải endpoint)
-    - c) Connectedness là topological property
+10. **Không đồng phôi:**  
+    Chứng minh $[0, 1] \not\cong (0, 1)$ dựa trên các bước:
+    - a) Bỏ bất kỳ một điểm nào khỏi $(0, 1)$ làm không gian mất tính liên thông.
+    - b) Bỏ một đầu mút ($0$ hoặc $1$) khỏi $[0, 1]$ thì tập còn lại vẫn liên thông.
+    - c) Tính liên thông là một bất biến tô-pô.
 
-11. **Circle Examples:**  
-    - a) Chứng minh: S¹ (circle) ≇ ℝ (line)
-    - b) Chứng minh: S¹ compact, ℝ không
-    - c) Compactness là topological property
+11. **Đường tròn và đường thẳng:**  
+    Chứng minh $S^1 \not\cong \mathbb{R}$ dựa vào tính compact là một tính chất tô-pô ($S^1$ compact, còn $\mathbb{R}$ không compact).
 
-### Topological Properties
+### Tính chất tô-pô
 
-12. **Cardinality:**  
-    Nếu X ≅ Y, thì |X| = |Y|. Tại sao?  
-    Ngược lại có đúng không? (|X| = |Y| ⇒ X ≅ Y?)
+12. **Lực lượng:**  
+    Vì sao $X \cong Y$ kéo theo $|X| = |Y|$? Chiều ngược lại có đúng không?
 
-13. **Finite Spaces:**  
-    Có bao nhiêu topological spaces (up to homeomorphism) trên tập 2 phần tử?  
-    3 phần tử?
+13. **Không gian hữu hạn:**  
+    Có bao nhiêu không gian tô-pô đôi một không đồng phôi trên tập $2$ phần tử? Trên tập $3$ phần tử?
 
-14. **Invariant Hunt:**  
-    Liệt kê 5 topological properties (sẽ học sau):
-    - Compactness
-    - Connectedness
-    - Hausdorff
-    - Second countable
-    - ...
+14. **Bất biến tô-pô:**  
+    Liệt kê một số tính chất tô-pô sẽ học trong các chương tiếp theo (như tính compact, tính liên thông, tính Hausdorff, tiên đề đếm được thứ hai) và giải thích ngắn gọn ý nghĩa của chúng.
 
-### Advanced
+### Nâng cao
 
-15. **Stereographic Projection:**  
-    f: S² \ {N} → ℝ² (project từ north pole).  
-    Formula:
+15. **Phép chiếu nổi (Stereographic Projection):**  
+    Xét $f: S^2 \setminus \{N\} \to \mathbb{R}^2$ với $N = (0, 0, 1)$ xác định bởi:
     $$
     f(x,y,z) = \left(\frac{x}{1-z}, \frac{y}{1-z}\right)
     $$
-    Chứng minh f homeomorphism.
+    Chứng minh $f$ là một phép đồng phôi.
 
-16. **Topologist's Sine Curve:**  
-    A = {(x, sin(1/x)) : 0 < x ≤ 1} ∪ {(0,0)} trong ℝ².  
-    - A có connected không?
-    - Closure cl(A) có connected không?
-    - A có homeomorphic với [0,1] không?
+16. **Đường cong sin của nhà tô-pô (Topologist's Sine Curve):**  
+    Xét $A = \{(x, \sin(1/x)) : 0 < x \le 1\} \cup \{(0, 0)\} \subset \mathbb{R}^2$.
+    - $A$ có liên thông không?
+    - Bao đóng $\text{cl}(A)$ có liên thông không?
+    - $A$ có đồng phôi với $[0, 1]$ không?
 
-17. **Knot Theory Preview:**  
-    Có thể embed S¹ vào ℝ³ theo vô số cách (knots).  
-    Các embeddings khác nhau có homeomorphic không?  
-    (Như subspaces của ℝ³)
+17. **Gợi mở về lý thuyết nút (Knot Theory):**  
+    Đường tròn $S^1$ có thể nhúng vào $\mathbb{R}^3$ theo nhiều cách khác nhau (tạo thành các nút thắt). Với tô-pô con kế thừa từ $\mathbb{R}^3$, các nút thắt khác nhau có đồng phôi với nhau không?
 
-18. **Homeomorphism Group:**  
-    Cho X fixed. Họ tất cả homeomorphisms f: X → X tạo thành group (với composition)?  
-    Chứng minh group axioms.
+18. **Nhóm đồng phôi:**  
+    Với một không gian tô-pô $X$ cố định, chứng minh tập tất cả các phép đồng phôi $f: X \to X$ cùng phép hợp thành tạo thành một nhóm.
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-19. **Why Bijective + Continuous Not Enough:**  
-    f: [0,2π) → S¹, f(t) = (cos t, sin t) bijective và continuous.  
-    Tại sao f **không phải** homeomorphism?
+19. **Vì sao song ánh liên tục chưa đủ để là phép đồng phôi?**  
+    Xét $f: [0, 2\pi) \to S^1$, $f(t) = (\cos t, \sin t)$. Ánh xạ này là song ánh và liên tục, nhưng vì sao nó **không** phải phép đồng phôi?
 
-20. **Topology vs Geometry:**  
-    So sánh:
-    - Topology: study properties preserved by homeomorphisms
-    - Geometry: study properties preserved by isometries
-    
-    Geometric property nào **không** là topological?
+20. **Tô-pô và hình học:**  
+    So sánh tô-pô (nghiên cứu các bất biến qua phép đồng phôi) với hình học Euclid (nghiên cứu các bất biến qua phép đẳng cự). Nêu các tính chất hình học không phải là bất biến tô-pô.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §18–22 (Continuous Functions, Homeomorphisms, Quotient Topology)
 - **Armstrong, Basic Topology:** Chapter 2–3 (Continuity and Homeomorphisms)
@@ -539,38 +380,26 @@ p: X → Y là **quotient map** nếu:
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài này, chúng ta học về **morphisms** trong category của topological spaces:
+Trong bài giảng này, ta đã học về các ánh xạ bảo toàn cấu trúc tô-pô:
 
-✅ **Continuous Functions:** f continuous ⟺ f⁻¹(open) = open  
-✅ **Equivalent Characterizations:** Via closed sets, closure, basis  
-✅ **Continuity at a Point:** Local version, generalizes ε-δ  
-✅ **Composition:** Continuous ∘ continuous = continuous  
-✅ **Homeomorphisms:** Bijective + continuous + continuous inverse  
-✅ **Topological Properties:** Invariants under homeomorphisms  
-✅ **Rubber Sheet Geometry:** Stretch, bend, twist—no tear or glue  
+✅ **Ánh xạ liên tục:** Nghịch ảnh của mọi tập mở là tập mở.  
+✅ **Các đặc trưng tương đương:** Qua tập đóng, bao đóng, phần trong và cơ sở.  
+✅ **Liên tục tại điểm:** Phiên bản cục bộ, tổng quát hóa định nghĩa $\varepsilon$-$\delta$.  
+✅ **Hợp thành và Bổ đề dán:** Xây dựng ánh xạ liên tục từ các ánh xạ đơn giản hơn.  
+✅ **Phép đồng phôi:** Song ánh liên tục có ánh xạ ngược liên tục.  
+✅ **Tính chất tô-pô:** Bất biến qua phép đồng phôi, dùng để phân biệt các không gian không đồng phôi.
 
-**Điểm chính:**
-- Topological continuity **generalizes** metric continuity (ε-δ)
-- Homeomorphism = "same topology" = rubber-sheet deformation
-- Topological properties: compactness, connectedness, etc.
-- Để prove X ≇ Y: tìm topological property khác nhau
-- Coffee mug ≅ doughnut: cùng số holes!
-
-**Philosophical insight:**  
-Topology study **qualitative** properties (shape, connectivity) không phụ thuộc **quantitative** measures (distance, angle). This is powerful abstraction!
-
-**Tiếp theo:** Trong Lecture 01.04, chúng ta sẽ học về **Subspace Topology và Product Topology**—hai cách quan trọng nhất để xây dựng topological spaces mới từ spaces cũ.
+**Tiếp theo:** Trong Bài 01.04, ta sẽ tìm hiểu **Tô-pô con và Tô-pô tích** — hai phương pháp cốt lõi để xây dựng không gian tô-pô mới từ các không gian đã biết.
 
 ---
 
 *"A topologist cannot distinguish a coffee mug from a doughnut."* — Popular joke
 
-🎯 **Practice identifying homeomorphisms! Đây là core skill của topology.** 🎯
+🎯 **Hãy thực hành kiểm tra tính liên tục và nhận diện phép đồng phôi trên nhiều ví dụ cụ thể.** 🎯
 
 ---
 
-**Previous:** [Lecture 01.02: Closed Sets, Closure, Interior](/contents/vi/topology-chapter01/01_02_Closed_Sets_Closure_Interior/)  
+**Previous:** [Lecture 01.02: Closed Sets, Closure, and Interior](/contents/vi/topology-chapter01/01_02_Closed_Sets_Closure_Interior/)  
 **Next:** [Lecture 01.04: Subspace and Product Topology](/contents/vi/topology-chapter01/01_04_Subspace_Product_Topology/)
-

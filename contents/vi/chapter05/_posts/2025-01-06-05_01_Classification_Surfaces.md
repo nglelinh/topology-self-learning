@@ -10,582 +10,460 @@ tags: [surfaces, classification, euler-characteristic, orientability, genus]
 description: "Classification theorem cho compact surfaces: genus, orientability, và Euler characteristic"
 ---
 
-**Classification of Compact Surfaces**
+**Phân loại các mặt compact**
 
 ---
 
 ## 📖 Tổng quan
 
-Một trong những kết quả đẹp nhất và được tôn vinh nhất trong tô-pô học là **Định lý Phân loại các Bề mặt Compact**. Định lý này phát biểu rằng:
+Một trong những kết quả kinh điển của tô-pô học là **Định lý phân loại các mặt compact (không biên)**:
 
-> **Mọi bề mặt compact liên thông đều đồng phôi với đúng một trong một danh sách hữu hạn!**
+> **Mọi mặt compact liên thông (không biên) đều đồng phôi với đúng một mặt trong một danh sách chuẩn tắc đếm được.**
 
-Đây là một phân loại hoàn chỉnh—chúng ta biết TẤT CẢ các bề mặt compact! Điều này cực kỳ hiếm trong toán học. Các không gian vô hạn chiều như các không gian hàm quá phức tạp để phân loại hoàn toàn. Ngay cả các manifolds trong các chiều cao hơn (3D trở lên) cũng KHÔNG có phân loại hoàn chỉnh—bài toán đơn giản là quá khó. Nhưng các bề mặt compact 2 chiều? Chúng ta hiểu HOÀN TOÀN!
+Kết quả này cho một phân loại đầy đủ theo phép đồng phôi — điều rất hiếm gặp trong tô-pô chiều cao (từ chiều $3$ trở lên, việc phân loại hoàn chỉnh các đa tạp tổng quát phức tạp hơn nhiều, và ở chiều $4$ bài toán nhận diện đồng phôi là không giải được bằng thuật toán).
 
 ![Surface examples](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Spot_the_cow_topology.gif/400px-Spot_the_cow_topology.gif)  
-*Tương đương tô-pô của các bề mặt - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spot_the_cow_topology.gif)*
+*Minh họa sự tương đương tô-pô của các mặt – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spot_the_cow_topology.gif)*
 
-Danh sách hữu hạn hoàn chỉnh bao gồm hai họ: **Các bề mặt định hướng được** bao gồm hình cầu $S^2$ (không có lỗ), torus $T^2$ (một lỗ), 2-torus (hai lỗ), và tổng quát là g-torus cho bất kỳ genus $g \geq 0$ nào. **Các bề mặt không định hướng được** bao gồm mặt phẳng projective $\mathbb{R}P^2$, Klein bottle, và các tổng liên thông của chúng. Đó là tất cả—mọi bề mặt compact liên thông đều đồng phôi với đúng một trong số này!
+Danh sách chuẩn tắc gồm hai họ:
+- **Các mặt định hướng được:** mặt cầu $S^2$ (giống $g = 0$), hình xuyến $T^2$ ($g = 1$), và tổng quát là mặt giống $g$ ($\Sigma_g$) với mọi số nguyên $g \geq 0$.
+- **Các mặt không định hướng được:** mặt phẳng xạ ảnh thực $\mathbb{R}P^2$ ($k = 1$), chai Klein $K = \mathbb{R}P^2 \# \mathbb{R}P^2$ ($k = 2$), và tổng liên thông của $k$ mặt phẳng xạ ảnh thực với mọi số nguyên $k \geq 1$.
 
-Trong bài học này, chúng ta sẽ đi qua các lớp hiểu biết. Đầu tiên, chúng ta định nghĩa chính xác các bề mặt như các không gian locally Euclidean và khám phá các ví dụ tiêu chuẩn. **Orientability** xuất hiện như một tính chất quan trọng phân biệt các bề mặt như Möbius strip (không định hướng được) với torus (định hướng được). **Euler characteristic** $\chi$ chứng tỏ là một bất biến tô-pô mạnh mẽ—một số duy nhất nắm bắt topology cơ bản. **Genus** $g$ đếm trực quan "số lượng lỗ", mang lại ý nghĩa hình học cho topology trừu tượng. Viên ngọc quý là chính **Định lý Phân loại**, phát biểu danh sách hoàn chỉnh và chứng minh tính duy nhất. Cuối cùng, phác thảo chứng minh tiết lộ kỹ thuật thanh lịch của việc cắt, dán, và các dạng chuẩn.
+Trong bài học này, chúng ta sẽ định nghĩa chính xác mặt (2-đa tạp), khảo sát các ví dụ cơ bản, phép tổng liên thông, tính định hướng được (orientability), đặc trưng Euler $\chi$, giống (genus) $g$, phát biểu Định lý phân loại và phác thảo ý tưởng chứng minh qua đa giác cơ bản.
 
-Tại sao định lý này lại cơ bản đến vậy? Các phân loại hoàn chỉnh cực kỳ hiếm trong toán học—chúng ta nên tôn vinh chúng! **Các bất biến tô-pô** $\chi$ và genus hoàn toàn xác định bề mặt lên đến homeomorphism, chứng minh sức mạnh của các phương pháp đại số. **Tô-pô học đại số** thông qua homology cung cấp cách tính toán có hệ thống của $\chi$, kết nối trực giác hình học với công cụ đại số. **Hình học vi phân** thông qua định lý Gauss-Bonnet kết nối $\chi$ với độ cong, kết nối tô-pô học và hình học một cách đẹp đẽ. Trong **vật lý**, topology bề mặt xuất hiện ở khắp nơi: lý thuyết dây nghiên cứu các dây chuyển động qua không-thời gian, vũ trụ học hỏi về topology của vũ trụ chúng ta, và vật lý vật chất ngưng tụ gặp phải các pha tô-pô.
-
----
-
-## 🌍 Surfaces: Definition và Examples
-
-### 1. Definition
-
-**Informal Definition:**  
-**Surface** là topological space mà locally giống ℝ² (plane).
-
-**Formal Definition:**  
-**Surface** (hay **2-manifold**) là topological space X:
-1. **Hausdorff**
-2. **Second countable**
-3. **Locally Euclidean of dimension 2:** ∀x ∈ X: ∃ neighborhood U homeomorphic với open subset của ℝ²
-
-**Trực giác:** Zooming in anywhere looks like flat plane.
+Các bất biến $\chi$ và tính định hướng được xác định duy nhất một mặt đóng liên thông sai khác phép đồng phôi; đồng thời, chúng kết nối trực tiếp với đồng điều (trong tô-pô đại số), định lý Gauss–Bonnet (trong hình học vi phân), vật lý lý thuyết (mặt thế giới trong lý thuyết dây) và đồ họa máy tính (phân tích lưới bề mặt 3D).
 
 ---
 
-**Compact Surface:**  
-Surface X **compact** = satisfies compactness axiom.
+## 🌍 Mặt (Surfaces): Định nghĩa và ví dụ
 
-**Note:** Chapter này focus **compact connected** surfaces.
+### 1. Định nghĩa
+
+Về trực quan, một **mặt** (surface) là không gian tô-pô mà xung quanh mỗi điểm trông cục bộ giống mặt phẳng $\mathbb{R}^2$.
+
+**Định nghĩa chính thức:**  
+Một **mặt** (hay **2-đa tạp tô-pô không biên**) là không gian tô-pô $X$ thỏa mãn:
+1. **Hausdorff**,
+2. **Thỏa mãn tiên đề đếm được thứ hai** (second countable),
+3. **Euclid địa phương chiều 2:** với mọi $x \in X$, tồn tại lân cận mở $U$ của $x$ đồng phôi với một tập con mở của $\mathbb{R}^2$.
+
+Trong bài học này, chúng ta tập trung vào các **mặt đóng liên thông**, tức các mặt compact, liên thông và không có biên.
 
 ---
 
-### 2. Standard Examples
+### 2. Các ví dụ tiêu chuẩn
 
-**Example 1: Sphere $S^2$**
-
-Hình cầu $S^2$ được định nghĩa là:
+**Ví dụ 1: Mặt cầu $S^2$**
 
 $$
 S^2 = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = 1\}
 $$
 
-Các tính chất của hình cầu $S^2$: nó là compact (đóng và bị chặn trong $\mathbb{R}^3$), liên thông (mọi hai điểm đều có thể được nối bằng một đường cong), và định hướng được (có khái niệm nhất quán về "bên trong" và "bên ngoài"). Nó có genus $g = 0$ đại diện cho "không có lỗ"—topology đơn giản nhất có thể. Euler characteristic $\chi = 2$ phân biệt nó với tất cả các bề mặt khác.
+$S^2$ là mặt compact (đóng và bị chặn trong $\mathbb{R}^3$), liên thông, định hướng được, có giống $g = 0$ và đặc trưng Euler $\chi = 2$.
 
 ![Sphere](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sphere_wireframe_10deg_6r.svg/400px-Sphere_wireframe_10deg_6r.svg.png)  
-*Sphere S² - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sphere_wireframe_10deg_6r.svg)*
+*Mặt cầu $S^2$ – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sphere_wireframe_10deg_6r.svg)*
 
 ---
 
-**Example 2: Torus $T^2$**
+**Ví dụ 2: Hình xuyến $T^2$**
 
-**Construction:** Torus được xây dựng như một quotient của hình vuông $[0,1]^2$ với các cạnh đối diện được dán lại: đồng nhất $(0, t) \sim (1, t)$ dán cạnh trái với cạnh phải, và $(s, 0) \sim (s, 1)$ dán cạnh dưới với cạnh trên. Hãy tưởng tượng cuộn hình vuông thành một hình trụ (dán trái-phải), sau đó uốn hình trụ để nối các đầu (dán dưới-trên).
+**Cách dựng:** Lấy thương của hình vuông $[0,1]^2$ bằng cách dán hai cặp cạnh đối diện cùng chiều: $(0, t) \sim (1, t)$ và $(s, 0) \sim (s, 1)$.
 
-**Embedding trong $\mathbb{R}^3$:** Torus nằm đẹp đẽ trong $\mathbb{R}^3$ như một bề mặt của phép quay—quay một hình tròn quanh một trục không đi qua nó.
-
-**Properties:** Torus là compact và liên thông như hình cầu, nhưng có topology cơ bản khác nhau. Torus là định hướng được (có khái niệm nhất quán về "bên trong" và "bên ngoài"), có genus $g = 1$ đếm một lỗ duy nhất của nó, và đáng chú ý là Euler characteristic $\chi = 0$—không dương như hình cầu ($\chi = 2$) cũng không âm như các bề mặt genus cao hơn.
+**Tính chất:** $T^2$ nhúng được vào $\mathbb{R}^3$ như một mặt tròn xoay, là mặt compact, liên thông, định hướng được, có giống $g = 1$ và đặc trưng Euler $\chi = 0$.
 
 ![Torus](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Torus.png/400px-Torus.png)  
-*Torus T² - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus.png)*
+*Hình xuyến $T^2$ – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torus.png)*
 
 ---
 
-**Example 3: g-Torus (Bề mặt Genus g)**
+**Ví dụ 3: Mặt giống $g$ ($\Sigma_g$)**
 
-**Construction:** g-torus được xây dựng như tổng liên thông của $g$ tori.
+**Cách dựng:** Tổng liên thông của $g$ hình xuyến ($T^2 \# \cdots \# T^2$, $g$ lần), trực quan là mặt cầu gắn thêm $g$ tay cầm (handles).
+- $g = 0$: mặt cầu $S^2$,
+- $g = 1$: hình xuyến $T^2$,
+- $g = 2$: hình xuyến hai lỗ $\Sigma_2$.
 
-**Trực giác:** Đây là một bề mặt với $g$ "lỗ" (handles).
-
-**Các ví dụ qua các genus:** Khi $g = 0$, chúng ta có hình cầu $S^2$ không có lỗ. Ở $g = 1$, torus $T^2$ xuất hiện với một lỗ duy nhất. Trường hợp $g = 2$ tạo ra "two-hole torus" nổi tiếng giống như một chiếc bánh pretzel. Khi $g$ tăng lên 3, 4, và hơn nữa, các bề mặt trở nên ngày càng phức tạp với nhiều handles được gắn vào.
-
-**Các tính chất chung của tất cả g-tori:** Chúng luôn là compact (không có biên, bị giới hạn), liên thông (một mảnh duy nhất), và quan trọng là định hướng được (định hướng nhất quán trên toàn bộ). Genus $g$ đếm các lỗ một cách chính xác, trong khi Euler characteristic tuân theo công thức thanh lịch $\chi = 2 - 2g$, giảm đi 2 với mỗi lỗ được thêm vào.
+Các mặt $\Sigma_g$ đều compact, liên thông, định hướng được và có đặc trưng Euler $\chi = 2 - 2g$.
 
 ![Genus 2 surface](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Double_torus_illustration.png/400px-Double_torus_illustration.png)  
-*Genus 2 surface (pretzel) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double_torus_illustration.png)*
+*Mặt giống $2$ – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double_torus_illustration.png)*
 
 ---
 
-**Example 4: Mặt phẳng Projective Thực $\mathbb{R}P^2$**
+**Ví dụ 4: Mặt phẳng xạ ảnh thực $\mathbb{R}P^2$**
 
-**Construction:** $\mathbb{R}P^2$ được xây dựng từ $S^2$ với các điểm đối cực được đồng nhất ($x \sim -x$).
+**Cách dựng:** Lấy thương mặt cầu $S^2$ theo quan hệ đối cực $x \sim -x$ (hoặc tương đương, lấy đĩa đóng $D^2$ và đồng nhất các cặp điểm đối cực trên đường tròn biên).
 
-**Cách khác:** Đĩa $D^2$ với các điểm biên được đồng nhất đối cực.
-
-**Các tính chất của $\mathbb{R}P^2$:** Nó là compact và liên thông như hình cầu, nhưng khác biệt đáng kể: $\mathbb{R}P^2$ là **không định hướng được**, nghĩa là không có khái niệm nhất quán về "chiều kim đồng hồ" trên toàn cục. Euler characteristic $\chi = 1$ phân biệt nó về mặt đại số. Đáng chú ý nhất, $\mathbb{R}P^2$ không thể được nhúng vào $\mathbb{R}^3$ mà không tự cắt nhau—mọi nỗ lực đều dẫn đến bề mặt đi qua chính nó, không giống như hình cầu hoặc torus có thể nằm đẹp đẽ trong $\mathbb{R}^3$.
-
-**Visualization:** Immersion trong $\mathbb{R}^3$ (cross-cap, Boy's surface).
+**Tính chất:** $\mathbb{R}P^2$ compact, liên thông, **không định hướng được**, có đặc trưng Euler $\chi = 1$. Mặt này không thể nhúng vào $\mathbb{R}^3$ mà không tự cắt (nhưng có thể dìm vào $\mathbb{R}^3$, ví dụ mặt Boy hay cross-cap).
 
 ---
 
-**Example 5: Klein Bottle $K$**
+**Ví dụ 5: Chai Klein $K$**
 
-**Construction:** Klein bottle được xây dựng như một quotient của hình vuông với hai phép dán: $(0, t) \sim (1, t)$ dán trái-phải bình thường như torus, nhưng $(s, 0) \sim (1-s, 1)$ dán trên-dưới **với một xoắn**—sự đảo ngược này tạo ra tất cả sự khác biệt! Hãy tưởng tượng một hình trụ (từ việc dán trái-phải) mà các đầu phải được nối nhưng với định hướng ngược nhau.
+**Cách dựng:** Lấy thương của hình vuông $[0,1]^2$ theo quan hệ $(0, t) \sim (1, t)$ (dán trái–phải cùng chiều) và $(s, 0) \sim (1-s, 1)$ (dán dưới–trên ngược chiều).
 
-**Các tính chất hấp dẫn và kỳ lạ:** Klein bottle chia sẻ với torus tính compact, liên thông, và có $\chi = 0$, nhưng khác biệt đáng kể về orientability—Klein bottle là **không định hướng được**, thiếu khái niệm nhất quán về "bên trong" và "bên ngoài". Đáng chú ý nhất, Klein bottle không thể nhúng vào $\mathbb{R}^3$ mà không tự cắt nhau; nó cần $\mathbb{R}^4$ để nằm đúng cách. Mọi visualization trong $\mathbb{R}^3$ đều nhất thiết cho thấy bề mặt đi qua chính nó.
+**Tính chất:** $K$ compact, liên thông, có $\chi = 0$ giống hình xuyến nhưng **không định hướng được**. Giống $\mathbb{R}P^2$, chai Klein không nhúng được vào $\mathbb{R}^3$ mà cần không gian $\mathbb{R}^4$; mọi hình vẽ trong $\mathbb{R}^3$ đều là phép dìm có tự cắt.
 
 ![Klein bottle](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Klein_bottle.svg/400px-Klein_bottle.svg.png)  
-*Klein bottle immersion - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Klein_bottle.svg)*
+*Phép dìm chai Klein trong $\mathbb{R}^3$ – Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Klein_bottle.svg)*
 
 ---
 
-### 3. Connected Sum
+### 3. Phép tổng liên thông (Connected Sum)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Connected Sum):**  
-S₁, S₂ surfaces. **Connected sum** S₁ # S₂:
-1. Remove small open disk từ mỗi surface
-2. Glue along boundaries (circles)
+**Định nghĩa (Tổng liên thông):**  
+Cho hai mặt $S_1, S_2$. **Tổng liên thông** $S_1 \# S_2$ được xây dựng bằng cách:
+1. Khoét bỏ một đĩa mở nhỏ trên mỗi mặt,
+2. Dán hai đường tròn biên vừa tạo ra với nhau bằng một phép đồng phôi.
 </div>
 
-**Result:** New surface S₁ # S₂.
-
-**Examples:**
-- T² # T² = 2-torus (genus 2)
-- ℝP² # ℝP² = Klein bottle K
-- S² # S = S (sphere = identity for connected sum)
-
-**Notation:** g-torus = T² # T² # ... # T² (g times).
+**Ví dụ:**
+- $T^2 \# T^2 \cong \Sigma_2$ (mặt giống $2$),
+- $\mathbb{R}P^2 \# \mathbb{R}P^2 \cong K$ (chai Klein),
+- $S^2 \# S \cong S$ với mọi mặt $S$ (mặt cầu đóng vai trò phần tử đơn vị).
 
 ---
 
-## 🔄 Orientability
+## 🔄 Tính định hướng được (Orientability)
 
-### 1. Intuitive Concept
+### 1. Ý tưởng trực quan
 
-**Intuition:**  
-Surface **orientable** nếu có consistent notion của "clockwise" everywhere.
+Một mặt được gọi là **định hướng được** nếu ta có thể chọn một quy ước nhất quán về chiều quay ("thuận chiều kim đồng hồ") trên toàn bộ mặt. Tương đương, một mặt là định hướng được khi và chỉ khi nó **không** chứa tập con nào đồng phôi với dải Möbius.
 
-**Equivalent:** Cannot have Möbius strip embedded.
-
-**Test:** Imagine person walking around surface carrying "flag". After returning, flag same orientation?
-- **Yes:** Orientable (S², T²)
-- **No:** Non-orientable (ℝP², Klein bottle, Möbius)
+Nếu một người đi dọc theo một vòng khép kín trên mặt mang theo một khung định hướng (chẳng hạn mũi tên chỉ hướng), khi quay về điểm xuất phát:
+- Khung luôn giữ nguyên hướng trên mặt định hướng được ($S^2$, $T^2$, $\Sigma_g$).
+- Có thể bị lật ngược hướng trên mặt không định hướng được ($\mathbb{R}P^2$, chai Klein, dải Möbius).
 
 ---
 
-### 2. Formal Definition (Sketch)
+### 2. Mô tả hình thức (sơ lược)
 
-**Triangulation perspective:**  
-Surface orientable ⟺ can orient all triangles consistently (matching edges have opposite orientations).
-
-**Vector field perspective:**  
-Orientable ⟺ admits continuous nowhere-zero "normal" vector field.
+- **Qua phép phân tam giác:** Mặt định hướng được khi và chỉ khi có thể định hướng tất cả các tam giác sao cho trên mỗi cạnh chung, hai tam giác kề nhau cảm sinh hai hướng ngược nhau.
+- **Qua trường vector (cho mặt trơn trong $\mathbb{R}^3$):** Một mặt trơn nhúng trong $\mathbb{R}^3$ định hướng được khi và chỉ khi tồn tại trường vector pháp tuyến đơn vị liên tục trên toàn mặt.
 
 ---
 
-### 3. Properties
+### 3. Các tính chất cơ bản
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**
-1. S² orientable ✓
-2. T² orientable ✓
-3. g-torus orientable ✓
-4. ℝP² non-orientable ✗
-5. Klein bottle non-orientable ✗
+**Định lý:**
+1. $S^2$, $T^2$ và mọi mặt $\Sigma_g$ đều định hướng được.
+2. $\mathbb{R}P^2$ và chai Klein $K$ không định hướng được.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Connected Sum):**
-- Orientable # Orientable = Orientable
-- Orientable # Non-orientable = Non-orientable
-- Non-orientable # Non-orientable = Non-orientable
+**Định lý (Tính định hướng của tổng liên thông):**
+- Định hướng được $\#$ Định hướng được $=$ Định hướng được.
+- Định hướng được $\#$ Không định hướng được $=$ Không định hướng được.
+- Không định hướng được $\#$ Không định hướng được $=$ Không định hướng được.
 </div>
 
-**Moral:** Orientability "contagious"—one non-orientable piece ⇒ whole non-orientable.
+Chỉ cần một thành phần không định hướng được thì tổng liên thông sẽ không định hướng được (vì nó chứa dải Möbius của thành phần đó).
 
 ---
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Compact orientable surface can embed trong ℝ³.  
-Non-orientable compact surface CANNOT embed trong ℝ³ (needs higher dimension).
+**Định lý:**  
+Mọi mặt đóng định hướng được đều nhúng được vào $\mathbb{R}^3$. Ngược lại, không có mặt đóng không định hướng được nào nhúng được vào $\mathbb{R}^3$ (chúng chỉ có thể dìm vào $\mathbb{R}^3$ hoặc nhúng vào $\mathbb{R}^4$).
 </div>
-
-**Examples:**
-- S², T², genus 2, ... embed trong ℝ³ ✓
-- ℝP², Klein bottle không embed ℝ³ ✗ (but immerse—self-intersections allowed)
 
 ---
 
-## 🔢 Euler Characteristic
+## 🔢 Đặc trưng Euler (Euler Characteristic)
 
-### 1. Definition via Triangulation
+### 1. Định nghĩa qua phép phân tam giác
 
-**Triangulation:**  
-Decompose surface thành triangles (homeomorphic với simplices).
-
-**Notation:**
-- V = number of vertices
-- E = number of edges
-- F = number of faces (triangles)
+Phân chia một mặt compact thành hữu hạn các tam giác (đơn hình 2 chiều) gọi là một **phép phân tam giác** (triangulation). Ký hiệu $V$ là số đỉnh, $E$ là số cạnh và $F$ là số mặt tam giác.
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Euler Characteristic):**
+**Định nghĩa (Đặc trưng Euler):**
 
 $$
 \chi = V - E + F
 $$
 </div>
 
-**Remarkable Theorem (Well-defined):**  
-χ independent của choice triangulation!
+Một kết quả cơ bản của tô-pô tổ hợp và lý thuyết đồng điều là $\chi$ **không phụ thuộc vào cách chọn phép phân tam giác**, và là một bất biến tô-pô (hai mặt đồng phôi có cùng đặc trưng Euler).
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Combinatorial topology / homology theory. ✓
+**Chứng minh:** Sử dụng tô-pô tổ hợp hoặc lý thuyết đồng điều (trong đó $\chi = \sum_i (-1)^i \operatorname{rank} H_i(S)$).
 </div>
 
-**Consequence:** χ = topological invariant.
+---
+
+### 2. Các ví dụ tính toán
+
+- **Mặt cầu $S^2$:** Phân tam giác bởi biên của một tứ diện có $V = 4, E = 6, F = 4$, suy ra $\chi(S^2) = 4 - 6 + 4 = 2$.
+- **Hình xuyến $T^2$:** Với một phép phân tam giác tiêu chuẩn có $V = 9, E = 27, F = 18$, ta được $\chi(T^2) = 9 - 27 + 18 = 0$.
+- **Mặt phẳng xạ ảnh $\mathbb{R}P^2$:** $\chi(\mathbb{R}P^2) = 1$.
+- **Chai Klein $K$:** $\chi(K) = 0$ (cùng đặc trưng Euler với $T^2$, nhưng khác nhau về tính định hướng được).
 
 ---
 
-### 2. Examples
-
-**Example 1: Sphere S²**
-
-Triangulate: tetrahedron surface.  
-V = 4, E = 6, F = 4.  
-χ = 4 - 6 + 4 = **2**. ✓
-
-**Any triangulation S² gives χ = 2.**
-
----
-
-**Example 2: Torus T²**
-
-Triangulate (non-trivial).  
-One standard triangulation: V = 9, E = 27, F = 18.  
-χ = 9 - 27 + 18 = **0**. ✓
-
----
-
-**Example 3: Projective Plane ℝP²**
-
-χ = **1**. (Computation via triangulation.)
-
----
-
-**Example 4: Klein Bottle**
-
-χ = **0**. (Same as torus topologically in this invariant, but different orientability.)
-
----
-
-### 3. Formula for Genus g Orientable Surface
+### 3. Công thức cho mặt định hướng được giống $g$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Compact orientable surface genus g:
+**Định lý:**  
+Với mặt đóng định hướng được giống $g$ ($\Sigma_g$):
 
 $$
 \chi = 2 - 2g
 $$
 </div>
 
-**Examples:**
-- g = 0 (S²): χ = 2 ✓
-- g = 1 (T²): χ = 0 ✓
-- g = 2: χ = -2
-- g = 3: χ = -4
-- General: χ decreases by 2 per hole
+Cụ thể: $g = 0 \Rightarrow \chi = 2$ ($S^2$); $g = 1 \Rightarrow \chi = 0$ ($T^2$); $g = 2 \Rightarrow \chi = -2$; mỗi tay cầm thêm vào làm giảm $\chi$ đi $2$.
 
 ---
 
-### 4. Formula for Non-Orientable Surfaces
+### 4. Công thức cho mặt không định hướng được
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Compact non-orientable surface với k "cross-caps" (projective planes):
+**Định lý:**  
+Với mặt đóng không định hướng được là tổng liên thông của $k$ mặt phẳng xạ ảnh thực ($k \ge 1$):
 
 $$
 \chi = 2 - k
 $$
 </div>
 
-**Examples:**
-- k = 1 (ℝP²): χ = 1 ✓
-- k = 2 (Klein bottle K): χ = 0 ✓
-- k = 3: χ = -1
+Cụ thể: $k = 1 \Rightarrow \chi = 1$ ($\mathbb{R}P^2$); $k = 2 \Rightarrow \chi = 0$ (chai Klein $K$); $k = 3 \Rightarrow \chi = -1$.
 
 ---
 
-## 🏆 Classification Theorem
+## 🏆 Định lý phân loại các mặt compact
 
-### 1. Statement
+### 1. Phát biểu
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Classification of Compact Surfaces):**  
-Mọi compact connected surface homeomorphic với **đúng một** trong:
+**Định lý (Phân loại các mặt compact liên thông không biên):**  
+Mọi mặt compact liên thông không biên đều đồng phôi với **đúng một** mặt trong hai họ sau:
 </div>
 
-**Orientable:**
-1. **Sphere** S² (genus 0)
-2. **Torus** T² (genus 1)
-3. **g-Torus** Σ_g (genus g ≥ 2)
+**Họ định hướng được:**
+1. Mặt cầu $S^2$ ($g = 0$),
+2. Hình xuyến $T^2$ ($g = 1$),
+3. Mặt giống $g$: $\Sigma_g = T^2 \# \cdots \# T^2$ ($g$ lần, với $g \geq 2$).
 
-**Non-orientable:**
-1. **Projective plane** ℝP²
-2. **Klein bottle** K = ℝP² # ℝP²
-3. **Connected sum** ℝP² # ... # ℝP² (k ≥ 3 terms)
-
-**Complete characterization:**
-- **Orientable surfaces:** Classified by **genus** g ∈ {0, 1, 2, 3, ...}
-- **Non-orientable surfaces:** Classified by number k ∈ {1, 2, 3, ...} of projective planes
-
-**Invariants:**
-- **χ (Euler characteristic):** Determines surface up to orientability
-- **Orientability:** Distinguishes within same χ
+**Họ không định hướng được:**
+1. Mặt phẳng xạ ảnh thực $\mathbb{R}P^2$ ($k = 1$),
+2. Chai Klein $K = \mathbb{R}P^2 \# \mathbb{R}P^2$ ($k = 2$),
+3. Tổng liên thông $(\mathbb{R}P^2)^{\#k} = \mathbb{R}P^2 \# \cdots \# \mathbb{R}P^2$ ($k$ lần, với $k \geq 3$).
 
 ---
 
-### 2. Uniqueness
+### 2. Tính duy nhất qua bất biến
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:**  
-Hai compact connected surfaces homeomorphic ⟺ cùng χ và cùng orientability.
+**Định lý:**  
+Hai mặt đóng liên thông đồng phôi với nhau khi và chỉ khi chúng có cùng đặc trưng Euler $\chi$ và cùng tính định hướng được.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Classification theorem + invariants. ✓
+**Chứng minh:** Suy trực tiếp từ Định lý phân loại và việc cặp bất biến $(\chi, \text{tính định hướng được})$ nhận các giá trị phân biệt trên toàn bộ danh sách chuẩn tắc.
 </div>
 
-**Consequence:** To classify surface, compute:
-1. χ (via triangulation)
-2. Orientability (via Möbius test or homology)
-
-Then table lookup!
+Nhờ định lý này, để nhận diện một mặt đóng liên thông bất kỳ, ta chỉ cần tính đặc trưng Euler $\chi$ (chẳng hạn qua phép phân tam giác) và kiểm tra xem mặt có định hướng được hay không.
 
 ---
 
-### 3. Table of Surfaces
+### 3. Bảng tổng hợp các mặt
 
-| Surface | Orientable | Genus g | χ | Symbol |
-|---------|-----------|---------|---|---------|
-| Sphere | Yes | 0 | 2 | S² |
-| Torus | Yes | 1 | 0 | T² |
-| 2-Torus | Yes | 2 | -2 | Σ₂ |
-| g-Torus | Yes | g | 2-2g | Σ_g |
-| Projective Plane | No | - | 1 | ℝP² |
-| Klein Bottle | No | - | 0 | K |
-| k-Proj Plane | No | - | 2-k | (ℝP²)^#k |
-
----
-
-### 4. Proof Sketch
-
-**Proof strategy (rough outline):**
-
-**Step 1 (Triangulation):** Mọi compact surface admits triangulation.
-
-**Step 2 (Polygonal Model):** Represent surface as polygon với edge identifications.
-
-**Step 3 (Normal Form):** Via sequence of cut-paste operations, reduce đến standard form:
-- **Orientable:** a₁b₁a₁⁻¹b₁⁻¹ a₂b₂a₂⁻¹b₂⁻¹ ... a_g b_g a_g⁻¹ b_g⁻¹
-- **Non-orientable:** c₁c₁ c₂c₂ ... c_k c_k
-
-**Step 4 (Identify):** Standard models correspond với S², Σ_g, ℝP², etc.
-
-**Step 5 (Invariants):** χ và orientability distinguish all cases.
-
-**Conclusion:** Complete list. ✓
-
-**Full proof:** Beautiful but technical. See Armstrong, Massey, Hatcher.
+| Mặt | Định hướng được | Giống $g$ | $\chi$ | Ký hiệu |
+|-----|-----------------|-----------|--------|---------|
+| Mặt cầu | Có | $0$ | $2$ | $S^2$ |
+| Hình xuyến | Có | $1$ | $0$ | $T^2$ |
+| Hình xuyến hai lỗ | Có | $2$ | $-2$ | $\Sigma_2$ |
+| Mặt giống $g$ | Có | $g$ | $2 - 2g$ | $\Sigma_g$ |
+| Mặt phẳng xạ ảnh | Không | – | $1$ | $\mathbb{R}P^2$ |
+| Chai Klein | Không | – | $0$ | $K$ |
+| Tổng liên thông $k$ mặt $\mathbb{R}P^2$ | Không | – | $2 - k$ | $(\mathbb{R}P^2)^{\#k}$ |
 
 ---
 
-## 🎨 Geometric Visualization
+### 4. Phác thảo chứng minh
 
-### 1. Fundamental Polygons
+1. **Phân tam giác (Định lý Radó):** Mọi mặt compact đều thừa nhận một phép phân tam giác hữu hạn.
+2. **Đa giác cơ bản:** Dán dần các tam giác kề nhau thành một đa giác đơn duy nhất có các cạnh được ghép cặp để dán lại.
+3. **Đưa về dạng chuẩn:** Thực hiện dãy hữu hạn phép cắt–dán trên đa giác để đưa từ biên về một trong hai dạng chuẩn tắc:
+   - Định hướng được: $a_1 b_1 a_1^{-1} b_1^{-1} \cdots a_g b_g a_g^{-1} b_g^{-1}$ (hoặc $a a^{-1}$ cho $S^2$).
+   - Không định hướng được: $c_1 c_1 c_2 c_2 \cdots c_k c_k$.
+4. **Nhận diện:** Mỗi dạng chuẩn tương ứng chính xác với một mặt trong danh sách $S^2$, $\Sigma_g$, $(\mathbb{R}P^2)^{\#k}$.
+5. **Phân biệt:** Đặc trưng Euler $\chi$ và tính định hướng được chứng tỏ không có hai mặt nào trong danh sách đồng phôi với nhau.
 
-**Sphere S²:**  
-Disk với boundary contracted to point. (Or two hemispheres glued.)
-
-**Torus T²:**  
-Square với opposite edges glued (same direction).
-
-**2-Torus (Pretzel):**  
-Octagon với edges: a b a⁻¹ b⁻¹ c d c⁻¹ d⁻¹.
-
-**Projective Plane ℝP²:**  
-Disk với antipodal boundary identified. (Or square với opposite edges glued, reversed.)
-
-**Klein Bottle:**  
-Square với (0,t) ~ (1,t), (s,0) ~ (1-s,1).
+Chứng minh đầy đủ có thể tham khảo trong các giáo trình của Armstrong, Massey hoặc Hatcher.
 
 ---
 
-### 2. Visual Mnemonics
+## 🎨 Trực quan hình học
 
-**Orientable = Handle:**  
-Adding handle (torus connected sum) adds "hole"—increases genus.
+### 1. Đa giác cơ bản (Fundamental Polygons)
 
-**Non-orientable = Cross-cap:**  
-Adding projective plane (cross-cap) makes non-orientable.
+- **Mặt cầu $S^2$:** Đĩa đóng co biên thành một điểm (hoặc hai bán cầu dán dọc xích đạo).
+- **Hình xuyến $T^2$:** Hình vuông dán các cạnh đối diện cùng chiều ($a b a^{-1} b^{-1}$).
+- **Mặt giống $2$ ($\Sigma_2$):** Hình bát giác với từ biên $a b a^{-1} b^{-1} c d c^{-1} d^{-1}$.
+- **Mặt phẳng xạ ảnh $\mathbb{R}P^2$:** Đĩa đóng đồng nhất các điểm đối cực trên biên (hoặc đa giác có từ biên $a a$).
+- **Chai Klein $K$:** Hình vuông với $(0,t) \sim (1,t)$ và $(s,0) \sim (1-s,1)$ (từ biên $a b a^{-1} b$, tương đương dạng chuẩn $c_1 c_1 c_2 c_2$).
 
-**Euler Characteristic:**
-- More "holes" (genus) ⇒ more negative χ
-- Sphere (no holes) ⇒ χ = 2 (maximal)
+### 2. Quy tắc ghi nhớ
 
----
-
-## 🧠 Fundamental Papers & References
-
-### Classic Works
-
-1. **Leonhard Euler** - *"Solutio problematis ad geometriam situs pertinentis"* (1736)  
-   *Euler characteristic, bridges of Königsberg*
-
-2. **August Möbius** - Discovery của Möbius strip (1858)
-
-3. **Felix Klein** - Klein bottle (1882)
-
-4. **Max Dehn & Poul Heegaard** - Classification theorem proof (1907)
-
-### Textbooks
-
-5. **James R. Munkres** - *Topology*, 2nd Ed., **§76: Surfaces (Appendix)**
-
-6. **William Massey** - *A Basic Course in Algebraic Topology*, **Chapter 1**  
-   *Surfaces, classification*
-
-7. **Allen Hatcher** - *Algebraic Topology*, **§2.2: Surfaces**  
-   *Geometric perspective, fundamental polygon*
-
-8. **M. A. Armstrong** - *Basic Topology*, **Chapter 6**  
-   *Classification proof detailed*
-
-9. **John M. Lee** - *Introduction to Topological Manifolds*, **Chapter 6**
+- Gắn thêm một **tay cầm** (tổng liên thông với $T^2$) giữ nguyên tính định hướng được, tăng giống $g$ thêm $1$ và giảm $\chi$ đi $2$.
+- Gắn thêm một **cross-cap** (tổng liên thông với $\mathbb{R}P^2$) làm mặt trở nên không định hướng được và giảm $\chi$ đi $1$.
+- Mặt cầu $S^2$ có $\chi = 2$ là giá trị lớn nhất có thể của đặc trưng Euler trên các mặt đóng liên thông.
 
 ---
 
-## 🔗 Applications and Connections
+## 🧠 Tài liệu kinh điển và tham khảo
 
-### Differential Geometry - Gauss-Bonnet Theorem
-**Connection:** ∫∫_S K dA = 2πχ(S), where K = Gaussian curvature. Profound link topology ↔ geometry.
+### Các công trình kinh điển
 
-### Algebraic Topology - Homology
-**Computation:** H₀(S) ≅ ℤ, H₁(S) ≅ ℤ^(2g) (orientable genus g), H₂(S) ≅ ℤ. Betti numbers ⇒ χ.
+1. **Leonhard Euler** – *"Solutio problematis ad geometriam situs pertinentis"* (1736)  
+   *Bài toán bảy cây cầu Königsberg và khởi nguồn tô-pô tổ hợp.*
 
-### Physics - String Theory
-**Worldsheets:** Strings trace surfaces trong spacetime. Topology affects amplitudes.
+2. **August Möbius** – Phát hiện dải Möbius (1858)
 
-### Biology - Protein Folding
-**Topology:** Knotted proteins characterized by surface genus.
+3. **Felix Klein** – Chai Klein (1882)
 
-### Computer Graphics
-**Mesh Topology:** Genus, χ used to analyze 3D models.
+4. **Max Dehn & Poul Heegaard** – Chứng minh Định lý phân loại mặt (1907)
+
+### Giáo trình
+
+5. **James R. Munkres** – *Topology*, 2nd Ed., **§76: Surfaces (Appendix)**
+
+6. **William Massey** – *A Basic Course in Algebraic Topology*, **Chapter 1**
+
+7. **Allen Hatcher** – *Algebraic Topology*, **§2.2: Surfaces**
+
+8. **M. A. Armstrong** – *Basic Topology*, **Chapter 6**
+
+9. **John M. Lee** – *Introduction to Topological Manifolds*, **Chapter 6**
+
+---
+
+## 🔗 Ứng dụng và liên kết
+
+### Hình học vi phân – Định lý Gauss–Bonnet
+Với mặt trơn đóng $S$ và độ cong Gauss $K$, ta có $\iint_S K\,dA = 2\pi \chi(S)$, liên kết trực tiếp đại lượng hình học địa phương ($K$) với bất biến tô-pô toàn cục ($\chi$).
+
+### Tô-pô đại số – Đồng điều
+Với mặt đóng định hướng được giống $g$: $H_0(S) \cong \mathbb{Z}$, $H_1(S) \cong \mathbb{Z}^{2g}$, $H_2(S) \cong \mathbb{Z}$; tổng đan dấu các số Betti cho lại $\chi(S) = 1 - 2g + 1 = 2 - 2g$.
+
+### Vật lý – Lý thuyết dây
+Mặt thế giới (worldsheet) do dây quét ra trong không-thời gian là các mặt Riemann được phân loại theo giống $g$, tương ứng với các bậc nhiễu loạn.
+
+### Sinh học – Cuộn gập protein
+Các bất biến tô-pô mặt và nút được dùng để phân tích cấu trúc cuộn gập phức tạp của chuỗi polypeptide.
+
+### Đồ họa máy tính
+Giống $g$ và đặc trưng Euler $\chi$ là các thông số cơ bản để kiểm tra tính hợp lệ và phân tích tô-pô của lưới bề mặt 3D.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [What is...the classification of surfaces?](https://www.youtube.com/watch?v=p1hyQpDk3lw) — VisualMath, tiếng Anh. Phát biểu định lý phân loại mặt: cầu, tổng liên thông các xuyến, và mặt phẳng xạ ảnh.
-- [Classification Theorem 04 Torus & Klein Bottle](https://www.youtube.com/watch?v=OAILb52PkN0) — Sarah Brewer (mathémartiste), tiếng Anh. Xuyến và chai Klein trong chuỗi phân loại, sát các ví dụ định hướng được và không.
-- [Klein Bottles - Numberphile](https://www.youtube.com/watch?v=AAsICMPwGPY) — Numberphile, tiếng Anh. Chai Klein nhìn thấy được, trước khi quay lại đặc trưng Euler và tính định hướng.
+- **xem trước** [What is...the classification of surfaces?](https://www.youtube.com/watch?v=p1hyQpDk3lw) — VisualMath, tiếng Anh. Phát biểu trực quan định lý phân loại mặt: mặt cầu, tổng liên thông các hình xuyến và mặt phẳng xạ ảnh.
+- [Classification Theorem 04 Torus & Klein Bottle](https://www.youtube.com/watch?v=OAILb52PkN0) — Sarah Brewer (mathémartiste), tiếng Anh. Phân tích hình xuyến và chai Klein trong chuỗi bài về phân loại mặt.
+- [Klein Bottles - Numberphile](https://www.youtube.com/watch?v=AAsICMPwGPY) — Numberphile, tiếng Anh. Minh họa trực quan chai Klein trước khi quay lại đặc trưng Euler và tính định hướng.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Surfaces
+### Mặt
 
-1. **Verify Surface:**  
-   S² surface. Check locally Euclidean at north pole.
+1. **Kiểm tra định nghĩa mặt:**  
+   Kiểm tra $S^2$ là không gian Euclid địa phương chiều $2$ tại cực bắc.
 
-2. **Torus Local Chart:**  
-   T² surface. Describe coordinate chart at point.
+2. **Bản đồ địa phương trên hình xuyến:**  
+   Mô tả một bản đồ tọa độ địa phương tại một điểm bất kỳ của $T^2$.
 
-3. **Connected Sum:**  
-   Describe T² # T² construction explicitly. Verify compact.
+3. **Tổng liên thông:**  
+   Mô tả tường minh cách dựng $T^2 \# T^2$ và giải thích vì sao kết quả là mặt compact.
 
-### Orientability
+### Tính định hướng được
 
-4. **Test Orientability:**  
-   S² orientable. Explain intuitively (flag walking).
+4. **Kiểm tra tính định hướng của $S^2$:**  
+   Giải thích trực quan vì sao $S^2$ định hướng được bằng hình ảnh dịch chuyển khung định hướng.
 
-5. **Möbius Strip:**  
-   Möbius strip non-orientable. Trace person walking around—flag flips.
+5. **Dải Möbius:**  
+   Theo dõi một khung định hướng đi một vòng quanh dải Möbius để thấy hướng bị đảo ngược.
 
-6. **Klein Bottle:**  
-   K non-orientable. Identify "Möbius part".
+6. **Chai Klein:**  
+   Chỉ ra một dải Möbius nằm bên trong chai Klein $K$ để kết luận $K$ không định hướng được.
 
-### Euler Characteristic
+### Đặc trưng Euler
 
-7. **Compute χ:**  
-   Cube surface. V = 8, E = 12, F = 6. χ = ?
+7. **Tính $\chi$ của hình lập phương:**  
+   Với bề mặt hình lập phương ($V = 8, E = 12, F = 6$), tính $\chi$.
 
-8. **Torus Triangulation:**  
-   Find triangulation T² with V = 9, E = 27, F = 18. Verify χ = 0.
+8. **Phân tam giác hình xuyến:**  
+   Xây dựng một phép phân tam giác của $T^2$ với $V = 9, E = 27, F = 18$ và kiểm tra $\chi = 0$.
 
-9. **Genus 2:**  
-   χ(Σ₂) = -2. Verify via χ = 2 - 2g.
+9. **Mặt giống $2$:**  
+   Kiểm tra $\chi(\Sigma_2) = -2$ từ công thức $\chi = 2 - 2g$.
 
-### Classification
+### Phân loại mặt
 
-10. **Identify Surface:**  
-    Compact surface, χ = 0, orientable. What is it?
+10. **Nhận diện mặt:**  
+    Một mặt đóng liên thông định hướng được có $\chi = 0$ là mặt nào?
 
-11. **Non-Orientable:**  
-    χ = 1, non-orientable. Surface = ?
+11. **Mặt không định hướng được:**  
+    Một mặt đóng liên thông không định hướng được có $\chi = 1$ là mặt nào?
 
-12. **Genus:**  
-    Orientable, χ = -4. Genus g = ?
+12. **Tìm giống $g$:**  
+    Một mặt đóng liên thông định hướng được có $\chi = -4$ thì giống $g$ bằng bao nhiêu?
 
-### Fundamental Polygon
+### Đa giác cơ bản
 
-13. **Square to Torus:**  
-    Draw square, label edges a, b, a⁻¹, b⁻¹. Visualize gluing ⇒ T².
+13. **Hình vuông thành hình xuyến:**  
+    Vẽ hình vuông với nhãn cạnh $a, b, a^{-1}, b^{-1}$ và minh họa các bước dán thành $T^2$.
 
-14. **Projective Plane:**  
-    Disk boundary antipodally identified. Draw fundamental domain.
+14. **Mặt phẳng xạ ảnh:**  
+    Vẽ miền cơ bản của $\mathbb{R}P^2$ từ đĩa đóng có biên đồng nhất đối cực.
 
-15. **Klein Bottle Polygon:**  
-    Square với appropriate edge identifications. Label.
+15. **Đa giác của chai Klein:**  
+    Vẽ hình vuông kèm nhãn dán cạnh tương ứng với chai Klein.
 
-### Gauss-Bonnet
+### Định lý Gauss–Bonnet
 
-16. **Sphere Curvature:**  
-    S² uniform curvature K = 1. Compute ∫∫K dA, verify = 2πχ = 4π.
+16. **Độ cong mặt cầu:**  
+    Mặt cầu đơn vị $S^2$ có độ cong Gauss không đổi $K = 1$. Tính $\iint_{S^2} K\,dA$ và kiểm tra giá trị này bằng $2\pi\chi(S^2) = 4\pi$.
 
-17. **Torus Flat:**  
-    T² can be flat (K = 0). Verify ∫∫K = 0 = 2πχ.
+17. **Hình xuyến phẳng:**  
+    Hình xuyến phẳng (trong $\mathbb{R}^4$) có $K = 0$ tại mọi điểm. Kiểm tra $\iint_{T^2} K\,dA = 0 = 2\pi\chi(T^2)$.
 
-18. **Hyperbolic Surface:**  
-    Genus 2: χ = -2 < 0 ⇒ admits K = -1 (hyperbolic metric).
+18. **Mặt hyperbolic:**  
+    Mặt giống $2$ có $\chi = -2 < 0$, phù hợp với việc nó thừa nhận metric có độ cong hằng âm $K = -1$.
 
-### Advanced
+### Nâng cao
 
-19. **Double Cover:**  
-    Every non-orientable surface has orientable double cover. Example: ℝP² → S².
+19. **Phủ hai lá định hướng được:**  
+    Mọi mặt không định hướng được đều có một phủ hai lá định hướng được. Lấy ví dụ ánh xạ phủ $S^2 \to \mathbb{R}P^2$.
 
-20. **Classification Proof:**  
-    Research outline của proof classification theorem. Main steps?
-
----
-
-## 📚 Further Reading
-
-- **Hatcher, Algebraic Topology:** §2.2 (Surfaces classification)
-- **Massey, Basic Course:** Chapter 1 (Detailed classification)
-- **Armstrong, Basic Topology:** Chapter 6 (Proof outline)
-- **Stillwell:** *Classical Topology and Combinatorial Group Theory* (Historical perspective)
+20. **Chứng minh Định lý phân loại:**  
+    Tìm hiểu và tóm tắt các bước chính trong chứng minh Định lý phân loại các mặt compact.
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-Trong bài học này, chúng ta đã khám phá **Phân loại các Bề mặt Compact**—một trong những thành tựu lớn nhất của tô-pô học. Các bề mặt được định nghĩa là các không gian locally Euclidean chiều 2, Hausdorff, và second countable—chúng trông giống như mặt phẳng về mặt địa phương. Các ví dụ quan trọng bao gồm $S^2$, $T^2$, g-torus, $\mathbb{R}P^2$, và Klein bottle. Orientability là một tính chất quan trọng phân biệt các bề mặt—một bề mặt định hướng được có khái niệm nhất quán về "chiều kim đồng hồ" ở mọi nơi, trong khi một bề mặt không định hướng được có chứa một Möbius strip. Euler characteristic $\chi = V - E + F$ là một bất biến tô-pô mạnh mẽ—một số duy nhất nắm bắt topology cơ bản của bề mặt. Genus $g$ đếm số lượng "lỗ" một cách trực quan, và đối với các bề mặt định hướng được, chúng ta có $g = (2 - \chi)/2$. Định lý Phân loại phát biểu rằng tất cả các bề mặt compact đều thuộc tập hợp $\{S^2, \Sigma_g, (\mathbb{R}P^2)^{\#k}\}$, và các bất biến $\chi$ và orientability hoàn toàn phân loại chúng.
-
-Điểm chính của bài học là phân loại hoàn chỉnh là cực kỳ hiếm và đẹp đẽ trong toán học—chúng ta nên tôn vinh nó! Đối với các bề mặt định hướng được, chúng được phân loại bởi genus $g$ với công thức $\chi = 2 - 2g$. Đối với các bề mặt không định hướng được, chúng được phân loại bởi số lượng $k$ các mặt phẳng projective với công thức $\chi = 2 - k$. Tính duy nhất được đảm bảo bởi thực tế rằng một bề mặt được xác định hoàn toàn bởi $(\chi, \text{orientability})$. Định lý Gauss-Bonnet kết nối $\chi$ với độ cong, tạo ra một cây cầu đẹp đẽ giữa tô-pô học và hình học.
-
-Trực giác hình học đằng sau các ví dụ quan trọng là: hình cầu không có lỗ và là đơn giản nhất, torus có một handle và $\chi = 0$, nhiều handles hơn dẫn đến $\chi$ âm hơn, và các cross-caps làm cho bề mặt không định hướng được. Những ví dụ này minh họa cách các tính chất hình học liên quan đến các bất biến tô-pô.
-
-Trong thực tế, chúng ta tính toán $\chi$ thông qua triangulation—chia bề mặt thành các tam giác và đếm các đỉnh, cạnh, và mặt. Chúng ta kiểm tra orientability thông qua test Möbius—nếu một bề mặt chứa một Möbius strip, thì nó không định hướng được. Sau đó, chúng ta có thể tra cứu bảng để xác định bề mặt—các bất biến này rất mạnh mẽ và cho phép chúng ta phân loại hoàn toàn các bề mặt compact.
-
-**Tiếp theo:** Lecture 05.02 về **CW Complexes**—tổng quát hóa vượt ra ngoài các bề mặt!
+- **Hatcher, Algebraic Topology:** §2.2 (Phân loại mặt)
+- **Massey, Basic Course:** Chapter 1 (Chứng minh chi tiết)
+- **Armstrong, Basic Topology:** Chapter 6 (Phác thảo chứng minh)
+- **Stillwell:** *Classical Topology and Combinatorial Group Theory* (Góc nhìn lịch sử)
 
 ---
 
-*"The classification of surfaces: topology's perfect jewel."* — Topologist's motto
+## 🎓 Tóm tắt
 
-🎯 **Master surface classification! It's beautiful mathematics.** 🎯
+Trong bài học này, chúng ta đã tìm hiểu Định lý phân loại các mặt đóng liên thông. Mỗi mặt là một 2-đa tạp Hausdorff, thỏa mãn tiên đề đếm được thứ hai. Hai bất biến tô-pô — đặc trưng Euler $\chi = V - E + F$ và tính định hướng được — hoàn toàn phân biệt mọi mặt đóng liên thông sai khác phép đồng phôi: họ định hướng được gồm $S^2$ và các mặt $\Sigma_g$ ($\chi = 2 - 2g$, $g \ge 0$), còn họ không định hướng được gồm $(\mathbb{R}P^2)^{\#k}$ ($\chi = 2 - k$, $k \ge 1$).
+
+**Tiếp theo:** Lecture 05.02 về **Phức CW (CW Complexes)** — khung xây dựng không gian tô-pô tổng quát cho mọi số chiều.
+
+---
+
+*"The classification of surfaces: topology's perfect jewel."*
 
 ---
 
 **Previous:** [Lecture 05.00: Quotient Topology](/contents/vi/topology-chapter05/05_00_Quotient_Topology_Construction/)  
 **Next:** [Lecture 05.02: CW Complexes](/contents/vi/topology-chapter05/05_02_CW_Complexes/)
-

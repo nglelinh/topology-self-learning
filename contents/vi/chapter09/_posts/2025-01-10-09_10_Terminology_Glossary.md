@@ -10,524 +10,508 @@ tags: [glossary, terminology, dictionary, reference]
 description: "Tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology, trình bày dưới dạng bảng có tổ chức"
 ---
 
-**Từ Điển Thuật Ngữ Toán Học - Tổng Hợp Toàn Khóa**
+**Từ điển thuật ngữ toán học — Tổng hợp toàn khóa**
 
 ---
 
-**Lưu ý về hiển thị công thức toán học:** Tất cả các công thức toán học trong bảng được viết bằng LaTeX và sẽ được hiển thị đúng khi MathJax được load. Nếu công thức không hiển thị, vui lòng đảm bảo rằng MathJax đã được cấu hình đúng trong trang web.
+**Lưu ý hiển thị công thức:** Các công thức trong bảng được viết bằng LaTeX và hiển thị qua MathJax. Nếu công thức chưa hiển thị đúng, hãy kiểm tra cấu hình tải MathJax của trình duyệt hoặc trang web.
 
 ---
 
 ## 📖 Tổng quan
 
-Bài học này là một **từ điển toàn diện** tổng hợp tất cả các thuật ngữ toán học đã được sử dụng trong toàn bộ khóa học topology. Đây là một tài liệu tham khảo hữu ích để tra cứu nhanh các định nghĩa, ký hiệu, và khái niệm quan trọng.
+Bài học này tổng hợp các thuật ngữ và ký hiệu toán học cốt lõi đã xuất hiện trong toàn bộ khóa học tô-pô, được phân nhóm theo từng chương và chủ đề để thuận tiện tra cứu nhanh, ôn tập và đối chiếu song ngữ Anh – Việt.
 
-**Cách sử dụng:**
-
-- **Tra cứu nhanh:** Sử dụng để tìm định nghĩa của một thuật ngữ cụ thể
-- **Ôn tập:** Xem lại các khái niệm đã học theo từng chương
-- **Tham khảo:** Sử dụng khi đọc các bài học khác để hiểu các thuật ngữ
-
-**Cấu trúc:**
-
-Các thuật ngữ được sắp xếp theo các chương và chủ đề chính, với bảng trình bày rõ ràng bao gồm:
-- **Thuật ngữ** (tiếng Việt và tiếng Anh)
-- **Ký hiệu toán học** (nếu có)
-- **Định nghĩa ngắn gọn**
-- **Chương xuất hiện**
+Mỗi bảng gồm bốn cột:
+- **Thuật ngữ** (tiếng Việt và tiếng Anh tương ứng).
+- **Ký hiệu toán học** (nếu có).
+- **Định nghĩa ngắn gọn.**
+- **Bài học xuất hiện.**
 
 ---
 
-## 📚 Chapter 00: Foundations and Set-Theoretic Topology
+## 📚 Chương 00: Nền tảng và Tô-pô tập hợp
 
-### Lý Thuyết Tập Hợp
+### Lý thuyết tập hợp
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Tập hợp** (Set) | $A$, $B$, $X$ | Một collection các đối tượng phân biệt | 00.00 |
+| **Tập hợp** (Set) | $A$, $B$, $X$ | Một tập hợp các đối tượng phân biệt | 00.00 |
 | **Phần tử** (Element) | $x \in A$ | Một đối tượng thuộc tập hợp | 00.00 |
 | **Tập con** (Subset) | $A \subseteq B$ | Mọi phần tử của $A$ đều thuộc $B$ | 00.00 |
-| **Tập rỗng** (Empty Set) | $\emptyset$ | Tập hợp không có phần tử nào | 00.00 |
-| **Hợp** (Union) | $A \cup B$ | Tập tất cả phần tử thuộc $A$ hoặc $B$ | 00.00 |
+| **Tập rỗng** (Empty Set) | $\emptyset$ | Tập hợp không chứa phần tử nào | 00.00 |
+| **Hợp** (Union) | $A \cup B$ | Tập tất cả phần tử thuộc $A$ hoặc thuộc $B$ | 00.00 |
 | **Giao** (Intersection) | $A \cap B$ | Tập tất cả phần tử thuộc cả $A$ và $B$ | 00.00 |
 | **Hiệu** (Difference) | $A \setminus B$ | Tập các phần tử thuộc $A$ nhưng không thuộc $B$ | 00.00 |
 | **Phần bù** (Complement) | $A^c$ | Tập tất cả phần tử không thuộc $A$ | 00.00 |
 | **Tích Descartes** (Cartesian Product) | $A \times B$ | Tập các cặp có thứ tự $(a,b)$ với $a \in A$, $b \in B$ | 00.01 |
-| **Lực lượng** (Cardinality) | $|A|$, $\mathrm{card}(A)$ | Số lượng phần tử của tập hợp | 00.00 |
-| **Đếm được** (Countable) | $\aleph_0$ | Có thể đặt tương ứng 1-1 với $\mathbb{N}$ | 00.00 |
-| **Không đếm được** (Uncountable) | $2^{\aleph_0}$ | Không thể đặt tương ứng với $\mathbb{N}$ | 00.00 |
+| **Lực lượng** (Cardinality) | $|A|$, $\mathrm{card}(A)$ | Quy mô (số lượng phần tử) của tập hợp | 00.00 |
+| **Đếm được** (Countable) | $\aleph_0$ | Hữu hạn hoặc có thể đặt tương ứng 1-1 với $\mathbb{N}$ (vô hạn đếm được có lực lượng $\aleph_0$) | 00.00 |
+| **Không đếm được** (Uncountable) | $2^{\aleph_0}$ | Vô hạn và không thể đặt tương ứng 1-1 với $\mathbb{N}$ (ví dụ $|\mathbb{R}| = 2^{\aleph_0}$) | 00.00 |
 
-### Hàm Số và Quan Hệ
+### Hàm số và quan hệ
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Hàm số** (Function) | $f: A \to B$ | Ánh xạ từ tập $A$ vào tập $B$ | 00.00 |
+| **Hàm số / Ánh xạ** (Function) | $f: A \to B$ | Quy tắc gán mỗi phần tử của $A$ với đúng một phần tử của $B$ | 00.00 |
 | **Đơn ánh** (Injective) | $f$ injective | $f(a_1) = f(a_2) \Rightarrow a_1 = a_2$ | 00.00 |
-| **Toàn ánh** (Surjective) | $f$ surjective | Mọi $b \in B$ đều có $a \in A$ sao cho $f(a) = b$ | 00.00 |
-| **Song ánh** (Bijective) | $f$ bijective | Vừa đơn ánh vừa toàn ánh | 00.00 |
-| **Hàm ngược** (Inverse Function) | $f^{-1}$ | Hàm ngược của song ánh | 00.00 |
-| **Quan hệ tương đương** (Equivalence Relation) | $\sim$ | Quan hệ phản xạ, đối xứng, bắc cầu | 00.00 |
+| **Toàn ánh** (Surjective) | $f$ surjective | Mọi $b \in B$ đều tồn tại $a \in A$ sao cho $f(a) = b$ | 00.00 |
+| **Song ánh** (Bijective) | $f$ bijective | Ánh xạ vừa đơn ánh vừa toàn ánh | 00.00 |
+| **Hàm ngược** (Inverse Function) | $f^{-1}$ | Ánh xạ ngược của một song ánh | 00.00 |
+| **Quan hệ tương đương** (Equivalence Relation) | $\sim$ | Quan hệ thỏa mãn tính phản xạ, đối xứng và bắc cầu | 00.00 |
 | **Lớp tương đương** (Equivalence Class) | $[a]$ | Tập tất cả phần tử tương đương với $a$ | 00.00 |
-| **Phân hoạch** (Partition) | - | Phân chia tập hợp thành các lớp tương đương | 00.00 |
+| **Phân hoạch** (Partition) | - | Sự chia tập hợp thành các tập con khác rỗng, đôi một rời nhau | 00.00 |
 
-### Tiên Đề và Logic
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Tiên đề chọn** (Axiom of Choice) | AC | Có thể chọn một phần tử từ mỗi tập hợp | 00.01 |
-| **Bổ đề Zorn** (Zorn's Lemma) | - | Mọi tập được sắp thứ tự bộ phận có phần tử tối đại | 00.01 |
-| **Nguyên lý sắp thứ tự tốt** (Well-Ordering Principle) | - | Mọi tập hợp đều có thể sắp thứ tự tốt | 00.01 |
-| **Quy nạp toán học** (Mathematical Induction) | - | Phương pháp chứng minh cho các số tự nhiên | 00.02 |
-| **Phản chứng** (Proof by Contradiction) | - | Giả sử phủ định để dẫn đến mâu thuẫn | 00.02 |
-
-### Số Thực và Không Gian Euclid
+### Tiên đề và logic
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Số thực** (Real Numbers) | $\mathbb{R}$ | Tập hợp tất cả số thực | 00.03 |
-| **Không gian Euclid** (Euclidean Space) | $\mathbb{R}^n$ | Không gian $n$-chiều với metric Euclid | 00.03 |
-| **Tính đầy đủ** (Completeness) | - | Mọi dãy Cauchy đều hội tụ | 00.03 |
-| **Cắt Dedekind** (Dedekind Cut) | - | Cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$ | 00.03 |
+| **Tiên đề chọn** (Axiom of Choice) | AC | Có thể chọn đồng thời một phần tử từ mỗi tập hợp khác rỗng trong một họ bất kỳ | 00.01 |
+| **Bổ đề Zorn** (Zorn's Lemma) | - | Nếu mọi xích trong tập sắp thứ tự bộ phận đều có chặn trên thì tập đó có phần tử tối đại | 00.01 |
+| **Nguyên lý sắp thứ tự tốt** (Well-Ordering Principle) | - | Mọi tập hợp đều có thể trang bị một thứ tự tốt | 00.01 |
+| **Quy nạp toán học** (Mathematical Induction) | - | Phương pháp chứng minh mệnh đề đúng với mọi số tự nhiên | 00.02 |
+| **Phản chứng** (Proof by Contradiction) | - | Giả sử điều phủ định là đúng rồi suy ra mâu thuẫn | 00.02 |
+
+### Số thực và không gian Euclid
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Số thực** (Real Numbers) | $\mathbb{R}$ | Tập hợp tất cả các số thực | 00.03 |
+| **Không gian Euclid** (Euclidean Space) | $\mathbb{R}^n$ | Không gian $n$-chiều trang bị metric Euclid | 00.03 |
+| **Tính đầy đủ** (Completeness) | - | Mọi dãy Cauchy đều hội tụ trong không gian | 00.03 |
+| **Lát cắt Dedekind** (Dedekind Cut) | - | Phương pháp xây dựng $\mathbb{R}$ từ $\mathbb{Q}$ | 00.03 |
 
 ---
 
-## 📚 Chapter 01: Topological Spaces and Continuous Functions
+## 📚 Chương 01: Không gian tô-pô và hàm liên tục
 
-### Không Gian Tô-pô
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Không gian tô-pô** (Topological Space) | $(X, \tau)$ | Tập hợp $X$ với topology $\tau$ | 01.00 |
-| **Topology** | $\tau$ | Họ các tập mở thỏa mãn ba tiên đề | 01.00 |
-| **Tập mở** (Open Set) | $U \in \tau$ | Phần tử của topology | 01.00 |
-| **Tập đóng** (Closed Set) | $A$ closed | Phần bù của tập mở | 01.02 |
-| **Topology tầm thường** (Trivial Topology) | $\{\emptyset, X\}$ | Topology nhỏ nhất | 01.00 |
-| **Topology rời rạc** (Discrete Topology) | $\mathcal{P}(X)$ | Topology lớn nhất (mọi tập đều mở) | 01.00 |
-| **Topology hữu hạn bù** (Cofinite Topology) | - | Tập mở là $\emptyset$ hoặc có phần bù hữu hạn | 01.00 |
-| **Topology đếm được bù** (Cocountable Topology) | - | Tập mở là $\emptyset$ hoặc có phần bù đếm được | 01.00 |
-| **Thô hơn** (Coarser) | $\tau_1 \subseteq \tau_2$ | Topology nhỏ hơn | 01.00 |
-| **Mịn hơn** (Finer) | $\tau_2 \supseteq \tau_1$ | Topology lớn hơn | 01.00 |
-
-### Cơ Sở và Tiền Cơ Sở
+### Không gian tô-pô
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Cơ sở** (Basis) | $\mathcal{B}$ | Họ tập mở sinh ra topology | 01.01 |
-| **Tiền cơ sở** (Subbasis) | $\mathcal{S}$ | Họ tập hợp sinh ra basis | 01.01 |
-| **Cơ sở chuẩn** (Standard Basis) | - | Cơ sở cho $\mathbb{R}^n$ | 01.01 |
+| **Không gian tô-pô** (Topological Space) | $(X, \tau)$ | Tập hợp $X$ trang bị một tô-pô $\tau$ | 01.00 |
+| **Tô-pô** (Topology) | $\tau$ | Họ các tập con mở của $X$ thỏa mãn ba tiên đề tô-pô | 01.00 |
+| **Tập mở** (Open Set) | $U \in \tau$ | Một phần tử thuộc họ tô-pô $\tau$ | 01.00 |
+| **Tập đóng** (Closed Set) | $A$ closed | Tập con có phần bù là tập mở | 01.02 |
+| **Tô-pô tầm thường** (Trivial Topology) | $\{\emptyset, X\}$ | Tô-pô thô nhất trên $X$ | 01.00 |
+| **Tô-pô rời rạc** (Discrete Topology) | $\mathcal{P}(X)$ | Tô-pô mịn nhất (mọi tập con của $X$ đều mở) | 01.00 |
+| **Tô-pô đồng hữu hạn** (Cofinite Topology) | - | Tập mở là $\emptyset$ hoặc tập có phần bù hữu hạn | 01.00 |
+| **Tô-pô đồng đếm được** (Cocountable Topology) | - | Tập mở là $\emptyset$ hoặc tập có phần bù đếm được | 01.00 |
+| **Thô hơn** (Coarser) | $\tau_1 \subseteq \tau_2$ | Tô-pô chứa ít tập mở hơn | 01.00 |
+| **Mịn hơn** (Finer) | $\tau_2 \supseteq \tau_1$ | Tô-pô chứa nhiều tập mở hơn | 01.00 |
 
-### Bao Đóng và Phần Trong
+### Cơ sở và tiền cơ sở
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Cơ sở** (Basis) | $\mathcal{B}$ | Họ tập mở mà mọi tập mở đều là hợp của các phần tử thuộc họ đó | 01.01 |
+| **Tiền cơ sở** (Subbasis) | $\mathcal{S}$ | Họ tập hợp mà các giao hữu hạn của chúng tạo thành một cơ sở | 01.01 |
+| **Cơ sở chuẩn** (Standard Basis) | - | Cơ sở các quả cầu mở sinh ra tô-pô chuẩn trên $\mathbb{R}^n$ | 01.01 |
+
+### Bao đóng và phần trong
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
 | **Bao đóng** (Closure) | $\overline{A}$, $\mathrm{cl}(A)$ | Tập đóng nhỏ nhất chứa $A$ | 01.02 |
 | **Phần trong** (Interior) | $A^\circ$, $\mathrm{int}(A)$ | Tập mở lớn nhất chứa trong $A$ | 01.02 |
-| **Biên** (Boundary) | $\partial A$ | $\overline{A} \setminus A^\circ$ | 01.02 |
-| **Điểm giới hạn** (Limit Point) | - | Mọi lân cận đều chứa điểm khác của $A$ | 01.02 |
-| **Điểm cô lập** (Isolated Point) | - | Có lân cận không chứa điểm khác của $A$ | 01.02 |
+| **Biên** (Boundary) | $\partial A$ | Tập hiệu $\overline{A} \setminus A^\circ$ | 01.02 |
+| **Điểm tụ / Điểm giới hạn** (Limit Point) | - | Điểm mà mọi lân cận của nó đều chứa ít nhất một điểm khác của $A$ | 01.02 |
+| **Điểm cô lập** (Isolated Point) | - | Điểm thuộc $A$ có một lân cận không chứa điểm nào khác của $A$ | 01.02 |
 
-### Hàm Liên Tục và Đồng Phôi
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Hàm liên tục** (Continuous Function) | $f: X \to Y$ | Ảnh ngược của tập mở là tập mở | 01.03 |
-| **Đồng phôi** (Homeomorphism) | $f: X \cong Y$ | Song ánh liên tục với hàm ngược liên tục | 01.03 |
-| **Phép nhúng** (Embedding) | $f: X \hookrightarrow Y$ | Đồng phôi lên ảnh của nó | 01.03 |
-| **Tương đương đồng luân** (Homotopy Equivalence) | $X \simeq Y$ | Tồn tại ánh xạ với đồng luân ngược | 06.00 |
-
-### Topology Con và Tích
+### Hàm liên tục và đồng phôi
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Topology con** (Subspace Topology) | $Y \subseteq X$ | Topology cảm sinh trên tập con | 01.04 |
-| **Topology tích** (Product Topology) | $X \times Y$ | Topology trên tích Descartes | 01.04 |
-| **Hình chiếu** (Projection) | $\pi_i: X_1 \times X_2 \to X_i$ | Ánh xạ chiếu lên thành phần thứ $i$ | 01.04 |
+| **Hàm liên tục** (Continuous Function) | $f: X \to Y$ | Nghịch ảnh của mọi tập mở trong $Y$ là tập mở trong $X$ | 01.03 |
+| **Đồng phôi** (Homeomorphism) | $f: X \cong Y$ | Song ánh liên tục có ánh xạ ngược liên tục | 01.03 |
+| **Phép nhúng** (Embedding) | $f: X \hookrightarrow Y$ | Ánh xạ liên tục là đồng phôi từ $X$ lên ảnh $f(X)$ | 01.03 |
+| **Tương đương đồng luân** (Homotopy Equivalence) | $X \simeq Y$ | Tồn tại hai ánh xạ liên tục có tích hợp thành đồng luân với ánh xạ đồng nhất | 06.00 |
+
+### Tô-pô con và tô-pô tích
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Tô-pô con** (Subspace Topology) | $Y \subseteq X$ | Tô-pô cảm sinh trên tập con $Y$ bằng cách giao với các tập mở của $X$ | 01.04 |
+| **Tô-pô tích** (Product Topology) | $X \times Y$ | Tô-pô thô nhất trên tích Descartes làm các phép chiếu liên tục | 01.04 |
+| **Ánh xạ chiếu** (Projection) | $\pi_i: X_1 \times X_2 \to X_i$ | Ánh xạ chiếu lên thành phần thứ $i$ | 01.04 |
 
 ---
 
-## 📚 Chapter 02: Connectedness and Compactness
+## 📚 Chương 02: Tính liên thông và tính compact
 
-### Liên Thông
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Liên thông** (Connected) | - | Không thể phân thành hai tập mở rời nhau | 02.00 |
-| **Thành phần liên thông** (Connected Component) | - | Tập liên thông lớn nhất chứa điểm | 02.00 |
-| **Liên thông đường** (Path-Connected) | - | Mọi hai điểm đều nối được bằng đường đi | 02.00 |
-| **Thành phần liên thông đường** (Path Component) | - | Tập liên thông đường lớn nhất | 02.00 |
-| **Đường đi** (Path) | $\gamma: [0,1] \to X$ | Ánh xạ liên tục từ đoạn vào không gian | 02.00 |
-| **Vòng lặp** (Loop) | $\gamma: S^1 \to X$ | Đường đi khép kín | 06.01 |
-
-### Compact
+### Tính liên thông
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Compact** | - | Mọi phủ mở đều có phủ con hữu hạn | 02.01 |
-| **Phủ mở** (Open Cover) | $\{U_\alpha\}$ | Họ tập mở có hợp chứa không gian | 02.01 |
-| **Phủ con hữu hạn** (Finite Subcover) | - | Phủ con có số phần tử hữu hạn | 02.01 |
-| **Liên compact** (Locally Compact) | - | Mọi điểm có lân cận compact | 02.02 |
-| **Compact hóa** (Compactification) | $\hat{X}$ | Không gian compact chứa $X$ | 02.02 |
-| **Compact hóa một điểm** (One-Point Compactification) | $X^*$ | Thêm điểm vô cực | 02.02 |
-| **Compact hóa Stone-Čech** (Stone-Čech Compactification) | $\beta X$ | Compact hóa phổ quát | 02.02 |
+| **Liên thông** (Connected) | - | Không thể biểu diễn thành hợp của hai tập mở khác rỗng, rời nhau | 02.00 |
+| **Thành phần liên thông** (Connected Component) | - | Tập con liên thông lớn nhất chứa một điểm cho trước | 02.00 |
+| **Liên thông đường** (Path-Connected) | - | Mọi cặp điểm đều nối được với nhau bằng một đường đi liên tục | 02.00 |
+| **Thành phần liên thông đường** (Path Component) | - | Tập con liên thông đường lớn nhất chứa một điểm | 02.00 |
+| **Đường đi** (Path) | $\gamma: [0,1] \to X$ | Ánh xạ liên tục từ đoạn $[0,1]$ vào không gian $X$ | 02.00 |
+| **Vòng lặp** (Loop) | $\gamma: S^1 \to X$ | Đường đi khép kín có điểm đầu trùng điểm cuối | 06.01 |
+
+### Tính compact
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Compact** | - | Mọi phủ mở đều trích ra được phủ con hữu hạn | 02.01 |
+| **Phủ mở** (Open Cover) | $\{U_\alpha\}$ | Họ các tập mở có hợp chứa toàn bộ không gian | 02.01 |
+| **Phủ con hữu hạn** (Finite Subcover) | - | Họ con hữu hạn vẫn phủ hết không gian | 02.01 |
+| **Compact địa phương** (Locally Compact) | - | Mọi điểm đều có một lân cận compact | 02.02 |
+| **Compact hóa** (Compactification) | $\hat{X}$ | Không gian compact chứa $X$ như một tập con trù mật | 02.02 |
+| **Compact hóa một điểm** (One-Point Compactification) | $X^*$ | Bổ sung một điểm vô cực để tạo không gian compact | 02.02 |
+| **Compact hóa Stone–Čech** (Stone–Čech Compactification) | $\beta X$ | Compact hóa Hausdorff lớn nhất (có tính phổ quát) | 02.02 |
 
 ---
 
-## 📚 Chapter 03: Separation Axioms
+## 📚 Chương 03: Các tiên đề tách
 
-### Tiên Đề Tách
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **T0-space** | - | Với mọi hai điểm, có tập mở chứa một điểm nhưng không chứa điểm kia | 03.00 |
-| **T1-space** | - | Mọi điểm đơn đều đóng | 03.00 |
-| **Hausdorff** (T2) | - | Mọi hai điểm đều có lân cận rời nhau | 03.00 |
-| **Regular** (T3) | - | Tập đóng và điểm không thuộc có lân cận rời nhau | 03.01 |
-| **Normal** (T4) | - | Mọi hai tập đóng rời nhau có lân cận rời nhau | 03.01 |
-| **Hoàn toàn chính quy** (Completely Regular) | T3½ | Regular và có hàm liên tục tách điểm và tập đóng | 03.01 |
-
-### Tiên Đề Đếm Được
+### Tiên đề tách
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Đếm được thứ nhất** (First Countable) | - | Mọi điểm có cơ sở lân cận đếm được | 03.02 |
-| **Đếm được thứ hai** (Second Countable) | - | Có cơ sở đếm được | 03.02 |
-| **Separable** | - | Có tập con đếm được trù mật | 03.02 |
+| **Không gian $T_0$** (T0-space) | - | Với hai điểm phân biệt bất kỳ, có tập mở chứa điểm này nhưng không chứa điểm kia | 03.00 |
+| **Không gian $T_1$** (T1-space) | - | Mọi tập đơn điểm đều là tập đóng | 03.00 |
+| **Hausdorff** ($T_2$) | - | Mọi cặp điểm phân biệt đều có hai lân cận mở rời nhau | 03.00 |
+| **Chính quy** (Regular / $T_3$) | - | Điểm và tập đóng không chứa nó luôn có hai lân cận mở rời nhau | 03.01 |
+| **Chuẩn tắc** (Normal / $T_4$) | - | Mọi cặp tập đóng rời nhau đều có hai lân cận mở rời nhau | 03.01 |
+| **Hoàn toàn chính quy** (Completely Regular) | $T_{3\frac{1}{2}}$ | $T_1$ và tách được điểm với tập đóng bằng hàm liên tục vào $[0,1]$ | 03.01 |
+
+### Tiên đề đếm được
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Đếm được thứ nhất** (First Countable) | - | Mọi điểm đều có một cơ sở lân cận đếm được | 03.02 |
+| **Đếm được thứ hai** (Second Countable) | - | Không gian có một cơ sở tô-pô đếm được | 03.02 |
+| **Tách được** (Separable) | - | Chứa một tập con đếm được trù mật | 03.02 |
 | **Lindelöf** | - | Mọi phủ mở đều có phủ con đếm được | 03.02 |
 
-### Định Lý Metrization
+### Định lý metric hóa
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Metrizable** | - | Có thể định nghĩa metric sinh ra topology | 03.03 |
-| **Định lý Urysohn Metrization** | - | T3 + Second countable $\Rightarrow$ Metrizable | 03.03 |
-| **Bổ đề Urysohn** (Urysohn's Lemma) | - | Tồn tại hàm liên tục tách tập đóng rời nhau | 03.01 |
-| **Định lý Tietze Extension** | - | Hàm liên tục trên tập đóng có thể mở rộng | 03.01 |
+| **Metric hóa được** (Metrizable) | - | Tồn tại một metric sinh ra đúng tô-pô của không gian | 03.03 |
+| **Định lý metric hóa Urysohn** | - | Không gian chính quy ($T_3$) và đếm được thứ hai $\Rightarrow$ metric hóa được | 03.03 |
+| **Bổ đề Urysohn** (Urysohn's Lemma) | - | Trong không gian chuẩn tắc, hai tập đóng rời nhau tách được bằng hàm liên tục | 03.01 |
+| **Định lý mở rộng Tietze** | - | Hàm liên tục trên tập con đóng của không gian chuẩn tắc mở rộng được ra toàn không gian | 03.01 |
 
 ---
 
-## 📚 Chapter 04: Metric Spaces
+## 📚 Chương 04: Không gian metric
 
-### Không Gian Metric
+### Không gian metric
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Metric** (Khoảng cách) | $d: X \times X \to \mathbb{R}$ | Hàm khoảng cách thỏa mãn ba tiên đề | 04.00 |
-| **Không gian metric** (Metric Space) | $(X, d)$ | Tập hợp với metric | 04.00 |
+| **Metric** (Khoảng cách) | $d: X \times X \to \mathbb{R}$ | Hàm khoảng cách thỏa mãn tính không âm–xác định, đối xứng và bất đẳng thức tam giác | 04.00 |
+| **Không gian metric** (Metric Space) | $(X, d)$ | Tập hợp $X$ trang bị metric $d$ | 04.00 |
 | **Quả cầu mở** (Open Ball) | $B(x, r)$ | $\{y : d(x,y) < r\}$ | 04.00 |
 | **Quả cầu đóng** (Closed Ball) | $\overline{B}(x, r)$ | $\{y : d(x,y) \leq r\}$ | 04.00 |
 | **Metric Euclid** (Euclidean Metric) | $d_2$ | $\sqrt{\sum (x_i - y_i)^2}$ | 04.00 |
 | **Metric Manhattan** (Manhattan Metric) | $d_1$ | $\sum |x_i - y_i|$ | 04.00 |
-| **Metric Maximum** (Maximum Metric) | $d_\infty$ | $\max |x_i - y_i|$ | 04.00 |
-| **Metric rời rạc** (Discrete Metric) | $d_{\mathrm{disc}}$ | $d(x,y) = 1$ nếu $x \neq y$ | 04.00 |
+| **Metric cực đại** (Maximum Metric) | $d_\infty$ | $\max |x_i - y_i|$ | 04.00 |
+| **Metric rời rạc** (Discrete Metric) | $d_{\mathrm{disc}}$ | $d(x,y) = 1$ nếu $x \neq y$, bằng $0$ nếu $x = y$ | 04.00 |
 
-### Tính Đầy Đủ và Baire
+### Tính đầy đủ và định lý Baire
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
 | **Dãy Cauchy** (Cauchy Sequence) | $(x_n)$ | $\forall \epsilon > 0, \exists N: m,n \geq N \Rightarrow d(x_m, x_n) < \epsilon$ | 04.01 |
 | **Đầy đủ** (Complete) | - | Mọi dãy Cauchy đều hội tụ | 04.01 |
-| **Hoàn thiện** (Completion) | $\hat{X}$ | Không gian đầy đủ chứa $X$ | 04.01 |
-| **Tập không đâu trù mật** (Nowhere Dense) | - | Phần trong của bao đóng rỗng | 04.01 |
-| **Tập meager** (Meager/First Category) | - | Hợp đếm được các tập không đâu trù mật | 04.01 |
-| **Tập nonmeager** (Nonmeager/Second Category) | - | Không phải meager | 04.01 |
-| **Định lý Baire Category** | - | Không gian đầy đủ là nonmeager | 04.01 |
+| **Hoàn thiện** (Completion) | $\hat{X}$ | Không gian metric đầy đủ chứa $X$ đẳng cự và trù mật | 04.01 |
+| **Không đâu trù mật** (Nowhere Dense) | - | Tập con có phần trong của bao đóng bằng rỗng | 04.01 |
+| **Tập gầy / Phạm trù thứ nhất** (Meager / First Category) | - | Hợp đếm được các tập không đâu trù mật | 04.01 |
+| **Tập không gầy / Phạm trù thứ hai** (Nonmeager / Second Category) | - | Tập không phải tập gầy | 04.01 |
+| **Định lý phạm trù Baire** (Baire Category Theorem) | - | Không gian metric đầy đủ khác rỗng thuộc phạm trù thứ hai | 04.01 |
 
-### Tính Liên Tục Đều
+### Tính liên tục đều
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
 | **Liên tục đều** (Uniformly Continuous) | - | $\forall \epsilon > 0, \exists \delta > 0: d(x,y) < \delta \Rightarrow d(f(x), f(y)) < \epsilon$ | 04.02 |
-| **Lipschitz** | - | $d(f(x), f(y)) \leq L \cdot d(x,y)$ | 04.02 |
-| **Hệ số Lipschitz** (Lipschitz Constant) | $L$ | Hằng số trong điều kiện Lipschitz | 04.02 |
-| **Co rút** (Contraction) | - | Lipschitz với $L < 1$ | 04.02 |
-| **Định lý điểm cố định Banach** | - | Co rút trên không gian đầy đủ có điểm cố định duy nhất | 04.02 |
+| **Ánh xạ Lipschitz** | - | $d(f(x), f(y)) \leq L \cdot d(x,y)$ | 04.02 |
+| **Hằng số Lipschitz** (Lipschitz Constant) | $L$ | Hằng số chặn trên tỉ số khoảng cách trong điều kiện Lipschitz | 04.02 |
+| **Ánh xạ co** (Contraction) | - | Ánh xạ Lipschitz với hằng số $L < 1$ | 04.02 |
+| **Định lý điểm bất động Banach** | - | Mọi ánh xạ co trên không gian metric đầy đủ khác rỗng có đúng một điểm bất động | 04.02 |
 
-### Metric Tích và Không Gian Hàm
+### Metric tích và không gian hàm
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Metric tích** (Product Metric) | - | Metric trên tích các không gian metric | 04.03 |
-| **Không gian hàm** (Function Space) | $C(X,Y)$ | Tập các hàm liên tục | 04.03 |
+| **Metric tích** (Product Metric) | - | Metric cảm sinh trên tích các không gian metric | 04.03 |
+| **Không gian hàm** (Function Space) | $C(X,Y)$ | Tập các ánh xạ liên tục từ $X$ vào $Y$ | 04.03 |
 | **Metric đều** (Uniform Metric) | $d_\infty$ | $\sup_{x \in X} d(f(x), g(x))$ | 04.03 |
-| **Hội tụ đều** (Uniform Convergence) | - | Hội tụ theo metric đều | 04.03 |
-| **Hội tụ điểm** (Pointwise Convergence) | - | Hội tụ tại mỗi điểm | 04.03 |
+| **Hội tụ đều** (Uniform Convergence) | - | Sự hội tụ theo metric đều | 04.03 |
+| **Hội tụ từng điểm** (Pointwise Convergence) | - | Sự hội tụ riêng lẻ tại mỗi điểm $x \in X$ | 04.03 |
 
 ---
 
-## 📚 Chapter 05: Quotient Spaces
+## 📚 Chương 05: Không gian thương
 
-### Topology Thương
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Quan hệ tương đương** (Equivalence Relation) | $\sim$ | Quan hệ phản xạ, đối xứng, bắc cầu | 05.00 |
-| **Tập thương** (Quotient Set) | $X/\sim$ | Tập các lớp tương đương | 05.00 |
-| **Topology thương** (Quotient Topology) | - | Topology lớn nhất làm ánh xạ chiếu liên tục | 05.00 |
-| **Ánh xạ chiếu** (Projection Map) | $\pi: X \to X/\sim$ | Ánh xạ gửi phần tử vào lớp tương đương | 05.00 |
-| **Ánh xạ thương** (Quotient Map) | $q: X \to Y$ | Ánh xạ liên tục, mở, và toàn ánh | 05.00 |
-
-### Phân Loại Bề Mặt
+### Tô-pô thương
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Bề mặt** (Surface) | - | 2-manifold compact | 05.01 |
-| **Định hướng được** (Orientable) | - | Có thể định hướng nhất quán | 05.01 |
-| **Không định hướng được** (Non-orientable) | - | Không thể định hướng | 05.01 |
-| **Genus** | $g$ | Số lỗ trong bề mặt | 05.01 |
-| **Đặc trưng Euler** (Euler Characteristic) | $\chi$ | $V - E + F$ | 05.01 |
-| **Tổng liên thông** (Connected Sum) | $\#$ | Phép toán ghép hai bề mặt | 05.01 |
-| **Đa giác cơ bản** (Fundamental Polygon) | - | Biểu diễn bề mặt bằng đa giác | 05.01 |
+| **Quan hệ tương đương** (Equivalence Relation) | $\sim$ | Quan hệ phản xạ, đối xứng và bắc cầu | 05.00 |
+| **Tập thương** (Quotient Set) | $X/\sim$ | Tập hợp các lớp tương đương của $X$ theo $\sim$ | 05.00 |
+| **Tô-pô thương** (Quotient Topology) | - | Tô-pô mịn nhất trên $X/\sim$ làm ánh xạ chiếu liên tục | 05.00 |
+| **Ánh xạ chiếu chính tắc** (Projection Map) | $\pi: X \to X/\sim$ | Ánh xạ gửi mỗi phần tử vào lớp tương đương của nó | 05.00 |
+| **Ánh xạ thương** (Quotient Map) | $q: X \to Y$ | Toàn ánh thỏa mãn $U \subseteq Y$ mở $\iff q^{-1}(U)$ mở trong $X$ | 05.00 |
+
+### Phân loại bề mặt
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Bề mặt** (Surface) | - | Đa tạp 2 chiều (thường xét trường hợp compact không biên) | 05.01 |
+| **Định hướng được** (Orientable) | - | Có thể chọn định hướng liên tục và nhất quán trên toàn mặt | 05.01 |
+| **Không định hướng được** (Non-orientable) | - | Không thể định hướng nhất quán trên toàn mặt | 05.01 |
+| **Giống** (Genus) | $g$ | Số lỗ (tay cầm) của bề mặt đóng định hướng được | 05.01 |
+| **Đặc trưng Euler** (Euler Characteristic) | $\chi$ | Bất biến $V - E + F$ | 05.01 |
+| **Tổng liên thông** (Connected Sum) | $\#$ | Phép ghép hai bề mặt bằng cách khoét đĩa rồi dán dọc theo biên | 05.01 |
+| **Đa giác cơ bản** (Fundamental Polygon) | - | Biểu diễn một bề mặt đóng bằng cách dán các cạnh của một đa giác | 05.01 |
 
 ### Phức CW
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Phức CW** (CW Complex) | - | Không gian được xây dựng từ cells | 05.02 |
-| **n-cell** | $e^n$ | Quả cầu mở $n$-chiều | 05.02 |
-| **Skeleton** | $X^n$ | Phức con gồm các cells chiều $\leq n$ | 05.02 |
-| **Ánh xạ gắn** (Attaching Map) | $\phi: S^{n-1} \to X^{n-1}$ | Ánh xạ gắn $n$-cell vào skeleton | 05.02 |
+| **Phức CW** (CW Complex) | - | Không gian xây dựng bằng cách gắn tuần tự các tế bào (cell) theo chiều tăng dần | 05.02 |
+| **Tế bào $n$-chiều** ($n$-cell) | $e^n$ | Không gian đồng phôi với quả cầu mở $n$-chiều | 05.02 |
+| **Khung $n$-chiều** ($n$-Skeleton) | $X^n$ | Phức con gồm toàn bộ các tế bào có chiều $\leq n$ | 05.02 |
+| **Ánh xạ gắn** (Attaching Map) | $\phi: S^{n-1} \to X^{n-1}$ | Ánh xạ liên tục gắn biên của $n$-tế bào vào khung $(n-1)$-chiều | 05.02 |
 
-### Tác Động Nhóm
+### Tác động nhóm
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Tác động nhóm** (Group Action) | $G \curvearrowright X$ | Ánh xạ $G \times X \to X$ thỏa mãn tiên đề | 05.03 |
+| **Tác động nhóm** (Group Action) | $G \curvearrowright X$ | Ánh xạ $G \times X \to X$ thỏa mãn tiên đề kết hợp và phần tử đơn vị | 05.03 |
 | **Quỹ đạo** (Orbit) | $G \cdot x$ | Tập $\{g \cdot x : g \in G\}$ | 05.03 |
-| **Nhóm đẳng hướng** (Stabilizer) | $G_x$ | $\{g \in G : g \cdot x = x\}$ | 05.03 |
-| **Không gian quỹ đạo** (Orbit Space) | $X/G$ | Tập các quỹ đạo với topology thương | 05.03 |
+| **Nhóm ổn định / Đẳng hướng** (Stabilizer) | $G_x$ | Nhóm con $\{g \in G : g \cdot x = x\}$ | 05.03 |
+| **Không gian quỹ đạo** (Orbit Space) | $X/G$ | Tập các quỹ đạo trang bị tô-pô thương | 05.03 |
 
 ---
 
-## 📚 Chapter 06: Fundamental Group
+## 📚 Chương 06: Nhóm cơ bản
 
-### Đồng Luân
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Đồng luân** (Homotopy) | $F: X \times [0,1] \to Y$ | Biến dạng liên tục giữa hai ánh xạ | 06.00 |
-| **Đồng luân đường** (Path Homotopy) | $\gamma \simeq_p \delta$ | Đồng luân giữa các đường đi | 06.00 |
-| **Lớp đồng luân** (Homotopy Class) | $[\gamma]$ | Tập các đường đi đồng luân | 06.00 |
-| **Co được** (Contractible) | - | Đồng luân với điểm | 06.00 |
-| **Rút đồng luân** (Deformation Retract) | - | Rút liên tục về không gian con | 06.00 |
-
-### Nhóm Cơ Bản
+### Đồng luân
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Nhóm cơ bản** (Fundamental Group) | $\pi_1(X, x_0)$ | Nhóm các lớp đồng luân của loops tại $x_0$ | 06.01 |
-| **Điểm cơ sở** (Basepoint) | $x_0$ | Điểm cố định cho loops | 06.01 |
-| **Ghép nối** (Concatenation) | $\gamma \cdot \delta$ | Đi qua $\gamma$ rồi $\delta$ | 06.01 |
-| **Đường đi ngược** (Inverse Path) | $\gamma^{-1}$ | Đi ngược lại đường đi | 06.01 |
-| **Vòng lặp hằng** (Constant Loop) | $e_{x_0}$ | Vòng lặp không di chuyển | 06.01 |
-| **Số vòng quay** (Winding Number) | - | Số lần vòng quanh điểm | 06.02 |
+| **Đồng luân** (Homotopy) | $F: X \times [0,1] \to Y$ | Biến dạng liên tục từ ánh xạ này sang ánh xạ khác | 06.00 |
+| **Đồng luân đường** (Path Homotopy) | $\gamma \simeq_p \delta$ | Đồng luân giữa hai đường đi giữ cố định hai đầu mút | 06.00 |
+| **Lớp đồng luân** (Homotopy Class) | $[\gamma]$ | Tập các đường đi đồng luân đường với $\gamma$ | 06.00 |
+| **Co được** (Contractible) | - | Tương đương đồng luân với một điểm | 06.00 |
+| **Rút đồng luân** (Deformation Retract) | - | Phép đồng luân rút liên tục không gian về một không gian con | 06.00 |
 
-### Không Gian Phủ
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Không gian phủ** (Covering Space) | $\tilde{X}$ | Không gian phủ $X$ | 06.03 |
-| **Ánh xạ phủ** (Covering Map) | $p: \tilde{X} \to X$ | Ánh xạ phủ địa phương | 06.03 |
-| **Lift** | $\tilde{f}$ | Nâng ánh xạ lên không gian phủ | 06.03 |
-| **Phủ phổ quát** (Universal Cover) | - | Phủ đơn liên | 06.03 |
-| **Biến đổi Deck** (Deck Transformation) | - | Tự đẳng cấu của không gian phủ | 06.03 |
-
-### Định Lý Van Kampen
+### Nhóm cơ bản
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Tích tự do** (Free Product) | $G * H$ | Tích tự do của hai nhóm | 06.04 |
-| **Tích tự do ghép** (Amalgamated Free Product) | $G *_K H$ | Tích tự do ghép qua nhóm con | 06.04 |
-| **Định lý Seifert-Van Kampen** | - | Tính toán $\pi_1$ từ các phần | 06.04 |
-| **Tổng nêm** (Wedge Sum) | $X \vee Y$ | Ghép hai không gian tại một điểm | 06.04 |
+| **Nhóm cơ bản** (Fundamental Group) | $\pi_1(X, x_0)$ | Nhóm các lớp đồng luân của các vòng lặp tại điểm cơ sở $x_0$ | 06.01 |
+| **Điểm cơ sở** (Basepoint) | $x_0$ | Điểm cố định làm đầu và cuối cho các vòng lặp | 06.01 |
+| **Ghép nối đường** (Concatenation) | $\gamma \cdot \delta$ | Đi hết đường $\gamma$ rồi nối tiếp bằng đường $\delta$ | 06.01 |
+| **Đường đi ngược** (Inverse Path) | $\gamma^{-1}$ | Đường đi ngược chiều từ cuối về đầu của $\gamma$ | 06.01 |
+| **Vòng lặp hằng** (Constant Loop) | $e_{x_0}$ | Vòng lặp đứng yên tại $x_0$ (phần tử đơn vị của $\pi_1$) | 06.01 |
+| **Chỉ số vòng quay** (Winding Number) | - | Số vòng quấn có hướng quanh một điểm | 06.02 |
+
+### Không gian phủ
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Không gian phủ** (Covering Space) | $\tilde{X}$ | Không gian đi kèm một ánh xạ phủ lên $X$ | 06.03 |
+| **Ánh xạ phủ** (Covering Map) | $p: \tilde{X} \to X$ | Toàn ánh liên tục phủ đều địa phương | 06.03 |
+| **Nâng ánh xạ** (Lift) | $\tilde{f}$ | Ánh xạ lên $\tilde{X}$ sao cho $p \circ \tilde{f} = f$ | 06.03 |
+| **Không gian phủ phổ quát** (Universal Cover) | - | Không gian phủ đơn liên | 06.03 |
+| **Phép biến đổi tầng** (Deck Transformation) | - | Tự đồng phôi của $\tilde{X}$ giao hoán với ánh xạ phủ $p$ | 06.03 |
+
+### Định lý Seifert–Van Kampen
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Tích tự do** (Free Product) | $G * H$ | Tích tự do của hai nhóm $G$ và $H$ | 06.04 |
+| **Tích tự do hợp nhất** (Amalgamated Free Product) | $G *_K H$ | Tích tự do đồng nhất hóa hai bản sao của nhóm con $K$ | 06.04 |
+| **Định lý Seifert–Van Kampen** | - | Công cụ tính $\pi_1$ của không gian từ hai mảnh mở phủ nó | 06.04 |
+| **Tổng nêm** (Wedge Sum) | $X \vee Y$ | Ghép hai không gian có điểm cơ sở tại đúng một điểm chung | 06.04 |
 
 ---
 
-## 📚 Chapter 07: Homology Theory
+## 📚 Chương 07: Lý thuyết đồng điều
 
-### Homology Đơn Hình
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **n-đơn hình** (n-Simplex) | $\sigma = [v_0, \ldots, v_n]$ | Convex hull của $n+1$ điểm độc lập | 07.00 |
-| **Mặt** (Face) | $\partial_i \sigma$ | Simplex con loại bỏ vertex $v_i$ | 07.00 |
-| **Phức đơn hình** (Simplicial Complex) | $K$ | Tập các simplices đóng với mặt | 07.00 |
-| **Thực hóa hình học** (Geometric Realization) | $|K|$ | Không gian tô-pô của phức | 07.00 |
-| **Nhóm chuỗi** (Chain Group) | $C_n(K)$ | Nhóm abel tự do sinh bởi $n$-simplices | 07.00 |
-| **Toán tử biên** (Boundary Operator) | $\partial_n: C_n \to C_{n-1}$ | Toán tử tính biên của simplex | 07.00 |
-| **Phức chuỗi** (Chain Complex) | $(C_*, \partial_*)$ | Dãy các nhóm và toán tử biên | 07.00 |
-| **Chu trình** (Cycle) | $Z_n = \ker(\partial_n)$ | Phần tử có biên bằng 0 | 07.00 |
-| **Biên** (Boundary) | $B_n = \mathrm{im}(\partial_{n+1})$ | Phần tử là biên của phần tử khác | 07.00 |
-| **Nhóm đồng điều** (Homology Group) | $H_n(K) = Z_n / B_n$ | Chu trình modulo biên | 07.00 |
-| **Số Betti** (Betti Number) | $\beta_n = \mathrm{rank}(H_n)$ | Hạng của nhóm đồng điều | 07.00 |
-
-### Homology Kỳ Dị
+### Đồng điều đơn hình
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Đơn hình chuẩn** (Standard Simplex) | $\Delta^n$ | Simplex chuẩn trong $\mathbb{R}^{n+1}$ | 07.01 |
-| **Tọa độ barycentric** (Barycentric Coordinates) | $(t_0, \ldots, t_n)$ | Tọa độ trong simplex | 07.01 |
-| **Ánh xạ mặt** (Face Map) | $\delta_i: \Delta^{n-1} \to \Delta^n$ | Ánh xạ vào mặt thứ $i$ | 07.01 |
-| **Ánh xạ suy biến** (Degeneracy Map) | $s_i: \Delta^{n+1} \to \Delta^n$ | Ánh xạ suy biến | 07.01 |
-| **n-đơn hình kỳ dị** (Singular n-Simplex) | $\sigma: \Delta^n \to X$ | Ánh xạ liên tục từ simplex chuẩn | 07.01 |
-| **Nhóm chuỗi kỳ dị** (Singular Chain Group) | $C_n(X)$ | Nhóm abel tự do sinh bởi singular simplices | 07.01 |
-| **Homology kỳ dị** (Singular Homology) | $H_n(X)$ | Homology của phức chuỗi kỳ dị | 07.01 |
+| **$n$-đơn hình** ($n$-Simplex) | $\sigma = [v_0, \ldots, v_n]$ | Bao lồi của $n+1$ điểm độc lập afin | 07.00 |
+| **Mặt của đơn hình** (Face) | $\partial_i \sigma$ | Đơn hình con thu được khi bỏ đỉnh $v_i$ | 07.00 |
+| **Phức đơn hình** (Simplicial Complex) | $K$ | Tập các đơn hình đóng với phép lấy mặt và giao theo mặt chung | 07.00 |
+| **Thực hóa hình học** (Geometric Realization) | $|K|$ | Không gian tô-pô tương ứng với phức đơn hình $K$ | 07.00 |
+| **Nhóm dây chuyền** (Chain Group) | $C_n(K)$ | Nhóm Abel tự do sinh bởi các $n$-đơn hình | 07.00 |
+| **Toán tử biên** (Boundary Operator) | $\partial_n: C_n \to C_{n-1}$ | Đồng cấu ánh xạ mỗi $n$-đơn hình sang tổng có dấu các mặt của nó | 07.00 |
+| **Phức dây chuyền** (Chain Complex) | $(C_*, \partial_*)$ | Dãy các nhóm và toán tử biên thỏa mãn $\partial_{n-1} \circ \partial_n = 0$ | 07.00 |
+| **Chu trình** (Cycle) | $Z_n = \ker(\partial_n)$ | Dây chuyền có biên bằng 0 | 07.00 |
+| **Biên** (Boundary) | $B_n = \mathrm{im}(\partial_{n+1})$ | Dây chuyền là biên của một dây chuyền chiều cao hơn | 07.00 |
+| **Nhóm đồng điều** (Homology Group) | $H_n(K) = Z_n / B_n$ | Nhóm thương của chu trình theo biên | 07.00 |
+| **Số Betti** (Betti Number) | $\beta_n = \mathrm{rank}(H_n)$ | Hạng của phần tự do trong nhóm đồng điều bậc $n$ | 07.00 |
 
-### Dãy Mayer-Vietoris
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Dãy khớp** (Exact Sequence) | - | Dãy với $\mathrm{im} = \ker$ | 07.03 |
-| **Dãy khớp ngắn** (Short Exact Sequence) | $0 \to A \to B \to C \to 0$ | Dãy khớp với 5 phần tử | 07.03 |
-| **Dãy Mayer-Vietoris** | - | Dãy khớp dài tính $H_n$ từ các phần | 07.03 |
-| **Ánh xạ nối** (Connecting Homomorphism) | $\partial_*$ | Ánh xạ nối trong dãy khớp | 07.03 |
-
-### Đồng Điều
+### Đồng điều kỳ dị
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Đồng điều** (Cohomology) | $H^n(X)$ | Đối ngẫu của homology | 07.04 |
-| **Nhóm đối chuỗi** (Cochain Group) | $C^n(X)$ | $\mathrm{Hom}(C_n(X), \mathbb{Z})$ | 07.04 |
-| **Toán tử đối biên** (Coboundary Operator) | $\delta: C^n \to C^{n+1}$ | Đối ngẫu của toán tử biên | 07.04 |
-| **Tích cúp** (Cup Product) | $\cup$ | Phép nhân trong cohomology | 07.04 |
-| **Vành đồng điều** (Cohomology Ring) | $H^*(X)$ | Cohomology với tích cúp | 07.04 |
+| **Đơn hình chuẩn** (Standard Simplex) | $\Delta^n$ | $n$-đơn hình chuẩn trong $\mathbb{R}^{n+1}$ | 07.01 |
+| **Tọa độ trọng tâm** (Barycentric Coordinates) | $(t_0, \ldots, t_n)$ | Bộ tọa độ không âm có tổng bằng 1 trong đơn hình | 07.01 |
+| **Ánh xạ mặt** (Face Map) | $\delta_i: \Delta^{n-1} \to \Delta^n$ | Ánh xạ nhúng vào mặt đối diện đỉnh thứ $i$ | 07.01 |
+| **Ánh xạ suy biến** (Degeneracy Map) | $s_i: \Delta^{n+1} \to \Delta^n$ | Ánh xạ chiếu gộp hai đỉnh liên tiếp | 07.01 |
+| **$n$-đơn hình kỳ dị** (Singular $n$-Simplex) | $\sigma: \Delta^n \to X$ | Ánh xạ liên tục từ đơn hình chuẩn vào không gian $X$ | 07.01 |
+| **Nhóm dây chuyền kỳ dị** (Singular Chain Group) | $C_n(X)$ | Nhóm Abel tự do sinh bởi các $n$-đơn hình kỳ dị | 07.01 |
+| **Đồng điều kỳ dị** (Singular Homology) | $H_n(X)$ | Đồng điều của phức dây chuyền kỳ dị | 07.01 |
+
+### Dãy Mayer–Vietoris
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Dãy khớp** (Exact Sequence) | - | Dãy đồng cấu thỏa mãn $\mathrm{im} = \ker$ tại mỗi bước | 07.03 |
+| **Dãy khớp ngắn** (Short Exact Sequence) | $0 \to A \to B \to C \to 0$ | Dãy khớp gồm năm hạng tử với hai đầu bằng $0$ | 07.03 |
+| **Dãy Mayer–Vietoris** | - | Dãy khớp dài liên hệ đồng điều của $A \cup B$ với $A$, $B$ và $A \cap B$ | 07.03 |
+| **Đồng cấu nối** (Connecting Homomorphism) | $\partial_*$ | Đồng cấu chuyển từ bậc $n$ sang bậc $n-1$ trong dãy khớp dài | 07.03 |
+
+### Đối đồng điều (Cohomology)
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Đối đồng điều** (Cohomology) | $H^n(X)$ | Bất biến đại số đối ngẫu với đồng điều | 07.04 |
+| **Nhóm đối dây chuyền** (Cochain Group) | $C^n(X)$ | Nhóm đồng cấu $\mathrm{Hom}(C_n(X), \mathbb{Z})$ | 07.04 |
+| **Toán tử đối biên** (Coboundary Operator) | $\delta: C^n \to C^{n+1}$ | Toán tử đối ngẫu của toán tử biên | 07.04 |
+| **Tích cốc / Tích cup** (Cup Product) | $\cup$ | Phép nhân phân bậc trên đối đồng điều | 07.04 |
+| **Vành đối đồng điều** (Cohomology Ring) | $H^*(X)$ | Cấu trúc vành của đối đồng điều với phép tích cup | 07.04 |
 
 ---
 
-## 📚 Chapter 08: Advanced Topics
+## 📚 Chương 08: Các chủ đề nâng cao
 
-### Nhóm Đồng Luân Cao
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Nhóm đồng luân n** (n-th Homotopy Group) | $\pi_n(X, x_0)$ | Nhóm các lớp đồng luân của ánh xạ $S^n \to X$ | 08.00 |
-| **Bậc của ánh xạ** (Degree of a Map) | $\deg(f)$ | Số nguyên đặc trưng ánh xạ $S^n \to S^n$ | 08.00 |
-| **Fibration Hopf** (Hopf Fibration) | $S^3 \to S^2$ | Fibration quan trọng | 08.00 |
-| **Định lý Freudenthal Suspension** | - | Liên hệ $\pi_n$ và $\pi_{n+1}$ | 08.00 |
-| **Nhóm đồng luân ổn định** (Stable Homotopy Groups) | $\pi_k^s$ | Giới hạn của $\pi_{n+k}(S^n)$ | 08.00 |
-
-### Bó Sợi và Bó Vectơ
+### Nhóm đồng luân bậc cao
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Bó sợi** (Fiber Bundle) | $E \to B$ | Không gian phủ địa phương với fiber | 08.01 |
-| **Cơ sở** (Base Space) | $B$ | Không gian cơ sở | 08.01 |
-| **Tổng** (Total Space) | $E$ | Không gian tổng | 08.01 |
-| **Sợi** (Fiber) | $F$ | Không gian sợi | 08.01 |
-| **Tầm thường địa phương** (Locally Trivial) | - | Địa phương giống tích | 08.01 |
-| **Hàm chuyển tiếp** (Transition Function) | - | Hàm chuyển đổi giữa các biểu đồ | 08.01 |
-| **Bó vectơ** (Vector Bundle) | - | Bó sợi với fiber là không gian vectơ | 08.01 |
-| **Bó tiếp tuyến** (Tangent Bundle) | $TM$ | Bó vectơ của các vectơ tiếp tuyến | 08.01 |
-| **Bó chuẩn** (Normal Bundle) | $\nu(M)$ | Bó vectơ của các vectơ pháp tuyến | 08.01 |
-| **Bó chính** (Principal Bundle) | - | Bó sợi với fiber là nhóm Lie | 08.01 |
+| **Nhóm đồng luân bậc $n$** ($n$-th Homotopy Group) | $\pi_n(X, x_0)$ | Nhóm các lớp đồng luân của ánh xạ có điểm cơ sở $S^n \to X$ | 08.00 |
+| **Bậc của ánh xạ** (Degree of a Map) | $\deg(f)$ | Số nguyên đặc trưng cho ánh xạ liên tục $S^n \to S^n$ | 08.00 |
+| **Phân thớ Hopf** (Hopf Fibration) | $S^3 \to S^2$ | Phân thớ kinh điển của $S^3$ trên $S^2$ với thớ là $S^1$ | 08.00 |
+| **Định lý treo Freudenthal** (Freudenthal Suspension Theorem) | - | Liên hệ giữa $\pi_n(X)$ và $\pi_{n+1}(\Sigma X)$ ở vùng ổn định | 08.00 |
+| **Nhóm đồng luân ổn định** (Stable Homotopy Groups) | $\pi_k^s$ | Giới hạn ổn định của $\pi_{n+k}(S^n)$ khi $n$ đủ lớn | 08.00 |
 
-### Lý Thuyết Morse
+### Phân thớ và bó vectơ
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Hàm Morse** (Morse Function) | $f: M \to \mathbb{R}$ | Hàm với các điểm tới hạn không suy biến | 08.02 |
-| **Điểm tới hạn** (Critical Point) | - | Điểm với $df = 0$ | 08.02 |
-| **Chỉ số** (Index) | $\lambda$ | Số giá trị riêng âm của Hessian | 08.02 |
-| **Tập mức dưới** (Sublevel Set) | $M^a$ | $\{x : f(x) \leq a\}$ | 08.02 |
-| **Bổ đề Morse** (Morse Lemma) | - | Dạng chuẩn của hàm Morse tại điểm tới hạn | 08.02 |
-| **Bất đẳng thức Morse** (Morse Inequalities) | - | $c_k \geq \beta_k$ | 08.02 |
+| **Phân thớ / Bó sợi** (Fiber Bundle) | $E \to B$ | Không gian tầm thường địa phương có cấu trúc tích với thớ $F$ | 08.01 |
+| **Không gian đáy** (Base Space) | $B$ | Không gian cơ sở của phân thớ | 08.01 |
+| **Không gian toàn phần** (Total Space) | $E$ | Không gian tổng chứa toàn bộ các thớ | 08.01 |
+| **Thớ / Sợi** (Fiber) | $F$ | Nghịch ảnh đồng phôi tại mỗi điểm trên đáy | 08.01 |
+| **Tầm thường địa phương** (Locally Trivial) | - | Trên từng lân cận đủ nhỏ của đáy, phân thớ đồng phôi với tích $U \times F$ | 08.01 |
+| **Hàm chuyển tiếp** (Transition Function) | - | Ánh xạ chuyển đổi tọa độ giữa hai tầm thường hóa địa phương chồng lấn | 08.01 |
+| **Bó vectơ** (Vector Bundle) | - | Phân thớ mà mỗi thớ là một không gian vectơ | 08.01 |
+| **Bó tiếp tuyến** (Tangent Bundle) | $TM$ | Bó vectơ gồm các không gian tiếp tuyến tại mọi điểm của đa tạp $M$ | 08.01 |
+| **Bó pháp tuyến** (Normal Bundle) | $\nu(M)$ | Bó vectơ của các vectơ pháp tuyến với đa tạp con $M$ | 08.01 |
+| **Bó chính** (Principal Bundle) | - | Phân thớ với thớ là một nhóm Lie tác động tự do và bắc cầu | 08.01 |
 
-### Đa Tạp Tô-pô
-
-| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
-|-----------|---------|------------|--------|
-| **Đa tạp tô-pô** (Topological Manifold) | $M$ | Không gian Hausdorff, đếm được thứ hai, địa phương Euclid | 08.03 |
-| **Biểu đồ** (Chart) | $(U, \phi)$ | Mở $U$ với homeomorphism vào $\mathbb{R}^n$ | 08.03 |
-| **Atlas** | - | Tập các biểu đồ phủ đa tạp | 08.03 |
-| **Đa tạp trơn** (Smooth Manifold) | - | Đa tạp với atlas trơn | 08.03 |
-| **Đa tạp có biên** (Manifold with Boundary) | - | Đa tạp với biên | 08.03 |
-| **Hình cầu kỳ lạ** (Exotic Sphere) | - | Đa tạp homeomorphic nhưng không diffeomorphic với $S^n$ | 08.03 |
-
-### Lý Thuyết Nút
+### Lý thuyết Morse
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Nút** (Knot) | $K: S^1 \to \mathbb{R}^3$ | Embedding của đường tròn vào không gian 3D | 08.04 |
-| **Nút không** (Unknot) | - | Nút tầm thường (đường tròn) | 08.04 |
-| **Tương đương nút** (Knot Equivalence) | - | Ambient isotopic | 08.04 |
-| **Phép biến đổi Reidemeister** (Reidemeister Move) | RI, RII, RIII | Ba phép biến đổi cơ bản trên diagram | 08.04 |
-| **Mặt Seifert** (Seifert Surface) | $\Sigma$ | Mặt có biên là nút | 08.04 |
-| **Genus của nút** (Knot Genus) | $g(K)$ | Genus nhỏ nhất của Seifert surface | 08.04 |
-| **Nhóm nút** (Knot Group) | $\pi_1(S^3 \setminus K)$ | Fundamental group của phần bù nút | 08.04 |
-| **Đa thức Alexander** (Alexander Polynomial) | $\Delta_K(t)$ | Đa thức bất biến của nút | 08.04 |
-| **Đa thức Conway** (Conway Polynomial) | $\nabla_K(z)$ | Đa thức với skein relation đơn giản | 08.04 |
-| **Đa thức Jones** (Jones Polynomial) | $V_K(t)$ | Đa thức bất biến lượng tử | 08.04 |
-| **Chữ ký** (Signature) | $\sigma(K)$ | Số nguyên bất biến của nút | 08.04 |
-| **Nút slice** (Slice Knot) | - | Nút là biên của đĩa trong $B^4$ | 08.04 |
-| **Phần bù nút** (Knot Complement) | $S^3 \setminus K$ | Không gian thu được bằng cách loại bỏ nút | 08.04 |
-| **Phẫu thuật Dehn** (Dehn Surgery) | - | Phương pháp tạo 3-manifold từ nút | 08.04 |
+| **Hàm Morse** (Morse Function) | $f: M \to \mathbb{R}$ | Hàm trơn có mọi điểm tới hạn đều không suy biến | 08.02 |
+| **Điểm tới hạn** (Critical Point) | - | Điểm tại đó vi phân $df = 0$ | 08.02 |
+| **Chỉ số Morse** (Index) | $\lambda$ | Số giá trị riêng âm của ma trận Hessian tại điểm tới hạn | 08.02 |
+| **Tập mức dưới** (Sublevel Set) | $M^a$ | Tập $\{x \in M : f(x) \leq a\}$ | 08.02 |
+| **Bổ đề Morse** (Morse Lemma) | - | Biểu diễn dạng toàn phương chuẩn của hàm Morse gần điểm tới hạn | 08.02 |
+| **Bất đẳng thức Morse** (Morse Inequalities) | - | Liên hệ số điểm tới hạn chỉ số $k$ với số Betti: $c_k \geq \beta_k$ | 08.02 |
+
+### Đa tạp tô-pô
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Đa tạp tô-pô** (Topological Manifold) | $M$ | Không gian Hausdorff, đếm được thứ hai và địa phương Euclid | 08.03 |
+| **Bản đồ tọa độ** (Chart) | $(U, \phi)$ | Tập mở $U$ đi kèm đồng phôi $\phi$ vào tập mở của $\mathbb{R}^n$ | 08.03 |
+| **Atlas** | - | Họ các bản đồ tọa độ phủ toàn bộ đa tạp | 08.03 |
+| **Đa tạp trơn** (Smooth Manifold) | - | Đa tạp có atlas với các ánh xạ chuyển tọa độ khả vi vô hạn | 08.03 |
+| **Đa tạp có biên** (Manifold with Boundary) | - | Không gian địa phương đồng phôi với nửa không gian đóng $\mathbb{H}^n$ | 08.03 |
+| **Mặt cầu kỳ dị** (Exotic Sphere) | - | Đa tạp trơn đồng phôi nhưng không vi phôi với mặt cầu chuẩn $S^n$ | 08.03 |
+
+### Lý thuyết nút
+
+| Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
+|-----------|---------|------------|--------|
+| **Nút** (Knot) | $K: S^1 \to \mathbb{R}^3$ | Phép nhúng đường tròn $S^1$ vào không gian ba chiều | 08.04 |
+| **Nút tầm thường / Nút không** (Unknot) | - | Nút tương đương với một đường tròn phẳng đơn giản | 08.04 |
+| **Tương đương nút** (Knot Equivalence) | - | Hai nút tương đương qua đẳng luân xung quanh (ambient isotopy) | 08.04 |
+| **Biến đổi Reidemeister** (Reidemeister Move) | RI, RII, RIII | Ba phép biến đổi địa phương cơ bản trên biểu đồ nút | 08.04 |
+| **Mặt Seifert** (Seifert Surface) | $\Sigma$ | Bề mặt compact, liên thông, định hướng được có biên là nút $K$ | 08.04 |
+| **Giống của nút** (Knot Genus) | $g(K)$ | Giống nhỏ nhất trong mọi mặt Seifert của nút $K$ | 08.04 |
+| **Nhóm nút** (Knot Group) | $\pi_1(S^3 \setminus K)$ | Nhóm cơ bản của phần bù nút trong $S^3$ | 08.04 |
+| **Đa thức Alexander** (Alexander Polynomial) | $\Delta_K(t)$ | Đa thức bất biến cổ điển của nút | 08.04 |
+| **Đa thức Conway** (Conway Polynomial) | $\nabla_K(z)$ | Phiên bản chuẩn hóa của đa thức Alexander qua hệ thức skein | 08.04 |
+| **Đa thức Jones** (Jones Polynomial) | $V_K(t)$ | Đa thức bất biến lượng tử phân biệt được nhiều nút đối xứng gương | 08.04 |
+| **Ký số / Chữ ký** (Signature) | $\sigma(K)$ | Số nguyên bất biến tính từ dạng Seifert của nút | 08.04 |
+| **Nút lát cắt** (Slice Knot) | - | Nút trong $S^3$ là biên của một đĩa nhúng trơn trong $B^4$ | 08.04 |
+| **Phần bù nút** (Knot Complement) | $S^3 \setminus K$ | Không gian thu được khi bỏ nút $K$ khỏi $S^3$ | 08.04 |
+| **Phẫu thuật Dehn** (Dehn Surgery) | - | Kỹ thuật khoét lân cận ống của nút rồi dán lại để tạo đa tạp 3 chiều | 08.04 |
 
 ---
 
-## 📚 Chapter 09: Topology Đại Chúng
+## 📚 Chương 09: Tô-pô đại chúng
 
-### Khái Niệm Cơ Bản
+### Khái niệm cơ bản và ứng dụng
 
 | Thuật Ngữ | Ký Hiệu | Định Nghĩa | Chương |
 |-----------|---------|------------|--------|
-| **Đồng phôi** (Homeomorphism) | $X \cong Y$ | Song ánh liên tục với hàm ngược liên tục | 09.00 |
-| **Biến dạng liên tục** (Continuous Deformation) | - | Biến đổi không cắt hoặc dán | 09.00 |
-| **Lỗ** (Hole) | - | Đặc trưng topology của không gian | 09.00 |
-| **Đồ thị** (Graph) | $G = (V, E)$ | Tập đỉnh và cạnh | 09.01 |
-| **Đường Euler** (Euler Path) | - | Đường đi qua mỗi cạnh đúng một lần | 09.01 |
-| **Mặt Möbius** (Möbius Strip) | - | Mặt không định hướng với một mặt | 09.02 |
-| **Định hướng** (Orientability) | - | Tính chất có thể định hướng | 09.02 |
-| **Đặc trưng Euler** (Euler Characteristic) | $\chi = V - E + F$ | Bất biến topology | 09.03 |
-| **Định lý bốn màu** (Four Color Theorem) | - | Mọi bản đồ phẳng có thể tô bằng 4 màu | 09.04 |
-| **Phân tích dữ liệu tô-pô** (TDA) | - | Phương pháp phân tích dữ liệu bằng topology | 09.07 |
-| **Đồng điều bền vững** (Persistent Homology) | - | Homology theo tham số | 09.07 |
-| **Giả thuyết Poincaré** (Poincaré Conjecture) | - | Định lý về 3-manifold đơn liên | 09.08 |
+| **Đồng phôi** (Homeomorphism) | $X \cong Y$ | Song ánh liên tục có ánh xạ ngược liên tục | 09.01 |
+| **Biến dạng liên tục** (Continuous Deformation) | - | Biến đổi kéo giãn, uốn cong không cắt rời hay dán dính | 09.01 |
+| **Lỗ** (Hole) | - | Đặc trưng tô-pô giúp phân loại bề mặt (liên hệ với genus) | 09.01 |
+| **Đồ thị** (Graph) | $G = (V, E)$ | Tập các đỉnh và các cạnh nối giữa chúng | 09.02 |
+| **Đường đi Euler** (Euler Path) | - | Đường đi qua mỗi cạnh của đồ thị đúng một lần | 09.02 |
+| **Dải Möbius** (Möbius Strip) | - | Bề mặt không định hướng được chỉ có một mặt và một biên | 09.03 |
+| **Tính định hướng** (Orientability) | - | Khả năng xác định nhất quán hai phía của một bề mặt | 09.03 |
+| **Đặc trưng Euler** (Euler Characteristic) | $\chi = V - E + F$ | Bất biến tô-pô của đa diện và bề mặt | 09.04 |
+| **Định lý bốn màu** (Four Color Theorem) | - | Mọi bản đồ phẳng đều tô được bằng tối đa 4 màu | 09.05 |
+| **Phân tích dữ liệu tô-pô** (TDA) | - | Phương pháp phân tích hình dạng tập dữ liệu bằng công cụ tô-pô | 09.90 |
+| **Đồng điều bền vững** (Persistent Homology) | - | Theo dõi sự xuất hiện và biến mất của các đặc trưng đồng điều qua nhiều tỉ lệ | 09.90 |
+| **Giả thuyết Poincaré** (Poincaré Conjecture) | - | Mọi đa tạp 3 chiều đóng, đơn liên đều đồng phôi với $S^3$ | 09.08 |
 
 ---
 
-## 🎯 Ký Hiệu Toán Học Thường Dùng
+## 🎯 Ký hiệu toán học thường dùng
 
 | Ký Hiệu | Ý Nghĩa | Ví Dụ |
 |---------|---------|-------|
-| $\mathbb{R}$ | Số thực | $\mathbb{R}^n$ - không gian Euclid $n$-chiều |
-| $\mathbb{Z}$ | Số nguyên | $\pi_1(S^1) \cong \mathbb{Z}$ |
-| $\mathbb{Q}$ | Số hữu tỉ | - |
-| $\mathbb{N}$ | Số tự nhiên | - |
+| $\mathbb{R}$ | Tập số thực | $\mathbb{R}^n$ — không gian Euclid $n$-chiều |
+| $\mathbb{Z}$ | Tập số nguyên | $\pi_1(S^1) \cong \mathbb{Z}$ |
+| $\mathbb{Q}$ | Tập số hữu tỉ | - |
+| $\mathbb{N}$ | Tập số tự nhiên | - |
 | $\emptyset$ | Tập rỗng | - |
 | $\in$ | Thuộc về | $x \in A$ |
 | $\subseteq$ | Tập con | $A \subseteq B$ |
 | $\cup$ | Hợp | $A \cup B$ |
 | $\cap$ | Giao | $A \cap B$ |
-| $\setminus$ | Hiệu | $A \setminus B$ |
+| $\setminus$ | Hiệu hai tập hợp | $A \setminus B$ |
 | $\times$ | Tích Descartes | $X \times Y$ |
-| $\cong$ | Đẳng cấu | $X \cong Y$ |
+| $\cong$ | Đồng phôi hoặc đẳng cấu | $X \cong Y$ |
 | $\simeq$ | Tương đương đồng luân | $X \simeq Y$ |
 | $\to$ | Ánh xạ | $f: X \to Y$ |
-| $\hookrightarrow$ | Nhúng | $X \hookrightarrow Y$ |
-| $\partial$ | Biên | $\partial A$, $\partial_n$ |
-| $\pi$ | Ánh xạ chiếu hoặc số pi | $\pi: X \to X/\sim$, $\pi_1(X)$ |
+| $\hookrightarrow$ | Phép nhúng | $X \hookrightarrow Y$ |
+| $\partial$ | Biên hoặc toán tử biên | $\partial A$, $\partial_n$ |
+| $\pi$ | Ánh xạ chiếu hoặc nhóm đồng luân | $\pi: X \to X/\sim$, $\pi_1(X)$ |
 | $\sim$ | Quan hệ tương đương | $x \sim y$ |
-| $S^n$ | Hình cầu $n$-chiều | $S^1$ - đường tròn |
-| $D^n$ | Quả cầu đóng $n$-chiều | $D^2$ - đĩa |
+| $S^n$ | Mặt cầu $n$-chiều | $S^1$ — đường tròn |
+| $D^n$ | Đĩa / khối cầu đóng $n$-chiều | $D^2$ — đĩa đóng |
 | $B^n$ | Quả cầu mở $n$-chiều | - |
-| $T^n$ | Torus $n$-chiều | $T^2$ - torus |
+| $T^n$ | Mặt xuyến (torus) $n$-chiều | $T^2$ — mặt xuyến 2 chiều |
 | $\mathbb{R}P^n$ | Không gian xạ ảnh thực $n$-chiều | - |
 | $\mathbb{C}P^n$ | Không gian xạ ảnh phức $n$-chiều | - |
 
 ---
 
-## 📝 Ghi Chú
+## 📝 Ghi chú tra cứu
 
-**Cách sử dụng bảng:**
-
-1. **Tra cứu theo chương:** Tìm thuật ngữ trong chương tương ứng
-2. **Tra cứu theo ký hiệu:** Sử dụng bảng ký hiệu để tìm ý nghĩa
-3. **Tra cứu theo tên:** Tìm kiếm theo tên tiếng Việt hoặc tiếng Anh
-
-**Lưu ý:**
-
-- Một số thuật ngữ xuất hiện ở nhiều chương khác nhau
-- Các định nghĩa ở đây là ngắn gọn, chi tiết hơn xem trong các bài học cụ thể
-- Ký hiệu có thể khác nhau tùy theo tài liệu, nhưng đã được chuẩn hóa trong khóa học này
+- Một số thuật ngữ xuất hiện ở nhiều chương với mức độ khái quát khác nhau.
+- Các định nghĩa trong bảng được viết cô đọng để tra nhanh; hãy xem lại bài học tương ứng khi cần phát biểu đầy đủ và ví dụ chứng minh.
+- Ký hiệu có thể thay đổi tùy giáo trình, nhưng trong bảng này đã được thống nhất theo toàn khóa học.
 
 ---
 
@@ -552,48 +536,22 @@ Các thuật ngữ được sắp xếp theo các chương và chủ đề chín
 
 ---
 
-## 🔗 Applications and Connections
-
-Từ điển này tổng hợp các thuật ngữ từ toàn bộ khóa học topology, từ các khái niệm cơ bản nhất về tập hợp và không gian tô-pô đến các chủ đề nâng cao như lý thuyết nút và topology đại số. Việc hiểu và sử dụng đúng các thuật ngữ này là nền tảng quan trọng để nghiên cứu sâu hơn về topology và các ứng dụng của nó.
-
----
-
 ## Video tham khảo
 
 - **xem trước** [This open problem taught me what topology is](https://www.youtube.com/watch?v=IQqtsm-bBRU) — 3Blue1Brown, tiếng Anh. Một vòng các từ cơ bản: biến dạng, lỗ, mặt, trước khi tra từng mục glossary.
 - [[TÔPÔ ĐẠI CƯƠNG] Không gian Tô pô: Định nghĩa và ví dụ.](https://www.youtube.com/watch?v=1LiNBmWl-S8) — Nguyễn Thị Yến Nhi THPT Giồng Riềng, tiếng Việt. Định nghĩa không gian tô-pô bằng tiếng Việt, khớp các mục chương 01.
 - [Algebraic topology: Introduction](https://www.youtube.com/watch?v=K4f-lk9CMz8) — Richard E Borcherds, tiếng Anh. Borcherds mở đầu tô-pô đại số, khớp các mục nhóm cơ bản và đồng điều ở cuối bảng.
 
-## 🧩 Exercises and Reflections
+## 🧩 Bài tập và suy ngẫm
 
-### Câu hỏi suy ngẫm
+### Gợi ý ôn tập
 
-1. **Tra cứu:** Hãy tìm định nghĩa của một thuật ngữ cụ thể mà bạn quan tâm.
-
-2. **Phân loại:** Hãy phân loại các thuật ngữ theo các nhóm: định nghĩa cơ bản, định lý, kỹ thuật tính toán, ứng dụng.
-
-3. **Liên kết:** Hãy tìm các thuật ngữ liên quan đến nhau và giải thích mối liên hệ giữa chúng.
-
-4. **Mở rộng:** Hãy tìm hiểu thêm về các thuật ngữ mà bạn chưa hiểu rõ từ các bài học tương ứng.
-
-### Thử nghiệm thực tế
-
-1. **Tạo từ điển cá nhân:** Hãy tạo một từ điển riêng với các ví dụ và giải thích của bạn.
-
-2. **Ôn tập:** Sử dụng từ điển này để ôn tập lại các khái niệm đã học.
-
-3. **Tham khảo:** Sử dụng từ điển này khi đọc các bài học khác để hiểu các thuật ngữ mới.
+1. Chọn năm thuật ngữ bất kỳ trong bảng, tự phát biểu lại định nghĩa bằng lời của bạn và nêu một ví dụ cùng một phản ví dụ.
+2. Phân nhóm các thuật ngữ của một chương thành ba loại: định nghĩa cơ sở, bất biến và định lý tính toán.
+3. Chọn một cặp khái niệm dễ nhầm lẫn (như *đồng phôi* và *tương đương đồng luân*, hoặc *đồng điều* và *đối đồng điều*) rồi nêu rõ điểm khác biệt chính.
 
 ---
 
 ## 📚 Tóm tắt
 
-Từ điển này là một công cụ tham khảo quan trọng cho toàn bộ khóa học topology. Nó tổng hợp:
-
-- **Hơn 200 thuật ngữ toán học** từ các chương khác nhau
-- **Các ký hiệu toán học** thường dùng
-- **Định nghĩa ngắn gọn** cho mỗi thuật ngữ
-- **Tham chiếu chương** để tìm hiểu chi tiết hơn
-
-Sử dụng từ điển này một cách hiệu quả sẽ giúp bạn nắm vững các khái niệm topology và áp dụng chúng trong nghiên cứu và ứng dụng thực tế!
-
+Từ điển thuật ngữ này tổng hợp có hệ thống các khái niệm, ký hiệu và vị trí bài học tương ứng từ Chương 00 đến Chương 09, giúp bạn tra cứu nhanh và duy trì sự nhất quán thuật ngữ trong suốt quá trình tự học tô-pô.

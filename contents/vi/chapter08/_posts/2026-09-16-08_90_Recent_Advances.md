@@ -12,53 +12,53 @@ tags: [optional, recent-advances, topological-deep-learning, morse, bundles]
 description: "Bài tùy chọn: π_n, bundle, Morse, manifold gặp TDL và Morse rời rạc. Không viết lại lý thuyết."
 ---
 
-**Bài tùy chọn.** Nhóm homotopy cao, fiber bundle, Morse, manifold, knot giữ nguyên. Ta xem chúng trở thành *kiến trúc học* và *thuật toán rút gọn*.
+**Bài tùy chọn.** Các nội dung về nhóm đồng luân bậc cao, bó thớ, lý thuyết Morse, đa tạp và nút giữ nguyên; bài này xem cách chúng đi vào *kiến trúc học sâu* và *thuật toán rút gọn* giai đoạn gần đây.
 
 ---
 
 ## 📖 Tổng quan
 
-Topological deep learning (TDL) lấy dữ liệu sống trên phức simplicial, phức tế bào, siêu đồ thị — những domain mà Chapter 08 vừa đặt tên. Hajij et al. (2022/23) đặt nền; Papillon et al. (2023/24) phân loại kiến trúc message-passing; Papamarkou et al. (ICML 2024 position) tuyên bố TDL là biên của relational learning. Song song, Morse rời rạc trở thành công cụ tính persistence trên dữ liệu khổng lồ.
+**Học sâu tô-pô** (Topological Deep Learning — TDL) xử lý dữ liệu xác định trên phức đơn hình, phức tế bào và siêu đồ thị — chính những miền tô-pô đã giới thiệu ở Chương 08. Hajij và cộng sự (2022/23) đặt khung khái niệm ban đầu; Papillon và cộng sự (2023/24) phân loại các kiến trúc truyền thông điệp (message-passing); Papamarkou và cộng sự (bài quan điểm tại ICML 2024) định vị TDL như một hướng mở rộng của học biểu diễn quan hệ. Song song đó, lý thuyết Morse rời rạc trở thành công cụ thực tế để tính đồng điều bền vững trên các tập dữ liệu kích thước lớn.
 
 ![Phức simplicial](https://upload.wikimedia.org/wikipedia/commons/5/50/Simplicial_complex_example.svg)
-*Domain của TDL: không chỉ đồ thị, mà các simplex mọi chiều. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplicial_complex_example.svg)*
+*Miền dữ liệu của TDL: không chỉ dừng ở đồ thị mà mở rộng sang các đơn hình ở mọi chiều. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simplicial_complex_example.svg)*
 
 ![Klein bottle](https://upload.wikimedia.org/wikipedia/commons/4/46/KleinBottle-01.png)
-*Một đa tạp không nhúng được trong $\mathbb{R}^3$: nhắc rằng “manifold” của Chapter 08 rộng hơn mặt trong không gian Euclid. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:KleinBottle-01.png)*
+*Một đa tạp không nhúng được vào $\mathbb{R}^3$: minh họa rằng khái niệm đa tạp ở Chương 08 rộng hơn các mặt thông thường trong không gian Euclid. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:KleinBottle-01.png)*
 
 ---
 
 ## 🎯 Trực giác
 
-Một GNN chỉ nói chuyện theo cạnh ($1$-simplex). Một mạng simplicial nói chuyện theo tam giác: ba nút đã “biết” chúng cùng một $2$-face. Đó là Morse và CW của bài 08.02–08.03 viết thành layer. Fiber bundle xuất hiện khi feature sống trên các fiber thay đổi khi đi quanh base — đúng ngôn ngữ gauge mà vật lý đã dùng, giờ là layer học được.
+Một mạng nơ-ron đồ thị (GNN) chỉ trao đổi thông tin dọc theo các cạnh ($1$-đơn hình). Ngược lại, một mạng đơn hình (simplicial neural network) có thể trao đổi thông tin trên các tam giác ($2$-mặt), cho phép mô hình nắm bắt trực tiếp quan hệ bậc cao giữa ba nút cùng thuộc một $2$-đơn hình — đây là cách chuyển cấu trúc phức CW và Morse của bài 08.02–08.03 thành tầng mạng học sâu. Tương tự, cấu trúc bó thớ xuất hiện khi các vectơ đặc trưng nằm trên từng thớ biến đổi theo phép chuẩn (gauge) khi di chuyển trên không gian cơ sở, tương tự ngôn ngữ vật lý nhưng được cài đặt dưới dạng tầng học được.
 
 ---
 
 ## 📐 Bốn tiến bộ cụ thể
 
-### 1. TDL vượt dữ liệu đồ thị
+### 1. TDL mở rộng vượt ra ngoài dữ liệu đồ thị
 
-Hajij, Zamzmi, Papamarkou, Miolane, Dey, Birdal và nhiều đồng tác giả (2022/23) định nghĩa TDL: học trên domain tô-pô (simplicial, cell, combinatorial complex). Đây là bản tuyên ngôn nối Chapter 08 với geometric deep learning.
+Hajij, Zamzmi, Papamarkou, Miolane, Dey, Birdal và các đồng tác giả (2022/23) hệ thống hóa TDL như bài toán học trên các miền tô-pô tổng quát (phức đơn hình, phức tế bào, phức tổ hợp), kết nối trực tiếp nội dung của Chương 08 với học sâu hình học (geometric deep learning).
 
 - Mustafa Hajij et al., *Topological Deep Learning: Going Beyond Graph Data*, arXiv:2206.00606 (2022).
 
-### 2. Khảo sát kiến trúc và position ICML 2024
+### 2. Khảo sát kiến trúc và bài quan điểm tại ICML 2024
 
-Papillon, Sanborn, Hajij và Miolane (2023/24) phân loại các topological neural network theo cách message đi trên skeleton. Papamarkou, Birdal, Bronstein, Carlsson, Curry và hơn 20 đồng tác giả (2024) viết position paper: TDL bổ sung — không thay — graph representation learning, và liệt kê các lỗ hổng (biểu diễn, tính toán, benchmark).
+Papillon, Sanborn, Hajij và Miolane (2023/24) phân loại các mạng nơ-ron tô-pô theo cơ chế truyền thông điệp trên các khung (skeleton) của phức. Papamarkou, Birdal, Bronstein, Carlsson, Curry cùng hơn 20 đồng tác giả (2024) công bố bài quan điểm tại ICML 2024 khẳng định TDL bổ sung chứ không thay thế học biểu diễn đồ thị, đồng thời chỉ ra các khoảng trống còn tồn tại về biểu diễn, hiệu năng tính toán và bộ tiêu chuẩn đánh giá (benchmark).
 
 - Mathilde Papillon, Sophia Sanborn, Mustafa Hajij, Nina Miolane, *Architectures of Topological Deep Learning: A Survey of Message-Passing Topological Neural Networks*, arXiv:2304.10031 (2023).
 - Theodore Papamarkou et al., *Position: Topological Deep Learning is the New Frontier for Relational Learning*, ICML 2024, arXiv:2402.08871.
 
-### 3. Morse rời rạc như máy tính của Chapter 08.02
+### 3. Lý thuyết Morse rời rạc như công cụ tính toán cho bài 08.02
 
-Bauer–Roll (2022) bắc cầu persistent homology và discrete Morse qua “wrapping cycles”. Guillou–Vidal–Tierny (2022) và Le Guillou–Fortin–Tierny (2025) biến Morse sandwich thành pipeline phân tán. Ahuja–Iyer (2026) đưa simple-homotopy invariants vào persistence qua Morse rời rạc. Morse không còn chỉ là định lý tế bào: nó là preprocessor.
+Bauer–Roll (2022) kết nối đồng điều bền vững với lý thuyết Morse rời rạc thông qua khái niệm "wrapping cycles". Guillou–Vidal–Tierny (2022) và Le Guillou–Fortin–Tierny (2025) phát triển *Discrete Morse Sandwich* thành quy trình xử lý phân tán. Ahuja–Iyer (2026) đưa các bất biến đồng luân đơn giản vào đồng điều bền vững nhờ Morse rời rạc. Như vậy, lý thuyết Morse không chỉ là định lý về cấu trúc tế bào mà còn đóng vai trò bước tiền xử lý rút gọn phức hiệu quả.
 
 - Ulrich Bauer, Fabian Roll, *Wrapping Cycles in Delaunay Complexes: Bridging Persistent Homology and Discrete Morse Theory*, arXiv:2212.02345 (2022).
 - Eve Le Guillou, Pierre Fortin, Julien Tierny, *Distributed Discrete Morse Sandwich*, arXiv:2505.21266 (2025).
 
-### 4. TDL trong vật liệu / protein, và chẩn đoán
+### 4. Ứng dụng TDL trong vật liệu, protein và công cụ chẩn đoán
 
-Wang, Jamasb, Hajij et al. (2025) đưa TDL vào biểu diễn protein (Topotein). Papillon et al. (2026) xây chẩn đoán “look before you lift” cho TDL. Yadav, Er, Goto và Xia (2026) dùng TDL tuần hoàn cho polymer. Các đa tạp và bundle của Chapter 08 trở thành inductive bias.
+Wang, Jamasb, Hajij và cộng sự (2025) áp dụng TDL vào học biểu diễn protein (Topotein). Papillon và cộng sự (2026) xây dựng phương pháp chẩn đoán "look before you lift" cho các mô hình TDL. Yadav, Er, Goto và Xia (2026) sử dụng TDL tuần hoàn cho vật liệu polymer. Các khái niệm đa tạp và bó thớ của Chương 08 trở thành thiên kiến quy nạp (inductive bias) trực tiếp trong thiết kế mô hình.
 
 - Zhiyu Wang, Arian Jamasb, Mustafa Hajij et al., *Topotein: Topological Deep Learning for Protein Representation Learning*, arXiv:2509.03885 (2025).
 - Mathilde Papillon et al., *Look Before You Lift: Visual and Quantitative Diagnostics for Topological Deep Learning*, arXiv:2608.15388 (2026).
@@ -67,21 +67,21 @@ Wang, Jamasb, Hajij et al. (2025) đưa TDL vào biểu diễn protein (Topotein
 
 ## 🧠 Tài liệu
 
-- Hatcher, *Algebraic Topology*, Ch. 4 (higher homotopy).
+- Hatcher, *Algebraic Topology*, Ch. 4 (nhóm đồng luân bậc cao).
 - Milnor, *Morse Theory*.
-- Các arXiv/ICML trên.
+- Các bài báo arXiv và ICML nêu trên.
 
 ## 🔗 Ứng dụng
 
-Dự đoán tính chất polymer khi đơn vị lặp lại sống trên một phức tuần hoàn: TDL dùng đúng symmetry mà bundle và group action (Chapter 05–08) đã mô tả.
+Trong bài toán dự đoán tính chất polymer khi các đơn vị lặp nằm trên một phức tuần hoàn, TDL khai thác trực tiếp tính đối xứng được mô tả bởi bó thớ và tác động nhóm (Chương 05–08).
 
 ## Video tham khảo
 
-- **xem trước** [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, tiếng Anh. Topological deep learning vượt dữ liệu đồ thị, đúng hướng khảo sát của bài.
-- [Nicholas Scoville: Discrete Morse Theory as an Introduction to Topology](https://www.youtube.com/watch?v=p7bzaDrNHrQ) — Kaleidoscope Circles, tiếng Anh. Morse rời rạc của Nicholas Scoville, bản tính được của lý thuyết Morse trong bài.
+- **xem trước** [Introduction to Topological Deep Learning](https://www.youtube.com/watch?v=N67GABKImZA) — Mathilde Papillon, tiếng Anh. Giới thiệu học sâu tô-pô vượt ra ngoài dữ liệu đồ thị, đúng mạch khảo sát của bài.
+- [Nicholas Scoville: Discrete Morse Theory as an Introduction to Topology](https://www.youtube.com/watch?v=p7bzaDrNHrQ) — Kaleidoscope Circles, tiếng Anh. Lý thuyết Morse rời rạc của Nicholas Scoville, phiên bản tính toán được của lý thuyết Morse trong bài.
 
 ## 🧩 Bài tập
 
-1. Nêu một quan hệ 3-điểm mà GNN không thấy nhưng mạng simplicial thấy.
-2. Liên hệ Morse index với “sinh/tử” của một vạch trong barcode.
-3. Đọc abstract Papamarkou et al. (2024) và liệt kê hai lỗ hổng TDL mà họ nêu.
+1. Hãy nêu một ví dụ về quan hệ 3 điểm mà mạng GNN thông thường không nắm bắt được nhưng mạng đơn hình có thể biểu diễn.
+2. Liên hệ giữa chỉ số Morse (Morse index) và thời điểm "sinh/tử" của một vạch trong biểu đồ barcode.
+3. Đọc phần tóm tắt (abstract) của bài báo Papamarkou et al. (2024) và liệt kê hai khoảng trống của TDL mà các tác giả nêu ra.

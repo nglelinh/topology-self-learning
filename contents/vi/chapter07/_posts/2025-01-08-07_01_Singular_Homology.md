@@ -10,401 +10,298 @@ tags: [singular-homology, singular-simplices, functoriality]
 description: "Singular homology: definition cho arbitrary spaces, functoriality, homotopy invariance - universal homology theory"
 ---
 
-**Homology for Any Space - Functorial and Homotopy Invariant**
+**Đồng điều cho mọi không gian — Tính hàm tử và Bất biến đồng luân**
 
 ---
 
 ## 📖 Tổng quan
 
-**Simplicial homology** mạnh mẽ nhưng có hạn chế:
-> **Yêu cầu triangulation!**
+Đồng điều đơn hình trực quan và dễ tính toán nhưng có một hạn chế lớn:
 
-Không phải mọi không gian đều có triangulation:
-- Các tập con tùy ý của $\mathbb{R}^n$
-- Các không gian hàm
-- Các không gian vô hạn chiều
-- Các không gian "wild" (không có cấu trúc đẹp)
+> **Đòi hỏi phép chia tam giác (triangulation).**
 
-**Singular homology giải quyết vấn đề này!**
+Nhiều không gian tô-pô không có cấu trúc phức đơn hình, chẳng hạn các tập con tùy ý của $\mathbb{R}^n$, các không gian hàm, các không gian vô hạn chiều hay các không gian có cấu trúc bệnh lý ("wild").
 
-> **$H_n(X)$ được định nghĩa cho BẤT KỲ topological space $X$.**
+**Đồng điều kỳ dị (singular homology)** khắc phục hạn chế này:
 
-**Ý tưởng chính:** Thay vì triangulate $X$, chúng ta xem xét TẤT CẢ các ánh xạ liên tục $\Delta^n \to X$. Đây là một cách tiếp cận hoàn toàn khác—thay vì chia không gian thành các simplices, chúng ta xem xét tất cả các cách có thể ánh xạ standard simplex vào không gian.
+> **$H_n(X)$ được định nghĩa cho mọi không gian tô-pô $X$.**
 
-**Cách mạng vì:**
-- **Universal:** Hoạt động cho mọi không gian—không cần triangulation
-- **Functorial:** $f: X \to Y$ cảm ứng $f_*: H_n(X) \to H_n(Y)$—mọi ánh xạ liên tục đều cảm ứng một homomorphism trên homology groups
-- **Homotopy invariant:** $X \simeq Y$ ⇒ $H_n(X) \cong H_n(Y)$—homology groups chỉ phụ thuộc vào homotopy type
-- **Coincides:** Đối với simplicial complexes, singular homology = simplicial homology—hai cách tiếp cận cho cùng kết quả
-- **Powerful:** Nền tảng cho modern algebraic topology—đây là định nghĩa chuẩn được sử dụng trong topology hiện đại
+Thay vì chia $X$ thành các đơn hình, ta xét **tất cả các ánh xạ liên tục** từ đơn hình chuẩn $\Delta^n$ vào $X$. Cách tiếp cận này có các ưu điểm chính sau:
+
+- **Tính phổ quát:** Áp dụng được cho mọi không gian tô-pô mà không cần phép chia tam giác.
+- **Tính hàm tử (functoriality):** Mọi ánh xạ liên tục $f: X \to Y$ đều cảm sinh một đồng cấu $f_*: H_n(X) \to H_n(Y)$.
+- **Bất biến đồng luân (homotopy invariance):** Nếu $X \simeq Y$ thì $H_n(X) \cong H_n(Y)$.
+- **Tương thích với đồng điều đơn hình:** Trên các phức đơn hình, đồng điều kỳ dị đẳng cấu với đồng điều đơn hình.
+- **Tính chuẩn mực:** Là định nghĩa tiêu chuẩn dùng cho hầu hết các định lý lớn trong tô-pô đại số hiện đại và có thể tính toán thông qua phức CW.
 
 ![Singular simplices](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Singular_simplex.svg/400px-Singular_simplex.svg.png)  
-*Singular simplices mapping to space - Nguồn concept*
+*Các đơn hình kỳ dị ánh xạ vào không gian - Nguồn concept*
 
-Trong bài học này, chúng ta sẽ khám phá singular homology một cách có hệ thống. Chúng ta sẽ nghiên cứu **Standard simplex $\Delta^n$**—universal template mà chúng ta sẽ sử dụng để ánh xạ vào các không gian khác nhau. Chúng ta sẽ định nghĩa **Singular simplices**—các ánh xạ liên tục $\Delta^n \to X$ từ standard simplex vào không gian $X$. Chúng ta sẽ xây dựng **Singular chains $C_n(X)$**—free abelian group trên các singular simplices. Chúng ta sẽ định nghĩa **Boundary operator $\partial$**—được cảm ứng từ các face maps của standard simplex. Chúng ta sẽ tính toán **Singular homology $H_n(X)$**—$\ker(\partial) / \text{im}(\partial)$, các nhóm này phát hiện các lỗ $n$-chiều trong không gian. Chúng ta sẽ nghiên cứu **Functoriality**—cách các ánh xạ liên tục cảm ứng các homomorphisms trên homology groups. Cuối cùng, chúng ta sẽ chứng minh **Homotopy invariance**—tính chất cơ bản cho phép chúng ta tính toán homology bằng cách sử dụng homotopy equivalence.
-
-**Tại sao đây là kiến thức quan trọng?** Đây là **định nghĩa chuẩn** trong modern topology—singular homology là cách tiếp cận được sử dụng rộng rãi nhất trong topology đại số hiện đại. Đây là **lý thuyết homology tổng quát nhất**—nó hoạt động cho mọi không gian tô-pô. Nó **có thể tính toán được** thông qua CW complexes—chúng ta có thể tính toán singular homology bằng cách sử dụng các kỹ thuật từ CW complexes. Cuối cùng, **tất cả các định lý chính** đều sử dụng singular homology—đây là công cụ chuẩn trong topology đại số.
+Trong bài học này, ta sẽ lần lượt tìm hiểu đơn hình chuẩn $\Delta^n$ và các ánh xạ mặt, đơn hình kỳ dị $\sigma: \Delta^n \to X$, nhóm xích kỳ dị $C_n(X)$, toán tử biên $\partial$, nhóm đồng điều kỳ dị $H_n(X)$, tính hàm tử và tính bất biến đồng luân.
 
 ---
 
-## 🔺 Standard Simplex
+## 🔺 Đơn hình chuẩn
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Standard n-Simplex):**
+**Định nghĩa ($n$-đơn hình chuẩn):**
 
 $$
 \Delta^n = \left\{(t_0, \ldots, t_n) \in \mathbb{R}^{n+1} : t_i \geq 0, \sum_{i=0}^n t_i = 1\right\}
 $$
 </div>
 
-**Vertices:** 
-- $e_0 = (1, 0, \ldots, 0)$
-- $e_1 = (0, 1, 0, \ldots, 0)$
+Các **đỉnh** của $\Delta^n$ là các vectơ cơ sở chuẩn:
+- $e_0 = (1, 0, \ldots, 0)$,
+- $e_1 = (0, 1, 0, \ldots, 0)$,
 - $\ldots$
-- $e_n = (0, \ldots, 0, 1)$
+- $e_n = (0, \ldots, 0, 1)$.
 
-**Barycentric coordinates:** Điểm $(t_0, \ldots, t_n)$ = weighted average của vertices. Trực giác hình học là mỗi điểm trong standard simplex có thể được biểu diễn như một tổ hợp lồi của các vertices, với các hệ số $t_i$ là các trọng số.
-
----
+Bộ số $(t_0, \ldots, t_n)$ được gọi là **tọa độ trọng tâm** (barycentric coordinates), biểu diễn mỗi điểm của $\Delta^n$ như một tổ hợp lồi của các đỉnh.
 
 **Các ví dụ:**
-
-**$\Delta^0$:** Single point $\{(1)\}$—một điểm duy nhất trong $\mathbb{R}^1$.
-
-**$\Delta^1$:** Interval $[0,1]$ = $\{(t, 1-t) : t \in [0,1]\}$—một đoạn thẳng từ $(1,0)$ đến $(0,1)$ trong $\mathbb{R}^2$.
-
-**$\Delta^2$:** Triangle = $\{(t_0,t_1,t_2) : t_i \geq 0, \sum t_i = 1\}$ trong $\mathbb{R}^3$—một tam giác với các đỉnh $(1,0,0)$, $(0,1,0)$, $(0,0,1)$.
-
-**$\Delta^3$:** Tetrahedron trong $\mathbb{R}^4$—một tứ diện với các đỉnh là các vectors đơn vị trong $\mathbb{R}^4$.
+- **$\Delta^0$:** Một điểm duy nhất $\{(1)\} \subset \mathbb{R}^1$.
+- **$\Delta^1$:** Đoạn thẳng $\{(t, 1-t) : t \in [0,1]\} \subset \mathbb{R}^2$ nối $e_0 = (1,0)$ và $e_1 = (0,1)$, đồng phôi với $[0,1]$.
+- **$\Delta^2$:** Tam giác $\{(t_0,t_1,t_2) : t_i \geq 0, \sum t_i = 1\} \subset \mathbb{R}^3$ với các đỉnh $(1,0,0), (0,1,0), (0,0,1)$.
+- **$\Delta^3$:** Tứ diện trong $\mathbb{R}^4$ với 4 đỉnh là các vectơ đơn vị.
 
 ---
 
-### 2. Face Maps
+### 2. Ánh xạ mặt
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (i-th Face Map):**
+**Định nghĩa (Ánh xạ mặt thứ $i$):**
 
 $$
 \delta_i : \Delta^{n-1} \to \Delta^n
 $$
-</div>
 
-**Formula:** Insert 0 at position i:
+được xác định bằng cách chèn số $0$ vào vị trí thứ $i$:
 
 $$
 \delta_i(t_0, \ldots, t_{n-1}) = (t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_{n-1})
 $$
+</div>
 
-**Ý nghĩa hình học:** $\delta_i$ nhúng $(n-1)$-simplex như i-th face (bỏ qua vertex $e_i$). Trực giác hình học là face map $\delta_i$ ánh xạ standard $(n-1)$-simplex vào face đối diện với vertex $e_i$ của standard $n$-simplex.
+Về mặt hình học, $\delta_i$ nhúng $(n-1)$-đơn hình chuẩn vào mặt thứ $i$ của $\Delta^n$, tức là mặt đối diện với đỉnh $e_i$.
 
----
-
-**Ví dụ ($n=2$):**
-
-$\Delta^1 \to \Delta^2$ (ba face maps):
-
-- $\delta_0$: $(t, 1-t) \mapsto (0, t, 1-t)$ [opposite $e_0$]—ánh xạ edge vào cạnh đối diện với vertex $(1,0,0)$
-- $\delta_1$: $(t, 1-t) \mapsto (t, 0, 1-t)$ [opposite $e_1$]—ánh xạ edge vào cạnh đối diện với vertex $(0,1,0)$
-- $\delta_2$: $(t, 1-t) \mapsto (t, 1-t, 0)$ [opposite $e_2$]—ánh xạ edge vào cạnh đối diện với vertex $(0,0,1)$
-
-**Ba edges của tam giác!** Đây là ba cách nhúng edge vào tam giác—mỗi cách tương ứng với một cạnh của tam giác.
+**Ví dụ ($n=2$):** Ba ánh xạ mặt $\Delta^1 \to \Delta^2$ tương ứng với ba cạnh của tam giác:
+- $\delta_0$: $(t, 1-t) \mapsto (0, t, 1-t)$ (cạnh đối diện $e_0$);
+- $\delta_1$: $(t, 1-t) \mapsto (t, 0, 1-t)$ (cạnh đối diện $e_1$);
+- $\delta_2$: $(t, 1-t) \mapsto (t, 1-t, 0)$ (cạnh đối diện $e_2$).
 
 ---
 
-### 3. Degeneracy Maps
+### 3. Ánh xạ suy biến
 
-(Used in simplicial sets theory—advanced topic)
-
-**sᵢ: Δⁿ → Δⁿ⁻¹** collapses edge.
-
-Not needed for basic homology.
+Các **ánh xạ suy biến** (degeneracy maps) $s_i: \Delta^n \to \Delta^{n-1}$ co một cạnh lại và được sử dụng trong lý thuyết tập đơn hình (simplicial sets), nhưng không cần dùng đến khi xây dựng đồng điều kỳ dị cơ bản.
 
 ---
 
-## 🔗 Singular Simplices
+## 🔗 Đơn hình kỳ dị
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Singular n-Simplex):**  
-**Singular n-simplex in $X$** = continuous map:
+**Định nghĩa ($n$-đơn hình kỳ dị):**  
+Một **$n$-đơn hình kỳ dị** (singular $n$-simplex) trong không gian $X$ là một ánh xạ liên tục bất kỳ:
 
 $$
 \sigma : \Delta^n \to X
 $$
 </div>
 
-**Bất kỳ ánh xạ liên tục nào!** Đây là điểm quan trọng—chúng ta không yêu cầu ánh xạ phải là embedding hoặc có tính chất đặc biệt nào khác, chỉ cần liên tục.
-
-**Trực giác:** $\sigma$ "wraps" standard $n$-simplex quanh $X$ (có thể một cách "wild"). Hãy tưởng tượng chúng ta có một standard simplex làm "khuôn mẫu", và chúng ta có thể "bóp méo" nó một cách liên tục để ánh xạ vào không gian $X$.
-
----
+Ánh xạ $\sigma$ không cần phải là phép nhúng hay đơn ánh; chỉ cần liên tục. Ta có thể hình dung $\sigma$ như cách "bọc" hoặc ánh xạ khuôn mẫu $\Delta^n$ vào không gian $X$.
 
 **Các ví dụ:**
 
-**$X = S^1$:**
-- **Constant map:** $\sigma(\Delta^n)$ = single point—ánh xạ toàn bộ simplex vào một điểm
-- **Wrapping once:** $\sigma: \Delta^1 \to S^1$ traverses circle once—ánh xạ edge một lần quanh hình tròn
-- **Wrapping twice:** $\sigma$ traverses twice—ánh xạ edge hai lần quanh hình tròn
-- **Backwards:** $\sigma$ traverses clockwise—ánh xạ edge theo chiều ngược lại
+Với $X = S^1$, ta có vô số đơn hình kỳ dị, chẳng hạn:
+- **Ánh xạ hằng:** Đưa toàn bộ $\Delta^n$ về một điểm duy nhất.
+- **Quấn một vòng:** $\sigma: \Delta^1 \to S^1$ đi đúng một vòng quanh đường tròn.
+- **Quấn hai vòng:** $\sigma$ đi hai vòng quanh đường tròn.
+- **Đi ngược chiều:** $\sigma$ đi theo chiều kim đồng hồ.
 
-**Vô số singular simplices!** Đây là một điểm quan trọng—có vô số cách ánh xạ standard simplex vào hình tròn, và chúng ta xem xét tất cả chúng.
-
----
-
-**$X = \mathbb{R}^n$:**
-
-Mọi simplex $[v_0, \ldots, v_n] \subseteq \mathbb{R}^n$ cho một singular simplex:
-
-$\sigma(t_0, \ldots, t_n) = \sum t_i v_i$ (affine map).
-
-Bao gồm simplicial complexes như một trường hợp đặc biệt. Điều này có nghĩa là mọi geometric simplex trong simplicial homology đều có thể được xem như một singular simplex, và do đó simplicial homology là một trường hợp đặc biệt của singular homology.
+Với $X = \mathbb{R}^n$, mọi đơn hình hình học $[v_0, \ldots, v_n] \subseteq \mathbb{R}^n$ đều xác định một đơn hình kỳ dị thông qua ánh xạ affine $\sigma(t_0, \ldots, t_n) = \sum t_i v_i$. Theo nghĩa này, đồng điều kỳ dị bao hàm cấu trúc của phức đơn hình như một trường hợp riêng.
 
 ---
 
-### 2. Geometric vs Singular
+### 2. So sánh đơn hình hình học và đơn hình kỳ dị
 
-**Geometric simplices (simplicial homology):**
-- Actual subsets của không gian $X$—các simplices là các tập con thực sự của không gian
-- $X$ phải là simplicial complex—không gian phải có cấu trúc simplicial
-- Finite cho finite complexes—số lượng simplices là hữu hạn
+- **Đơn hình hình học (đồng điều đơn hình):** Là các tập con thực sự của $X$; đòi hỏi $X$ là phức đơn hình; có số lượng hữu hạn nếu phức là hữu hạn.
+- **Đơn hình kỳ dị:** Là các ánh xạ liên tục $\Delta^n \to X$; áp dụng cho mọi không gian $X$; thường có vô số đơn hình kỳ dị ngay cả với các không gian đơn giản.
 
-**Singular simplices:**
-- Continuous maps $\Delta^n \to X$—các ánh xạ liên tục từ standard simplex vào không gian
-- Hoạt động cho BẤT KỲ không gian $X$—không cần cấu trúc đặc biệt
-- Thường là vô hạn (ngay cả đối với các không gian hữu hạn!)—có vô số cách ánh xạ standard simplex vào một không gian
-
-**Key insight:** Vô số singular simplices là OK vì chúng ta chỉ quan tâm đến các tổng hình thức (chains) và cấu trúc đại số. Điều này có nghĩa là mặc dù có vô số singular simplices, chúng ta chỉ làm việc với các tổng hữu hạn của chúng, và điều này đủ để xác định homology groups.
+Dù có vô số đơn hình kỳ dị, mỗi xích chỉ là một tổng hữu hạn các đơn hình, và cấu trúc đại số thương $Z_n/B_n$ vẫn cho ra các nhóm đồng điều gọn gàng.
 
 ---
 
-## 🔗 Singular Chain Complex
+## 🔗 Phức xích kỳ dị
 
-### 1. Chain Groups
+### 1. Nhóm xích kỳ dị
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Singular Chain Group):**
+**Định nghĩa (Nhóm xích kỳ dị):**
 
 $$
 C_n(X) = \text{free abelian group on singular } n\text{-simplices in } X
 $$
 </div>
 
-**Các phần tử:** Các tổng hình thức:
+Mỗi phần tử của $C_n(X)$ là một tổng hình thức **hữu hạn** với hệ số nguyên:
 
 $$
 c = \sum_{i=1}^k m_i \sigma_i, \quad m_i \in \mathbb{Z}, \sigma_i : \Delta^n \to X
 $$
 
-**Tổng hữu hạn** (mặc dù có vô số $\sigma_i$ tồn tại). Điều này có nghĩa là mỗi chain là một tổ hợp tuyến tính hữu hạn của các singular simplices với các hệ số nguyên. Trực giác hình học là một chain là một "tổ hợp tuyến tính" của các cách ánh xạ standard simplex vào không gian.
+Các tính chất cơ bản của $C_n(X)$:
+- **Nhóm Abel tự do:** Toàn bộ các $n$-đơn hình kỳ dị tạo thành một cơ sở không có quan hệ ràng buộc nào giữa chúng.
+- **Tính hàm tử:** Mỗi ánh xạ liên tục $f: X \to Y$ cảm sinh đồng cấu $C_n(f): C_n(X) \to C_n(Y)$.
+- **Kích thước lớn:** Thường có vô số phần tử sinh, nhưng mọi phép tính vẫn thực hiện trên các tổng hữu hạn.
 
 ---
 
-**Các tính chất:**
-- **Free abelian:** Không có relations (basis = tất cả các singular simplices). Điều này có nghĩa là mỗi singular simplex là một generator độc lập, và không có relations nào giữa chúng.
-- **Functorial:** $f: X \to Y$ cảm ứng $C_n(f): C_n(X) \to C_n(Y)$. Đây là một tính chất quan trọng—mọi ánh xạ liên tục đều cảm ứng một homomorphism trên chain groups.
-- **Large:** Thường được sinh bởi vô số generators (ngay cả đối với các không gian đơn giản $X$). Đây là một điểm khác biệt so với simplicial homology—chain groups thường rất lớn, nhưng điều này không phải là vấn đề vì chúng ta chỉ làm việc với các tổng hữu hạn.
-
----
-
-### 2. Boundary Operator
+### 2. Toán tử biên
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Boundary):**  
-Cho singular simplex $\sigma: \Delta^n \to X$.
-</div>
-
-**i-th face:** $\sigma \circ \delta_i: \Delta^{n-1} \to \Delta^n \to X$. Đây là composition của singular simplex với face map—chúng ta ánh xạ standard $(n-1)$-simplex vào face thứ $i$ của standard $n$-simplex, sau đó ánh xạ vào $X$.
-
-**Boundary:**
+**Định nghĩa (Toán tử biên):**  
+Cho $n$-đơn hình kỳ dị $\sigma: \Delta^n \to X$. Mặt thứ $i$ của $\sigma$ là ánh xạ hợp $\sigma \circ \delta_i: \Delta^{n-1} \to \Delta^n \to X$. Khi đó, biên của $\sigma$ được định nghĩa là tổng đan dấu các mặt:
 
 $$
 \partial_n \sigma = \sum_{i=0}^n (-1)^i (\sigma \circ \delta_i)
 $$
+</div>
 
-**Alternating sum của faces!** Trực giác hình học là boundary của một singular simplex là tổng alternating của tất cả các faces của nó, với các dấu được chọn để đảm bảo orientation nhất quán.
+Ta mở rộng tuyến tính lên toàn bộ $C_n(X)$ bởi $\partial(\sum m_i \sigma_i) = \sum m_i \partial\sigma_i$, nhờ đó $\partial_n: C_n(X) \to C_{n-1}(X)$ là một đồng cấu nhóm.
 
-**Mở rộng tuyến tính:** $\partial(\sum m_i \sigma_i) = \sum m_i \partial\sigma_i$. Điều này có nghĩa là boundary operator là một homomorphism—nó tương thích với phép cộng và phép nhân với số nguyên.
-
----
-
-**Ví dụ ($n=1$):**  
-$\sigma: \Delta^1 \to X$.
+**Ví dụ ($n=1$):** Với $\sigma: \Delta^1 \to X$, ta có:
 
 $$
-\partial \sigma = \sigma \circ \delta_1 - \sigma \circ \delta_0
+\partial \sigma = \sigma \circ \delta_0 - \sigma \circ \delta_1
 $$
 
-$\delta_1(0) = e_1$, $\delta_0(0) = e_0$.
+Do $\Delta^0 = \{(1)\}$, ánh xạ mặt $\delta_0(1) = (0,1) = e_1$ (bỏ đỉnh $e_0$) và $\delta_1(1) = (1,0) = e_0$ (bỏ đỉnh $e_1$), nên:
 
 $$
 \partial \sigma = \sigma(e_1) - \sigma(e_0)
 $$
 
-**(Endpoint - starting point)**—giống như geometric simplices! Trực giác hình học là boundary của một singular 1-simplex (một path) là điểm cuối trừ đi điểm đầu—điều này hoàn toàn giống với cách chúng ta tính boundary của một geometric edge trong simplicial homology.
+Biên của một $1$-đơn hình kỳ dị (một đường đi) chính là hiệu giữa điểm cuối và điểm đầu, giống hệt trường hợp cạnh trong đồng điều đơn hình.
 
 ---
 
-### 3. Key Property: ∂² = 0
+### 3. Tính chất cốt lõi: $\partial^2 = 0$
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:** $\partial_{n-1} \circ \partial_n = 0$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Composition của các face maps:
+**Chứng minh:** Các ánh xạ mặt thỏa mãn đồng nhất thức:
 
 $$
 \delta_i \circ \delta_j = \delta_{j+1} \circ \delta_i \quad (i \leq j)
 $$
 
-Khi mở rộng $\partial(\partial\sigma)$, mỗi composition xuất hiện hai lần với các dấu đối nhau. Điều này xảy ra vì khi chúng ta tính boundary của boundary, chúng ta phải đi qua hai face maps, và các cách đi qua chúng xuất hiện theo cặp với các dấu đối nhau.
+Khi khai triển $\partial(\partial\sigma)$, mỗi ánh xạ hợp xuất hiện đúng hai lần với dấu trái nhau nên triệt tiêu hoàn toàn, suy ra $\partial^2 = 0$. ✓
 </div>
 
-**Cancellation ⇒ $\partial^2 = 0$.** ✓ Đây là tính chất cơ bản cho phép chúng ta định nghĩa homology groups—nếu không có tính chất này, chúng ta không thể định nghĩa cycles và boundaries một cách nhất quán.
-
-**Cùng cấu trúc đại số như simplicial homology!** Điều này có nghĩa là mặc dù singular homology được định nghĩa một cách khác, nó có cùng cấu trúc đại số cơ bản như simplicial homology—boundary operator vẫn thỏa mãn $\partial^2 = 0$, và homology groups được định nghĩa theo cùng cách.
+Như vậy, đồng điều kỳ dị có cùng cấu trúc đại số cơ bản như đồng điều đơn hình.
 
 ---
 
-## 📊 Singular Homology Groups
+## 📊 Nhóm đồng điều kỳ dị
 
-### 1. Definition
+### 1. Định nghĩa
 
-**Chain complex:**
+Từ phức xích kỳ dị:
 
 $$
 \cdots \to C_n(X) \xrightarrow{\partial_n} C_{n-1}(X) \to \cdots \to C_0(X) \to 0
 $$
 
-**Cycles:** $Z_n(X) = \ker(\partial_n)$—các chains không có boundary
-
-**Boundaries:** $B_n(X) = \text{im}(\partial_{n+1})$—các chains là boundaries của một chain ở chiều cao hơn
-
-**Homology:**
+ta định nghĩa nhóm chu trình $Z_n(X) = \ker(\partial_n)$, nhóm biên $B_n(X) = \text{im}(\partial_{n+1})$, và **nhóm đồng điều kỳ dị bậc $n$**:
 
 $$
 H_n(X) = \frac{Z_n(X)}{B_n(X)}
 $$
 
-**Cùng định nghĩa như simplicial!** Điều này có nghĩa là mặc dù cách xây dựng khác nhau, định nghĩa của homology groups là hoàn toàn giống nhau—chúng ta vẫn lấy quotient của cycles modulo boundaries.
+Các tính chất cơ bản:
+1. **Nhóm Abel:** $H_n(X)$ luôn là nhóm Abel.
+2. **Bất biến đồng luân:** $X \simeq Y \Rightarrow H_n(X) \cong H_n(Y)$.
+3. **Tính hàm tử:** $f: X \to Y$ cảm sinh $f_*: H_n(X) \to H_n(Y)$.
+4. **Tiên đề chiều:** $H_0(\text{point}) = \mathbb{Z}$ và $H_n(\text{point}) = 0$ với $n > 0$.
 
 ---
 
-**Các tính chất:**
-
-1. **Abelian groups:** $H_n(X)$ luôn luôn abelian—đây là một lợi thế lớn so với fundamental group
-2. **Homotopy invariant:** $X \simeq Y$ ⇒ $H_n(X) \cong H_n(Y)$—homology groups chỉ phụ thuộc vào homotopy type
-3. **Functorial:** $f: X \to Y$ cảm ứng $f_*: H_n(X) \to H_n(Y)$—mọi ánh xạ liên tục đều cảm ứng một homomorphism trên homology groups
-4. **Dimension axiom:** $H_n(\text{point}) = \mathbb{Z}$ ($n=0$), $0$ ($n>0$)—điểm có một thành phần liên thông và không có lỗ ở chiều cao hơn
-
----
-
-### 2. Functoriality
+### 2. Tính hàm tử
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Functoriality):**  
-Cho ánh xạ liên tục $f: X \to Y$ cảm ứng:
+**Định lý (Tính hàm tử):**  
+Mỗi ánh xạ liên tục $f: X \to Y$ cảm sinh một đồng cấu nhóm:
 
 $$
 f_* : H_n(X) \to H_n(Y)
 $$
 </div>
 
-**Xây dựng:**  
-Cho singular simplex $\sigma: \Delta^n \to X$.  
-Compose: $f \circ \sigma: \Delta^n \to Y$. Trực giác hình học là chúng ta ánh xạ singular simplex từ $X$ sang $Y$ bằng cách compose với $f$.
+**Cách xây dựng:** Với mỗi đơn hình kỳ dị $\sigma: \Delta^n \to X$, ta lập ánh xạ hợp $f \circ \sigma: \Delta^n \to Y$ và mở rộng tuyến tính thành ánh xạ xích $C_n(f)(\sigma) = f \circ \sigma$. Vì toán tử biên giao hoán với phép hợp ánh xạ, $\partial(f \circ \sigma) = f \circ (\partial\sigma)$, nên $C_n(f)$ đưa chu trình về chu trình và biên về biên. Nhờ đó, ánh xạ cảm sinh trên đồng điều $f_*[c] = [f(c)]$ được xác định tốt và thỏa mãn:
+- $(f \circ g)_* = f_* \circ g_*$;
+- $\text{id}_* = \text{id}$.
 
-Chain map: $C_n(f)(\sigma) = f \circ \sigma$ (mở rộng tuyến tính). Điều này có nghĩa là chúng ta ánh xạ mỗi singular simplex trong $X$ thành một singular simplex trong $Y$ bằng cách compose với $f$.
-
-**Commutes với boundary:** $\partial(f \circ \sigma) = f \circ (\partial\sigma)$. Đây là một tính chất quan trọng—boundary operator tương thích với composition, và điều này đảm bảo rằng chain map cảm ứng một map trên homology groups.
-
-Induces map on homology: $f_*[c] = [f(c)]$. Điều này có nghĩa là nếu $c$ là một cycle trong $X$, thì $f(c)$ là một cycle trong $Y$, và map trên homology groups được định nghĩa bằng cách ánh xạ homology class của $c$ thành homology class của $f(c)$.
+Theo ngôn ngữ lý thuyết phạm trù, $H_n: \mathbf{Top} \to \mathbf{Ab}$ là một hàm tử hiệp biến từ phạm trù các không gian tô-pô sang phạm trù các nhóm Abel.
 
 ---
 
-**Các tính chất:**
-- **$(f \circ g)_* = f_* \circ g_*$**—composition của các ánh xạ cảm ứng composition của các homomorphisms
-- **$id_* = id$**—ánh xạ đồng nhất cảm ứng ánh xạ đồng nhất trên homology groups
-
-**Category theory:** $H_n$ = functor Top → Ab. Đây là một khái niệm quan trọng trong category theory—homology groups không chỉ là các nhóm được gán cho mỗi không gian, mà còn là một functor từ category của các topological spaces đến category của các abelian groups.
-
----
-
-### 3. Homotopy Invariance
+### 3. Bất biến đồng luân
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Homotopy Invariance):**  
-Nếu $f, g: X \to Y$ đồng luân, thì $f_* = g_*: H_n(X) \to H_n(Y)$.
+**Định lý (Bất biến đồng luân):**  
+Nếu hai ánh xạ liên tục $f, g: X \to Y$ đồng luân với nhau thì $f_* = g_*: H_n(X) \to H_n(Y)$.
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** $X \simeq Y$ ⇒ $H_n(X) \cong H_n(Y)$.
+**Hệ quả:** Nếu $X \simeq Y$ thì $H_n(X) \cong H_n(Y)$.
 </div>
 
-**Homology = homotopy invariant!** Đây là một tính chất cực kỳ mạnh mẽ—homology groups chỉ phụ thuộc vào homotopy type của không gian, không phụ thuộc vào chi tiết cụ thể của cấu trúc tô-pô. Điều này cho phép chúng ta tính toán homology bằng cách sử dụng homotopy equivalence để đơn giản hóa không gian.
-
----
-
-**Chứng minh sketch:**  
-Cho homotopy $F: X \times [0,1] \to Y$ từ $f$ đến $g$.
-
-Xây dựng **chain homotopy** $P: C_n(X) \to C_{n+1}(Y)$:
+**Phác thảo chứng minh:** Cho $F: X \times [0,1] \to Y$ là một phép đồng luân từ $f$ đến $g$. Ta xây dựng một **đồng luân xích** (chain homotopy) $P: C_n(X) \to C_{n+1}(Y)$ thỏa mãn:
 
 $$
 \partial P + P \partial = g_\# - f_\#
 $$
 
-Tại mức homology: $\partial P[c] + P\partial[c] = g_*[c] - f_*[c]$.
+Với mọi chu trình $c \in Z_n(X)$, ta có $\partial c = 0$, do đó $g_\#(c) - f_\#(c) = \partial P(c)$ là một biên. Khi lấy lớp đồng điều trong $H_n(Y)$, hiệu $g_*[c] - f_*[c] = [\partial P(c)] = 0$, suy ra $f_* = g_*$. ✓
 
-Vì $[c]$ là cycle: $\partial[c] = 0$.  
-$\partial P[c]$ là boundary, nên triệt tiêu trong homology. Điều này có nghĩa là $g_*[c] = f_*[c]$ trong homology, và do đó $f_* = g_*$.
-
-**Conclusion:** g_*[c] - f_*[c] = 0 in H_n. ⇒ f_* = g_*. ✓
-
-**Powerful:** Reduces many computations to homotopy equivalent spaces!
+Tính chất này giúp quy bài toán tính đồng điều của nhiều không gian phức tạp về các không gian đơn giản hơn có cùng kiểu đồng luân.
 
 ---
 
-## 🧮 Examples và Computations
+## 🧮 Ví dụ và Tính toán
 
-### Example 1: Point
+### Ví dụ 1: Một điểm
 
-X = {pt}.
+Xét $X = \{\text{pt}\}$. Ở mỗi chiều $n \geq 0$, chỉ có duy nhất một $n$-đơn hình kỳ dị là ánh xạ hằng $\sigma_n: \Delta^n \to \{\text{pt}\}$, nên $C_n(X) = \mathbb{Z}\langle\sigma_n\rangle \cong \mathbb{Z}$.
 
-**Singular simplices:** σₙ: Δⁿ → {pt} (unique constant map).
+Áp dụng công thức toán tử biên:
+$$\partial_n(\sigma_n) = \sum_{i=0}^n (-1)^i \sigma_{n-1} = \begin{cases} 0 & \text{nếu } n \text{ lẻ (hoặc } n = 0\text{)} \\ \sigma_{n-1} & \text{nếu } n > 0 \text{ chẵn} \end{cases}$$
 
-C_n(X) = ℤ (rank 1).
+Phức xích kỳ dị có dạng $\cdots \xrightarrow{\text{id}} \mathbb{Z} \xrightarrow{0} \mathbb{Z} \xrightarrow{\text{id}} \mathbb{Z} \xrightarrow{0} \mathbb{Z} \to 0$. Do đó:
+- $H_0(\text{pt}) = \mathbb{Z}/0 = \mathbb{Z}$;
+- $H_n(\text{pt}) = 0$ với mọi $n > 0$.
 
-**Boundary:** All ∂ = 0 (only one n-simplex).
-
-**Homology:**  
-H₀(pt) = ℤ (cycles mod boundaries = ℤ/0)  
-H_n(pt) = 0 (n > 0)
-
-**Connected, no higher holes.**
+Một điểm là không gian liên thông và không có lỗ ở các chiều dương.
 
 ---
 
-### Example 2: Contractible Space
+### Ví dụ 2: Không gian co rút được
 
-X contractible ⇒ X ≃ point.
-
-**Homotopy invariance:**  
-H_n(X) ≅ H_n(point).
-
-**Result:**  
-H₀(X) = ℤ, H_n(X) = 0 (n > 0).
-
-**Examples:** ℝⁿ, disk Dⁿ, star-shaped regions.
+Nếu $X$ co rút được (contractible) thì $X \simeq \text{pt}$. Theo tính bất biến đồng luân, $H_n(X) \cong H_n(\text{pt})$, suy ra $H_0(X) = \mathbb{Z}$ và $H_n(X) = 0$ với mọi $n > 0$. Kết quả này áp dụng cho $\mathbb{R}^n$, đĩa $D^n$ và mọi miền hình sao.
 
 ---
 
-### Example 3: Sphere Sⁿ
+### Ví dụ 3: Mặt cầu $S^n$
 
-**Result (to be proved later):**
+Kết quả chuẩn (sẽ được chứng minh ở các bài sau) cho $n \geq 1$:
 
 $$
 H_k(S^n) = \begin{cases}
@@ -413,37 +310,30 @@ H_k(S^n) = \begin{cases}
 \end{cases}
 $$
 
-**Interpretation:**
-- Connected (H₀ = ℤ)
-- n-dimensional hole (Hₙ = ℤ)
-- No other holes
+Về mặt trực giác, $S^n$ có một thành phần liên thông ($H_0 = \mathbb{Z}$), một lỗ $n$-chiều ($H_n = \mathbb{Z}$) và không có lỗ ở các chiều khác.
 
 ---
 
-### Example 4: Circle S¹
+### Ví dụ 4: Đường tròn $S^1$
 
-H₀(S¹) = ℤ (connected)  
-H₁(S¹) = ℤ (1-dimensional loop)  
-H_n(S¹) = 0 (n ≥ 2)
-
-**Generator of H₁:** Loop wrapping once around circle.
+$H_0(S^1) = \mathbb{Z}$ (liên thông), $H_1(S^1) = \mathbb{Z}$ (sinh bởi một vòng quấn đúng một lần quanh đường tròn), và $H_n(S^1) = 0$ với mọi $n \geq 2$.
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Tài liệu kinh điển & Tham khảo
 
-### Classic Works
+### Công trình kinh điển
 
 1. **Henri Poincaré** - *"Analysis Situs"* (1895-1904)  
-   *Introduced homology concepts*
+   *Giới thiệu các khái niệm mở đầu của đồng điều*
 
 2. **Solomon Lefschetz** - *"Topology"* (1930)  
-   *Singular homology development*
+   *Phát triển đồng điều kỳ dị*
 
 3. **Samuel Eilenberg** - *"Singular homology theory"* (1944)  
-   *Rigorous modern formulation*
+   *Xây dựng hệ thống chặt chẽ theo cách tiếp cận hiện đại*
 
-### Textbooks
+### Giáo trình
 
 4. **Allen Hatcher** - *Algebraic Topology*, **§2.1: Singular Homology**
 
@@ -455,107 +345,93 @@ H_n(S¹) = 0 (n ≥ 2)
 
 ---
 
-## 🔗 Applications
+## 🔗 Ứng dụng
 
-### Topological Data Analysis
-**Computational Homology:** Algorithms compute singular homology của data. Detect features, clusters, voids.
+### Phân tích dữ liệu tô-pô
+**Đồng điều tính toán:** Các thuật toán tính đồng điều từ dữ liệu giúp phát hiện đặc trưng hình học, cụm điểm và khoang rỗng.
 
-### Algebraic Geometry
-**Sheaf Cohomology:** Generalization via sheaves. Fundamental tool in modern geometry.
+### Hình học đại số
+**Đối đồng điều bó (Sheaf Cohomology):** Mở rộng tư tưởng đồng điều/đối đồng điều thông qua bó, là công cụ nền tảng trong hình học hiện đại.
 
-### Physics - Field Theory
-**Characteristic Classes:** Homology/cohomology classify gauge fields, anomalies.
+### Vật lý lý thuyết trường
+**Các lớp đặc trưng (Characteristic Classes):** Đồng điều và đối đồng điều được dùng để phân loại các trường chuẩn (gauge fields) và dị thường (anomalies).
 
 ---
 
 ## Video tham khảo
 
 - **xem trước** [Algebraic Topology 12: Intro to Singular Homology](https://www.youtube.com/watch?v=GE1_Ntw7x6s) — Math at Andrews University, tiếng Anh. Đồng điều kỳ dị từ đơn hình chuẩn, không cần phép chia tam giác của không gian.
-- [12. Singular Homology; Chain Homotopy - Pierre Albin](https://www.youtube.com/watch?v=I2GbdKDN9zg) — Mat Neth, tiếng Anh. Pierre Albin: đồng điều kỳ dị và đồng luân xích, đúng phần kỹ thuật của bài.
+- [12. Singular Homology; Chain Homotopy - Pierre Albin](https://www.youtube.com/watch?v=I2GbdKDN9zg) — Mat Neth, tiếng Anh. Pierre Albin trình bày đồng điều kỳ dị và đồng luân xích, đúng phần kỹ thuật của bài.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Standard Simplex
+### Đơn hình chuẩn
 
-1. **Verify:** Δ¹ = [0,1] via coordinate transformation.
+1. **Kiểm chứng:** Chỉ ra $\Delta^1 \cong [0,1]$ thông qua một phép biến đổi tọa độ tường minh.
 
-2. **Face Maps:**  
-   Compute δ₀, δ₁, δ₂: Δ¹ → Δ² explicitly.
+2. **Ánh xạ mặt:** Tính tường minh $\delta_0, \delta_1, \delta_2: \Delta^1 \to \Delta^2$.
 
-3. **Boundary:**  
-   Δ² có 3 faces. Verify each = image of some δᵢ.
+3. **Biên của $\Delta^2$:** Kiểm chứng rằng mỗi cạnh trong 3 mặt của $\Delta^2$ đều là ảnh của một ánh xạ $\delta_i$.
 
-### Singular Simplices
+### Đơn hình kỳ dị
 
-4. **Count:**  
-   X = {pt}. How many distinct singular n-simplices? (One!)
+4. **Đếm số đơn hình:** Với $X = \{\text{pt}\}$, có bao nhiêu $n$-đơn hình kỳ dị phân biệt?
 
-5. **Circle:**  
-   Give example singular 1-simplex σ: Δ¹ → S¹ wrapping twice.
+5. **Đường tròn:** Hãy cho một ví dụ tường minh về $1$-đơn hình kỳ dị $\sigma: \Delta^1 \to S^1$ quấn hai vòng quanh đường tròn.
 
-6. **Image:**  
-   Can singular simplex be surjective? Give example or explain why not.
+6. **Ảnh của đơn hình kỳ dị:** Một đơn hình kỳ dị có thể là toàn ánh không? Hãy nêu ví dụ hoặc giải thích vì sao không.
 
-### Boundary
+### Toán tử biên
 
-7. **Compute:**  
-   σ: Δ² → X. Write ∂σ explicitly using δᵢ.
+7. **Tính toán:** Cho $\sigma: \Delta^2 \to X$, hãy viết biểu thức tường minh của $\partial\sigma$ theo các ánh xạ $\delta_i$.
 
-8. **Verify ∂² = 0:**  
-   σ: Δ² → X. Compute ∂(∂σ) = 0 step by step.
+8. **Kiểm chứng $\partial^2 = 0$:** Với $\sigma: \Delta^2 \to X$, hãy tính từng bước để kiểm tra $\partial(\partial\sigma) = 0$.
 
-### Functoriality
+### Tính hàm tử
 
-9. **Induced Map:**  
-   f: S¹ → S¹ (identity). What is f_*: H₁(S¹) → H₁(S¹)?
+9. **Ánh xạ cảm sinh:** Cho ánh xạ đồng nhất $f: S^1 \to S^1$. Đồng cấu $f_*: H_1(S^1) \to H_1(S^1)$ là gì?
 
-10. **Composition:**  
-    Verify (f ∘ g)_* = f_* ∘ g_* in simple example.
+10. **Ánh xạ hợp:** Kiểm chứng $(f \circ g)_* = f_* \circ g_*$ trên một ví dụ đơn giản.
 
-### Homotopy Invariance
+### Bất biến đồng luân
 
-11. **Contractible:**  
-    X = ℝ². Use homotopy invariance: H_n(ℝ²) = ?
+11. **Không gian co rút được:** Xét $X = \mathbb{R}^2$. Dùng tính bất biến đồng luân để suy ra $H_n(\mathbb{R}^2)$.
 
-12. **Cylinder:**  
-    S¹ × [0,1] ≃ S¹. Compute H_n.
+12. **Hình trụ:** Từ $S^1 \times [0,1] \simeq S^1$, hãy tính $H_n(S^1 \times [0,1])$.
 
-### Comparison
+### So sánh
 
-13. **Simplicial vs Singular:**  
-    For simplicial complex K, why H_n^{simplicial}(K) ≅ H_n^{singular}(|K|)?
+13. **Đơn hình và kỳ dị:** Với phức đơn hình $K$, hãy giải thích vì sao $H_n^{\text{simplicial}}(K) \cong H_n^{\text{singular}}(|K|)$.
 
-### Advanced
+### Nâng cao
 
-14. **Exactness:**  
-    Research: Long exact sequence của pair (X, A).
+14. **Tính khớp:** Tìm hiểu dãy khớp dài của một cặp không gian $(X, A)$.
 
-15. **Relative Homology:**  
-    H_n(X, A) measures "holes in X not coming from A."
+15. **Đồng điều tương đối:** Tìm hiểu ý nghĩa của $H_n(X, A)$ trong việc đo lường "các lỗ trong $X$ không xuất phát từ $A$".
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
-- **Hatcher, §2:** Comprehensive treatment
-- **Bredon, Chapter IV:** Advanced perspective
-- **Spanier:** Encyclopedic reference
+- **Hatcher, §2:** Trình bày toàn diện về đồng điều kỳ dị.
+- **Bredon, Chapter IV:** Góc nhìn nâng cao.
+- **Spanier:** Tài liệu tra cứu hệ thống.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-**Singular homology = universal homology theory:**
+Đồng điều kỳ dị là lý thuyết đồng điều tổng quát áp dụng cho mọi không gian tô-pô:
 
-✅ **Singular simplices:** σ: Δⁿ → X (any continuous map)  
-✅ **Chain groups C_n(X):** Free abelian on singular simplices  
-✅ **Boundary ∂:** Via face maps, ∂² = 0  
-✅ **Homology H_n(X):** ker(∂) / im(∂)  
-✅ **Functorial:** f: X → Y induces f_*  
-✅ **Homotopy invariant:** X ≃ Y ⇒ H_n(X) ≅ H_n(Y)  
-✅ **Universal:** Works for ANY space  
+✅ **Đơn hình kỳ dị:** Mọi ánh xạ liên tục $\sigma: \Delta^n \to X$.  
+✅ **Nhóm xích $C_n(X)$:** Nhóm Abel tự do sinh bởi các $n$-đơn hình kỳ dị.  
+✅ **Toán tử biên $\partial$:** Xác định qua các ánh xạ mặt, thỏa mãn $\partial^2 = 0$.  
+✅ **Nhóm đồng điều $H_n(X)$:** $\ker(\partial) / \text{im}(\partial)$.  
+✅ **Tính hàm tử:** $f: X \to Y$ cảm sinh $f_*$.  
+✅ **Bất biến đồng luân:** $X \simeq Y \Rightarrow H_n(X) \cong H_n(Y)$.  
+✅ **Tính phổ quát:** Áp dụng được cho mọi không gian tô-pô.
 
-**Tiếp theo:** Computing homology systematically!
+**Tiếp theo:** Các phương pháp tính toán đồng điều một cách có hệ thống.
 
 ---
 

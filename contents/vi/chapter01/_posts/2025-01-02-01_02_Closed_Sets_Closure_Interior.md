@@ -10,158 +10,133 @@ tags: [closed-sets, closure, interior, boundary, limit-points]
 description: "Tập đóng, closure operator, interior, boundary, và limit points"
 ---
 
-**Closed Sets, Closure, and Interior**
+**Tập đóng, Bao đóng và Phần trong**
 
 ---
 
 ## 📖 Tổng quan
 
-Trong hai bài trước, chúng ta tập trung vào **open sets**—khái niệm primitive của topology. Nhưng toán học thường có tính **duality** (đối ngẫu): với mỗi khái niệm, có một "dual concept" equally important.
+Hai bài trước tập trung vào **tập mở** — khái niệm nguyên thủy của tô-pô. Tuy nhiên, cấu trúc tô-pô mang tính đối ngẫu rõ rệt: song hành với tập mở là **tập đóng** (*closed set*). Từ cặp khái niệm này hình thành ba toán tử quan trọng tác động lên mọi tập con: **phần trong** ($\text{int}$) lấy phần nằm hoàn toàn bên trong, **bao đóng** ($\text{cl}$) bổ sung thêm phần biên, và **biên** ($\partial$) xác định ranh giới giữa trong và ngoài.
 
-**Open sets** have natural dual: **closed sets**. From this duality emerge powerful **operators** transforming sets: **Interior (int)** captures "completely inside" part, **Closure (cl)** adds "boundary" to set, và **Boundary (∂)** marks "border" between inside and outside.
+Các toán tử này xuất hiện xuyên suốt toàn bộ tô-pô học. Tính **trù mật** (*density*) được định nghĩa bằng điều kiện $\text{cl}(A) = X$; tính **liên tục** có đặc trưng tương đương qua nghịch ảnh tập đóng hoặc qua toán tử bao đóng; và việc phân loại vị trí của điểm so với một tập hợp (điểm trong, điểm biên, điểm tụ, điểm cô lập) đều dựa trực tiếp vào chúng.
 
-These operators are **most important tools** trong entire topology! They appear everywhere. **Density** gets defined via closure: A dense exactly when cl(A) = X, meaning A's closure fills entire space. **Continuity** has elegant characterization: f continuous if and only if preimages of closed sets are closed. **Point classification** (interior points, boundary points, limit points) relies completely on these operators, providing vocabulary for discussing "position" in abstract spaces.
-
-**Trong bài này** we systematically develop dual theory. **Closed sets** với their axioms mirror open set axioms beautifully. **Closure operator** cl(·) emerges with rich properties and geometric intuition—it "completes" a set by adding limit points. **Interior operator** int(·) reveals itself as perfect dual của closure, stripping away boundary. **Boundary** ∂ precisely captures "border" between inside và outside. **Limit points** versus **isolated points** dichotomy classifies how points relate to their sets. **Dense sets** concept (like ℚ trong ℝ) captures "everywhere presence" through closure.
-
-**Tại sao absolutely essential?** Closure and interior provide language for **approximation**—fundamental idea threading through analysis and topology. **Limit points** form foundation for convergence theory, enabling us to discuss "approaching" without explicit sequences. **Dense sets** are key (ℚ dense trong ℝ means rationals approximate any real), appearing trong separability, Baire category theorem, và Stone-Weierstrass. These operators **define** many topological properties: regularity, normality, separability all formulated using closure and interior.
+Bài giảng này xây dựng có hệ thống các tiên đề của tập đóng, các tính chất của toán tử bao đóng (hệ tiên đề Kuratowski), điểm tụ và điểm cô lập, toán tử phần trong cùng quan hệ đối ngẫu với bao đóng, khái niệm biên, tập trù mật và tập không đâu trù mật.
 
 ---
 
-## 🎯 Từ Trực giác đến Hình thức
+## 🎯 Từ trực giác đến hình thức
 
-### Câu chuyện về Ranh giới
+### Hình ảnh vùng đất và ranh giới
 
-Hãy tưởng tượng một **vùng đất** trên bản đồ. Vùng này có:
-- **Interior** (phần trong): Tất cả điểm "hoàn toàn bên trong"—đi một chút mọi hướng vẫn ở trong vùng
-- **Boundary** (biên giới): Đường viền—một bước ra ngoài, một bước vào trong
-- **Exterior** (phần ngoài): Tất cả điểm hoàn toàn bên ngoài
-- **Closure** (bao đóng): Interior + Boundary = "vùng đất cộng với biên"
+Hãy hình dung một vùng đất $A$ trên bản đồ. Mọi điểm trên bản đồ rơi vào một trong ba vị trí so với $A$:
+- **Phần trong (Interior):** Các điểm nằm hoàn toàn bên trong $A$ — di chuyển một khoảng đủ nhỏ theo bất kỳ hướng nào vẫn ở trong $A$.
+- **Biên (Boundary):** Đường viền ngăn cách — mọi vùng nhỏ quanh điểm biên đều chứa cả điểm trong $A$ lẫn điểm ngoài $A$.
+- **Phần ngoài (Exterior):** Các điểm nằm hoàn toàn bên ngoài $A$.
+- **Bao đóng (Closure):** Gồm toàn bộ $A$ cộng thêm các điểm biên của nó.
 
 ![Interior, Boundary, Exterior](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Interior_Boundary_Exterior.svg/500px-Interior_Boundary_Exterior.svg.png)  
-*Interior (xanh), Boundary (đỏ), Exterior (trắng) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Interior_Boundary_Exterior.svg)*
+*Phần trong (xanh), Biên (đỏ), Phần ngoài (trắng) - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Interior_Boundary_Exterior.svg)*
 
-**Ví dụ cụ thể trong ℝ:**
+**Ví dụ cụ thể trong $\mathbb{R}$:** Xét nửa khoảng $A = [0, 1)$.
+- **Phần trong:** $\text{int}(A) = (0, 1)$, vì mọi điểm trong $(0, 1)$ đều có một khoảng mở nhỏ nằm trọn trong $A$, còn điểm $0$ thì không (mọi khoảng mở chứa $0$ đều chứa số âm không thuộc $A$).
+- **Biên:** $\partial A = \{0, 1\}$, vì mọi lân cận của $0$ hoặc $1$ đều giao với cả $A$ lẫn $\mathbb{R} \setminus A$.
+- **Bao đóng:** $\text{cl}(A) = [0, 1]$, thu được bằng cách bổ sung điểm biên $1$ vào $A$.
 
-Xét A = [0, 1) (nửa khoảng)
-
-- **Interior:** int(A) = (0, 1)  
-  *Lý do:* Mọi điểm trong (0, 1) có một khoảng nhỏ xung quanh vẫn trong A.  
-  Nhưng 0 không (mọi khoảng chứa 0 đều có điểm âm ∉ A).
-
-- **Boundary:** ∂A = {0, 1}  
-  *Lý do:* 0 và 1 là "điểm biên"—mọi neighborhood chứa cả điểm trong và ngoài A.
-
-- **Closure:** cl(A) = [0, 1]  
-  *Lý do:* Thêm điểm biên 1 vào A.
-
-**Observation quan trọng:** Notice beautiful inclusion chain: int(A) ⊆ A ⊆ cl(A). Interior is "largest open set inside A", A itself sits in middle, và closure is "smallest closed set containing A".
-- A open ⟺ A = int(A)
-- A closed ⟺ A = cl(A)
-- ∂A = cl(A) \ int(A)
+Ta luôn có chuỗi bao hàm $\text{int}(A) \subseteq A \subseteq \text{cl}(A)$, trong đó $\text{int}(A)$ là tập mở lớn nhất chứa trong $A$, còn $\text{cl}(A)$ là tập đóng nhỏ nhất chứa $A$. Hơn nữa:
+- $A$ mở $\iff A = \text{int}(A)$;
+- $A$ đóng $\iff A = \text{cl}(A)$;
+- $\partial A = \text{cl}(A) \setminus \text{int}(A)$.
 
 ---
 
-## 📐 Định nghĩa Hình thức
+## 📐 Định nghĩa hình thức
 
-### 1. Closed Sets (Tập Đóng)
+### 1. Tập đóng (Closed Sets)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Closed Set):**  
-Trong topological space (X, 𝜏), tập F ⊆ X là **closed** nếu complement của nó open:
+**Định nghĩa (Tập đóng):**  
+Trong không gian tô-pô $(X, \tau)$, tập con $F \subseteq X$ là **tập đóng** (*closed*) nếu phần bù của nó là tập mở:
 
 $$
 F \text{ closed} \iff X \setminus F \in \tau
 $$
 </div>
 
-**Ví dụ trong ℝ (Euclidean topology):**
-- **[a, b]** closed (complement = (-∞,a) ∪ (b,∞) open)
-- **{x}** (singleton) closed (complement = ℝ \ {x} open)
-- **ℕ** closed
-- **Cantor set** closed
+**Ví dụ trong $\mathbb{R}$ (tô-pô Euclid):** Các đoạn $[a, b]$, tập đơn điểm $\{x\}$, tập số tự nhiên $\mathbb{N}$ và tập Cantor đều là các tập đóng.
 
-**Dual Axioms for Closed Sets:**
+**Hệ tiên đề đối ngẫu cho tập đóng:**
 
 <div class="textbook-theorem" markdown="1">
-**Định lý:** Họ tất cả closed sets thỏa mãn:
+**Định lý:** Họ tất cả các tập đóng trong $(X, \tau)$ thỏa mãn:
 </div>
 
-**(C1)** ∅ và X closed
+**(C1)** $\emptyset$ và $X$ là các tập đóng.
 
-**(C2)** **Giao tùy ý** closed sets là closed:
+**(C2)** **Giao tùy ý** của các tập đóng là tập đóng:
 $$
 \{F_\alpha\}_{\alpha \in I} \text{ closed} \implies \bigcap_{\alpha \in I} F_\alpha \text{ closed}
 $$
 
-**(C3)** **Hợp hữu hạn** closed sets là closed:
+**(C3)** **Hợp hữu hạn** của các tập đóng là tập đóng:
 $$
 F_1, \ldots, F_n \text{ closed} \implies F_1 \cup \cdots \cup F_n \text{ closed}
 $$
 
 <div class="textbook-proof textbook-proof-marked" markdown="1">
-**Chứng minh:** Dùng De Morgan's laws:
-- X \ (⋂Fα) = ⋃(X \ Fα) ∈ 𝜏 (arbitrary unions of open sets)
-- X \ (F₁ ∪ ... ∪ Fₙ) = (X\F₁) ∩ ... ∩ (X\Fₙ) ∈ 𝜏 (finite intersections) ∎
+**Chứng minh:** Sử dụng công thức De Morgan:
+- $X \setminus \left(\bigcap F_\alpha\right) = \bigcup (X \setminus F_\alpha) \in \tau$ (hợp tùy ý các tập mở là tập mở).
+- $X \setminus (F_1 \cup \cdots \cup F_n) = (X \setminus F_1) \cap \cdots \cap (X \setminus F_n) \in \tau$ (giao hữu hạn các tập mở là tập mở). ∎
 </div>
 
-**Comparison với Open Sets:**
+**So sánh đối ngẫu giữa tập mở và tập đóng:**
 
-| Open Sets | Closed Sets |
+| Tập mở | Tập đóng |
 |-----------|-------------|
-| ∅, X open | ∅, X closed |
-| Arbitrary unions | Arbitrary **intersections** |
-| Finite intersections | Finite **unions** |
+| $\emptyset, X$ mở | $\emptyset, X$ đóng |
+| Đóng với hợp tùy ý | Đóng với **giao tùy ý** |
+| Đóng với giao hữu hạn | Đóng với **hợp hữu hạn** |
 
-**Chú ý quan trọng:**
-- "Not open" ≠ "closed"
-- "Not closed" ≠ "open"
-- Một tập có thể vừa open vừa closed: **clopen**
-- Một tập có thể không open không closed: ví dụ [0,1) trong ℝ
+**Lưu ý:** "Không mở" không đồng nghĩa với "đóng", và "không đóng" không đồng nghĩa với "mở". Một tập có thể vừa mở vừa đóng (gọi là tập *vừa đóng vừa mở*, tiếng Anh: *clopen*), hoặc không mở cũng không đóng (như $[0, 1)$ trong $\mathbb{R}$).
 
 ---
 
-### 2. Closure Operator (Toán tử Bao đóng)
+### 2. Toán tử bao đóng (Closure Operator)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Closure):**  
-Cho A ⊆ X. **Closure** của A là giao của tất cả closed sets chứa A:
+**Định nghĩa (Bao đóng):**  
+Cho $A \subseteq X$. **Bao đóng** (*closure*) của $A$ là giao của tất cả các tập đóng chứa $A$:
 
 $$
 \overline{A} = \text{cl}(A) = \bigcap \{F : F \text{ closed}, A \subseteq F\}
 $$
 </div>
 
-**Trực giác:** cl(A) là **smallest closed set** containing A.
+Về trực giác, $\text{cl}(A)$ là **tập đóng nhỏ nhất** chứa $A$.
 
-**Ví dụ trong ℝ:**
-- cl((0,1)) = [0,1]
-- cl([0,1]) = [0,1] (đã closed)
-- cl(ℚ) = ℝ (vì ℚ dense)
-- cl({1/n : n ∈ ℕ}) = {1/n} ∪ {0}
+**Ví dụ trong $\mathbb{R}$:** $\text{cl}((0, 1)) = [0, 1]$; $\text{cl}([0, 1]) = [0, 1]$; $\text{cl}(\mathbb{Q}) = \mathbb{R}$; và $\text{cl}(\{1/n : n \in \mathbb{N}\}) = \{1/n : n \in \mathbb{N}\} \cup \{0\}$.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Properties of Closure):**
+**Định lý (Các tính chất của bao đóng):**
 
-Closure operator thỏa mãn bốn **Kuratowski closure axioms**:
+Toán tử bao đóng thỏa mãn bốn **tiên đề bao đóng Kuratowski**:
 </div>
 
-**(K1) Extensivity:** 
+**(K1) Tính mở rộng (Extensivity):**
 $$
 A \subseteq \overline{A}
 $$
 
-**(K2) Idempotence:**
+**(K2) Tính lũy đẳng (Idempotence):**
 $$
 \overline{\overline{A}} = \overline{A}
 $$
 
-**(K3) Preservation of unions:**
+**(K3) Bảo toàn phép hợp hữu hạn:**
 $$
 \overline{A \cup B} = \overline{A} \cup \overline{B}
 $$
 
-**(K4) Normality:**
+**(K4) Bảo toàn tập rỗng:**
 $$
 \overline{\emptyset} = \emptyset
 $$
@@ -170,136 +145,98 @@ $$
 **Chứng minh:**
 </div>
 
-**(K1):** cl(A) là closed set chứa A, nên A ⊆ cl(A) ✓
+- **(K1):** $\text{cl}(A)$ là giao của các tập chứa $A$, nên $A \subseteq \text{cl}(A)$.
+- **(K2):** Vì $\text{cl}(A)$ là tập đóng, tập đóng nhỏ nhất chứa nó là chính nó: $\text{cl}(\text{cl}(A)) = \text{cl}(A)$.
+- **(K3):** Vì $\text{cl}(A) \cup \text{cl}(B)$ là tập đóng chứa $A \cup B$, ta có $\text{cl}(A \cup B) \subseteq \text{cl}(A) \cup \text{cl}(B)$. Ngược lại, từ $A \subseteq A \cup B$ và $B \subseteq A \cup B$ suy ra $\text{cl}(A) \subseteq \text{cl}(A \cup B)$ và $\text{cl}(B) \subseteq \text{cl}(A \cup B)$, dẫn đến $\text{cl}(A) \cup \text{cl}(B) \subseteq \text{cl}(A \cup B)$.
+- **(K4):** Vì $\emptyset$ đóng nên $\text{cl}(\emptyset) = \emptyset$.
 
-**(K2):** cl(A) closed, nên cl(cl(A)) = cl(A) ✓
-
-**(K3):**  
-- cl(A) ∪ cl(B) closed (finite union of closed sets)
-- A ∪ B ⊆ cl(A) ∪ cl(B)
-- cl(A ∪ B) ⊆ cl(A) ∪ cl(B) (minimality)
-- Ngược lại: A ⊆ A ∪ B ⇒ cl(A) ⊆ cl(A ∪ B), tương tự cl(B) ⊆ cl(A ∪ B)
-- ⇒ cl(A) ∪ cl(B) ⊆ cl(A ∪ B) ✓
-
-**(K4):** Trivial: ∅ closed, nên cl(∅) = ∅ ✓
-
-**Fact kỳ diệu (Kuratowski):**  
-Có thể **định nghĩa topology** bằng một operator cl: 𝒫(X) → 𝒫(X) thỏa mãn (K1)–(K4)!
-
-Sau đó: F closed ⟺ F = cl(F).
+**Kết quả của Kuratowski:** Ngược lại, bất kỳ toán tử $\text{cl}: \mathcal{P}(X) \to \mathcal{P}(X)$ nào thỏa mãn (K1)–(K4) đều xác định duy nhất một tô-pô trên $X$ bằng quy tắc: $F$ đóng $\iff F = \text{cl}(F)$.
 
 ---
 
-### 3. Limit Points (Điểm Tụ)
+### 3. Điểm tụ (Limit Points)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Limit Point):**  
-Điểm x ∈ X là **limit point** (accumulation point) của A ⊆ X nếu:
+**Định nghĩa (Điểm tụ):**  
+Điểm $x \in X$ là **điểm tụ** (*limit point* hay *accumulation point*) của $A \subseteq X$ nếu:
 
 $$
 \forall U \in \tau, x \in U: (U \cap A) \setminus \{x\} \neq \emptyset
 $$
 </div>
 
-**Nói bằng lời:** Mọi neighborhood của x chứa ít nhất một điểm của A **khác x**.
+Nói bằng lời, mọi lân cận mở của $x$ đều chứa ít nhất một điểm của $A$ **khác $x$**.
 
-**Trực giác:** x là "điểm tụ" của A = điểm có các điểm của A "tụ lại gần" nó.
-
-**Ví dụ trong ℝ:**
-
-1. **A = (0, 1)**  
-   - Mọi x ∈ [0, 1] là limit points của A
-   - Ví dụ: 0 là limit point (vì mọi (0-ε, 0+ε) chứa điểm của (0,1))
-   - Điểm ngoài [0,1] không phải limit points
-
-2. **A = {1/n : n ∈ ℕ}**  
-   - 0 là limit point (unique!)
-   - Mọi 1/n **không phải** limit points (có neighborhood chỉ chứa chính nó)
+**Ví dụ trong $\mathbb{R}$:**
+1. Với $A = (0, 1)$, mọi điểm $x \in [0, 1]$ đều là điểm tụ của $A$ (kể cả $0$ và $1$, vì mọi khoảng mở quanh $0$ đều chứa điểm thuộc $(0, 1)$); các điểm ngoài $[0, 1]$ không phải điểm tụ.
+2. Với $A = \{1/n : n \in \mathbb{N}\}$, $0$ là điểm tụ duy nhất của $A$; mọi điểm $1/n$ đều không phải điểm tụ vì đều có khoảng mở đủ nhỏ chỉ chứa duy nhất điểm đó của $A$.
 
 ![Limit points visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Limit_point_illustration.svg/400px-Limit_point_illustration.svg.png)  
-*Limit points của một tập - Nguồn concept*
+*Điểm tụ của một tập hợp - Nguồn minh họa khái niệm*
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Isolated Point):**  
-Điểm x ∈ A là **isolated point** nếu nó **không phải** limit point của A.
+**Định nghĩa (Điểm cô lập — Isolated Point):**  
+Điểm $x \in A$ là **điểm cô lập** nếu $x$ không phải là điểm tụ của $A$, tức tồn tại lân cận mở $U$ của $x$ sao cho $U \cap A = \{x\}$.
 </div>
 
-Tương đương: ∃ neighborhood U của x sao cho U ∩ A = {x}.
+Chẳng hạn, trong $A = \{1/n : n \in \mathbb{N}\}$ mọi phần tử đều là điểm cô lập; trong $(0, 1)$ không có điểm cô lập nào; còn trong $\{0\} \cup (1, 2)$ thì $0$ là điểm cô lập.
 
-**Ví dụ:**
-- Trong A = {1/n : n ∈ ℕ}, mỗi 1/n là isolated
-- Trong A = (0,1), không có isolated points
-- Trong A = {0} ∪ (1,2), điểm 0 isolated
-
-**Ký hiệu:** A' = tập tất cả limit points của A (derived set)
+Ký hiệu $A'$ là tập tất cả các điểm tụ của $A$ (gọi là *tập dẫn xuất*, *derived set*).
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Closure via Limit Points):**
+**Định lý (Biểu diễn bao đóng qua điểm tụ):**
 $$
 \overline{A} = A \cup A'
 $$
 </div>
 
-**Trực giác:** Closure = điểm gốc + điểm tụ.
-
 <div class="textbook-proof" markdown="1">
-**Chứng minh (sketch):**
+**Phác thảo chứng minh:**
 </div>
 
-**(⊆):** Cho x ∈ cl(A). Nếu x ∉ A, cần chứng minh x ∈ A'.  
-Giả sử (phản chứng) x không phải limit point.  
-Tồn tại U ∋ x với U ∩ A = ∅ hoặc {x}.  
-Nếu U ∩ A = ∅: A ⊆ X \ U (closed), nên cl(A) ⊆ X \ U ⇒ x ∉ cl(A), mâu thuẫn.
-
-**(⊇):** A ⊆ cl(A) rõ ràng. Cần A' ⊆ cl(A).  
-Cho x ∈ A'. Mọi closed F ⊇ A phải chứa x (vì nếu x ∉ F, thì U = X \ F là neighborhood của x với U ∩ A = ∅, mâu thuẫn với x ∈ A'). ∎
+- **Chiều ($\subseteq$):** Lấy $x \in \text{cl}(A)$. Nếu $x \in A$ thì xong. Nếu $x \notin A$, giả sử phản chứng $x \notin A'$; khi đó tồn tại tập mở $U \ni x$ sao cho $U \cap A = \emptyset$, suy ra $A \subseteq X \setminus U$ (tập đóng), dẫn đến $\text{cl}(A) \subseteq X \setminus U$ nên $x \notin \text{cl}(A)$, mâu thuẫn.
+- **Chiều ($\supseteq$):** Hiển nhiên $A \subseteq \text{cl}(A)$. Với mọi $x \in A'$ và mọi tập đóng $F \supseteq A$, nếu $x \notin F$ thì $U = X \setminus F$ là tập mở chứa $x$ thỏa $U \cap A = \emptyset$, trái với $x \in A'$. Vậy $x \in F$ với mọi tập đóng $F \supseteq A$, tức $x \in \text{cl}(A)$. ∎
 
 ---
 
-### 4. Interior Operator (Toán tử Phần trong)
+### 4. Toán tử phần trong (Interior Operator)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Interior):**  
-**Interior** của A là hợp của tất cả open sets chứa trong A:
+**Định nghĩa (Phần trong):**  
+**Phần trong** (*interior*) của $A$ là hợp của tất cả các tập mở chứa trong $A$:
 
 $$
 A° = \text{int}(A) = \bigcup \{U \in \tau : U \subseteq A\}
 $$
 </div>
 
-**Trực giác:** int(A) là **largest open set** contained in A.
-
-**Ví dụ trong ℝ:**
-- int([0,1]) = (0,1)
-- int((0,1)) = (0,1) (đã open)
-- int(ℚ) = ∅ (không có open interval trong ℚ)
-- int({x}) = ∅ (singleton không chứa open set nào)
+Về trực giác, $\text{int}(A)$ là **tập mở lớn nhất** nằm trong $A$. Trong $\mathbb{R}$, ta có $\text{int}([0, 1]) = (0, 1)$, $\text{int}((0, 1)) = (0, 1)$, $\text{int}(\mathbb{Q}) = \emptyset$ và $\text{int}(\{x\}) = \emptyset$.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Properties of Interior):**
+**Định lý (Các tính chất của phần trong):**
 </div>
 
-**(I1) Restrictivity:**
+**(I1) Tính thu hẹp:**
 $$
 \text{int}(A) \subseteq A
 $$
 
-**(I2) Idempotence:**
+**(I2) Tính lũy đẳng:**
 $$
 \text{int}(\text{int}(A)) = \text{int}(A)
 $$
 
-**(I3) Preservation of intersections:**
+**(I3) Bảo toàn phép giao hữu hạn:**
 $$
 \text{int}(A \cap B) = \text{int}(A) \cap \text{int}(B)
 $$
 
-**(I4) Normality:**
+**(I4) Bảo toàn không gian:**
 $$
 \text{int}(X) = X
 $$
 
-**Dual Relationship với Closure:**
+**Quan hệ đối ngẫu với bao đóng:**
 
 <div class="textbook-theorem" markdown="1">
 **Định lý:**
@@ -314,191 +251,152 @@ $$
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**  
-int(A) = largest open ⊆ A  
-     = X \ (smallest closed ⊇ (X \ A))  
-     = X \ cl(X \ A) ✓
+$\text{int}(A)$ là tập mở lớn nhất chứa trong $A$, nên phần bù của nó là tập đóng nhỏ nhất chứa $X \setminus A$, tức $\overline{X \setminus A}$. Do đó $\text{int}(A) = X \setminus \overline{X \setminus A}$. Thay $A$ bằng $X \setminus A$ ta thu được đẳng thức thứ hai.
 </div>
-
-**Trực giác:** Interior và closure là **dual operators**.
 
 ---
 
-### 5. Boundary (Biên)
+### 5. Biên (Boundary)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Boundary):**  
-**Boundary** (frontier) của A là:
+**Định nghĩa (Biên):**  
+**Biên** (*boundary* hay *frontier*) của $A$ là:
 
 $$
 \partial A = \overline{A} \setminus \text{int}(A)
 $$
 </div>
 
-**Phát biểu tương đương:**
+**Biểu diễn tương đương:**
 $$
 \partial A = \overline{A} \cap \overline{X \setminus A}
 $$
 
-**Trực giác:** Điểm x ∈ ∂A nếu:
-- Mọi neighborhood của x chứa cả điểm trong A và điểm ngoài A
-
-**Ví dụ trong ℝ:**
-- ∂([0,1]) = {0, 1}
-- ∂((0,1)) = {0, 1}
-- ∂(ℚ) = ℝ (mọi số thực là boundary!)
-- ∂(∅) = ∅
-
-**Tính chất:**
+Như vậy, $x \in \partial A$ khi và chỉ khi mọi lân cận của $x$ đều giao với cả $A$ lẫn $X \setminus A$. Trong $\mathbb{R}$, ta có $\partial([0, 1]) = \partial((0, 1)) = \{0, 1\}$, $\partial(\mathbb{Q}) = \mathbb{R}$ và $\partial(\emptyset) = \emptyset$.
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Partition of Space):**  
-Với mọi A ⊆ X:
+**Định lý (Phân hoạch không gian):**  
+Với mọi $A \subseteq X$, không gian $X$ được phân hoạch thành ba tập rời nhau:
 $$
 X = \text{int}(A) \sqcup \partial A \sqcup \text{int}(X \setminus A)
 $$
 </div>
 
-(Disjoint union - phân hoạch không gian thành ba phần)
-
 <div class="textbook-proof" markdown="1">
-**Chứng minh:** Exercise sử dụng definitions.
+**Chứng minh:** Suy trực tiếp từ các định nghĩa (dành làm bài tập).
 </div>
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Boundary Properties):**
-1. ∂A = ∂(X \ A) (boundary đối xứng)
-2. ∂A = ∅ ⟺ A vừa open vừa closed (clopen)
-3. A closed ⟺ ∂A ⊆ A
-4. A open ⟺ ∂A ⊆ (X \ A)
+**Định lý (Các tính chất của biên):**
+1. $\partial A = \partial(X \setminus A)$ (tính đối xứng).
+2. $\partial A = \emptyset \iff A$ vừa mở vừa đóng (*clopen*).
+3. $A$ đóng $\iff \partial A \subseteq A$.
+4. $A$ mở $\iff \partial A \subseteq X \setminus A$ (tức $A \cap \partial A = \emptyset$).
 </div>
 
 ---
 
-### 6. Dense Sets (Tập Trù mật)
+### 6. Tập trù mật (Dense Sets)
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Dense):**  
-Tập A ⊆ X là **dense** trong X nếu:
+**Định nghĩa (Tập trù mật):**  
+Tập con $A \subseteq X$ được gọi là **trù mật** (*dense*) trong $X$ nếu:
 
 $$
 \overline{A} = X
 $$
 </div>
 
-**Phát biểu tương đương:**
-- Mọi non-empty open set giao với A
-- Mọi điểm x ∈ X là limit point của A hoặc thuộc A
+Điều này tương đương với việc mọi tập mở khác rỗng trong $X$ đều giao với $A$, hoặc mọi điểm của $X$ hoặc thuộc $A$ hoặc là điểm tụ của $A$.
 
-**Ví dụ:**
-- **ℚ dense trong ℝ:** Mọi khoảng mở chứa số hữu tỉ
-- **ℝ \ ℚ (irrational) dense trong ℝ:** Mọi khoảng mở chứa số vô tỉ
-- **(0,1) dense trong [0,1]:** cl((0,1)) = [0,1]
-- **{0,1} không dense trong ℝ:** cl({0,1}) = {0,1} ≠ ℝ
+**Ví dụ:** Trong $\mathbb{R}$, cả $\mathbb{Q}$ và tập số vô tỉ $\mathbb{R} \setminus \mathbb{Q}$ đều trù mật; $(0, 1)$ trù mật trong $[0, 1]$; còn $\{0, 1\}$ không trù mật trong $\mathbb{R}$ vì $\text{cl}(\{0, 1\}) = \{0, 1\} \neq \mathbb{R}$.
 
 ![Dense set illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Dense_set_rationals.svg/400px-Dense_set_rationals.svg.png)  
-*ℚ dense trong ℝ - Nguồn concept*
+*Tập số hữu tỉ $\mathbb{Q}$ trù mật trong $\mathbb{R}$ - Nguồn minh họa khái niệm*
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Nowhere Dense):**  
-A là **nowhere dense** nếu int(cl(A)) = ∅.
+**Định nghĩa (Tập không đâu trù mật — Nowhere Dense):**  
+Tập $A$ được gọi là **không đâu trù mật** nếu $\text{int}(\text{cl}(A)) = \emptyset$.
 </div>
 
-**Trực giác:** A "thin" đến mức closure của nó cũng không chứa open set nào.
+Về trực giác, $A$ "mỏng" đến mức ngay cả bao đóng của nó cũng không chứa bất kỳ tập mở khác rỗng nào. Ví dụ trong $\mathbb{R}$ gồm $\mathbb{N}$, tập Cantor và $\{1/n : n \in \mathbb{N}\}$.
 
-**Ví dụ:**
-- **ℕ nowhere dense trong ℝ:** int(cl(ℕ)) = int(ℕ) = ∅
-- **Cantor set nowhere dense:** int(Cantor) = ∅
-- **{1/n : n ∈ ℕ} nowhere dense**
-
-**Ứng dụng quan trọng:**
-
-**Định lý Baire (Preview):**  
-Trong complete metric space, hợp countable các nowhere dense sets có interior rỗng.
+**Định lý phạm trù Baire (gợi mở):** Trong một không gian mê-tric đầy đủ, hợp đếm được các tập không đâu trù mật luôn có phần trong rỗng.
 
 <div class="textbook-theorem" markdown="1">
-**Hệ quả:** ℝ không thể viết như hợp countable các nowhere dense sets.  
-→ ℝ "large" theo nghĩa topology!
+**Hệ quả:** $\mathbb{R}$ không thể biểu diễn thành hợp đếm được của các tập không đâu trù mật.
 </div>
 
 ---
 
-### 7. Characterizations of Closure
+### 7. Các đặc trưng tương đương của bao đóng
 
 <div class="textbook-theorem" markdown="1">
-**Định lý (Equivalent Definitions):**  
-Các phát biểu sau **tương đương**:
+**Định lý:**  
+Với $A \subseteq X$ và $x \in X$, bốn mệnh đề sau **tương đương**:
 
-1. x ∈ cl(A)
-2. Mọi neighborhood của x giao với A
-3. Mọi open set chứa x giao với A
-4. x ∈ A hoặc x là limit point của A
+1. $x \in \text{cl}(A)$.
+2. Mọi lân cận của $x$ đều giao với $A$.
+3. Mọi tập mở chứa $x$ đều giao với $A$.
+4. $x \in A$ hoặc $x$ là điểm tụ của $A$.
 </div>
 
 <div class="textbook-proof" markdown="1">
 **Chứng minh:**
 </div>
 
-**(1 ⇒ 2):** Giả sử (phản chứng) ∃ neighborhood N của x với N ∩ A = ∅.  
-Tồn tại U ∈ 𝜏 với x ∈ U ⊆ N.  
-Khi đó X \ U closed, A ⊆ X \ U, nên cl(A) ⊆ X \ U.  
-Nhưng x ∈ cl(A) và x ∈ U → mâu thuẫn!
-
-**(2 ⇒ 3):** Trivial (mọi open set chứa x là neighborhood).
-
-**(3 ⇒ 4):** Nếu x ∈ A, done. Nếu x ∉ A:  
-Mọi U ∋ x có U ∩ A ≠ ∅.  
-Vì x ∉ A, nên U ∩ A chứa điểm ≠ x.  
-→ x là limit point.
-
-**(4 ⇒ 1):** cl(A) = A ∪ A', nên x ∈ cl(A). ∎
+- **(1 $\Rightarrow$ 2):** Giả sử phản chứng tồn tại lân cận $N$ của $x$ sao cho $N \cap A = \emptyset$. Khi đó tồn tại tập mở $U \in \tau$ với $x \in U \subseteq N$, nên $U \cap A = \emptyset$. Suy ra $X \setminus U$ là tập đóng chứa $A$, kéo theo $\text{cl}(A) \subseteq X \setminus U$, mâu thuẫn với $x \in \text{cl}(A) \cap U$.
+- **(2 $\Rightarrow$ 3):** Hiển nhiên vì mọi tập mở chứa $x$ đều là lân cận của $x$.
+- **(3 $\Rightarrow$ 4):** Nếu $x \in A$ thì đúng. Nếu $x \notin A$, thì với mọi tập mở $U \ni x$, ta có $U \cap A \neq \emptyset$ nên $(U \cap A) \setminus \{x\} \neq \emptyset$, tức $x$ là điểm tụ của $A$.
+- **(4 $\Rightarrow$ 1):** Vì $\text{cl}(A) = A \cup A'$, ta có ngay $x \in \text{cl}(A)$. ∎
 
 ---
 
-## 🧠 Fundamental Papers & References
+## 🧠 Bài báo nền tảng và tài liệu tham khảo
 
-### Classic Papers
+### Công trình kinh điển
 
 1. **Kazimierz Kuratowski** - *"Sur l'opération Ā de l'Analysis Situs"* (1922)  
-   *Định nghĩa topology qua closure operator (Kuratowski closure axioms)*
+   *Xây dựng hệ tiên đề Kuratowski cho toán tử bao đóng.*
 
 2. **Felix Hausdorff** - *"Grundzüge der Mengenlehre"* (1914)  
-   *Limit points và derived sets*
+   *Phát triển lý thuyết điểm tụ và tập dẫn xuất.*
 
 3. **René-Louis Baire** - *"Sur les fonctions de variables réelles"* (1899)  
-   *Baire category theorem, nowhere dense sets*
+   *Định lý phạm trù Baire và tập không đâu trù mật.*
 
-### Textbooks
+### Giáo trình
 
 4. **James R. Munkres** - *Topology*, 2nd Ed., **§17: Closed Sets and Limit Points**  
-   *Standard reference*
+   *Tài liệu tham khảo chuẩn.*
 
 5. **Sidney A. Morris** - *Topology Without Tears*, **Chapter 3**  
-   *Clear exposition với examples*
+   *Trình bày rõ ràng kèm nhiều ví dụ.*
 
 6. **John L. Kelley** - *General Topology*, **Chapter 2**  
-   *Comprehensive treatment*
+   *Trình bày toàn diện.*
 
 7. **Stephen Willard** - *General Topology*, **Chapter 2**  
-   *Rigorous approach*
+   *Cách tiếp cận chặt chẽ.*
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và liên hệ
 
-### Analysis - Completeness
-**Cauchy Sequences:** Trong metric space, sequence hội tụ ⟺ limit point của {xₙ} exists và unique. Closure operations capture convergence behavior.
+### Giải tích — Hội tụ và bao đóng
+Trong không gian mê-tric, sự hội tụ của dãy liên hệ trực tiếp với bao đóng: một điểm $x$ thuộc $\overline{A}$ khi và chỉ khi tồn tại một dãy trong $A$ hội tụ về $x$.
 
-### Numerical Analysis - Approximation
-**Rational Approximation:** ℚ dense trong ℝ có nghĩa: mọi số thực có thể xấp xỉ tùy ý gần bởi số hữu tỉ. Computers dùng floating-point (subset của ℚ) để approximate reals.
+### Giải tích số — Xấp xỉ hữu tỉ
+Tính trù mật của $\mathbb{Q}$ trong $\mathbb{R}$ bảo đảm mọi số thực đều có thể xấp xỉ tùy ý gần bởi số hữu tỉ — cơ sở cho biểu diễn số dấu phẩy động trên máy tính.
 
-### Data Science - Clustering
-**DBSCAN Algorithm:** Sử dụng khái niệm "density" (tương tự dense sets) để cluster data points. Core points = interior, border points = boundary.
+### Khoa học dữ liệu — Phân cụm theo mật độ
+Thuật toán DBSCAN phân loại điểm dữ liệu thành điểm lõi (*core points*, tương tự điểm trong), điểm biên (*border points*, tương tự điểm biên) và điểm nhiễu dựa trên mật độ lân cận.
 
-### Computer Graphics - Edge Detection
-**Boundary Detection:** Trong image processing, detecting edges = tìm ∂(region). Algorithms như Canny edge detector dựa trên topology concepts.
+### Xử lý ảnh — Phát hiện biên
+Bài toán tìm đường viền vật thể trong xử lý ảnh tương ứng với việc xác định tập biên $\partial A$ của vùng ảnh, là động lực hình học cho các bộ lọc phát hiện cạnh như Canny.
 
-### Real-World Example
-**Coastline Paradox:** Độ dài coastline phụ thuộc vào measurement resolution. Topologically, coastline = boundary between land và sea, nhưng "fractional dimension" (fractal geometry) enters!
+### Ví dụ thực tế
+Nghịch lý đường bờ biển cho thấy đường biên giữa đất liền và biển có thể mang cấu trúc hình học rất phức tạp (hình học fractal), dù về mặt tô-pô nó vẫn là tập biên giữa hai vùng.
 
 ---
 
@@ -508,145 +406,127 @@ Vì x ∉ A, nên U ∩ A chứa điểm ≠ x.
 - [Basic Topology 3 | Closed Sets and Closure](https://www.youtube.com/watch?v=P-SPQLJTxJk) — The Bright Side of Mathematics, tiếng Anh. Tập đóng như phần bù của tập mở, rồi tới bao đóng, trong ngôn ngữ của Bright Side.
 - [Topology Definitions: Closure, Boundary, Interior](https://www.youtube.com/watch?v=jhAI_irtA3M) — Mu Prime Math, tiếng Anh. Ba từ cạnh nhau: bao đóng, biên, phần trong. Xem để không trộn chúng.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Closed Sets
+### Tập đóng
 
-1. **Verify Closed:**  
-   Trong ℝ (Euclidean topology), các tập sau closed không?
-   - a) [0, 1]
-   - b) {1/n : n ∈ ℕ}
-   - c) ℚ
-   - d) {x ∈ ℝ : sin(x) = 0}
+1. **Kiểm tra tập đóng:**  
+   Trong $\mathbb{R}$ với tô-pô Euclid, các tập sau có đóng không?
+   - a) $[0, 1]$
+   - b) $\{1/n : n \in \mathbb{N}\}$
+   - c) $\mathbb{Q}$
+   - d) $\{x \in \mathbb{R} : \sin(x) = 0\}$
 
-2. **Clopen Sets:**  
-   Tìm tất cả clopen sets (vừa open vừa closed) trong:
-   - a) ℝ với Euclidean topology
-   - b) Discrete topology
-   - c) Trivial topology
+2. **Tập vừa đóng vừa mở (Clopen):**  
+   Tìm tất cả các tập vừa mở vừa đóng trong:
+   - a) $\mathbb{R}$ với tô-pô Euclid
+   - b) Không gian có tô-pô rời rạc
+   - c) Không gian có tô-pô tầm thường
 
-3. **Arbitrary Intersections:**  
-   Cho Fₙ = [1/n, 1] trong ℝ (n ∈ ℕ).  
-   - a) Mỗi Fₙ có closed không?
-   - b) Tính ⋂ₙ₌₁^∞ Fₙ
-   - c) Giao này có closed không?
+3. **Giao tùy ý của các tập đóng:**  
+   Cho $F_n = [1/n, 1]$ trong $\mathbb{R}$ ($n \in \mathbb{N}$).
+   - a) Mỗi $F_n$ có đóng không?
+   - b) Tính $\bigcap_{n=1}^{\infty} F_n$.
+   - c) Giao này có đóng không?
 
-### Closure
+### Bao đóng
 
-4. **Compute Closure:**  
-   Trong ℝ, tìm cl(A):
-   - a) A = (0, 1) ∪ {2}
-   - b) A = {1 + 1/n : n ∈ ℕ}
-   - c) A = {x ∈ ℚ : 0 < x < √2}
-   - d) A = ℤ
+4. **Tính bao đóng:**  
+   Trong $\mathbb{R}$, tìm $\text{cl}(A)$:
+   - a) $A = (0, 1) \cup \{2\}$
+   - b) $A = \{1 + 1/n : n \in \mathbb{N}\}$
+   - c) $A = \{x \in \mathbb{Q} : 0 < x < \sqrt{2}\}$
+   - d) $A = \mathbb{Z}$
 
-5. **Kuratowski Axioms:**  
-   Chứng minh rằng cl(A ∩ B) ⊆ cl(A) ∩ cl(B).  
-   Cho ví dụ khi bất đẳng thức nghiêm ngặt.
+5. **Bao đóng của phép giao:**  
+   Chứng minh rằng $\text{cl}(A \cap B) \subseteq \text{cl}(A) \cap \text{cl}(B)$, và nêu ví dụ khi bao hàm là nghiêm ngặt.
 
-6. **Closure in Discrete:**  
-   Trong discrete topology, tính cl(A) với A tùy ý.
+6. **Bao đóng trong tô-pô rời rạc:**  
+   Trong không gian có tô-pô rời rạc, xác định $\text{cl}(A)$ với $A$ bất kỳ.
 
-### Interior
+### Phần trong
 
-7. **Compute Interior:**  
-   Trong ℝ, tìm int(A):
-   - a) A = [0, 1]
-   - b) A = ℚ
-   - c) A = [0, 1] ∪ [2, 3]
-   - d) A = {1/n : n ∈ ℕ}
+7. **Tính phần trong:**  
+   Trong $\mathbb{R}$, tìm $\text{int}(A)$:
+   - a) $A = [0, 1]$
+   - b) $A = \mathbb{Q}$
+   - c) $A = [0, 1] \cup [2, 3]$
+   - d) $A = \{1/n : n \in \mathbb{N}\}$
 
-8. **Interior vs Closure:**  
-   Chứng minh: int(A) = X \ cl(X \ A).
+8. **Đối ngẫu phần trong — bao đóng:**  
+   Chứng minh $\text{int}(A) = X \setminus \text{cl}(X \setminus A)$.
 
-9. **Open Iff Interior:**  
-   Chứng minh: A open ⟺ A = int(A).
+9. **Đặc trưng tập mở:**  
+   Chứng minh $A$ mở $\iff A = \text{int}(A)$.
 
-### Limit Points
+### Điểm tụ
 
-10. **Find Limit Points:**  
-    Trong ℝ, tìm tập limit points A' của:
-    - a) A = (0, 1)
-    - b) A = {1/n : n ∈ ℕ}
-    - c) A = ℚ
-    - d) A = Cantor set
+10. **Tìm tập điểm tụ:**  
+    Trong $\mathbb{R}$, tìm tập điểm tụ $A'$ của:
+    - a) $A = (0, 1)$
+    - b) $A = \{1/n : n \in \mathbb{N}\}$
+    - c) $A = \mathbb{Q}$
+    - d) $A$ là tập Cantor
 
-11. **Isolated Points:**  
-    Tập A ⊆ ℝ với mọi điểm là isolated (không có limit points).  
-    - a) Cho ví dụ A infinite
-    - b) A có thể uncountable không?
+11. **Tập chỉ gồm điểm cô lập:**  
+    Xét tập $A \subseteq \mathbb{R}$ mà mọi điểm của $A$ đều là điểm cô lập.
+    - a) Nêu một ví dụ với $A$ vô hạn.
+    - b) $A$ có thể không đếm được không?
 
-12. **Closure Formula:**  
-    Chứng minh: cl(A) = A ∪ A' (A' = limit points).
+12. **Công thức bao đóng:**  
+    Chứng minh $\text{cl}(A) = A \cup A'$.
 
-### Boundary
+### Biên
 
-13. **Compute Boundary:**  
-    Trong ℝ, tìm ∂A:
-    - a) A = [0, 1)
-    - b) A = ℚ
-    - c) A = {0} ∪ (1, 2)
-    - d) A = Cantor set
+13. **Tính biên:**  
+    Trong $\mathbb{R}$, tìm $\partial A$:
+    - a) $A = [0, 1)$
+    - b) $A = \mathbb{Q}$
+    - c) $A = \{0\} \cup (1, 2)$
+    - d) $A$ là tập Cantor
 
-14. **Boundary Properties:**  
+14. **Tính chất của biên:**  
     Chứng minh:
-    - a) ∂A = ∂(X \ A)
-    - b) ∂A closed
-    - c) ∂(∂A) ⊆ ∂A
+    - a) $\partial A = \partial(X \setminus A)$
+    - b) $\partial A$ là tập đóng
+    - c) $\partial(\partial A) \subseteq \partial A$
 
-15. **Partition:**  
-    Chứng minh: X = int(A) ⊔ ∂A ⊔ int(X \ A) (disjoint union).
+15. **Phân hoạch không gian:**  
+    Chứng minh $X = \text{int}(A) \sqcup \partial A \sqcup \text{int}(X \setminus A)$.
 
-### Dense Sets
+### Tập trù mật
 
-16. **Verify Dense:**  
-    Chứng minh ℚ dense trong ℝ.  
-    (*Hint:* Mọi (a,b) chứa số hữu tỉ—Archimedean property)
+16. **Tính trù mật của $\mathbb{Q}$:**  
+    Chứng minh $\mathbb{Q}$ trù mật trong $\mathbb{R}$. (*Gợi ý:* Dùng tính chất Archimedes để chỉ ra mọi khoảng $(a, b)$ đều chứa số hữu tỉ.)
 
-17. **Irrationals Dense:**  
-    Chứng minh ℝ \ ℚ (irrational) cũng dense trong ℝ.
+17. **Tính trù mật của số vô tỉ:**  
+    Chứng minh $\mathbb{R} \setminus \mathbb{Q}$ cũng trù mật trong $\mathbb{R}$.
 
-18. **Nowhere Dense:**  
-    Chứng minh ℕ nowhere dense trong ℝ.
+18. **Không đâu trù mật:**  
+    Chứng minh $\mathbb{N}$ không đâu trù mật trong $\mathbb{R}$.
 
-### Advanced
+### Nâng cao
 
-19. **Cantor Set:**  
-    Cantor set C có tính chất:
-    - closed: ✓
-    - nowhere dense: ✓
-    - uncountable: ✓
-    
-    Chứng minh rằng ∂C = C (boundary = chính nó).
+19. **Tập Cantor:**  
+    Biết tập Cantor $C \subset [0, 1]$ đóng và không đâu trù mật, chứng minh rằng $\partial C = C$.
 
-20. **Baire Category:**  
-    ℝ = ℚ ∪ (ℝ \ ℚ).  
-    - ℚ có dense
-    - ℝ \ ℚ có dense
-    
-    Có thể viết ℝ = A ∪ B với A, B đều **không** dense không?
+20. **Phân tách $\mathbb{R}$:**  
+    Ta có $\mathbb{R} = \mathbb{Q} \cup (\mathbb{R} \setminus \mathbb{Q})$ với cả hai tập đều trù mật. Có thể viết $\mathbb{R} = A \cup B$ với cả $A$ và $B$ đều **không** trù mật trong $\mathbb{R}$ không?
 
-21. **Separation:**  
-    Cho A, B ⊆ X disjoint với cl(A) ∩ B = ∅ và A ∩ cl(B) = ∅.  
-    Chứng minh tồn tại U, V ∈ 𝜏 disjoint với A ⊆ U, B ⊆ V.  
-    (*Preview:* Normal spaces)
+21. **Tách hai tập tách biệt trong không gian mê-tric:**  
+    Trong một không gian mê-tric $(X, d)$, cho hai tập $A, B \subseteq X$ thỏa mãn $\text{cl}(A) \cap B = \emptyset$ và $A \cap \text{cl}(B) = \emptyset$. Chứng minh tồn tại hai tập mở rời nhau $U, V$ sao cho $A \subseteq U$ và $B \subseteq V$. (*Gợi ý:* Với mỗi $a \in A$, chọn $r_a > 0$ sao cho $B(a, r_a) \cap B = \emptyset$, rồi xét $U = \bigcup_{a \in A} B(a, r_a / 2)$ và tương tự cho $V$.)
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-22. **Dual Concepts:**  
-    So sánh duality:
-    - Open ⟷ Closed
-    - Interior ⟷ Closure
-    - Union ⟷ Intersection
-    
-    Giải thích tại sao duality này "natural".
+22. **Tính đối ngẫu:**  
+    Giải thích vì sao các cặp tập mở $\leftrightarrow$ tập đóng, phần trong $\leftrightarrow$ bao đóng, hợp $\leftrightarrow$ giao tạo thành quan hệ đối ngẫu qua phép lấy phần bù.
 
-23. **Topology from Closure:**  
-    Nếu operator cl: 𝒫(X) → 𝒫(X) thỏa mãn Kuratowski axioms (K1)–(K4), có thể reconstruct topology không? Làm thế nào?
+23. **Tái tạo tô-pô từ toán tử bao đóng:**  
+    Nếu toán tử $\text{cl}: \mathcal{P}(X) \to \mathcal{P}(X)$ thỏa mãn bốn tiên đề Kuratowski (K1)–(K4), hãy mô tả cách khôi phục lại họ các tập mở của tô-pô tương ứng.
 
 ---
 
-## 📚 Further Reading
+## 📚 Đọc thêm
 
 - **Munkres, Topology:** §17 (Closed Sets and Limit Points), §18 (Continuous Functions)
 - **Morris, Topology Without Tears:** Chapter 3 (Limit Points)
@@ -655,40 +535,26 @@ Vì x ∉ A, nên U ∩ A chứa điểm ≠ x.
 
 ---
 
-## 🎓 Summary
+## 🎓 Tóm tắt
 
-Trong bài giảng này, chúng ta học về các **operators** quan trọng nhất:
+Trong bài giảng này, ta đã xây dựng hệ thống các khái niệm và toán tử đối ngẫu với tập mở:
 
-✅ **Closed Sets:** Dual của open sets, axioms (C1)–(C3)  
-✅ **Closure cl(·):** Smallest closed set containing A  
-✅ **Kuratowski Axioms:** (K1) Extensivity, (K2) Idempotence, (K3) Unions, (K4) Normality  
-✅ **Limit Points:** Điểm có các điểm của A "tụ lại gần"  
-✅ **Interior int(·):** Largest open set in A, dual của closure  
-✅ **Boundary ∂:** cl(A) \ int(A), "ranh giới"  
-✅ **Dense Sets:** cl(A) = X, "everywhere" trong space  
+✅ **Tập đóng:** Phần bù của tập mở, thỏa mãn các tiên đề đối ngẫu (C1)–(C3).  
+✅ **Bao đóng $\text{cl}(\cdot)$:** Tập đóng nhỏ nhất chứa $A$, thỏa mãn bốn tiên đề Kuratowski (K1)–(K4).  
+✅ **Điểm tụ và điểm cô lập:** Công thức $\text{cl}(A) = A \cup A'$.  
+✅ **Phần trong $\text{int}(\cdot)$:** Tập mở lớn nhất nằm trong $A$, đối ngẫu với bao đóng qua $\text{int}(A) = X \setminus \text{cl}(X \setminus A)$.  
+✅ **Biên $\partial A$:** Tập $\text{cl}(A) \setminus \text{int}(A)$, phân hoạch $X = \text{int}(A) \sqcup \partial A \sqcup \text{int}(X \setminus A)$.  
+✅ **Tập trù mật và không đâu trù mật:** $\text{cl}(A) = X$ và $\text{int}(\text{cl}(A)) = \emptyset$.
 
-**Điểm chính:**
-- Closure và interior là **dual operators**: int(A) = X \ cl(X \ A)
-- Closure = original set + limit points: cl(A) = A ∪ A'
-- Boundary = điểm mà mọi neighborhood intersects cả inside và outside
-- Dense sets: ℚ và ℝ\ℚ đều dense trong ℝ
-- Operators này satisfy nice axioms (Kuratowski, etc.)
-
-**Practical wisdom:**
-- Để chứng minh A closed: chứng minh A = cl(A) hoặc complement open
-- Để chứng minh x ∈ cl(A): chứng minh mọi neighborhood của x giao A
-- Dense sets key trong approximation theory
-
-**Tiếp theo:** Trong Lecture 01.03, chúng ta học về **Continuous Functions và Homeomorphisms**—cách ánh xạ giữa các topological spaces, và định nghĩa "topological equivalence".
+**Tiếp theo:** Trong Bài 01.03, ta sẽ tìm hiểu **Ánh xạ liên tục và Phép đồng phôi** — công cụ so sánh các không gian tô-pô và định nghĩa sự tương đương tô-pô.
 
 ---
 
 *"Closure is the smallest closed set; interior is the largest open set. Between them lies the boundary."* — Topology wisdom
 
-🎯 **Làm nhiều bài tập tính closure, interior, boundary! Đây là skills cần thiết.** 🎯
+🎯 **Hãy rèn luyện việc tính bao đóng, phần trong và biên trên nhiều ví dụ khác nhau.** 🎯
 
 ---
 
 **Previous:** [Lecture 01.01: Basis and Subbasis](/contents/vi/topology-chapter01/01_01_Basis_Subbasis/)  
 **Next:** [Lecture 01.03: Continuous Functions and Homeomorphisms](/contents/vi/topology-chapter01/01_03_Continuous_Functions_Homeomorphisms/)
-

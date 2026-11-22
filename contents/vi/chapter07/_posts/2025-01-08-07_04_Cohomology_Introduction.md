@@ -10,93 +10,63 @@ tags: [cohomology, cup-product, ring-structure, poincare-duality]
 description: "Cohomology Hⁿ(X): dual của homology, cup product ∪, ring structure, Universal Coefficient Theorem"
 ---
 
-**H^n(X) - Dual Theory with Rich Algebraic Structure**
+**$H^n(X)$ — Lý thuyết đối ngẫu với cấu trúc vành**
 
 ---
 
 ## 📖 Tổng quan
 
-Chúng ta đã thành thạo **homology $H_n(X)$**—các bất biến abelian group mạnh mẽ. Homology cho chúng ta một cách đo lường các lỗ trong không gian và là một công cụ mạnh mẽ trong topology đại số.
+Các nhóm đồng điều $H_n(X)$ cung cấp một hệ bất biến nhóm Abel hữu ích để đo lường các lỗ của không gian tô-pô. Tuy nhiên, nếu chỉ xét từng nhóm riêng lẻ, ta vẫn bỏ sót nhiều thông tin hình học. **Đối đồng điều $H^n(X)$** (cohomology), được xây dựng bằng cách đối ngẫu hóa phức xích đồng điều, mang thêm cấu trúc đại số mà đồng điều không có:
 
-**Nhưng có gì thêm?**
+✅ **Tích cup ($\cup$):** Phép nhân giữa các lớp đối đồng điều $H^p(X) \times H^q(X) \to H^{p+q}(X)$.
 
-> **Cohomology $H^n(X)$ = "dual" của homology**
+✅ **Cấu trúc vành phân bậc:** Tổng trực tiếp $H^*(X) = \bigoplus_{n=0}^\infty H^n(X)$ lập thành một vành giao hoán phân bậc, cho bất biến chặt chẽ hơn so với các nhóm đơn thuần.
 
-**Tại sao "dual" không đủ?**
+✅ **Tính phản biến (contravariance):** Ánh xạ liên tục $f: X \to Y$ cảm sinh đồng cấu theo chiều ngược lại $f^*: H^n(Y) \to H^n(X)$.
 
-Cohomology có **cấu trúc bổ sung** mà homology không có:
+✅ **Khả năng phân biệt tinh tế hơn:** Vành đối đồng điều phân biệt được những không gian có cùng nhóm đồng điều.
 
-✅ **Cup product $\cup$:** Phép nhân trong cohomology! Đây là một cấu trúc đại số quan trọng cho phép chúng ta nhân các cohomology classes với nhau.
-
-✅ **Ring structure:** $H^*(X)$ = graded ring—tổng trực tiếp của tất cả các cohomology groups tạo thành một graded ring, một cấu trúc đại số phong phú hơn nhiều so với chỉ các groups.
-
-✅ **Contravariant:** $f: X \to Y$ cảm ứng $f^*: H^n(Y) \to H^n(X)$ (reverse direction!)—cohomology là contravariant, nghĩa là các maps đi theo hướng ngược lại so với homology.
-
-✅ **More refined:** Phân biệt các không gian mà homology không thể—cohomology có thể phân biệt các không gian mà homology không thể phân biệt được.
-
-✅ **Geometric:** Poincaré duality liên kết $H^k \leftrightarrow H_{n-k}$—đây là một kết quả hình học sâu sắc cho phép chúng ta liên kết cohomology và homology trên các manifolds.  
+✅ **Đối ngẫu Poincaré:** Liên hệ trực tiếp $H^k(M)$ và $H_{n-k}(M)$ trên các đa tạp đóng định hướng được.
 
 ![Cohomology cup product](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cup_product.svg/400px-Cup_product.svg.png)  
-*Cup product visualization - Nguồn concept*
+*Minh họa tích cup - Nguồn concept*
 
-Trong bài học này, chúng ta sẽ khám phá cohomology một cách có hệ thống. Chúng ta sẽ nghiên cứu **Cochain complex**—cấu trúc dual của chain complex. Chúng ta sẽ học về **Cohomology groups $H^n(X)$**—định nghĩa và các tính chất cơ bản. Chúng ta sẽ tìm hiểu **Cup product $\cup$**—cấu trúc phép nhân quan trọng trong cohomology. Chúng ta sẽ xem xét **Ring $H^*(X)$**—graded ring invariant mạnh mẽ. Chúng ta sẽ học về **Universal Coefficient Theorem**—liên kết $H^n$ với $H_n$. Chúng ta sẽ khám phá **Poincaré Duality**—duality trên các manifolds. Chúng ta sẽ xem xét các **ví dụ** cụ thể như spheres, torus, projective spaces—những ví dụ này cho thấy sức mạnh của cohomology. Cuối cùng, chúng ta sẽ xem xét các **ứng dụng** trong obstruction theory và characteristic classes—những ứng dụng quan trọng trong topology và geometry.
-
-**Tại sao đây là kiến thức quan trọng?** **Ring structure** = bất biến mạnh mẽ hơn nhiều so với chỉ các groups—cấu trúc ring cho phép chúng ta nhân các cohomology classes và tạo ra các bất biến mạnh mẽ hơn. Đây là **nền tảng** cho modern geometry (vector bundles, characteristic classes)—cohomology là công cụ cơ bản trong nghiên cứu các vector bundles và characteristic classes. Nó **cần thiết** trong algebraic geometry và differential topology—cohomology xuất hiện khắp nơi trong các lĩnh vực này. Cuối cùng, **Cup product** phát hiện các intersections hình học—đây là một cách mạnh mẽ để nghiên cứu các intersections trong không gian.
+Trong bài học này, ta sẽ lần lượt tìm hiểu phức đối xích và toán tử đối biên, nhóm đối đồng điều $H^n(X; G)$, tích cup và cấu trúc vành $H^*(X)$, Định lý Hệ số Phổ quát (Universal Coefficient Theorem), Đối ngẫu Poincaré cùng các ví dụ chuẩn (điểm, mặt cầu, hình xuyến, $\mathbb{R}P^2$) và ứng dụng trong lý thuyết chướng ngại cũng như các lớp đặc trưng.
 
 ---
 
-## 🔗 Cochains and Coboundary
+## 🔗 Đối xích và Toán tử đối biên
 
-### 1. Cochain Groups
+### 1. Nhóm đối xích
 
-**Ôn tập (Homology):**  
-Chain complex: $C_n(X)$ với boundary $\partial: C_n \to C_{n-1}$.
-
-**Dualize:**
+Xuất phát từ phức xích $C_n(X)$ với toán tử biên $\partial: C_n \to C_{n-1}$, ta lấy đối ngẫu bằng cách cố định một nhóm Abel hệ số $G$ (thường chọn $G = \mathbb{Z}$).
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cochain Groups):**  
-Cố định coefficient group $G$ (thường là $\mathbb{Z}$).
+**Định nghĩa (Nhóm đối xích):**
 
 $$
 C^n(X; G) = \text{Hom}(C_n(X), G)
 $$
 </div>
 
-**Group của các homomorphisms từ $C_n(X)$ đến $G$.** Trực giác hình học là cochain group là không gian của các "functions" trên chain group—mỗi cochain là một cách gán giá trị cho mỗi chain.
+Mỗi phần tử $\phi \in C^n(X; G)$, gọi là một **$n$-đối xích** ($n$-cochain), là một đồng cấu nhóm $\phi: C_n(X) \to G$.
 
-**Elements:** Cochains $\phi: C_n(X) \to G$. Mỗi cochain là một homomorphism từ chain group đến coefficient group.
-
----
-
-**Trực giác:**
-
-- **Chains:** "Geometric" objects (simplices)—các đối tượng hình học như simplices
-- **Cochains:** "Functions" trên chains (assign values)—các hàm số trên chains, gán giá trị cho mỗi chain
-
-**Ví dụ:** 1-chain = formal sum của các edges.  
-1-cochain = function gán số cho mỗi edge. Đây là một cách hiểu trực quan—chains là các đối tượng hình học, còn cochains là các hàm số trên các đối tượng này.
+Về mặt trực giác, nếu các xích là các đối tượng hình học (tổ hợp hình thức các đơn hình) thì các đối xích là các hàm gán giá trị thuộc $G$ cho từng đơn hình. Chẳng hạn, một $1$-xích là tổng hình thức của các cạnh, còn một $1$-đối xích là hàm gán một phần tử của $G$ cho mỗi cạnh.
 
 ---
 
-### 2. Coboundary Operator
+### 2. Toán tử đối biên
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Coboundary):**  
-Boundary $\partial: C_{n+1} \to C_n$ cảm ứng **coboundary** $\delta: C^n \to C^{n+1}$.
-</div>
-
-**Công thức:** $\phi \in C^n$, định nghĩa $\delta\phi \in C^{n+1}$ bởi:
+**Định nghĩa (Toán tử đối biên):**  
+Toán tử biên $\partial: C_{n+1} \to C_n$ cảm sinh **toán tử đối biên** (coboundary operator) $\delta: C^n \to C^{n+1}$, xác định với mọi $\phi \in C^n$ và $c \in C_{n+1}$ bởi:
 
 $$
 (\delta \phi)(c) = \phi(\partial c), \quad c \in C_{n+1}
 $$
+</div>
 
-**"Precompose với boundary."** Trực giác hình học là coboundary operator được định nghĩa bằng cách "precompose" với boundary operator—chúng ta áp dụng cochain vào boundary của chain. Điều này tạo ra một cochain ở chiều cao hơn.
-
----
-
-**Diagram:**
+Nói cách khác, $\delta\phi = \phi \circ \partial$ là phép hợp trước với toán tử biên, đẩy số chiều của đối xích tăng thêm $1$:
 
 ```
 C_{n+1} --∂--> C_n
@@ -105,228 +75,173 @@ C_{n+1} --∂--> C_n
    G <--δφ--- G
 ```
 
-δφ = φ ∘ ∂.
-
 ---
 
-### 3. Key Property: δ² = 0
+### 3. Tính chất cốt lõi: $\delta^2 = 0$
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** δ^{n+1} ∘ δ^n = 0.
+**Định lý:** $\delta^{n+1} \circ \delta^n = 0$.
 </div>
 
-**Proof:**  
-(δ²φ)(c) = (δφ)(∂c) = φ(∂²c) = φ(0) = 0.
-
-Uses ∂² = 0! ✓
-
-**Same as homology, but "dual."**
+**Chứng minh:** Với mọi $\phi \in C^n$ và $c \in C_{n+2}$, ta có:
+$$(\delta^2\phi)(c) = (\delta\phi)(\partial c) = \phi(\partial^2 c) = \phi(0) = 0$$
+kết quả suy trực tiếp từ tính chất $\partial^2 = 0$ của toán tử biên. ✓
 
 ---
 
-### 4. Cochain Complex
+### 4. Phức đối xích
 
-**Cochain complex:**
+Dãy các nhóm đối xích và toán tử đối biên lập thành **phức đối xích** (cochain complex), với các mũi tên tăng dần theo chiều:
 
 $$
 0 \to C^0(X) \xrightarrow{\delta^0} C^1(X) \xrightarrow{\delta^1} C^2(X) \to \cdots
 $$
 
-**Arrows go UP in dimension** (opposite of chains).
-
-**Cocycles:** Z^n = ker(δ^n) (cochains với δφ = 0)
-
-**Coboundaries:** B^n = im(δ^{n-1}) (cochains = δψ)
+- **Đối chu trình (cocycles):** $Z^n = \ker(\delta^n)$ (các đối xích thỏa mãn $\delta\phi = 0$).
+- **Đối biên (coboundaries):** $B^n = \text{im}(\delta^{n-1})$ (các đối xích có dạng $\delta\psi$).
 
 <div class="textbook-lemma" markdown="1">
-**Lemma:** B^n ⊆ Z^n (follows from δ² = 0).
+**Bổ đề:** $B^n \subseteq Z^n$ (suy trực tiếp từ $\delta^2 = 0$).
 </div>
 
 ---
 
-## 📊 Cohomology Groups
+## 📊 Nhóm đối đồng điều
 
-### 1. Definition
+### 1. Định nghĩa
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cohomology Groups):**
+**Định nghĩa (Nhóm đối đồng điều):**
 
 $$
 H^n(X; G) = \frac{Z^n(X; G)}{B^n(X; G)} = \frac{\ker(\delta^n)}{\text{im}(\delta^{n-1})}
 $$
 </div>
 
-**Quotient: cocycles modulo coboundaries.**
-
-**Same algebraic structure as homology!**
+$H^n(X; G)$ là nhóm thương của các đối chu trình theo các đối biên, có cấu trúc đại số tương tự như đồng điều.
 
 ---
 
-### 2. Properties
+### 2. Tính chất
 
-**Abelian groups:** H^n(X) always abelian.
-
-**Functorial (contravariant):**  
-f: X → Y induces:
+- **Tính Abel:** $H^n(X; G)$ luôn là nhóm Abel.
+- **Tính hàm tử phản biến (contravariant):** Mỗi ánh xạ liên tục $f: X \to Y$ cảm sinh đồng cấu theo chiều ngược lại:
 
 $$
-f^* : H^n(Y) \to H^n(X) \quad \text{(reverse direction!)}
+f^* : H^n(Y) \to H^n(X)
 $$
 
-**Construction:**  
-φ: C_n(Y) → G cochain.  
-Define f^*(φ) = φ ∘ f_# (precompose with chain map).
+Cách xây dựng: với mỗi đối xích $\phi: C_n(Y) \to G$, đặt $f^\#(\phi) = \phi \circ f_\#$ (hợp với ánh xạ xích $f_\#: C_n(X) \to C_n(Y)$). Ánh xạ cảm sinh $f^*$ trên đối đồng điều thỏa mãn:
+- $(f \circ g)^* = g^* \circ f^*$,
+- $\text{id}^* = \text{id}$.
 
-**Contravariance:**
-- (f ∘ g)^* = g^* ∘ f^*
-- id^* = id
-
-**Opposite category behavior dari homology!**
+Đây là hành vi hàm tử ngược chiều so với đồng điều.
 
 ---
 
-### 3. Homotopy Invariance
+### 3. Bất biến đồng luân
 
 <div class="textbook-theorem" markdown="1">
-**Theorem:** X ≃ Y ⇒ H^n(X) ≅ H^n(Y).
+**Định lý:** Nếu $X \simeq Y$ thì $H^n(X) \cong H^n(Y)$.
 </div>
 
 <div class="textbook-proof" markdown="1">
-**Proof:** Same as homology (dual argument). ✓
+**Chứng minh:** Đối ngẫu hóa phép đồng luân xích từ chứng minh bất biến đồng luân của đồng điều. ✓
 </div>
-
-**Cohomology = homotopy invariant.**
 
 ---
 
-## ⭐ Cup Product
+## ⭐ Tích cup
 
-### 1. Definition
+### 1. Định nghĩa
 
-**Revolutionary feature:** Cohomology có **multiplication**!
+Điểm khác biệt lớn nhất của đối đồng điều là sự tồn tại của phép nhân gọi là **tích cup** (cup product), khi hệ số lấy trong một vành $R$ (như $\mathbb{Z}$ hoặc $\mathbb{Z}/2\mathbb{Z}$).
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cup Product):**
+**Định nghĩa (Tích cup):**
 
 $$
 \cup : H^p(X) \times H^q(X) \to H^{p+q}(X)
 $$
+
+là một phép toán song tuyến tính và kết hợp trên đối đồng điều.
 </div>
 
-**Bilinear, associative operation.**
-
----
-
-**Construction (Sketch):**  
-φ ∈ C^p, ψ ∈ C^q. Define φ ∪ ψ ∈ C^{p+q} by:
+**Phác thảo xây dựng:** Với $\phi \in C^p(X)$ và $\psi \in C^q(X)$, định nghĩa đối xích $\phi \cup \psi \in C^{p+q}(X)$ trên mỗi $(p+q)$-đơn hình kỳ dị $\sigma$ bằng cách tính $\phi$ trên mặt trước $[v_0, \ldots, v_p]$, tính $\psi$ trên mặt sau $[v_p, \ldots, v_{p+q}]$ rồi nhân hai giá trị lại:
 
 $$
 (\phi \cup \psi)(\sigma) = \phi(\sigma|_{[v_0, \ldots, v_p]}) \cdot \psi(\sigma|_{[v_p, \ldots, v_{p+q}]})
 $$
 
-**Evaluate φ on "front" of simplex, ψ on "back", multiply.**
-
-**Extends to cohomology:**  
-If φ, ψ cocycles, then φ ∪ ψ cocycle.  
-If φ coboundary, then φ ∪ ψ coboundary.
-
-**Induces well-defined:**  
-[φ] ∪ [ψ] = [φ ∪ ψ] ∈ H^{p+q}(X).
+Nếu $\phi, \psi$ là đối chu trình thì $\phi \cup \psi$ cũng là đối chu trình; hơn nữa tích của một đối chu trình với một đối biên là một đối biên. Do đó phép nhân cảm sinh tích cup xác định tốt trên đối đồng điều: $[\phi] \cup [\psi] = [\phi \cup \psi] \in H^{p+q}(X)$.
 
 ---
 
-### 2. Properties
+### 2. Tính chất
 
-**Bilinearity:** (α₁ + α₂) ∪ β = α₁ ∪ β + α₂ ∪ β.
-
-**Associativity:** (α ∪ β) ∪ γ = α ∪ (β ∪ γ).
-
-**Unity:** 1 ∈ H^0(X) is identity: 1 ∪ α = α ∪ 1 = α.
-
-**Graded commutativity:**
+- **Song tuyến tính:** $(\alpha_1 + \alpha_2) \cup \beta = \alpha_1 \cup \beta + \alpha_2 \cup \beta$.
+- **Kết hợp:** $(\alpha \cup \beta) \cup \gamma = \alpha \cup (\beta \cup \gamma)$.
+- **Đơn vị:** Phần tử $1 \in H^0(X)$ là đơn vị: $1 \cup \alpha = \alpha \cup 1 = \alpha$.
+- **Giao hoán phân bậc (graded commutativity):** Với $\alpha \in H^p(X)$ và $\beta \in H^q(X)$,
 
 $$
 \alpha \cup \beta = (-1)^{pq} \beta \cup \alpha
 $$
 
-(α ∈ H^p, β ∈ H^q)
-
-**Signs matter!**
-
 ---
 
-### 3. Ring Structure
+### 3. Cấu trúc vành
 
 <div class="textbook-definition" markdown="1">
-**Định nghĩa (Cohomology Ring):**
+**Định nghĩa (Vành đối đồng điều):**
 
 $$
 H^*(X) = \bigoplus_{n=0}^\infty H^n(X)
 $$
 
-with cup product ∪.
+cùng với tích cup $\cup$ lập thành **vành đối đồng điều** (cohomology ring), là một vành giao hoán phân bậc.
 </div>
 
-**H^*(X) = graded commutative ring!**
-
-**Much richer structure than homology groups.**
+Chẳng hạn, với mặt cầu $S^2$, ta có $H^*(S^2) \cong \mathbb{Z}[\alpha]/(\alpha^2)$ với $\alpha \in H^2(S^2)$ — một vành đa thức bị cắt cụt.
 
 ---
 
-**Example:**
+## 🔄 Định lý Hệ số Phổ quát
 
-For S², we'll see:  
-H^*(S²) = ℤ[α]/(α²) where α ∈ H²(S²).
-
-**Polynomial ring truncated!**
-
----
-
-## 🔄 Universal Coefficient Theorem
-
-### 1. Statement
+### 1. Phát biểu
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Universal Coefficient - Cohomology):**
+**Định lý (Hệ số Phổ quát cho đối đồng điều):**  
+Với mọi không gian $X$ và nhóm Abel $G$, tồn tại đẳng cấu (không tự nhiên):
 
 $$
 H^n(X; G) \cong \text{Hom}(H_n(X), G) \oplus \text{Ext}(H_{n-1}(X), G)
 $$
 </div>
 
-**Relates cohomology to homology!**
+Trong công thức trên, $\text{Hom}(A, G)$ là nhóm các đồng cấu từ $A$ vào $G$, còn $\text{Ext}(A, G)$ là nhóm mở rộng đo lường ảnh hưởng từ phần xoắn của $H_{n-1}(X)$.
 
----
-
-**Terms:**
-- **Hom(A, G):** Homomorphisms A → G
-- **Ext(A, G):** Extension group (measures "twisting")
-
-**Special case:** If H_n(X) free (no torsion), then:
+**Trường hợp riêng:** Nếu $H_{n-1}(X)$ là nhóm tự do (không có phần xoắn) thì $\text{Ext}(H_{n-1}(X), G) = 0$, nên $H^n(X; G) \cong \text{Hom}(H_n(X), G)$. Đặc biệt, khi $H_n(X)$ hữu hạn sinh tự do thì:
 
 $$
 H^n(X; G) \cong \text{Hom}(H_n(X), G) \cong H_n(X) \otimes G
 $$
 
-**(When G = ℤ, just H^n ≅ H_n)**
+và với $G = \mathbb{Z}$, ta có $H^n(X; \mathbb{Z}) \cong H_n(X)$.
 
 ---
 
-### 2. Example
+### 2. Ví dụ
 
-**X = S²:**  
-H₂(S²) = ℤ (free).
+**$X = S^2$:** Vì $H_2(S^2) = \mathbb{Z}$ và $H_1(S^2) = 0$ đều tự do, ta có:
 
 $$
 H^2(S^2; \mathbb{Z}) \cong \text{Hom}(\mathbb{Z}, \mathbb{Z}) \oplus \text{Ext}(0, \mathbb{Z}) \cong \mathbb{Z}
 $$
 
-**H^2(S²) ≅ H₂(S²) ≅ ℤ.** ✓
+tức là $H^2(S^2) \cong H_2(S^2) \cong \mathbb{Z}$. ✓
 
----
-
-**X = ℝP²:**  
-H₁(ℝP²) = ℤ/2ℤ (torsion!).
+**$X = \mathbb{R}P^2$:** Ta đã biết $H_0(\mathbb{R}P^2) = \mathbb{Z}$, $H_1(\mathbb{R}P^2) = \mathbb{Z}/2\mathbb{Z}$ và $H_2(\mathbb{R}P^2) = 0$. Áp dụng định lý ở bậc $1$:
 
 $$
 H^1(\mathbb{RP}^2; \mathbb{Z}) \cong \text{Hom}(\mathbb{Z}/2\mathbb{Z}, \mathbb{Z}) \oplus \text{Ext}(H_0, \mathbb{Z})
@@ -336,21 +251,15 @@ $$
 \cong 0 \oplus 0 = 0
 $$
 
-**But H₁(ℝP²) = ℤ/2ℤ ≠ 0!**
-
-**Torsion causes H^n ≠ H_n!**
+trong khi $H_1(\mathbb{R}P^2) = \mathbb{Z}/2\mathbb{Z} \neq 0$. Ở bậc $2$, phần xoắn của $H_1$ lại xuất hiện qua hạng tử $\text{Ext}$: $H^2(\mathbb{R}P^2; \mathbb{Z}) \cong \text{Hom}(0, \mathbb{Z}) \oplus \text{Ext}(\mathbb{Z}/2\mathbb{Z}, \mathbb{Z}) \cong \mathbb{Z}/2\mathbb{Z}$. Như vậy, phần xoắn làm cho $H^n$ và $H_n$ khác nhau (dịch lên một bậc trong đối đồng điều).
 
 ---
 
-## 🧮 Examples and Computations
+## 🧮 Ví dụ và Tính toán
 
-### Example 1: Point
+### Ví dụ 1: Một điểm
 
-X = {pt}.
-
-**H_n(pt) = ℤ (n=0), 0 (n>0).**
-
-**Universal Coefficient:**
+Với $X = \{\text{pt}\}$, ta có $H_0(\text{pt}) = \mathbb{Z}$ và $H_n(\text{pt}) = 0$ ($n > 0$). Theo Định lý Hệ số Phổ quát:
 
 $$
 H^n(\text{pt}) \cong H_n(\text{pt}) \cong \begin{cases}
@@ -359,15 +268,13 @@ H^n(\text{pt}) \cong H_n(\text{pt}) \cong \begin{cases}
 \end{cases}
 $$
 
-**Ring:** H^*(pt) = ℤ (trivial multiplication).
+Vành đối đồng điều là $H^*(\text{pt}) = \mathbb{Z}$ với phép nhân tầm thường.
 
 ---
 
-### Example 2: Sphere S^n
+### Ví dụ 2: Mặt cầu $S^n$
 
-**H_k(S^n) = ℤ (k=0,n), 0 else.**
-
-**Universal Coefficient:**
+Với $n \geq 1$, $H_k(S^n) = \mathbb{Z}$ khi $k = 0, n$ và bằng $0$ ở các bậc khác. Theo Định lý Hệ số Phổ quát:
 
 $$
 H^k(S^n) \cong \begin{cases}
@@ -376,142 +283,103 @@ H^k(S^n) \cong \begin{cases}
 \end{cases}
 $$
 
-**Cohomology ring:**
+Vành đối đồng điều là:
 
 $$
 H^*(S^n) \cong \mathbb{Z}[x]/(x^2), \quad x \in H^n(S^n)
 $$
 
-**(Generator x với x² = 0.)**
-
-**For n odd:** Actually x² automatically 0 (graded commutativity).
-
-**For n even:** x² = 0 by dimension (no H^{2n}(S^n)).
+trong đó $x^2 = 0$ (với $n$ lẻ điều này cũng suy ra từ tính giao hoán phân bậc; với mọi $n \geq 1$, $H^{2n}(S^n) = 0$ nên $x^2 = 0$).
 
 ---
 
-### Example 3: Torus T²
+### Ví dụ 3: Hình xuyến $T^2$
 
-**H_*(T²) = ℤ, ℤ², ℤ** (n = 0,1,2).
+Vì $H_*(T^2) = (\mathbb{Z}, \mathbb{Z}^2, \mathbb{Z})$ không có phần xoắn, ta có $H^*(T^2) = (\mathbb{Z}, \mathbb{Z}^2, \mathbb{Z})$ ở các bậc $0, 1, 2$.
 
-**H^*(T²) = ℤ, ℤ², ℤ** (same by Universal Coefficient, no torsion).
-
-**Ring structure:**
-
-Generators: 1 ∈ H^0, a, b ∈ H^1, (a∪b) ∈ H^2.
+Gọi $a, b \in H^1(T^2)$ là hai phần tử sinh của $H^1(T^2)$ và $1 \in H^0(T^2)$. Do $a, b$ có bậc lẻ, tính giao hoán phân bậc cho $a \cup a = 0$, $b \cup b = 0$ và $a \cup b = -b \cup a$, trong đó $a \cup b$ sinh $H^2(T^2) \cong \mathbb{Z}$. Vì vậy $H^*(T^2)$ đẳng cấu với đại số ngoài (exterior algebra) trên hai phần tử sinh $a, b$:
 
 $$
-H^*(T^2) \cong \mathbb{Z}[a, b]/(a^2, b^2)
+H^*(T^2) \cong \Lambda_{\mathbb{Z}}(a, b)
 $$
-
-**Exterior algebra on two generators!**
-
-**Key:** a ∪ a = 0, b ∪ b = 0 (graded commutativity, odd degree).  
-But a ∪ b ≠ 0 (generates H²).
 
 ---
 
-### Example 4: ℝP²
+### Ví dụ 4: Mặt phẳng xạ ảnh $\mathbb{R}P^2$
 
-**H_*(ℝP²) = ℤ, ℤ/2ℤ, 0.**
-
-**Cohomology (ℤ coefficients):**
+Với $H_*(\mathbb{R}P^2) = (\mathbb{Z}, \mathbb{Z}/2\mathbb{Z}, 0)$, áp dụng Định lý Hệ số Phổ quát với hệ số $\mathbb{Z}$ cho:
 
 $$
-H^0(\mathbb{RP}^2) = \mathbb{Z}, \quad H^1 = 0, \quad H^2 = 0
+H^0(\mathbb{RP}^2; \mathbb{Z}) = \mathbb{Z}, \quad H^1(\mathbb{RP}^2; \mathbb{Z}) = 0, \quad H^2(\mathbb{RP}^2; \mathbb{Z}) = \mathbb{Z}/2\mathbb{Z}
 $$
 
-**Torsion disappears!**
+(phần xoắn $\mathbb{Z}/2\mathbb{Z}$ từ $H_1$ dịch chuyển lên $H^2$ thông qua $\text{Ext}$).
 
-**Different picture:** Use ℤ/2ℤ coefficients:
+Khi chuyển sang hệ số $\mathbb{Z}/2\mathbb{Z}$, cấu trúc vành thể hiện rõ ràng hơn:
 
 $$
 H^*(\mathbb{RP}^2; \mathbb{Z}/2\mathbb{Z}) = (\mathbb{Z}/2\mathbb{Z})[x]/(x^3), \quad x \in H^1
 $$
 
-**Polynomial ring mod x³!**
-
-**Cup product:** x ∪ x = x² ≠ 0 ∈ H²(ℝP²; ℤ/2ℤ) ≅ ℤ/2ℤ.
-
-**Detects non-orientability!**
+Tích cup $x \cup x = x^2 \neq 0$ sinh $H^2(\mathbb{R}P^2; \mathbb{Z}/2\mathbb{Z}) \cong \mathbb{Z}/2\mathbb{Z}$, phản ánh tính không định hướng được của $\mathbb{R}P^2$.
 
 ---
 
-## 🧠 Poincaré Duality
+## 🧠 Đối ngẫu Poincaré
 
-### 1. Statement
+### 1. Phát biểu
 
 <div class="textbook-theorem" markdown="1">
-**Theorem (Poincaré Duality):**  
-M compact, oriented, n-manifold without boundary.
+**Định lý (Đối ngẫu Poincaré):**  
+Nếu $M$ là một $n$-đa tạp compact, định hướng được và không có biên, thì với mọi $k$:
 
 $$
 H^k(M; \mathbb{Z}) \cong H_{n-k}(M; \mathbb{Z})
 $$
 </div>
 
-**Isomorphism:**
-
-$$
-PD : H^k(M) \xrightarrow{\cong} H_{n-k}(M)
-$$
-
-**"Top homology ↔ bottom cohomology."**
+Đẳng cấu đối ngẫu Poincaré $PD: H^k(M) \xrightarrow{\cong} H_{n-k}(M)$ liên kết đối đồng điều ở bậc thấp với đồng điều ở bậc bù $n - k$. Về mặt trực giác hình học, một $k$-chu trình trong $M$ ứng với một $(n-k)$-chu trình đối ngẫu có thể hình dung như "phần bù trực giao", và tích cup trong đối đồng điều tương ứng với phép giao (intersection pairing) của các chu trình.
 
 ---
 
-**Geometric intuition:**  
-k-dimensional cycle α in M.  
-Dual (n-k)-dimensional cycle β = "orthogonal complement."
+### 2. Ví dụ: Mặt cầu $S^n$
 
-**Intersection pairing ↔ cup product!**
-
----
-
-### 2. Example: S^n
-
-**H^k(S^n) ≅ H_{n-k}(S^n):**
-
-- k=0: H^0 = ℤ ↔ H_n = ℤ ✓
-- k=n: H^n = ℤ ↔ H_0 = ℤ ✓
-- else: 0 ↔ 0 ✓
-
-**Perfect duality!**
+Với $H^k(S^n) \cong H_{n-k}(S^n)$:
+- $k = 0$: $H^0 = \mathbb{Z} \leftrightarrow H_n = \mathbb{Z}$ ✓
+- $k = n$: $H^n = \mathbb{Z} \leftrightarrow H_0 = \mathbb{Z}$ ✓
+- Các bậc khác: $0 \leftrightarrow 0$ ✓
 
 ---
 
-### 3. Example: T²
+### 3. Ví dụ: Hình xuyến $T^2$
 
-**n=2:**
-
-- H^0(T²) = ℤ ↔ H₂(T²) = ℤ ✓
-- H^1(T²) = ℤ² ↔ H₁(T²) = ℤ² ✓ (self-dual!)
-- H^2(T²) = ℤ ↔ H₀(T²) = ℤ ✓
-
----
-
-### 4. Non-orientable
-
-**ℝP²:** Not orientable ⇒ Poincaré Duality fails với ℤ coefficients.
-
-**Use ℤ/2ℤ coefficients:** Duality holds.
+Với $n = 2$:
+- $H^0(T^2) = \mathbb{Z} \leftrightarrow H_2(T^2) = \mathbb{Z}$ ✓
+- $H^1(T^2) = \mathbb{Z}^2 \leftrightarrow H_1(T^2) = \mathbb{Z}^2$ ✓ (tự đối ngẫu)
+- $H^2(T^2) = \mathbb{Z} \leftrightarrow H_0(T^2) = \mathbb{Z}$ ✓
 
 ---
 
-## 🧠 Fundamental Papers & References
+### 4. Trường hợp không định hướng được
 
-### Classic Works
+Với đa tạp không định hướng được như $\mathbb{R}P^2$, Đối ngẫu Poincaré không còn đúng với hệ số $\mathbb{Z}$, nhưng vẫn đúng khi lấy hệ số trong $\mathbb{Z}/2\mathbb{Z}$.
+
+---
+
+## 🧠 Tài liệu kinh điển & Tham khảo
+
+### Công trình kinh điển
 
 1. **Henri Poincaré** - *"Analysis Situs"* (1895)  
-   *Introduced duality, Betti numbers*
+   *Giới thiệu đối ngẫu và các số Betti*
 
 2. **Eduard Čech** - *"Théorie générale de l'homologie"* (1932)  
-   *Cohomology theory*
+   *Phát triển lý thuyết đối đồng điều*
 
 3. **Samuel Eilenberg, Norman Steenrod** - *"Foundations"* (1952)  
-   *Axiomatic cohomology*
+   *Hệ tiên đề cho đối đồng điều*
 
-### Textbooks
+### Giáo trình
 
 4. **Allen Hatcher** - *Algebraic Topology*, **§3.1: Cohomology**
 
@@ -523,147 +391,121 @@ Dual (n-k)-dimensional cycle β = "orthogonal complement."
 
 ---
 
-## 🔗 Applications and Connections
+## 🔗 Ứng dụng và Liên kết
 
-### Characteristic Classes
-**Chern, Stiefel-Whitney, Pontryagin Classes:** Cohomology classes of vector bundles. Classify bundles, detect obstructions.
+### Các lớp đặc trưng (Characteristic Classes)
+Các lớp Chern, Stiefel–Whitney và Pontryagin là các phần tử trong đối đồng điều của không gian cơ sở, dùng để phân loại bó vectơ và phát hiện các chướng ngại tô-pô.
 
-### Obstruction Theory
-**Cup Product:** Detects obstructions to extending maps, sections. Essential in bundle theory.
+### Lý thuyết chướng ngại (Obstruction Theory)
+Đối đồng điều và tích cup phát hiện các chướng ngại khi mở rộng ánh xạ liên tục hoặc tìm lát cắt của bó.
 
-### Algebraic Geometry
-**Sheaf Cohomology:** Cohomology of sheaves = foundation. Computes geometric invariants.
+### Hình học đại số
+Đối đồng điều bó (Sheaf Cohomology) là công cụ nền tảng để tính các bất biến hình học của đa tạp đại số.
 
-### String Theory
-**Cohomology Classes:** Background fields (B-fields, RR-fields) = cohomology classes. Topology affects physics.
+### Lý thuyết dây (String Theory)
+Các trường nền như B-field và RR-field được mô tả bởi các lớp đối đồng điều, cho thấy cấu trúc tô-pô ảnh hưởng trực tiếp đến mô hình vật lý.
 
-### De Rham Cohomology
-**Differential Forms:** For manifolds, H^n_{dR}(M) ≅ H^n(M; ℝ). Bridge topology ↔ analysis.
+### Đối đồng điều de Rham
+Trên đa tạp trơn $M$, định lý de Rham cho đẳng cấu $H^n_{\text{dR}}(M) \cong H^n(M; \mathbb{R})$, nối tô-pô đại số với giải tích vi phân qua các dạng vi phân.
 
 ---
 
 ## Video tham khảo
 
-- **xem trước** [The derivative isn't what you think it is.](https://www.youtube.com/watch?v=2ptFnIj71SM) — Aleph 0, tiếng Anh. Vì sao đối đồng điều đếm lỗ bằng hàm và dạng, trước các định nghĩa đối xích.
-- [Algebraic Topology 20: Introduction to Cohomology](https://www.youtube.com/watch?v=ol-AJVVbkMs) — Math at Andrews University, tiếng Anh. Đối đồng điều kỳ dị từ đầu, sau khi trực giác ở video trên đã có.
+- **xem trước** [The derivative isn't what you think it is.](https://www.youtube.com/watch?v=2ptFnIj71SM) — Aleph 0, tiếng Anh. Vì sao đối đồng điều đếm lỗ bằng hàm và dạng, xem trước các định nghĩa đối xích.
+- [Algebraic Topology 20: Introduction to Cohomology](https://www.youtube.com/watch?v=ol-AJVVbkMs) — Math at Andrews University, tiếng Anh. Đối đồng điều kỳ dị từ đầu, sau khi đã có trực giác từ video trên.
 - [Algebraic Topology 21: Cup Product](https://www.youtube.com/watch?v=uenkIqOKjng) — Math at Andrews University, tiếng Anh. Tích cup, cấu trúc vành mà bài giới thiệu sau các nhóm đối đồng điều.
 
-## 🧩 Exercises
+## 🧩 Bài tập
 
-### Cochains
+### Đối xích
 
-1. **Dual:** If C_n = ℤ³, what is C^n?
+1. **Đối ngẫu:** Nếu $C_n = \mathbb{Z}^3$ thì $C^n = \text{Hom}(C_n, \mathbb{Z})$ là nhóm nào?
 
-2. **Coboundary:** Verify δ² = 0 using ∂² = 0.
+2. **Toán tử đối biên:** Kiểm chứng $\delta^2 = 0$ trực tiếp từ $\partial^2 = 0$.
 
-### Cohomology Groups
+### Nhóm đối đồng điều
 
-3. **Point:** Verify H^n(pt) = ℤ (n=0), 0 (n>0).
+3. **Một điểm:** Kiểm chứng $H^0(\text{pt}) = \mathbb{Z}$ và $H^n(\text{pt}) = 0$ với $n > 0$.
 
-4. **Contractible:** X contractible ⇒ H^n(X) = ?
+4. **Không gian co rút được:** Nếu $X$ co rút được thì $H^n(X)$ bằng gì?
 
-### Contravariance
+### Tính phản biến
 
-5. **Induced Map:** f: S¹ → S¹ degree 2. What is f^*: H^1(S¹) → H^1(S¹)?
+5. **Ánh xạ cảm sinh:** Cho ánh xạ $f: S^1 \to S^1$ có bậc $2$. Hãy xác định đồng cấu $f^*: H^1(S^1) \to H^1(S^1)$.
 
-6. **Composition:** Verify (f ∘ g)^* = g^* ∘ f^*.
+6. **Ánh xạ hợp:** Kiểm chứng $(f \circ g)^* = g^* \circ f^*$.
 
-### Cup Product
+### Tích cup
 
-7. **Torus:** Verify a ∪ b ≠ 0 but a ∪ a = 0 trong H^*(T²).
+7. **Hình xuyến:** Kiểm chứng $a \cup b \neq 0$ nhưng $a \cup a = 0$ trong $H^*(T^2)$.
 
-8. **Commutativity:** α ∈ H^1, β ∈ H^2. Compute α ∪ β vs β ∪ α.
+8. **Giao hoán phân bậc:** Với $\alpha \in H^1(X)$ và $\beta \in H^2(X)$, so sánh $\alpha \cup \beta$ và $\beta \cup \alpha$.
 
-### Ring Structure
+### Cấu trúc vành
 
-9. **Sphere:** Verify H^*(S²) ≅ ℤ[x]/(x²).
+9. **Mặt cầu:** Kiểm chứng $H^*(S^2) \cong \mathbb{Z}[x]/(x^2)$.
 
-10. **Product:** Compute H^*(S¹ × S¹) as ring.
+10. **Không gian tích:** Xác định cấu trúc vành của $H^*(S^1 \times S^1)$.
 
-### Universal Coefficient
+### Định lý Hệ số Phổ quát
 
-11. **Apply:** X với H₁(X) = ℤ/3ℤ. Compute H^1(X; ℤ).
+11. **Áp dụng:** Cho $X$ liên thông đường với $H_1(X) = \mathbb{Z}/3\mathbb{Z}$. Tính $H^1(X; \mathbb{Z})$.
 
-12. **Torsion:** Why H^1(ℝP²; ℤ) = 0 even though H₁ = ℤ/2ℤ?
+12. **Phần xoắn:** Giải thích vì sao $H^1(\mathbb{R}P^2; \mathbb{Z}) = 0$ dù $H_1(\mathbb{R}P^2) = \mathbb{Z}/2\mathbb{Z}$, và xác định $H^2(\mathbb{R}P^2; \mathbb{Z})$.
 
-### Poincaré Duality
+### Đối ngẫu Poincaré
 
-13. **Verify:** Poincaré Duality for S³ explicitly.
+13. **Kiểm chứng:** Kiểm tra Đối ngẫu Poincaré một cách tường minh cho $S^3$.
 
-14. **Surface:** Σ_g genus g. Verify H^1(Σ_g) ≅ H₁(Σ_g) via duality.
+14. **Mặt đóng:** Với mặt định hướng giống $g$ ($\Sigma_g$), kiểm chứng $H^1(\Sigma_g) \cong H_1(\Sigma_g)$ qua đối ngẫu Poincaré.
 
-### Advanced
+### Nâng cao
 
-15. **ℝP² Coefficients:** Compute H^*(ℝP²; ℤ/2ℤ) và verify ring structure.
+15. **Hệ số $\mathbb{Z}/2\mathbb{Z}$ cho $\mathbb{R}P^2$:** Tính $H^*(\mathbb{R}P^2; \mathbb{Z}/2\mathbb{Z})$ và kiểm chứng cấu trúc vành của nó.
 
-16. **ℂP²:** Research H^*(ℂP²). (Answer: ℤ[x]/(x³), x ∈ H².)
+16. **Mặt phẳng xạ ảnh phức $\mathbb{C}P^2$:** Tìm hiểu vành đối đồng điều $H^*(\mathbb{C}P^2)$. (Đáp số: $\mathbb{Z}[x]/(x^3)$ với $x \in H^2$.)
 
-### Reflection
+### Câu hỏi suy ngẫm
 
-17. **Why Cohomology?:** List advantages over homology.
+17. **Vì sao cần đối đồng điều?** Liệt kê các ưu điểm của đối đồng điều so với đồng điều.
 
-18. **Ring Power:** Give example where ring structure distinguishes spaces homology groups can't.
+18. **Sức mạnh của cấu trúc vành:** Nêu một ví dụ hai không gian có cùng các nhóm đồng điều nhưng có vành đối đồng điều không đẳng cấu.
 
-19. **Contravariance:** Explain intuition for reverse direction của cohomology maps.
+19. **Tính phản biến:** Giải thích trực giác vì sao các ánh xạ cảm sinh trong đối đồng điều lại đảo chiều.
 
-20. **Cup Product Geometry:** Research how cup product relates to intersection theory.
-
----
-
-## 📚 Further Reading
-
-- **Hatcher, §3:** Comprehensive cohomology theory
-- **Bott & Tu:** Differential forms perspective
-- **Bredon, Chapter V:** Advanced topics
-- **Milnor & Stasheff:** *Characteristic Classes*
+20. **Ý nghĩa hình học của tích cup:** Tìm hiểu mối liên hệ giữa tích cup và lý thuyết giao (intersection theory).
 
 ---
 
-## 🎓 Summary
+## 📚 Đọc thêm
 
-**Cohomology = dual theory with rich structure:**
+- **Hatcher, §3:** Trình bày đầy đủ về lý thuyết đối đồng điều.
+- **Bott & Tu:** Góc nhìn qua dạng vi phân.
+- **Bredon, Chapter V:** Các chủ đề nâng cao.
+- **Milnor & Stasheff:** *Characteristic Classes*.
 
-✅ **Cochains C^n:** Hom(C_n, G) (dual)  
-✅ **Coboundary δ:** C^n → C^{n+1} (δ² = 0)  
-✅ **Cohomology H^n:** ker(δ) / im(δ)  
-✅ **Contravariant:** f induces f^* (reverse direction)  
-✅ **Cup Product ∪:** Multiplication H^p ⊗ H^q → H^{p+q}  
-✅ **Ring H^*(X):** Graded ring invariant  
-✅ **Universal Coefficient:** Relates H^n to H_n (Ext appears!)  
-✅ **Poincaré Duality:** H^k(M) ≅ H_{n-k}(M) (manifolds)  
+---
 
-**Điểm chính:**
-- Cohomology = more refined than homology
-- Cup product = powerful geometric invariant
-- Ring structure detects subtle topology
-- Contravariance = natural for duality
-- Foundation for characteristic classes
+## 🎓 Tóm tắt
 
-**Geometric intuition:**
-- Cochains = "measurements" on chains
-- Cup product = intersection of cycles
-- Ring structure = multiplicative invariant
-- Poincaré Duality = orthogonal complement
+Đối đồng điều là lý thuyết đối ngẫu của đồng điều với cấu trúc đại số vành phong phú:
 
-**Practical wisdom:**
-- Use ℤ/2ℤ coefficients for non-orientable spaces
-- Cup product often easiest to compute via duality
-- Ring structure more powerful than groups alone
-- Essential for bundles, obstruction theory
+✅ **Đối xích $C^n$:** $\text{Hom}(C_n, G)$.  
+✅ **Toán tử đối biên $\delta$:** $C^n \to C^{n+1}$, thỏa mãn $\delta^2 = 0$.  
+✅ **Đối đồng điều $H^n$:** $\ker(\delta) / \text{im}(\delta)$.  
+✅ **Tính phản biến:** $f: X \to Y$ cảm sinh $f^*: H^n(Y) \to H^n(X)$.  
+✅ **Tích cup $\cup$:** Phép nhân $H^p \times H^q \to H^{p+q}$ tạo thành vành giao hoán phân bậc $H^*(X)$.  
+✅ **Định lý Hệ số Phổ quát:** Liên hệ $H^n$ với $H_n$ thông qua $\text{Hom}$ và $\text{Ext}$.  
+✅ **Đối ngẫu Poincaré:** $H^k(M) \cong H_{n-k}(M)$ trên các đa tạp đóng định hướng được (và với hệ số $\mathbb{Z}/2\mathbb{Z}$ trên đa tạp không định hướng được).
 
-**Chapter 07 Complete!** Chúng ta mastered:
-- Simplicial homology (triangulation)
-- Singular homology (universal)
-- Computational methods (cellular, Mayer-Vietoris)
-- Cohomology (dual, ring structure)
+Với bài học này, ta đã hoàn thành Chương 07 gồm đồng điều đơn hình, đồng điều kỳ dị, các phương pháp tính toán (tế bào và Mayer–Vietoris) và đối đồng điều.
 
-**Tiếp theo:** Chapter 08 về **Advanced Topics**—higher homotopy, bundles, manifolds!
+**Tiếp theo:** Chương 08 về **Các chủ đề nâng cao** — nhóm đồng luân bậc cao, phân thớ, lý thuyết Morse và đa tạp.
 
 ---
 
 *"Cohomology: where duality becomes multiplication, and topology becomes algebra."*
-
-🎯 **Master cohomology! The ring structure is revolutionary.** 🎯
 
 ---
 
