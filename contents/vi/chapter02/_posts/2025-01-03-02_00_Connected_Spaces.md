@@ -16,14 +16,50 @@ description: "Không gian liên thông, path-connectedness, và connected compon
 
 ## 📖 Tổng quan
 
-Bước sang Chương 02, sau khi đã nắm vững định nghĩa không gian tô-pô và ánh xạ liên tục, ta bắt đầu nghiên cứu hai tính chất bất biến tô-pô quan trọng bậc nhất: **tính liên thông** (*connectedness*) trong bài này và **tính compact** (*compactness*) trong bài tiếp theo.
+Bạn có thể kéo giãn một đoạn dây thun $$[0, 1]$$ thành dài gấp trăm lần, uốn cong nó thành chữ S hay hình xoắn ốc — nhưng nếu không dùng kéo cắt đứt, bạn **không bao giờ** biến một mảnh liền thành hai mảnh rời nhau được. Bước sang Chương 02, ta gặp bất biến tô-pô đầu tiên biến trực giác "liền một mảnh" ấy thành vũ khí chứng minh cực kỳ sắc bén: **tính liên thông (connectedness)**.
 
-Về trực giác, một không gian là **liên thông** khi nó liền thành "một mảnh duy nhất" và không thể tách rời thành hai phần độc lập. Chẳng hạn, đoạn $[0, 1]$ và đường tròn $S^1$ là các không gian liên thông, trong khi $[0, 1] \cup [2, 3]$ hoặc hợp của hai đường tròn rời nhau là các không gian không liên thông.
+Điều bất ngờ là chỉ từ định nghĩa *"không thể tách $$X$$ thành hai tập mở rời nhau khác rỗng"*, ta không chỉ chứng minh được **Định lý Giá trị Trung gian** nổi tiếng của giải tích trong vài dòng, mà còn phân biệt được một cách dễ dàng những hình dạng tưởng chừng rất giống nhau — như đoạn thẳng $$[0, 1]$$, đường tròn $$S^1$$ và chữ số 8!
 
 ![Connected vs Disconnected](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Connected_and_disconnected_spaces.svg/500px-Connected_and_disconnected_spaces.svg.png)  
 *Không gian liên thông (trái) và không liên thông (phải) - Nguồn minh họa khái niệm*
 
-Bài giảng này trình bày định nghĩa hình thức của tính liên thông thông qua phép phân ly, các đặc trưng tương đương, tính bất biến qua ánh xạ liên tục và ứng dụng chứng minh **Định lý Giá trị Trung gian**, sau đó phân biệt **liên thông đường** (*path-connectedness*) với liên thông thông thường và giới thiệu **thành phần liên thông** (*connected components*).
+**Mạch bài học:** Bản đồ kiến thức nền (liên thông qua tập vừa đóng vừa mở, liên thông đường vs. liên thông thường & bất biến "bỏ 1 điểm") → Khung giải thích chậm: cầm tay chứng minh đoạn $$[0, 1]$$ không đồng phôi với đường tròn $$S^1$$ bằng kỹ thuật bỏ 1 điểm → Trực giác & Định nghĩa hình thức → Định lý Giá trị Trung gian & Thành phần liên thông → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Tính liên thông và Liên thông đường nghiên cứu những gì?
+
+### 1. Liên thông (Connectedness): không có tập con "vừa đóng vừa mở" không tầm thường
+
+Một không gian $$X$$ bị **không liên thông** khi ta viết được $$X = U \cup V$$ với $$U, V$$ mở, rời nhau và đều khác rỗng. Điều này tương đương hoàn toàn với sự tồn tại một tập con $$U \neq \emptyset, X$$ **vừa mở vừa đóng (clopen)**, hoặc một ánh xạ liên tục toàn ánh $$f: X \to \{0, 1\}$$ (với tô-pô rời rạc).
+
+### 2. Liên thông đường (Path-Connectedness): mạnh hơn liên thông thông thường!
+
+$$X$$ gọi là **liên thông đường** nếu mọi cặp điểm $$x, y \in X$$ đều nối được bằng một đường cong liên tục $$\gamma: [0, 1] \to X$$ ($$\gamma(0) = x, \gamma(1) = y$$). Mọi không gian liên thông đường đều liên thông, nhưng chiều ngược lại **không đúng** — phản ví dụ kinh điển là **đường cong sin của nhà tô-pô (topologist's sine curve)** $$S = \{(x, \sin(1/x)) : x \in (0, 1]\} \cup (\{0\} \times [-1, 1])$$, liền thành một mảnh (vì là bao đóng của tập liên thông) nhưng không có đường cong liên tục nào chạy từ nhánh dao động sang đoạn trục tung!
+
+### 3. Bất biến tô-pô cực mạnh: đếm số thành phần liên thông khi bỏ đi một điểm
+
+Ảnh liên tục của không gian liên thông luôn liên thông. Nhờ đó, nếu $$f: X \to Y$$ là phép đồng phôi, thì khi bỏ đi một điểm $$p \in X$$ và ảnh $$f(p) \in Y$$, hai phần còn lại $$X \setminus \{p\}$$ và $$Y \setminus \{f(p)\}$$ **phải có cùng số thành phần liên thông**! Đây là công cụ nhanh nhất để phân biệt các không gian 1 chiều.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay chứng minh $$[0, 1] \not\cong S^1$$ bằng kỹ thuật "bỏ 1 điểm"
+
+Giả sử phản chứng rằng tồn tại một phép đồng phôi $$f: [0, 1] \to S^1$$. Hãy tự tay kiểm tra điều gì xảy ra khi ta rút một điểm duy nhất ra khỏi hai không gian:
+
+1. **Chọn điểm cắt bên miền nguồn:** Lấy điểm giữa $$p = \frac{1}{2} \in [0, 1]$$ và gọi ảnh của nó là $$q = f\!\left(\frac{1}{2}\right) \in S^1$$.
+2. **Thu hẹp phép đồng phôi:** Khi bỏ $$p$$ và $$q$$, ánh xạ thu hẹp
+   $$
+   \tilde{f}: [0, 1] \setminus \Bigl\{\frac{1}{2}\Bigr\} \longrightarrow S^1 \setminus \{q\}
+   $$
+   vẫn là một **phép đồng phôi** (song ánh liên tục hai chiều theo tô-pô con).
+3. **Đếm số thành phần liên thông ở vế trái:**
+   $$
+   [0, 1] \setminus \Bigl\{\frac{1}{2}\Bigr\} = \Bigl[0, \frac{1}{2}\Bigr) \;\cup\; \Bigl(\frac{1}{2}, 1\Bigr].
+   $$
+   Hai tập $$U = \bigl[0, \tfrac{1}{2}\bigr)$$ và $$V = \bigl(\tfrac{1}{2}, 1\bigr]$$ đều mở trong không gian con, rời nhau và khác rỗng → vế trái **KHÔNG liên thông** (có đúng **2 thành phần liên thông**).
+4. **Đếm số thành phần liên thông ở vế phải:** Bỏ bất kỳ 1 điểm $$q = (\cos \theta_0, \sin \theta_0)$$ nào khỏi đường tròn $$S^1$$, phần còn lại đồng phôi với khoảng mở $$(\theta_0, \theta_0 + 2\pi) \subset \mathbb{R}$$ qua ánh xạ $$\theta \mapsto (\cos \theta, \sin \theta)$$ → vế phải **LIÊN THÔNG** (chỉ có **1 thành phần liên thông**)!
+5. **Mâu thuẫn!** Một không gian không liên thông không thể đồng phôi với một không gian liên thông → kết luận chặt chẽ: **$$[0, 1] \not\cong S^1$$**! (Với đúng chiêu này, thử bỏ 1 điểm cũng chứng minh ngay $$[0, 1] \not\cong (0, 1)$$ vì bỏ đầu mút $$0$$ của $$[0,1]$$ vẫn liên thông, còn bỏ *bất kỳ* điểm nào của $$(0,1)$$ đều tách đôi!)
 
 ---
 

@@ -20,6 +20,8 @@ description: "Tổng hợp tất cả các thuật ngữ toán học đã đư�
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu ví toàn bộ khóa học tô-pô từ Chương 00 đến Chương 09 như một chuyến thám hiểm qua nhiều vùng đất — từ tập mở, compact, nhóm cơ bản đến đồng điều, bó thớ và đa tạp — thì bài **09.10** chính là **cuốn la bàn và từ điển song ngữ** giúp bạn không bao giờ lạc đường giữa hàng trăm thuật ngữ Anh–Việt. Thay vì học thuộc lòng rời rạc từng dòng, hãy xem **Bản đồ 3 tầng ngôn ngữ** và **Ví dụ kiểm tra toàn khóa trên hình xuyến $$T^2$$** dưới đây để thấy mọi thuật ngữ trong bảng thực ra ăn khớp với nhau chặt chẽ như một cỗ máy đồng hồ!
+
 Bài học này tổng hợp các thuật ngữ và ký hiệu toán học cốt lõi đã xuất hiện trong toàn bộ khóa học tô-pô, được phân nhóm theo từng chương và chủ đề để thuận tiện tra cứu nhanh, ôn tập và đối chiếu song ngữ Anh – Việt.
 
 Mỗi bảng gồm bốn cột:
@@ -27,6 +29,51 @@ Mỗi bảng gồm bốn cột:
 - **Ký hiệu toán học** (nếu có).
 - **Định nghĩa ngắn gọn.**
 - **Bài học xuất hiện.**
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Kiến trúc 3 tầng của hệ thuật ngữ Tô-pô toàn khóa
+
+Toàn bộ các bảng thuật ngữ bên dưới được tổ chức theo đúng 3 tầng xây dựng của tô-pô học hiện đại:
+
+### 1. Tầng 1 — Tô-pô Tập hợp (Chương 00–04): Ngôn ngữ của Lân cận và Hội tụ
+- **Khái niệm cốt lõi:** Tập mở $$\tau$$, tập đóng, phần trong, bao đóng, hàm liên tục, phép đồng phôi, tô-pô tích, tô-pô thương, các tiên đề tách ($$T_0 \dots T_4$$, Hausdorff), tính liên thông và tính compact.
+- **Vai trò:** Thiết lập nền móng chặt chẽ để nói về "gần nhau" và "biến dạng liên tục" mà không cần đến khoảng cách Euclid.
+
+### 2. Tầng 2 — Tô-pô Đại số (Chương 05–08): Dịch Hình học sang Đại số
+- **Khái niệm cốt lõi:** Đồng luân, nhóm cơ bản $$\pi_1(X)$$, không gian phủ, phức CW, nhóm đồng điều $$H_n(X)$$, đối đồng điều $$H^n(X)$$ với tích cup $$\cup$$, và nhóm đồng luân bậc cao $$\pi_n(X)$$.
+- **Vai trò:** Biến bài toán khó "hai không gian có đồng phôi không?" thành bài toán đại số kiểm tra được "hai nhóm/vành có đẳng cấu không?".
+
+### 3. Tầng 3 — Tô-pô Hình học & Vi phân (Chương 08–09): Đa tạp, Bó thớ, Morse và Nút
+- **Khái niệm cốt lõi:** Đa tạp tô-pô/trơn, tập bản đồ (atlas), bó thớ, bó vectơ, lớp đặc trưng, hàm Morse, lý thuyết nút và đặc trưng Euler $$\chi$$.
+- **Vai trò:** Kết nối trực tiếp tô-pô với hình học vi phân, vật lý lý thuyết, sinh học DNA và khoa học dữ liệu (TDA/TDL).
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: "Khám sức khỏe" toàn bộ 3 tầng thuật ngữ trên Hình xuyến $$T^2 = S^1 \times S^1$$
+
+Để thực hành tra cứu từ điển hiệu quả nhất, hãy chọn đúng **một** không gian quen thuộc là **hình xuyến $$T^2 = S^1 \times S^1$$** và tự kiểm chứng 6 nhãn thuật ngữ đại diện cho cả 3 tầng:
+
+1. **Tô-pô tập hợp (Chương 01–04):** Vì $$S^1$$ là tập đóng, bị chặn trong $$\mathbb{R}^2$$ nên $$S^1$$ **Hausdorff**, **compact** và **liên thông**. Theo định lý Tychonoff và tính bảo toàn tích hữu hạn, $$T^2 = S^1 \times S^1$$ lập tức kế thừa cả 3 tính chất: **Hausdorff, compact, liên thông**!
+2. **Tô-pô thương (Chương 02):** $$T^2 \cong [0,1]^2 / \sim$$ với $$(0,y)\sim(1,y)$$ và $$(x,0)\sim(x,1)$$ (1 đỉnh $$V=1$$, 2 cạnh $$E=2$$, 1 mặt $$F=1$$).
+3. **Nhóm cơ bản (Chương 05):** $$\pi_1(T^2) \cong \pi_1(S^1) \times \pi_1(S^1) \cong \mathbb{Z} \times \mathbb{Z}$$ (giao hoán, khác $$0 \implies$$ **không đơn liên**!).
+4. **Đồng điều & Số Betti (Chương 07):** $$H_0(T^2) \cong \mathbb{Z},\; H_1(T^2) \cong \mathbb{Z}^2,\; H_2(T^2) \cong \mathbb{Z}$$ ($$\beta_0=1, \beta_1=2, \beta_2=1$$), cho đặc trưng Euler $$\chi(T^2) = 1 - 2 + 1 = 0$$ (khớp y hệt $$V - E + F = 1 - 2 + 1 = 0$$!).
+5. **Đối đồng điều & Tích cup (Chương 07.04):** Hai phần tử sinh $$\alpha, \beta \in H^1(T^2)$$ có $$\alpha \cup \beta \neq 0 \in H^2(T^2)$$ — chứng minh ngay $$T^2 \not\simeq S^1 \vee S^1 \vee S^2$$ dù có cùng mọi nhóm đồng điều!
+6. **Đa tạp & Morse (Chương 08):** $$T^2$$ là **đa tạp trơn 2 chiều đóng định hướng được**; hàm chiều cao chuẩn có đúng 4 điểm tới hạn chỉ số $$(0, 1, 1, 2)$$ khớp tuyệt đối các số Betti!
+
+### Khung giải thích: Cách dùng từ điển thuật ngữ để tự học hiệu quả (nên đọc chậm)
+
+#### Bước 1: Luôn đọc thuật ngữ theo cặp song ngữ Việt – Anh
+Phần lớn tài liệu nghiên cứu và sách kinh điển (Munkres, Hatcher, Lee, Milnor) viết bằng tiếng Anh; ghi nhớ song song (ví dụ *homeomorphism* = đồng phôi, *homotopy* = đồng luân, *covering space* = không gian phủ) giúp bạn đọc thẳng giáo trình gốc không bị vấp.
+
+#### Bước 2: Gắn mỗi thuật ngữ với 1 ví dụ đúng và 1 phản ví dụ
+Ví dụ: nhắc đến *Hausdorff* nhớ ngay $$\mathbb{R}$$ (đúng) vs. *đường thẳng hai gốc* (sai); nhắc đến *compact* nhớ ngay $$[0,1]$$ (đúng) vs. $$(0,1)$$ (sai).
+
+#### Bước 3: Phân biệt các cặp thuật ngữ dễ nhầm lẫn
+Kiểm tra kỹ các cặp kinh điển trong bảng: *tập mở* vs. *tập đóng* (không loại trừ nhau!), *đồng phôi* vs. *đồng luân*, *liên thông* vs. *liên thông đường*, *đồng điều* vs. *đối đồng điều*.
+
+#### Bước 4: Tra ngược về bài học gốc qua cột "Chương"
+Cột ngoài cùng bên phải của mỗi bảng chỉ chính xác số bài học nơi khái niệm ra đời — hãy dùng nó như mục lục ngược mỗi khi gặp lại một ký hiệu lạ!
 
 ---
 

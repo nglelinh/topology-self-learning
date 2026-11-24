@@ -16,6 +16,8 @@ description: "Singular homology: definition cho arbitrary spaces, functoriality,
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Đồng điều đơn hình ở bài 07.00 cực kỳ dễ tính, nhưng lại vướng hai câu hỏi hóc búa: (1) *Nếu không gian $$X$$ không thể chia thành tam giác phẳng thì sao?* và (2) *Nếu hai người chia cùng một mặt cầu theo hai cách tam giác hóa khác hẳn nhau, ai bảo đảm hai cách tính cho ra cùng một nhóm $$H_n$$?* **Đồng điều Kỳ dị (Singular Homology)** giải quyết dứt điểm cả hai vấn đề bằng một cú xoay góc nhìn ngoạn mục: *thay vì cắt không gian $$X$$ thành tam giác, hãy giữ nguyên $$X$$ và xét **TẤT CẢ mọi ánh xạ liên tục** từ tam giác chuẩn $$\Delta^n$$ vào trong $$X$$!*
+
 Đồng điều đơn hình trực quan và dễ tính toán nhưng có một hạn chế lớn:
 
 > **Đòi hỏi phép chia tam giác (triangulation).**
@@ -38,6 +40,64 @@ Thay vì chia $X$ thành các đơn hình, ta xét **tất cả các ánh xạ l
 *Các đơn hình kỳ dị ánh xạ vào không gian - Nguồn concept*
 
 Trong bài học này, ta sẽ lần lượt tìm hiểu đơn hình chuẩn $\Delta^n$ và các ánh xạ mặt, đơn hình kỳ dị $\sigma: \Delta^n \to X$, nhóm xích kỳ dị $C_n(X)$, toán tử biên $\partial$, nhóm đồng điều kỳ dị $H_n(X)$, tính hàm tử và tính bất biến đồng luân.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Đồng điều Kỳ dị là gì và tại sao nó là "bất biến tô-pô tự động"?
+
+### 1. Từ "Cắt không gian" sang "Dò không gian bằng ánh xạ liên tục"
+- **Bản chất:** Một **$$n$$-đơn hình kỳ dị** trong $$X$$ đơn giản là một ánh xạ liên tục bất kỳ $$\sigma: \Delta^n \to X$$ (có thể bóp méo, gấp nếp, thậm chí co cả tam giác về 1 điểm — vì thế mới gọi là *kỳ dị*!).
+- **Tự động là bất biến tô-pô:** Vì định nghĩa chỉ dùng ánh xạ liên tục mà không hề nhắc tới phép tam giác hóa nào, mọi ánh xạ liên tục $$f: X \to Y$$ lập tức đẩy đơn hình $$\sigma$$ thành $$f \circ \sigma$$, cảm sinh đồng cấu $$f_*: H_n(X) \to H_n(Y)$$!
+
+### 2. Bất biến Đồng luân & Định lý Tách Thành phần Liên thông đường
+- **Bản chất:** Hai ánh xạ đồng luân $$f \simeq g$$ cảm sinh **cùng một** đồng cấu $$f_* = g_*$$ trên đồng điều kỳ dị (nhờ xây dựng toán tử lăng trụ $$P: C_n(X) \to C_{n+1}(Y)$$ thỏa mãn $$\partial P + P\partial = g_\# - f_\#$$!).
+- **Bậc 0:** $$H_0(X) \cong \bigoplus_{\alpha} \mathbb{Z}$$ (số bản sao $$\mathbb{Z}$$ đúng bằng số thành phần liên thông đường của $$X$$!).
+
+### 3. Cầu nối Hurewicz & Đẳng cấu với Đồng điều Đơn hình
+- **Bản chất:** Dù nhóm xích kỳ dị $$C_n(X)$$ khổng lồ vô hạn chiều, trên mọi phức đơn hình/CW, đồng điều kỳ dị **đẳng cấu hoàn toàn** với đồng điều đơn hình — vừa có tính bất biến tô-pô tuyệt đối của kỳ dị, vừa có tốc độ tính toán gọn nhẹ của đơn hình! Và ở bậc 1, $$H_1(X)$$ chính là **Abel hóa của $$\pi_1(X)$$**!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính trọn vẹn Đồng điều Kỳ dị của Không gian 1 điểm $$X = \{p\}$$
+
+Với không gian chỉ gồm đúng 1 điểm $$X = \{p\}$$, ở mỗi bậc $$n \ge 0$$ chỉ có **duy nhất 1 ánh xạ liên tục** $$\sigma_n: \Delta^n \to \{p\}$$ (ánh xạ hằng đưa mọi điểm về $$p$$). Do đó $$C_n(\{p\}) = \mathbb{Z}\cdot \sigma_n \cong \mathbb{Z}$$ với mọi $$n \ge 0$$!
+
+Bây giờ hãy tính tường minh toán tử biên $$\partial_n(\sigma_n) = \sum_{i=0}^n (-1)^i (\sigma_n |_{[v_0, \dots, \hat{v}_i, \dots, v_n]})$$. Vì mọi mặt của ánh xạ hằng vẫn là ánh xạ hằng $$\sigma_{n-1}$$, ta có:
+$$
+\partial_n(\sigma_n) = \sum_{i=0}^{n} (-1)^i \sigma_{n-1} = \bigl(1 - 1 + 1 - 1 + \cdots + (-1)^n\bigr)\sigma_{n-1} = \begin{cases} 0 & \text{nếu } n \text{ lẻ}, \\ \sigma_{n-1} & \text{nếu } n \text{ chẵn } (n \ge 2)! \end{cases}
+$$
+Viết ra toàn bộ phức xích kỳ dị của $$\{p\}$$:
+$$
+\cdots \xrightarrow{\;0\;} \mathbb{Z} \xrightarrow{\;\times 1\;} \mathbb{Z} \xrightarrow{\;0\;} \mathbb{Z} \xrightarrow{\;\times 1\;} \mathbb{Z} \xrightarrow{\;0\;} \mathbb{Z} \longrightarrow 0.
+$$
+Đọc ngay từng nhóm đồng điều bằng mắt thường:
+- **Bậc $$n = 0$$:** $$\ker \partial_0 = \mathbb{Z}$$, $$\operatorname{im} \partial_1 = 0 \implies H_0(\{p\}) = \mathbb{Z}/0 \cong \mathbb{Z}$$!
+- **Bậc $$n \ge 1$$ lẻ:** $$\ker \partial_n = \mathbb{Z}$$, $$\operatorname{im} \partial_{n+1} = \mathbb{Z} \implies H_n(\{p\}) = \mathbb{Z}/\mathbb{Z} = 0$$!
+- **Bậc $$n \ge 2$$ chẵn:** $$\ker \partial_n = 0$$, $$\operatorname{im} \partial_{n+1} = 0 \implies H_n(\{p\}) = 0/0 = 0$$!
+
+Nhờ bất biến đồng luân, kết quả này lập tức cho đồng điều của **mọi không gian co rút được** ($$\mathbb{R}^k, D^k$$): $$H_0 \cong \mathbb{Z}$$ và $$H_n = 0$$ với mọi $$n \ge 1$$!
+
+### Khung giải thích: Tại sao không gian xích khổng lồ $$C_n(X)$$ lại trở nên dễ chế ngự? (nên đọc chậm)
+
+#### Bước 1: Chấp nhận $$C_n(X)$$ vô hạn chiều để đổi lấy tính tự nhiên tuyệt đối
+Không cần chọn tam giác hóa, không cần lo tính độc lập cách chia lưới: $$H_n$$ tự động là một hàm tử từ $$\mathbf{Top}$$ sang $$\mathbf{Ab}$$ ngay từ định nghĩa!
+
+#### Bước 2: Dùng Phép đồng luân xích (Chain Homotopy) để chứng minh bất biến đồng luân
+Hai ánh xạ đồng luân $$f \simeq g$$ tạo ra một lăng trụ $$\Delta^n \times [0,1]$$; xẻ lăng trụ thành $$n+1$$ đơn hình chiều $$n+1$$ cho ta toán tử $$P$$ thỏa mãn $$\partial P + P\partial = g_\# - f_\#$$, lập tức ép $$f_* = g_*$$ trên $$H_n$$!
+
+#### Bước 3: Mở rộng lên Đồng điều Tương đối $$H_n(X, A)$$ và Dãy khớp dài của cặp $$(X, A)$$
+Lấy thương $$C_n(X)/C_n(A)$$ tạo ra đồng điều tương đối $$H_n(X, A)$$ cùng dãy khớp dài nối $$H_n(A) \to H_n(X) \to H_n(X, A) \to H_{n-1}(A)$$ — và **Định lý Cắt bỏ (Excision)** cho phép cắt vứt phần ruột thừa bên trong $$A$$ mà không đổi $$H_n(X, A)$$!
+
+#### Bước 4: Đứng trên hệ tiên đề Eilenberg–Steenrod
+Một khi có đủ tính hàm tử, bất biến đồng luân, dãy khớp dài và cắt bỏ (cùng Mayer–Vietoris ở bài 07.03), bạn hiếm khi phải động trực tiếp vào từng đơn hình kỳ dị nữa — mọi tính toán quy về đại số tinh gọn!
+
+$$
+\sigma: \Delta^n \to X
+\;\xrightarrow{\;\partial_n\;}\;
+H_n^{\text{sing}}(X)
+\;\xrightarrow{\;\text{Đồng luân + Cắt bỏ}\;}\;
+H_n^{\text{sing}}(K) \cong H_n^{\text{simp}}(K) \;\&\; H_1(X) \cong \pi_1(X)^{\text{ab}}.
+$$
 
 ---
 

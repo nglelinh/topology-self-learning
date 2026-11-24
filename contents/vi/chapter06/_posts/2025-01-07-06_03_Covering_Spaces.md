@@ -16,6 +16,8 @@ description: "Covering spaces: định nghĩa, lifting properties, universal cov
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu bạn từng học lý thuyết Galois trong đại số đại cương, chắc hẳn bạn nhớ mối tương ứng kỳ diệu giữa các *trường trung gian* và các *nhóm con của nhóm Galois*. Thật đáng kinh ngạc: trong tô-pô học cũng tồn tại một **đối xứng gương hoàn hảo hệt như vậy**! Mọi **không gian phủ liên thông** $$\tilde{X} \to X$$ của một không gian đẹp $$X$$ tương ứng **một-một** với các **nhóm con** của nhóm cơ bản $$\pi_1(X)$$ — trong đó **không gian phủ phổ dụng** (đơn liên) đứng trên đỉnh cao nhất ứng với nhóm con tầm thường $$\{1\}$$!
+
 Lý thuyết **không gian phủ** (covering spaces) mô tả cấu trúc toàn cục của một không gian tô-pô thông qua một không gian khác đơn giản hơn nhưng có cấu trúc địa phương giống hệt nó: không gian $\tilde{X}$ "phủ" lên $X$ sao cho trên mỗi lân cận đủ nhỏ của $X$, $\tilde{X}$ trông như nhiều bản sao rời nhau (các "lá") xếp chồng lên nhau.
 
 Trong bài học này, chúng ta xây dựng có hệ thống các nội dung chính: định nghĩa không gian phủ qua lân cận phủ đều, các ví dụ tiêu chuẩn ($\mathbb{R} \to S^1$, $z \mapsto z^n$, $S^n \to \mathbb{R}P^n$, $\mathbb{R}^2 \to T^2$, cây vô hạn phủ hình số $8$), các định lý nâng (nâng đường đi, nâng đồng luân và tiêu chuẩn nâng), không gian phủ phổ dụng (universal cover), nhóm các phép biến đổi phủ (deck transformations) và Định lý phân loại không gian phủ — tương ứng song ánh giữa các không gian phủ liên thông của $X$ với các lớp liên hợp của nhóm con của $\pi_1(X)$.
@@ -24,6 +26,66 @@ Trong bài học này, chúng ta xây dựng có hệ thống các nội dung ch
 *Minh họa không gian phủ với nhiều lá xếp chồng lên không gian đáy*
 
 Lý thuyết này là công cụ quan trọng để tính nhóm cơ bản, nghiên cứu mặt Riemann trong giải tích phức, và tạo ra sự tương đồng cấu trúc nổi tiếng với lý thuyết Galois trong đại số.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Lý thuyết Không gian Phủ là gì và nghiên cứu những gì?
+
+### 1. Ánh xạ Phủ (Covering Map) & Lân cận Được phủ đều
+- **Bản chất:** Ánh xạ toàn ánh liên tục $$p: \tilde{X} \to X$$ gọi là **ánh xạ phủ** nếu quanh mọi điểm $$x \in X$$ đều có lân cận mở $$U$$ sao cho nghịch ảnh $$p^{-1}(U)$$ tách thành một chồng các "tờ bánh kếp" mở rời nhau $$\bigsqcup V_\alpha$$, mỗi tờ đồng phôi hoàn hảo với $$U$$ qua $$p$$! Số lượng tờ gọi là **số lá (bậc)** của phủ.
+
+### 2. Hai Tính chất Nâng (Lifting Properties) & Tiêu chuẩn Nâng
+- **Nâng đường đi & đồng luân:** Mọi đường đi trên $$X$$ đều nâng lên duy nhất một đường đi trên $$\tilde{X}$$ khi chọn trước điểm xuất phát.
+- **Tiêu chuẩn nâng tổng quát:** Ánh xạ $$f: (Y, y_0) \to (X, x_0)$$ nâng lên được thành $$\tilde{f}: (Y, y_0) \to (\tilde{X}, \tilde{x}_0)$$ khi và chỉ khi $$f_*(\pi_1(Y, y_0)) \subseteq p_*(\pi_1(\tilde{X}, \tilde{x}_0))$$!
+
+### 3. Tương ứng Galois của Không gian Phủ & Nhóm Biến đổi Phủ (Deck Transformations)
+- **Định lý Phân loại:** Mọi phủ liên thông của $$X$$ (liên thông đường, liên thông đường địa phương và bán đơn liên địa phương) tương ứng 1–1 với các lớp liên hợp của nhóm con $$H \le \pi_1(X)$$, với số lá đúng bằng chỉ số $$[\pi_1(X) : H]$$!
+- **Phủ chuẩn tắc (Regular covering):** Khi $$H \trianglelefteq \pi_1(X)$$ là nhóm con chuẩn tắc, nhóm các phép tự đồng phôi bảo toàn thớ (**Deck transformations**) thỏa mãn $$\operatorname{Deck}(\tilde{X}/X) \cong \pi_1(X)/H$$!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Khảo sát trọn vẹn Phủ 3 lá $$p_3(z) = z^3: S^1 \to S^1$$
+
+Xem đường tròn là $$S^1 = \{z \in \mathbb{C} : \lvert z\rvert = 1\}$$ và xét ánh xạ $$p_3: S^1 \to S^1,\; p_3(z) = z^3$$:
+
+1. **Đếm số lá tại điểm gốc $$1 \in S^1$$:** Giải $$z^3 = 1$$ ta được đúng **3 điểm** (3 căn bậc ba của đơn vị):
+   $$
+   p_3^{-1}(1) = \left\{1,\; \omega = e^{2\pi i/3},\; \omega^2 = e^{4\pi i/3}\right\} \quad (\text{phủ 3 lá!}).
+   $$
+2. **Kiểm tra nhóm con ảnh $$(p_3)_*(\pi_1(S^1)) \le \pi_1(S^1)$$:**
+   Lấy vòng sinh chuẩn $$\gamma(s) = e^{2\pi i s}$$ (ứng với $$1 \in \mathbb{Z}$$). Ảnh của nó qua $$p_3$$ là:
+   $$
+   (p_3 \circ \gamma)(s) = (e^{2\pi i s})^3 = e^{6\pi i s} \quad (\text{quấn 3 vòng} \implies 3 \in \mathbb{Z}!).
+   $$
+   Vậy nhóm con tương ứng là **$$H = 3\mathbb{Z} \le \mathbb{Z}$$**! Kiểm tra chỉ số: $$[\mathbb{Z} : 3\mathbb{Z}] = 3$$ — khớp chính xác số lá của phủ!
+3. **Tính Nhóm Biến đổi Phủ $$\operatorname{Deck}(p_3)$$:**
+   Ta cần tìm các phép đồng phôi $$\tau: S^1 \to S^1$$ sao cho $$p_3(\tau(z)) = p_3(z)$$, tức $$(\tau(z))^3 = z^3$$. Có đúng **3 phép quay**:
+   $$
+   \tau_0(z) = z, \qquad \tau_1(z) = \omega z \;(\text{quay } 120^\circ), \qquad \tau_2(z) = \omega^2 z \;(\text{quay } 240^\circ).
+   $$
+   Nhóm này đẳng cấu với **$$\mathbb{Z}/3\mathbb{Z} \cong \mathbb{Z}/3\mathbb{Z} = \pi_1(S^1)/H$$** — xác nhận hoàn hảo Tương ứng Galois!
+
+### Khung giải thích: Đọc bản đồ Tương ứng Galois của Không gian Phủ (nên đọc chậm)
+
+#### Bước 1: Hình dung "tháp các không gian phủ" của $$X$$
+Đứng trên đỉnh cao nhất là **phủ phổ dụng $$\tilde{X}$$** (đơn liên, ứng với nhóm con nhỏ nhất $$\{1\}$$); nằm dưới đáy là chính $$X$$ (ứng với toàn bộ $$\pi_1(X)$$); ở giữa là mọi phủ trung gian ứng với từng nhóm con $$H \le \pi_1(X)$$.
+
+#### Bước 2: Dùng ánh xạ phủ để tính $$\pi_1$$ của không gian khó
+Ví dụ muốn tính $$\pi_1(\mathbb{R}P^2)$$: ta đã có phủ 2 lá $$S^2 \to \mathbb{R}P^2$$ với $$S^2$$ đơn liên (phủ phổ dụng!) và nhóm biến đổi phủ $$\{\pm 1\} \cong \mathbb{Z}/2\mathbb{Z}$$ $$\implies$$ đọc thẳng **$$\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$$**!
+
+#### Bước 3: Dùng không gian phủ để chứng minh định lý thuần túy của Lý thuyết Nhóm!
+Một phép màu ngược chiều (Định lý Nielsen–Schreier): *mọi nhóm con của một nhóm tự do đều là nhóm tự do!* Chứng minh thuần đại số rất dài, nhưng bằng không gian phủ chỉ mất 3 dòng: nhóm tự do là $$\pi_1$$ của một đồ thị (bó đường tròn); mọi không gian phủ của một đồ thị lại là **một đồ thị**; mà $$\pi_1$$ của đồ thị bất kỳ luôn là nhóm tự do!
+
+#### Bước 4: Kiểm tra điều kiện tồn tại phủ phổ dụng
+Không gian như "bông tai Hawaii" (vô hạn đường tròn bán kính $$1/n$$ chạm tại gốc) có các vòng nhỏ tùy ý không co rút được quanh gốc — vi phạm tính *bán đơn liên địa phương* nên **không** có phủ phổ dụng!
+
+$$
+\{\text{Phủ liên thông }\tilde{X} \to X\}
+\;\xleftrightarrow{\;\text{Tương ứng Galois (1–1)}\;}\;
+\{\text{Nhóm con }H \le \pi_1(X)\},
+\qquad
+\text{số lá} = [\pi_1(X) : H].
+$$
 
 ---
 

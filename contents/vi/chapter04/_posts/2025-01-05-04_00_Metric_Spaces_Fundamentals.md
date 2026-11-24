@@ -16,6 +16,8 @@ description: "Không gian metric: định nghĩa, ví dụ, isometries, và tín
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu bạn đang đứng ở ngã tư trung tâm quận 1 (TP.HCM) hay khu bàn cờ Manhattan (New York) và muốn đi bộ sang một tòa nhà cách đó 3 dãy nhà về phía Đông và 4 dãy nhà về phía Bắc, chim bay mất **5** đơn vị (đường chim bay Euclid), nhưng bạn không thể đi xuyên tường — bạn phải đi đúng **$$3 + 4 = 7$$** đơn vị! Còn nếu bạn là một quân Vua trên bàn cờ vua, bạn chỉ cần đúng **$$\max(3, 4) = 4$$** nước đi! Cả ba cách đo đó đều hợp lệ tuyệt đối và dẫn đến khái niệm **không gian metric** — cầu nối hoàn hảo giữa giải tích đo đạc và tô-pô học trừu tượng!
+
 Sau khi nghiên cứu không gian tô-pô ở mức độ tổng quát, chúng ta chuyển sang một lớp không gian đặc biệt quan trọng: **không gian metric** — những không gian được trang bị khái niệm khoảng cách (distance).
 
 Không gian metric sở hữu nhiều tính chất thuận lợi mà không gian tô-pô tổng quát không nhất thiết có. Trước hết, khoảng cách cho phép định lượng mức độ xa gần giữa hai điểm thay vì chỉ xét quan hệ lân cận. Thứ hai, các dãy điểm đủ để mô tả cấu trúc tô-pô mà không cần dùng đến lưới (net) hay bộ lọc (filter) tổng quát. Thứ ba, tính đầy đủ (completeness) — tức mọi dãy Cauchy đều hội tụ — mở ra nhiều công cụ giải tích hữu ích. Ngoài ra, phần lớn các đối tượng quen thuộc trong giải tích như $\mathbb{R}^n$, không gian hàm $C([0,1])$ hay các không gian xác suất đều mang cấu trúc metric.
@@ -28,6 +30,64 @@ Mối liên hệ giữa không gian metric và không gian tô-pô có tính m�
 Trong bài học này, chúng ta xây dựng một cách hệ thống các khái niệm nền tảng của không gian metric: định nghĩa metric qua ba tiên đề, các ví dụ tiêu chuẩn (metric Euclid $d_2$, metric Manhattan $d_1$, metric cực đại $d_\infty$, metric rời rạc, metric trên không gian hàm và họ metric $L^p$), tô-pô sinh bởi metric qua các quả cầu mở, sự hội tụ, dãy Cauchy, tính đầy đủ, phép đẳng cự (isometry) và tập bị chặn.
 
 Không gian metric là nền tảng trực tiếp của giải tích thực (giới hạn, tính liên tục, đạo hàm), đồng thời kết nối tô-pô với hình học. Cấu trúc metric xuất hiện rộng rãi trong giải tích hàm (không gian vô hạn chiều), hình học vi phân (metric Riemann), lý thuyết xác suất, cũng như trong khoa học dữ liệu và học máy (phân cụm, phân loại, giảm chiều dữ liệu).
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Không gian Metric là gì và nghiên cứu những gì?
+
+### 1. Tiên đề hóa Khoảng cách: Từ Euclid đến Mọi Thế giới
+- **Bản chất:** Một **metric** $$d: X \times X \to [0, \infty)$$ chắt lọc đúng 3 tính chất cốt lõi của khoảng cách: xác định dương ($$d(x,y)=0 \iff x=y$$), đối xứng ($$d(x,y)=d(y,x)$$), và **bất đẳng thức tam giác** ($$d(x,z) \le d(x,y) + d(y,z)$$ — đi vòng không bao giờ ngắn hơn đi thẳng!).
+- **Lĩnh vực nghiên cứu:** Không chỉ đo điểm trong $$\mathbb{R}^n$$, metric còn đo khoảng cách giữa hai **chuỗi DNA** (khoảng cách Hamming/Levenshtein), hai **hàm số** ($$L^2, L^\infty$$), hai **xác suất** (Wasserstein) hay hai **hình dạng** (Gromov–Hausdorff).
+
+### 2. Quả cầu mở & Tô-pô sinh bởi Metric
+- **Bản chất:** Khi đã có thước đo $$d$$, ta lập tức định nghĩa **quả cầu mở** $$B_d(x, r) = \{y \in X : d(x, y) < r\}$$. Họ các hợp tùy ý của những quả cầu mở tạo thành **tô-pô metric** $$\tau_d$$ — tự động thỏa mãn tính chất tách rất đẹp (mọi không gian metric đều là Hausdorff, chuẩn tắc và đếm được thứ nhất!).
+
+### 3. Giới hạn dãy & Sự khác biệt với Tô-pô tổng quát
+- **Bản chất:** Trong không gian metric, mọi khái niệm tô-pô (tập đóng, bao đóng, hàm liên tục, tính compact) đều **tương đương hoàn toàn với ngôn ngữ dãy số**! Đây là đặc ân lớn của không gian metric mà tô-pô tổng quát không luôn có.
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc
+
+### Ví dụ 1: Ba hình dáng khác nhau của "Hình tròn đơn vị" $$B(0, 1)$$ trong $$\mathbb{R}^2$$
+Trên $$\mathbb{R}^2$$, xét ba metric kinh điển đo khoảng cách từ điểm $$p = (x, y)$$ tới gốc $$O = (0, 0)$$:
+- **Metric Manhattan ($$d_1$$):** $$d_1(p, O) = \lvert x\rvert + \lvert y\rvert$$.
+- **Metric Euclid ($$d_2$$):** $$d_2(p, O) = \sqrt{x^2 + y^2}$$.
+- **Metric Chebyshev ($$d_\infty$$):** $$d_\infty(p, O) = \max(\lvert x\rvert, \lvert y\rvert)$$.
+
+Hãy kiểm tra trực tiếp bằng tay xem điểm **$$p = (0.6,\; 0.6)$$** có nằm trong quả cầu mở đơn vị $$B(O, 1)$$ không:
+1. Với $$d_1$$: $$d_1(p, O) = 0.6 + 0.6 = 1.2 > 1 \implies p \notin B_{d_1}(O, 1)$$ (quả cầu $$d_1$$ là **hình thoi** xoay $$45^\circ$$!).
+2. Với $$d_2$$: $$d_2(p, O) = \sqrt{0.36 + 0.36} = \sqrt{0.72} \approx 0.849 < 1 \implies p \in B_{d_2}(O, 1)$$ (quả cầu $$d_2$$ là **hình tròn**!).
+3. Với $$d_\infty$$: $$d_\infty(p, O) = \max(0.6, 0.6) = 0.6 < 1 \implies p \in B_{d_\infty}(O, 1)$$ (quả cầu $$d_\infty$$ là **hình vuông** $$[-1,1]^2$$!).
+
+Dù ba quả cầu có hình dáng khác hẳn nhau (thoi, tròn, vuông), bất kỳ hình tròn nào cũng lồng được vào trong hình vuông và chứa được một hình thoi nhỏ hơn — nên cả ba metric **sinh ra cùng một tô-pô duy nhất trên $$\mathbb{R}^2$$**!
+
+### Ví dụ 2: Kiểm tra Metric rời rạc trên tập bất kỳ $$X$$
+Định nghĩa $$d_{\text{rời}}(x, y) = 0$$ nếu $$x = y$$ và $$d_{\text{rời}}(x, y) = 1$$ nếu $$x \neq y$$.
+- **Bất đẳng thức tam giác:** Nếu $$x = z$$ thì vế trái $$= 0 \le$$ vế phải. Nếu $$x \neq z$$ thì vế trái $$= 1$$; với mọi $$y$$, không thể đồng thời $$x = y$$ và $$y = z$$ nên ít nhất một trong $$d(x,y), d(y,z)$$ bằng $$1$$, suy ra tổng $$\ge 1$$!
+- **Quả cầu mở bán kính $$r = \tfrac{1}{2}$$:** $$B(x, \tfrac{1}{2}) = \{x\}$$ — mọi điểm đơn lẻ đều là tập mở, sinh ra đúng **tô-pô rời rạc**!
+
+### Khung giải thích: Vì sao tô-pô học vẫn cần không gian Metric? (nên đọc chậm)
+
+#### Bước 1: Định lượng khái niệm "gần nhau"
+Tô-pô tập hợp chỉ nói điểm $$y$$ nằm trong lân cận $$U$$ của $$x$$. Metric cho bạn một con số cụ thể $$d(x, y) < \varepsilon$$, mở khóa các công cụ định lượng: dãy Cauchy, tính đầy đủ, liên tục đều và nguyên lý ánh xạ co.
+
+#### Bước 2: Dùng quả cầu mở làm cơ sở sinh tô-pô
+Tập $$U \subseteq X$$ gọi là mở nếu quanh mỗi $$x \in U$$ ta đặt lọt một quả cầu $$B(x, r) \subseteq U$$. Nhờ bất đẳng thức tam giác, bản thân mỗi quả cầu mở $$B(x, r)$$ cũng là một tập mở!
+
+#### Bước 3: Hưởng trọn đặc quyền "dãy số quyết định tất cả"
+Trong không gian metric: $$x \in \overline{A} \iff \exists (a_n) \subset A,\; a_n \to x$$; hàm $$f$$ liên tục $$\iff$$ bảo toàn giới hạn dãy; tập $$K$$ compact $$\iff$$ mọi dãy đều có dãy con hội tụ (compact dãy).
+
+#### Bước 4: Ranh giới giữa Metric và Tô-pô (Định lý Mêtric hóa)
+Không phải không gian tô-pô nào cũng có metric sinh ra nó (ví dụ không gian không Hausdorff không bao giờ mêtric hóa được!). Ngược lại, **nhiều metric khác nhau** (như $$d_1, d_2, d_\infty$$) có thể sinh cùng một tô-pô.
+
+$$
+\text{Hàm khoảng cách }d
+\;\xrightarrow{\;B_d(x,r)\;}\;
+\text{Tô-pô metric }\tau_d
+\;\xrightarrow{\;\text{Đặc quyền dãy số}\;}\;
+\text{Liên tục, Đầy đủ \& Compact dãy}.
+$$
 
 ---
 

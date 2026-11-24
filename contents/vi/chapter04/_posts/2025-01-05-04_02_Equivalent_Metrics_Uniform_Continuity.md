@@ -16,6 +16,8 @@ description: "Equivalent metrics, uniform continuity, Lipschitz maps, và contra
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Hai người bạn cùng đo khoảng cách trên mặt phẳng $$\mathbb{R}^2$$ — một người dùng thước dây Euclid ($$d_2$$), người kia dùng lộ trình đường phố Manhattan ($$d_1$$). Họ có cho ra các con số khác nhau không? Có! Nhưng liệu họ có bao giờ bất đồng về việc một dãy điểm có hội tụ hay một tập hợp có mở không? **Không bao giờ!** Tuy nhiên, nếu bạn đổi thước đo từ $$d(x,y) = \lvert x-y\rvert$$ sang $$d'(x,y) = \lvert \arctan x - \arctan y\rvert$$ trên $$\mathbb{R}$$, hai thước đo vẫn cho cùng tập mở (tương đương tô-pô), nhưng $$d'$$ lại biến $$\mathbb{R}$$ thành không gian **không đầy đủ**! Bài học này phân định rạch ròi ba tầng tương đương của metric và bản chất của **tính liên tục đều**.
+
 Trên cùng một tập hợp có thể tồn tại nhiều metric khác nhau nhưng lại sinh ra cùng một tô-pô. Những metric như vậy gọi là **tương đương tô-pô** (equivalent metrics): dù cách đo khoảng cách khác nhau, chúng có chung họ tập mở, chung các dãy hội tụ và chung lớp hàm liên tục.
 
 **Tính liên tục đều** (uniform continuity) là điều kiện mạnh hơn tính liên tục thông thường: hằng số $\delta$ chỉ phụ thuộc vào $\varepsilon$, không phụ thuộc vào điểm $x$ đang xét. Nhờ đó, ta kiểm soát được độ biến thiên của hàm một cách đồng nhất trên toàn miền xác định, cho phép thác triển hàm từ một tập con trù mật hoặc tận dụng tính compact qua định lý Heine–Cantor.
@@ -26,6 +28,69 @@ Trên cùng một tập hợp có thể tồn tại nhiều metric khác nhau nh
 Một lớp đặc biệt của hàm liên tục đều là hàm **Lipschitz** và **ánh xạ co** (contraction mapping). Định lý điểm bất động Banach khẳng định mọi ánh xạ co trên một không gian metric đầy đủ đều có duy nhất một điểm bất động, và dãy lặp xuất phát từ bất kỳ điểm nào cũng hội tụ về điểm bất động đó.
 
 Trong bài học này, chúng ta sẽ khảo sát các tiêu chuẩn nhận biết metric tương đương, metric tương đương mạnh, tính liên tục đều, định lý Heine–Cantor, định lý thác triển, tính liên tục Lipschitz, ánh xạ co và định lý điểm bất động Banach cùng một số ứng dụng trong giải phương trình và phương trình vi phân.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Phân tầng Tương đương Metric & Tính Liên tục Đều
+
+### 1. Ba tầng Tương đương giữa hai Metric $$d_1, d_2$$ trên cùng tập $$X$$
+- **Tương đương mạnh (Lipschitz):** Tồn tại hằng số $$c, C > 0$$ sao cho $$c\,d_1(x,y) \le d_2(x,y) \le C\,d_1(x,y)$$ với mọi $$x, y$$. Bảo toàn **tất cả**: tập mở, dãy Cauchy, tính đầy đủ và liên tục đều!
+- **Tương đương đều (Uniformly equivalent):** Ánh xạ đồng nhất liên tục đều hai chiều — bảo toàn tính đầy đủ và liên tục đều, nhưng không nhất thiết có hằng số Lipschitz toàn cục.
+- **Tương đương tô-pô (Topologically equivalent):** Sinh cùng họ tập mở $$\tau_{d_1} = \tau_{d_2}$$ — bảo toàn hội tụ và liên tục, nhưng có thể **phá vỡ tính đầy đủ**!
+
+### 2. Liên tục tại điểm vs. Liên tục Đều (Uniform Continuity)
+- **Bản chất:** Ở tính liên tục thường, bán kính $$\delta$$ phụ thuộc vào cả $$\varepsilon$$ **lẫn vị trí điểm $$x$$** (nơi hàm dốc đứng, $$\delta$$ phải co nhỏ xíu!). Ở **liên tục đều**, chỉ cần **một $$\delta(\varepsilon)$$ duy nhất** dùng chung cho *toàn bộ* không gian $$X$$!
+
+### 3. Định lý Heine–Cantor & Mở rộng Hàm Liên tục Đều
+- **Bản chất:** Trên miền **compact**, liên tục tự động kéo theo liên tục đều (Heine–Cantor). Quan trọng hơn: hàm liên tục đều **biến dãy Cauchy thành dãy Cauchy**, cho phép thác triển duy nhất một hàm từ tập trù mật (như $$\mathbb{Q}$$) lên toàn bộ không gian đầy đủ (như $$\mathbb{R}$$)!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc
+
+### Ví dụ 1: Kiểm tra tương đương mạnh trên $$\mathbb{R}^2$$ giữa $$d_1, d_2, d_\infty$$
+Với mọi $$x = (x_1, x_2),\; y = (y_1, y_2) \in \mathbb{R}^2$$, đặt $$a = \lvert x_1 - y_1\rvert \ge 0,\; b = \lvert x_2 - y_2\rvert \ge 0$$. Ta kiểm tra chuỗi bất đẳng thức bằng tay:
+1. $$\max(a, b) = \sqrt{\max(a^2, b^2)} \le \sqrt{a^2 + b^2} \implies d_\infty \le d_2$$.
+2. $$a^2 + b^2 \le a^2 + 2ab + b^2 = (a+b)^2 \implies d_2 \le d_1$$.
+3. $$a + b \le 2\max(a, b) \implies d_1 \le 2\,d_\infty$$.
+Gộp lại:
+$$
+d_\infty(x,y) \le d_2(x,y) \le d_1(x,y) \le 2\,d_\infty(x,y)!
+$$
+Vậy $$d_1, d_2, d_\infty$$ **tương đương mạnh** với nhau — mọi tính chất tô-pô, dãy Cauchy và tính đầy đủ đều giống hệt nhau!
+
+### Ví dụ 2: Kiểm chứng $$f(x) = x^2$$ KHÔNG liên tục đều trên $$\mathbb{R}$$, còn $$g(x) = \sqrt{x}$$ THÌ CÓ trên $$[0, \infty)$$
+- **Với $$f(x) = x^2$$ trên $$\mathbb{R}$$:** Chọn hai dãy tiến sát nhau $$x_n = n$$ và $$y_n = n + \frac{1}{n}$$.
+  - Khoảng cách đầu vào: $$\lvert x_n - y_n\rvert = \frac{1}{n} \longrightarrow 0$$.
+  - Khoảng cách đầu ra: $$\lvert f(y_n) - f(x_n)\rvert = \left(n + \frac{1}{n}\right)^2 - n^2 = 2 + \frac{1}{n^2} > 2$$ với mọi $$n$$!
+  Không tồn tại bất kỳ $$\delta > 0$$ nào ứng với $$\varepsilon = 1$$ dùng chung cho mọi $$x \in \mathbb{R}$$ $$\implies$$ **không liên tục đều**!
+- **Với $$g(x) = \sqrt{x}$$ trên $$[0, \infty)$$:** Giả sử $$x \ge y \ge 0$$. Bình phương hai vế của $$\sqrt{x} - \sqrt{y} \le \sqrt{x - y}$$:
+  $$
+  (\sqrt{x} - \sqrt{y})^2 = x + y - 2\sqrt{xy} \le x + y - 2y = x - y \quad (\text{vì } x \ge y \implies \sqrt{xy} \ge y)!
+  $$
+  Vậy $$\lvert \sqrt{x} - \sqrt{y}\rvert \le \sqrt{\lvert x - y\rvert}$$ mọi nơi! Chỉ cần chọn $$\delta = \varepsilon^2$$ (không hề phụ thuộc $$x$$!), suy ra $$\sqrt{x}$$ **liên tục đều trên toàn bộ $$[0, \infty)$$** dù đạo hàm tiến ra $$+\infty$$ tại $$0$$!
+
+### Khung giải thích: Bản chất của 3 mức tương đương và vai trò của Liên tục Đều (nên đọc chậm)
+
+#### Bước 1: Phân biệt "cùng tập mở" với "cùng dãy Cauchy"
+Metric bị chặn $$d'(x,y) = \frac{\lvert x-y\rvert}{1 + \lvert x-y\rvert}$$ hay $$\lvert \arctan x - \arctan y\rvert$$ giữ nguyên tập mở của $$\mathbb{R}$$, nhưng ở vùng $$x \to +\infty$$ nó nén khoảng cách lại quá mạnh khiến dãy $$x_n = n$$ đột nhiên trở thành dãy Cauchy không hội tụ!
+
+#### Bước 2: Dùng hằng số Lipschitz để kiểm tra nhanh tương đương mạnh
+Chỉ cần kẹp được $$c\,d_1 \le d_2 \le C\,d_1$$ (như Ví dụ 1) là bạn yên tâm 100%: không những tập mở mà cả tính đầy đủ và tính liên tục đều cũng bất biến.
+
+#### Bước 3: Nhìn tính liên tục đều qua lăng kính "bảo toàn dãy Cauchy"
+Hàm $$f(x) = 1/x$$ liên tục trên $$(0, 1)$$ nhưng đưa dãy Cauchy $$x_n = 1/n$$ thành dãy phân kỳ $$f(x_n) = n$$ — nên nó **không** liên tục đều. Ngược lại, mọi hàm liên tục đều luôn đưa dãy Cauchy thành dãy Cauchy!
+
+#### Bước 4: Đóng gói bằng Heine–Cantor
+Trên miền compact (như đoạn đóng $$[a, b]$$ hay mặt cầu $$S^n$$), không có "vùng vô cực" hay "lỗ thủng biên" để độ dốc chạy trốn — vì thế mọi hàm liên tục đều tự động trở thành liên tục đều!
+
+$$
+\text{Tương đương mạnh } (c\,d_1 \le d_2 \le C\,d_1)
+\;\Longrightarrow\;
+\text{Tương đương đều}
+\;\Longrightarrow\;
+\text{Tương đương tô-pô }(\tau_{d_1} = \tau_{d_2}).
+$$
 
 ---
 

@@ -16,6 +16,8 @@ description: "Seifert-Van Kampen Theorem: computing π₁ từ decomposition, fr
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu bạn biết nhóm cơ bản của hai mảnh không gian đơn giản $$U$$ và $$V$$ (ví dụ hai hình trụ hay hai mặt phẳng), làm sao tính nhóm cơ bản của không gian ghép $$X = U \cup V$$ mà không phải quay lại định nghĩa vòng lặp từ đầu? Năm 1931–1933, Herbert Seifert và Egbert van Kampen độc lập phát hiện một **nguyên lý "chia để trị" hoàn hảo cho nhóm cơ bản**: chỉ cần phần giao $$U \cap V$$ **liên thông đường**, nhóm cơ bản của $$U \cup V$$ chính là **tích tự do hợp nhất** $$\pi_1(U) *_{\pi_1(U \cap V)} \pi_1(V)$$ — tức là gom tất cả phần tử sinh của hai mảnh lại rồi đồng nhất những vòng nằm trong phần giao!
+
 Bên cạnh phương pháp không gian phủ và tương đương đồng luân, **Định lý Seifert–van Kampen** cung cấp phương pháp thứ ba rất linh hoạt để tính nhóm cơ bản theo chiến lược chia để trị:
 
 > **Phân tách không gian $X = A \cup B$ thành hai tập mở liên thông đường, rồi tính $\pi_1(X)$ từ $\pi_1(A)$, $\pi_1(B)$ và $\pi_1(A \cap B)$ qua tích tự do có hợp nhất (amalgamated free product).**
@@ -26,6 +28,61 @@ Bên cạnh phương pháp không gian phủ và tương đương đồng luân,
 *Minh họa phân tách không gian $X = A \cup B$ trong định lý Seifert–van Kampen*
 
 Trong bài học này, chúng ta sẽ nhắc lại khái niệm tích tự do và tích tự do có hợp nhất, phát biểu Định lý Seifert–van Kampen cùng các hệ quả đặc biệt, trình bày các ứng dụng tiêu chuẩn (hình số $8$, tổng chụm $n$ đường tròn, hình xuyến, mặt giống $g$, $\mathbb{R}P^2$) và phác thảo ý tưởng chứng minh.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Định lý Seifert–van Kampen (SVK) là gì và dùng để làm gì?
+
+### 1. Tư tưởng "Chia để trị" (Divide and Conquer) trong Tô-pô Đại số
+- **Bản chất:** Phủ $$X = U \cup V$$ bằng hai tập mở liên thông đường sao cho phần giao $$U \cap V$$ **khác rỗng và liên thông đường**. Khi đó mọi vòng lặp phức tạp trong $$X$$ đều có thể cắt nhỏ thành tích các vòng nằm trọn trong $$U$$ hoặc trong $$V$$!
+
+### 2. Tích tự do ($$G * H$$) & Tích tự do Hợp nhất ($$G *_K H$$)
+- **Tích tự do $$G * H$$:** Khi phần giao $$U \cap V$$ **đơn liên** ($$\pi_1(U \cap V) = \{1\}$$), không có quan hệ ràng buộc mới nào giữa $$U$$ và $$V$$ — ví dụ bó hai đường tròn $$S^1 \vee S^1$$ cho nhóm tự do $$\mathbb{Z} * \mathbb{Z} = F_2 = \langle a, b \rangle$$!
+- **Tích tự do hợp nhất $$G *_K H$$:** Khi phần giao có vòng sinh $$\gamma \in \pi_1(U \cap V)$$, ta thêm quan hệ đồng nhất hình ảnh của $$\gamma$$ trong $$U$$ bằng hình ảnh của nó trong $$V$$: $$i_*(\gamma) = j_*(\gamma)$$.
+
+### 3. Quy tắc Vàng khi dán thêm 2-tế bào (Phức CW)
+- **Ứng dụng mạnh nhất:** Nếu bạn dán một đĩa 2 chiều $$D^2$$ dọc theo vòng biên $$w$$ vào không gian $$Y$$, SVK cho thấy tác động lên nhóm cơ bản cực kỳ đơn giản: **chỉ việc thêm đúng một quan hệ $$w = 1$$** vào biểu diễn nhóm của $$\pi_1(Y)$$!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Áp dụng SVK tính $$\pi_1(S^2)$$ và $$\pi_1(T^2)$$
+
+### Ví dụ 1: Tính $$\pi_1(S^2) = 0$$ (và cảnh báo vì sao KHÔNG áp dụng được cho $$S^1$$!)
+Phủ mặt cầu $$S^2$$ bằng hai tập mở: $$U = S^2 \setminus \{N\} \cong \mathbb{R}^2$$ và $$V = S^2 \setminus \{S\} \cong \mathbb{R}^2$$.
+- $$\pi_1(U) = 0,\; \pi_1(V) = 0$$.
+- Phần giao $$U \cap V = S^2 \setminus \{N, S\} \cong S^1 \times \mathbb{R}$$ là một hình trụ mở — **liên thông đường**! ✓
+- Áp dụng SVK: $$\pi_1(S^2) \cong 0 *_{\mathbb{Z}} 0 = \{1\}$$!
+- **Cảnh báo quan trọng:** Nếu thử làm hệt như vậy trên đường tròn $$S^1$$ với $$U = S^1 \setminus \{N\}$$ và $$V = S^1 \setminus \{S\}$$, thì phần giao $$U \cap V = S^1 \setminus \{N, S\}$$ vỡ thành **2 cung mở rời nhau** (KHÔNG liên thông đường!) — giả thiết SVK bị vi phạm nên không thể kết luận $$\pi_1(S^1) = 0$$!
+
+### Ví dụ 2: Tính $$\pi_1(T^2) \cong \mathbb{Z}^2$$ bằng cách khoét 1 điểm trên Hình xuyến
+Gọi $$p$$ là một điểm nằm giữa lòng hình vuông dán cạnh $$aba^{-1}b^{-1}$$ của hình xuyến $$T^2$$. Phủ $$T^2 = U \cup V$$:
+- $$U = T^2 \setminus \{p\}$$: co rút biến dạng hướng tâm từ lỗ thủng $$p$$ ra khung biên hình vuông $$\implies U \simeq S^1 \vee S^1$$, nên $$\pi_1(U) = \langle a, b \rangle$$ (nhóm tự do 2 sinh).
+- $$V$$: đĩa mở nhỏ quanh $$p$$ (co rút được $$\implies \pi_1(V) = \{1\}$$).
+- $$U \cap V$$: vành khuyên thủng tâm $$p$$ ($$\simeq S^1$$, liên thông đường!), có vòng sinh $$\gamma$$ chạy bao quanh $$p$$. Khi đẩy vòng $$\gamma$$ ra sát biên hình vuông trong $$U$$, nó trùng khớp với từ biên $$aba^{-1}b^{-1}$$! Trong $$V$$, $$\gamma$$ co rút về $$1$$.
+- Áp dụng SVK:
+  $$
+  \pi_1(T^2) = \langle a, b \mid a b a^{-1} b^{-1} = 1 \rangle = \langle a, b \mid ab = ba \rangle \cong \mathbb{Z} \times \mathbb{Z}!
+  $$
+
+### Khung giải thích: Quy trình 4 bước tính $$\pi_1(X)$$ bằng Seifert–van Kampen (nên đọc chậm)
+
+#### Bước 1: Chọn hai tập mở $$U, V$$ sao cho $$U \cup V = X$$ và $$U \cap V$$ liên thông đường
+Mẹo thực chiến: với mọi phức CW 2 chiều (như mặt đóng $$\Sigma_g$$, chai Klein, $$\mathbb{R}P^2$$), luôn lấy $$U = X \setminus \{p\}$$ (co rút về 1-khung bó đường tròn!) và $$V$$ là một đĩa mở nhỏ quanh điểm $$p$$!
+
+#### Bước 2: Viết biểu diễn sinh–quan hệ cho $$\pi_1(U)$$ và $$\pi_1(V)$$
+Nhóm cơ bản của bó $$k$$ đường tròn luôn là nhóm tự do $$\langle a_1, \dots, a_k \rangle$$; đĩa mở $$V$$ luôn có $$\pi_1(V) = \{1\}$$.
+
+#### Bước 3: Theo dõi từng phần tử sinh của $$\pi_1(U \cap V)$$
+Tính ảnh $$i_*(\gamma)$$ trong $$\pi_1(U)$$ và $$j_*(\gamma)$$ trong $$\pi_1(V)$$, rồi viết thành phương trình quan hệ $$i_*(\gamma) = j_*(\gamma)$$.
+
+#### Bước 4: Rút gọn nhóm thương và đối chiếu với đồng điều $$H_1$$
+Mọi mặt đóng định hướng được giống $$g$$ lập tức cho $$\pi_1(\Sigma_g) = \langle a_1, b_1, \dots, a_g, b_g \mid \prod_{i=1}^g [a_i, b_i] = 1 \rangle$$ — và khi Abel hóa (cho mọi phần tử giao hoán), ta thu ngay $$H_1(\Sigma_g) \cong \mathbb{Z}^{2g}$$!
+
+$$
+X = U \cup V \;(U \cap V \text{ liên thông đường})
+\;\xrightarrow{\;\text{Seifert–van Kampen}\;}\;
+\pi_1(X) \cong \pi_1(U) *_{\pi_1(U\cap V)} \pi_1(V).
+$$
 
 ---
 

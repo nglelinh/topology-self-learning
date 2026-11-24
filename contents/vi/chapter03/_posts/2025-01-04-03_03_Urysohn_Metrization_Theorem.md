@@ -16,9 +16,9 @@ description: "Urysohn Metrization Theorem và characterization của metrizable 
 
 ## 📖 Tổng quan
 
-Không gian mê-tric có nhiều tính chất thuận lợi như khái niệm khoảng cách tường minh, đặc trưng bằng dãy và tính đầy đủ. Điều này đặt ra một câu hỏi trung tâm của tô-pô đại cương: **khi nào một không gian tô-pô $(X, \tau)$ là mê-tric hóa được (*metrizable*)**, nghĩa là tồn tại một mê-tric $d$ trên $X$ cảm sinh đúng tô-pô $\tau$?
+Từ Chương 01, ta đã mạnh dạn bỏ đi thước đo khoảng cách để bước vào thế giới tự do của không gian tô-pô trừu tượng. Nhưng sau khi khám phá đủ loại tiên đề tách và tiên đề đếm được, một câu hỏi quay ngược lại đầy mê hoặc: **nếu ai đó chỉ đưa cho bạn một họ tập mở $$(X, \tau)$$, làm sao biết được đằng sau nó có tồn tại một chiếc thước đo khoảng cách (mê-tric) $$d$$ nào sinh ra đúng tô-pô $$\tau$$ đó hay không?**
 
-Câu trả lời kinh điển đầu tiên là **Định lý Mê-tric hóa Urysohn**:
+Đó là **bài toán mê-tric hóa** — một trong những đỉnh cao lớn nhất của tô-pô đại cương thế kỷ XX. Câu trả lời kinh điển đầu tiên, vừa đẹp vừa bất ngờ, thuộc về Pavel Urysohn (1925):
 
 $$
 \boxed{T_3 + \text{second countable} \implies \text{metrizable}}
@@ -27,7 +27,48 @@ $$
 ![Metrization concept](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Metric_space.svg/400px-Metric_space.svg.png)  
 *Cấu trúc không gian mê-tric - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metric_space.svg)*
 
-Bài giảng này trình bày định nghĩa không gian mê-tric hóa được, các điều kiện cần, chứng minh **Định lý Mê-tric hóa Urysohn** bằng cách nhúng vào không gian tích đếm được, và giới thiệu hai đặc trưng điều kiện cần và đủ tổng quát hơn là **Định lý Nagata–Smirnov** và **Định lý Bing**.
+**Mạch bài học:** Bản đồ kiến thức nền (bài toán mê-tric hóa, chiến lược nhúng vào khối lập phương Hilbert $$[0,1]^\omega$$ & định lý Nagata–Smirnov) → Khung giải thích chậm: cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$ với trọng số $$1/2^n$$ → Điều kiện cần, chứng minh Định lý Urysohn & Bảng phản ví dụ → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Bài toán Mê-tric hóa và Phép nhúng Hilbert nghiên cứu những gì?
+
+### 1. Mê-tric hóa được (Metrizable) là một tính chất thuần túy tô-pô
+
+Ta nói $$(X, \tau)$$ **mê-tric hóa được** nếu tồn tại *ít nhất một* mê-tric $$d$$ trên $$X$$ sinh ra đúng họ tập mở $$\tau$$. Khi đó $$X$$ tự động thừa hưởng mọi đặc quyền của không gian mê-tric: vừa $$T_4$$ (nên $$T_3, T_2, T_1$$), vừa đếm được thứ nhất ($$C_1$$). Vì thế, chỉ cần thiếu một trong các tính chất đó (như đường thẳng Sorgenfrey $$\mathbb{R}_l \times \mathbb{R}_l$$ không chuẩn tắc, hay tô-pô đồng hữu hạn không $$T_2$$), ta kết luận ngay không gian **không thể mê-tric hóa**!
+
+### 2. Chiến lược thiên tài của Urysohn: nhúng vào khối lập phương Hilbert $$[0, 1]^\omega$$
+
+Làm sao tự tạo ra một thước đo $$d(x, y)$$ từ hai bàn tay trắng? Urysohn không tự chế thước đo trực tiếp trên $$X$$, mà dùng giả thiết $$T_3 + C_2$$ (kéo theo chuẩn tắc $$T_4$$!) cùng **Bổ đề Urysohn** để dựng một họ đếm được các hàm liên tục $$f_1, f_2, f_3, \dots : X \to [0, 1]$$ tách điểm và tập đóng. Sau đó ông ghép chúng thành một ánh xạ nhúng:
+$$
+F: X \longrightarrow [0, 1]^\omega, \qquad F(x) = \bigl(f_1(x),\; f_2(x),\; f_3(x),\; \dots\bigr).
+$$
+Vì $$[0, 1]^\omega$$ đã có sẵn mê-tric tích $$D$$, kéo lùi thước đo $$D$$ về $$X$$ qua $$d(x, y) = D(F(x), F(y))$$ là bài toán hoàn tất!
+
+### 3. Từ Urysohn đến điều kiện cần và đủ: Định lý Nagata–Smirnov & Bing
+
+Định lý Urysohn chỉ cho điều kiện *đủ* (chẳng hạn tập $$\mathbb{R}$$ với tô-pô rời rạc rõ ràng mê-tric hóa được nhưng lại không $$C_2$$). Mãi đến thập niên 1950, Nagata, Smirnov và Bing mới giải trọn vẹn bài toán bằng khái niệm cơ sở **hữu hạn địa phương đếm được ($$\sigma$$-locally finite)**.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$
+
+Đích đến trong chứng minh Định lý Urysohn là không gian tích đếm được $$[0, 1]^\omega$$ trang bị mê-tric có trọng số giảm theo lũy thừa $$2^{-n}$$:
+$$
+D(x, y) = \sum_{n=1}^\infty \frac{\lvert x_n - y_n \rvert}{2^n}.
+$$
+Hãy tự tay kiểm tra bằng số cụ thể vì sao công thức này luôn hội tụ và khớp chính xác với tô-pô tích:
+
+1. **Khoảng cách lớn nhất có thể (giữa $$x = (0, 0, 0, \dots)$$ và $$y = (1, 1, 1, \dots)$$):**
+   $$
+   D(x, y) = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots = \sum_{n=1}^\infty \frac{1}{2^n} = \mathbf{1}.
+   $$
+   Nhờ hệ số $$2^{-n}$$, chuỗi luôn hội tụ tuyệt đối và đường kính toàn không gian đúng bằng $$1$$!
+2. **Đuôi vô hạn tự động bé lại:** Xét điểm $$z = (0, 0, 0, 1, 1, 1, \dots)$$ trùng khớp với $$x$$ ở 3 tọa độ đầu và khác tối đa ở *toàn bộ vô hạn* tọa độ từ $$n = 4$$ trở đi. Tính khoảng cách bằng tay:
+   $$
+   D(x, z) = \frac{0}{2} + \frac{0}{4} + \frac{0}{8} + \sum_{n=4}^\infty \frac{1}{2^n} = \frac{1/16}{1 - 1/2} = \frac{1}{8} = \mathbf{0.125}!
+   $$
+3. **Ý nghĩa tô-pô sâu sắc:** Nếu hai điểm khớp nhau đủ gần trên $$N$$ tọa độ đầu tiên ($$\lvert x_n - z_n \rvert < \varepsilon/2$$ với $$n \le N$$), thì phần đuôi vô hạn từ $$N+1$$ trở đi bị chặn cứng bởi $$\sum_{n=N+1}^\infty 2^{-n} = 2^{-N}$$ — nên chỉ cần chọn $$N$$ đủ lớn sao cho $$2^{-N} < \varepsilon/2$$ là $$D(x, z) < \varepsilon$$! Đó chính là lý do **mê-tric $$D$$ cảm sinh đúng tô-pô tích (chứ không phải tô-pô hộp)** trên $$[0, 1]^\omega$$!
 
 ---
 

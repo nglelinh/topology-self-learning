@@ -16,6 +16,8 @@ description: "Simplicial homology: simplices, chain complexes, boundary operator
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Ở Chương 06, nhóm cơ bản $$\pi_1$$ đã chứng tỏ sức mạnh tuyệt vời — nhưng nó chỉ nhìn thấy các lỗ 1 chiều và thường không giao hoán (khó tính toán bằng đại số tuyến tính!). Vậy làm sao đếm lỗ 2 chiều (khoang rỗng trong quả bóng $$S^2$$), lỗ 3 chiều, hay lỗ 10 chiều một cách **hệ thống, tự động hóa được bằng ma trận**? Henri Poincaré đã mở ra câu trả lời thiên tài: **cắt không gian thành các tam giác/tứ diện phẳng (phức đơn hình)**, biến biên hình học thành **ma trận số nguyên $$\partial_n$$**, rồi tính nhóm thương **$$H_n = \ker \partial_n / \operatorname{im} \partial_{n+1}$$** — khai sinh ra **Đồng điều Đơn hình**!
+
 Ở chương trước, ta đã tìm hiểu **nhóm cơ bản $\pi_1(X)$** (fundamental group), bất biến đại số đầu tiên dùng để phát hiện các "lỗ một chiều" thông qua các vòng khép kín. Tuy nhiên, nhóm cơ bản không đủ để nhận diện các lỗ ở chiều cao hơn: chẳng hạn, mặt cầu $S^2$ bao quanh một khoảng rỗng hai chiều nhưng lại có $\pi_1(S^2) = 0$. Để phát hiện các lỗ ở mọi chiều, ta cần một công cụ tổng quát hơn là các **nhóm đồng điều $H_n(X)$** (homology groups).
 
 Lý thuyết đồng điều mang lại các tính chất cơ bản sau:
@@ -34,6 +36,72 @@ Có hai cách tiếp cận chính đối với đồng điều:
 2. **Đồng điều kỳ dị (singular homology)** (bài học tiếp theo): Áp dụng được cho mọi không gian tô-pô mà không cần phép chia tam giác.
 
 Trong bài học này, ta sẽ xây dựng đồng điều đơn hình theo trình tự: định nghĩa các đơn hình (simplices) và phức đơn hình (simplicial complexes), xây dựng các nhóm xích $C_n$ (chain groups) và toán tử biên $\partial$ (boundary operator), thiết lập phức xích $\cdots \to C_n \to C_{n-1} \to \cdots$, định nghĩa các nhóm đồng điều $H_n = \ker(\partial_n) / \text{im}(\partial_{n+1})$, và cuối cùng là các số Betti $\beta_n = \text{rank}(H_n)$ đếm số lỗ $n$-chiều. Bên cạnh vai trò nền tảng trong tô-pô đại số, đồng điều còn có tính thuật toán rõ ràng và được ứng dụng trong phân tích dữ liệu tô-pô (TDA), vật lý và sinh học.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Đồng điều Đơn hình là gì và tính toán như thế nào?
+
+### 1. Phức Đơn hình & Nhóm Xích $$C_n(K)$$
+- **Bản chất:** Một **$$n$$-đơn hình** là bao lồi của $$n+1$$ điểm độc lập ($$0$$-đơn hình là đỉnh, $$1$$-đơn hình là cạnh, $$2$$-đơn hình là tam giác đặc, $$3$$-đơn hình là tứ diện đặc). **Nhóm xích $$C_n(K)$$** là nhóm Abel tự do sinh bởi tất cả các $$n$$-đơn hình có hướng của phức $$K$$.
+
+### 2. Toán tử Biên $$\partial_n$$ & Quy luật Vàng $$\partial_{n-1} \circ \partial_n = 0$$
+- **Bản chất:** Toán tử biên lấy mặt ngoài có dấu của mỗi đơn hình: $$\partial [v_0, \dots, v_n] = \sum_{i=0}^n (-1)^i [v_0, \dots, \hat{v}_i, \dots, v_n]$$.
+- **Định luật cốt lõi ("Biên của một biên luôn bằng 0"):** $$\partial^2 = 0$$ bảo đảm mọi **biên** ($$B_n = \operatorname{im}\partial_{n+1}$$) đều tự động là một **chu trình** ($$Z_n = \ker\partial_n$$), tức $$B_n \subseteq Z_n$$!
+
+### 3. Nhóm Đồng điều $$H_n(K) = Z_n / B_n$$ & Số Betti $$\beta_n$$
+- **Bản chất:** Một chu trình $$n$$ chiều (không có biên, như một vòng khép kín hay vỏ cầu rỗng) nhưng **không phải là biên của bất kỳ khối $$(n+1)$$ chiều nào** chính là một **lỗ $$n$$ chiều thực sự**! Thương $$H_n(K) = \ker\partial_n / \operatorname{im}\partial_{n+1}$$ đo chính xác số lượng (số Betti $$\beta_n$$) và độ xoắn của các lỗ đó!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tam giác Rỗng $$K$$ vs. Tam giác Đặc $$\overline{K}$$
+
+Xét 3 đỉnh $$v_0, v_1, v_2$$ và 3 cạnh có hướng $$e_0 = [v_0, v_1],\; e_1 = [v_1, v_2],\; e_2 = [v_2, v_0]$$.
+
+1. **Tính toán tử biên $$\partial_1: C_1 \to C_0$$:**
+   $$
+   \partial_1(e_0) = v_1 - v_0, \qquad \partial_1(e_1) = v_2 - v_1, \qquad \partial_1(e_2) = v_0 - v_2.
+   $$
+   Tìm các **1-chu trình** $$z = a e_0 + b e_1 + c e_2 \in \ker \partial_1$$:
+   $$
+   \partial_1(z) = (c - a)v_0 + (a - b)v_1 + (b - c)v_2 = 0 \iff a = b = c!
+   $$
+   Vậy $$Z_1 = \ker \partial_1 = \mathbb{Z}\cdot(e_0 + e_1 + e_2) \cong \mathbb{Z}$$ (đúng 1 vòng khép kín quanh tam giác!).
+
+2. **Trường hợp A — Tam giác Rỗng $$K$$ (KHÔNG có mặt tam giác $$\sigma$$):**
+   Vì $$C_2(K) = 0$$ nên $$B_1(K) = \operatorname{im}\partial_2 = 0$$. Do đó:
+   $$
+   H_1(K) = \frac{Z_1(K)}{B_1(K)} = \frac{\mathbb{Z}}{0} \cong \mathbb{Z} \quad (\beta_1 = 1: \text{ phát hiện đúng 1 lỗ tròn!}).
+   $$
+
+3. **Trường hợp B — Tam giác Đặc $$\overline{K}$$ (THÊM $$2$$-đơn hình $$\sigma = [v_0, v_1, v_2]$$):**
+   Tính biên $$\partial_2(\sigma) = [v_1, v_2] - [v_0, v_2] + [v_0, v_1] = e_1 + e_2 + e_0$$ (vì $-[v_0, v_2] = +[v_2, v_0] = e_2$).
+   - Kiểm tra nhanh $$\partial_1(\partial_2 \sigma) = (v_2-v_1) + (v_0-v_2) + (v_1-v_0) = 0$$! ✓
+   - Lúc này $$B_1(\overline{K}) = \operatorname{im}\partial_2 = \mathbb{Z}\cdot(e_0 + e_1 + e_2) = Z_1(\overline{K})$$! Do đó:
+     $$
+     H_1(\overline{K}) = \frac{Z_1(\overline{K})}{B_1(\overline{K})} = \frac{\mathbb{Z}}{\mathbb{Z}} = 0 \quad (\beta_1 = 0: \text{ lỗ đã bị lấp kín!}).
+     $$
+
+### Khung giải thích: Quy trình 4 bước tính Đồng điều Đơn hình bằng tay (nên đọc chậm)
+
+#### Bước 1: Liệt kê các đơn hình có hướng theo từng bậc $$0, 1, 2, \dots$$
+Viết rõ cơ sở cho từng nhóm xích $$C_0, C_1, C_2, \dots$$ (mỗi $$C_n \cong \mathbb{Z}^{c_n}$$).
+
+#### Bước 2: Viết ma trận nguyên cho từng toán tử biên $$\partial_n$$
+Mỗi cột của ma trận $$\partial_n$$ ghi biên của một $$n$$-đơn hình dưới dạng tổ hợp tuyến tính (chỉ gồm $$0, +1, -1$$) của các $$(n-1)$$-đơn hình. Luôn kiểm tra nhanh tích ma trận $$\partial_{n-1}\partial_n = 0$$ để chống nhầm dấu!
+
+#### Bước 3: Tìm hạt nhân $$Z_n = \ker \partial_n$$ và ảnh $$B_n = \operatorname{im} \partial_{n+1}$$
+Với hệ số thực $$\mathbb{R}$$, bạn chỉ cần tính hạng ma trận ($$\beta_n = \dim\ker\partial_n - \operatorname{rank}\partial_{n+1}$$). Với hệ số nguyên $$\mathbb{Z}$$, dạng chuẩn Smith (Smith Normal Form) cho ra cả phần tự do lẫn phần xoắn (như $$\mathbb{Z}/2\mathbb{Z}$$ trên $$\mathbb{R}P^2$$!).
+
+#### Bước 4: Kiểm tra chéo bằng Công thức Euler–Poincaré
+Luôn kiểm tra lại kết quả bằng đẳng thức vàng: $$\sum (-1)^n c_n = \sum (-1)^n \beta_n = \chi(K)$$ — nếu hai vế khớp nhau, phép tính của bạn gần như chắc chắn đúng!
+
+$$
+\text{Phức đơn hình }K
+\;\xrightarrow{\;\partial_n,\; \partial^2=0\;}\;
+Z_n = \ker\partial_n,\; B_n = \operatorname{im}\partial_{n+1}
+\;\xrightarrow{\;Z_n/B_n\;}\;
+H_n(K) \;\&\; \chi(K) = \sum (-1)^n \beta_n.
+$$
 
 ---
 

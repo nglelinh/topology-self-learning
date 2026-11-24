@@ -18,12 +18,47 @@ description: "Bài tùy chọn: các tiến bộ 2022–2026 nối nền tảng 
 
 ## 📖 Tổng quan
 
-Chương 00 cho thấy mọi không gian tô-pô đều bắt đầu từ một **tập hợp** $X$ cùng một họ tập con. Trong thực hành khoa học dữ liệu hiện đại, $X$ hầu như luôn là tập hữu hạn: một đám mây điểm $\{x_1,\ldots,x_N\}\subset\mathbb{R}^d$, một bảng dữ liệu, hoặc một đồ thị. Câu hỏi trọng tâm khi đó không còn là "$\mathbb{R}$ có đầy đủ không?" mà là "từ một tập điểm hữu hạn, làm thế nào khôi phục hình dạng của không gian liên tục mà nó lấy mẫu?"
+Hãy tưởng tượng bạn đứng trước một bảng dữ liệu gồm 10.000 tọa độ 3 chiều lấy mẫu từ bề mặt một chiếc bánh donut (hình xuyến) có pha thêm nhiễu đo. Dưới mắt thường hay bảng tính Excel, đó chỉ là một đám bụi điểm rời rạc. Vậy làm thế nào một thuật toán có thể tự động nhận ra rằng *"đám bụi này thực chất đang quấn quanh một cái lỗ hình vòng tròn và một khoang rỗng bên trong"* mà không cần ai vẽ trước mô hình?
 
-Đó chính là cầu nối từ lý thuyết tập hợp sang **Phân tích dữ liệu tô-pô** (*Topological Data Analysis* — TDA). Bốn hướng nghiên cứu gần đây dưới đây cho thấy nền tảng của Chương 00 không chỉ là bước chuẩn bị lý thuyết, mà đang được chuyển hóa trực tiếp thành các công cụ thuật toán.
+Chương 00 cho thấy mọi không gian tô-pô đều bắt đầu từ một **tập hợp** $$X$$ cùng một họ tập con. Trong khoa học dữ liệu hiện đại, $$X$$ hầu như luôn là tập hữu hạn: một đám mây điểm $$\{x_1,\ldots,x_N\}\subset\mathbb{R}^d$$, một đồ thị hay tọa độ nguyên tử của một phân tử protein. Cầu nối biến nền tảng tập hợp và không gian Euclid của Chương 00 thành công cụ khai phá hình dạng dữ liệu thực tế chính là **Phân tích dữ liệu tô-pô (Topological Data Analysis — TDA)**.
 
 ![Đám mây điểm trên torus](https://upload.wikimedia.org/wikipedia/commons/4/4c/Point_cloud_torus.gif)
 *Một hình xuyến được lấy mẫu hữu hạn — đúng loại đối tượng mà TDA tìm cách nhận diện hình dạng. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Point_cloud_torus.gif)*
+
+**Mạch bài học:** Bản đồ kiến thức nền (đám mây điểm & phức Vietoris–Rips, homology bền vững & khoảng cách Gromov–Hausdorff) → Khung giải thích chậm: cầm tay dựng lọc Vietoris–Rips và đọc thanh barcode cho 4 điểm trên hình vuông → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+
+---
+
+## Bản đồ kiến thức nền: Phân tích Dữ liệu Tô-pô (TDA) là gì và nghiên cứu những gì?
+
+### 1. Từ đám mây điểm rời rạc đến Phức đơn hình Vietoris–Rips
+
+Một tập hữu hạn các điểm rời rạc trong $$\mathbb{R}^d$$ chỉ có tô-pô rời rạc tầm thường (không có vòng, không có khoang rỗng). Để khôi phục hình dạng liên tục ẩn sau dữ liệu, TDA "thổi phồng" quanh mỗi điểm một hình cầu bán kính $$r/2$$ (tức nối cạnh giữa hai điểm bất kỳ có khoảng cách $$\le r$$, tô đầy tam giác khi 3 điểm đôi một cách nhau $$\le r$$) để tạo thành **phức đơn hình Vietoris–Rips** $$\operatorname{VR}(X, r)$$.
+
+### 2. Homology bền vững (Persistent Homology) và Mã vạch (Barcode)
+
+Chọn một bán kính $$r$$ duy nhất rất rủi ro: quá nhỏ thì dữ liệu vỡ vụn, quá lớn thì mọi lỗ hổng bị lấp kín. TDA giải quyết bằng cách cho $$r$$ chạy liên tục từ $$0 \to \infty$$ và ghi lại thời điểm **sinh (birth)** và **chết (death)** của từng đặc trưng tô-pô ($$\beta_0$$: số cụm liên thông; $$\beta_1$$: số vòng tròn/lỗ 1 chiều; $$\beta_2$$: số khoang rỗng 2 chiều). Những lỗ "sống dai" (thanh barcode dài) là hình dạng thật của dữ liệu; những lỗ chết ngay lập tức chỉ là nhiễu.
+
+### 3. Khoảng cách Gromov–Hausdorff và Học sâu Tô-pô
+
+Để bảo đảm thuật toán TDA **ổn định trước nhiễu** (dữ liệu rung nhẹ thì barcode chỉ dịch nhẹ), các nhà toán học dùng **khoảng cách Gromov–Hausdorff** đo sự sai khác giữa hai không gian mê-tric. Gần đây (2022–2026), TDA còn kết hợp trực tiếp với mạng nơ-ron đồ thị (GNN) trong hóa học phân tử và vật liệu mới.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay dựng lọc Vietoris–Rips và tính Barcode cho 4 điểm hình vuông
+
+Xét đám mây điểm gồm đúng 4 đỉnh của hình vuông đơn vị trong $$\mathbb{R}^2$$:
+$$
+A=(0,0),\quad B=(1,0),\quad C=(1,1),\quad D=(0,1).
+$$
+Khoảng cách giữa hai đỉnh kề nhau là $$1$$, còn khoảng cách hai đường chéo $$AC, BD$$ là $$\sqrt{2} \approx 1.414$$. Hãy tăng dần ngưỡng nối cạnh $$r$$ từ $$0$$ trở đi và đếm số thành phần liên thông ($$\beta_0$$) cùng số lỗ 1 chiều ($$\beta_1$$):
+
+1. **Giai đoạn $$0 \le r < 1$$:** Chưa có cạnh nào được nối → có **4 điểm cô lập** ($$\beta_0 = 4,\; \beta_1 = 0$$).
+2. **Tại đúng ngưỡng $$r = 1$$:** Cả 4 cạnh vuông $$AB, BC, CD, DA$$ đồng loạt xuất hiện!
+   - 4 cụm rời rạc lập tức hợp nhất thành **1 mảnh duy nhất** ($$\beta_0$$ giảm từ $$4$$ xuống $$1$$: 3 thanh $$H_0$$ chết tại $$r = 1$$).
+   - Đồng thời, 4 cạnh khép kín tạo ra **1 vòng tròn (lỗ 1 chiều)** ở giữa hình vuông → $$\beta_1$$ nhảy từ $$0$$ lên $$1$$ (**sinh tại $$r_{\text{birth}} = 1$$**)!
+3. **Tại đúng ngưỡng $$r = \sqrt{2} \approx 1.414$$:** Hai đường chéo $$AC$$ và $$BD$$ xuất hiện. Mọi bộ ba đỉnh đều đôi một có cạnh nối, nên phức Vietoris–Rips tự động lấp kín các tam giác $$ABC, ACD, \dots$$ → lỗ 1 chiều ở giữa **bị lấp hoàn toàn** ($$\beta_1$$ rơi từ $$1$$ về $$0$$, **chết tại $$r_{\text{death}} = \sqrt{2}$$**)!
+4. **Kết quả Barcode cho $$H_1$$:** Đúng một thanh duy nhất $$[1,\; \sqrt{2})$$ có độ bền $$\sqrt{2} - 1 \approx 0.414$$ — đó chính là "chữ ký tô-pô" báo cho máy tính biết 4 điểm này xếp thành một vòng tròn chứ không phải một đoạn thẳng!
 
 ---
 

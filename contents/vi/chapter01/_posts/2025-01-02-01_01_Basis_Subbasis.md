@@ -16,13 +16,48 @@ description: "Basis và subbasis cho topology, cách sinh topology từ họ t�
 
 ## 📖 Tổng quan
 
-Ở bài trước, ta định nghĩa tô-pô là một họ các tập mở thỏa mãn ba tiên đề. Tuy nhiên, trên các không gian lớn như $\mathbb{R}$, việc liệt kê toàn bộ các tập mở hay kiểm tra trực tiếp ba tiên đề thường rất cồng kềnh.
+Không một kiến trúc sư nào đi liệt kê từng ngôi nhà có thể xây trên đời; họ chỉ cần định nghĩa vài loại gạch cơ bản rồi nói *"mọi công trình đều ghép từ các viên gạch này"*. Tô-pô học cũng làm y hệt như vậy. Trên trục số thực $$\mathbb{R}$$, số lượng tập mở là vô hạn không đếm được và hình dạng có thể phức tạp vô cùng — nhưng ta chẳng cần liệt kê hết chúng: chỉ cần giữ lại các **khoảng mở $$(a, b)$$** làm "viên gạch chuẩn" (**cơ sở**), mọi tập mở khác đều chỉ là phép hợp của chúng.
 
-Tương tự như trong đại số tuyến tính — nơi một không gian vector được sinh bởi một cơ sở — một tô-pô cũng có thể được xác định gọn gàng bằng một họ nhỏ hơn gọi là **cơ sở** (*basis*). Chẳng hạn, trên $\mathbb{R}$ với tô-pô Euclid, thay vì mô tả mọi tập mở, ta chỉ cần xét họ các khoảng mở $(a, b)$: mọi tập mở khác đều là hợp của các khoảng mở như vậy.
+Bài giảng này trang bị hai công cụ sinh tô-pô hiệu quả nhất: **cơ sở (basis)** — cho phép xây dựng và so sánh hai tô-pô mà không cần liệt kê toàn bộ tập mở — và **tiền cơ sở (subbasis)**, tầng nguyên liệu còn gọn hơn nữa, đóng vai trò nền tảng để định nghĩa tô-pô tích và tô-pô thứ tự trong các bài sau.
 
-Bài giảng này trình bày các nội dung chính: định nghĩa và tiêu chuẩn nhận biết **cơ sở**, **cơ sở chuẩn** của $\mathbb{R}^n$, cách **so sánh hai cơ sở**, khái niệm **tiền cơ sở** (*subbasis*) và **tô-pô sinh bởi một họ tập hợp**, cùng **cơ sở lân cận** tại một điểm.
+**Mạch bài học:** Bản đồ kiến thức nền (cơ sở như "gạch Lego", tiền cơ sở 2 bước & tiêu chuẩn so sánh tô-pô qua cơ sở) → Khung giải thích chậm: cầm tay sinh trọn vẹn một tô-pô từ tiền cơ sở trên $$\{1, 2, 3\}$$ và so sánh tô-pô Sorgenfrey với tô-pô Euclid → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
 
-**Tại sao bài này quan trọng?** Cơ sở giúp định nghĩa tô-pô, so sánh hai tô-pô và kiểm tra tính liên tục của ánh xạ đơn giản hơn nhiều; ngoài ra, tô-pô tích và tô-pô thứ tự đều được xây dựng trực tiếp qua cơ sở hoặc tiền cơ sở.
+---
+
+## Bản đồ kiến thức nền: Cơ sở và Tiền cơ sở hoạt động như thế nào?
+
+### 1. Cơ sở (Basis): hai điều kiện để một họ tập con "sinh" được tô-pô
+
+Không phải họ tập con $$\mathcal{B}$$ nào cũng làm cơ sở được. Để họ mọi phép hợp của các phần tử trong $$\mathcal{B}$$ tự động thỏa mãn 3 tiên đề tô-pô, $$\mathcal{B}$$ cần đúng hai tính chất: (1) **phủ kín $$X$$** (mọi điểm $$x \in X$$ đều nằm trong ít nhất một $$B \in \mathcal{B}$$), và (2) **khép kín cục bộ dưới phép giao** (nếu $$x \in B_1 \cap B_2$$ thì luôn nhét được một viên gạch nhỏ hơn $$B_3 \in \mathcal{B}$$ sao cho $$x \in B_3 \subseteq B_1 \cap B_2$$).
+
+### 2. Tiền cơ sở (Subbasis): sinh tô-pô theo quy trình 2 bước
+
+Đôi khi ngay cả việc kiểm tra điều kiện giao (2) cũng hơi phiền phức — lúc đó ta chỉ cần chọn một họ tập con $$\mathcal{S}$$ bất kỳ phủ $$X$$ làm **tiền cơ sở**. Quy trình 2 bước cố định là:
+- **Bước 1:** Lấy tất cả các **giao hữu hạn** của các tập trong $$\mathcal{S}$$ → thu được cơ sở $$\mathcal{B}$$.
+- **Bước 2:** Lấy tất cả các **hợp tùy ý** của các tập trong $$\mathcal{B}$$ → thu được tô-pô nhỏ nhất chứa $$\mathcal{S}$$.
+
+### 3. So sánh hai tô-pô qua cơ sở (nhanh gấp bội!)
+
+Muốn chứng minh $$\tau'$$ mịn hơn $$\tau$$ ($$\tau \subseteq \tau'$$), ta không cần kiểm tra mọi tập mở trong $$\tau$$: chỉ cần kiểm tra với từng viên gạch cơ sở $$B \in \mathcal{B}$$ và mọi $$x \in B$$, luôn tồn tại viên gạch $$B' \in \mathcal{B}'$$ sao cho $$x \in B' \subseteq B$$.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay sinh tô-pô từ tiền cơ sở và so sánh Euclid vs. Sorgenfrey
+
+**Ví dụ 1 — Sinh tô-pô 2 bước trên $$X = \{1, 2, 3\}$$:**
+Cho tiền cơ sở $$\mathcal{S} = \bigl\{\{1, 2\},\; \{2, 3\}\bigr\}$$ (hiển nhiên phủ kín $$X$$).
+- **Bước 1 (lấy mọi giao hữu hạn của $$\mathcal{S}$$):**
+  - Giao 0 tập (quy ước): $$X = \{1, 2, 3\}$$.
+  - Giao 1 tập: $$\{1, 2\}$$ và $$\{2, 3\}$$.
+  - Giao 2 tập: $$\{1, 2\} \cap \{2, 3\} = \{2\}$$.
+  → Thu được cơ sở $$\mathcal{B} = \bigl\{\{2\},\; \{1, 2\},\; \{2, 3\},\; X\bigr\}$$.
+- **Bước 2 (lấy mọi hợp tùy ý của $$\mathcal{B}$$):**
+  - Hợp rỗng: $$\emptyset$$; các hợp khác cho lại đúng $$\{2\},\; \{1, 2\},\; \{2, 3\},\; X$$.
+  → Tô-pô sinh bởi $$\mathcal{S}$$ có đúng **5 tập mở**: $$\tau = \bigl\{\emptyset,\; \{2\},\; \{1, 2\},\; \{2, 3\},\; X\bigr\}$$!
+
+**Ví dụ 2 — So sánh tô-pô Euclid $$\mathcal{B}_E = \{(a, b)\}$$ và tô-pô Sorgenfrey $$\mathcal{B}_l = \{[a, b)\}$$ trên $$\mathbb{R}$$:**
+- Chiều $$\tau_E \subseteq \tau_l$$: Lấy bất kỳ khoảng mở $$(a, b)$$ và điểm $$x \in (a, b)$$. Ta luôn nhét được khoảng nửa mở $$[x, b) \in \mathcal{B}_l$$ thỏa $$x \in [x, b) \subseteq (a, b)$$ → **$$\tau_l$$ mịn hơn $$\tau_E$$**.
+- Chiều ngược lại $$\tau_l \subseteq \tau_E$$? Thử tại điểm $$x = 0 \in [0, 1) \in \mathcal{B}_l$$: mọi khoảng mở Euclid $$(a, b)$$ chứa $$0$$ đều phải có $$a < 0$$, nên nó chứa cả các số âm $$a/2 \notin [0, 1)$$! Do đó không có viên gạch Euclid nào lọt vào trong $$[0, 1)$$ chứa $$0$$ → **$$\tau_l$$ mịn hơn thực sự $$\tau_E$$** ($$\tau_E \subsetneq \tau_l$$)!
 
 ---
 

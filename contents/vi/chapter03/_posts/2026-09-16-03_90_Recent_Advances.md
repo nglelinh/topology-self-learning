@@ -18,10 +18,54 @@ description: "Bài tùy chọn: tiên đề phân ly và metrization gặp ổn 
 
 ## 📖 Tổng quan
 
-Tính chất Hausdorff khẳng định hai điểm phân biệt luôn có hai lân cận mở rời nhau — nhờ đó giới hạn (nếu tồn tại) là duy nhất. Trong trực quan hóa dữ liệu bằng UMAP, người dùng thường mặc định rằng hai điểm khác nhau sẽ tách bạch trên mặt phẳng biểu diễn. Tuy nhiên, các nghiên cứu giai đoạn 2022–2026 cho thấy cấu trúc Hausdorff vừa là nền tảng cho định lý ổn định của biểu đồ bền vững, vừa là điều mà nhiều thuật toán giảm chiều phổ biến không thực sự bảo toàn.
+Khi mở một biểu đồ UMAP hay t-SNE 2 chiều của hàng chục nghìn bức ảnh hay tế bào đơn lẻ, người dùng thường có cảm giác yên tâm rằng: *"hai chấm tách xa nhau trên hình thì chắc chắn chúng khác nhau trong dữ liệu gốc, còn hai chấm dính sát nhau thì là hàng xóm."* Nhưng trong khoa học dữ liệu giai đoạn 2022–2026, nhiều công trình phê bình sâu sắc đã chỉ ra rằng các phép giảm chiều phổ biến **không thực sự là phép nhúng tô-pô** — chúng có thể bóp méo khoảng cách toàn cục, thậm chí làm mất tính tách biệt của dữ liệu gốc.
+
+Ngược lại, tính chất **Hausdorff** và **mê-tric hóa** của Chương 03 lại đóng vai trò nền móng cho **không gian các biểu đồ bền vững** trong TDA, nơi ta đo khoảng cách giữa hai "hình dạng dữ liệu" một cách chặt chẽ và có định lý ổn định Lipschitz bảo chứng.
 
 ![Khoảng cách Hausdorff](https://upload.wikimedia.org/wikipedia/commons/2/21/Hausdorff_distance_sample.svg)
 *Khoảng cách Hausdorff giữa hai tập hợp: phiên bản định lượng gắn với tư duy tách điểm. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_distance_sample.svg)*
+
+**Mạch bài học:** Bản đồ kiến thức nền (khoảng cách Hausdorff & nút cổ chai trên biểu đồ bền vững, phê bình phép nhúng UMAP & điều kiện Lipschitz) → Khung giải thích chậm: cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ trên hai tập điểm hữu hạn để thấy độ nhạy với điểm nhiễu → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+
+---
+
+## Bản đồ kiến thức nền: Phân ly, Phép nhúng và Ổn định Hình dạng trong Dữ liệu 2022–2026 nghiên cứu những gì?
+
+### 1. Không gian các biểu đồ bền vững là không gian mê-tric (Hausdorff)
+
+Mỗi đám mây điểm sinh ra một biểu đồ bền vững (tập các cặp $$(b_i, d_i)$$). Để so sánh hai tập dữ liệu, TDA trang bị cho không gian các biểu đồ bền vững **khoảng cách nút cổ chai (bottleneck distance)** và **khoảng cách Wasserstein** — biến nó thành một không gian mê-tric thực thụ (nên tự động là không gian Hausdorff $$T_2$$ và chuẩn tắc $$T_4$$!).
+
+### 2. Phép nhúng tô-pô vs. Giảm chiều trực quan (UMAP / t-SNE)
+
+Một **phép nhúng tô-pô** (như phép nhúng vào $$[0, 1]^\omega$$ trong Định lý Urysohn) phải là đồng phôi lên ảnh của nó — không bao giờ được dán hai điểm xa nhau thành một hay xé rách lân cận. Trong khi đó, các thuật toán giảm chiều xuống 2D tối ưu hàm mất mát cục bộ nên dễ tạo ra cụm giả hoặc nén các cụm cách xa nhau lại sát nhau.
+
+### 3. Từ liên tục thuần túy sang ổn định định lượng (Lipschitz)
+
+Tính liên tục chỉ nói *"nhiễu đủ nhỏ thì đầu ra đổi nhỏ"*, chưa nói rõ đổi bao nhiêu. Trong học máy tô-pô hiện đại, ta cần **tính ổn định Lipschitz** ($$d(\Phi(X), \Phi(Y)) \le C \cdot d(X, Y)$$) để bảo đảm vector đặc trưng tô-pô đưa vào mô hình AI không bị rung lắc hỗn loạn trước nhiễu đo.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ và thấy rõ độ nhạy với nhiễu
+
+Cho hai tập con compact khác rỗng $$A, B$$ của không gian mê-tric $$(X, d)$$, **khoảng cách Hausdorff** được định nghĩa là giá trị lớn hơn giữa hai khoảng cách có hướng:
+$$
+d_H(A, B) = \max\!\Bigl(\,\sup_{a \in A} d(a, B),\;\; \sup_{b \in B} d(b, A)\,\Bigr).
+$$
+Hãy tự tay tính $$d_H(A, B)$$ trên trục số $$\mathbb{R}$$ cho hai tập điểm đơn giản:
+$$
+A = \{0,\; 2\}, \qquad B = \{0,\; 1,\; 5\}.
+$$
+1. **Tính khoảng cách có hướng từ $$A$$ sang $$B$$** (từ mỗi điểm của $$A$$, tìm điểm gần nhất trong $$B$$, rồi lấy lớn nhất):
+   - $$d(0, B) = \min(\lvert 0-0\rvert, \lvert 0-1\rvert, \lvert 0-5\rvert) = \mathbf{0}$$.
+   - $$d(2, B) = \min(\lvert 2-0\rvert, \lvert 2-1\rvert, \lvert 2-5\rvert) = \mathbf{1}$$.
+   → $$\max_{a \in A} d(a, B) = \max(0, 1) = \mathbf{1}$$.
+2. **Tính khoảng cách có hướng từ $$B$$ sang $$A$$:**
+   - $$d(0, A) = \mathbf{0}$$; $$d(1, A) = \min(1, 1) = \mathbf{1}$$;
+   - $$d(5, A) = \min(\lvert 5-0\rvert, \lvert 5-2\rvert) = \mathbf{3}$$.
+   → $$\max_{b \in B} d(b, A) = \max(0, 1, 3) = \mathbf{3}$$!
+3. **Lấy cực đại hai chiều:** $$d_H(A, B) = \max(1, 3) = \mathbf{3}$$!
+
+**Bài học trực quan cho khoa học dữ liệu:** Hai tập $$A = \{0, 2\}$$ và $$\{0, 1\}$$ ban đầu chỉ cách nhau $$1$$, nhưng chỉ cần **một điểm nhiễu ngoại lai duy nhất** là $$5$$ lọt vào $$B$$ đã kéo vọt khoảng cách Hausdorff lên $$3$$! Chính vì thế, các bài toán dữ liệu thực tế năm 2022–2026 thường kết hợp khoảng cách Hausdorff với khoảng cách Wasserstein hoặc lọc theo mật độ để chống ngoại lai.
 
 ---
 

@@ -16,13 +16,57 @@ description: "Subspace topology, product topology, và Tychonoff's theorem (stat
 
 ## 📖 Tổng quan
 
-Một nguyên tắc quen thuộc trong toán học là xây dựng các đối tượng phức tạp từ những đối tượng đơn giản hơn. Trong tô-pô học, hai phép xây dựng cơ bản nhất là:
-1. **Tô-pô con (Subspace topology):** Trang bị tô-pô cho một tập con của không gian cho trước.
-2. **Tô-pô tích (Product topology):** Trang bị tô-pô cho tích Đề-các của hai hay nhiều không gian.
+Trong toán học cũng như trong kỹ thuật, ít khi ta xây một cấu trúc phức tạp từ con số không: ta thường **cắt** nó ra từ một không gian lớn đã biết (như cắt đường tròn $$S^1$$ hay mặt cầu $$S^2$$ ra từ không gian Euclid $$\mathbb{R}^2, \mathbb{R}^3$$) hoặc **ghép** nhiều không gian đơn giản lại với nhau (như nhân hai đường tròn $$S^1 \times S^1$$ thành hình xuyến $$T^2$$, hay nhân vô hạn bản sao của $$\mathbb{R}$$ để lập không gian các dãy số $$\mathbb{R}^\omega$$). Trong Tô-pô học, hai phép kiến tạo nền tảng đó mang tên **tô-pô con (subspace topology)** và **tô-pô tích (product topology)**.
 
-Về mặt trực quan, đường tròn $S^1$ nằm trong mặt phẳng $\mathbb{R}^2$ nhận tô-pô con tự nhiên từ $\mathbb{R}^2$; trong khi đó mặt phẳng $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$, mặt trụ $S^1 \times [0, 1]$ và hình xuyến $T^2 = S^1 \times S^1$ đều là các không gian tích. Trong vật lý và hình học, các mặt nhúng trong $\mathbb{R}^3$, không gian cấu hình của hệ nhiều hạt, hay không gian hàm số (tích vô hạn) đều sử dụng hai cấu trúc này.
+Cả hai phép xây dựng đều có vẻ trực quan ngay lập tức — cho tới khi ta chạm vào hai bất ngờ thú vị: trong tô-pô con, một đoạn đóng như $$[0, 1]$$ bỗng có thể trở thành **tập mở**; còn trong tích vô hạn, định nghĩa tưởng như "tự nhiên nhất" (tô-pô hộp) lại làm **đứt gãy** ngay cả hàm đường chéo đơn giản nhất $$t \mapsto (t, t, t, \dots)$$!
 
-Bài giảng này trình bày định nghĩa và tính chất của **tô-pô con**, **tô-pô tích hữu hạn** cùng tính chất phổ dụng của các ánh xạ chiếu, **tô-pô tích vô hạn** (so sánh với tô-pô hộp), và phát biểu **Định lý Tychonoff** — một trong những kết quả quan trọng nhất của tô-pô đại cương.
+**Mạch bài học:** Bản đồ kiến thức nền (tô-pô con, tính chất phổ dụng của tô-pô tích & cuộc đối đầu giữa tô-pô tích và tô-pô hộp) → Khung giải thích chậm: cầm tay kiểm tra tập "vừa đóng vừa mở" trong tô-pô con và chứng minh đường chéo gián đoạn trong tô-pô hộp → Trực giác & Định nghĩa hình thức → Định lý Tychonoff → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Tô-pô con và Tô-pô tích hoạt động như thế nào?
+
+### 1. Tô-pô con: tính "mở" là khái niệm *tương đối*
+
+Khi xét tập con $$Y \subseteq X$$, ta định nghĩa tập mở trong $$Y$$ là mọi giao $$U \cap Y$$ với $$U$$ mở trong $$X$$. Điều quan trọng nhất cần khắc ghi: *"mở"* hay *"đóng"* không phải thuộc tính tuyệt đối của một tập hợp, mà luôn phụ thuộc vào **không gian mẹ đang xét**. Tập $$[0, 1)$$ không mở trong $$\mathbb{R}$$, nhưng lại mở trong $$[0, 2]$$ vì $$[0, 1) = (-1, 1) \cap [0, 2]$$!
+
+### 2. Tô-pô tích và Tính chất phổ dụng của các ánh xạ chiếu
+
+Với tích $$X \times Y$$, tô-pô tích được thiết kế vừa đủ mịn để hai ánh xạ chiếu $$\pi_1(x, y) = x$$ và $$\pi_2(x, y) = y$$ liên tục — và không mịn hơn một chút nào! Nhờ đó ta có **tính chất phổ dụng** cực kỳ tiện lợi: một ánh xạ $$f: Z \to X \times Y$$ (với $$f(z) = (f_1(z), f_2(z))$$) liên tục **khi và chỉ khi** từng hàm tọa độ $$f_1, f_2$$ đều liên tục.
+
+### 3. Tích vô hạn: vì sao Tô-pô tích đánh bại Tô-pô hộp?
+
+Khi nhân vô hạn không gian $$\prod_{n=1}^\infty X_n$$, ta có hai lựa chọn:
+- **Tô-pô hộp (box topology):** tập cơ sở là $$\prod_{n=1}^\infty U_n$$ với *mọi* $$U_n$$ mở tùy ý.
+- **Tô-pô tích (product topology):** tập cơ sở là $$\prod_{n=1}^\infty U_n$$ với điều kiện $$U_n = X_n$$ tại *hầu hết mọi* tọa độ (chỉ hữu hạn tọa độ bị ràng buộc!).
+
+Tô-pô hộp quá mịn nên phá vỡ cả tính chất phổ dụng lẫn Định lý Tychonoff; ngược lại, tô-pô tích giữ trọn cả hai — đó là lý do cả ngành tô-pô và giải tích hàm chọn tô-pô tích làm chuẩn mực.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng 2 bất ngờ của Tô-pô con và Tô-pô hộp
+
+**Bất ngờ 1 — Tập đóng trong $$\mathbb{R}$$ lại thành tập mở trong không gian con:**
+Xét không gian con $$Y = [0, 1] \cup [2, 3] \subset \mathbb{R}$$ và tập con $$A = [0, 1] \subseteq Y$$.
+- Trong $$\mathbb{R}$$, $$A = [0, 1]$$ là tập đóng và **không mở** (vì quanh $$0$$ không có khoảng mở nào nằm trong $$[0, 1]$$).
+- Trong $$Y$$, hãy lấy tập mở $$U = (-1, 1.5)$$ của $$\mathbb{R}$$ rồi giao với $$Y$$:
+  $$
+  U \cap Y = (-1, 1.5) \cap \bigl([0, 1] \cup [2, 3]\bigr) = [0, 1] = A!
+  $$
+  Vậy $$A$$ **là tập mở trong $$Y$$**! Tương tự $$[2, 3] = (1.5, 4) \cap Y$$ cũng mở trong $$Y$$, nên $$A = Y \setminus [2, 3]$$ **vừa mở vừa đóng** trong $$Y$$!
+
+**Bất ngờ 2 — Đường chéo $$f(t) = (t, t, t, \dots)$$ liên tục trong tô-pô tích nhưng gián đoạn trong tô-pô hộp:**
+Xét $$f: \mathbb{R} \to \mathbb{R}^\omega$$ xác định bởi $$f(t) = (t, t, t, \dots)$$. Mọi tọa độ $$f_n(t) = t$$ đều là hàm đồng nhất cực kỳ liên tục!
+- **Trong tô-pô tích:** Xét tập cơ sở bất kỳ $$V = \prod_{n=1}^\infty U_n$$ (chỉ có hữu hạn chỉ số $$n_1, \dots, n_k$$ có $$U_{n_i} \neq \mathbb{R}$$). Khi đó:
+  $$
+  f^{-1}(V) = \bigcap_{i=1}^k U_{n_i}
+  $$
+  là **giao hữu hạn** các tập mở của $$\mathbb{R}$$ → **luôn mở** → $$f$$ **liên tục**!
+- **Trong tô-pô hộp:** Xét tập mở hộp $$W = \prod_{n=1}^\infty \left(-\frac{1}{n}, \frac{1}{n}\right)$$ (chứa điểm $$f(0) = (0, 0, \dots)$$). Tính ảnh ngược bằng tay:
+  $$
+  f^{-1}(W) = \Bigl\{t \in \mathbb{R} : t \in \Bigl(-\frac{1}{n}, \frac{1}{n}\Bigr) \;\forall n \ge 1\Bigr\} = \bigcap_{n=1}^\infty \Bigl(-\frac{1}{n}, \frac{1}{n}\Bigr) = \{0\}!
+  $$
+  Vì $$\{0\}$$ **không mở** trong $$\mathbb{R}$$, ánh xạ $$f$$ **không liên tục** trong tô-pô hộp!
 
 ---
 

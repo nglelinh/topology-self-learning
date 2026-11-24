@@ -16,7 +16,9 @@ description: "First countable, second countable, separable, và Lindelöf spaces
 
 ## 📖 Tổng quan
 
-Bên cạnh các tiên đề tách, nhóm điều kiện quan trọng thứ hai trong tô-pô đại cương là **các tiên đề đếm được** (*countability axioms*) nhằm đo lường "độ lớn" của cấu trúc tô-pô:
+Trong giải tích, ta quen dùng **dãy số** $$(x_n)$$ để kiểm tra điểm tụ, bao đóng và tính liên tục. Nhưng khi bước sang tô-pô đại cương, có những không gian "quá cồng kềnh" đến mức dãy số bất lực hoàn toàn — một điểm nằm trong bao đóng của $$A$$ nhưng lại **không có dãy nào trong $$A$$ hội tụ về nó**! Điều gì kiểm soát "kích thước" của hệ thống tập mở để dãy số còn hoạt động tốt, hay để toàn bộ không gian được xấp xỉ bởi một tập con đếm được?
+
+Câu trả lời nằm ở bốn **tiên đề đếm được (countability axioms)**:
 1. **Đếm được thứ nhất (First countable):** Mỗi điểm có một cơ sở lân cận đếm được.
 2. **Đếm được thứ hai (Second countable):** Toàn bộ tô-pô có một cơ sở đếm được.
 3. **Khả ly (Separable):** Tồn tại tập con trù mật đếm được.
@@ -25,7 +27,43 @@ Bên cạnh các tiên đề tách, nhóm điều kiện quan trọng thứ hai 
 ![Countability hierarchy](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Separation_and_countability.svg/500px-Separation_and_countability.svg.png)  
 *Quan hệ giữa các tính chất đếm được - Nguồn minh họa khái niệm*
 
-Các tiên đề này có vai trò trực tiếp trong giải tích và tô-pô: tiên đề đếm được thứ nhất cho phép dùng dãy để đặc trưng bao đóng và tính liên tục; tiên đề đếm được thứ hai kết hợp với $T_3$ dẫn đến Định lý mê-tric hóa Urysohn; và tính khả ly là nền tảng của lý thuyết xấp xỉ.
+**Mạch bài học:** Bản đồ kiến thức nền (vì sao cần 4 mức đếm được, mối liên hệ với dãy số & sự trùng khớp trong không gian mê-tric) → Khung giải thích chậm: cầm tay dựng cơ sở đếm được của $$\mathbb{R}$$ và chứng minh đường thẳng Sorgenfrey khả ly nhưng không đếm được thứ hai → Định nghĩa hình thức & Quan hệ bao hàm → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Các Tiên đề Đếm được nghiên cứu những gì?
+
+### 1. Đếm được thứ nhất ($$C_1$$): ranh giới để dãy số còn đủ sức đặc trưng tô-pô
+
+Mọi không gian mê-tric đều đếm được thứ nhất vì quanh mỗi điểm $$x$$ có họ đếm được các hình cầu mở $$B(x, 1/n)$$ ($$n \in \mathbb{N}^*$$). Trong mọi không gian $$C_1$$, ta được phép dùng dãy như trong giải tích: $$x \in \operatorname{cl}(A) \iff$$ tồn tại dãy $$(x_n) \subset A$$ hội tụ về $$x$$, và $$f$$ liên tục $$\iff f$$ bảo toàn giới hạn dãy!
+
+### 2. Đếm được thứ hai ($$C_2$$): điều kiện mạnh nhất kéo theo cả ba điều kiện còn lại
+
+Nếu toàn bộ tô-pô sinh bởi chỉ một cơ sở đếm được $$\mathcal{B} = \{B_1, B_2, \dots\}$$, thì không gian tự động vừa đếm được thứ nhất, vừa **khả ly** (chọn mỗi $$B_n \neq \emptyset$$ một điểm là được tập trù mật đếm được!), vừa **Lindelöf**. Hơn nữa, $$C_2$$ kết hợp với $$T_3$$ chính là giả thiết của Định lý mê-tric hóa Urysohn!
+
+### 3. Trong không gian mê-tric, ba khái niệm $$C_2$$, Khả ly và Lindelöf nhập làm một!
+
+Trên không gian tô-pô tổng quát, $$C_2 \implies \text{Khả ly}$$ và $$C_2 \implies \text{Lindelöf}$$ nhưng chiều ngược lại đều **sai** (như đường thẳng Sorgenfrey dưới đây!). Tuy nhiên, riêng trên **không gian mê-tric**, cả ba tính chất này hoàn toàn **tương đương nhau**!
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng $$\mathbb{R}$$ là $$C_2$$ còn đường thẳng Sorgenfrey $$\mathbb{R}_l$$ thì KHÔNG
+
+**Ví dụ 1 — Vì sao $$\mathbb{R}$$ (tô-pô Euclid) đếm được thứ hai ($$C_2$$)?**
+Xét họ các khoảng mở có **hai đầu mút hữu tỉ**:
+$$
+\mathcal{B}_{\mathbb{Q}} = \bigl\{(p, q) : p, q \in \mathbb{Q},\; p < q\bigr\}.
+$$
+- **Kiểm tra tính đếm được:** Mỗi phần tử ứng với một cặp $$(p, q) \in \mathbb{Q} \times \mathbb{Q}$$, mà tích hai tập đếm được là **đếm được**.
+- **Kiểm tra tính cơ sở bằng ví dụ cụ thể:** Lấy khoảng mở vô tỉ $$(\sqrt{2}, \pi)$$ và điểm $$x = 2 \in (\sqrt{2}, \pi)$$. Vì $$\mathbb{Q}$$ trù mật trong $$\mathbb{R}$$, ta chọn ngay $$p = 1.5 \in \mathbb{Q}$$ và $$q = 3 \in \mathbb{Q}$$ → thu được $$2 \in (1.5, 3) \subseteq (\sqrt{2}, \pi)$$! Vậy $$\mathcal{B}_{\mathbb{Q}}$$ là cơ sở đếm được của $$\mathbb{R}$$.
+
+**Ví dụ 2 — Đường thẳng Sorgenfrey $$\mathbb{R}_l$$ (cơ sở $$[a, b)$$) khả ly nhưng KHÔNG $$C_2$$:**
+- **Khả ly:** Mọi khoảng nửa mở $$[a, b)$$ (với $$a < b$$) đều chứa ít nhất một số hữu tỉ, nên $$\mathbb{Q}$$ là tập trù mật đếm được của $$\mathbb{R}_l$$!
+- **Không đếm được thứ hai:** Giả sử $$\mathcal{B}$$ là một cơ sở bất kỳ của $$\mathbb{R}_l$$. Với **mỗi số thực $$x \in \mathbb{R}$$**, vì $$[x, x+1)$$ mở và chứa $$x$$, phải tồn tại một tập cơ sở $$B_x \in \mathcal{B}$$ sao cho:
+  $$
+  x \in B_x \subseteq [x, x + 1).
+  $$
+  Từ đây suy ra phần tử nhỏ nhất của $$B_x$$ chính là $$\min B_x = x$$! Vậy nếu $$x \neq y$$ thì $$\min B_x = x \neq y = \min B_y \implies B_x \neq B_y$$! Điều đó buộc $$\mathcal{B}$$ phải có ít nhất $$\lvert \mathbb{R} \rvert = \mathfrak{c}$$ phần tử (**không đếm được**) → $$\mathbb{R}_l$$ **không $$C_2$$**!
 
 ---
 

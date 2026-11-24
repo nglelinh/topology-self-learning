@@ -18,6 +18,8 @@ description: "Bài tùy chọn: quotient/surfaces gặp Mapper, phê bình UMAP,
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Khi bạn ném một bảng dữ liệu y sinh gồm 20.000 chiều (biểu hiện gen của 10.000 tế bào) vào các công cụ vẽ biểu đồ 2D như **UMAP** hay **t-SNE**, màn hình hiện ra những cụm màu rất bắt mắt — nhưng liệu một cái vòng hay một nhánh phân tách trên hình có thật sự tồn tại trong dữ liệu, hay chỉ là ảo giác do phép chiếu ép phẳng gây ra? Đó là lý do **thuật toán Mapper** ra đời dựa trực tiếp trên **tô-pô thương của Chương 05**: thay vì cố ép dữ liệu vào tờ giấy 2D, Mapper xây dựng **thần kinh (nerve) của một phủ mở** để bảo toàn trung thực các nhánh và vòng lặp cốt lõi của dữ liệu!
+
 Thuật toán Mapper (ra đời năm 2007) mang bản chất của một phép lấy thương: chọn một hàm lọc (filter) $f:X\to\mathbb{R}^k$, phủ miền giá trị bằng các tập mở có chồng lấn, lấy các thành phần liên thông (hoặc cụm) trong từng nghịch ảnh, rồi dán chúng thành một đồ thị (hay phức đơn hình). Đây chính là ý tưởng "dán theo sợi" của Chapter 05 áp dụng cho dữ liệu hữu hạn. Giai đoạn 2022–2026 ghi nhận các khảo sát tổng hợp về Mapper, các khung đánh giá độ ổn định, cùng nhiều phân tích chỉ rõ rằng các phương pháp giảm chiều phổ biến như UMAP *không* phải là ánh xạ thương tô-pô.
 
 ![Torus](https://upload.wikimedia.org/wikipedia/commons/1/17/Torus.png)
@@ -28,6 +30,65 @@ Thuật toán Mapper (ra đời năm 2007) mang bản chất của một phép l
 ## 🎯 Trực giác
 
 Tương tự phép dán $S^1=[0,1]/\{0\sim 1\}$, Mapper xử lý một đám mây điểm bằng cách vẽ cạnh nối hai cụm địa phương nếu chúng có điểm chung nằm trong phần giao của hai tập lọc chồng lấn — tức thao tác *dán*. UMAP cũng xây dựng một đồ thị láng giềng rồi nhúng xuống $\mathbb{R}^2$, nhưng bước nhúng này không còn mang tính chất của ánh xạ thương. Phân biệt rõ hai cơ chế này là một bài học hữu ích từ Chapter 05 cho khoa học dữ liệu.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Mapper, Thần kinh (Nerve) và Phê bình UMAP
+
+### 1. Bổ đề Thần kinh (Nerve Lemma) & Phép lấy thương theo sợi
+- **Bản chất:** Phủ một không gian $$X$$ bằng các tập mở tốt $$\mathcal{U} = \{U_i\}$$. **Thần kinh $$N(\mathcal{U})$$** là phức đơn hình gán 1 đỉnh cho mỗi tập $$U_i$$, 1 cạnh cho mỗi cặp $$U_i \cap U_j \neq \emptyset$$, 1 tam giác cho giao 3 tập... Bổ đề Thần kinh bảo đảm $$N(\mathcal{U}) \simeq X$$!
+- **Thuật toán Mapper:** Chọn hàm lọc $$f: X \to \mathbb{R}^k$$, phủ miền giá trị bằng các khoảng chồng lấn $$\{I_j\}$$, gom cụm trên từng lát cắt $$f^{-1}(I_j)$$, rồi lấy thần kinh của hệ cụm đó — chính là phiên bản rời rạc hóa của không gian thương Reeb!
+
+### 2. Sự khác biệt cốt lõi giữa Mapper và UMAP (2025–2026)
+- **Mapper:** Xây một **đồ thị / phức CW thương** giữ nguyên cấu trúc kết nối và phân nhánh theo hàm lọc $$f$$.
+- **UMAP:** Các nghiên cứu lý thuyết năm 2026 chỉ ra UMAP về bản chất gần với **phân cụm phổ trên đồ thị láng giềng mờ** và ép nhúng vào $$\mathbb{R}^2$$ — có thể làm bẹp nhánh hoặc đánh mất cấu trúc sợi toàn cục.
+
+### 3. Độ nhạy tham số phủ & Các cải tiến 2026
+- **Thách thức:** Chọn khoảng phủ quá thô sẽ gộp mất vòng lặp; chọn quá mịn sẽ vỡ vụn thành bụi. Các thuật toán 2026 (MAPLE, GK-Mapper) tự động hóa việc chọn phủ theo dữ liệu và đánh giá độ ổn định trên nhiều thang tỉ lệ.
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Chạy thuật toán Mapper trên Đường tròn $$S^1$$
+
+Xét không gian dữ liệu là đường tròn đơn vị $$X = S^1 = \{(x,y): x^2+y^2=1\}$$ cùng hàm lọc chiều cao $$f(x, y) = y \in [-1, 1]$$. Phủ đoạn $$[-1, 1]$$ bằng đúng **3 khoảng mở chồng lấn**:
+$$
+I_1 = [-1,\; -0.2), \qquad I_2 = (-0.4,\; 0.4), \qquad I_3 = (0.2,\; 1].
+$$
+Hãy thực hiện 3 bước của Mapper hoàn toàn bằng tay:
+
+1. **Bước 1 — Kéo ngược và tìm các thành phần liên thông (cụm):**
+   - $$f^{-1}(I_1)$$: phần đáy dưới $$y < -0.2$$ là **1 cung liên thông duy nhất** $$\implies$$ tạo 1 đỉnh $$v_{\text{đáy}}$$.
+   - $$f^{-1}(I_2)$$: dải ngang giữa $$-0.4 < y < 0.4$$ bị lỗ giữa đường tròn cắt đôi thành **2 cung rời nhau** (cung bên trái $$x < 0$$ và cung bên phải $$x > 0$$!) $$\implies$$ tạo **2 đỉnh** $$v_L$$ và $$v_R$$.
+   - $$f^{-1}(I_3)$$: phần vòm trên $$y > 0.2$$ là **1 cung liên thông duy nhất** $$\implies$$ tạo 1 đỉnh $$v_{\text{đỉnh}}$$.
+
+2. **Bước 2 — Nối cạnh giữa các cụm có giao khác rỗng (phép dán!):**
+   - Trong vùng chồng lấn $$I_1 \cap I_2 = (-0.4, -0.2)$$: cung đáy $$v_{\text{đáy}}$$ giao với **cả** $$v_L$$ lẫn $$v_R$$ $$\implies$$ nối 2 cạnh $$(v_{\text{đáy}}, v_L)$$ và $$(v_{\text{đáy}}, v_R)$$.
+   - Trong vùng chồng lấn $$I_2 \cap I_3 = (0.2, 0.4)$$: cung đỉnh $$v_{\text{đỉnh}}$$ giao với **cả** $$v_L$$ lẫn $$v_R$$ $$\implies$$ nối 2 cạnh $$(v_{\text{đỉnh}}, v_L)$$ và $$(v_{\text{đỉnh}}, v_R)$$.
+
+3. **Bước 3 — Kết quả đồ thị Mapper:** Một **hình vuông 4 đỉnh** $$v_{\text{đáy}} - v_L - v_{\text{đỉnh}} - v_R - v_{\text{đáy}}$$ — bảo toàn chính xác kiểu đồng luân của $$S^1$$ ($$\beta_1 = 1$$)!
+   *(Thử đổi sang 1 khoảng phủ duy nhất $$I_1 = [-1, 1]$$: đồ thị Mapper sụp xuống thành đúng **1 điểm**, đánh mất hoàn toàn vòng tròn — minh họa trực quan tầm quan trọng của việc chọn phủ!)*
+
+### Khung giải thích: Vì sao Mapper gắn chặt với Tô-pô Thương Chương 05? (nên đọc chậm)
+
+#### Bước 1: Định nghĩa đồ thị Reeb — phiên bản liên tục của Mapper
+Nếu ta dán tất cả các điểm thuộc *cùng một thành phần liên thông* của từng mức $$f^{-1}(c)$$ về một điểm, không gian thương $$X / {\sim_f}$$ chính là **đồ thị Reeb**!
+
+#### Bước 2: Rời rạc hóa bằng phủ mở chồng lấn
+Trên đám mây điểm hữu hạn, lát cắt chính xác $$f^{-1}(c)$$ thường rỗng. Vì thế Mapper thay điểm $$c$$ bằng khoảng mở $$I_j$$ có độ chồng lấn dương, rồi gom cụm trong từng $$f^{-1}(I_j)$$.
+
+#### Bước 3: Thần kinh của phủ đóng vai trò phức CW thu gọn
+Mỗi cụm thành một $$0$$-tế bào, mỗi phần giao hai cụm thành một $$1$$-tế bào — biến dữ liệu triệu điểm thành một bản đồ tô-pô nhỏ gọn có thể đọc bằng mắt thường.
+
+#### Bước 4: So sánh công bằng với UMAP
+UMAP tối ưu khoảng cách láng giềng cục bộ để vẽ đẹp trên mặt phẳng; Mapper giữ trung thực cấu trúc phân nhánh và vòng lặp theo một tiêu chí (hàm lọc) cụ thể — hai công cụ bổ trợ nhau chứ không phải là một!
+
+$$
+\text{Đám mây điểm }X
+\;\xrightarrow{\;\text{Hàm lọc }f + \text{Phủ }\{I_j\}\;}\;
+\text{Gom cụm trên }f^{-1}(I_j)
+\;\xrightarrow{\;\text{Thần kinh }N(\mathcal{U})\;}\;
+\text{Đồ thị thương Mapper}.
+$$
 
 ---
 

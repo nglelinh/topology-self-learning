@@ -12,9 +12,19 @@ tags: [optional, recent-advances, persistent-homology, ripser, giotto-tda]
 description: "Optional notes: homology meets persistent homology, Ripser, giotto-tda, and vectorization. Not a theory translation."
 ---
 
-**Optional notes.** Simplicial/singular homology, Mayer–Vietoris, and cohomology stay as in Chapter 07. We only add a *filtration* and the software that computes $H_n$ on data.
+When Henri Poincaré invented homology in 1895, computing the holes of a 3D shape meant painstakingly writing out boundary matrices by hand. A century later, if you build a Vietoris–Rips complex on just 500 points from a protein crystal, there can be millions of triangles and tetrahedra—far too many to store naively in RAM! Yet today, a C++ library called **Ripser** computes the exact persistent homology barcodes of that dataset in milliseconds, and **giotto-tda** plugs them straight into a `scikit-learn` pipeline. How did classical algebraic topology—$$\partial_n \circ \partial_{n+1} = 0$$ and $$H_n = \ker\partial_n / \operatorname{im}\partial_{n+1}$$—become a high-speed industrial engine?
 
-The theory track is in Vietnamese. This English page holds recent-advance notes only.
+**Optional notes.** Simplicial/singular homology, Mayer–Vietoris, and cohomology stay as in Chapter 07. We add a *filtration* and the 2021–2026 software stack that computes $H_n$ on data. The theory track is in Vietnamese; this English page holds recent-advance notes only.
+
+---
+
+## Background Knowledge Map: Boundary Matrices, Persistence, and Differentiable Vectorization
+
+To understand what Ripser and `giotto-tda` are actually computing under the hood, connect three Chapter 07 pillars:
+
+1. **Chain Complexes & Boundary Matrices ($$\partial_n \circ \partial_{n+1} = 0$$):** Over the two-element field $$\mathbb{F}_2 = \{0, 1\}$$ (where $$1 + 1 = 0$$, eliminating orientation signs!), every simplicial complex becomes a sequence of binary matrices $$\partial_1, \partial_2, \dots$$. Cycles live in $$\ker \partial_n$$ (chains with no boundary), boundaries live in $$\operatorname{im} \partial_{n+1}$$ (cycles that bound a higher-dimensional face), and the $$n$$-th Betti number counts independent $$n$$-holes: $$\beta_n = \dim(\ker\partial_n) - \dim(\operatorname{im}\partial_{n+1})$$.
+2. **Persistent Homology via Column Reduction:** When simplices arrive in sorted scale order $$\sigma_1, \sigma_2, \dots, \sigma_M$$, Gaussian-style column reduction over $$\mathbb{F}_2$$ pairs each *birth* simplex with the exact *death* simplex that fills its hole—producing the barcode $$\{[\varepsilon_{\text{birth}}, \varepsilon_{\text{death}})\}$$ in one pass!
+3. **Cohomology Speedup (Ripser) & Vectorization:** By universal coefficients over a field, persistent **cohomology** gives the *exact same* barcode as persistent homology, yet coboundary matrices are vastly sparser for Vietoris–Rips complexes—giving Ripser its orders-of-magnitude speedup. Finally, **vectorization** (persistence landscapes, images, signed measures) turns variable-size barcodes into fixed-length vectors ready for gradient descent.
 
 ---
 
@@ -33,6 +43,33 @@ Homology counts holes. Persistent homology tracks holes **through a nested famil
 ## 🎯 Intuition
 
 At small $\varepsilon$ the complex is a pile of points: large $H_0$, vanishing $H_1$. At medium $\varepsilon$ true loops appear. At large $\varepsilon$ everything fills. The **barcode** records each class’s interval $[\varepsilon_{\mathrm{birth}},\varepsilon_{\mathrm{death}})$. Short bars are noise; long bars are holes. This is Chapter 07 with one extra parameter.
+
+### Worked Example (Step by Step): Computing $$H_0$$ and $$H_1$$ Over $$\mathbb{F}_2$$ by Hand on a Triangle
+
+Take 3 vertices $$v_0, v_1, v_2$$ and 3 edges $$e_{01}, e_{12}, e_{02}$$ forming a hollow triangle $$K_1$$. Over $$\mathbb{F}_2$$ (arithmetic mod 2), write the $$3 \times 3$$ boundary matrix $$\partial_1: C_1 \to C_0$$ (rows = $$v_0, v_1, v_2$$; columns = $$e_{01}, e_{12}, e_{02}$$):
+
+$$
+\partial_1 = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}.
+$$
+
+1. **Compute rank and kernel of $$\partial_1$$ over $$\mathbb{F}_2$$:** add Column 1 + Column 2 to Column 3 (mod 2):
+   $$(1, 1, 0)^\top + (0, 1, 1)^\top + (1, 0, 1)^\top = (2, 2, 2)^\top \equiv (0, 0, 0)^\top \pmod 2!$$
+   Meanwhile Columns 1 and 2 are linearly independent, so $$\operatorname{rank}(\partial_1) = 2$$ and $$\dim(\ker \partial_1) = 3 - 2 = \mathbf{1}$$, spanned by the 1-cycle $$z = e_{01} + e_{12} + e_{02}$$.
+2. **Stage 1 — Hollow triangle ($$C_2 = 0$$, no 2-face yet):**
+   - $$\beta_0 = \dim C_0 - \operatorname{rank}(\partial_1) = 3 - 2 = \mathbf{1}$$ (1 connected component).
+   - $$\beta_1 = \dim(\ker \partial_1) - 0 = \mathbf{1}$$ (**1 loop is born!**).
+3. **Stage 2 — Filled triangle (add 2-simplex $$t = [v_0, v_1, v_2]$$):** its boundary is $$\partial_2(t) = e_{01} + e_{12} + e_{02} = z$$, so $$\partial_2 = (1, 1, 1)^\top$$ has $$\operatorname{rank}(\partial_2) = 1$$. Check the fundamental identity:
+   $$\partial_1 \partial_2(t) = (2, 2, 2)^\top \equiv (0, 0, 0)^\top \pmod 2.$$
+   Now $$\beta_1 = \dim(\ker\partial_1) - \operatorname{rank}(\partial_2) = 1 - 1 = \mathbf{0}$$ — **the 1-loop dies** the exact moment $$t$$ enters the filtration!
+
+### Deep-Dive Explanation: How Ripser Turns Boundary Matrices into Millisecond Barcodes (Read Slowly)
+
+1. **Every simplex does one of two jobs:** when sorted by filtration radius, adding a $$k$$-simplex either *creates* a new $$k$$-cycle (column reduces to zero → **birth**) or *kills* an older $$(k-1)$$-cycle (column's lowest `1` pairs with that cycle's birth → **death**).
+2. **Switch to cohomology for massive sparsity:** Ripser reduces the transpose (*coboundary*) matrix instead; in Vietoris–Rips complexes, most columns cancel immediately via "apparent pairs" without ever storing the full complex in memory.
+3. **Pre-collapse huge 3D grids with Discrete Morse Sandwich:** on gigapixel 3D medical or materials scans, pairing trivial cells first (Guillou et al., 2022–2025) shrinks the boundary matrix by orders of magnitude before homology runs.
+4. **Vectorize barcodes so gradients can flow:** because a barcode is an unordered multiset of intervals, signed-measure and landscape vectorizations map it stably into $$\mathbb{R}^d$$ so neural networks and `scikit-learn` classifiers can learn directly from holes.
+
+**Quick check.** In our triangle example, what happens to $$\beta_0$$ and $$\beta_1$$ if we delete edge $$e_{02}$$ (leaving an open path $$v_0 - v_1 - v_2$$)? Now $$\partial_1$$ has only 2 independent columns ($$\operatorname{rank} = 2$$), so $$\beta_0 = 3 - 2 = 1$$ (still connected), while $$\dim(\ker\partial_1) = 2 - 2 = \mathbf{0} \implies \beta_1 = 0$$ (no cycle!).
 
 ---
 

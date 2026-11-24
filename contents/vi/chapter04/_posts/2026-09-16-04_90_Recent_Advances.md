@@ -18,6 +18,8 @@ description: "Bài tùy chọn: metric spaces gặp GH, bottleneck, interleaving
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Bạn có hai mô hình 3D của hai phân tử protein đo ở hai phòng thí nghiệm khác nhau — một cái xoay nghiêng $$37^\circ$$, cái kia đặt ở gốc tọa độ khác, thậm chí số lượng nguyên tử còn hơi lệch nhau. Làm sao đo xem **hai hình dạng đó giống nhau đến mức nào** khi chúng thậm chí không nằm chung trong cùng một không gian tọa độ? Chương 04 dạy bạn đo khoảng cách giữa hai *điểm*; bài đọc thêm 2022–2026 này nâng lên một tầng trừu tượng mới: **đo khoảng cách giữa hai không gian metric** bằng **khoảng cách Gromov–Hausdorff** và **khoảng cách xen kẽ (Interleaving)**!
+
 Một metric trên $X$ đo khoảng cách giữa từng cặp điểm. Trong khoa học dữ liệu hiện đại, ta thường cần thêm một tầng trừu tượng: đo khoảng cách giữa hai **không gian**. Khoảng cách Gromov–Hausdorff, khoảng cách bottleneck, khoảng cách Wasserstein trên biểu đồ bền vững (persistence diagram) và khoảng cách xen kẽ (interleaving distance) trên module bền vững là những metric ở cấp độ không gian, được nghiên cứu rộng rãi trong các công trình giai đoạn 2023–2026.
 
 ![Khoảng cách Hausdorff](https://upload.wikimedia.org/wikipedia/commons/2/21/Hausdorff_distance_sample.svg)
@@ -28,6 +30,65 @@ Một metric trên $X$ đo khoảng cách giữa từng cặp điểm. Trong kho
 ## 🎯 Trực giác
 
 Khoảng cách Hausdorff $d_H(A,B)$ đo xem mỗi điểm của $A$ gần tập $B$ đến mức nào và ngược lại. Khoảng cách Gromov–Hausdorff ($d_{GH}$) bỏ điều kiện $A$ và $B$ phải nằm chung trong một không gian cố định: ta được phép nhúng đẳng cự $A$ và $B$ vào cùng một không gian metric trung gian sao cho $d_H$ giữa hai ảnh là nhỏ nhất có thể. Đây là sự mở rộng tự nhiên của ý tưởng so sánh cấu trúc metric ở bài 04.02 lên cấp độ không gian.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Đo khoảng cách giữa các Hình dạng và Không gian
+
+### 1. Khoảng cách Hausdorff $$d_H(A, B)$$ (trong cùng không gian mẹ $$Z$$)
+- **Bản chất:** Đo độ lệch xấu nhất khi bạn cố gắng phủ tập $$A$$ bằng lân cận bán kính $$r$$ của $$B$$ và ngược lại:
+  $$
+  d_H(A, B) = \max\Bigl(\sup_{a \in A} d(a, B),\; \sup_{b \in B} d(b, A)\Bigr).
+  $$
+
+### 2. Khoảng cách Gromov–Hausdorff $$d_{GH}(X, Y)$$ (so sánh hai không gian ĐỘC LẬP)
+- **Bản chất:** Khi $$X$$ và $$Y$$ không nằm chung không gian (hai đám mây điểm, hai đa tạp trừu tượng), ta thử **mọi** phép nhúng đẳng cự $$\varphi: X \hookrightarrow Z,\; \psi: Y \hookrightarrow Z$$ vào một không gian metric chung $$Z$$ rồi lấy cận dưới của $$d_H(\varphi(X), \psi(Y))$$! Kết quả là $$d_{GH}(X, Y) = 0$$ khi và chỉ khi $$X$$ và $$Y$$ **đẳng cự** với nhau!
+
+### 3. Khoảng cách Xen kẽ (Interleaving Distance $$d_I$$) trên Module Bền vững
+- **Bản chất:** Phiên bản đại số của khoảng cách metric cho hai bộ barcode / module bền vững $$M, N$$: đo độ dịch chuyển tỉ lệ $$\varepsilon$$ nhỏ nhất sao cho $$M$$ và $$N$$ có thể "xen kẽ" (nhúng qua lại) dọc theo trục tham số $$t$$.
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính $$d_H$$ và $$d_{GH}$$ trên tập 2–3 điểm
+
+### Ví dụ 1: Tính tay khoảng cách Hausdorff $$d_H(A, B)$$ trong $$\mathbb{R}$$
+Cho $$A = \{0, 1\}$$ và $$B = \{0, 1, 2\}$$ nằm trong $$\mathbb{R}$$ với metric chuẩn:
+- Từ mỗi điểm của $$A$$ đến $$B$$: $$d(0, B) = 0,\; d(1, B) = 0 \implies \sup_{a\in A} d(a, B) = 0$$.
+- Từ mỗi điểm của $$B$$ đến $$A$$: $$d(0, A) = 0,\; d(1, A) = 0,\; d(2, A) = \min(\lvert 2-0\rvert, \lvert 2-1\rvert) = 1 \implies \sup_{b\in B} d(b, A) = 1$$.
+- Lấy giá trị lớn nhất hai chiều:
+  $$
+  d_H(A, B) = \max(0, 1) = 1!
+  $$
+
+### Ví dụ 2: Tính tay khoảng cách Gromov–Hausdorff $$d_{GH}(X, P)$$ giữa đoạn 2 điểm và 1 điểm!
+Cho $$X = \{a, b\}$$ với $$d_X(a, b) = 1$$ và $$P = \{p\}$$ (không gian 1 điểm duy nhất).
+- **Chặn trên:** Nhúng đẳng cự $$X$$ vào $$\mathbb{R}$$ tại $$\{-\tfrac{1}{2}, +\tfrac{1}{2}\}$$ và nhúng $$P$$ vào đúng tâm $$\{0\}$$. Khi đó khoảng cách Hausdorff giữa $$\{-\tfrac{1}{2}, +\tfrac{1}{2}\}$$ và $$\{0\}$$ là đúng **$$\frac{1}{2}$$** $$\implies d_{GH}(X, P) \le \frac{1}{2}$$!
+- **Chặn dưới:** Trong mọi phép nhúng đẳng cự vào bất kỳ không gian $$Z$$ nào, hai ảnh $$a', b'$$ cách nhau $$1$$; theo bất đẳng thức tam giác, $$1 = d_Z(a', b') \le d_Z(a', p') + d_Z(p', b') \implies \max(d_Z(a', p'), d_Z(b', p')) \ge \frac{1}{2}$$!
+- Kết luận chính xác: **$$d_{GH}(X, P) = \frac{1}{2} = \frac{1}{2}\operatorname{diam}(X)$$**! (Và tổng quát, khoảng cách Gromov–Hausdorff từ bất kỳ không gian bị chặn $$X$$ nào đến 1 điểm luôn bằng đúng nửa đường kính của $$X$$!)
+
+### Khung giải thích: Vì sao "Metric giữa các không gian" lại bùng nổ trong 2022–2026? (nên đọc chậm)
+
+#### Bước 1: Thoát khỏi sự phụ thuộc vào hệ tọa độ
+Hai đám mây điểm protein xoay khác góc có khoảng cách Euclid rất lớn dù thực chất là cùng một phân tử. $$d_{GH}$$ chỉ nhìn vào ma trận khoảng cách nội tại nên **bất biến hoàn toàn dưới phép xoay và tịnh tiến**.
+
+#### Bước 2: Định lý Ổn định — Cầu nối Lipschitz từ Hình dạng sang Barcode
+Một trong những định lý đẹp nhất của TDA khẳng định: khoảng cách bottleneck giữa hai biểu đồ bền vững bị chặn trên trực tiếp bởi $$2\,d_{GH}(X, Y)$$! Nghĩa là hai hình dạng gần nhau theo $$d_{GH}$$ chắc chắn có chữ ký tô-pô gần nhau!
+
+#### Bước 3: Mở rộng sang dữ liệu có nhãn màu và không gian tiềm ẩn AI
+Các công trình 2024–2026 mở rộng $$d_{GH}$$ cho dữ liệu hóa học có gán nhãn nguyên tử (chromatic metric pairs) và dùng $$d_{GH}$$ để kiểm tra xem không gian ẩn (latent space) của mạng nơ-ron có khớp với hình học cầu, phẳng hay hyperbolic hay không.
+
+#### Bước 4: Đánh đổi tính toán — Từ NP-hard đến xấp xỉ thông minh
+Tính chính xác $$d_{GH}$$ trên tập lớn là bài toán NP-hard; vì thế các thuật toán mới (như khoảng cách Gromov–Wasserstein và các cải tiến tính $$d_I$$ năm 2026) kết hợp tối ưu vận tải và lý thuyết đồ thị Reeb để chạy được trên dữ liệu thực!
+
+$$
+\text{Metric điểm }d(x,y)
+\;\xrightarrow{\;\text{Tập con}\;}\;
+d_H(A,B)
+\;\xrightarrow{\;\text{Nhúng đẳng cự}\;}\;
+d_{GH}(X,Y)
+\;\xrightarrow{\;\text{Ổn định TDA}\;}\;
+d_I(M,N) \le 2\,d_{GH}(X,Y).
+$$
 
 ---
 

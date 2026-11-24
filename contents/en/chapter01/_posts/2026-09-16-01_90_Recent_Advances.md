@@ -12,9 +12,19 @@ tags: [optional, recent-advances, clustering, topology-of-data, tda]
 description: "Optional notes: point-set topology meets clustering and TDA (2022–2026). Not a theory translation."
 ---
 
-**Optional notes.** Open sets, bases, closure, and continuity in Chapter 01 stay as they are. These notes only show how they reappear when $X$ is a point cloud.
+Every data scientist has had the same unsettling experience: you run a clustering algorithm on a biological dataset, tweak one neighborhood parameter by 10%, and suddenly two tidy cell populations shatter into five fragments—or fuse into one blob. Beneath that practical headache hides the very first definition of general topology: **what counts as an open neighborhood, and when does a map preserve nearness without tearing space apart?**
 
-The theory track is in Vietnamese. This English page holds recent-advance notes only.
+**Optional notes.** Open sets, bases, closure, and continuity in Chapter 01 stay as they are. These notes show how they reappear when $X$ is a point cloud in 2022–2026 research. The theory track is in Vietnamese; this English page holds recent-advance notes only.
+
+---
+
+## Background Knowledge Map: How Open Sets, Continuity, and Superlevel Sets Power Modern Clustering
+
+To a university graduate, the axioms of a topological space can feel oddly detached from data algorithms. In 2022–2026 machine learning, three Chapter 01 concepts sit right inside the engine:
+
+1. **Coarser vs. Finer Topologies as Scale Knobs:** Choosing a smaller neighborhood radius $$\varepsilon$$ (or fewer $$k$$-nearest neighbors) creates a *finer* topology with many small open pieces; enlarging $$\varepsilon$$ passes to a *coarser* topology that glues pieces together. Comparing topologies across all scales at once is the core of **persistent clustering**.
+2. **Density Superlevel Sets & Mode Prominence (ToMATo):** Given an estimated data density $$\rho: X \to \mathbb{R}$$, the superlevel sets $$U_\lambda = \{x : \rho(x) > \lambda\}$$ form an expanding family of open sets as threshold $$\lambda$$ drops from $$\infty$$ to $$0$$. Each density peak births a cluster, and each saddle point merges two clusters—measuring each cluster's true **prominence** rather than relying on one brittle cutoff.
+3. **Continuity vs. Homeomorphism in Dimension Reduction:** A continuous map $$f: X \to Y$$ guarantees that preimages of open sets are open—meaning nearby points stay nearby, though distinct clusters can still collide. Only a **homeomorphism** preserves topology both ways. Popular projections like UMAP approximate local neighborhoods, so dropping a single bridge edge in the neighbor graph can tear one cluster into two!
 
 ---
 
@@ -30,6 +40,34 @@ A topology on $X$ is a way to say which points sit next to which, without a metr
 ## 🎯 Intuition
 
 Recall an open set: if $x\in U$, a whole “region around $x$” stays in $U$. In data that region is usually $k$ neighbours or an $\varepsilon$-ball. Small $\varepsilon$ makes every point a cluster; large $\varepsilon$ glues everything. **Persistent clustering** watches clusters through $\varepsilon$ — the same spirit as comparing coarser/finer topologies in Lecture 01.01.
+
+### Worked Example (Step by Step): Tracking Superlevel-Set Clusters and Prominence on a 5-Point Density Profile
+
+Suppose we sample a 1D dataset along a path of 5 adjacent points $$x_1 - x_2 - x_3 - x_4 - x_5$$ whose estimated density values are:
+
+$$
+\rho(x_1) = 5,\quad \rho(x_2) = 2,\quad \rho(x_3) = 1,\quad \rho(x_4) = 4,\quad \rho(x_5) = 2.
+$$
+
+There are two clear density peaks—at $$x_1$$ (height 5) and $$x_4$$ (height 4)—separated by a valley at $$x_3$$ (height 1). Sweep the threshold $$\lambda$$ downward and record the connected components of the open superlevel set $$U_\lambda = \{x : \rho(x) > \lambda\}$$:
+
+| Threshold $$\lambda$$ | Superlevel set $$U_\lambda = \{x : \rho(x) > \lambda\}$$ | Connected components | Topological event |
+|---|---|---|---|
+| $$\lambda = 4.5$$ | $$\{x_1\}$$ | 1 | Cluster A **born** at height $$5$$ |
+| $$\lambda = 3.5$$ | $$\{x_1\} \sqcup \{x_4\}$$ | 2 | Cluster B **born** at height $$4$$ |
+| $$\lambda = 1.5$$ | $$\{x_1, x_2\} \sqcup \{x_4, x_5\}$$ | 2 | Both clusters grow; valley $$x_3$$ still separates them |
+| $$\lambda = 0.5$$ | $$\{x_1, x_2, x_3, x_4, x_5\}$$ | 1 | Valley $$x_3$$ enters → B **merges** into A at height $$1$$ |
+
+By the **Elder Rule** (the higher peak survives, the younger peak dies at the saddle), Cluster B has persistence prominence $$4 - 1 = \mathbf{3}$$, while Cluster A persists forever ($$[5, -\infty)$$). Now imagine a noisy bump of height $$1.2$$ sitting next to the valley: its prominence is only $$1.2 - 1 = \mathbf{0.2}$$. Choosing a prominence cutoff $$\tau = 1$$ cleanly keeps the 2 real clusters and discards the noise bump—something no single fixed density threshold $$\lambda$$ could achieve if one true cluster were slightly shorter than another!
+
+### Deep-Dive Explanation: Why Topological Clustering Beats Single-Threshold Clustering (Read Slowly)
+
+1. **Replace one fragile threshold with a full filtration:** single-threshold density clustering (like classic DBSCAN with one fixed density) fails when Cluster A has peak density 5 and Cluster B has peak density 2 while a valley sits at 1; sweeping $$\lambda$$ sees *every* peak at its own native scale.
+2. **Measure cluster significance by lifetime (prominence):** a cluster's persistence $$\text{birth} - \text{death}$$ is literally the depth of the valley separating it from a taller neighbor—a coordinate-free topological invariant of the density function.
+3. **Move to multiparameter filtrations when density and scale interact:** real datasets vary in both local density $$\rho$$ and geometric radius $$\varepsilon$$; 2025–2026 methods like ToMAToMP track components across *both* parameters simultaneously to resist outliers.
+4. **Audit dimension-reduction plots with continuity:** before trusting two separated blobs on a UMAP scatter plot, remember that UMAP is not guaranteed to be a homeomorphism—check whether the separation already lives in the high-dimensional $$H_0$$ persistence diagram!
+
+**Quick check.** In our 5-point example, what happens to the persistence prominence of Cluster B if the valley $$x_3$$ rises from $$1$$ to $$3.8$$? Its prominence shrinks from $$4 - 1 = 3$$ down to $$4 - 3.8 = \mathbf{0.2}$$, immediately signaling that the two peaks have nearly merged into a single broad cluster.
 
 ---
 

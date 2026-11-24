@@ -16,6 +16,8 @@ description: "Group actions trên topological spaces, orbit spaces, và applicat
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Hầu hết những không gian đẹp nhất của toán học và vật lý đều được sinh ra từ một công thức duy nhất: **lấy một không gian đơn giản, cho một nhóm đối xứng $$G$$ tác động lên nó, rồi gộp mọi điểm cùng quỹ đạo thành một điểm!** Lấy đường thẳng $$\mathbb{R}$$ chia cho nhóm tịnh tiến $$\mathbb{Z}$$ ra đường tròn $$S^1$$; lấy mặt cầu $$S^2$$ chia cho phép đối tâm $$\mathbb{Z}/2\mathbb{Z}$$ ra mặt phẳng xạ ảnh $$\mathbb{R}P^2$$; lấy nửa mặt phẳng hyperbolic $$\mathbb{H}$$ chia cho nhóm ma trận $$\mathrm{SL}_2(\mathbb{Z})$$ ra không gian moduli các đường cong elliptic! Bài học này đặt nền móng cho **tác động nhóm** và **không gian quỹ đạo $$X/G$$**.
+
 Đối xứng là một cấu trúc phổ biến trong toán học và vật lý, và **tác động nhóm** (group action) là ngôn ngữ chính thức để mô tả đối xứng của các không gian tô-pô.
 
 Một tác động của nhóm $G$ lên không gian $X$ gán cho mỗi phần tử $g \in G$ một phép biến đổi (đồng phôi) của $X$, tương thích với phép toán nhóm. **Không gian quỹ đạo** (orbit space) $X/G$ là không gian thương thu được bằng cách đồng nhất các điểm nằm trên cùng một quỹ đạo của tác động.
@@ -30,6 +32,63 @@ Nhiều không gian quen thuộc xuất hiện tự nhiên dưới dạng không
 - Nhóm các phép biến đổi phủ (deck transformations) tác động trên không gian phủ phổ dụng $\tilde{X}$ cho thương $\tilde{X}/\pi_1(X) \cong X$.
 
 Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa tác động nhóm, quỹ đạo (orbit), nhóm ổn định hóa (stabilizer), định lý Quỹ đạo – Ổn định hóa, tác động tự do (free action), tác động gián đoạn thực sự (properly discontinuous action), miền cơ bản (fundamental domain) cùng các ứng dụng trong không gian phủ và nhóm Lie.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Tác động Nhóm & Không gian Quỹ đạo là gì?
+
+### 1. Tác động Liên tục của Nhóm $$G$$ lên Không gian $$X$$
+- **Bản chất:** Một tác động trái $$G \times X \to X,\; (g, x) \mapsto g\cdot x$$ gán cho mỗi phần tử $$g \in G$$ một phép đồng phôi của $$X$$ tuân theo luật kết hợp $$(gh)\cdot x = g\cdot(h\cdot x)$$ và $$e\cdot x = x$$.
+
+### 2. Quỹ đạo (Orbit) & Nhóm Ổn định hóa (Stabilizer)
+- **Quỹ đạo $$G\cdot x = \{g\cdot x : g \in G\}$$:** Tập tất cả các vị trí mà điểm $$x$$ có thể bị đẩy tới dưới tác động của nhóm $$G$$.
+- **Nhóm ổn định hóa $$G_x = \{g \in G : g\cdot x = x\}$$:** Tập các phép đối xứng giữ nguyên điểm $$x$$. (Liên hệ đại số kinh điển: $$G/G_x \leftrightarrow G\cdot x$$!)
+- **Tác động tự do (Free action):** Mọi điểm đều có $$G_x = \{e\}$$ (không có điểm bất động nào ngoài phần tử đơn vị).
+
+### 3. Không gian Quỹ đạo $$X/G$$ & Tác động Dừng Đúng (Properly Discontinuous)
+- **Bản chất:** Dán mọi điểm trong cùng một quỹ đạo thành một điểm tạo ra không gian thương $$X/G$$. Đặc biệt, khi tác động rời rạc là **tự do và dừng đúng** (mỗi điểm có lân cận $$U$$ sao cho $$gU \cap U = \emptyset$$ với mọi $$g \neq e$$), ánh xạ chiếu $$X \to X/G$$ trở thành một **ánh xạ phủ** tuyệt đẹp (cửa ngõ sang Chương 06!).
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: So sánh Quỹ đạo & Stabilizer trên 3 tác động kinh điển
+
+1. **Nhóm $$G = \mathbb{Z}$$ tịnh tiến trên $$X = \mathbb{R}$$ bởi $$n \cdot x = x + n$$:**
+   - **Quỹ đạo của $$x = 0.3$$:** $$\{\dots, -1.7, -0.7, 0.3, 1.3, 2.3, \dots\}$$.
+   - **Stabilizer:** $$x + n = x \iff n = 0 \implies G_x = \{0\}$$ với mọi $$x$$ (**tác động tự do**!).
+   - **Dừng đúng:** Chọn lân cận $$U = (x - \tfrac{1}{3}, x + \tfrac{1}{3})$$; với mọi $$n \neq 0$$, $$U + n$$ rời hẳn $$U$$!
+   - **Không gian quỹ đạo:** $$\mathbb{R}/\mathbb{Z} \cong S^1$$ (và $$\mathbb{R} \to S^1$$ là ánh xạ phủ!).
+
+2. **Nhóm $$G = \mathbb{Z}/2\mathbb{Z} = \{+1, -1\}$$ tác động đối tâm trên $$X = S^2$$ bởi $$(\pm 1)\cdot x = \pm x$$:**
+   - **Quỹ đạo:** Mỗi cặp điểm đối tâm $$\{x, -x\}$$ (đúng 2 điểm).
+   - **Stabilizer:** Vì $$x \in S^2$$ nên $$x \neq -x \implies G_x = \{+1\}$$ (**tự do**!).
+   - **Không gian quỹ đạo:** $$S^2 / (\mathbb{Z}/2\mathbb{Z}) = \mathbb{R}P^2$$ (mặt phẳng xạ ảnh thực!).
+
+3. **Nhóm quay $$G = SO(2)$$ xoay quanh trục $$Oz$$ trên $$X = S^2$$:**
+   - **Điểm trên vĩ tuyến $$z \in (-1, 1)$$:** Quỹ đạo là cả đường tròn vĩ tuyến $$S^1$$; stabilizer là $$\{I\}$$.
+   - **Cực Bắc $$(0,0,1)$$ và Cực Nam $$(0,0,-1)$$:** Bị giữ bất động bởi mọi phép quay! Quỹ đạo chỉ có 1 điểm; stabilizer là **toàn bộ $$SO(2)$$** (tác động **không tự do**!).
+   - **Không gian quỹ đạo:** Mỗi vĩ tuyến (và hai cực) được xác định duy nhất bởi cao độ $$z \in [-1, 1] \implies S^2 / SO(2) \cong [-1, 1]$$ (xuất hiện 2 điểm biên tương ứng với 2 điểm bất động!).
+
+### Khung giải thích: Quy trình 4 bước phân tích một không gian quỹ đạo $$X/G$$ (nên đọc chậm)
+
+#### Bước 1: Tìm một "miền cơ bản" (Fundamental Domain)
+Chọn một mảnh con $$D \subseteq X$$ chứa ít nhất một đại diện của mỗi quỹ đạo (ví dụ $$[0,1]$$ cho $$\mathbb{R}/\mathbb{Z}$$, hay bán cầu Bắc cho $$S^2/(\mathbb{Z}/2\mathbb{Z})$$).
+
+#### Bước 2: Xem nhóm $$G$$ dán phần biên của miền cơ bản như thế nào
+Mọi điểm bên trong $$D$$ là duy nhất; chỉ các điểm trên biên $$\partial D$$ mới bị dán với nhau bởi các phần tử sinh của $$G$$ (ví dụ $$0 \sim 1$$ trên $$[0,1]$$, hay biên xích đạo $$x \sim -x$$ trên bán cầu Bắc).
+
+#### Bước 3: Kiểm tra điểm bất động (Stabilizer khác tầm thường)
+Nếu tác động **tự do + dừng đúng** trên một đa tạp $$X$$, thương $$X/G$$ chắc chắn vẫn là một **đa tạp trơn** (như $$S^1, T^2, \mathbb{R}P^2$$). Nếu có điểm bất động (như phép quay $$180^\circ$$ trên $$\mathbb{R}^2$$), thương xuất hiện đỉnh nhọn (orbifold / hình nón!).
+
+#### Bước 4: Đọc ngay nhóm cơ bản của thương
+Nếu $$X$$ đơn liên (như $$\mathbb{R}$$ hay $$S^2$$) và $$G$$ tác động tự do, dừng đúng, thì **$$\pi_1(X/G) \cong G$$**! Ta đọc ra ngay $$\pi_1(S^1) \cong \mathbb{Z}$$ và $$\pi_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$$ mà hầu như không phải tính gì thêm!
+
+$$
+\text{Không gian }X \text{ + Tác động nhóm }G
+\;\xrightarrow{\;\text{Miền cơ bản + Dán biên}\;}\;
+\text{Không gian quỹ đạo }X/G
+\;\xrightarrow{\;\text{Tự do + Dừng đúng}\;}\;
+\pi_1(X/G) \cong G.
+$$
 
 ---
 

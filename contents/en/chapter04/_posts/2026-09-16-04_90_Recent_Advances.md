@@ -12,9 +12,19 @@ tags: [optional, recent-advances, metric, gromov-hausdorff, bottleneck, interlea
 description: "Optional notes: metric spaces meet GH, bottleneck, interleaving, and latent geometry. Not a theory translation."
 ---
 
-**Optional notes.** The three metric axioms, completeness, and metric equivalence stay as in Chapter 04. We watch them measure *distances between spaces*, not only between points.
+Suppose two structural biologists hand you 3D atomic coordinates for two proteins—one recorded in Tokyo, the other in Boston, rotated arbitrarily in space and with a different number of atoms. You want to answer a deceptively simple question: *how far apart are these two shapes?* Ordinary Euclidean distance only compares two points living in the same coordinate frame. To compare **entire metric spaces** without cheating via arbitrary coordinates, mathematicians lifted the metric axioms one floor up—inventing **Hausdorff**, **Gromov–Hausdorff**, and **interleaving** distances.
 
-The theory track is in Vietnamese. This English page holds recent-advance notes only.
+**Optional notes.** The three metric axioms, completeness, and metric equivalence stay as in Chapter 04. We watch them measure *distances between spaces*, not only between points, across 2022–2026 research. The theory track is in Vietnamese; this English page holds recent-advance notes only.
+
+---
+
+## Background Knowledge Map: Lifting Metric Geometry from Points to Entire Spaces
+
+Chapter 04 teaches that a metric $$d(x,y)$$ frees geometry from Cartesian coordinates. Modern shape analysis applies that exact idea at the *space* level across three pillars:
+
+1. **Hausdorff Distance $$d_H$$ (Same Ambient Space):** Given two subsets $$A, B$$ inside one metric space $$Z$$, $$d_H(A,B)$$ is the smallest radius $$r$$ such that every point of $$A$$ lies within $$r$$ of $$B$$ *and* every point of $$B$$ lies within $$r$$ of $$A$$. It is coordinate-dependent on how $$A$$ and $$B$$ sit inside $$Z$$.
+2. **Gromov–Hausdorff Distance $$d_{GH}$$ (Intrinsic Shape Comparison):** What if $$X$$ and $$Y$$ do not share an ambient space (or have different rotations/embeddings)? Gromov–Hausdorff takes the infimum of $$d_H(\varphi(X), \psi(Y))$$ over *all* isometric embeddings into any common metric space $$Z$$—equivalently, half the minimum **distortion** of any correspondence $$R \subseteq X \times Y$$! Thus $$d_{GH}(X, Y) = 0$$ iff compact spaces $$X$$ and $$Y$$ are **isometric**.
+3. **Interleaving Distance $$d_I$$ (Metrics on Algebraic Invariants):** When shapes are summarized by persistence modules or Reeb graphs, the interleaving distance measures the smallest scale shift $$\varepsilon$$ needed to weave morphisms back and forth between two modules—turning an entire category of topological summaries into a metric space!
 
 ---
 
@@ -30,6 +40,34 @@ A metric on $X$ measures pairs of points. Modern data science needs a second lay
 ## 🎯 Intuition
 
 Hausdorff $d_H(A,B)$ asks: how well is every point of $A$ approximated by $B$ (and conversely)? Gromov–Hausdorff drops the demand that $A$ and $B$ already sit in one space: we may *choose a placement* before measuring $d_H$. That is Lecture 04.02’s “equivalent metrics”, lifted one level.
+
+### Worked Example (Step by Step): Computing $$d_H$$ vs. $$d_{GH}$$ by Hand on Tiny Point Sets
+
+Check both distances explicitly to feel the difference between *ambient position* and *intrinsic shape*:
+
+**Part A — Hausdorff distance $$d_H$$ in $$\mathbb{R}$$.** Let $$A = \{0, 2\}$$ and $$B = \{0, 1, 3\}$$:
+- Worst-case distance from $$A$$ to $$B$$: $$d(0, B) = 0$$; $$d(2, B) = \min(\vert 2-0\vert, \vert 2-1\vert, \vert 2-3\vert) = 1 \implies \max_{a\in A} d(a, B) = 1$$.
+- Worst-case distance from $$B$$ to $$A$$: $$d(0, A) = 0$$; $$d(1, A) = 1$$; $$d(3, A) = \vert 3-2\vert = 1 \implies \max_{b\in B} d(b, A) = 1$$.
+- Therefore: $$d_H(A, B) = \max(1, 1) = \mathbf{1}$$.
+
+**Part B — Gromov–Hausdorff distance $$d_{GH}$$ via correspondence distortion.** Recall that for compact metric spaces, $$d_{GH}(X, Y) = \frac{1}{2}\inf_R \operatorname{dis}(R)$$ over surjective correspondences $$R \subseteq X \times Y$$, where $$\operatorname{dis}(R) = \sup_{(x,y),(x',y')\in R} \vert d_X(x,x') - d_Y(y,y')\vert$$.
+- Compare two 2-point spaces: $$X = \{x_1, x_2\}$$ with $$d_X(x_1, x_2) = 2$$, and $$Y = \{y_1, y_2\}$$ with $$d_Y(y_1, y_2) = 5$$.
+- Under the bijection $$R = \{(x_1, y_1), (x_2, y_2)\}$$, the only nonzero pairwise distance difference is $$\vert 2 - 5\vert = 3$$, so $$\operatorname{dis}(R) = 3$$ and:
+
+$$
+d_{GH}(X, Y) = \frac{1}{2} \times 3 = \mathbf{1.5}.
+$$
+
+- **The punchline on rigid motion:** place $$X = \{0, 2\}$$ and $$X' = \{100, 102\}$$ in $$\mathbb{R}$$. Their ambient Hausdorff distance is $$d_H(X, X') = \mathbf{100}$$ (miles apart!), yet their Gromov–Hausdorff distance is $$d_{GH}(X, X') = \mathbf{0}$$ because $$d_X(0,2) = d_{X'}(100,102) = 2$$!
+
+### Deep-Dive Explanation: Lifting Metrics from Points to Entire Spaces (Read Slowly)
+
+1. **Separate *where* a shape sits from *what* it is:** $$d_H$$ penalizes translations and rotations; $$d_{GH}$$ mods out every rigid motion and ambient coordinate frame, comparing pure pairwise distance tables.
+2. **Pay the computational price with algebraic proxies:** computing exact $$d_{GH}$$ between large point clouds is NP-hard! That is why mathematicians bound it from below using fast computable invariants like persistent homology: $$d_B(\mathrm{Dgm}(X), \mathrm{Dgm}(Y)) \le d_{GH}(X, Y)$$.
+3. **Add labels and colors without losing stability:** real molecules carry atom types (C, N, O). 2024–2025 chromatic Gromov–Hausdorff metrics require correspondences to match same-colored atoms while preserving triangle inequality and stability.
+4. **Lift metrics one step further to modules and Reeb graphs:** the interleaving distance $$d_I$$ compares persistence modules directly via $$\varepsilon$$-shifts, letting statisticians build rigorous confidence regions around shapes (Pegoraro et al., 2026).
+
+**Quick check.** If $$X$$ is a single point ($$\operatorname{diam}(X) = 0$$) and $$Y$$ is any compact metric space of diameter $$D$$, what is $$d_{GH}(X, Y)$$? The only correspondence pairs the single point of $$X$$ with every point of $$Y$$, whose maximum distance difference is $$\vert 0 - D\vert = D$$, so $$d_{GH}(X, Y) = \mathbf{D/2}$$!
 
 ---
 

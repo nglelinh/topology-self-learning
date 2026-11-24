@@ -12,9 +12,19 @@ tags: [optional, recent-advances, mapper, umap, quotient, manifolds]
 description: "Optional notes: quotients/surfaces meet Mapper, the UMAP critique, and cover graphs of data. Not a theory translation."
 ---
 
-**Optional notes.** Quotient topology, surface classification, CW complexes, and group actions stay as in Chapter 05. We watch them redrawn as Mapper — and imitated, then critiqued, by UMAP.
+Every topology student remembers the first magic trick of quotient spaces: take a flat strip of paper $$[0,1]$$, glue its two endpoints together ($$0 \sim 1$$), and a circle $$S^1$$ appears; glue opposite edges of a square $$[0,1]^2$$, and a torus is born. Now flip that same gluing idea onto a noisy dataset of 50,000 breast-cancer gene profiles: slice the dataset into overlapping strips by a summary function, cluster each strip, and glue overlapping clusters by edges. The resulting skeleton—the **Mapper graph**—is a genuine topological quotient nerve of the data, capable of revealing branching disease subtypes that popular 2D projections like UMAP can flatten away!
 
-The theory track is in Vietnamese. This English page holds recent-advance notes only.
+**Optional notes.** Quotient topology, surface classification, CW complexes, and group actions stay as in Chapter 05. We watch them redrawn as Mapper—and imitated, then critiqued, by UMAP—in 2022–2026 research. The theory track is in Vietnamese; this English page holds recent-advance notes only.
+
+---
+
+## Background Knowledge Map: Quotients, Cover Nerves, and Why UMAP Is Not Mapper
+
+Chapter 05 builds complex spaces by gluing simpler pieces together. Three pillars carry that machinery directly into modern data visualization:
+
+1. **Quotient Topology & Gluing Maps:** Collapsing equivalence classes of points in $$X$$ yields a quotient space $$X/\!\sim$$ whose open sets are precisely those with open preimages in $$X$$. In data analysis, collapsing each local cluster inside a filter slice to a single vertex is a discrete quotient.
+2. **Open Covers & the Nerve Theorem (Mapper):** Given a continuous filter $$f: X \to \mathbb{R}^k$$ and an open cover $$\mathcal{U} = \{U_i\}$$ of its range, we pull back each $$U_i$$, split $$f^{-1}(U_i)$$ into connected components (clusters), and form the **nerve**—placing a vertex for each cluster and an edge whenever two clusters share points. By the Nerve Theorem, when the cover is fine enough, this graph recovers the homotopy type of $$X$$ (a discrete Reeb graph!).
+3. **Quotient Nerves vs. Spectral Projections (UMAP):** Whereas Mapper respects the fibers $$f^{-1}(U_i)$$ of a chosen lens, UMAP runs spectral-like optimization on a fuzzy $$k$$-NN graph to force points into $$\mathbb{R}^2$$—satisfying neither the universal property of a quotient nor the nerve of an open cover.
 
 ---
 
@@ -30,6 +40,31 @@ Mapper (2007) is a quotient algorithm: choose a filter $f:X\to\mathbb{R}^k$, cov
 ## 🎯 Intuition
 
 Recall $S^1=[0,1]/\{0\sim 1\}$. Mapper does the same to a point cloud: if two “local clusters” live in overlapping filter sets, we draw an edge — we *glue*. UMAP also builds a neighbour graph and then embeds it in $\mathbb{R}^2$, but that embedding step is no longer a quotient map. Separating the two operations is the Chapter 05 lesson for data science.
+
+### Worked Example (Step by Step): Building the Mapper Graph of the Circle $$S^1$$ by Hand
+
+Take the unit circle $$X = S^1 = \{(x,y) : x^2 + y^2 = 1\}$$ with the height filter $$f(x,y) = y \in [-1, 1]$$, and cover $$[-1, 1]$$ by **3 overlapping open intervals**:
+
+| Cover interval $$U_i$$ | Preimage $$f^{-1}(U_i)$$ on $$S^1$$ | Connected components (Mapper vertices) |
+|---|---|---|
+| $$U_1 = [-1,\ -0.2)$$ | Bottom arc of the circle | **1** vertex: $$v_1$$ |
+| $$U_2 = (-0.4,\ 0.4)$$ | Left middle arc $$L$$ and right middle arc $$R$$ | **2** vertices: $$v_{2L},\ v_{2R}$$ |
+| $$U_3 = (0.2,\ 1]$$ | Top arc of the circle | **1** vertex: $$v_3$$ |
+
+Now glue vertices whose clusters intersect in $$S^1$$:
+- In the lower overlap $$U_1 \cap U_2 = (-0.4, -0.2)$$, the bottom arc $$v_1$$ meets *both* $$v_{2L}$$ and $$v_{2R}$$ → add edges $$(v_1, v_{2L})$$ and $$(v_1, v_{2R})$$.
+- In the upper overlap $$U_2 \cap U_3 = (0.2, 0.4)$$, the top arc $$v_3$$ meets *both* $$v_{2L}$$ and $$v_{2R}$$ → add edges $$(v_{2L}, v_3)$$ and $$(v_{2R}, v_3)$$.
+
+**Result:** a 4-vertex cycle $$v_1 - v_{2L} - v_3 - v_{2R} - v_1$$—topologically a circle, preserving the exact loop of $$S^1$$! Now watch the **cover sensitivity** trap: replace the 3 intervals by just **2** coarse intervals $$V_1 = [-1, 0.2)$$ and $$V_2 = (-0.2, 1]$$. Each preimage is now a single connected U-shaped arc, so Mapper produces just 2 vertices and 1 edge—the loop disappears!
+
+### Deep-Dive Explanation: Why Mapper Preserves Fibers While UMAP Can Flatten Them (Read Slowly)
+
+1. **Choose a lens $$f$$ that asks a scientific question:** in Mapper, the filter $$f$$ (height, survival risk, pseudotime, PCA coordinate) explicitly tells the algorithm which direction to slice along, making every node interpretable.
+2. **Pull back and cluster inside each fiber:** splitting $$f^{-1}(U_i)$$ into connected components is what detects branching (like $$v_{2L}$$ and $$v_{2R}$$ on $$S^1$$, or two cell-differentiation lineages).
+3. **Glue via the nerve—no coordinate distortion required:** Mapper outputs an abstract combinatorial graph (a 1D CW complex), never forcing a curved or branching dataset to squeeze flat into $$\mathbb{R}^2$$.
+4. **Control cover sensitivity with data-driven covers:** as our 3-interval vs. 2-interval comparison showed, too coarse a cover kills real loops; 2026 methods like MAPLE and GK-Mapper adapt interval widths directly to local data geometry.
+
+**Quick check.** In our $$S^1$$ example with the 3-interval cover, if the overlap between $$U_1$$ and $$U_2$$ shrinks to zero (say $$U_1 = [-1, -0.3)$$ and $$U_2 = (-0.3, 0.3)$$), what happens to the Mapper graph? The clusters no longer intersect, so the edges $$(v_1, v_{2L})$$ and $$(v_1, v_{2R})$$ vanish—tearing the circle apart! Proper overlap is essential for quotient gluing.
 
 ---
 

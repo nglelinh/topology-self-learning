@@ -16,6 +16,8 @@ description: "Classification theorem cho compact surfaces: genus, orientability,
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu ai đó đưa cho bạn một mặt 2 chiều đóng bất kỳ — có thể méo mó như củ gừng, có thể tự cắt xuyên qua nhau trong $$\mathbb{R}^3$$ như chai Klein hay mặt Boy — liệu có cách nào sắp xếp **tất cả vô hạn các bề mặt đóng có thể tồn tại trong vũ trụ** vào một danh sách gọn gàng duy nhất không? Câu trả lời là một trong những chiến thắng trọn vẹn nhất của toàn bộ lịch sử tô-pô học: **Định lý Phân loại Mặt đóng**! Mọi mặt đóng liên thông đều chỉ thuộc đúng **hai gia đình**: tổng liên thông của $$g$$ hình xuyến (định hướng được) hoặc tổng liên thông của $$k$$ mặt phẳng xạ ảnh (không định hướng được) — được nhận diện hoàn toàn chỉ bởi **tính định hướng** và **đặc trưng Euler $$\chi$$**!
+
 Một trong những kết quả kinh điển của tô-pô học là **Định lý phân loại các mặt compact (không biên)**:
 
 > **Mọi mặt compact liên thông (không biên) đều đồng phôi với đúng một mặt trong một danh sách chuẩn tắc đếm được.**
@@ -32,6 +34,66 @@ Danh sách chuẩn tắc gồm hai họ:
 Trong bài học này, chúng ta sẽ định nghĩa chính xác mặt (2-đa tạp), khảo sát các ví dụ cơ bản, phép tổng liên thông, tính định hướng được (orientability), đặc trưng Euler $\chi$, giống (genus) $g$, phát biểu Định lý phân loại và phác thảo ý tưởng chứng minh qua đa giác cơ bản.
 
 Các bất biến $\chi$ và tính định hướng được xác định duy nhất một mặt đóng liên thông sai khác phép đồng phôi; đồng thời, chúng kết nối trực tiếp với đồng điều (trong tô-pô đại số), định lý Gauss–Bonnet (trong hình học vi phân), vật lý lý thuyết (mặt thế giới trong lý thuyết dây) và đồ họa máy tính (phân tích lưới bề mặt 3D).
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Phân loại Mặt đóng là gì và dùng công cụ nào?
+
+### 1. Mặt (2-Đa tạp) & Tổng liên thông (Connected Sum $$\#$$)
+- **Bản chất:** Một **mặt đóng** là đa tạp 2 chiều, compact, liên thông và không có biên. Phép **tổng liên thông $$M_1 \# M_2$$** khoét một đĩa nhỏ trên mỗi mặt rồi dán hai đường biên tròn lại với nhau — giống như "phép cộng" các bề mặt (trong đó mặt cầu $$S^2$$ đóng vai trò số $$0$$: $$M \# S^2 \cong M$$!).
+
+### 2. Đa giác Dán cạnh (Polygonal Presentation) & Từ Biên
+- **Bản chất:** Mọi mặt đóng đều có thể cắt mở thành một đa giác phẳng với các cạnh được gán nhãn chữ cái có hướng (như $$aba^{-1}b^{-1}$$ cho hình xuyến $$T^2$$, hay $$aa$$ cho $$\mathbb{R}P^2$$). Các phép cắt–dán tổ hợp trên đa giác rút gọn mọi mặt phức tạp về đúng dạng chuẩn!
+
+### 3. Hai Bất biến Đầy đủ: Tính Định hướng & Đặc trưng Euler $$\chi$$
+- **Gia đình định hướng được:** $$S^2$$ ($$\chi=2$$) và $$\Sigma_g = T^2 \# \cdots \# T^2$$ ($$g$$ lần), với $$\chi(\Sigma_g) = 2 - 2g$$.
+- **Gia đình không định hướng được:** $$N_k = \mathbb{R}P^2 \# \cdots \# \mathbb{R}P^2$$ ($$k$$ lần), với $$\chi(N_k) = 2 - k$$ (chú ý quy tắc vàng của Dyck: $$T^2 \# \mathbb{R}P^2 \cong \mathbb{R}P^2 \# \mathbb{R}P^2 \# \mathbb{R}P^2 = N_3$$!).
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Đếm $$V - E + F$$ từ Từ biên của 3 mặt kinh điển
+
+Hãy tự tay tính đặc trưng Euler $$\chi = V - E + F$$ trực tiếp từ đa giác dán cạnh của 3 bề mặt quan trọng nhất:
+
+1. **Hình xuyến $$T^2$$ — Hình vuông với từ biên $$a b a^{-1} b^{-1}$$:**
+   - Mặt: $$F = 1$$ (lòng hình vuông).
+   - Cạnh: 4 cạnh dán thành 2 cặp $$a, b \implies E = 2$$.
+   - Đỉnh: đi vòng quanh một góc ta thấy cả 4 góc của hình vuông đều bị dán vào nhau thành đúng **1 đỉnh duy nhất** $$\implies V = 1$$.
+   - Vậy $$\chi(T^2) = 1 - 2 + 1 = 0$$ (định hướng được $$\implies g = 1$$!).
+
+2. **Mặt phẳng xạ ảnh thực $$\mathbb{R}P^2$$ — Nhị giác với từ biên $$a a$$:**
+   - Mặt: $$F = 1$$ (đĩa tròn).
+   - Cạnh: 2 nửa viền dán cùng chiều thành 1 cạnh $$a \implies E = 1$$.
+   - Đỉnh: hai đầu của $$a$$ dán trùng nhau thành đúng **1 đỉnh** $$\implies V = 1$$.
+   - Vậy $$\chi(\mathbb{R}P^2) = 1 - 1 + 1 = 1$$ (không định hướng được $$\implies k = 1$$!).
+
+3. **Chai Klein $$K$$ — Hình vuông với từ biên $$a b a^{-1} b$$:**
+   - Giống hình xuyến, $$F = 1,\; E = 2,\; V = 1 \implies \chi(K) = 1 - 2 + 1 = 0$$!
+   - Nhưng khác hình xuyến ở chỗ hai cạnh $$b$$ dán **cùng chiều** (chứa dải Möbius bên trong $$\implies$$ **không định hướng được**!).
+   - Tra ngay bảng phân loại: mặt không định hướng có $$\chi = 2 - k = 0 \implies k = 2$$, tức **$$K \cong \mathbb{R}P^2 \# \mathbb{R}P^2$$** (hai mặt phẳng xạ ảnh ghép lại, hay hai dải Möbius dán biên vào nhau!).
+
+### Khung giải thích: Con đường 4 bước dẫn tới Định lý Phân loại Mặt đóng (nên đọc chậm)
+
+#### Bước 1: Tam giác hóa và trải phẳng thành một đa giác duy nhất
+Mọi mặt đóng đều có thể chia thành hữu hạn tam giác (Định lý Radó). Dán lần lượt các tam giác dọc theo một cây khung sẽ trải toàn bộ mặt ra thành **một đa giác phẳng duy nhất** có các cạnh ghép cặp.
+
+#### Bước 2: Gom đỉnh và ghép cặp các cạnh cùng chiều / ngược chiều
+Bằng các nhát cắt chéo rồi dán lại trên đa giác (biến đổi cắt–dán không đổi tô-pô!), ta dồn tất cả các đỉnh về chung 1 đỉnh, đồng thời gom mọi cặp cạnh cùng chiều thành khối $$c_i c_i$$ (mũ chéo — crosscap $$\mathbb{R}P^2$$) và cặp ngược chiều đan xen thành khối $$a_j b_j a_j^{-1} b_j^{-1}$$ (quai cầm — handle $$T^2$$).
+
+#### Bước 3: Áp dụng Định lý Dyck để "nuốt" quai cầm vào mũ chéo
+Nếu mặt đã có ít nhất một mũ chéo (không định hướng được), mỗi quai cầm $$T^2$$ chạm vào mũ chéo $$\mathbb{R}P^2$$ sẽ biến thành 2 mũ chéo mới: $$T^2 \# \mathbb{R}P^2 \cong \mathbb{R}P^2 \# \mathbb{R}P^2 \# \mathbb{R}P^2$$! Nhờ đó ta không bao giờ có mặt "lai" giữa $$T^2$$ và $$\mathbb{R}P^2$$!
+
+#### Bước 4: Nhận diện tức thì mọi mặt đóng chỉ bằng 2 bước kiểm tra
+Gặp bất kỳ mặt đóng liên thông nào, chỉ cần kiểm tra đúng 2 điều: (1) nó có chứa dải Möbius (không định hướng) hay không? và (2) tính $$\chi = V - E + F$$. Bạn lập tức gọi tên chính xác mặt đó sai khác đồng phôi!
+
+$$
+\text{Mặt đóng }M
+\;\xrightarrow{\;\text{Cắt–dán đa giác}\;}\;
+\begin{cases}
+\text{Định hướng được: } \Sigma_g = \#^g T^2 \;(\chi = 2 - 2g) \\
+\text{Không định hướng: } N_k = \#^k \mathbb{R}P^2 \;(\chi = 2 - k)
+\end{cases}
+$$
 
 ---
 

@@ -16,11 +16,44 @@ description: "Nền tảng lý thuyết tập hợp: các tiên đề, hàm số
 
 ## 📖 Tổng quan
 
-Bài giảng mở đầu này đặt nền móng ngôn ngữ cho toàn bộ môn Tô-pô học. Trước khi làm việc với các khái niệm đặc trưng của tô-pô — chẳng hạn lý do chiếc cốc có quai và hình xuyến (bánh donut) được xem là tương đương về mặt tô-pô — ta cần xây dựng nền tảng chặt chẽ từ lý thuyết tập hợp.
+Năm 1874, Georg Cantor gửi đi một bài báo ngắn làm rung chuyển cả nền toán học đương đại: ông chứng minh rằng tập số thực $$\mathbb{R}$$ "lớn hơn hẳn" tập số tự nhiên $$\mathbb{N}$$, nghĩa là ngay cả **vô hạn cũng có nhiều bậc cao thấp khác nhau**. Cùng thời điểm đó, khi các nhà toán học cố gắng biến câu nói trực giác *"chiếc cốc cà phê và cái bánh donut thực chất là một hình duy nhất"* thành định lý chặt chẽ, họ nhận ra mọi khái niệm về không gian, lân cận, biến dạng liên tục hay phép "dán mép" đều quy về cùng một ngôn ngữ gốc: **lý thuyết tập hợp, ánh xạ và quan hệ tương đương**.
 
-Tô-pô học nghiên cứu các tính chất của không gian không thay đổi dưới các phép biến dạng liên tục. Để định nghĩa chính xác các khái niệm "không gian", "liên tục" và "bất biến", ta sử dụng ngôn ngữ của lý thuyết tập hợp. Đây không đơn thuần là hình thức hóa khô khan, mà là khung tổ chức cơ bản của toán học hiện đại.
+Bài giảng mở đầu này không phải thủ tục hình thức khô khan trước khi vào môn chính, mà là bộ công cụ thao tác hằng ngày của người làm tô-pô: dùng ánh xạ và ảnh ngược để so sánh không gian, dùng quan hệ tương đương để "dán" đoạn thẳng thành đường tròn hay hình vuông thành hình xuyến, và dùng lực lượng để phân biệt các bậc vô hạn trong các tiên đề đếm được sau này.
 
-**Tại sao bài này quan trọng?** Lý thuyết tập hợp cung cấp cả công cụ kỹ thuật lẫn nền tảng khái niệm cho toàn bộ môn tô-pô. Mọi đối tượng toán học, từ tập số tự nhiên đến các không gian tô-pô trừu tượng, đều được xây dựng từ tập hợp. Ánh xạ (hàm số) đóng vai trò cầu nối giữa các không gian, giúp so sánh và liên kết cấu trúc của chúng. Quan hệ tương đương cho phép đồng nhất các phần tử theo một tiêu chí nhất định để tạo ra không gian mới — đó chính là ý tưởng của không gian thương (*quotient space*), một phép xây dựng quan trọng trong tô-pô. Cuối cùng, khái niệm lực lượng (*cardinality*) giúp phân biệt các mức độ vô hạn khác nhau, vốn sẽ xuất hiện trực tiếp khi nghiên cứu các tiên đề đếm được và tính khả ly.
+**Mạch bài học:** Bản đồ kiến thức nền (tập hợp tiên đề, ánh xạ–ảnh ngược & quan hệ tương đương–lực lượng) → Khung giải thích chậm: tự tay kiểm tra sự khác biệt giữa ảnh trực tiếp $$f$$ và ảnh ngược $$f^{-1}$$ cùng phép dán đoạn thẳng thành đường tròn → Trực giác & Nghịch lý Russell → Hệ tiên đề ZF, ánh xạ, quan hệ và lực lượng → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Lý thuyết tập hợp, Ánh xạ và Quan hệ nghiên cứu những gì?
+
+Với một sinh viên vừa tốt nghiệp đại học, các ký hiệu $$\cup, \cap, f^{-1}, \sim$$ đã quá quen thuộc, nhưng khi bước sang Tô-pô học, chúng mang ba vai trò cấu trúc hoàn toàn mới:
+
+### 1. Lý thuyết tập hợp tiên đề (ZF) và bài học từ Nghịch lý Russell
+
+Nếu cho phép gom mọi đối tượng tùy ý thành một tập hợp, ta lập tức vướng **Nghịch lý Russell** với "tập của mọi tập không chứa chính nó" $$R = \{x : x \notin x\}$$. Hệ tiên đề Zermelo–Fraenkel (ZF) đặt luật chơi an toàn để ta yên tâm xây dựng các đối tượng khổng lồ trong tô-pô — như tập lũy thừa $$\mathcal{P}(X)$$ (nơi chứa mọi tô-pô khả dĩ trên $$X$$) hay họ vô hạn các tập mở.
+
+### 2. Ánh xạ và sức mạnh đặc biệt của ảnh ngược $$f^{-1}$$
+
+Trong giải tích, ta hay nhìn hàm số theo chiều thuận $$x \mapsto f(x)$$. Trong tô-pô, nhân vật chính lại là **ảnh ngược** $$f^{-1}(B) = \{x \in X : f(x) \in B\}$$ vì lý do cực kỳ sâu sắc: ảnh ngược **bảo toàn tuyệt đối** mọi phép toán tập hợp (hợp, giao, hiệu, phần bù), trong khi ảnh trực tiếp $$f(A)$$ lại thất bại ở phép giao và phần bù! Chính nhờ tính chất này mà định nghĩa ánh xạ liên tục trong tô-pô được phát biểu gọn gàng qua $$f^{-1}$$.
+
+### 3. Quan hệ tương đương (phép dán không gian) và Lực lượng vô hạn
+
+Một **quan hệ tương đương** $$\sim$$ phân hoạch tập $$X$$ thành các lớp tương đương rời nhau tạo nên tập thương $$X/\!\sim$$. Trong tô-pô, đó chính là kéo và keo dán: dán hai đầu $$0 \sim 1$$ của đoạn $$[0,1]$$ ta được đường tròn $$S^1$$; dán hai cặp cạnh đối diện của hình vuông $$[0,1]^2$$ ta được hình xuyến $$T^2$$. Còn **lực lượng** ($$\aleph_0$$ so với $$\mathfrak{c} = 2^{\aleph_0}$$) quyết định không gian có đếm được hay khả ly hay không.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng ảnh ngược $$f^{-1}$$ và phép "dán" đường tròn
+
+Để thấy vì sao tô-pô ưu ái ảnh ngược $$f^{-1}$$ thay vì ảnh trực tiếp $$f$$, hãy tự tay kiểm tra trên hàm quen thuộc $$f: \mathbb{R} \to \mathbb{R}$$, $$f(x) = x^2$$:
+
+1. **Ảnh trực tiếp $$f$$ làm hỏng phép giao:** Chọn $$A = [-2, 0]$$ và $$B = [0, 2]$$.
+   - Tính giao trước rồi lấy ảnh: $$A \cap B = \{0\} \implies f(A \cap B) = \{0\}$$.
+   - Lấy ảnh trước rồi tính giao: $$f(A) = [0, 4]$$ và $$f(B) = [0, 4] \implies f(A) \cap f(B) = [0, 4]$$.
+   - Kết quả: $$f(A \cap B) = \{0\} \subsetneq [0, 4] = f(A) \cap f(B)$$ — **hai vế không bằng nhau!** (Lý do: $$f$$ không đơn ánh, cả $$-2$$ và $$2$$ đều rơi về cùng giá trị $$4$$.)
+2. **Ảnh ngược $$f^{-1}$$ bảo toàn chính xác phép giao:** Chọn $$U = [0, 4]$$ và $$V = [1, 9]$$.
+   - Tính giao trước rồi lấy ảnh ngược: $$U \cap V = [1, 4] \implies f^{-1}(U \cap V) = [-2, -1] \cup [1, 2]$$.
+   - Lấy ảnh ngược trước rồi tính giao: $$f^{-1}(U) = [-2, 2]$$ và $$f^{-1}(V) = [-3, -1] \cup [1, 3]$$, giao lại được đúng $$[-2, -1] \cup [1, 2]$$!
+3. **Quan hệ tương đương biến đoạn thẳng thành đường tròn:** Trên $$X = [0, 1]$$, định nghĩa $$x \sim y$$ khi $$x = y$$ hoặc $$\{x, y\} = \{0, 1\}$$. Khi đó lớp tương đương của mọi điểm trong $$(0, 1)$$ là tập một phần tử $$\{x\}$$, còn hai đầu mút gộp thành một điểm duy nhất $$\{0, 1\}$$. Về mặt tập hợp, tập thương $$[0, 1]/\!\sim$$ tương ứng 1–1 với đường tròn $$S^1$$ qua ánh xạ $$[t] \mapsto (\cos 2\pi t,\, \sin 2\pi t)$$!
 
 ---
 

@@ -16,13 +16,48 @@ description: "Số thực, không gian Euclid, metric topology, và các tính c
 
 ## 📖 Tổng quan
 
-Sau khi xây dựng nền tảng logic và lý thuyết tập hợp, ta đi đến ví dụ cụ thể đầu tiên và quen thuộc nhất: tập số thực $\mathbb{R}$ và không gian Euclid $\mathbb{R}^n$. Đây không chỉ là ví dụ minh họa, mà còn là nguồn gốc trực tiếp tạo động lực cho sự ra đời của tô-pô học.
+Hơn hai nghìn năm trước, các môn đồ trường phái Pythagoras đã bàng hoàng khi phát hiện đường chéo của hình vuông cạnh $$1$$ — tức $$\sqrt{2}$$ — không thể viết dưới dạng tỉ số của hai số nguyên nào. Điều đó có nghĩa là trục số hữu tỉ $$\mathbb{Q}$$, dù dày đặc đến đâu, thực ra lại **chi chít những lỗ thủng vô hình**! Để vá kín toàn bộ các lỗ thủng ấy, toán học thế kỷ XIX xây dựng nên tập số thực $$\mathbb{R}$$ đầy đủ, rồi mở rộng ra không gian Euclid $$\mathbb{R}^n$$ và khái niệm tổng quát hơn là **không gian mê-tric**.
 
-Tô-pô học phát triển từ câu hỏi cốt lõi của giải tích: "Tính liên tục thực chất là gì?" Giải tích định nghĩa liên tục qua $\varepsilon$ và $\delta$, dựa vào khoảng cách số học. Về sau, các nhà toán học nhận ra rằng bản chất của tính liên tục không phụ thuộc vào giá trị cụ thể của khoảng cách mà phụ thuộc vào **cấu trúc tập mở của không gian**.
+Nhưng điều bất ngờ nhất chỉ đến ở bước cuối cùng của bài giảng này: khi bạn thay chiếc thước đo Euclid quen thuộc bằng thước đo "đường phố Manhattan" ($$d_1$$) hay thước đo cực đại ($$d_\infty$$), hình dạng quả cầu đổi từ hình tròn sang hình thoi rồi hình vuông — **vậy mà họ các tập mở sinh ra vẫn giống hệt nhau!** Chính phát hiện sâu sắc đó đã mở cánh cửa bước từ Giải tích sang Tô-pô học.
 
-Trong bài giảng này, ta sẽ phác thảo cách xây dựng $\mathbb{R}$ từ $\mathbb{Q}$, tìm hiểu **tính đầy đủ** (*completeness*) của $\mathbb{R}$, định nghĩa **mê-tric** (*metric*) và **không gian mê-tric**, khảo sát **tô-pô Euclid** trên $\mathbb{R}^n$, và thấy rõ cách tô-pô trừu tượng hóa các khái niệm khoảng cách.
+**Mạch bài học:** Bản đồ kiến thức nền (tính đầy đủ của $$\mathbb{R}$$, không gian mê-tric & sự tương đương tô-pô giữa các mê-tric) → Khung giải thích chậm: cầm tay so sánh 3 hình cầu đơn vị $$d_1, d_2, d_\infty$$ trên $$\mathbb{R}^2$$ tại điểm $$(0.6, 0.6)$$ → Xây dựng $$\mathbb{R}$$, mê-tric và hội tụ → Bài tập & Tóm tắt.
 
-**Tại sao bài này quan trọng?** Không gian $\mathbb{R}^n$ là mô hình được sử dụng phổ biến nhất trong cả lý thuyết lẫn ứng dụng. Không gian mê-tric đóng vai trò cầu nối giữa giải tích và tô-pô, nơi các khái niệm như tập mở, tập đóng và ánh xạ liên tục có ý nghĩa hình học rõ ràng. Ngoài ra, tính đầy đủ là tính chất nền tảng cho nhiều định lý hội tụ quan trọng.
+---
+
+## Bản đồ kiến thức nền: Số thực, Không gian Mê-tric và Tô-pô Mê-tric nghiên cứu những gì?
+
+### 1. Tính đầy đủ của $$\mathbb{R}$$ — "vá kín" mọi dãy Cauchy
+
+Một tập số có thể trù mật (giữa hai số hữu tỉ bất kỳ luôn có số hữu tỉ khác) mà vẫn "thủng lỗ chỗ" như $$\mathbb{Q}$$. **Tiên đề đầy đủ** (mọi tập khác rỗng bị chặn trên đều có cận trên đúng $$\sup$$, hay tương đương: mọi dãy Cauchy đều hội tụ trong $$\mathbb{R}$$) chính là thứ giúp định lý giá trị trung gian, định lý Bolzano–Weierstrass và phép tính giới hạn vận hành trơn tru.
+
+### 2. Không gian mê-tric: trừu tượng hóa khái niệm khoảng cách
+
+Maurice Fréchet (1906) nhận ra nhiều định lý giải tích không cần tọa độ hay phép cộng vectơ, mà chỉ cần một hàm khoảng cách $$d(x, y)$$ thỏa 3 tiên đề: không âm & xác định dương, đối xứng, và **bất đẳng thức tam giác** $$d(x, z) \le d(x, y) + d(y, z)$$. Từ đó ta có thể đo khoảng cách giữa hai hàm liên tục, hai chuỗi DNA, hay hai bức ảnh!
+
+### 3. Tô-pô mê-tric: khi "khoảng cách cụ thể" nhường chỗ cho "họ tập mở"
+
+Mỗi mê-tric $$d$$ sinh ra một họ tập mở thông qua các hình cầu mở $$B_d(x, r) = \{y : d(x, y) < r\}$$. Hai mê-tric khác nhau hoàn toàn về con số đo được vẫn có thể sinh ra **cùng một tô-pô** (cùng họ tập mở, cùng các dãy hội tụ, cùng các hàm liên tục) nếu các hình cầu của mê-tric này luôn lồng được vào trong hình cầu của mê-tric kia.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay so sánh 3 thước đo $$d_1, d_2, d_\infty$$ trên mặt phẳng $$\mathbb{R}^2$$
+
+Xét gốc tọa độ $$O = (0, 0)$$ và điểm $$P = (0.6,\; 0.6) \in \mathbb{R}^2$$. Hãy tính khoảng cách từ $$O$$ tới $$P$$ theo 3 mê-tric kinh điển trên $$\mathbb{R}^2$$:
+
+1. **Tính cụ thể tại $$P = (0.6,\; 0.6)$$:**
+   - **Mê-tric cực đại** $$d_\infty(O, P) = \max(\lvert 0.6 \rvert, \lvert 0.6 \rvert) = \mathbf{0.6} < 1 \implies P \in B_{d_\infty}(O, 1)$$ (hình vuông mở $$(-1,1)^2$$).
+   - **Mê-tric Euclid** $$d_2(O, P) = \sqrt{0.6^2 + 0.6^2} = \sqrt{0.72} \approx \mathbf{0.849} < 1 \implies P \in B_{d_2}(O, 1)$$ (hình tròn mở bán kính $$1$$).
+   - **Mê-tric Manhattan** $$d_1(O, P) = \lvert 0.6 \rvert + \lvert 0.6 \rvert = \mathbf{1.2} > 1 \implies P \notin B_{d_1}(O, 1)$$ (hình thoi mở với 4 đỉnh $$(\pm 1, 0), (0, \pm 1)$$).
+2. **Chuỗi bất đẳng thức lồng nhau cho mọi $$x = (x_1, x_2) \in \mathbb{R}^2$$:**
+   $$
+   d_\infty(O, x) \;\le\; d_2(O, x) \;\le\; d_1(O, x) \;\le\; 2\,d_\infty(O, x).
+   $$
+   Thay thử $$P = (0.6, 0.6)$$: $$0.6 \le 0.849 \le 1.2 \le 2 \times 0.6 = 1.2$$ — khớp chính xác!
+3. **Hệ quả hình học (tại sao cả 3 sinh cùng một tô-pô?):** Với mọi bán kính $$r > 0$$, chuỗi bất đẳng thức trên tương đương với việc lồng hình cầu:
+   $$
+   B_{d_1}(O, r) \;\subset\; B_{d_2}(O, r) \;\subset\; B_{d_\infty}(O, r) \;\subset\; B_{d_1}(O, 2r).
+   $$
+   Nghĩa là quanh bất kỳ điểm nào nằm trong một hình tròn mở, bạn luôn nhét gọn được một hình vuông mở nhỏ hơn và một hình thoi mở nhỏ hơn nữa — do đó một tập hợp là mở theo $$d_1$$ khi và chỉ khi nó mở theo $$d_2$$ và theo $$d_\infty$$!
 
 ---
 

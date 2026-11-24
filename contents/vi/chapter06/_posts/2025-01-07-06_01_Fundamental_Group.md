@@ -16,6 +16,8 @@ description: "Fundamental group π₁(X,x₀): định nghĩa, group structure, 
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Hãy tưởng tượng bạn buộc một sợi dây thun vào một chiếc cọc cố định $$x_0$$ trên mặt đất, cầm đầu dây đi dạo một vòng khắp không gian $$X$$ rồi buộc lại vào đúng chiếc cọc $$x_0$$. Nếu không gian phẳng phiu không có vật cản, bạn luôn thu gọn sợi dây về sát chiếc cọc. Nhưng nếu có một cái cột (lỗ thủng) ở giữa, sợi dây có thể quấn quanh cột 1 vòng, 2 vòng, hay ngược chiều $$-1$$ vòng mà không thể tháo ra được! Năm 1895, Henri Poincaré đã biến trò thả dây ấy thành một **nhóm đại số** thực thụ mang tên **Nhóm cơ bản $$\pi_1(X, x_0)$$** — chiếc cầu vàng đầu tiên dịch tô-pô sang lý thuyết nhóm!
+
 Từ khái niệm đồng luân đường ở bài học trước, chúng ta xây dựng bất biến đại số đầu tiên của tô-pô học: **nhóm cơ bản** (fundamental group).
 
 > **Với mỗi không gian có điểm cơ sở $(X, x_0)$, ta gán một nhóm $\pi_1(X, x_0)$ có các phần tử là các lớp đồng luân đường của các vòng khép kín tại $x_0$.**
@@ -26,6 +28,62 @@ Cách tiếp cận do Henri Poincaré khởi xướng năm 1895 chuyển câu h�
 *Minh họa các vòng khép kín và cấu trúc nhóm cơ bản*
 
 Trong bài học này, chúng ta sẽ xây dựng tường minh $\pi_1(X, x_0)$, kiểm chứng các tiên đề nhóm với phép nối đường đi, phân tích một số ví dụ cơ bản ($\mathbb{R}^n$, $S^1$, $S^n$ với $n \ge 2$, $T^2$), chứng minh tính độc lập (sai khác đẳng cấu) đối với điểm cơ sở trên không gian liên thông đường, đồng thời thiết lập tính hàm tử (functoriality) và tính bất biến đồng luân của $\pi_1$.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Nhóm cơ bản $$\pi_1(X, x_0)$$ là gì và hoạt động như thế nào?
+
+### 1. Hàm tử từ Tô-pô sang Lý thuyết Nhóm ($$\mathbf{Top}_* \to \mathbf{Grp}$$)
+- **Bản chất:** Nhóm cơ bản gán cho mỗi không gian có điểm gốc $$(X, x_0)$$ một nhóm $$\pi_1(X, x_0)$$ (tập các lớp đồng luân của vòng khép kín tại $$x_0$$ với phép nối vòng $$[\alpha]\cdot[\beta] = [\alpha * \beta]$$), và gán cho mỗi ánh xạ liên tục $$f: (X, x_0) \to (Y, y_0)$$ một **đồng cấu nhóm** $$f_*: \pi_1(X, x_0) \to \pi_1(Y, y_0)$$.
+- **Hệ quả vàng:** Nếu $$X \simeq Y$$ (đặc biệt nếu $$X \cong Y$$), thì **$$\pi_1(X) \cong \pi_1(Y)$$**! Muốn chứng minh hai không gian không đồng phôi, chỉ cần chứng minh nhóm cơ bản của chúng không đẳng cấu!
+
+### 2. Tính Đơn liên (Simply Connected)
+- **Bản chất:** Không gian liên thông đường có $$\pi_1(X) = \{1\}$$ (mọi vòng đều co về một điểm) gọi là **đơn liên** — ví dụ $$\mathbb{R}^n$$, đĩa $$D^n$$, và mặt cầu $$S^n$$ (với $$n \ge 2$$!).
+
+### 3. Tính Giao hoán vs. Không Giao hoán của $$\pi_1$$
+- **Điểm cực kỳ thú vị:** Khác với đồng điều $$H_1$$ luôn giao hoán, **$$\pi_1$$ có thể KHÔNG giao hoán**! Trên hình số 8 ($$S^1 \vee S^1$$), đi vòng trái $$a$$ rồi vòng phải $$b$$ khác hẳn đi vòng phải $$b$$ rồi vòng trái $$a$$ ($$ab \neq ba$$)! Chính vì vậy $$\pi_1$$ nhạy hơn $$H_1$$ trong việc phân biệt các không gian có nhiều lỗ nối chung.
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: So sánh $$\pi_1(T^2)$$ (giao hoán) vs. $$\pi_1(S^1 \vee S^1)$$ (không giao hoán)
+
+1. **Kiểm tra công thức phép nối vòng và phần tử nghịch đảo:**
+   Cho hai vòng $$\alpha, \beta: [0,1] \to X$$ tại $$x_0$$. Phép nối $$(\alpha * \beta)(s)$$ chạy gấp đôi tốc độ trên $$\alpha$$ ở nửa đầu $$[0, \tfrac{1}{2}]$$ và chạy trên $$\beta$$ ở nửa sau $$[\tfrac{1}{2}, 1]$$. Vòng ngược là $$\bar{\alpha}(s) = \alpha(1 - s)$$.
+   Để chứng minh $$[\alpha * \bar{\alpha}] = [c_{x_0}]$$ bằng tay, ta chỉ cần kéo tụt điểm quay đầu lùi dần về $$0$$ qua công thức đồng luân tường minh:
+   $$
+   H(s, t) = \begin{cases} \alpha(2s) & \text{nếu } 0 \le s \le \frac{1-t}{2}, \\ \alpha(1-t) & \text{nếu } \frac{1-t}{2} \le s \le \frac{1+t}{2}, \\ \alpha(2 - 2s) & \text{nếu } \frac{1+t}{2} \le s \le 1. \end{cases}
+   $$
+   Kiểm tra: tại $$t=0$$ ta thu đúng $$\alpha * \bar{\alpha}$$; tại $$t=1$$ toàn bộ vòng dừng im tại $$\alpha(0) = x_0$$! ✓
+
+2. **Tại sao trên Hình xuyến $$T^2 = S^1 \times S^1$$ ta có $$ab = ba$$, còn trên Hình số 8 $$S^1 \vee S^1$$ thì $$ab \neq ba$$?**
+   - **Trên hình xuyến $$T^2$$:** Do định lý tích $$\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$$, ta có ngay:
+     $$
+     \pi_1(T^2) \cong \pi_1(S^1) \times \pi_1(S^1) \cong \mathbb{Z} \times \mathbb{Z}.
+     $$
+     Trực quan hình học: khi cắt hình xuyến ra thành hình vuông $$[0,1]^2$$, đường biên là đúng vòng $$a * b * a^{-1} * b^{-1}$$. Vì **có mặt vuông đặc lấp kín bên trong**, ta kéo trượt đường biên co rút gọn về 1 điểm $$\implies a b a^{-1} b^{-1} = 1 \implies ab = ba$$!
+   - **Trên hình số 8 ($$S^1 \vee S^1$$):** Hãy tưởng tượng bạn **đục thủng** toàn bộ mặt vuông của hình xuyến, chỉ giữ lại đúng 2 vòng biên $$a$$ và $$b$$ chạm nhau tại 1 điểm! Không còn mặt vuông nào để kéo trượt $$ab$$ sang $$ba$$ nữa $$\implies \pi_1(S^1 \vee S^1) \cong F_2 = \langle a, b \rangle$$ (nhóm tự do 2 phần tử sinh, **không giao hoán**!).
+
+### Khung giải thích: 4 bước làm chủ tư duy Hàm tử của Nhóm cơ bản (nên đọc chậm)
+
+#### Bước 1: Kiểm tra tính độc lập với điểm gốc $$x_0$$
+Nếu $$X$$ liên thông đường, mọi đường đi $$\gamma$$ nối $$x_0$$ tới $$x_1$$ cho phép dịch chuyển vòng tại $$x_1$$ về $$x_0$$ bằng cách "đi theo $$\gamma$$, chạy vòng, rồi quay về theo $$\bar{\gamma}$$" — sinh ra đẳng cấu $$\pi_1(X, x_0) \cong \pi_1(X, x_1)$$.
+
+#### Bước 2: Dùng phép đồng cấu cảm sinh $$f_*$$ để chứng minh KHÔNG tồn tại ánh xạ co rút
+Nếu $$A \subseteq X$$ có phép co rút $$r: X \to A$$ ($$r \circ i = \operatorname{id}_A$$), thì $$r_* \circ i_* = \operatorname{id}_{\pi_1(A)}$$ ép $$i_*$$ phải đơn ánh và $$r_*$$ phải toàn ánh! Nếu $$\pi_1(X) = 0$$ còn $$\pi_1(A) \neq 0$$, điều đó là **bất khả thi** (chìa khóa của Định lý điểm bất động Brouwer!).
+
+#### Bước 3: Khai thác Định lý Tích
+Không gian tích biến thành nhóm tích trực tiếp: $$\pi_1(X \times Y) \cong \pi_1(X) \times \pi_1(Y)$$ — cho ngay $$\pi_1(T^n) \cong \mathbb{Z}^n$$ và $$\pi_1(S^1 \times S^2) \cong \mathbb{Z} \times 0 \cong \mathbb{Z}$$!
+
+#### Bước 4: Chuẩn bị hai công cụ tính mạnh ở bài sau
+Khi không gian không phải là tích đơn giản, ta dùng hai vũ khí hạng nặng của Chương 06: **Không gian phủ** (tính $$\pi_1(S^1), \pi_1(\mathbb{R}P^n)$$) và **Định lý Seifert–van Kampen** (tính $$\pi_1$$ bằng cách ghép 2 mảnh mở!).
+
+$$
+(X, x_0) \xrightarrow{\;f\;} (Y, y_0)
+\;\xRightarrow{\;\text{Hàm tử }\pi_1\;}\;
+\pi_1(X, x_0) \xrightarrow{\;f_*\;} \pi_1(Y, y_0)
+\;\Longrightarrow\;
+\text{Không đồng phôi \& Điểm bất động Brouwer}.
+$$
 
 ---
 

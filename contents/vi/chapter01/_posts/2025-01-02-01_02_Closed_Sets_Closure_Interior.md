@@ -16,11 +16,47 @@ description: "Tập đóng, closure operator, interior, boundary, và limit poin
 
 ## 📖 Tổng quan
 
-Hai bài trước tập trung vào **tập mở** — khái niệm nguyên thủy của tô-pô. Tuy nhiên, cấu trúc tô-pô mang tính đối ngẫu rõ rệt: song hành với tập mở là **tập đóng** (*closed set*). Từ cặp khái niệm này hình thành ba toán tử quan trọng tác động lên mọi tập con: **phần trong** ($\text{int}$) lấy phần nằm hoàn toàn bên trong, **bao đóng** ($\text{cl}$) bổ sung thêm phần biên, và **biên** ($\partial$) xác định ranh giới giữa trong và ngoài.
+Hãy nghĩ về đường biên giới của một quốc gia trên bản đồ. Có những ngôi làng nằm sâu hẳn bên trong đất liền (**phần trong**), có những cột mốc đứng đúng trên ranh giới mà chỉ cần bước một bước nhỏ là sang nước bạn (**biên**), và khi gom cả đất liền lẫn đường biên giới ta được toàn bộ lãnh thổ khép kín (**bao đóng**).
 
-Các toán tử này xuất hiện xuyên suốt toàn bộ tô-pô học. Tính **trù mật** (*density*) được định nghĩa bằng điều kiện $\text{cl}(A) = X$; tính **liên tục** có đặc trưng tương đương qua nghịch ảnh tập đóng hoặc qua toán tử bao đóng; và việc phân loại vị trí của điểm so với một tập hợp (điểm trong, điểm biên, điểm tụ, điểm cô lập) đều dựa trực tiếp vào chúng.
+Điều kỳ thú trong Tô-pô học là trực giác bản đồ đó vẫn đúng một cách đáng kinh ngạc — nhưng đồng thời cũng ẩn chứa những cú sốc thú vị: trên trục số thực $$\mathbb{R}$$, tập số hữu tỉ $$\mathbb{Q}$$ có **phần trong rỗng tuếch** (không chứa nổi một khoảng mở bé xíu nào) nhưng **biên của nó lại là toàn bộ trục số $$\mathbb{R}$$**! Bài giảng này xây dựng trọn vẹn hệ sinh thái đối ngẫu giữa tập mở và tập đóng, cùng ba toán tử nền tảng $$\operatorname{int}$$, $$\operatorname{cl}$$, $$\partial$$, điểm tụ và tính trù mật.
 
-Bài giảng này xây dựng có hệ thống các tiên đề của tập đóng, các tính chất của toán tử bao đóng (hệ tiên đề Kuratowski), điểm tụ và điểm cô lập, toán tử phần trong cùng quan hệ đối ngẫu với bao đóng, khái niệm biên, tập trù mật và tập không đâu trù mật.
+**Mạch bài học:** Bản đồ kiến thức nền (đối ngẫu mở–đóng & tiên đề Kuratowski, phân loại điểm & tính trù mật) → Khung giải thích chậm: cầm tay tính trọn bộ $$\operatorname{int}, \operatorname{cl}, \partial, A'$$ cho 3 tập mẫu kinh điển trên $$\mathbb{R}$$ → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Tập đóng, Bao đóng, Phần trong và Biên nghiên cứu những gì?
+
+### 1. Đối ngẫu Mở – Đóng và Hệ tiên đề bao đóng Kuratowski
+
+Qua định luật De Morgan, mọi phát biểu về tập mở đều có "bản soi gương" cho tập đóng: giao *tùy ý* các tập đóng là đóng, còn hợp *hữu hạn* các tập đóng là đóng. Kazimierz Kuratowski (1922) thậm chí chứng minh rằng ta có thể định nghĩa toàn bộ một không gian tô-pô chỉ từ toán tử bao đóng $$\operatorname{cl}$$ thỏa 4 tiên đề ($$\operatorname{cl}(\emptyset)=\emptyset$$, $$A \subseteq \operatorname{cl}(A)$$, $$\operatorname{cl}(\operatorname{cl}(A))=\operatorname{cl}(A)$$, $$\operatorname{cl}(A \cup B)=\operatorname{cl}(A)\cup\operatorname{cl}(B)$$).
+
+### 2. Bốn vai trò của một điểm so với tập $$A$$
+
+- **Điểm trong** ($$x \in \operatorname{int}(A)$$): có một lân cận mở quanh $$x$$ nằm trọn trong $$A$$.
+- **Điểm biên** ($$x \in \partial A$$): mọi lân cận mở quanh $$x$$ đều cắt cả $$A$$ lẫn $$X \setminus A$$.
+- **Điểm tụ** ($$x \in A'$$): mọi lân cận mở quanh $$x$$ đều chứa ít nhất một điểm của $$A$$ *khác $$x$$*.
+- **Điểm cô lập**: thuộc $$A$$ nhưng không phải điểm tụ (có thể khoanh một vòng mở quanh nó không chạm điểm nào khác của $$A$$).
+
+### 3. Tập trù mật (Dense) và Tập không đâu trù mật (Nowhere Dense)
+
+Tập $$D$$ gọi là **trù mật** trong $$X$$ nếu $$\operatorname{cl}(D) = X$$ — nghĩa là mọi tập mở khác rỗng đều chạm vào $$D$$ (như $$\mathbb{Q}$$ trong $$\mathbb{R}$$). Ngược lại, tập không đâu trù mật (như tập Cantor) có $$\operatorname{int}(\operatorname{cl}(A)) = \emptyset$$ — mỏng đến mức ngay cả khi đóng kín lại vẫn không chứa nổi một khoảng mở nào.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay tính $$\operatorname{int}(A), \operatorname{cl}(A), \partial A$$ và $$A'$$ cho 3 tập mẫu trên $$\mathbb{R}$$
+
+Hãy tự tay tính đủ 4 đại lượng cho ba tập con của $$\mathbb{R}$$ (với tô-pô Euclid chuẩn) và kiểm tra công thức $$\operatorname{cl}(A) = A \cup A' = \operatorname{int}(A) \cup \partial A$$:
+
+| Tập con $$A \subset \mathbb{R}$$ | Phần trong $$\operatorname{int}(A)$$ | Tập điểm tụ $$A'$$ | Bao đóng $$\operatorname{cl}(A)$$ | Biên $$\partial A = \operatorname{cl}(A)\setminus\operatorname{int}(A)$$ |
+|---|---|---|---|---|
+| $$A_1 = [0, 1) \cup \{2\}$$ | $$(0, 1)$$ | $$[0, 1]$$ | $$[0, 1] \cup \{2\}$$ | $$\{0, 1, 2\}$$ |
+| $$A_2 = \mathbb{Q}$$ | $$\emptyset$$ | $$\mathbb{R}$$ | $$\mathbb{R}$$ | $$\mathbb{R}$$ |
+| $$A_3 = \bigl\{\tfrac{1}{n} : n \in \mathbb{N}^*\bigr\}$$ | $$\emptyset$$ | $$\{0\}$$ | $$A_3 \cup \{0\}$$ | $$A_3 \cup \{0\}$$ |
+
+**Kiểm tra từng chi tiết thú vị:**
+1. Với $$A_1 = [0, 1) \cup \{2\}$$: điểm $$2$$ thuộc $$A_1$$ nhưng không thuộc $$A_1'$$ (vì khoảng mở $$(1.5, 2.5)$$ chỉ cắt $$A_1$$ tại đúng $$2$$) → $$2$$ là **điểm cô lập**, đồng thời là điểm biên vì mọi khoảng quanh $$2$$ đều cắt cả $$A_1$$ (tại $$2$$) lẫn $$\mathbb{R}\setminus A_1$$. Còn điểm $$1 \notin A_1$$ nhưng là điểm tụ nên bị hút vào bao đóng!
+2. Với $$A_2 = \mathbb{Q}$$: mọi khoảng mở $$(a, b)$$ đều chứa cả số hữu tỉ lẫn số vô tỉ, nên không có khoảng nào nằm trọn trong $$\mathbb{Q}$$ ($$\operatorname{int}(\mathbb{Q}) = \emptyset$$), trong khi mọi số thực đều là giới hạn của dãy số hữu tỉ ($$\operatorname{cl}(\mathbb{Q}) = \mathbb{R}$$). Do đó **biên của $$\mathbb{Q}$$ là toàn bộ $$\mathbb{R}$$**!
+3. Với $$A_3 = \{1, 1/2, 1/3, \dots\}$$: mọi điểm $$1/n$$ đều cô lập, nhưng dãy $$1/n \to 0$$ làm cho $$0$$ trở thành điểm tụ duy nhất — chứng tỏ $$A_3$$ **không đóng** vì thiếu mất điểm tụ $$0$$!
 
 ---
 

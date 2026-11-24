@@ -16,21 +16,54 @@ description: "T₃ (Regular) và T₄ (Normal) spaces, Urysohn's Lemma, Tietze E
 
 ## 📖 Tổng quan
 
-Sau khi tìm hiểu cách tách hai **điểm** qua $T_0, T_1, T_2$, bài giảng này mở rộng sang việc tách **một điểm khỏi một tập đóng** và tách **hai tập đóng rời nhau**, hoàn thiện hệ phân tầng các tiên đề tách chuẩn:
+Tiên đề Hausdorff ($$T_2$$) giúp ta tách rời hai *điểm* phân biệt bằng hai tập mở. Nhưng trong giải tích và hình học, ta thường cần làm nhiều hơn thế: làm sao tách một điểm khỏi một *tập đóng* lớn, hay tách hẳn *hai tập đóng rời nhau* $$A$$ và $$B$$ — thậm chí dựng được một **hàm liên tục thực** bằng đúng $$0$$ trên toàn bộ $$A$$ và bằng đúng $$1$$ trên toàn bộ $$B$$?
+
+Đó chính là bước nhảy vọt kỳ diệu của bài giảng này: từ các điều kiện thuần túy tập hợp (**chính quy $$T_3$$**, **chuẩn tắc $$T_4$$**) bỗng nhiên **sinh ra được hàm số liên tục**! Hai đỉnh cao của chương — **Bổ đề Urysohn** và **Định lý mở rộng Tietze** — chính là chiếc cầu nối biến tô-pô trừu tượng thành giải tích thực sự.
 
 $$
 T_4 \subset T_{3.5} \subset T_3 \subset T_2
 $$
 
-Cụ thể:
-- **$T_3$ (Chính quy + $T_1$):** Tách một điểm và một tập đóng không chứa nó bằng hai tập mở rời nhau.
-- **$T_{3.5}$ (Hoàn toàn chính quy / Tychonoff):** Tách một điểm và một tập đóng không chứa nó bằng một hàm liên tục nhận giá trị trong $[0, 1]$.
-- **$T_4$ (Chuẩn tắc + $T_1$):** Tách hai tập đóng rời nhau bằng hai tập mở rời nhau.
-
 ![Regular and Normal spaces](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Normal_space.svg/500px-Normal_space.svg.png)  
 *Không gian chuẩn tắc: hai tập đóng rời nhau có hai lân cận mở rời nhau - Nguồn minh họa khái niệm*
 
-Từ tính chuẩn tắc, ta chứng minh hai kết quả nền tảng của tô-pô đại cương là **Bổ đề Urysohn** (sự tồn tại hàm liên tục tách hai tập đóng rời nhau) và **Định lý mở rộng Tietze** (mở rộng hàm liên tục từ tập con đóng ra toàn không gian).
+**Mạch bài học:** Bản đồ kiến thức nền (từ tách điểm sang tách tập đóng $$T_3, T_{3.5}, T_4$$, ý nghĩa của Bổ đề Urysohn & Định lý mở rộng Tietze) → Khung giải thích chậm: cầm tay dựng hàm Urysohn tường minh trên $$\mathbb{R}$$ tách $$(-\infty, 0]$$ và $$[2, +\infty)$$ → Định nghĩa hình thức & Chứng minh → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Không gian Chính quy, Chuẩn tắc và Bổ đề Urysohn nghiên cứu những gì?
+
+### 1. Bộ ba $$T_3, T_{3.5}, T_4$$: tăng dần sức mạnh phân tách tập đóng
+
+- **$$T_3$$ (Chính quy + $$T_1$$):** Tách một điểm $$x$$ và một tập đóng $$F \not\ni x$$ bằng hai tập mở rời nhau.
+- **$$T_{3.5}$$ (Hoàn toàn chính quy / Tychonoff):** Tách $$x$$ và $$F \not\ni x$$ bằng một **hàm liên tục** $$f: X \to [0, 1]$$ sao cho $$f(x) = 0$$ và $$f(F) \subseteq \{1\}$$ (lớp không gian chính xác có compact hóa Stone–Čech!).
+- **$$T_4$$ (Chuẩn tắc + $$T_1$$):** Tách *hai tập đóng rời nhau bất kỳ* $$A, B$$ bằng hai tập mở rời nhau $$U \supseteq A,\; V \supseteq B$$. Mọi không gian mê-tric và mọi không gian compact Hausdorff đều là $$T_4$$!
+
+### 2. Bổ đề Urysohn: "điều kỳ diệu tạo hàm liên tục từ hư không"
+
+Trong một không gian $$T_4$$ bất kỳ, ta chưa hề có thước đo khoảng cách hay tọa độ — vậy mà Pavel Urysohn (1925) chứng minh được bằng phép xây dựng lồng tập mở theo các phân số nhị phân $$p/2^n$$ rằng: **$$X$$ chuẩn tắc $$\iff$$ mọi cặp tập đóng rời nhau $$A, B$$ đều tách được bởi một hàm liên tục $$f: X \to [0, 1]$$** ($$f\vert_A = 0, f\vert_B = 1$$)!
+
+### 3. Định lý mở rộng Tietze: kéo dài hàm liên tục từ tập đóng ra toàn không gian
+
+Nếu $$X$$ là không gian chuẩn tắc và $$A \subseteq X$$ là tập đóng, mọi hàm liên tục $$f: A \to [a, b]$$ (hoặc $$\mathbb{R}$$) đều mở rộng được thành một hàm liên tục $$\tilde{f}: X \to [a, b]$$ trên toàn không gian! Điều kiện $$A$$ **đóng** là bắt buộc: hàm $$f(x) = \frac{1}{x}$$ liên tục trên tập mở $$(0, 1)$$ không thể mở rộng liên tục lên $$[0, 1]$$!
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay xây dựng và kiểm tra hàm Urysohn trên $$\mathbb{R}$$
+
+Trên một không gian mê-tric $$(X, d)$$, ta không cần dùng phép xây dựng nhị phân dài dòng của Urysohn mà có ngay công thức tường minh tuyệt đẹp để tách hai tập đóng rời nhau khác rỗng $$A$$ và $$B$$:
+$$
+f(x) = \frac{d(x, A)}{d(x, A) + d(x, B)}, \qquad \text{với } d(x, A) = \inf_{a \in A} d(x, a).
+$$
+Hãy tự tay kiểm tra công thức này trên $$\mathbb{R}$$ với $$A = (-\infty, 0]$$ và $$B = [2, +\infty)$$:
+
+1. **Vì sao mẫu số không bao giờ bằng $$0$$?** Vì $$A$$ đóng nên $$d(x, A) = 0 \iff x \in A$$; tương tự $$d(x, B) = 0 \iff x \in B$$. Do $$A \cap B = \emptyset$$, không điểm $$x$$ nào làm cả hai số hạng cùng bằng $$0$$ → mẫu số luôn **dương chặt**, nên $$f$$ liên tục khắp $$\mathbb{R}$$!
+2. **Thay 4 điểm cụ thể để kiểm tra bằng tay:**
+   - Tại $$x = -3 \in A$$: $$d(-3, A) = 0$$, $$d(-3, B) = \lvert -3 - 2 \rvert = 5 \implies f(-3) = \frac{0}{0 + 5} = \mathbf{0}$$.
+   - Tại $$x = 0.5$$: $$d(0.5, A) = 0.5$$, $$d(0.5, B) = 1.5 \implies f(0.5) = \frac{0.5}{0.5 + 1.5} = \mathbf{0.25}$$.
+   - Tại $$x = 1$$ (trung điểm): $$d(1, A) = 1$$, $$d(1, B) = 1 \implies f(1) = \frac{1}{1 + 1} = \mathbf{0.5}$$.
+   - Tại $$x = 4 \in B$$: $$d(4, A) = 4$$, $$d(4, B) = 0 \implies f(4) = \frac{4}{4 + 0} = \mathbf{1}$$.
+3. **Suy ngược ra hai tập mở tách $$A$$ và $$B$$:** Lấy $$U = f^{-1}\bigl([0, \tfrac{1}{2})\bigr) = (-\infty, 1)$$ và $$V = f^{-1}\bigl((\tfrac{1}{2}, 1]\bigr) = (1, +\infty)$$ — hiển nhiên $$U \supseteq A$$, $$V \supseteq B$$ và $$U \cap V = \emptyset$$!
 
 ---
 

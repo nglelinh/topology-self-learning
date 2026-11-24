@@ -18,10 +18,56 @@ description: "Bài tùy chọn: connectedness/compactness gặp clustering, pers
 
 ## 📖 Tổng quan
 
-Hai tính chất trọng tâm của tô-pô đại cương — **tính liên thông** (không thể phân tách) và **tính compact** (mọi phủ mở đều có phủ con hữu hạn) — gắn trực tiếp với hai câu hỏi trung tâm trong học máy hiện đại: (1) một tập dữ liệu gồm bao nhiêu cụm tự nhiên? (2) hai bộ trọng số tối ưu của một mạng nơ-ron có thể nối với nhau bằng một đường đi liên tục mà không phải vượt qua vùng mất mát cao hay không?
+Khi huấn luyện cùng một mạng nơ-ron sâu từ hai bộ trọng số khởi tạo ngẫu nhiên khác nhau, thuật toán tối ưu hội tụ về hai nghiệm $$w_A$$ và $$w_B$$ cách nhau rất xa trong không gian hàng triệu tham số. Nếu lấy trung bình cộng trực tiếp $$\frac{1}{2}(w_A + w_B)$$, độ chính xác thường tụt thảm hại — khiến người ta từng tin rằng các cực tiểu nằm trong những "thung lũng cô lập" ngăn cách bởi những bức tường mất mát khổng lồ. Thế nhưng một khám phá gây chấn động của học sâu giai đoạn gần đây cho thấy: **hai cực tiểu đó thực ra vẫn nối được với nhau bằng một đường cong liên tục nằm hoàn toàn dưới đáy thung lũng mất mát thấp** (*Mode Connectivity*)!
+
+Hai tính chất trọng tâm của Chương 02 — **tính liên thông** (không thể phân tách) và **tính compact** (mọi phủ mở đều có phủ con hữu hạn) — đang trở thành ngôn ngữ nền tảng để giải mã cả cấu trúc cụm của dữ liệu lẫn địa hình tối ưu của trí tuệ nhân tạo hiện đại.
 
 ![Cà phê và torus](https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif)
 *Liên thông đường trong không gian hình dạng: một đường biến dạng liên tục qua các phép đồng phôi. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif)*
+
+**Mạch bài học:** Bản đồ kiến thức nền (liên thông đường trong cảnh quan mất mát, liên thông tuyến tính sau hoán vị & vai trò tính compact trong ổn định TDA) → Khung giải thích chậm: cầm tay tính rào chắn mất mát trên đoạn thẳng vs. đường cong nối hai cực tiểu của một hàm mất mát 2 biến → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+
+---
+
+## Bản đồ kiến thức nền: Tính Liên thông và Compact xuất hiện ở đâu trong Học máy 2022–2026?
+
+### 1. Homology bền vững $$H_0$$ — lý thuyết thành phần liên thông đa tỉ lệ
+
+Thay vì hỏi dữ liệu có liên thông tại một ngưỡng cố định hay không, $$H_0$$ theo dõi cách các thành phần liên thông hợp nhất dọc theo toàn bộ thang tỉ lệ, liên kết chặt chẽ với cây phân cấp (dendrogram) và phân cụm mật độ.
+
+### 2. Mode Connectivity & Linear Mode Connectivity (LMC)
+
+Trong không gian tham số $$\mathbb{R}^P$$ của mạng nơ-ron, tập siêu mức dưới $$S_\varepsilon = \{w \in \mathbb{R}^P : L(w) \le \varepsilon\}$$ là một không gian con. **Mode Connectivity** nói rằng các nghiệm tối ưu nằm trong cùng một **thành phần liên thông đường** của $$S_\varepsilon$$. Thậm chí **Linear Mode Connectivity** (sau khi căn chỉnh đối xứng hoán vị nơ-ron, như thuật toán Git Re-Basin năm 2022–2023) cho thấy ngay cả *đoạn thẳng* nối hai mô hình cũng giữ nguyên mức mất mát thấp — mở đường cho kỹ thuật **trộn mô hình (model merging)**!
+
+### 3. Tính compact đảm bảo định lý tồn tại và ổn định trong TDA
+
+Khi dữ liệu nằm trong một miền compact của $$\mathbb{R}^d$$, các phủ mở và tập mức của hàm khoảng cách đều kiểm soát được bằng hữu hạn bước — nhờ đó ta chứng minh được các định lý ổn định (nhiễu nhỏ trong dữ liệu kéo theo dịch chuyển nhỏ trong mã vạch).
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng Mode Connectivity trên hàm mất mát 2 tham số
+
+Để thấy trực tiếp sự khác biệt giữa **nội suy thẳng** (gặp núi cao) và **liên thông đường** (đi men theo thung lũng mất mát 0), hãy xét hàm mất mát đơn giản trên mặt phẳng tham số $$(w_1, w_2) \in \mathbb{R}^2$$:
+$$
+L(w_1, w_2) = (w_1^2 + w_2^2 - 1)^2.
+$$
+Tập các cực tiểu toàn cục ($$L = 0$$) chính là đường tròn đơn vị $$S^1$$. Chọn hai nghiệm tối ưu nằm ở hai vị trí khác nhau: $$A = (1, 0)$$ và $$B = (0, 1)$$ (dễ kiểm tra $$L(A) = L(B) = 0$$):
+
+1. **Thử nối thẳng bằng đoạn thẳng (nội suy tuyến tính):**
+   $$
+   \ell(t) = (1 - t)A + tB = (1 - t,\; t), \qquad t \in [0, 1].
+   $$
+   Tại đúng trung điểm $$t = \frac{1}{2}$$, ta được $$M = (0.5,\; 0.5)$$. Tính hàm mất mát tại $$M$$:
+   $$
+   L(0.5,\; 0.5) = (0.5^2 + 0.5^2 - 1)^2 = (0.25 + 0.25 - 1)^2 = (-0.5)^2 = \mathbf{0.25} > 0!
+   $$
+   Nếu chỉ nhìn dọc đoạn thẳng, ta tưởng hai cực tiểu $$A, B$$ bị ngăn cách bởi một "ngọn núi" cao $$0.25$$!
+2. **Thử nối bằng một đường cong liên tục (Mode Connectivity):**
+   Chọn cung tròn $$\gamma(t) = \left(\cos\frac{\pi t}{2},\; \sin\frac{\pi t}{2}\right)$$ với $$t \in [0, 1]$$ ($$\gamma(0) = A,\; \gamma(1) = B$$). Tính hàm mất mát dọc toàn bộ đường đi:
+   $$
+   L(\gamma(t)) = \left(\cos^2\frac{\pi t}{2} + \sin^2\frac{\pi t}{2} - 1\right)^2 = (1 - 1)^2 = \mathbf{0} \quad \forall t \in [0, 1]!
+   $$
+   Hai cực tiểu $$A$$ và $$B$$ hoàn toàn **liên thông đường** ở mức mất mát 0 — minh họa thu nhỏ cực kỳ trong sáng cho hiện tượng Mode Connectivity trong không gian hàng tỉ tham số của mạng nơ-ron!
 
 ---
 

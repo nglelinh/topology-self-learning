@@ -12,9 +12,19 @@ tags: [optional, recent-advances, materials, neuroscience, graph-tda, applicatio
 description: "Optional notes: popular topology meets 2022–2026 TDA applications (materials, brain, graphs, NLP). Not a rewrite of the stories."
 ---
 
-**Optional notes.** The coffee–doughnut, Königsberg, Möbius, Euler, four-colour, DNA, physics, and Poincaré stories stay as they are. We only add *where* they now run in applied papers.
+In 1736, Leonhard Euler stood over a map of Königsberg's seven bridges and realized that geography didn't matter—only how vertices and edges connect. Fourteen years later, he wrote down $$V - E + F = 2$$ for convex polyhedra. Nearly three centuries on, those very same ideas are no longer charming puzzle-book anecdotes: in 2022–2026 laboratories, direction-aware Euler characteristic curves predict the elastic stiffness of porous metamaterials, persistent $$H_1$$ loops decode scale-invariant rhythms in human brain connectomes, and Mapper graphs chart semantic neighborhoods across entire corpora of language and video games!
 
-The theory / popular-science track is in Vietnamese. This English page holds recent-advance notes only.
+**Optional notes.** The coffee–doughnut, Königsberg, Möbius, Euler, four-colour, DNA, physics, and Poincaré stories stay as they are. We add *where* they now run in applied 2022–2026 papers. The theory / popular-science track is in Vietnamese; this English page holds recent-advance notes only.
+
+---
+
+## Background Knowledge Map: From Euler's Formula to Materials, Brain Networks, and NLP
+
+How do Chapter 09's classic visual stories translate into quantitative lab measurements? Three mathematical bridges do the heavy lifting:
+
+1. **Euler Characteristic ($$\chi = V - E + F = \sum_k (-1)^k \beta_k$$):** The single most portable topological invariant in science—computed simply by counting vertices, edges, and faces, yet guaranteed to equal the alternating sum of Betti numbers (components minus loops plus cavities)!
+2. **Direction-Aware Topological Descriptors (Euler Characteristic Transform):** A static Betti number forgets *which way* a pore or fiber points. Sweeping a plane across a 3D porous material along every unit direction $$v \in S^2$$ and recording the curve $$t \mapsto \chi(\{x \in K : x \cdot v \le t\})$$ captures both topology *and* anisotropic geometry—enough to predict full mechanical stiffness tensors (Topolnicki et al., 2026)!
+3. **Cycle Space ($$\beta_1$$) in Connectomes and Language Graphs:** For any connected graph (no 2-faces), Euler's formula simplifies to $$\beta_1 = E - V + 1$$—counting independent feedback loops. Tracking how $$\beta_0$$ and $$\beta_1$$ evolve as edge-weight thresholds sweep across a brain network or word co-occurrence graph reveals higher-order structure invisible to simple node-degree counts.
 
 ---
 
@@ -33,6 +43,29 @@ Chapter 09 teaches topology by pictures. Groups in 2022–2026 do the symmetric 
 ## 🎯 Intuition
 
 Euler’s $V-E+F$ counts the “holes” of a polyhedron. Persistent homology counts the holes of a graph or an atomic cloud *across scales*. No new formula is required: a filtration is. That is why Chapter 09 and Chapter 07 meet in the lab.
+
+### Worked Example (Step by Step): Hand-Checking Euler Characteristic $$\chi$$ on a Cube, a Torus Grid, and a 6-Node Connectome
+
+Verify the exact link $$\chi = V - E + F = \beta_0 - \beta_1 + \beta_2$$ across three concrete structures:
+
+| Structure | Cell counts ($$V, E, F$$) | $$\chi = V - E + F$$ | Betti numbers ($$\beta_0, \beta_1, \beta_2$$) | Alternating sum $$\beta_0 - \beta_1 + \beta_2$$ |
+|---|---|---|---|---|
+| **Hollow cube ($$S^2$$)** | $$V=8,\ E=12,\ F=6$$ | $$8 - 12 + 6 = \mathbf{2}$$ | $$(1,\ 0,\ 1)$$ | $$1 - 0 + 1 = \mathbf{2}$$ |
+| **$$3\times 3$$ periodic torus grid ($$T^2$$)** | $$V=9,\ E=18,\ F=9$$ | $$9 - 18 + 9 = \mathbf{0}$$ | $$(1,\ 2,\ 1)$$ | $$1 - 2 + 1 = \mathbf{0}$$ |
+| **Connected 6-node brain graph** | $$V=6,\ E=8,\ F=0$$ | $$6 - 8 + 0 = \mathbf{-2}$$ | $$(1,\ 3,\ 0)$$ | $$1 - 3 + 0 = \mathbf{-2}$$ |
+
+Look at that third row (a connected 6-node, 8-edge brain subnetwork):
+- Because a spanning tree on $$V = 6$$ nodes uses exactly $$V - 1 = 5$$ edges, the remaining $$8 - 5 = \mathbf{3}$$ edges must close **3 independent feedback loops** ($$\beta_1 = E - V + 1 = 3$$).
+- Compare this to a 6-node, 8-edge network broken into **2** disconnected components ($$C = 2$$): now $$\beta_1 = E - V + C = 8 - 6 + 2 = \mathbf{4}$$ loops! Same vertex count, same edge count, yet different global topology—immediately visible to $$H_0, H_1$$.
+
+### Deep-Dive Explanation: How Euler's 1750 Formula Became a 2026 Scientific Instrument (Read Slowly)
+
+1. **Start with a single invariant number ($$\chi$$):** counting vertices, edges, and faces is blazingly fast—$$O(\text{size})$$—and invariant under any subdivision or rubber-sheet deformation.
+2. **Add a filtration to turn a number into a curve:** sweeping a scale threshold (correlation strength in a connectome, or height $$x\cdot v$$ in a 3D porous scan) transforms $$\chi$$ into an **Euler Characteristic Curve** that tracks when pores open and close.
+3. **Sweep over directions to recover anisotropic physics:** a porous foam with vertical tunnels is stiffer vertically than horizontally; direction-aware topological descriptors record $$\chi$$ curves along dozens of angles to predict directional stiffness tensors.
+4. **Move from passive features to trainable architectures:** once topological summaries prove predictive in materials, neuroscience, and NLP, **Topological Deep Learning (TDL)** bakes those exact complexes directly into neural network layers.
+
+**Quick check.** If you puncture a single square face out of the hollow cube ($$V=8, E=12, F=5$$), what happens to $$\chi$$? It drops from $$2$$ to $$8 - 12 + 5 = \mathbf{1}$$—matching a flat disk ($$\beta_0=1, \beta_1=0, \beta_2=0$$) because opening one face flattens a sphere into a disk!
 
 ---
 

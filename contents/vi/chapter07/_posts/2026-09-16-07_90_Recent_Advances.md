@@ -18,6 +18,8 @@ description: "Bài tùy chọn: homology gặp persistent homology, Ripser, giot
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Trong toán học thuần túy, một đường tròn hay một hình xuyến được cho sẵn dưới dạng phương trình trơn tru. Nhưng trong thế giới thực — một đám mây tọa độ nguyên tử protein, một lát cắt não 3D, hay dữ liệu cảm biến rung động — bạn **chỉ có một tập hữu hạn các điểm rời rạc đầy nhiễu**! Nếu nối các điểm quá gần nhau, mọi thứ vỡ vụn thành bụi; nếu nối quá xa, tất cả dính bết thành một khối đặc không còn lỗ nào. **Đồng điều bền vững (Persistent Homology)** giải quyết bài toán chọn ngưỡng đó bằng một ý tưởng thiên tài: *đừng chọn một ngưỡng duy nhất — hãy quét qua MỌI ngưỡng $$\varepsilon$$ và ghi lại lỗ nào sống dai nhất!*
+
 Đồng điều đếm các lỗ của một không gian cố định, còn **đồng điều bền vững** (persistent homology — PH) theo dõi sự xuất hiện và biến mất của các lỗ dọc theo **một họ không gian lồng nhau**. Về bản chất, đó vẫn là công thức $H_n=\ker\partial_n/\operatorname{im}\partial_{n+1}$ được tính lặp lại trên từng mức $X_{\varepsilon}$. Ba trụ cột thực hành giai đoạn 2021–2026 gồm: thuật toán Ripser (cùng các biến thể cho phức hình hộp và tính toán phân tán), thư viện giotto-tda, và các phương pháp vectơ hóa (vectorization) ổn định để đưa biểu đồ vạch (barcode) vào mô hình học máy. Các bài khảo sát năm 2025 cũng đặt PH vào bối cảnh rộng hơn: phân tích dữ liệu tô-pô (TDA) hiện nay không còn chỉ đồng nhất với việc tính $H_n$.
 
 ![Phức simplicial](https://upload.wikimedia.org/wikipedia/commons/5/50/Simplicial_complex_example.svg)
@@ -31,6 +33,72 @@ description: "Bài tùy chọn: homology gặp persistent homology, Ripser, giot
 ## 🎯 Trực giác
 
 Khi tham số $\varepsilon$ nhỏ, phức chỉ là tập các điểm rời nhau nên $H_0$ có hạng lớn và $H_1 = 0$. Khi $\varepsilon$ tăng đến ngưỡng thích hợp, các vòng thật của dữ liệu hình thành. Khi $\varepsilon$ đủ lớn, toàn bộ các lỗ bị lấp kín. **Barcode** ghi lại khoảng tồn tại $[\varepsilon_{\mathrm{birth}}, \varepsilon_{\mathrm{death}})$ của từng lớp đồng điều: các khoảng ngắn thường phản ánh nhiễu, còn các khoảng dài tương ứng với cấu trúc lỗ thực sự. Đây chính là đồng điều của Chương 07 mở rộng thêm một tham số tỉ lệ.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Đồng điều bền vững là gì và nghiên cứu những gì?
+
+### 1. Phức Vietoris–Rips & Phép lọc (Filtration)
+- **Bản chất:** Cho một tập hữu hạn điểm $$X$$ với khoảng cách giữa từng cặp điểm, tại mỗi bán kính $$\varepsilon \ge 0$$ ta nối hai điểm bằng một cạnh nếu khoảng cách $$\le \varepsilon$$, lấp tam giác nếu cả 3 cạnh $$\le \varepsilon$$, v.v. Kết quả là một **dãy phức đơn hình lồng nhau** $$\mathrm{VR}_{\varepsilon_1}(X) \subseteq \mathrm{VR}_{\varepsilon_2}(X) \subseteq \cdots$$.
+- **Lĩnh vực nghiên cứu:** Theo dõi cách ánh xạ bao hàm $$\iota: \mathrm{VR}_{\varepsilon_1} \hookrightarrow \mathrm{VR}_{\varepsilon_2}$$ cảm sinh đồng cấu giữa các nhóm đồng điều $$H_n(\mathrm{VR}_{\varepsilon_1}) \to H_n(\mathrm{VR}_{\varepsilon_2})$$.
+
+### 2. Barcode & Biểu đồ bền vững (Persistence Diagram)
+- **Bản chất:** Mỗi lỗ (thành phần liên thông $$H_0$$, vòng khép kín $$H_1$$, khoang rỗng $$H_2$$) ra đời tại một ngưỡng $$\varepsilon_{\text{birth}}$$ và bị lấp kín tại ngưỡng $$\varepsilon_{\text{death}}$$. Tập các khoảng $$[\varepsilon_{\text{birth}}, \varepsilon_{\text{death}})$$ tạo thành **barcode**.
+- **Định lý Ổn định (Stability Theorem):** Nếu dữ liệu bị nhiễu nhẹ một lượng $$\eta$$, các điểm trên biểu đồ bền vững dịch chuyển không quá $$\eta$$ theo khoảng cách bottleneck — bảo chứng toán học khiến TDA chống nhiễu cực tốt!
+
+### 3. Thuật toán tăng tốc & Vectơ hóa cho Học máy (2021–2026)
+- **Bản chất:** Số lượng đơn hình trong phức Vietoris–Rips bùng nổ theo tổ hợp $$\binom{N}{k+1}$$. Các công cụ hiện đại như **Ripser** (dùng đối đồng điều ẩn), **Discrete Morse Sandwich** (rút gọn phức bằng lý thuyết Morse rời rạc) và các phương pháp **vectơ hóa** biến barcode thành đặc trưng khả vi đưa thẳng vào mạng nơ-ron.
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Barcode của 4 đỉnh hình vuông đơn vị
+
+Lấy 4 điểm nằm ở 4 góc của hình vuông cạnh $$1$$ trong $$\mathbb{R}^2$$:
+$$
+A(0,0),\quad B(1,0),\quad C(1,1),\quad D(0,1).
+$$
+Khoảng cách giữa các cặp điểm chỉ có hai giá trị: **4 cạnh dài $$1$$** và **2 đường chéo dài $$\sqrt{2} \approx 1.414$$**. Hãy tăng dần ngưỡng $$\varepsilon$$ từ $$0$$ lên $$2$$ và tính từng nhóm đồng điều bằng tay:
+
+1. **Khi $$0 \le \varepsilon < 1$$:** Chưa có cạnh nào được nối. Ta có 4 đỉnh rời rạc:
+   $$
+   \beta_0 = 4, \qquad \beta_1 = 0.
+   $$
+   Cả 4 thành phần liên thông đều ra đời tại $$\varepsilon = 0$$.
+
+2. **Khi $$1 \le \varepsilon < \sqrt{2}$$:** Cả 4 cạnh $$AB, BC, CD, DA$$ đồng loạt xuất hiện, nhưng hai đường chéo $$AC, BD$$ (dài $$\sqrt{2}$$) **chưa** xuất hiện nên chưa có tam giác nào! Hình thu được là đúng một chu trình hình vuông rỗng:
+   - 4 thành phần liên thông gộp thành 1 $$\implies$$ **3 thanh của $$H_0$$ chết tại $$\varepsilon = 1$$** (cho 3 khoảng $$[0, 1)$$ và 1 khoảng bất tử $$[0, \infty)$$).
+   - **1 vòng khép kín $$H_1$$ ra đời tại $$\varepsilon_{\text{birth}} = 1$$** ($$\beta_1 = 1$$)!
+
+3. **Khi $$\varepsilon \ge \sqrt{2}$$:** Hai đường chéo $$AC, BD$$ xuất hiện, kéo theo cả 4 tam giác (và tứ diện $$ABCD$$) lập tức lấp kín hoàn toàn lỗ giữa hình vuông!
+   - **Lớp $$H_1$$ chết tại $$\varepsilon_{\text{death}} = \sqrt{2}$$** ($$\beta_1$$ trở về $$0$$).
+
+**Kết quả Barcode chính xác:**
+- $$H_0$$: $$[0, 1),\; [0, 1),\; [0, 1),\; [0, \infty)$$.
+- $$H_1$$: duy nhất một thanh $$[1, \sqrt{2})$$ với độ bền (persistence) bằng $$\sqrt{2} - 1 \approx 0.414$$!
+
+### Khung giải thích: Từ lý thuyết đồng điều Chương 07 đến phần mềm Ripser (nên đọc chậm)
+
+#### Bước 1: Thay không gian tĩnh bằng một "bộ phim" không gian lồng nhau
+Thay vì hỏi "hình này có bao nhiêu lỗ?", ta hỏi "khi phóng to dần bán kính nối điểm $$\varepsilon$$, những lỗ nào xuất hiện và tồn tại đủ lâu?". Lỗ có khoảng $$\varepsilon_{\text{death}} - \varepsilon_{\text{birth}}$$ lớn là cấu trúc hình học thật; khoảng ngắn sát đường chéo là nhiễu.
+
+#### Bước 2: Dùng tính hàm tử để ghép cặp sinh–tử
+Nhờ tính hàm tử của đồng điều, mỗi phép bao hàm $$X_{\varepsilon_1} \hookrightarrow X_{\varepsilon_2}$$ tạo ra ánh xạ tuyến tính giữa các không gian vectơ $$H_n(X_{\varepsilon_1}; \mathbb{F}_2) \to H_n(X_{\varepsilon_2}; \mathbb{F}_2)$$. Định lý phân tích mô-đun bền vững bảo đảm chuỗi không gian vectơ đó luôn phân tích duy nhất thành tổng các thanh barcode $$[b_i, d_i)$$.
+
+#### Bước 3: Tối ưu tính toán bằng đối đồng điều ẩn (Ripser) và Morse rời rạc
+Tính khử Gauss trên ma trận biên $$\partial$$ trực tiếp rất tốn bộ nhớ. **Ripser** phát hiện rằng chuyển sang ma trận **đối biên $$\delta$$** (bài 07.04!) kết hợp thủ thuật "xóa cột" (clearing optimization) và sinh ma trận theo kiểu lười giúp giảm bộ nhớ và thời gian tính hàng trăm lần!
+
+#### Bước 4: Vectơ hóa barcode để kết nối với Học máy
+Vì tập hợp các thanh barcode không cộng trừ như vectơ thông thường, các phương pháp hiện đại (Persistence Images, Landscapes, Signed Barcodes, GRIL) ánh xạ barcode thành vectơ trong không gian Hilbert mà vẫn bảo toàn tính ổn định — sẵn sàng đưa vào `scikit-learn` hay mạng nơ-ron sâu.
+
+$$
+\text{Đám mây điểm }X
+\;\xrightarrow{\;\mathrm{VR}_\varepsilon(X)\;}\;
+\text{Phép lọc đơn hình}
+\;\xrightarrow{\;\text{Ripser (đối biên }\delta)\;}\;
+\text{Barcode }[b_i, d_i)
+\;\xrightarrow{\;\text{Vectơ hóa ổn định}\;}\;
+\text{Đặc trưng cho AI / Khoa học dữ liệu}.
+$$
 
 ---
 

@@ -16,6 +16,8 @@ description: "Khám phá bài toán cổ điển về bảy cây cầu ở Köni
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Năm 1735, thị trưởng thành phố Danzig gửi cho Leonhard Euler một câu đố cuối tuần tưởng chừng tầm thường của người dân Königsberg: đi dạo qua 7 cây cầu bắc ngang sông Pregel sao cho mỗi cầu chỉ qua đúng một lần. Ban đầu Euler còn tỏ vẻ coi thường, bảo rằng bài toán này "chẳng dính dáng gì đến toán học quen thuộc". Nhưng chỉ ít tháng sau, chính Euler nhận ra nó thuộc về một ngành hình học hoàn toàn mới mà Leibniz từng mơ ước — *geometria situs* (hình học của vị trí). Bằng cách xóa sạch bản đồ thành phố chỉ để lại **4 chấm tròn và 7 nét gạch**, Euler đã khai sinh ra cả **Lý thuyết Đồ thị** lẫn **Tô-pô học**!
+
 Vào thế kỷ 18, tại thành phố Königsberg (nay là Kaliningrad, Nga), sông Pregel chia thành phố thành bốn vùng đất nối với nhau bằng bảy cây cầu. Người dân thành phố thường đặt ra một câu đố: **Có thể đi dạo qua tất cả bảy cây cầu, mỗi cây cầu đúng một lần, rồi quay về điểm xuất phát hay không?**
 
 Nhiều người đã thử tìm lộ trình bằng cách mò mẫm nhưng đều thất bại. Năm 1736, nhà toán học **Leonhard Euler** (1707–1783) chứng minh rằng lộ trình như vậy **không tồn tại**. Quan trọng hơn, cách tiếp cận trừu tượng của Euler đã đặt nền móng cho **lý thuyết đồ thị** (graph theory) và được xem là một trong những khởi điểm sớm nhất của tô-pô hiện đại.
@@ -26,6 +28,64 @@ Trong bài học này, chúng ta sẽ phân tích bài toán bảy cây cầu �
 *Bảy cây cầu ở Königsberg - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:7_bridges.svg)*
 
 **Vì sao bài toán này quan trọng?** Nó minh họa sức mạnh của việc gạt bỏ các chi tiết hình học không cần thiết (độ dài cầu, diện tích bờ sông) để giữ lại duy nhất cấu trúc kết nối — tinh thần cốt lõi của lý thuyết đồ thị và tô-pô.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Từ Bảy cây cầu đến Lý thuyết Đồ thị & Tô-pô 1 chiều
+
+### 1. Đồ thị như một Không gian Tô-pô 1 chiều (1-phức CW)
+- **Bản chất:** Khi Euler co mỗi hòn đảo hay bờ sông về một **đỉnh** ($$0$$-tế bào) và biến mỗi cây cầu thành một **cạnh** ($$1$$-tế bào), ông đã thay thế hình học đo đạc (chiều dài, diện tích) bằng một **không gian tô-pô 1 chiều** chỉ lưu giữ quan hệ kết nối!
+- **Lĩnh vực nghiên cứu:** Tính liên thông, số chu trình độc lập ($$\beta_1 = E - V + c$$), đường đi Euler, chu trình Hamilton và bài toán nhúng đồ thị lên mặt phẳng hoặc mặt xuyến.
+
+### 2. Bậc đỉnh & Bổ đề Bắt tay (Handshaking Lemma)
+- **Bản chất:** Bậc $$\deg(v)$$ của đỉnh $$v$$ là số đầu mút cạnh chạm vào $$v$$. Vì mỗi cạnh có đúng 2 đầu mút, tổng bậc mọi đỉnh luôn bằng **$$2E$$** — suy ra số đỉnh bậc lẻ trong bất kỳ đồ thị nào luôn là một **số chẵn**!
+
+### 3. Ứng dụng hiện đại của Đường đi Euler
+- **Bản chất:** Bài toán giải trình tự bộ gen (DNA sequencing / lắp ráp đoạn đọc ngắn bằng đồ thị de Bruijn) chuyển bài toán sinh học khổng lồ về đúng bài toán tìm **đường đi Euler** mà Euler giải năm 1736!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Bổ đề Bắt tay & "Sửa bản đồ Königsberg"
+
+Hãy kiểm tra bằng tay bài toán Königsberg với 4 đỉnh $$A, B, C, D$$ và 7 cạnh ($$V = 4,\; E = 7$$):
+
+1. **Kiểm tra Bổ đề Bắt tay và Số Betti $$\beta_1$$ (số vòng độc lập):**
+   - Bậc các đỉnh: $$\deg(A) = 5,\; \deg(B) = 3,\; \deg(C) = 3,\; \deg(D) = 3$$.
+   - Tổng bậc: $$5 + 3 + 3 + 3 = 14 = 2 \times 7 = 2E$$. ✓
+   - Đặc trưng Euler của đồ thị: $$\chi = V - E = 4 - 7 = -3$$. Vì đồ thị liên thông ($$\beta_0 = 1$$) nên số vòng độc lập của mạng cầu là $$\beta_1 = 1 - \chi = 4$$!
+
+2. **Thí nghiệm xây thêm cầu để mở khóa bài toán:**
+   - **Hiện trạng (7 cầu):** Có **4 đỉnh bậc lẻ** ($$A, B, C, D$$) $$\implies$$ không có chu trình Euler (cần 0 đỉnh lẻ) và cũng **không có** đường đi Euler (cần 0 hoặc 2 đỉnh lẻ).
+   - **Xây thêm đúng 1 cây cầu thứ 8 nối $$B$$ với $$C$$:** Bậc các đỉnh lập tức đổi thành:
+     $$
+     \deg(A) = 5 \text{ (lẻ)},\quad \deg(B) = 4 \text{ (chẵn)},\quad \deg(C) = 4 \text{ (chẵn)},\quad \deg(D) = 3 \text{ (lẻ)}.
+     $$
+     Chỉ còn đúng **2 đỉnh bậc lẻ** ($$A$$ và $$D$$) $$\implies$$ **Tồn tại đường đi Euler** xuất phát từ $$A$$ và kết thúc tại $$D$$ (bạn thử tự vạch bằng tay: $$A \to B \to A \to C \to A \to D \to B \to C \to D$$ — đúng 8 cầu, không lặp cầu nào!).
+   - **Xây thêm 1 cây cầu thứ 9 nối $$A$$ với $$D$$:** Bậc thành $$(6, 4, 4, 4)$$ — toàn bộ chẵn $$\implies$$ tồn tại **chu trình Euler khép kín** đi qua cả 9 cầu rồi quay về đúng điểm xuất phát!
+
+### Khung giải thích: Bước nhảy tư duy 4 bước của Leonhard Euler (1736) (nên đọc chậm)
+
+#### Bước 1: Trừu tượng hóa — vứt bỏ mọi thứ không liên quan
+Đảo Kneiphof rộng bao nhiêu mét hay cầu cong bao nhiêu độ không ảnh hưởng gì đến việc có đi qua hết được không. Euler nén mỗi vùng đất thành 1 đỉnh và mỗi cây cầu thành 1 cạnh.
+
+#### Bước 2: Phát hiện bất biến địa phương (tính chẵn–lẻ của bậc đỉnh)
+Tại mọi đỉnh trung gian (không phải điểm bắt đầu hay kết thúc), mỗi lần bước vào bắt buộc phải có một cầu mới để bước ra — nên các cạnh phải ghép thành từng cặp $$\implies$$ **bậc phải chẵn**!
+
+#### Bước 3: Phân loại trọn vẹn (0 đỉnh lẻ vs. 2 đỉnh lẻ)
+- **0 đỉnh bậc lẻ** (và liên thông) $$\iff$$ tồn tại **chu trình Euler** khép kín.
+- **Đúng 2 đỉnh bậc lẻ** (và liên thông) $$\iff$$ tồn tại **đường đi Euler** hở (bắt buộc xuất phát ở một đỉnh lẻ và kết thúc ở đỉnh lẻ kia).
+- **Từ 4 đỉnh bậc lẻ trở lên** (như Königsberg!) $$\implies$$ vô nghiệm tuyệt đối!
+
+#### Bước 4: Khai sinh tư duy Tô-pô học
+Đó là lần đầu tiên trong lịch sử toán học, một bài toán không gian được giải triệt để **không dùng một con số đo chiều dài hay góc nào cả** — mở ra truyền thống dùng các bất biến rời rạc để chinh phục không gian liên tục.
+
+$$
+\text{Bản đồ thành phố}
+\;\xrightarrow{\;\text{Trừu tượng hóa}\;}\;
+\text{Đồ thị }G=(V,E)
+\;\xrightarrow{\;\text{Đếm tính chẵn–lẻ }\deg(v)\;}\;
+\text{Định lý Euler (0 hoặc 2 đỉnh lẻ)}.
+$$
 
 ---
 

@@ -16,15 +16,59 @@ description: "Hàm liên tục trong topology, các đặc trưng tương đươ
 
 ## 📖 Tổng quan
 
-Sau khi định nghĩa không gian tô-pô, câu hỏi tự nhiên tiếp theo là: **làm thế nào để so sánh hai không gian tô-pô với nhau?** Trong đại số tuyến tính ta dùng ánh xạ tuyến tính, trong lý thuyết nhóm ta dùng đồng cấu nhóm; tương tự, trong tô-pô công cụ bảo toàn cấu trúc là **ánh xạ liên tục** (*continuous function*).
+Có một câu đùa nổi tiếng trong giới toán học: *"Nhà tô-pô học là người không phân biệt nổi chiếc cốc cà phê với cái bánh donut."* Lý do không phải vì họ đãng trí, mà vì trong thế giới của **hình học tấm cao su**, nếu ta có thể nắn, kéo giãn và bóp méo một vật thể liên tục mà không xé rách cũng không dán thêm điểm mới (và quá trình đảo ngược cũng trơn tru như vậy), thì hai vật thể ấy có **cùng bản chất tô-pô** — ta gọi phép biến đổi hai chiều đó là một **phép đồng phôi (homeomorphism)**.
 
-Định nghĩa $\varepsilon$-$\delta$ quen thuộc trong giải tích phụ thuộc vào khoảng cách mê-tric nên không áp dụng trực tiếp được cho không gian tô-pô tổng quát. Tuy nhiên, tính liên tục có thể phát biểu hoàn toàn bằng ngôn ngữ tập mở:
+Nhưng làm sao định nghĩa "không xé rách" khi ta đã bỏ đi thước đo $$\varepsilon$$–$$\delta$$ của giải tích? Tô-pô học đưa ra một định nghĩa ngắn đến mức khó tin:
 
 $$
-f: X \to Y \text{ continuous} \iff \text{preimage của mọi open set là open}
+f: X \to Y \text{ liên tục} \iff f^{-1}(V) \text{ mở trong } X \text{ với mọi tập mở } V \subseteq Y.
 $$
 
-Định nghĩa này không cần mê-tric, khớp hoàn toàn với định nghĩa $\varepsilon$-$\delta$ trong trường hợp không gian mê-tric, và là nền tảng cho mọi phần tiếp theo của môn học. Trong bài giảng này, ta sẽ trình bày định nghĩa ánh xạ liên tục, các đặc trưng tương đương (qua tập đóng, bao đóng, cơ sở), **phép đồng phôi** (*homeomorphism*), **tính chất tô-pô** (bất biến tô-pô), cùng hai khái niệm bổ trợ là phép nhúng và ánh xạ thương.
+Bài giảng này sẽ giải mã vì sao định nghĩa "đi ngược" đó khớp hoàn toàn với $$\varepsilon$$–$$\delta$$ trên không gian mê-tric, cách nhận diện các **bất biến tô-pô**, và bóc tách một cái bẫy kinh điển: *song ánh liên tục vẫn có thể KHÔNG phải phép đồng phôi!*
+
+**Mạch bài học:** Bản đồ kiến thức nền (tính liên tục qua ảnh ngược, phép đồng phôi & bất biến tô-pô) → Khung giải thích chậm: cầm tay kiểm tra hai ví dụ đối lập — đoạn $$(-1,1)$$ đồng phôi với $$\mathbb{R}$$, nhưng $$[0, 2\pi) \to S^1$$ không đồng phôi → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Ánh xạ liên tục, Phép đồng phôi và Bất biến Tô-pô nghiên cứu những gì?
+
+### 1. Vì sao tính liên tục được định nghĩa bằng *ảnh ngược* tập mở?
+
+Trực giác nói: hàm liên tục không được "xé rách" các điểm gần nhau ra xa nhau. Nếu $$f(x)$$ và $$f(y)$$ tách rời nhau trong hai tập mở khác nhau ở đích $$Y$$, thì nguồn $$x$$ và $$y$$ cũng phải tách được trong hai tập mở ở $$X$$ — điều đó chính là yêu cầu $$f^{-1}(V)$$ mở! Ngược lại, điều kiện *"ảnh trực tiếp $$f(U)$$ mở"* (ánh xạ mở) lại **không** đồng nghĩa với liên tục: hàm hằng $$f(x) = 0$$ cực kỳ liên tục, nhưng ảnh của khoảng mở $$(0, 1)$$ là điểm $$\{0\}$$ lại không mở trong $$\mathbb{R}$$!
+
+### 2. Phép đồng phôi (Homeomorphism) — "đẳng cấu" của Tô-pô học
+
+Hai không gian $$X$$ và $$Y$$ gọi là **đồng phôi** (ký hiệu $$X \cong Y$$) nếu tồn tại song ánh $$f: X \to Y$$ sao cho **cả $$f$$ lẫn ánh xạ ngược $$f^{-1}$$ đều liên tục**. Khi đó $$f$$ tạo ra sự tương ứng 1–1 hoàn hảo không chỉ giữa các điểm mà giữa *toàn bộ các tập mở* của $$X$$ và $$Y$$: đứng trên góc độ tô-pô, $$X$$ và $$Y$$ là một bản sao y hệt nhau.
+
+### 3. Bất biến tô-pô: vũ khí để chứng minh hai không gian *không* đồng phôi
+
+Muốn chứng minh $$X \cong Y$$, ta chỉ cần chỉ ra tường minh một phép đồng phôi $$f$$. Nhưng muốn chứng minh $$X \not\cong Y$$, ta không thể thử hết vô hạn ánh xạ được! Thay vào đó, ta tìm một **bất biến tô-pô** (tính chất được bảo toàn bởi mọi phép đồng phôi, như tính liên thông, tính compact, số thành phần liên thông khi bỏ đi 1 điểm) mà $$X$$ có còn $$Y$$ thì không.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm tra một phép đồng phôi thật và một "phép đồng phôi giả"
+
+**Ví dụ 1 — Đoạn hữu hạn $$(-1, 1)$$ đồng phôi với cả trục số vô hạn $$\mathbb{R}$$:**
+Xét ánh xạ $$f: (-1, 1) \to \mathbb{R}$$ cho bởi công thức đại số cực gọn:
+$$
+f(x) = \frac{x}{1 - \lvert x \rvert}.
+$$
+- **Kiểm tra song ánh & tìm ngược bằng tay:** Giải $$y = \frac{x}{1 - \lvert x \rvert}$$ (nhận thấy $$x$$ và $$y$$ cùng dấu nên $$\lvert y \rvert = \frac{\lvert x \rvert}{1 - \lvert x \rvert} \implies \lvert x \rvert = \frac{\lvert y \rvert}{1 + \lvert y \rvert}$$), ta thu được công thức ngược tường minh:
+  $$
+  f^{-1}(y) = \frac{y}{1 + \lvert y \rvert}.
+  $$
+  Thử ngay một điểm: $$x = \frac{1}{2} \mapsto f(1/2) = \frac{1/2}{1/2} = 1$$, và $$f^{-1}(1) = \frac{1}{1+1} = \frac{1}{2}$$ (khớp!).
+- **Kiểm tra liên tục hai chiều:** Mẫu số $$1 - \lvert x \rvert > 0$$ trên $$(-1, 1)$$ và $$1 + \lvert y \rvert \ge 1 > 0$$ trên $$\mathbb{R}$$, nên cả $$f$$ và $$f^{-1}$$ đều liên tục!
+- **Bài học:** Độ dài và tính bị chặn **không phải** bất biến tô-pô!
+
+**Ví dụ 2 — Cạm bẫy kinh điển: song ánh liên tục nhưng KHÔNG đồng phôi:**
+Xét ánh xạ quấn nửa đoạn $$[0, 2\pi)$$ lên đường tròn đơn vị $$S^1 \subset \mathbb{R}^2$$:
+$$
+g: [0, 2\pi) \to S^1, \qquad g(t) = (\cos t,\; \sin t).
+$$
+- $$g$$ là **song ánh** (mỗi điểm trên đường tròn ứng với đúng một góc $$t \in [0, 2\pi)$$) và **liên tục** (vì $$\cos t, \sin t$$ liên tục).
+- **Nhưng $$g^{-1}$$ bị gián đoạn tại điểm $$P = (1, 0) = g(0)$$!** Xét tập mở $$U = [0, 1)$$ trong không gian con $$[0, 2\pi)$$. Ảnh $$(g^{-1})^{-1}(U) = g(U)$$ là cung tròn chạy từ góc $$0$$ đến góc $$1$$ radian, bao gồm điểm biên $$P = (1, 0)$$. Mọi hình cầu mở nhỏ quanh $$P$$ trên đường tròn $$S^1$$ đều chứa cả các điểm có góc sát $$2\pi$$ (như $$t = 2\pi - 0.001 \notin U$$), nên $$g(U)$$ **không mở** trong $$S^1$$!
+- Trực giác: $$g$$ đã "dán" đầu $$2\pi^-$$ sát vào $$0$$, nên ánh xạ ngược $$g^{-1}$$ buộc phải **xé rách** đường tròn tại $$(1, 0)$$!
 
 ---
 

@@ -16,16 +16,51 @@ description: "Locally compact spaces, one-point compactification, và Stone-Čec
 
 ## 📖 Tổng quan
 
-Nhiều không gian quen thuộc trong giải tích và hình học như $\mathbb{R}$, $\mathbb{R}^n$ hay các đa tạp mở đều **không compact**. Điều này dẫn tới hai câu hỏi tự nhiên:
-1. Có tính chất nào yếu hơn tính compact nhưng vẫn bảo đảm các đặc trưng hữu ích ở quy mô địa phương không? Câu trả lời là **tính compact địa phương** (*local compactness*).
-2. Có thể bổ sung thêm điểm vào một không gian không compact để thu được một không gian compact chứa nó như một tập con trù mật không? Đó chính là **phép compact hóa** (*compactification*).
+Hầu hết những không gian quan trọng nhất của vật lý và giải tích — như đường thẳng $$\mathbb{R}$$, mặt phẳng phức $$\mathbb{C}$$, hay không gian Euclid $$\mathbb{R}^n$$ — lại mang một "khuyết điểm" khó chịu: chúng **không compact**, vì chạy dài ra tới vô cực! Nhưng bạn hãy để ý hai điều kỳ diệu: thứ nhất, đứng tại *bất kỳ* điểm nào trên $$\mathbb{R}$$, chỉ cần bước vào một đoạn đóng nhỏ quanh nó (như $$[x-1, x+1]$$) là ta lại có ngay một thế giới compact ấm cúng (**compact địa phương**); thứ hai, chỉ cần khéo léo khâu thêm **đúng một điểm ở vô cực $$\infty$$**, đường thẳng $$\mathbb{R}$$ cuộn tròn ngay thành đường tròn $$S^1$$, còn mặt phẳng phức $$\mathbb{C}$$ khép kín thành **mặt cầu Riemann $$S^2$$**!
 
-Chẳng hạn, $\mathbb{R}$ không compact nhưng là không gian compact địa phương (mỗi điểm $x \in \mathbb{R}$ đều nằm trong lân cận compact $[x - 1, x + 1]$), và khi bổ sung một "điểm ở vô cực" $\infty$ ta thu được đường tròn $\mathbb{R} \cup \{\infty\} \cong S^1$. Tương tự, $\mathbb{R}^n \cup \{\infty\} \cong S^n$.
+Bài giảng này mở ra nghệ thuật "thuần hóa vô cực" trong tô-pô học qua ba khái niệm nối tiếp nhau: **không gian compact địa phương**, **compact hóa một điểm (Alexandroff)** — phép đóng gói gọn gàng nhất — và **compact hóa Stone–Čech**, phiên bản "lớn nhất và phổ dụng nhất" cho phép mở rộng mọi hàm liên tục bị chặn.
 
 ![One-point compactification of R](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Compactification.svg/400px-Compactification.svg.png)  
 *Compact hóa một điểm của $\mathbb{R}$ thành $S^1$ - Nguồn minh họa khái niệm*
 
-Bài giảng này trình bày **không gian compact địa phương**, **compact hóa một điểm** (*one-point / Alexandroff compactification*) và **compact hóa Stone–Čech** (*Stone–Čech compactification*).
+**Mạch bài học:** Bản đồ kiến thức nền (compact địa phương, compact hóa một điểm Alexandroff & compact hóa Stone–Čech) → Khung giải thích chậm: cầm tay tính tọa độ phép chiếu nổi biến $$\mathbb{R} \cup \{\infty\}$$ thành đường tròn $$S^1$$ → Định nghĩa & Ví dụ kinh điển → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Tính Compact địa phương và Phép Compact hóa nghiên cứu những gì?
+
+### 1. Không gian Compact địa phương (Locally Compact)
+
+Một không gian Hausdorff $$X$$ là **compact địa phương** nếu mọi điểm $$x \in X$$ đều có một lân cận mở $$U$$ nằm gọn trong một tập con compact $$K$$ ($$x \in U \subseteq K$$). Mọi đa tạp hữu hạn chiều $$\mathbb{R}^n$$ đều compact địa phương; ngược lại, tập số hữu tỉ $$\mathbb{Q}$$ (bị thủng vô số lỗ vô tỉ trong mọi khoảng) và không gian Hilbert vô hạn chiều $$\ell^2$$ **không** compact địa phương!
+
+### 2. Compact hóa một điểm (Alexandroff): phép đóng gói "nhỏ nhất"
+
+Với mọi không gian Hausdorff compact địa phương nhưng không compact $$X$$, ta thêm đúng một điểm $$\infty \notin X$$ và quy ước các lân cận mở của $$\infty$$ chính là phần bù $$X^* \setminus K$$ của các tập compact $$K \subseteq X$$. Kết quả $$X^* = X \cup \{\infty\}$$ là không gian **compact và Hausdorff**, chứa $$X$$ như một tập con mở trù mật: $$\mathbb{R}^* \cong S^1$$, $$\mathbb{R}^2 \cup \{\infty\} \cong S^2$$, và tổng quát $$(\mathbb{R}^n)^* \cong S^n$$!
+
+### 3. Compact hóa Stone–Čech $$\beta X$$: phép đóng gói "lớn nhất"
+
+Trong khi Alexandroff thêm *ít điểm nhất* (chỉ 1 điểm), **compact hóa Stone–Čech** $$\beta X$$ thêm đủ nhiều điểm ở biên để **mọi hàm liên tục bị chặn $$f: X \to [0, 1]$$ đều mở rộng duy nhất được thành hàm liên tục $$\tilde{f}: \beta X \to [0, 1]$$**. (Chẳng hạn hàm $$\sin(x)$$ trên $$\mathbb{R}$$ không có giới hạn khi $$x \to \infty$$ nên không mở rộng được lên $$\mathbb{R} \cup \{\infty\}$$, nhưng lại mở rộng trơn tru lên $$\beta\mathbb{R}$$!)
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng phép chiếu nổi $$\mathbb{R} \cup \{\infty\} \cong S^1$$
+
+Đặt đường tròn đơn vị $$S^1 = \{(u, v) \in \mathbb{R}^2 : u^2 + v^2 = 1\}$$ với cực Bắc $$N = (0, 1)$$. Nối đường thẳng từ $$N(0, 1)$$ qua điểm $$(x, 0)$$ trên trục hoành $$\mathbb{R}$$, ta cắt đường tròn tại đúng một điểm thứ hai $$\varphi(x) = (u, v)$$:
+$$
+\varphi(x) = \left(\frac{2x}{x^2 + 1},\; \frac{x^2 - 1}{x^2 + 1}\right) \quad (x \in \mathbb{R}), \qquad \varphi(\infty) = (0, 1) = N.
+$$
+Hãy tự tay kiểm tra công thức này ở từng bước:
+
+1. **Kiểm tra điểm ảnh nằm chính xác trên đường tròn $$S^1$$:**
+   $$
+   u^2 + v^2 = \frac{4x^2 + (x^2 - 1)^2}{(x^2 + 1)^2} = \frac{4x^2 + x^4 - 2x^2 + 1}{(x^2 + 1)^2} = \frac{(x^2 + 1)^2}{(x^2 + 1)^2} = \mathbf{1}!
+   $$
+2. **Thay 4 giá trị cụ thể của $$x$$ để thấy trục số cuộn thành đường tròn:**
+   - $$x = 0 \implies \varphi(0) = (0,\; -1)$$ (đúng **cực Nam** của đường tròn).
+   - $$x = 1 \implies \varphi(1) = (1,\; 0)$$ (đúng **cực Đông**); tương tự $$x = -1 \mapsto (-1,\; 0)$$ (**cực Tây**).
+   - $$x = 10 \implies \varphi(10) = \left(\frac{20}{101},\; \frac{99}{101}\right) \approx (0.198,\; 0.980)$$ — tiến sát cực Bắc $$N(0, 1)$$ từ phía phải!
+   - $$x = -10 \implies \varphi(-10) = \left(-\frac{20}{101},\; \frac{99}{101}\right) \approx (-0.198,\; 0.980)$$ — tiến sát cực Bắc $$N(0, 1)$$ từ phía trái!
+3. **Kiểm tra lân cận của $$\infty$$:** Một chỏm mở nhỏ quanh cực Bắc $$N$$ (ví dụ $$v > \frac{99}{101}$$) có ảnh ngược dưới $$\varphi$$ chính là $$\{x \in \mathbb{R} : \lvert x \rvert > 10\} \cup \{\infty\} = (\mathbb{R} \cup \{\infty\}) \setminus [-10, 10]$$ — khớp **chính xác 100%** với định nghĩa lân cận của $$\infty$$ là phần bù của tập compact $$[-10, 10]$$ trong compact hóa Alexandroff!
 
 ---
 

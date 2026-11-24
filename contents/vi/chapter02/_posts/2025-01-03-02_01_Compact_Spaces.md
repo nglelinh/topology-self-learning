@@ -16,14 +16,54 @@ description: "Không gian compact, Heine-Borel theorem, và các characterizatio
 
 ## 📖 Tổng quan
 
-Nếu **tính liên thông** diễn tả ý tưởng "liền thành một mảnh", thì **tính compact** là dạng tổng quát hóa tô-pô của tính hữu hạn. Trong không gian Euclid $\mathbb{R}^n$, tính compact tương đương với "đóng và bị chặn" (**Định lý Heine–Borel**), nhưng trong tô-pô đại cương không có khái niệm khoảng cách nên cần một định nghĩa thuần túy dựa trên tập mở:
+Trong toàn bộ môn Tô-pô đại cương, **tính compact** có lẽ là khái niệm khiến người mới học cảm thấy "kỳ lạ" nhất lúc đầu — rồi lại trở thành công cụ được yêu thích nhất khi đã hiểu bản chất. Nếu tập hữu hạn là thứ dễ kiểm soát nhất trong toán học (mọi hàm trên tập hữu hạn đều đạt giá trị lớn nhất và nhỏ nhất), thì **không gian compact chính là "điều tốt thứ nhì sau tính hữu hạn"** trong thế giới vô hạn: nó cho phép ta rút gọn những bài toán vô hạn bước về đúng **một số hữu hạn bước**!
+
+Trong $$\mathbb{R}^n$$, Định lý Heine–Borel cho ta cách nhận diện nhanh: compact $$\iff$$ đóng và bị chặn. Nhưng trên không gian tô-pô tổng quát không có thước đo khoảng cách, định nghĩa phải viết thuần túy qua tập mở:
 
 > **Một không gian tô-pô là compact nếu mọi phủ mở của nó đều có một phủ con hữu hạn.**
 
 ![Open cover illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Compact_space.svg/400px-Compact_space.svg.png)  
 *Không gian compact: mọi phủ mở đều trích ra được phủ con hữu hạn - Nguồn minh họa khái niệm*
 
-Bài giảng này trình bày định nghĩa tính compact qua phủ mở, các tính chất cơ bản (tập con đóng, ảnh liên tục, **Định lý Giá trị Cực trị**), **Định lý Heine–Borel** trong $\mathbb{R}^n$, **tính compact dãy** và **bổ đề số Lebesgue** trong không gian mê-tric, khái niệm **compact địa phương**, và nhắc lại **Định lý Tychonoff**.
+**Mạch bài học:** Bản đồ kiến thức nền (trực giác "phủ mở – phủ con hữu hạn", Heine–Borel vs. không gian vô hạn chiều & bộ ba định lý vàng của compact) → Khung giải thích chậm: cầm tay dựng phủ mở cụ thể chứng minh $$(0, 1]$$ và $$\mathbb{R}$$ không compact → Trực giác & Định nghĩa hình thức → Compact dãy, số Lebesgue & Tychonoff → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Không gian Compact là gì và vì sao nó quyền năng đến vậy?
+
+### 1. Phủ mở và phủ con hữu hạn: "lọc vô hạn thành hữu hạn"
+
+Hãy hình dung bạn cần thắp sáng một con đường bằng vô hạn ngọn đèn (mỗi ngọn đèn chiếu sáng một tập mở $$U_\alpha$$). Không gian là **compact** nếu *dù ai đó bố trí hệ thống đèn oái oăm đến đâu* (miễn là cả con đường đều được chiếu sáng), bạn luôn có thể tắt bớt và chỉ giữ lại **hữu hạn ngọn đèn** mà con đường vẫn sáng trưng! Chú ý chữ **"mọi phủ mở"** — chỉ cần tồn tại *một* phủ mở không rút gọn được là không gian mất tính compact ngay lập tức.
+
+### 2. Heine–Borel trong $$\mathbb{R}^n$$ và cú sốc ở không gian vô hạn chiều
+
+Trong $$\mathbb{R}^n$$, $$K$$ compact $$\iff K$$ đóng và bị chặn. Nhưng đừng bao giờ đồng nhất hai khái niệm này ngoài $$\mathbb{R}^n$$! Trong không gian mê-tric rời rạc vô hạn $$\mathbb{N}$$ (với $$d(m,n)=1$$ khi $$m \neq n$$), hay hình cầu đơn vị đóng trong không gian Hilbert vô hạn chiều $$\ell^2$$, tập hợp **vừa đóng vừa bị chặn nhưng KHÔNG compact**!
+
+### 3. Bộ ba định lý vàng khiến tính compact trở nên không thể thiếu
+
+- **Ảnh liên tục của tập compact là compact** → kéo theo ngay **Định lý Giá trị Cực trị Weierstrass** (mọi hàm thực liên tục trên không gian compact đều đạt $$\max$$ và $$\min$$!).
+- **Song ánh liên tục từ không gian compact sang không gian Hausdorff tự động là phép đồng phôi** (không cần chứng minh $$f^{-1}$$ liên tục nữa!).
+- **Định lý Tychonoff:** tích tùy ý (kể cả vô hạn không đếm được!) của các không gian compact vẫn là compact.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng tại sao $$(0, 1]$$ và $$\mathbb{R}$$ KHÔNG compact
+
+Để nắm chắc cách phủ định định nghĩa compact (*"tồn tại một phủ mở không có phủ con hữu hạn"*), hãy tự tay kiểm tra hai ví dụ kinh điển:
+
+1. **Chứng minh $$(0, 1]$$ không compact (bị hở ở đầu mút $$0$$):**
+   - Chọn họ tập mở trong $$\mathbb{R}$$ (giao với $$(0, 1]$$):
+     $$
+     \mathcal{U} = \left\{ U_n = \left(\frac{1}{n},\; 2\right) : n \in \mathbb{N}^* \right\}.
+     $$
+   - **Kiểm tra tính phủ:** Lấy bất kỳ $$x \in (0, 1]$$. Vì $$x > 0$$, theo tính chất Archimedes tồn tại số nguyên dương $$n > \frac{1}{x} \implies \frac{1}{n} < x \le 1 < 2 \implies x \in U_n$$. Vậy $$\bigcup_{n=1}^\infty U_n \supseteq (0, 1]$$.
+   - **Kiểm tra không có phủ con hữu hạn:** Giả sử ta chọn bất kỳ $$k$$ tập hữu hạn $$U_{n_1}, U_{n_2}, \dots, U_{n_k}$$. Đặt $$M = \max(n_1, \dots, n_k)$$. Vì các tập lồng nhau $$U_1 \subset U_2 \subset \dots \subset U_M$$, hợp của $$k$$ tập này chỉ bằng đúng:
+     $$
+     U_{n_1} \cup \dots \cup U_{n_k} = U_M = \left(\frac{1}{M},\; 2\right).
+     $$
+     Lấy ngay điểm $$x_0 = \frac{1}{2M} \in (0, 1]$$: rõ ràng $$0 < \frac{1}{2M} < \frac{1}{M}$$, nên $$x_0 \notin U_M$$! Mọi phủ con hữu hạn đều **bỏ sót** đoạn $$\left(0, \frac{1}{M}\right]$$ → $$(0, 1]$$ **không compact**!
+2. **Chứng minh $$\mathbb{R}$$ không compact (không bị chặn):**
+   - Chọn phủ mở $$\mathcal{V} = \{(-n, n) : n \in \mathbb{N}^*\}$$. Với mọi tập con hữu hạn có chỉ số lớn nhất $$M$$, hợp của chúng là $$(-M, M)$$, luôn bỏ sót điểm $$x = M + 1 \in \mathbb{R}$$ → $$\mathbb{R}$$ **không compact**!
 
 ---
 

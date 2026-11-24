@@ -16,6 +16,8 @@ description: "Mayer-Vietoris Sequence: powerful computational tool via decomposi
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu Định lý Seifert–van Kampen (bài 06.04) là chiếc rìu "chia để trị" cho nhóm cơ bản $$\pi_1$$, thì **Dãy khớp dài Mayer–Vietoris** chính là phiên bản **mạnh mẽ hơn, tổng quát hơn và dễ dùng hơn rất nhiều** dành cho nhóm đồng điều $$H_n$$! Không chỉ hoạt động ở mọi bậc $$n = 0, 1, 2, \dots$$, Mayer–Vietoris thậm chí **không đòi hỏi phần giao $$U \cap V$$ phải liên thông đường** — cho phép bạn tính trọn vẹn đồng điều của mọi mặt cầu $$S^n$$, hình xuyến $$T^2$$, chai Klein và tổng liên thông các mặt chỉ bằng những phép đuổi biểu đồ đại số gọn gàng!
+
 Trước đây, ta đã có định lý Seifert–van Kampen để tính nhóm cơ bản $\pi_1(X)$ từ phép phân rã $X = A \cup B$, và đồng điều tế bào để tính đồng điều cho các phức CW. Để tính đồng điều của những không gian tổng quát mà không cần cấu trúc phức CW, ta sử dụng **dãy Mayer–Vietoris** — công cụ đóng vai trò tương tự định lý van Kampen trong lý thuyết đồng điều.
 
 Khi phân rã không gian thành hợp của hai tập mở $X = A \cup B$, dãy khớp dài Mayer–Vietoris liên hệ trực tiếp các nhóm đồng điều của phần giao $H_n(A \cap B)$, tổng trực tiếp của hai mảnh $H_n(A) \oplus H_n(B)$, và toàn bộ không gian $H_n(X)$:
@@ -28,6 +30,77 @@ Khi phân rã không gian thành hợp của hai tập mở $X = A \cup B$, dãy
 *Phân rã không gian cho dãy Mayer–Vietoris - Nguồn concept*
 
 Trong bài học này, ta sẽ ôn lại khái niệm dãy khớp, phát biểu định lý Mayer–Vietoris, tìm hiểu ý nghĩa hình học của đồng cấu nối $\partial$, áp dụng vào các ví dụ kinh điển ($S^2$, $S^n$, $T^2$, $\mathbb{R}P^2$) và phác thảo chứng minh qua Bổ đề con rắn (Snake Lemma). Dãy Mayer–Vietoris bổ sung cho đồng điều tế bào, giúp chứng minh nhiều định lý tổng quát và là bước đệm sang dãy phổ (spectral sequences).
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Dãy khớp & Định lý Mayer–Vietoris là gì?
+
+### 1. Dãy khớp (Exact Sequence): Ngôn ngữ "ống dẫn" của Đại số Đồng điều
+- **Bản chất:** Một dãy các nhóm Abel và đồng cấu $$\cdots \to A \xrightarrow{f} B \xrightarrow{g} C \to \cdots$$ gọi là **khớp tại $$B$$** nếu $$\operatorname{im}(f) = \ker(g)$$.
+- **Hai trường hợp vàng gặp mọi lúc:**
+  - $$0 \to A \xrightarrow{f} B \to 0$$ khớp $$\iff f$$ là **đẳng cấu**!
+  - $$0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$$ khớp (dãy khớp ngắn) $$\iff f$$ đơn ánh, $$g$$ toàn ánh và $$C \cong B/f(A)$$!
+
+### 2. Dãy khớp dài Mayer–Vietoris (Phiên bản Đồng điều của Nguyên lý Bù–Trừ)
+- **Bản chất:** Khi $$X = \operatorname{int}(A) \cup \operatorname{int}(B)$$, ta muốn đếm số lỗ của $$A \cup B$$ bằng cách cộng lỗ của $$A$$ với lỗ của $$B$$ rồi trừ phần bị đếm lặp trong $$A \cap B$$ — cộng thêm hiệu ứng tinh tế: **hai đường mở hở trong $$A$$ và $$B$$ nối chung biên trong $$A \cap B$$ có thể khép lại thành một lỗ MỚI ở bậc cao hơn** (chính là ánh xạ biên nối $$\partial_*: H_n(X) \to H_{n-1}(A \cap B)$$!):
+  $$
+  \cdots \to H_n(A \cap B) \xrightarrow{\Phi} H_n(A) \oplus H_n(B) \xrightarrow{\Psi} H_n(X) \xrightarrow{\partial_*} H_{n-1}(A \cap B) \to \cdots
+  $$
+
+### 3. Quy nạp theo Số chiều & Tính Cộng của Đặc trưng Euler
+- **Bản chất:** Mayer–Vietoris cho ngay quy nạp $$\tilde{H}_k(S^n) \cong \tilde{H}_{k-1}(S^{n-1})$$ trong 3 dòng, đồng thời suy ra công thức bù–trừ huyền thoại cho đặc trưng Euler:
+  $$
+  \chi(A \cup B) = \chi(A) + \chi(B) - \chi(A \cap B)!
+  $$
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Quy nạp tính $$\tilde{H}_k(S^n)$$ trong 4 dòng bằng Mayer–Vietoris
+
+Hãy phủ mặt cầu $$S^n$$ ($$n \ge 1$$) bởi hai chỏm cầu mở lớn:
+- $$U = S^n \setminus \{N\} \cong \mathbb{R}^n$$ (co rút được $$\implies \tilde{H}_k(U) = 0$$ với **mọi** $$k$$!).
+- $$V = S^n \setminus \{S\} \cong \mathbb{R}^n$$ (co rút được $$\implies \tilde{H}_k(V) = 0$$ với **mọi** $$k$$!).
+- Phần giao $$U \cap V = S^n \setminus \{N, S\} \cong S^{n-1} \times (-1, 1) \simeq S^{n-1}$$!
+
+Bây giờ viết một đoạn bất kỳ của **dãy khớp dài Mayer–Vietoris rút gọn** cho $$(U, V)$$:
+$$
+\underbrace{\tilde{H}_k(U) \oplus \tilde{H}_k(V)}_{=\,0}
+\longrightarrow
+\tilde{H}_k(S^n)
+\xrightarrow{\;\partial_*\;}
+\tilde{H}_{k-1}(S^{n-1})
+\longrightarrow
+\underbrace{\tilde{H}_{k-1}(U) \oplus \tilde{H}_{k-1}(V)}_{=\,0}.
+$$
+Vì cả hai đầu trái và phải đều bằng $$0$$, tính khớp ép ánh xạ nối $$\partial_*$$ ở giữa phải là **đẳng cấu** với mọi $$k$$ và mọi $$n \ge 1$$:
+$$
+\tilde{H}_k(S^n) \cong \tilde{H}_{k-1}(S^{n-1}) \cong \tilde{H}_{k-2}(S^{n-2}) \cong \cdots \cong \tilde{H}_{k-n}(S^0)!
+$$
+Mà $$S^0 = \{-1, +1\}$$ gồm đúng **2 điểm rời nhau** nên $$\tilde{H}_0(S^0) \cong \mathbb{Z}$$ và $$\tilde{H}_m(S^0) = 0$$ với mọi $$m \neq 0$$! Thay vào ta thu ngay công thức tổng quát cho **MỌI** mặt cầu $$S^n$$:
+$$
+\tilde{H}_k(S^n) \cong \begin{cases} \mathbb{Z} & \text{nếu } k = n, \\ 0 & \text{nếu } k \neq n! \end{cases}
+$$
+*(Hãy chiêm ngưỡng vẻ đẹp của bước $$n=1$$: với $$S^1$$, $$U \cap V \simeq S^0$$ KHÔNG liên thông đường nên Seifert–van Kampen bó tay, nhưng Mayer–Vietoris rút gọn lại dùng chính $$\tilde{H}_0(S^0) \cong \mathbb{Z}$$ để đẩy lên $$H_1(S^1) \cong \mathbb{Z}$$ gọn gàng trong đúng 1 dòng!)*
+
+### Khung giải thích: Quy trình 4 bước "đuổi biểu đồ" với Mayer–Vietoris (nên đọc chậm)
+
+#### Bước 1: Chọn hai mảnh $$A, B$$ có phần trong phủ kín $$X$$ và dễ tính đồng điều nhất
+Lý tưởng nhất là chọn $$A, B$$ co rút được (như hai bán cầu mở của $$S^n$$) hoặc co rút về vòng tròn/hình số 8 (như cắt hình xuyến $$T^2$$ thành hai hình trụ mở $$A, B \simeq S^1$$ giao nhau trên hai vòng tròn rời $$A \cap B \simeq S^1 \sqcup S^1$$!).
+
+#### Bước 2: Dùng phiên bản rút gọn $$\tilde{H}_*$$ khi $$A \cap B \neq \emptyset$$
+Phiên bản rút gọn triệt tiêu ngay nhiều số hạng $$\mathbb{Z}$$ thừa ở bậc $$0$$, giúp đoạn dãy khớp trở nên ngắn và trong suốt hơn hẳn.
+
+#### Bước 3: Đọc cấu trúc dãy khớp từ những chỗ có số $$0$$
+Bất cứ đoạn nào có dạng $$0 \to G \to H \to 0$$ cho ngay đẳng cấu $$G \cong H$$. Nếu có đoạn $$0 \to \mathbb{Z} \xrightarrow{\times 2} \mathbb{Z} \to H_1(\mathbb{R}P^2) \to 0$$ (khi dán đĩa $$D^2$$ vào dải Möbius!), ta đọc ra ngay phần xoắn $$H_1(\mathbb{R}P^2) \cong \mathbb{Z}/2\mathbb{Z}$$!
+
+#### Bước 4: Hiểu ý nghĩa hình học của ánh xạ nối $$\partial_*$$
+Ánh xạ nối $$\partial_*: H_n(X) \to H_{n-1}(A \cap B)$$ làm đúng một việc tự nhiên: lấy một chu trình $$z$$ nằm trong $$X$$, xẻ đôi thành $$z = x + y$$ (với $$x \in C_n(A),\; y \in C_n(B)$$), rồi lấy biên $$\partial x$$ — biên đó bắt buộc nằm gọn trong $$A \cap B$$!
+
+$$
+X = \operatorname{int}(A) \cup \operatorname{int}(B)
+\;\xrightarrow{\;\text{Mayer–Vietoris}\;}\;
+\cdots \to H_n(A\cap B) \to H_n(A)\oplus H_n(B) \to H_n(X) \xrightarrow{\partial_*} H_{n-1}(A\cap B) \to \cdots
+$$
 
 ---
 

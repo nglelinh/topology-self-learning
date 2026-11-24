@@ -16,6 +16,8 @@ description: "Homotopy: continuous deformation, path homotopy, homotopy equivale
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu hai người cùng đứng trên bờ một hồ nước hình tròn và thả hai sợi dây nối từ điểm $$A$$ sang điểm $$B$$, bạn có thể kéo trượt mượt mà sợi dây thứ nhất trùng khít vào sợi dây thứ hai mà không nhấc dây khỏi mặt đất — miễn là hai sợi dây đi cùng một phía của hồ nước! Nhưng nếu một sợi đi vòng qua bờ Bắc và sợi kia đi vòng qua bờ Nam, bạn **không bao giờ** kéo chúng trùng nhau được vì vướng mặt hồ ở giữa! Ý tưởng "biến dạng liên tục một ánh xạ này thành một ánh xạ khác" mang tên **đồng luân (homotopy)** — bước khởi đầu biến tô-pô từ việc nghiên cứu hình dạng tĩnh sang **tô-pô đại số**!
+
 Lý thuyết đồng luân (homotopy theory) là nền tảng của tô-pô đại số. Ý tưởng trung tâm của nó là:
 
 > **Hai đối tượng được coi là tương đương nếu một đối tượng có thể biến dạng liên tục thành đối tượng kia.**
@@ -28,6 +30,72 @@ Phép biến dạng liên tục đó được gọi là **đồng luân** (homot
 Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa đồng luân giữa hai ánh xạ, tương đương đồng luân, không gian co rút được (contractible), đường đi và vòng khép kín, đồng luân đường (path homotopy), cũng như các khái niệm bổ trợ như tính chất mở rộng đồng luân (HEP) và co rút biến dạng (deformation retract).
 
 Các bài học tiếp theo trong chương sẽ xây dựng nhóm cơ bản $\pi_1$, lý thuyết không gian phủ và định lý Seifert–van Kampen.
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Đồng luân và Tương đương Đồng luân là gì?
+
+### 1. Đồng luân giữa hai Ánh xạ: Một "đoạn phim" liên tục $$H(x, t)$$
+- **Bản chất:** Hai ánh xạ liên tục $$f, g: X \to Y$$ gọi là **đồng luân** ($$f \simeq g$$) nếu tồn tại ánh xạ liên tục $$H: X \times [0, 1] \to Y$$ sao cho tại khung hình đầu $$H(x, 0) = f(x)$$ và tại khung hình cuối $$H(x, 1) = g(x)$$.
+
+### 2. Tương đương Đồng luân (Homotopy Equivalence) vs. Đồng phôi
+- **Bản chất:** Hai không gian $$X, Y$$ gọi là **tương đương đồng luân** ($$X \simeq Y$$) nếu có $$f: X \to Y$$ và $$g: Y \to X$$ sao cho $$g \circ f \simeq \operatorname{id}_X$$ và $$f \circ g \simeq \operatorname{id}_Y$$ (không cần bằng tuyệt đối như đồng phôi!).
+- **Phép co rút biến dạng (Deformation Retraction):** Công cụ mạnh nhất để kiểm chứng $$X \simeq A$$: thu gọn liên tục không gian lớn $$X$$ về không gian con $$A$$ mà vẫn giữ yên mọi điểm của $$A$$ (ví dụ: hình trụ $$S^1 \times [0,1]$$ co rút về đường tròn $$S^1$$; dải Möbius co rút về đường tròn giữa $$S^1$$; không gian $$\mathbb{R}^n$$ co rút về 1 điểm!).
+
+### 3. Đồng luân Đường đi (Path Homotopy): Hạt giống của Nhóm cơ bản $$\pi_1$$
+- **Bản chất:** Khi xét hai đường đi $$\alpha, \beta: [0,1] \to X$$ có cùng điểm đầu $$x_0$$ và điểm cuối $$x_1$$, ta đòi hỏi phép biến dạng $$H(s, t)$$ phải **giữ chặt hai đầu mút cố định** ở mọi thời điểm $$t$$! Tập các lớp đồng luân đường đi khép kín tại $$x_0$$ chính là **nhóm cơ bản $$\pi_1(X, x_0)$$** ở bài tiếp theo!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc
+
+### Ví dụ 1: Đồng luân tuyến tính trên tập lồi — Mọi ánh xạ vào $$\mathbb{R}^n$$ đều đồng luân với nhau!
+Cho $$f, g: X \to \mathbb{R}^n$$ là hai ánh xạ liên tục bất kỳ. Xây dựng tường minh:
+$$
+H(x, t) = (1 - t)f(x) + t\,g(x), \qquad t \in [0, 1].
+$$
+Kiểm tra bằng tay 3 điều kiện:
+- $$H(x, 0) = 1\cdot f(x) + 0\cdot g(x) = f(x)$$. ✓
+- $$H(x, 1) = 0\cdot f(x) + 1\cdot g(x) = g(x)$$. ✓
+- $$H$$ liên tục vì là tổ hợp tuyến tính của hai hàm liên tục!
+Đặc biệt, lấy $$g(x) \equiv 0$$ (ánh xạ hằng) trên $$X = \mathbb{R}^n$$ và $$f = \operatorname{id}_{\mathbb{R}^n}$$: $$H(x, t) = (1-t)x$$ thu gọn toàn bộ $$\mathbb{R}^n$$ về gốc $$0 \implies \mathbb{R}^n$$ **co rút được** ($$\mathbb{R}^n \simeq \{\text{pt}\}$$)!
+
+### Ví dụ 2: Phép co rút biến dạng tường minh từ $$\mathbb{R}^n \setminus \{0\}$$ về Mặt cầu $$S^{n-1}$$
+Xét không gian bị đục thủng gốc tọa độ $$X = \mathbb{R}^n \setminus \{0\}$$ và mặt cầu đơn vị $$S^{n-1} \subset X$$. Ta viết công thức co rút xuyên tâm:
+$$
+H(x, t) = (1 - t)x + t\,\frac{x}{\|x\|} = \left((1 - t) + \frac{t}{\|x\|}\right)x, \qquad t \in [0, 1].
+$$
+Kiểm tra bằng tay 4 điều kiện:
+1. **Không bao giờ chạm gốc $$0$$:** Vì $$\|x\| > 0$$ và $$(1-t) + t/\|x\| > 0$$ với mọi $$t \in [0,1]$$ nên $$H(x,t) \in \mathbb{R}^n \setminus \{0\}$$ mọi lúc! ✓
+2. **Tại $$t = 0$$:** $$H(x, 0) = x = \operatorname{id}_X(x)$$. ✓
+3. **Tại $$t = 1$$:** $$H(x, 1) = \frac{x}{\|x\|} \in S^{n-1}$$. ✓
+4. **Giữ yên mọi điểm thuộc $$S^{n-1}$$:** Nếu $$\|x\| = 1$$ thì $$H(x, t) = ((1-t) + t)x = x$$ với mọi $$t$$! ✓
+
+Kết luận: $$\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$$ (dù khác số chiều — $$n$$ chiều vs. $$(n-1)$$ chiều — nên chúng **không đồng phôi**, nhưng lại có **cùng kiểu đồng luân** và mọi nhóm $$\pi_k, H_k$$ hoàn toàn đẳng cấu nhau!).
+
+### Khung giải thích: Tại sao Tô-pô Đại số lại làm việc với "Đồng luân" thay vì chỉ "Đồng phôi"? (nên đọc chậm)
+
+#### Bước 1: Đồng phôi đôi khi quá khắt khe
+Mặt phẳng thủng 1 lỗ $$\mathbb{R}^2\setminus\{0\}$$, hình trụ $$S^1 \times \mathbb{R}$$, và đường tròn $$S^1$$ đều mang cùng một "lỗ 1 chiều" cốt lõi, nhưng chúng khác số chiều hoặc tính compact nên không đồng phôi. Đồng luân gom cả ba về chung một lớp!
+
+#### Bước 2: Mọi bất biến đại số chuẩn ($$\pi_n, H_n, H^n$$) đều là bất biến đồng luân
+Nếu $$X \simeq Y$$ thì lập tức $$\pi_n(X) \cong \pi_n(Y)$$ và $$H_n(X) \cong H_n(Y)$$. Do đó muốn tính $$\pi_1(\mathbb{R}^2\setminus\{0\})$$, ta chỉ cần co rút nó về $$S^1$$ rồi tính $$\pi_1(S^1) \cong \mathbb{Z}$$!
+
+#### Bước 3: Biến bài toán hình học thành đại số các lớp đồng luân
+Trên tập các đường đi nối $$x_0$$ với $$x_0$$, phép nối hai đường đi $$(\alpha * \beta)$$ ban đầu **không kết hợp** chặt (chỉ sai khác tốc độ chạy!). Nhưng khi chuyển sang **lớp đồng luân đường đi** $$[\alpha]$$, mọi sai khác tốc độ được làm trơn hết — biến tập vòng lặp thành một **nhóm đại số đích thực**!
+
+#### Bước 4: Bước đệm trực tiếp cho Nhóm cơ bản
+Từ đây, chỉ cần kiểm tra đúng 3 tiên đề nhóm (kết hợp, vòng hằng làm đơn vị, vòng chạy ngược làm nghịch đảo) là bạn mở khóa toàn bộ Chương 06!
+
+$$
+\text{Ánh xạ }f, g: X \to Y
+\;\xrightarrow{\;H(x,t)\;}\;
+\text{Đồng luân }f \simeq g
+\;\xrightarrow{\;\text{Co rút biến dạng}\;}\;
+\mathbb{R}^n\setminus\{0\} \simeq S^{n-1}
+\;\xrightarrow{\;\text{Vòng cố định }x_0\;}\;
+\pi_1(X, x_0).
+$$
 
 ---
 

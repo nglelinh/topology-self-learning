@@ -18,6 +18,8 @@ description: "Bài tùy chọn: π₁ và homotopy gặp topology của mạng n
 
 ## 📖 Tổng quan
 
+> **Câu chuyện mở đầu:** Nếu bạn huấn luyện cùng một mạng nơ-ron sâu hai lần từ hai bộ trọng số ngẫu nhiên hoàn toàn khác nhau, hai mô hình cuối cùng sẽ dừng ở hai điểm trọng số $$w_0$$ và $$w_1$$ nằm cách xa nhau hàng trăm đơn vị trong không gian hàng tỷ chiều. Trực giác cổ điển dự đoán rằng hai điểm đó nằm ở hai "thung lũng cô lập" cách nhau bởi núi cao mất mát — nhưng thực nghiệm học sâu hiện đại lại phát hiện một điều kỳ diệu gọi là **Mode Connectivity**: *giữa $$w_0$$ và $$w_1$$ hầu như luôn tồn tại một con đường liên tục $$\gamma(t)$$ đi xuyên qua thung lũng hàm mất mát thấp!* Và chính ngôn ngữ **đồng luân, $$\pi_0, \pi_1$$ và không gian phủ (do đối xứng hoán vị nơ-ron)** của Chương 06 là lăng kính toán học giải mã bí ẩn đó!
+
 Một phép đồng luân là một biến dạng liên tục giữa hai ánh xạ. Trong học sâu, hai bộ trọng số $w_0, w_1$ nằm trong cùng một "mode" nếu tồn tại một đường đi liên tục $\gamma$ nối chúng sao cho hàm mất mát $L(\gamma(t))$ không vượt quá một ngưỡng thấp $c$ — tức $w_0$ và $w_1$ thuộc cùng một thành phần liên thông đường trong tập mức dưới (sublevel set) $S_c = \{w : L(w) \le c\}$. Khảo sát của Ballester–Casacuberta–Escalera (2023) cùng các nghiên cứu về tính liên thông mode (mode connectivity) giai đoạn 2025–2026 cho thấy ngôn ngữ của Chapter 06 có thể áp dụng trực tiếp khi đọc các bài báo thực nghiệm hiện đại.
 
 ![Mạng nơ-ron](https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg)
@@ -31,6 +33,64 @@ Một phép đồng luân là một biến dạng liên tục giữa hai ánh x�
 ## 🎯 Trực giác
 
 Naitzat, Zhitnikov và Lim (2020) — công trình tiếp tục được trích dẫn rộng rãi sau năm 2022 — cho thấy mạng nơ-ron sâu có xu hướng *đơn giản hóa cấu trúc tô-pô của dữ liệu*: các số Betti của tập dữ liệu giảm dần qua các tầng, tương tự quá trình biến dạng hướng về không gian đơn giản hơn. Ở chiều đối ngẫu, nghiên cứu về mode connectivity đặt câu hỏi về cấu trúc tô-pô của *không gian tham số*: tập mức dưới $S_c$ có liên thông đường hay có nhiều thành phần tách biệt?
+
+---
+
+## 🗺️ Bản đồ kiến thức nền: Tô-pô của Cảnh quan Hàm Mất mát (Loss Landscape)
+
+### 1. Tập mức dưới $$S_c = \{w : L(w) \le c\}$$ và Liên thông Mode ($$\pi_0(S_c)$$)
+- **Bản chất:** Mọi mạng nơ-ron có bộ tham số $$w \in \mathbb{R}^P$$ và hàm mất mát $$L(w)$$. Hai nghiệm $$w_0, w_1$$ có **liên thông mode** ở ngưỡng $$c$$ khi và chỉ khi chúng nằm trong **cùng một thành phần liên thông đường** của $$S_c$$ — tức $$[w_0] = [w_1]$$ trong $$\pi_0(S_c)$$!
+
+### 2. Liên thông Mode Tuyến tính (LMC) & Trộn Mô hình (Model Merging)
+- **Bản chất:** Nếu không chỉ tồn tại đường cong bất kỳ mà **đúng đoạn thẳng** $$\gamma(t) = (1-t)w_0 + t\,w_1$$ nằm trọn trong $$S_c$$, ta có **Linear Mode Connectivity (LMC)** — cơ sở toán học của kỹ thuật trộn trọng số (*model soup*, *Git Re-Basin*) trên các mô hình LLM/Transformer hàng tỷ tham số!
+
+### 3. Đối xứng Hoán vị Nơ-ron & Không gian Thương (Cầu nối với Phủ Chương 06)
+- **Bản chất:** Trong một tầng ẩn gồm $$m$$ nơ-ron, đổi chỗ thứ tự 2 nơ-ron không làm thay đổi hàm đầu ra của mạng! Do đó nhóm đối xứng $$S_m$$ tác động lên không gian trọng số $$\mathbb{R}^P$$ tạo ra tới $$m!$$ bản sao y hệt của cùng một cực tiểu — hệt như các lá của một không gian phủ chiếu xuống không gian hàm!
+
+---
+
+## 🧮 Ví dụ tính tay cầm tay chỉ việc: Đếm $$\pi_0(S_c)$$ trên hàm hai đáy $$L(w) = (w^2 - 1)^2$$
+
+Xét hàm mất mát 1 chiều kinh điển có hai đáy cực tiểu tại $$w = -1$$ và $$w = +1$$:
+$$
+L(w) = (w^2 - 1)^2, \qquad S_c = \{w \in \mathbb{R} : (w^2 - 1)^2 \le c\}.
+$$
+Hãy giải bất phương trình $$(w^2 - 1)^2 \le c$$ bằng tay theo từng giá trị ngưỡng $$c$$ và đếm số thành phần liên thông đường $$\lvert \pi_0(S_c)\rvert$$:
+
+1. **Khi $$c < 0$$:** Vì $$(w^2-1)^2 \ge 0$$ nên $$S_c = \emptyset \implies \lvert \pi_0(S_c)\rvert = 0$$.
+2. **Khi $$c = 0$$:** $$S_0 = \{-1, +1\}$$ gồm 2 điểm cực tiểu rời nhau $$\implies \lvert \pi_0(S_0)\rvert = 2$$.
+3. **Khi $$0 < c < 1$$:** Ta có $$1 - \sqrt{c} \le w^2 \le 1 + \sqrt{c}$$ với $$1 - \sqrt{c} > 0$$, nên $$S_c$$ là hợp của **2 đoạn đóng tách biệt hoàn toàn**:
+   $$
+   S_c = \bigl[-\sqrt{1+\sqrt{c}},\; -\sqrt{1-\sqrt{c}}\bigr] \;\cup\; \bigl[\sqrt{1-\sqrt{c}},\; \sqrt{1+\sqrt{c}}\bigr]
+   \quad\Longrightarrow\quad
+   \lvert \pi_0(S_c)\rvert = 2!
+   $$
+   Ở ngưỡng $$c < 1$$, hai cực tiểu bị ngăn cách bởi ngọn đồi tại $$w = 0$$ (cao $$L(0) = 1$$) — **chưa có mode connectivity**!
+4. **Khi $$c \ge 1$$:** Vì $$1 - \sqrt{c} \le 0$$ nên $$w^2 \le 1 + \sqrt{c}$$, tức $$S_c = [-\sqrt{1+\sqrt{c}},\; \sqrt{1+\sqrt{c}}]$$ — **1 đoạn liên thông duy nhất** $$\implies \lvert \pi_0(S_c)\rvert = 1$$!
+
+*(Góc nhìn chiều cao: Trong 1 chiều, muốn đi từ $$-1$$ sang $$+1$$ bạn bắt buộc phải trèo qua đỉnh đồi $$w=0$$. Trong không gian triệu chiều của mạng sâu, thay vì trèo qua đồi, các đường đi dễ dàng **đi vòng qua thung lũng** ở các chiều phụ — đó là lý do mạng càng rộng, $$\pi_0(S_c)$$ càng dễ sụp về 1!)*
+
+### Khung giải thích: 4 bước đọc nghiên cứu Tô-pô Mạng Nơ-ron (2022–2026) (nên đọc chậm)
+
+#### Bước 1: Định vị rõ không gian đang khảo sát
+Trong các bài báo TDA/Homotopy cho AI, luôn kiểm tra họ đang nghiên cứu tô-pô của: (1) **dữ liệu qua từng tầng** (số Betti giảm dần khi mạng phân loại), hay (2) **không gian trọng số $$S_c = \{L \le c\}$$** (mode connectivity).
+
+#### Bước 2: Dùng phép hoán vị nơ-ron (Git Re-Basin) để căn chỉnh lá phủ
+Hai cực tiểu $$w_0, w_1$$ ban đầu có thể không có *linear* mode connectivity vì thứ tự nơ-ron bị tráo đổi; sau khi tác động phép hoán vị $$\sigma \in S_m$$ đưa $$w_1$$ về cùng "lá phủ" với $$w_0$$, đoạn thẳng nối $$w_0$$ với $$\sigma(w_1)$$ thường có hàng rào mất mát gần bằng $$0$$!
+
+#### Bước 3: Mở rộng sang mô hình sinh, MoE và Machine Unlearning (2025–2026)
+Các công trình mới khảo sát xem khi "xóa trí nhớ" một mẫu dữ liệu (unlearning), đường đi liên thông giữa mô hình cũ và mô hình mới có bị đứt gãy hay không.
+
+#### Bước 4: Biên giới mở — Từ $$\pi_0$$ sang $$\pi_1$$ của cảnh quan mất mát
+Đo $$\pi_0(S_c)$$ (có đường nối hay không) đã khá chín muồi, nhưng đo $$\pi_1(S_c)$$ (có những "vòng lỗ" cản trở tối ưu hóa nào tồn tại trong cảnh quan mất mát hàng tỷ tham số không?) vẫn là một chân trời nghiên cứu mở cực kỳ hấp dẫn!
+
+$$
+\text{Trọng số }w_0, w_1 \in S_c
+\;\xrightarrow{\;\text{Hoán vị }\sigma \in S_m\;}\;
+\text{Đường đi / Đồng luân tuyến tính }\gamma(t) \subset S_c
+\;\xrightarrow{\;\pi_0(S_c) = 1\;}\;
+\text{Trộn mô hình (Model Merging)}.
+$$
 
 ---
 

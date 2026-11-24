@@ -16,14 +16,9 @@ description: "Các tiên đề phân ly T₀, T₁, T₂: Kolmogorov, Fréchet, 
 
 ## 📖 Tổng quan
 
-Sau khi tìm hiểu hai tính chất toàn cục là tính liên thông và tính compact ở Chương 02, ta chuyển sang **các tiên đề tách** (*separation axioms*) — hệ thống điều kiện mô tả mức độ phân biệt giữa các điểm và các tập đóng bằng tập mở.
+Trong giải tích năm nhất, ta mặc nhiên tin một điều hiển nhiên đến mức chẳng bao giờ nghi ngờ: *một dãy số hội tụ thì chỉ có **duy nhất một** giới hạn.* Nhưng hãy thử đặt mình vào một không gian tô-pô tầm thường $$X = \{a, b\}$$ với $$\tau = \{\emptyset, \{a, b\}\}$$: xét dãy hằng $$x_n = a, a, a, \dots$$ — vì tập mở duy nhất chứa $$b$$ là cả $$X$$ (chứa mọi $$x_n$$), dãy hằng toàn chữ $$a$$ đó **vừa hội tụ về $$a$$, vừa hội tụ về $$b$$**!
 
-Câu hỏi xuất phát rất tự nhiên: trong một không gian tô-pô, ta có thể dùng các tập mở để phân biệt hai điểm khác nhau ở mức độ nào?
-- Trong **tô-pô tầm thường** trên $\{a, b\}$, chỉ có $\emptyset$ và $\{a, b\}$ là tập mở, nên không thể tách $a$ và $b$.
-- Trong **tô-pô rời rạc**, hai tập mở $\{a\}$ và $\{b\}$ rời nhau tách hoàn toàn $a$ và $b$.
-- Trong **không gian Euclid $\mathbb{R}$**, với mọi $x \neq y$ luôn tồn tại hai hình cầu mở rời nhau chứa $x$ và $y$.
-
-Các tiên đề tách tạo thành một hệ phân tầng từ mạnh đến yếu (theo quan hệ bao hàm giữa các lớp không gian):
+Để loại trừ những không gian "mờ nhòe" nơi các điểm dính bết vào nhau như thế, Chương 03 giới thiệu **các tiên đề tách (separation axioms)** — một chiếc thang đo độ phân giải của tập mở từ yếu đến mạnh:
 
 $$
 T_4 \subset T_{3.5} \subset T_3 \subset T_2 \subset T_1 \subset T_0
@@ -32,7 +27,47 @@ $$
 ![Separation axioms hierarchy](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Separation_axioms.svg/500px-Separation_axioms.svg.png)  
 *Hệ phân tầng các tiên đề tách - Nguồn minh họa khái niệm*
 
-Bài giảng này tập trung vào ba bậc đầu tiên: **$T_0$ (Kolmogorov)**, **$T_1$ (Fréchet)** và **$T_2$ (Hausdorff)** — đặc biệt là không gian Hausdorff, điều kiện chuẩn bảo đảm tính duy nhất của giới hạn và tính đóng của mọi tập con compact.
+Bài giảng này khai mở ba nấc thang đầu tiên — **$$T_0$$ (Kolmogorov)**, **$$T_1$$ (Fréchet)** và đặc biệt là **$$T_2$$ (Hausdorff)**, điều kiện vàng bảo đảm giới hạn là duy nhất và mọi tập con compact đều đóng.
+
+**Mạch bài học:** Bản đồ kiến thức nền (ý nghĩa chiếc thang $$T_0 \to T_1 \to T_2$$ & vai trò đặc biệt của Hausdorff) → Khung giải thích chậm: cầm tay phân loại 3 không gian mẫu để chứng minh bao hàm ngặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ → Trực giác & Định nghĩa hình thức → Tính chất không gian Hausdorff → Bài tập & Tóm tắt.
+
+---
+
+## Bản đồ kiến thức nền: Các Tiên đề tách $$T_0, T_1, T_2$$ đo lường điều gì?
+
+### 1. $$T_0$$ (Kolmogorov) và $$T_1$$ (Fréchet): phân biệt một chiều vs. hai chiều
+
+- **$$T_0$$:** Với mọi $$x \neq y$$, có *ít nhất một* tập mở chứa điểm này mà không chứa điểm kia (phân biệt một chiều — hai điểm không thể có hệ lân cận giống hệt nhau).
+- **$$T_1$$:** Với mọi $$x \neq y$$, có tập mở chứa $$x$$ không chứa $$y$$ **VÀ** có tập mở chứa $$y$$ không chứa $$x$$. Đặc trưng tương đương cực gọn: **$$X$$ là $$T_1 \iff$$ mọi tập đơn điểm $$\{x\}$$ đều là tập đóng!**
+
+### 2. $$T_2$$ (Hausdorff): hai "bong bóng mở" không chạm nhau
+
+Một không gian $$T_1$$ vẫn có thể rất kỳ dị (như đường thẳng có hai gốc tọa độ, hoặc tô-pô đồng hữu hạn). **Tiên đề Hausdorff ($$T_2$$)** đòi hỏi mạnh hơn hẳn: với mọi $$x \neq y$$, hai lân cận mở $$U \ni x$$ và $$V \ni y$$ phải **rời nhau hoàn toàn** ($$U \cap V = \emptyset$$).
+
+### 3. Vì sao hầu hết hình học và giải tích đều giả thiết không gian là Hausdorff?
+
+Nhờ hai bong bóng rời nhau $$U \cap V = \emptyset$$, ta lập tức khôi phục hai tính chất sống còn của giải tích: (1) **giới hạn của mọi dãy (hoặc lưới) nếu có là duy nhất**, và (2) **mọi tập con compact của không gian Hausdorff đều đóng**.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng ranh giới chặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ trên 3 không gian mẫu
+
+Hãy tự tay kiểm tra ba không gian cụ thể để thấy rõ mỗi nấc thang thực sự loại bỏ được những "quái vật" nào:
+
+1. **Ví dụ đạt $$T_0$$ nhưng KHÔNG đạt $$T_1$$ — Không gian Sierpiński:**
+   Xét $$X = \{0, 1\}$$ với tô-pô $$\tau = \bigl\{\emptyset,\; \{1\},\; \{0, 1\}\bigr\}$$.
+   - Kiểm tra $$T_0$$: Với cặp điểm duy nhất $$0 \neq 1$$, tập mở $$U = \{1\}$$ chứa $$1$$ mà không chứa $$0$$ → **Đạt $$T_0$$!**
+   - Kiểm tra $$T_1$$: Có tập mở nào chứa $$0$$ mà không chứa $$1$$ không? Tập mở duy nhất chứa $$0$$ là $$\{0, 1\}$$, lại chứa luôn $$1$$! (Hoặc kiểm tra nhanh: phần bù của $$\{1\}$$ là $$\{0\}$$ không mở nên $$\{1\}$$ không đóng!) → **KHÔNG đạt $$T_1$$!**
+2. **Ví dụ đạt $$T_1$$ nhưng KHÔNG đạt $$T_2$$ — Tô-pô đồng hữu hạn trên $$\mathbb{R}$$:**
+   Trên $$\mathbb{R}$$, gọi $$U$$ là mở nếu $$U = \emptyset$$ hoặc $$\mathbb{R} \setminus U$$ là tập hữu hạn.
+   - Kiểm tra $$T_1$$: Với mọi $$x \in \mathbb{R}$$, phần bù $$\mathbb{R} \setminus \{x\}$$ có phần bù là $$\{x\}$$ (hữu hạn!) nên mở → $$\{x\}$$ đóng → **Đạt $$T_1$$!**
+   - Kiểm tra $$T_2$$: Chọn hai điểm bất kỳ $$0 \neq 1$$ và hai tập mở khác rỗng bất kỳ $$U \ni 0, V \ni 1$$. Ta có $$U = \mathbb{R} \setminus F_1$$ và $$V = \mathbb{R} \setminus F_2$$ với $$F_1, F_2$$ hữu hạn. Khi đó:
+     $$
+     U \cap V = \mathbb{R} \setminus (F_1 \cup F_2) \neq \emptyset
+     $$
+     vì $$\mathbb{R}$$ vô hạn còn $$F_1 \cup F_2$$ hữu hạn! Không bao giờ tìm được hai tập mở rời nhau → **KHÔNG đạt $$T_2$$!** (Và mọi dãy gồm các phần tử phân biệt như $$x_n = n$$ đều hội tụ tới *mọi* số thực trên $$\mathbb{R}$$!)
+3. **Ví dụ đạt $$T_2$$ — $$\mathbb{R}$$ với tô-pô Euclid:**
+   Với $$x \neq y$$, đặt $$r = \frac{\lvert x - y \rvert}{2} > 0$$. Hai khoảng mở $$(x - r, x + r)$$ và $$(y - r, y + r)$$ rời nhau hoàn toàn → **Đạt $$T_2$$!**
 
 ---
 

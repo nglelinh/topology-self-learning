@@ -18,10 +18,48 @@ description: "Bài tùy chọn: point-set topology gặp clustering và TDA (202
 
 ## 📖 Tổng quan
 
-Một tô-pô trên $X$ cho biết cấu trúc lân cận giữa các điểm mà không cần cố định một mê-tric. Phân cụm (*clustering*) cũng đặt ra câu hỏi tương tự dưới dạng thuật toán: đâu là những nhóm điểm gắn kết tự nhiên trong dữ liệu? Trong giai đoạn 2022–2026, các phương pháp phân cụm tô-pô đã phát triển thành những thuật toán đa tỉ lệ, đa tham số đi kèm định lý ổn định chặt chẽ.
+Khi một nhà khoa học dữ liệu chạy thuật toán phân cụm trên tập khách hàng hay tế bào sinh học, câu hỏi đầu tiên luôn làm họ đau đầu là: *"dữ liệu này thực sự có 2 cụm, 3 cụm hay 5 cụm — và làm sao biết đó không phải do ta chọn sai ngưỡng khoảng cách?"* Hóa ra, câu hỏi thực tế ấy chính là phiên bản rời rạc của một câu hỏi kinh điển trong Chương 01: **làm thế nào định nghĩa cấu trúc "lân cận" và "tách cụm" trên một tập $$X$$ mà không bị lệ thuộc vào một thước đo cố định?**
+
+Một tô-pô trên $$X$$ mô tả cấu trúc lân cận mà không cần cố định mê-tric; tương tự, giai đoạn 2022–2026 chứng kiến sự trưởng thành mạnh mẽ của **phân cụm tô-pô đa tỉ lệ** (như ToMATo và phân cụm dựa trên homology bền vững $$H_0$$), nơi các thuật toán đi kèm định lý ổn định toán học chặt chẽ.
 
 ![Phân cụm](https://upload.wikimedia.org/wikipedia/commons/c/c8/Cluster-2.svg)
 *Hai cụm trong mặt phẳng: phiên bản rời rạc của tính không liên thông. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cluster-2.svg)*
+
+**Mạch bài học:** Bản đồ kiến thức nền (phân cụm liên kết đơn & $$H_0$$ persistence, lọc theo mật độ ToMATo & giảm chiều bảo toàn lân cận) → Khung giải thích chậm: cầm tay chạy phân cụm đa tỉ lệ trên 4 điểm trên trục số và đọc số cụm thật → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+
+---
+
+## Bản đồ kiến thức nền: Tô-pô của Dữ liệu và Phân cụm Tô-pô nghiên cứu những gì?
+
+### 1. Phân cụm liên kết đơn (Single-Linkage) chính là $$H_0$$ bền vững
+
+Nếu ta nối cạnh giữa hai điểm dữ liệu bất kỳ cách nhau $$\le r$$ rồi cho $$r$$ tăng dần từ $$0 \to \infty$$, số thành phần liên thông giảm dần từ $$N$$ xuống $$1$$. Mỗi lần hai cụm nhập làm một, cụm "non hơn" kết thúc vòng đời. Tập hợp các khoảng sống $$[0, r_{\text{death}})$$ chính là **biểu đồ bền vững bậc 0** — giúp nhận ra số cụm tự nhiên mà không cần đoán trước $$K$$ như K-means!
+
+### 2. Phân cụm theo mật độ (ToMATo) và tính ổn định trước nhiễu
+
+Liên kết đơn dễ bị "hiệu ứng cầu nối" (chỉ vài điểm nhiễu nằm giữa hai cụm cũng nối chúng thành một). Các thuật toán tô-pô hiện đại như **ToMATo** khắc phục bằng cách lọc theo **hàm ước lượng mật độ $$\hat{f}(x)$$** (siêu mức $$\{x : \hat{f}(x) \ge \lambda\}$$) rồi chỉ giữ lại những "đỉnh mật độ" có độ bền (prominence) vượt ngưỡng — vừa giữ cấu trúc tô-pô vừa miễn nhiễm với nhiễu thưa.
+
+### 3. Giảm chiều (UMAP / t-SNE) dưới lăng kính ánh xạ liên tục và phép đồng phôi
+
+Các phương pháp trực quan hóa dữ liệu nhiều chiều xuống 2D thực chất đang cố tìm một ánh xạ $$f: X \subset \mathbb{R}^D \to \mathbb{R}^2$$ bảo toàn lân cận cục bộ tốt nhất có thể — tức mô phỏng một phép nhúng tô-pô. Hiểu rõ ánh xạ liên tục và phép đồng phôi ở Chương 01 giúp ta nhận biết khi nào hình vẽ 2D đã **xé rách** hoặc **dán nhầm** các cụm trong dữ liệu gốc.
+
+---
+
+### Khung giải thích (nên đọc chậm): Cầm tay chạy phân cụm đa tỉ lệ $$H_0$$ trên 4 điểm trục số
+
+Xét 4 điểm dữ liệu nằm trên đường thẳng thực:
+$$
+x_1 = 0,\qquad x_2 = 1,\qquad x_3 = 5,\qquad x_4 = 6.5.
+$$
+Khoảng cách giữa các cặp điểm kề nhau lần lượt là $$d(x_1, x_2) = 1$$, $$d(x_3, x_4) = 1.5$$, và khoảng trống giữa hai nhóm là $$d(x_2, x_3) = 4$$. Hãy tăng ngưỡng bán kính nối cạnh $$r$$ từ $$0$$ trở đi:
+
+1. **Tại $$r = 0$$:** Có **4 cụm** cô lập: $$\{x_1\}, \{x_2\}, \{x_3\}, \{x_4\}$$ ($$\beta_0 = 4$$).
+2. **Tại $$r = 1$$:** Cạnh $$(x_1, x_2)$$ xuất hiện → $$\{x_1, x_2\}$$ gộp thành 1 cụm. Số cụm giảm còn **3** (1 thanh $$H_0$$ chết tại $$r = 1$$).
+3. **Tại $$r = 1.5$$:** Cạnh $$(x_3, x_4)$$ xuất hiện → $$\{x_3, x_4\}$$ gộp thành 1 cụm. Số cụm giảm còn **2**: $$\{x_1, x_2\}$$ và $$\{x_3, x_4\}$$ (1 thanh $$H_0$$ chết tại $$r = 1.5$$).
+4. **Trong cả dải dài $$1.5 \le r < 4$$:** Cấu trúc **2 cụm đứng yên bất biến** suốt độ dài $$\Delta r = 4 - 1.5 = 2.5$$!
+5. **Tại $$r = 4$$:** Cạnh cầu nối $$(x_2, x_3)$$ xuất hiện → mọi điểm hợp thành **1 cụm duy nhất** (thanh sống dài thứ hai chết tại $$r = 4$$; thanh cuối cùng sống tới $$\infty$$).
+
+**Kết luận đọc từ mã vạch:** Bốn khoảng đời của $$H_0$$ là $$[0, 1),\; [0, 1.5),\; [0, 4),\; [0, \infty)$$. Khoảng nhảy lớn giữa $$1.5$$ và $$4$$ là dấu hiệu toán học định lượng khẳng định dữ liệu này tự nhiên chia thành **2 cụm**!
 
 ---
 
