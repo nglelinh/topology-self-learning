@@ -37,7 +37,7 @@ Trong bài học này, ta sẽ lần lượt tìm hiểu phức đối xích và
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đối đồng điều là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Đối đồng điều là gì và nghiên cứu những gì?
 
 Nếu bạn tốt nghiệp đại học ngành toán, lý hoặc kỹ thuật, bạn đã từng quen với **không gian đối ngẫu** $$V^* = \operatorname{Hom}(V, \mathbb{R})$$ trong đại số tuyến tính và toán tử vi phân ngoài $$d$$ trong giải tích vectơ. Đối đồng điều chính là cầu nối tự nhiên đưa hai ý tưởng đó vào tô-pô học.
 
@@ -55,7 +55,7 @@ Nếu bạn tốt nghiệp đại học ngành toán, lý hoặc kỹ thuật, b
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Tính toán tử đối biên $$\delta$$ trên tam giác $$S^1$$ (3 đỉnh, 3 cạnh)
 Hãy chia đường tròn $$S^1$$ thành một tam giác gồm 3 đỉnh $$v_0, v_1, v_2$$ và 3 cạnh có hướng $$e_0 = [v_0, v_1],\; e_1 = [v_1, v_2],\; e_2 = [v_2, v_0]$$. Nhớ rằng biên của cạnh là $$\partial [v_i, v_j] = v_j - v_i$$.
@@ -82,7 +82,7 @@ Hãy kiểm tra bình phương tích cup của phần tử sinh $$a \in H^2$$:
 - Trong $$S^2 \vee S^4$$, lớp $$a \in H^2$$ hoàn toàn sống trên thành phần $$S^2$$ (không chạm gì vào $$S^4$$); vì $$H^4(S^2) = 0$$ nên phép kéo ngược ép $$a \cup a = 0$$!
 - Hai vành $$H^*(\mathbb{C}P^2)$$ và $$H^*(S^2 \vee S^4)$$ **không đẳng cấu** $$\implies \mathbb{C}P^2 \not\simeq S^2 \vee S^4$$!
 
-### Khung giải thích: Vì sao lấy đối ngẫu lại sinh ra cấu trúc vành? (nên đọc chậm)
+### Giải thích: Vì sao lấy đối ngẫu lại sinh ra cấu trúc vành?
 
 #### Bước 1: Chuyển từ "vẽ hình" sang "đo hàm trên hình"
 Đồng điều $$H_n(X)$$ làm việc trực tiếp với các tổ hợp đơn hình. Khi lấy đối ngẫu $$C^n(X; G) = \operatorname{Hom}(C_n(X), G)$$, ta biến mỗi đơn hình thành "đầu vào" của một phép đo. Toán tử đối biên $$(\delta\phi)(c) = \phi(\partial c)$$ tự động kế thừa $$\delta^2 = 0$$ từ $$\partial^2 = 0$$.

@@ -25,11 +25,11 @@ Hai tính chất trọng tâm của Chương 02 — **tính liên thông** (khô
 ![Cà phê và torus](https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif)
 *Liên thông đường trong không gian hình dạng: một đường biến dạng liên tục qua các phép đồng phôi. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif)*
 
-**Mạch bài học:** Bản đồ kiến thức nền (liên thông đường trong cảnh quan mất mát, liên thông tuyến tính sau hoán vị & vai trò tính compact trong ổn định TDA) → Khung giải thích chậm: cầm tay tính rào chắn mất mát trên đoạn thẳng vs. đường cong nối hai cực tiểu của một hàm mất mát 2 biến → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+**Mạch bài học:** Kiến thức cần nhớ (liên thông đường trong cảnh quan mất mát, liên thông tuyến tính sau hoán vị & vai trò tính compact trong ổn định TDA) → Giải thích: cầm tay tính rào chắn mất mát trên đoạn thẳng vs. đường cong nối hai cực tiểu của một hàm mất mát 2 biến → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
 
 ---
 
-## Bản đồ kiến thức nền: Tính Liên thông và Compact xuất hiện ở đâu trong Học máy 2022–2026?
+## Kiến thức cần nhớ: Tính Liên thông và Compact xuất hiện ở đâu trong Học máy 2022–2026?
 
 ### 1. Homology bền vững $$H_0$$ — lý thuyết thành phần liên thông đa tỉ lệ
 
@@ -45,7 +45,7 @@ Khi dữ liệu nằm trong một miền compact của $$\mathbb{R}^d$$, các ph
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng Mode Connectivity trên hàm mất mát 2 tham số
+### Giải thích: Cầm tay kiểm chứng Mode Connectivity trên hàm mất mát 2 tham số
 
 Để thấy trực tiếp sự khác biệt giữa **nội suy thẳng** (gặp núi cao) và **liên thông đường** (đi men theo thung lũng mất mát 0), hãy xét hàm mất mát đơn giản trên mặt phẳng tham số $$(w_1, w_2) \in \mathbb{R}^2$$:
 $$

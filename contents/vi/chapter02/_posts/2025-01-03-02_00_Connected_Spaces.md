@@ -23,11 +23,11 @@ Bạn có thể kéo giãn một đoạn dây thun $$[0, 1]$$ thành dài gấp 
 ![Connected vs Disconnected](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Connected_and_disconnected_spaces.svg/500px-Connected_and_disconnected_spaces.svg.png)  
 *Không gian liên thông (trái) và không liên thông (phải) - Nguồn minh họa khái niệm*
 
-**Mạch bài học:** Bản đồ kiến thức nền (liên thông qua tập vừa đóng vừa mở, liên thông đường vs. liên thông thường & bất biến "bỏ 1 điểm") → Khung giải thích chậm: cầm tay chứng minh đoạn $$[0, 1]$$ không đồng phôi với đường tròn $$S^1$$ bằng kỹ thuật bỏ 1 điểm → Trực giác & Định nghĩa hình thức → Định lý Giá trị Trung gian & Thành phần liên thông → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (liên thông qua tập vừa đóng vừa mở, liên thông đường vs. liên thông thường & bất biến "bỏ 1 điểm") → Giải thích: cầm tay chứng minh đoạn $$[0, 1]$$ không đồng phôi với đường tròn $$S^1$$ bằng kỹ thuật bỏ 1 điểm → Trực giác & Định nghĩa hình thức → Định lý Giá trị Trung gian & Thành phần liên thông → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Tính liên thông và Liên thông đường nghiên cứu những gì?
+## Kiến thức cần nhớ: Tính liên thông và Liên thông đường nghiên cứu những gì?
 
 ### 1. Liên thông (Connectedness): không có tập con "vừa đóng vừa mở" không tầm thường
 
@@ -43,7 +43,7 @@ $$X$$ gọi là **liên thông đường** nếu mọi cặp điểm $$x, y \in 
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay chứng minh $$[0, 1] \not\cong S^1$$ bằng kỹ thuật "bỏ 1 điểm"
+### Giải thích: Cầm tay chứng minh $$[0, 1] \not\cong S^1$$ bằng kỹ thuật "bỏ 1 điểm"
 
 Giả sử phản chứng rằng tồn tại một phép đồng phôi $$f: [0, 1] \to S^1$$. Hãy tự tay kiểm tra điều gì xảy ra khi ta rút một điểm duy nhất ra khỏi hai không gian:
 

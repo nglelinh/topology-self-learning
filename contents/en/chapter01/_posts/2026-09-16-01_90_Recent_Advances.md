@@ -18,7 +18,7 @@ Every data scientist has had the same unsettling experience: you run a clusterin
 
 ---
 
-## Background Knowledge Map: How Open Sets, Continuity, and Superlevel Sets Power Modern Clustering
+## Key ideas: How Open Sets, Continuity, and Superlevel Sets Power Modern Clustering
 
 To a university graduate, the axioms of a topological space can feel oddly detached from data algorithms. In 2022–2026 machine learning, three Chapter 01 concepts sit right inside the engine:
 
@@ -60,7 +60,7 @@ There are two clear density peaks—at $$x_1$$ (height 5) and $$x_4$$ (height 4)
 
 By the **Elder Rule** (the higher peak survives, the younger peak dies at the saddle), Cluster B has persistence prominence $$4 - 1 = \mathbf{3}$$, while Cluster A persists forever ($$[5, -\infty)$$). Now imagine a noisy bump of height $$1.2$$ sitting next to the valley: its prominence is only $$1.2 - 1 = \mathbf{0.2}$$. Choosing a prominence cutoff $$\tau = 1$$ cleanly keeps the 2 real clusters and discards the noise bump—something no single fixed density threshold $$\lambda$$ could achieve if one true cluster were slightly shorter than another!
 
-### Deep-Dive Explanation: Why Topological Clustering Beats Single-Threshold Clustering (Read Slowly)
+### Explanation: Why Topological Clustering Beats Single-Threshold Clustering
 
 1. **Replace one fragile threshold with a full filtration:** single-threshold density clustering (like classic DBSCAN with one fixed density) fails when Cluster A has peak density 5 and Cluster B has peak density 2 while a valley sits at 1; sweeping $$\lambda$$ sees *every* peak at its own native scale.
 2. **Measure cluster significance by lifetime (prominence):** a cluster's persistence $$\text{birth} - \text{death}$$ is literally the depth of the valley separating it from a taller neighbor—a coordinate-free topological invariant of the density function.

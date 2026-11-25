@@ -25,11 +25,11 @@ Lý thuyết nút nghiên cứu các đường cong khép kín nhúng trong khô
 ![DNA double helix](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/500px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png)  
 *Cấu trúc xoắn kép của DNA - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png)*
 
-**Vì sao kiến thức này quan trọng?** Việc kiểm soát trạng thái xoắn và nút thắt của DNA là điều kiện sống còn cho quá trình sao chép và phiên mã. Hiểu rõ tô-pô của DNA giúp phát triển nhiều nhóm thuốc điều trị ung thư, giải thích một số rối loạn di truyền và thúc đẩy các kỹ thuật công nghệ sinh học mới.
+**Vì sao kiến thức này quan trọng?** Việc kiểm soát trạng thái xoắn và nút thắt của DNA là điều kiện quan trọng cho quá trình sao chép và phiên mã. Hiểu rõ tô-pô của DNA giúp phát triển nhiều nhóm thuốc điều trị ung thư, giải thích một số rối loạn di truyền và thúc đẩy các kỹ thuật công nghệ sinh học mới.
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tô-pô học mô tả DNA bằng công cụ nào?
+## 🗺️ Kiến thức cần nhớ: Tô-pô học mô tả DNA bằng công cụ nào?
 
 ### 1. Lý thuyết Nút & Liên kết (Knots and Links) trong $$\mathbb{R}^3$$
 - **Bản chất:** Một sợi DNA khép vòng (như plasmid ở vi khuẩn) là một **nút** $$S^1 \hookrightarrow \mathbb{R}^3$$; hai mạch đơn xoắn kép khép vòng tạo thành một **liên kết 2 thành phần** (link). Khi DNA sao chép xong, hai vòng DNA con thường bị móc vào nhau như hai mắt xích (**catenane**) và chỉ tách được nhờ cắt mạch!
@@ -45,7 +45,7 @@ Lý thuyết nút nghiên cứu các đường cong khép kín nhúng trong khô
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính độ siêu xoắn của Plasmid DNA bằng $$Lk = Tw + Wr$$
+## 🧮 Ví dụ tính tay làm từng bước: Tính độ siêu xoắn của Plasmid DNA bằng $$Lk = Tw + Wr$$
 
 Xét một phân tử DNA khép vòng (plasmid) của vi khuẩn *E. coli* dài **$$2100$$ cặp base (bp)**. Ở trạng thái tự nhiên thư giãn (B-DNA), mỗi vòng xoắn kép dài đúng **$$10.5$$ cặp base**:
 
@@ -65,7 +65,7 @@ Xét một phân tử DNA khép vòng (plasmid) của vi khuẩn *E. coli* dài 
    $$
    Tính **mật độ siêu xoắn đặc trưng** $$\sigma = \frac{\Delta Lk}{Lk_0} = \frac{-10}{200} = -0.05$$ ($$-5\%$$) — trùng khớp đáng kinh ngạc với giá trị đo thực nghiệm $$-0.05$$ đến $$-0.07$$ trong tế bào vi khuẩn sống!
 
-### Khung giải thích: Vì sao sinh học phân tử cần đến Lý thuyết Nút? (nên đọc chậm)
+### Giải thích: Vì sao sinh học phân tử cần đến Lý thuyết Nút?
 
 #### Bước 1: Đóng vòng biến năng lượng đàn hồi thành ràng buộc tô-pô
 Một đoạn dây thẳng thả lỏng hai đầu có thể tự xoay để xả xoắn. Nhưng ngay khi hai đầu DNA khép kín thành vòng (hoặc bị neo chặt vào khung protein), số liên kết $$Lk$$ bị "khóa cứng" là một số nguyên — mọi thay đổi về $$Tw$$ lập tức chuyển hóa thành siêu xoắn $$Wr$$ qua $$Lk = Tw + Wr$$!
@@ -77,7 +77,7 @@ Khi tháo xoắn để sao chép DNA, áp suất siêu xoắn dương tích tụ
 Các nhà sinh học kết hợp với nhà tô-pô học (như De Witt Sumners) quan sát các nút DNA tạo ra sau phản ứng tái tổ hợp dưới kính hiển vi điện tử và điện di gel (nút càng nhiều giao điểm chạy càng nhanh vì gọn hơn!), từ đó suy ngược ra chính xác cơ chế cắt–nối của enzyme!
 
 #### Bước 4: Đích đến y học — thuốc ức chế Topoisomerase
-Hiểu rõ tô-pô DNA giúp thiết kế thuốc nhắm trúng vào bước cắt–hàn của topoisomerase: tế bào ung thư phân chia cực nhanh nên phụ thuộc sống còn vào topoisomerase để tháo nút DNA; chặn đứng bước hàn mạch khiến sợi DNA vỡ vụn và tiêu diệt tế bào ung thư.
+Hiểu rõ tô-pô DNA giúp thiết kế thuốc nhắm trúng vào bước cắt–hàn của topoisomerase: tế bào ung thư phân chia cực nhanh nên phụ thuộc quan trọng vào topoisomerase để tháo nút DNA; chặn đứng bước hàn mạch khiến sợi DNA vỡ vụn và tiêu diệt tế bào ung thư.
 
 $$
 \text{DNA mạch vòng (}2100\text{ bp)}

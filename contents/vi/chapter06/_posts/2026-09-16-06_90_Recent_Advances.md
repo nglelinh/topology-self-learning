@@ -36,7 +36,7 @@ Naitzat, Zhitnikov và Lim (2020) — công trình tiếp tục được trích 
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tô-pô của Cảnh quan Hàm Mất mát (Loss Landscape)
+## 🗺️ Kiến thức cần nhớ: Tô-pô của Cảnh quan Hàm Mất mát (Loss Landscape)
 
 ### 1. Tập mức dưới $$S_c = \{w : L(w) \le c\}$$ và Liên thông Mode ($$\pi_0(S_c)$$)
 - **Bản chất:** Mọi mạng nơ-ron có bộ tham số $$w \in \mathbb{R}^P$$ và hàm mất mát $$L(w)$$. Hai nghiệm $$w_0, w_1$$ có **liên thông mode** ở ngưỡng $$c$$ khi và chỉ khi chúng nằm trong **cùng một thành phần liên thông đường** của $$S_c$$ — tức $$[w_0] = [w_1]$$ trong $$\pi_0(S_c)$$!
@@ -49,7 +49,7 @@ Naitzat, Zhitnikov và Lim (2020) — công trình tiếp tục được trích 
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Đếm $$\pi_0(S_c)$$ trên hàm hai đáy $$L(w) = (w^2 - 1)^2$$
+## 🧮 Ví dụ tính tay làm từng bước: Đếm $$\pi_0(S_c)$$ trên hàm hai đáy $$L(w) = (w^2 - 1)^2$$
 
 Xét hàm mất mát 1 chiều kinh điển có hai đáy cực tiểu tại $$w = -1$$ và $$w = +1$$:
 $$
@@ -70,7 +70,7 @@ Hãy giải bất phương trình $$(w^2 - 1)^2 \le c$$ bằng tay theo từng g
 
 *(Góc nhìn chiều cao: Trong 1 chiều, muốn đi từ $$-1$$ sang $$+1$$ bạn bắt buộc phải trèo qua đỉnh đồi $$w=0$$. Trong không gian triệu chiều của mạng sâu, thay vì trèo qua đồi, các đường đi dễ dàng **đi vòng qua thung lũng** ở các chiều phụ — đó là lý do mạng càng rộng, $$\pi_0(S_c)$$ càng dễ sụp về 1!)*
 
-### Khung giải thích: 4 bước đọc nghiên cứu Tô-pô Mạng Nơ-ron (2022–2026) (nên đọc chậm)
+### Giải thích: 4 bước đọc nghiên cứu Tô-pô Mạng Nơ-ron (2022–2026)
 
 #### Bước 1: Định vị rõ không gian đang khảo sát
 Trong các bài báo TDA/Homotopy cho AI, luôn kiểm tra họ đang nghiên cứu tô-pô của: (1) **dữ liệu qua từng tầng** (số Betti giảm dần khi mạng phân loại), hay (2) **không gian trọng số $$S_c = \{L \le c\}$$** (mode connectivity).

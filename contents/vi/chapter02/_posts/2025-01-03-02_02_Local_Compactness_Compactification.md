@@ -23,11 +23,11 @@ Bài giảng này mở ra nghệ thuật "thuần hóa vô cực" trong tô-pô 
 ![One-point compactification of R](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Compactification.svg/400px-Compactification.svg.png)  
 *Compact hóa một điểm của $\mathbb{R}$ thành $S^1$ - Nguồn minh họa khái niệm*
 
-**Mạch bài học:** Bản đồ kiến thức nền (compact địa phương, compact hóa một điểm Alexandroff & compact hóa Stone–Čech) → Khung giải thích chậm: cầm tay tính tọa độ phép chiếu nổi biến $$\mathbb{R} \cup \{\infty\}$$ thành đường tròn $$S^1$$ → Định nghĩa & Ví dụ kinh điển → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (compact địa phương, compact hóa một điểm Alexandroff & compact hóa Stone–Čech) → Giải thích: cầm tay tính tọa độ phép chiếu nổi biến $$\mathbb{R} \cup \{\infty\}$$ thành đường tròn $$S^1$$ → Định nghĩa & Ví dụ kinh điển → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Tính Compact địa phương và Phép Compact hóa nghiên cứu những gì?
+## Kiến thức cần nhớ: Tính Compact địa phương và Phép Compact hóa nghiên cứu những gì?
 
 ### 1. Không gian Compact địa phương (Locally Compact)
 
@@ -43,7 +43,7 @@ Trong khi Alexandroff thêm *ít điểm nhất* (chỉ 1 điểm), **compact h�
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng phép chiếu nổi $$\mathbb{R} \cup \{\infty\} \cong S^1$$
+### Giải thích: Cầm tay kiểm chứng phép chiếu nổi $$\mathbb{R} \cup \{\infty\} \cong S^1$$
 
 Đặt đường tròn đơn vị $$S^1 = \{(u, v) \in \mathbb{R}^2 : u^2 + v^2 = 1\}$$ với cực Bắc $$N = (0, 1)$$. Nối đường thẳng từ $$N(0, 1)$$ qua điểm $$(x, 0)$$ trên trục hoành $$\mathbb{R}$$, ta cắt đường tròn tại đúng một điểm thứ hai $$\varphi(x) = (u, v)$$:
 $$

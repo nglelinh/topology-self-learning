@@ -35,7 +35,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa tác động nh
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tác động Nhóm & Không gian Quỹ đạo là gì?
+## 🗺️ Kiến thức cần nhớ: Tác động Nhóm & Không gian Quỹ đạo là gì?
 
 ### 1. Tác động Liên tục của Nhóm $$G$$ lên Không gian $$X$$
 - **Bản chất:** Một tác động trái $$G \times X \to X,\; (g, x) \mapsto g\cdot x$$ gán cho mỗi phần tử $$g \in G$$ một phép đồng phôi của $$X$$ tuân theo luật kết hợp $$(gh)\cdot x = g\cdot(h\cdot x)$$ và $$e\cdot x = x$$.
@@ -50,7 +50,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa tác động nh
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: So sánh Quỹ đạo & Stabilizer trên 3 tác động kinh điển
+## 🧮 Ví dụ tính tay làm từng bước: So sánh Quỹ đạo & Stabilizer trên 3 tác động kinh điển
 
 1. **Nhóm $$G = \mathbb{Z}$$ tịnh tiến trên $$X = \mathbb{R}$$ bởi $$n \cdot x = x + n$$:**
    - **Quỹ đạo của $$x = 0.3$$:** $$\{\dots, -1.7, -0.7, 0.3, 1.3, 2.3, \dots\}$$.
@@ -68,7 +68,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa tác động nh
    - **Cực Bắc $$(0,0,1)$$ và Cực Nam $$(0,0,-1)$$:** Bị giữ bất động bởi mọi phép quay! Quỹ đạo chỉ có 1 điểm; stabilizer là **toàn bộ $$SO(2)$$** (tác động **không tự do**!).
    - **Không gian quỹ đạo:** Mỗi vĩ tuyến (và hai cực) được xác định duy nhất bởi cao độ $$z \in [-1, 1] \implies S^2 / SO(2) \cong [-1, 1]$$ (xuất hiện 2 điểm biên tương ứng với 2 điểm bất động!).
 
-### Khung giải thích: Quy trình 4 bước phân tích một không gian quỹ đạo $$X/G$$ (nên đọc chậm)
+### Giải thích: Quy trình 4 bước phân tích một không gian quỹ đạo $$X/G$$
 
 #### Bước 1: Tìm một "miền cơ bản" (Fundamental Domain)
 Chọn một mảnh con $$D \subseteq X$$ chứa ít nhất một đại diện của mỗi quỹ đạo (ví dụ $$[0,1]$$ cho $$\mathbb{R}/\mathbb{Z}$$, hay bán cầu Bắc cho $$S^2/(\mathbb{Z}/2\mathbb{Z})$$).

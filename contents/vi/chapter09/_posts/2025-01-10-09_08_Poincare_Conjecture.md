@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu phát biểu chính xác của
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Ba trụ cột đứng sau Giả thuyết Poincaré
+## 🗺️ Kiến thức cần nhớ: Ba trụ cột đứng sau Giả thuyết Poincaré
 
 ### 1. Tô-pô Đa tạp 3 chiều & Nhóm cơ bản $$\pi_1(M)$$
 - **Bản chất:** Điều kiện "mọi vòng lặp đều co rút được về một điểm" có tên toán học chính xác là **đơn liên** ($$\pi_1(M) = \{1\}$$). Trên mặt 2 chiều đóng, chỉ có đúng mặt cầu $$S^2$$ là đơn liên; Poincaré đặt câu hỏi liệu điều đó có còn đúng trên đa tạp 3 chiều đóng hay không.
@@ -44,7 +44,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu phát biểu chính xác của
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Giải phương trình Dòng Ricci trên $$S^3$$ và cổ hẹp $$S^2 \times \mathbb{R}$$
+## 🧮 Ví dụ tính tay làm từng bước: Giải phương trình Dòng Ricci trên $$S^3$$ và cổ hẹp $$S^2 \times \mathbb{R}$$
 
 Hãy tự tay giải phương trình Dòng Ricci $$\frac{\partial g}{\partial t} = -2\operatorname{Ric}(g)$$ trên hai không gian mẫu quan trọng nhất của chứng minh Perelman!
 
@@ -65,7 +65,7 @@ Xét một chiếc cổ hẹp giống quả tạ: theo chiều dọc trục $$\m
 - Bán kính cổ $$r(t)$$ thỏa $$\frac{d(r^2)}{dt} = -2 \implies r(t) = \sqrt{r_0^2 - 2t}$$!
 Tại thời điểm $$t = \frac{r_0^2}{2}$$, **cổ hẹp thắt lại thành điểm kỳ dị (neckpinch)** trong khi hai đầu quả tạ vẫn còn to! Đó chính là lúc Perelman tạm dừng đồng hồ ngay trước khi đứt cổ, **cắt bỏ cổ hẹp, dán 2 nắp cầu tròn vào hai đầu**, rồi tiếp tục cho dòng Ricci chạy!
 
-### Khung giải thích: Mạch chứng minh 4 bước của Grigori Perelman (nên đọc chậm)
+### Giải thích: Mạch chứng minh 4 bước của Grigori Perelman
 
 #### Bước 1: Cho metric tiến hóa theo Dòng Ricci
 Đặt một metric Riemann bất kỳ lên đa tạp 3 chiều đóng đơn liên $$M^3$$ và cho nó chạy theo $$\partial_t g = -2\operatorname{Ric}$$. Độ cong dương đẩy vùng đó co lại; độ cong âm làm vùng đó nở ra.

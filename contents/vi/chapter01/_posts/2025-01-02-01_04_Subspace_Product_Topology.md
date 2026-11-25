@@ -20,11 +20,11 @@ Trong toán học cũng như trong kỹ thuật, ít khi ta xây một cấu tr�
 
 Cả hai phép xây dựng đều có vẻ trực quan ngay lập tức — cho tới khi ta chạm vào hai bất ngờ thú vị: trong tô-pô con, một đoạn đóng như $$[0, 1]$$ bỗng có thể trở thành **tập mở**; còn trong tích vô hạn, định nghĩa tưởng như "tự nhiên nhất" (tô-pô hộp) lại làm **đứt gãy** ngay cả hàm đường chéo đơn giản nhất $$t \mapsto (t, t, t, \dots)$$!
 
-**Mạch bài học:** Bản đồ kiến thức nền (tô-pô con, tính chất phổ dụng của tô-pô tích & cuộc đối đầu giữa tô-pô tích và tô-pô hộp) → Khung giải thích chậm: cầm tay kiểm tra tập "vừa đóng vừa mở" trong tô-pô con và chứng minh đường chéo gián đoạn trong tô-pô hộp → Trực giác & Định nghĩa hình thức → Định lý Tychonoff → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tô-pô con, tính chất phổ dụng của tô-pô tích & cuộc đối đầu giữa tô-pô tích và tô-pô hộp) → Giải thích: cầm tay kiểm tra tập "vừa đóng vừa mở" trong tô-pô con và chứng minh đường chéo gián đoạn trong tô-pô hộp → Trực giác & Định nghĩa hình thức → Định lý Tychonoff → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Tô-pô con và Tô-pô tích hoạt động như thế nào?
+## Kiến thức cần nhớ: Tô-pô con và Tô-pô tích hoạt động như thế nào?
 
 ### 1. Tô-pô con: tính "mở" là khái niệm *tương đối*
 
@@ -44,7 +44,7 @@ Tô-pô hộp quá mịn nên phá vỡ cả tính chất phổ dụng lẫn Đ�
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng 2 bất ngờ của Tô-pô con và Tô-pô hộp
+### Giải thích: Cầm tay kiểm chứng 2 bất ngờ của Tô-pô con và Tô-pô hộp
 
 **Bất ngờ 1 — Tập đóng trong $$\mathbb{R}$$ lại thành tập mở trong không gian con:**
 Xét không gian con $$Y = [0, 1] \cup [2, 3] \subset \mathbb{R}$$ và tập con $$A = [0, 1] \subseteq Y$$.

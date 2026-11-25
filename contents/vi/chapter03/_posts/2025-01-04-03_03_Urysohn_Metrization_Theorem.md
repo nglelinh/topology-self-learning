@@ -27,11 +27,11 @@ $$
 ![Metrization concept](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Metric_space.svg/400px-Metric_space.svg.png)  
 *Cấu trúc không gian mê-tric - Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metric_space.svg)*
 
-**Mạch bài học:** Bản đồ kiến thức nền (bài toán mê-tric hóa, chiến lược nhúng vào khối lập phương Hilbert $$[0,1]^\omega$$ & định lý Nagata–Smirnov) → Khung giải thích chậm: cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$ với trọng số $$1/2^n$$ → Điều kiện cần, chứng minh Định lý Urysohn & Bảng phản ví dụ → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (bài toán mê-tric hóa, chiến lược nhúng vào khối lập phương Hilbert $$[0,1]^\omega$$ & định lý Nagata–Smirnov) → Giải thích: cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$ với trọng số $$1/2^n$$ → Điều kiện cần, chứng minh Định lý Urysohn & Bảng phản ví dụ → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Bài toán Mê-tric hóa và Phép nhúng Hilbert nghiên cứu những gì?
+## Kiến thức cần nhớ: Bài toán Mê-tric hóa và Phép nhúng Hilbert nghiên cứu những gì?
 
 ### 1. Mê-tric hóa được (Metrizable) là một tính chất thuần túy tô-pô
 
@@ -51,7 +51,7 @@ Vì $$[0, 1]^\omega$$ đã có sẵn mê-tric tích $$D$$, kéo lùi thước đ
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$
+### Giải thích: Cầm tay tính khoảng cách trong khối lập phương Hilbert $$[0, 1]^\omega$$
 
 Đích đến trong chứng minh Định lý Urysohn là không gian tích đếm được $$[0, 1]^\omega$$ trang bị mê-tric có trọng số giảm theo lũy thừa $$2^{-n}$$:
 $$

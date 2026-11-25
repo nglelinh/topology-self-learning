@@ -29,11 +29,11 @@ $$
 
 Bài giảng này khai mở ba nấc thang đầu tiên — **$$T_0$$ (Kolmogorov)**, **$$T_1$$ (Fréchet)** và đặc biệt là **$$T_2$$ (Hausdorff)**, điều kiện vàng bảo đảm giới hạn là duy nhất và mọi tập con compact đều đóng.
 
-**Mạch bài học:** Bản đồ kiến thức nền (ý nghĩa chiếc thang $$T_0 \to T_1 \to T_2$$ & vai trò đặc biệt của Hausdorff) → Khung giải thích chậm: cầm tay phân loại 3 không gian mẫu để chứng minh bao hàm ngặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ → Trực giác & Định nghĩa hình thức → Tính chất không gian Hausdorff → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (ý nghĩa chiếc thang $$T_0 \to T_1 \to T_2$$ & vai trò đặc biệt của Hausdorff) → Giải thích: cầm tay phân loại 3 không gian mẫu để chứng minh bao hàm ngặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ → Trực giác & Định nghĩa hình thức → Tính chất không gian Hausdorff → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Các Tiên đề tách $$T_0, T_1, T_2$$ đo lường điều gì?
+## Kiến thức cần nhớ: Các Tiên đề tách $$T_0, T_1, T_2$$ đo lường điều gì?
 
 ### 1. $$T_0$$ (Kolmogorov) và $$T_1$$ (Fréchet): phân biệt một chiều vs. hai chiều
 
@@ -46,11 +46,11 @@ Một không gian $$T_1$$ vẫn có thể rất kỳ dị (như đường thẳn
 
 ### 3. Vì sao hầu hết hình học và giải tích đều giả thiết không gian là Hausdorff?
 
-Nhờ hai bong bóng rời nhau $$U \cap V = \emptyset$$, ta lập tức khôi phục hai tính chất sống còn của giải tích: (1) **giới hạn của mọi dãy (hoặc lưới) nếu có là duy nhất**, và (2) **mọi tập con compact của không gian Hausdorff đều đóng**.
+Nhờ hai bong bóng rời nhau $$U \cap V = \emptyset$$, ta lập tức khôi phục hai tính chất quan trọng của giải tích: (1) **giới hạn của mọi dãy (hoặc lưới) nếu có là duy nhất**, và (2) **mọi tập con compact của không gian Hausdorff đều đóng**.
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng ranh giới chặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ trên 3 không gian mẫu
+### Giải thích: Cầm tay kiểm chứng ranh giới chặt $$T_2 \subsetneq T_1 \subsetneq T_0$$ trên 3 không gian mẫu
 
 Hãy tự tay kiểm tra ba không gian cụ thể để thấy rõ mỗi nấc thang thực sự loại bỏ được những "quái vật" nào:
 

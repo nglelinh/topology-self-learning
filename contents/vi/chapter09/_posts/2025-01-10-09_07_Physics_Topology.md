@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu pha tô-pô của vật chất
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Những khái niệm Tô-pô nào đang chạy trong Vật lý hiện đại?
+## 🗺️ Kiến thức cần nhớ: Những khái niệm Tô-pô nào đang chạy trong Vật lý hiện đại?
 
 ### 1. Pha Tô-pô & Bất biến Chern / Số quấn (Vật lý vật chất ngưng tụ)
 - **Bản chất:** Trong lý thuyết pha cổ điển (Landau), chuyển pha đi kèm phá vỡ đối xứng (như nước lỏng đóng băng thành tinh thể). Ở **pha tô-pô**, hai pha có *cùng* đối xứng cục bộ nhưng khác nhau về một **bất biến tô-pô toàn cục** (số quấn $$\nu \in \mathbb{Z}$$ hoặc số Chern $$C \in \mathbb{Z}$$ tính trên vùng Brillouin hình xuyến $$T^2$$!).
@@ -44,7 +44,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu pha tô-pô của vật chất
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Số quấn tô-pô trong mô hình SSH 1 chiều
+## 🧮 Ví dụ tính tay làm từng bước: Số quấn tô-pô trong mô hình SSH 1 chiều
 
 Mô hình **Su–Schrieffer–Heeger (SSH)** là mô hình đơn giản nhất thế giới minh họa **chất cách điện tô-pô**: một chuỗi nguyên tử 1D có hai hằng số nhảy electron xen kẽ $$v > 0$$ (trong ô đơn vị) và $$w > 0$$ (giữa hai ô kề nhau).
 
@@ -60,7 +60,7 @@ Năng lượng của electron là $$E(k) = \pm\sqrt{d_x(k)^2 + d_y(k)^2}$$ (kho�
 2. **Pha tô-pô ($$v < w$$, ví dụ $$v = 1,\; w = 2$$):** Đường tròn chạy từ $$x = -1$$ đến $$x = 3$$ — **ôm trọn gốc $$(0,0)$$ đúng 1 vòng**! Số vòng quấn là **$$\nu = 1$$** (tương ứng phần tử $$1 \in \pi_1(S^1) \cong \mathbb{Z}$$!). Khi cắt chuỗi hữu hạn, tại hai đầu biên lập tức xuất hiện trạng thái dẫn điện năng lượng $$E = 0$$ được bảo vệ bởi tô-pô!
 3. **Điểm chuyển pha ($$v = w$$):** Đường tròn chạm đúng gốc tọa độ $$(0,0) \implies E(\pi) = 0$$ (**khe năng lượng đóng lại**!). Bạn **không bao giờ** đổi được $$\nu = 0$$ thành $$\nu = 1$$ bằng nhiễu nhỏ mà không đóng khe năng lượng — chính là bí mật của **sự bảo vệ tô-pô**!
 
-### Khung giải thích: Vì sao "bất biến số nguyên" lại bảo vệ trạng thái lượng tử? (nên đọc chậm)
+### Giải thích: Vì sao "bất biến số nguyên" lại bảo vệ trạng thái lượng tử?
 
 #### Bước 1: Không gian động lượng của tinh thể là một không gian đóng ($$S^1$$ hoặc $$T^2$$)
 Nhờ tính tuần hoàn của mạng tinh thể, vectơ sóng $$k$$ lặp lại theo chu kỳ $$2\pi/a$$ nên không gian động lượng (vùng Brillouin) đóng kín thành đường tròn $$S^1$$ (1D) hoặc hình xuyến $$T^2$$ (2D).

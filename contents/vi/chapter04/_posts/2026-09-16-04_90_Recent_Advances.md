@@ -33,7 +33,7 @@ Khoảng cách Hausdorff $d_H(A,B)$ đo xem mỗi điểm của $A$ gần tập 
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đo khoảng cách giữa các Hình dạng và Không gian
+## 🗺️ Kiến thức cần nhớ: Đo khoảng cách giữa các Hình dạng và Không gian
 
 ### 1. Khoảng cách Hausdorff $$d_H(A, B)$$ (trong cùng không gian mẹ $$Z$$)
 - **Bản chất:** Đo độ lệch xấu nhất khi bạn cố gắng phủ tập $$A$$ bằng lân cận bán kính $$r$$ của $$B$$ và ngược lại:
@@ -49,7 +49,7 @@ Khoảng cách Hausdorff $d_H(A,B)$ đo xem mỗi điểm của $A$ gần tập 
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính $$d_H$$ và $$d_{GH}$$ trên tập 2–3 điểm
+## 🧮 Ví dụ tính tay làm từng bước: Tính $$d_H$$ và $$d_{GH}$$ trên tập 2–3 điểm
 
 ### Ví dụ 1: Tính tay khoảng cách Hausdorff $$d_H(A, B)$$ trong $$\mathbb{R}$$
 Cho $$A = \{0, 1\}$$ và $$B = \{0, 1, 2\}$$ nằm trong $$\mathbb{R}$$ với metric chuẩn:
@@ -66,7 +66,7 @@ Cho $$X = \{a, b\}$$ với $$d_X(a, b) = 1$$ và $$P = \{p\}$$ (không gian 1 đ
 - **Chặn dưới:** Trong mọi phép nhúng đẳng cự vào bất kỳ không gian $$Z$$ nào, hai ảnh $$a', b'$$ cách nhau $$1$$; theo bất đẳng thức tam giác, $$1 = d_Z(a', b') \le d_Z(a', p') + d_Z(p', b') \implies \max(d_Z(a', p'), d_Z(b', p')) \ge \frac{1}{2}$$!
 - Kết luận chính xác: **$$d_{GH}(X, P) = \frac{1}{2} = \frac{1}{2}\operatorname{diam}(X)$$**! (Và tổng quát, khoảng cách Gromov–Hausdorff từ bất kỳ không gian bị chặn $$X$$ nào đến 1 điểm luôn bằng đúng nửa đường kính của $$X$$!)
 
-### Khung giải thích: Vì sao "Metric giữa các không gian" lại bùng nổ trong 2022–2026? (nên đọc chậm)
+### Giải thích: Vì sao "Metric giữa các không gian" lại bùng nổ trong 2022–2026?
 
 #### Bước 1: Thoát khỏi sự phụ thuộc vào hệ tọa độ
 Hai đám mây điểm protein xoay khác góc có khoảng cách Euclid rất lớn dù thực chất là cùng một phân tử. $$d_{GH}$$ chỉ nhìn vào ma trận khoảng cách nội tại nên **bất biến hoàn toàn dưới phép xoay và tịnh tiến**.

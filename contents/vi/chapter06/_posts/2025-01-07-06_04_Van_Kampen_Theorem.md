@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ nhắc lại khái niệm tích tự do v�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Định lý Seifert–van Kampen (SVK) là gì và dùng để làm gì?
+## 🗺️ Kiến thức cần nhớ: Định lý Seifert–van Kampen (SVK) là gì và dùng để làm gì?
 
 ### 1. Tư tưởng "Chia để trị" (Divide and Conquer) trong Tô-pô Đại số
 - **Bản chất:** Phủ $$X = U \cup V$$ bằng hai tập mở liên thông đường sao cho phần giao $$U \cap V$$ **khác rỗng và liên thông đường**. Khi đó mọi vòng lặp phức tạp trong $$X$$ đều có thể cắt nhỏ thành tích các vòng nằm trọn trong $$U$$ hoặc trong $$V$$!
@@ -45,7 +45,7 @@ Trong bài học này, chúng ta sẽ nhắc lại khái niệm tích tự do v�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Áp dụng SVK tính $$\pi_1(S^2)$$ và $$\pi_1(T^2)$$
+## 🧮 Ví dụ tính tay làm từng bước: Áp dụng SVK tính $$\pi_1(S^2)$$ và $$\pi_1(T^2)$$
 
 ### Ví dụ 1: Tính $$\pi_1(S^2) = 0$$ (và cảnh báo vì sao KHÔNG áp dụng được cho $$S^1$$!)
 Phủ mặt cầu $$S^2$$ bằng hai tập mở: $$U = S^2 \setminus \{N\} \cong \mathbb{R}^2$$ và $$V = S^2 \setminus \{S\} \cong \mathbb{R}^2$$.
@@ -64,7 +64,7 @@ Gọi $$p$$ là một điểm nằm giữa lòng hình vuông dán cạnh $$aba^
   \pi_1(T^2) = \langle a, b \mid a b a^{-1} b^{-1} = 1 \rangle = \langle a, b \mid ab = ba \rangle \cong \mathbb{Z} \times \mathbb{Z}!
   $$
 
-### Khung giải thích: Quy trình 4 bước tính $$\pi_1(X)$$ bằng Seifert–van Kampen (nên đọc chậm)
+### Giải thích: Quy trình 4 bước tính $$\pi_1(X)$$ bằng Seifert–van Kampen
 
 #### Bước 1: Chọn hai tập mở $$U, V$$ sao cho $$U \cup V = X$$ và $$U \cap V$$ liên thông đường
 Mẹo thực chiến: với mọi phức CW 2 chiều (như mặt đóng $$\Sigma_g$$, chai Klein, $$\mathbb{R}P^2$$), luôn lấy $$U = X \setminus \{p\}$$ (co rút về 1-khung bó đường tròn!) và $$V$$ là một đĩa mở nhỏ quanh điểm $$p$$!

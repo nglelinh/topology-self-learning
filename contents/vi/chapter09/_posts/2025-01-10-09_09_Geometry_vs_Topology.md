@@ -19,7 +19,7 @@ description: "Hình học đo độ dài và góc; tô-pô giữ những gì cò
 
 *Ly có quai biến dạng liên tục thành mặt xuyến (torus). Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif).*
 
-## 🗺️ Bản đồ kiến thức nền: Hình học và Tô-pô khác nhau ở đâu — và gặp nhau ở đâu?
+## 🗺️ Kiến thức cần nhớ: Hình học và Tô-pô khác nhau ở đâu — và gặp nhau ở đâu?
 
 ### 1. Hai nhóm biến đổi đối xứng (Chương trình Erlangen của Felix Klein)
 - **Hình học Euclid / Riemann:** Nghiên cứu các tính chất bất biến dưới **phép đẳng cự** (bảo toàn khoảng cách $$d(f(p), f(q)) = d(p, q)$$): độ dài, góc, diện tích, thể tích, đường trắc địa và độ cong $$K$$.
@@ -43,7 +43,7 @@ Chiều ngược lại nói chung **sai**!
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Hai mặt cầu bán kính $$R_1 = 1$$ và $$R_2 = 3$$
+## 🧮 Ví dụ tính tay làm từng bước: Hai mặt cầu bán kính $$R_1 = 1$$ và $$R_2 = 3$$
 
 Xét mặt cầu đơn vị $$S^2(1)$$ và mặt cầu bán kính $$3$$ là $$S^2(3)$$, nối với nhau bằng ánh xạ phóng đại $$f(x, y, z) = (3x, 3y, 3z)$$:
 
@@ -64,7 +64,7 @@ Xét mặt cầu đơn vị $$S^2(1)$$ và mặt cầu bán kính $$3$$ là $$S^
      $$
      Diện tích tăng 9 lần còn độ cong giảm 9 lần — chúng triệt tiêu nhau hoàn hảo để bảo toàn bất biến tô-pô $$2\pi\chi = 4\pi$$!
 
-### Khung giải thích: 4 câu hỏi nhanh giúp phân biệt Hình học vs. Tô-pô (nên đọc chậm)
+### Giải thích: 4 câu hỏi nhanh giúp phân biệt Hình học vs. Tô-pô
 
 #### Bước 1: Hỏi "Có cần thước đo khoảng cách hay thước đo góc không?"
 Nếu câu trả lời là CÓ (bán kính, diện tích, góc vuông, độ cong cục bộ, đường ngắn nhất) $$\to$$ đó là **Hình học**. Nếu KHÔNG $$\to$$ đó là **Tô-pô**.

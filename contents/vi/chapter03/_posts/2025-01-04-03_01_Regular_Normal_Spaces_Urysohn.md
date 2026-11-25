@@ -27,11 +27,11 @@ $$
 ![Regular and Normal spaces](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Normal_space.svg/500px-Normal_space.svg.png)  
 *Không gian chuẩn tắc: hai tập đóng rời nhau có hai lân cận mở rời nhau - Nguồn minh họa khái niệm*
 
-**Mạch bài học:** Bản đồ kiến thức nền (từ tách điểm sang tách tập đóng $$T_3, T_{3.5}, T_4$$, ý nghĩa của Bổ đề Urysohn & Định lý mở rộng Tietze) → Khung giải thích chậm: cầm tay dựng hàm Urysohn tường minh trên $$\mathbb{R}$$ tách $$(-\infty, 0]$$ và $$[2, +\infty)$$ → Định nghĩa hình thức & Chứng minh → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (từ tách điểm sang tách tập đóng $$T_3, T_{3.5}, T_4$$, ý nghĩa của Bổ đề Urysohn & Định lý mở rộng Tietze) → Giải thích: cầm tay dựng hàm Urysohn tường minh trên $$\mathbb{R}$$ tách $$(-\infty, 0]$$ và $$[2, +\infty)$$ → Định nghĩa hình thức & Chứng minh → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Không gian Chính quy, Chuẩn tắc và Bổ đề Urysohn nghiên cứu những gì?
+## Kiến thức cần nhớ: Không gian Chính quy, Chuẩn tắc và Bổ đề Urysohn nghiên cứu những gì?
 
 ### 1. Bộ ba $$T_3, T_{3.5}, T_4$$: tăng dần sức mạnh phân tách tập đóng
 
@@ -49,7 +49,7 @@ Nếu $$X$$ là không gian chuẩn tắc và $$A \subseteq X$$ là tập đóng
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay xây dựng và kiểm tra hàm Urysohn trên $$\mathbb{R}$$
+### Giải thích: Cầm tay xây dựng và kiểm tra hàm Urysohn trên $$\mathbb{R}$$
 
 Trên một không gian mê-tric $$(X, d)$$, ta không cần dùng phép xây dựng nhị phân dài dòng của Urysohn mà có ngay công thức tường minh tuyệt đẹp để tách hai tập đóng rời nhau khác rỗng $$A$$ và $$B$$:
 $$

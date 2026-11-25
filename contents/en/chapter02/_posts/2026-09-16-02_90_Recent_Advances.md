@@ -18,7 +18,7 @@ Train the exact same neural network twice from two different random seeds, and y
 
 ---
 
-## Background Knowledge Map: Connectedness, Compactness, and Modern Loss Landscapes
+## Key ideas: Connectedness, Compactness, and Modern Loss Landscapes
 
 Two cornerstone properties from Chapter 02—**connectedness** and **compactness**—govern how modern AI practitioners cluster data, merge models, and stabilize topological features:
 
@@ -54,7 +54,7 @@ Let's test path-connectedness by hand on two concrete loss landscapes with minim
 - Both $$w^{(0)} = (-1, 0, 0)$$ and $$w^{(1)} = (1, 0, 0)$$ still have loss $$0$$, and the **straight line** between them still hits a wall $$L_3(0, 0, 0) = \mathbf{1}$$ — so **linear mode connectivity fails** at $$c = 0.1$$!
 - Yet along the semicircular arc $$\gamma_{\text{arc}}(t) = (\cos(\pi t),\ \sin(\pi t),\ 0)$$, we have $$\cos^2(\pi t) + \sin^2(\pi t) = 1$$ for every $$t \in [0, 1]$$, so $$L_3(\gamma_{\text{arc}}(t)) \equiv \mathbf{0}$$! Thus $$S_0$$ is **path-connected** even though it is not convex!
 
-### Deep-Dive Explanation: From Connectedness Axioms to Model Merging in Billion-Parameter AI (Read Slowly)
+### Explanation: From Connectedness Axioms to Model Merging in Billion-Parameter AI
 
 1. **See sublevel sets $$S_c$$ as topological spaces evolving with $$c$$:** just as $$H_0$$ persistence tracks data clusters merging as radius $$\varepsilon$$ grows, loss-landscape topology tracks isolated minima merging into a single connected valley as the loss ceiling $$c$$ rises.
 2. **Distinguish path-connectedness from convexity (linear mode connectivity):** in high-dimensional neural networks, symmetry (such as permuting hidden neurons) creates vast curved zero-loss valleys like Landscape 2—so two trained models are often connected by a curved low-loss tunnel even when naive weight averaging fails.

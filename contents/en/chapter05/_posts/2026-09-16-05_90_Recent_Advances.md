@@ -18,7 +18,7 @@ Every topology student remembers the first magic trick of quotient spaces: take 
 
 ---
 
-## Background Knowledge Map: Quotients, Cover Nerves, and Why UMAP Is Not Mapper
+## Key ideas: Quotients, Cover Nerves, and Why UMAP Is Not Mapper
 
 Chapter 05 builds complex spaces by gluing simpler pieces together. Three pillars carry that machinery directly into modern data visualization:
 
@@ -57,7 +57,7 @@ Now glue vertices whose clusters intersect in $$S^1$$:
 
 **Result:** a 4-vertex cycle $$v_1 - v_{2L} - v_3 - v_{2R} - v_1$$—topologically a circle, preserving the exact loop of $$S^1$$! Now watch the **cover sensitivity** trap: replace the 3 intervals by just **2** coarse intervals $$V_1 = [-1, 0.2)$$ and $$V_2 = (-0.2, 1]$$. Each preimage is now a single connected U-shaped arc, so Mapper produces just 2 vertices and 1 edge—the loop disappears!
 
-### Deep-Dive Explanation: Why Mapper Preserves Fibers While UMAP Can Flatten Them (Read Slowly)
+### Explanation: Why Mapper Preserves Fibers While UMAP Can Flatten Them
 
 1. **Choose a lens $$f$$ that asks a scientific question:** in Mapper, the filter $$f$$ (height, survival risk, pseudotime, PCA coordinate) explicitly tells the algorithm which direction to slice along, making every node interpretable.
 2. **Pull back and cluster inside each fiber:** splitting $$f^{-1}(U_i)$$ into connected components is what detects branching (like $$v_{2L}$$ and $$v_{2R}$$ on $$S^1$$, or two cell-differentiation lineages).

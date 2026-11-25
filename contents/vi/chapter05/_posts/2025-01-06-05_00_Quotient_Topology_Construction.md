@@ -33,7 +33,7 @@ Tô-pô thương xuất hiện xuyên suốt nhiều nhánh toán học và vậ
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tô-pô Thương là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Tô-pô Thương là gì và nghiên cứu những gì?
 
 ### 1. Phép dán Toán học: Quan hệ tương đương $$X / {\sim}$$
 - **Bản chất:** Bắt đầu từ một không gian quen thuộc $$X$$ (như đoạn thẳng $$[0,1]$$ hay hình vuông $$[0,1]^2$$), ta tuyên bố các điểm nào sẽ bị "dán dính thành một" qua một quan hệ tương đương $$\sim$$. Tập các lớp tương đương $$X/{\sim}$$ đi kèm ánh xạ chiếu tự nhiên $$q: X \to X/{\sim}$$.
@@ -50,7 +50,7 @@ Tô-pô thương xuất hiện xuyên suốt nhiều nhánh toán học và vậ
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Dán đoạn thẳng $$[0, 1]$$ thành Đường tròn $$S^1$$
+## 🧮 Ví dụ tính tay làm từng bước: Dán đoạn thẳng $$[0, 1]$$ thành Đường tròn $$S^1$$
 
 Xét $$X = [0, 1]$$ với quan hệ dán hai đầu mút $$0 \sim 1$$ (mọi điểm $$x \in (0,1)$$ chỉ tương đương với chính nó), và ánh xạ chiếu $$q: [0, 1] \to X/{\sim}$$.
 
@@ -63,7 +63,7 @@ Xét $$X = [0, 1]$$ với quan hệ dán hai đầu mút $$0 \sim 1$$ (mọi đi
    - Kiểm tra điều kiện tương thích phép dán: $$f(0) = (1, 0) = f(1)$$, và trên $$(0, 1)$$ hàm $$f$$ là đơn ánh!
    - Theo Tính chất Phổ dụng, $$f$$ hạ xuống thành song ánh liên tục $$\bar{f}: [0,1]/\{0\sim 1\} \to S^1$$. Vì $$[0,1]$$ compact nên thương của nó compact, còn $$S^1$$ là Hausdorff $$\implies \bar{f}$$ tự động là một **phép đồng phôi**!
 
-### Khung giải thích: Quy trình 4 bước làm chủ Tô-pô Thương (nên đọc chậm)
+### Giải thích: Quy trình 4 bước làm chủ Tô-pô Thương
 
 #### Bước 1: Hình dung phép dán trước khi viết công thức
 Muốn chế tạo $$S^1$$: dán 2 đầu đoạn $$[0,1]$$. Muốn chế tạo $$S^2$$: bóp toàn bộ viền tròn $$\partial D^2$$ của đĩa $$D^2$$ về đúng 1 điểm (cực Bắc)! Muốn chế tạo $$\mathbb{R}P^2$$: dán từng cặp điểm đối tâm $$x \sim -x$$ trên mặt cầu $$S^2$$!

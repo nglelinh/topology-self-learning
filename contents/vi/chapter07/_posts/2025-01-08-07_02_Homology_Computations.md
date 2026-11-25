@@ -35,7 +35,7 @@ Nắm vững các ví dụ chuẩn và thuật toán đồng điều tế bào g
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tính toán Đồng điều & Lý thuyết Bậc Ánh xạ
+## 🗺️ Kiến thức cần nhớ: Tính toán Đồng điều & Lý thuyết Bậc Ánh xạ
 
 ### 1. Đồng điều Rút gọn $$\tilde{H}_n(X)$$ & Mặt cầu $$S^k$$
 - **Bản chất:** Đồng điều rút gọn $$\tilde{H}_n(X)$$ chỉ chỉnh nhẹ bậc $$0$$ ($$\tilde{H}_0(X) \oplus \mathbb{Z} \cong H_0(X)$$) để không gian 1 điểm có $$\tilde{H}_n(\{\text{pt}\}) = 0$$ ở **mọi** bậc $$n$$. Nhờ đó công thức mặt cầu trở nên tuyệt đẹp: $$\tilde{H}_n(S^k) \cong \mathbb{Z}$$ khi $$n = k$$ và bằng $$0$$ khi $$n \neq k$$!
@@ -53,7 +53,7 @@ Nắm vững các ví dụ chuẩn và thuật toán đồng điều tế bào g
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính $$\deg(\text{đối tâm})$$ và Chứng minh Quả bóng có lông trong 4 dòng
+## 🧮 Ví dụ tính tay làm từng bước: Tính $$\deg(\text{đối tâm})$$ và Chứng minh Quả bóng có lông trong 4 dòng
 
 ### 1. Tính bậc của ánh xạ đối tâm $$a: S^n \to S^n,\; a(x_1, \dots, x_{n+1}) = (-x_1, \dots, -x_{n+1})$$
 Viết $$a$$ thành hợp của $$n+1$$ phép phản xạ sơ cấp $$r_k$$ (chỉ đổi dấu tọa độ thứ $$k$$):
@@ -77,7 +77,7 @@ $$
 3. **So sánh bậc hai vế:** $$+1 = \deg(\operatorname{id}_{S^n}) = \deg(a) = (-1)^{n+1} \implies n + 1$$ phải **chẵn**, tức **$$n$$ bắt buộc LẺ**!
 Vậy trên $$S^2, S^4, S^6, \dots$$ **không bao giờ tồn tại** trường vectơ tiếp tuyến không triệt tiêu! (Còn trên $$S^{2m-1}$$, trường $$v(x_1, y_1, \dots, x_m, y_m) = (-y_1, x_1, \dots, -y_m, x_m)$$ thỏa $$v\cdot x = 0$$ và $$\|v\|=1$$ everywhere — chải mượt hoàn hảo!)
 
-### Khung giải thích: Chiến lược 4 bước chinh phục các bài toán tính Đồng điều (nên đọc chậm)
+### Giải thích: Chiến lược 4 bước chinh phục các bài toán tính Đồng điều
 
 #### Bước 1: Dùng co rút biến dạng để đơn giản hóa không gian trước khi tính
 Thay $$\mathbb{R}^n\setminus\{0\}$$ bằng $$S^{n-1}$$; thay dải Möbius hay hình trụ bằng $$S^1$$; thay mặt cầu thủng 1 điểm bằng 1 điểm!

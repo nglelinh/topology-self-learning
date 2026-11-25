@@ -29,7 +29,7 @@ Lý thuyết này là công cụ quan trọng để tính nhóm cơ bản, nghi�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Lý thuyết Không gian Phủ là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Lý thuyết Không gian Phủ là gì và nghiên cứu những gì?
 
 ### 1. Ánh xạ Phủ (Covering Map) & Lân cận Được phủ đều
 - **Bản chất:** Ánh xạ toàn ánh liên tục $$p: \tilde{X} \to X$$ gọi là **ánh xạ phủ** nếu quanh mọi điểm $$x \in X$$ đều có lân cận mở $$U$$ sao cho nghịch ảnh $$p^{-1}(U)$$ tách thành một chồng các "tờ bánh kếp" mở rời nhau $$\bigsqcup V_\alpha$$, mỗi tờ đồng phôi hoàn hảo với $$U$$ qua $$p$$! Số lượng tờ gọi là **số lá (bậc)** của phủ.
@@ -44,7 +44,7 @@ Lý thuyết này là công cụ quan trọng để tính nhóm cơ bản, nghi�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Khảo sát trọn vẹn Phủ 3 lá $$p_3(z) = z^3: S^1 \to S^1$$
+## 🧮 Ví dụ tính tay làm từng bước: Khảo sát trọn vẹn Phủ 3 lá $$p_3(z) = z^3: S^1 \to S^1$$
 
 Xem đường tròn là $$S^1 = \{z \in \mathbb{C} : \lvert z\rvert = 1\}$$ và xét ánh xạ $$p_3: S^1 \to S^1,\; p_3(z) = z^3$$:
 
@@ -65,7 +65,7 @@ Xem đường tròn là $$S^1 = \{z \in \mathbb{C} : \lvert z\rvert = 1\}$$ và 
    $$
    Nhóm này đẳng cấu với **$$\mathbb{Z}/3\mathbb{Z} \cong \mathbb{Z}/3\mathbb{Z} = \pi_1(S^1)/H$$** — xác nhận hoàn hảo Tương ứng Galois!
 
-### Khung giải thích: Đọc bản đồ Tương ứng Galois của Không gian Phủ (nên đọc chậm)
+### Giải thích: Đọc bản đồ Tương ứng Galois của Không gian Phủ
 
 #### Bước 1: Hình dung "tháp các không gian phủ" của $$X$$
 Đứng trên đỉnh cao nhất là **phủ phổ dụng $$\tilde{X}$$** (đơn liên, ứng với nhóm con nhỏ nhất $$\{1\}$$); nằm dưới đáy là chính $$X$$ (ứng với toàn bộ $$\pi_1(X)$$); ở giữa là mọi phủ trung gian ứng với từng nhóm con $$H \le \pi_1(X)$$.

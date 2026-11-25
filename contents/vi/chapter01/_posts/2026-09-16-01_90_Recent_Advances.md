@@ -25,11 +25,11 @@ Một tô-pô trên $$X$$ mô tả cấu trúc lân cận mà không cần cố 
 ![Phân cụm](https://upload.wikimedia.org/wikipedia/commons/c/c8/Cluster-2.svg)
 *Hai cụm trong mặt phẳng: phiên bản rời rạc của tính không liên thông. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cluster-2.svg)*
 
-**Mạch bài học:** Bản đồ kiến thức nền (phân cụm liên kết đơn & $$H_0$$ persistence, lọc theo mật độ ToMATo & giảm chiều bảo toàn lân cận) → Khung giải thích chậm: cầm tay chạy phân cụm đa tỉ lệ trên 4 điểm trên trục số và đọc số cụm thật → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+**Mạch bài học:** Kiến thức cần nhớ (phân cụm liên kết đơn & $$H_0$$ persistence, lọc theo mật độ ToMATo & giảm chiều bảo toàn lân cận) → Giải thích: cầm tay chạy phân cụm đa tỉ lệ trên 4 điểm trên trục số và đọc số cụm thật → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
 
 ---
 
-## Bản đồ kiến thức nền: Tô-pô của Dữ liệu và Phân cụm Tô-pô nghiên cứu những gì?
+## Kiến thức cần nhớ: Tô-pô của Dữ liệu và Phân cụm Tô-pô nghiên cứu những gì?
 
 ### 1. Phân cụm liên kết đơn (Single-Linkage) chính là $$H_0$$ bền vững
 
@@ -45,7 +45,7 @@ Các phương pháp trực quan hóa dữ liệu nhiều chiều xuống 2D th�
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay chạy phân cụm đa tỉ lệ $$H_0$$ trên 4 điểm trục số
+### Giải thích: Cầm tay chạy phân cụm đa tỉ lệ $$H_0$$ trên 4 điểm trục số
 
 Xét 4 điểm dữ liệu nằm trên đường thẳng thực:
 $$

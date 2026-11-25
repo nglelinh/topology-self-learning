@@ -31,7 +31,7 @@ Trong bài học này, chúng ta trình bày chi tiết chứng minh $\pi_1(S^1)
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Cách tính $$\pi_1(S^1)$$ và Sức mạnh của các Hệ quả kinh điển
+## 🗺️ Kiến thức cần nhớ: Cách tính $$\pi_1(S^1)$$ và Sức mạnh của các Hệ quả kinh điển
 
 ### 1. Kỹ thuật Nâng Đường đi (Path Lifting) qua Ánh xạ Phủ $$p: \mathbb{R} \to S^1$$
 - **Bản chất:** Ánh xạ $$p(t) = e^{2\pi i t} = (\cos 2\pi t, \sin 2\pi t)$$ cuộn đường thẳng $$\mathbb{R}$$ vô số vòng lên đường tròn $$S^1$$. Nhờ hai bổ đề vàng (**Nâng đường đi** và **Nâng đồng luân**), mọi vòng $$\gamma$$ trên $$S^1$$ xuất phát từ $$(1,0)$$ đều có duy nhất một đường nâng $$\tilde{\gamma}: [0,1] \to \mathbb{R}$$ bắt đầu tại $$0$$, và điểm kết thúc $$\tilde{\gamma}(1) \in \mathbb{Z}$$ chính là **số quấn** (bất biến dưới đồng luân)!
@@ -47,7 +47,7 @@ Trong bài học này, chúng ta trình bày chi tiết chứng minh $\pi_1(S^1)
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Tính trực tiếp Số quấn bằng Đường nâng $$\tilde{\gamma}$$
 Xét ánh xạ phủ $$p(t) = e^{2\pi i t}: \mathbb{R} \to S^1$$ và hai vòng khép kín tại $$z_0 = 1 \in S^1$$:
@@ -68,7 +68,7 @@ Giả sử phản chứng tồn tại ánh xạ liên tục $$f: D^2 \to D^2$$ *
    $$
 4. Hợp thành $$r_* \circ i_*$$ phải là đồng nhất trên $$\mathbb{Z}$$ (gửi $$1 \mapsto 1$$), nhưng nó đi ngang qua nhóm tầm thường $$\{0\}$$ nên bắt buộc gửi $$1 \mapsto 0 \mapsto 0$$ — **mâu thuẫn $$1 = 0$$**! Vậy $$f$$ chắc chắn phải có ít nhất một điểm bất động!
 
-### Khung giải thích: Nhịp cầu 4 bước từ $$\pi_1(S^1) \cong \mathbb{Z}$$ sang các định lý lớn (nên đọc chậm)
+### Giải thích: Nhịp cầu 4 bước từ $$\pi_1(S^1) \cong \mathbb{Z}$$ sang các định lý lớn
 
 #### Bước 1: Dùng lò xo phủ $$\mathbb{R} \to S^1$$ để gán mỗi vòng một số nguyên duy nhất
 Chính tính chất "nhìn cục bộ giống hệt nhau" của ánh xạ phủ giúp ta mở cuộn mọi vòng trên $$S^1$$ thành đường đi trên $$\mathbb{R}$$, và đồng luân trên $$S^1$$ mở cuộn thành đồng luân cố định hai đầu mút trên $$\mathbb{R}$$.

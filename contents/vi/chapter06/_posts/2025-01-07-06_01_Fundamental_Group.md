@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ xây dựng tường minh $\pi_1(X, x_0)$,
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Nhóm cơ bản $$\pi_1(X, x_0)$$ là gì và hoạt động như thế nào?
+## 🗺️ Kiến thức cần nhớ: Nhóm cơ bản $$\pi_1(X, x_0)$$ là gì và hoạt động như thế nào?
 
 ### 1. Hàm tử từ Tô-pô sang Lý thuyết Nhóm ($$\mathbf{Top}_* \to \mathbf{Grp}$$)
 - **Bản chất:** Nhóm cơ bản gán cho mỗi không gian có điểm gốc $$(X, x_0)$$ một nhóm $$\pi_1(X, x_0)$$ (tập các lớp đồng luân của vòng khép kín tại $$x_0$$ với phép nối vòng $$[\alpha]\cdot[\beta] = [\alpha * \beta]$$), và gán cho mỗi ánh xạ liên tục $$f: (X, x_0) \to (Y, y_0)$$ một **đồng cấu nhóm** $$f_*: \pi_1(X, x_0) \to \pi_1(Y, y_0)$$.
@@ -45,7 +45,7 @@ Trong bài học này, chúng ta sẽ xây dựng tường minh $\pi_1(X, x_0)$,
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: So sánh $$\pi_1(T^2)$$ (giao hoán) vs. $$\pi_1(S^1 \vee S^1)$$ (không giao hoán)
+## 🧮 Ví dụ tính tay làm từng bước: So sánh $$\pi_1(T^2)$$ (giao hoán) vs. $$\pi_1(S^1 \vee S^1)$$ (không giao hoán)
 
 1. **Kiểm tra công thức phép nối vòng và phần tử nghịch đảo:**
    Cho hai vòng $$\alpha, \beta: [0,1] \to X$$ tại $$x_0$$. Phép nối $$(\alpha * \beta)(s)$$ chạy gấp đôi tốc độ trên $$\alpha$$ ở nửa đầu $$[0, \tfrac{1}{2}]$$ và chạy trên $$\beta$$ ở nửa sau $$[\tfrac{1}{2}, 1]$$. Vòng ngược là $$\bar{\alpha}(s) = \alpha(1 - s)$$.
@@ -63,7 +63,7 @@ Trong bài học này, chúng ta sẽ xây dựng tường minh $\pi_1(X, x_0)$,
      Trực quan hình học: khi cắt hình xuyến ra thành hình vuông $$[0,1]^2$$, đường biên là đúng vòng $$a * b * a^{-1} * b^{-1}$$. Vì **có mặt vuông đặc lấp kín bên trong**, ta kéo trượt đường biên co rút gọn về 1 điểm $$\implies a b a^{-1} b^{-1} = 1 \implies ab = ba$$!
    - **Trên hình số 8 ($$S^1 \vee S^1$$):** Hãy tưởng tượng bạn **đục thủng** toàn bộ mặt vuông của hình xuyến, chỉ giữ lại đúng 2 vòng biên $$a$$ và $$b$$ chạm nhau tại 1 điểm! Không còn mặt vuông nào để kéo trượt $$ab$$ sang $$ba$$ nữa $$\implies \pi_1(S^1 \vee S^1) \cong F_2 = \langle a, b \rangle$$ (nhóm tự do 2 phần tử sinh, **không giao hoán**!).
 
-### Khung giải thích: 4 bước làm chủ tư duy Hàm tử của Nhóm cơ bản (nên đọc chậm)
+### Giải thích: 4 bước làm chủ tư duy Hàm tử của Nhóm cơ bản
 
 #### Bước 1: Kiểm tra tính độc lập với điểm gốc $$x_0$$
 Nếu $$X$$ liên thông đường, mọi đường đi $$\gamma$$ nối $$x_0$$ tới $$x_1$$ cho phép dịch chuyển vòng tại $$x_1$$ về $$x_0$$ bằng cách "đi theo $$\gamma$$, chạy vòng, rồi quay về theo $$\bar{\gamma}$$" — sinh ra đẳng cấu $$\pi_1(X, x_0) \cong \pi_1(X, x_1)$$.

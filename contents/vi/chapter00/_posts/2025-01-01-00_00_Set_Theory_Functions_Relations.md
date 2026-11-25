@@ -20,11 +20,11 @@ Năm 1874, Georg Cantor gửi đi một bài báo ngắn làm rung chuyển cả
 
 Bài giảng mở đầu này không phải thủ tục hình thức khô khan trước khi vào môn chính, mà là bộ công cụ thao tác hằng ngày của người làm tô-pô: dùng ánh xạ và ảnh ngược để so sánh không gian, dùng quan hệ tương đương để "dán" đoạn thẳng thành đường tròn hay hình vuông thành hình xuyến, và dùng lực lượng để phân biệt các bậc vô hạn trong các tiên đề đếm được sau này.
 
-**Mạch bài học:** Bản đồ kiến thức nền (tập hợp tiên đề, ánh xạ–ảnh ngược & quan hệ tương đương–lực lượng) → Khung giải thích chậm: tự tay kiểm tra sự khác biệt giữa ảnh trực tiếp $$f$$ và ảnh ngược $$f^{-1}$$ cùng phép dán đoạn thẳng thành đường tròn → Trực giác & Nghịch lý Russell → Hệ tiên đề ZF, ánh xạ, quan hệ và lực lượng → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tập hợp tiên đề, ánh xạ–ảnh ngược & quan hệ tương đương–lực lượng) → Giải thích: tự tay kiểm tra sự khác biệt giữa ảnh trực tiếp $$f$$ và ảnh ngược $$f^{-1}$$ cùng phép dán đoạn thẳng thành đường tròn → Trực giác & Nghịch lý Russell → Hệ tiên đề ZF, ánh xạ, quan hệ và lực lượng → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Lý thuyết tập hợp, Ánh xạ và Quan hệ nghiên cứu những gì?
+## Kiến thức cần nhớ: Lý thuyết tập hợp, Ánh xạ và Quan hệ nghiên cứu những gì?
 
 Với một sinh viên vừa tốt nghiệp đại học, các ký hiệu $$\cup, \cap, f^{-1}, \sim$$ đã quá quen thuộc, nhưng khi bước sang Tô-pô học, chúng mang ba vai trò cấu trúc hoàn toàn mới:
 
@@ -42,7 +42,7 @@ Một **quan hệ tương đương** $$\sim$$ phân hoạch tập $$X$$ thành c
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng ảnh ngược $$f^{-1}$$ và phép "dán" đường tròn
+### Giải thích: Cầm tay kiểm chứng ảnh ngược $$f^{-1}$$ và phép "dán" đường tròn
 
 Để thấy vì sao tô-pô ưu ái ảnh ngược $$f^{-1}$$ thay vì ảnh trực tiếp $$f$$, hãy tự tay kiểm tra trên hàm quen thuộc $$f: \mathbb{R} \to \mathbb{R}$$, $$f(x) = x^2$$:
 

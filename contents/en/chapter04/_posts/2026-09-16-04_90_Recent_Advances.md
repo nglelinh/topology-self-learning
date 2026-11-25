@@ -18,7 +18,7 @@ Suppose two structural biologists hand you 3D atomic coordinates for two protein
 
 ---
 
-## Background Knowledge Map: Lifting Metric Geometry from Points to Entire Spaces
+## Key ideas: Lifting Metric Geometry from Points to Entire Spaces
 
 Chapter 04 teaches that a metric $$d(x,y)$$ frees geometry from Cartesian coordinates. Modern shape analysis applies that exact idea at the *space* level across three pillars:
 
@@ -60,7 +60,7 @@ $$
 
 - **The punchline on rigid motion:** place $$X = \{0, 2\}$$ and $$X' = \{100, 102\}$$ in $$\mathbb{R}$$. Their ambient Hausdorff distance is $$d_H(X, X') = \mathbf{100}$$ (miles apart!), yet their Gromov–Hausdorff distance is $$d_{GH}(X, X') = \mathbf{0}$$ because $$d_X(0,2) = d_{X'}(100,102) = 2$$!
 
-### Deep-Dive Explanation: Lifting Metrics from Points to Entire Spaces (Read Slowly)
+### Explanation: Lifting Metrics from Points to Entire Spaces
 
 1. **Separate *where* a shape sits from *what* it is:** $$d_H$$ penalizes translations and rotations; $$d_{GH}$$ mods out every rigid motion and ambient coordinate frame, comparing pure pairwise distance tables.
 2. **Pay the computational price with algebraic proxies:** computing exact $$d_{GH}$$ between large point clouds is NP-hard! That is why mathematicians bound it from below using fast computable invariants like persistent homology: $$d_B(\mathrm{Dgm}(X), \mathrm{Dgm}(Y)) \le d_{GH}(X, Y)$$.

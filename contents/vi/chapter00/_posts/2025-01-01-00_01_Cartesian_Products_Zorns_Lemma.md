@@ -20,11 +20,11 @@ Triết gia kiêm nhà toán học Bertrand Russell từng kể một câu chuy�
 
 Trong bài này, ta đi từ phép xây dựng quen thuộc nhất — **tích Đề-các** (nơi đường thẳng $$\mathbb{R}$$ nhân với chính nó tạo ra mặt phẳng $$\mathbb{R}^2$$, hay hai đường tròn $$S^1 \times S^1$$ dệt nên hình xuyến $$T^2$$) — sang thế giới của **tích vô hạn**, nơi chỉ riêng câu hỏi *"tích vô hạn của các tập khác rỗng có khác rỗng không?"* cũng đã tương đương hoàn toàn với Tiên đề Lựa chọn.
 
-**Mạch bài học:** Bản đồ kiến thức nền (tích vô hạn như không gian hàm, Tiên đề Lựa chọn & Bổ đề Zorn) → Khung giải thích chậm: cầm tay phân biệt phần tử cực đại và phần tử lớn nhất trên một tập sắp thứ tự bộ phận hữu hạn → Trực giác & Định nghĩa hình thức → Ứng dụng trong tô-pô (Định lý Tychonoff) → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tích vô hạn như không gian hàm, Tiên đề Lựa chọn & Bổ đề Zorn) → Giải thích: cầm tay phân biệt phần tử cực đại và phần tử lớn nhất trên một tập sắp thứ tự bộ phận hữu hạn → Trực giác & Định nghĩa hình thức → Ứng dụng trong tô-pô (Định lý Tychonoff) → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Tích vô hạn, Tiên đề Lựa chọn và Bổ đề Zorn nghiên cứu những gì?
+## Kiến thức cần nhớ: Tích vô hạn, Tiên đề Lựa chọn và Bổ đề Zorn nghiên cứu những gì?
 
 ### 1. Tích Đề-các vô hạn như một không gian hàm số
 
@@ -40,7 +40,7 @@ Trong thực hành chứng minh, các nhà toán học hiếm khi dùng AC trự
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm tra xích, chặn trên và phần tử cực đại trên một Poset hữu hạn
+### Giải thích: Cầm tay kiểm tra xích, chặn trên và phần tử cực đại trên một Poset hữu hạn
 
 Để không bao giờ nhầm giữa **phần tử cực đại (maximal element)** và **phần tử lớn nhất (maximum)** khi áp dụng Bổ đề Zorn, hãy tự tay kiểm tra trên tập sắp thứ tự bộ phận gồm 5 tập con của $$\{1, 2, 3\}$$:
 $$

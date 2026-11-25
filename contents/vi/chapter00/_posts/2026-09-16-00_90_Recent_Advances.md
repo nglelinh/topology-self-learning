@@ -25,11 +25,11 @@ Chương 00 cho thấy mọi không gian tô-pô đều bắt đầu từ một 
 ![Đám mây điểm trên torus](https://upload.wikimedia.org/wikipedia/commons/4/4c/Point_cloud_torus.gif)
 *Một hình xuyến được lấy mẫu hữu hạn — đúng loại đối tượng mà TDA tìm cách nhận diện hình dạng. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Point_cloud_torus.gif)*
 
-**Mạch bài học:** Bản đồ kiến thức nền (đám mây điểm & phức Vietoris–Rips, homology bền vững & khoảng cách Gromov–Hausdorff) → Khung giải thích chậm: cầm tay dựng lọc Vietoris–Rips và đọc thanh barcode cho 4 điểm trên hình vuông → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+**Mạch bài học:** Kiến thức cần nhớ (đám mây điểm & phức Vietoris–Rips, homology bền vững & khoảng cách Gromov–Hausdorff) → Giải thích: cầm tay dựng lọc Vietoris–Rips và đọc thanh barcode cho 4 điểm trên hình vuông → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
 
 ---
 
-## Bản đồ kiến thức nền: Phân tích Dữ liệu Tô-pô (TDA) là gì và nghiên cứu những gì?
+## Kiến thức cần nhớ: Phân tích Dữ liệu Tô-pô (TDA) là gì và nghiên cứu những gì?
 
 ### 1. Từ đám mây điểm rời rạc đến Phức đơn hình Vietoris–Rips
 
@@ -45,7 +45,7 @@ Chọn một bán kính $$r$$ duy nhất rất rủi ro: quá nhỏ thì dữ li
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay dựng lọc Vietoris–Rips và tính Barcode cho 4 điểm hình vuông
+### Giải thích: Cầm tay dựng lọc Vietoris–Rips và tính Barcode cho 4 điểm hình vuông
 
 Xét đám mây điểm gồm đúng 4 đỉnh của hình vuông đơn vị trong $$\mathbb{R}^2$$:
 $$

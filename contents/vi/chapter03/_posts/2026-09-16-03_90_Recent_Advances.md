@@ -25,11 +25,11 @@ Ngược lại, tính chất **Hausdorff** và **mê-tric hóa** của Chương 
 ![Khoảng cách Hausdorff](https://upload.wikimedia.org/wikipedia/commons/2/21/Hausdorff_distance_sample.svg)
 *Khoảng cách Hausdorff giữa hai tập hợp: phiên bản định lượng gắn với tư duy tách điểm. Nguồn: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hausdorff_distance_sample.svg)*
 
-**Mạch bài học:** Bản đồ kiến thức nền (khoảng cách Hausdorff & nút cổ chai trên biểu đồ bền vững, phê bình phép nhúng UMAP & điều kiện Lipschitz) → Khung giải thích chậm: cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ trên hai tập điểm hữu hạn để thấy độ nhạy với điểm nhiễu → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
+**Mạch bài học:** Kiến thức cần nhớ (khoảng cách Hausdorff & nút cổ chai trên biểu đồ bền vững, phê bình phép nhúng UMAP & điều kiện Lipschitz) → Giải thích: cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ trên hai tập điểm hữu hạn để thấy độ nhạy với điểm nhiễu → Trực giác & 4 tiến bộ 2022–2026 → Bài tập.
 
 ---
 
-## Bản đồ kiến thức nền: Phân ly, Phép nhúng và Ổn định Hình dạng trong Dữ liệu 2022–2026 nghiên cứu những gì?
+## Kiến thức cần nhớ: Phân ly, Phép nhúng và Ổn định Hình dạng trong Dữ liệu 2022–2026 nghiên cứu những gì?
 
 ### 1. Không gian các biểu đồ bền vững là không gian mê-tric (Hausdorff)
 
@@ -45,7 +45,7 @@ Tính liên tục chỉ nói *"nhiễu đủ nhỏ thì đầu ra đổi nhỏ"*
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ và thấy rõ độ nhạy với nhiễu
+### Giải thích: Cầm tay tính khoảng cách Hausdorff $$d_H(A, B)$$ và thấy rõ độ nhạy với nhiễu
 
 Cho hai tập con compact khác rỗng $$A, B$$ của không gian mê-tric $$(X, d)$$, **khoảng cách Hausdorff** được định nghĩa là giá trị lớn hơn giữa hai khoảng cách có hướng:
 $$

@@ -36,7 +36,7 @@ Khi tham số $\varepsilon$ nhỏ, phức chỉ là tập các điểm rời nha
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đồng điều bền vững là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Đồng điều bền vững là gì và nghiên cứu những gì?
 
 ### 1. Phức Vietoris–Rips & Phép lọc (Filtration)
 - **Bản chất:** Cho một tập hữu hạn điểm $$X$$ với khoảng cách giữa từng cặp điểm, tại mỗi bán kính $$\varepsilon \ge 0$$ ta nối hai điểm bằng một cạnh nếu khoảng cách $$\le \varepsilon$$, lấp tam giác nếu cả 3 cạnh $$\le \varepsilon$$, v.v. Kết quả là một **dãy phức đơn hình lồng nhau** $$\mathrm{VR}_{\varepsilon_1}(X) \subseteq \mathrm{VR}_{\varepsilon_2}(X) \subseteq \cdots$$.
@@ -51,7 +51,7 @@ Khi tham số $\varepsilon$ nhỏ, phức chỉ là tập các điểm rời nha
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Barcode của 4 đỉnh hình vuông đơn vị
+## 🧮 Ví dụ tính tay làm từng bước: Barcode của 4 đỉnh hình vuông đơn vị
 
 Lấy 4 điểm nằm ở 4 góc của hình vuông cạnh $$1$$ trong $$\mathbb{R}^2$$:
 $$
@@ -76,7 +76,7 @@ Khoảng cách giữa các cặp điểm chỉ có hai giá trị: **4 cạnh d�
 - $$H_0$$: $$[0, 1),\; [0, 1),\; [0, 1),\; [0, \infty)$$.
 - $$H_1$$: duy nhất một thanh $$[1, \sqrt{2})$$ với độ bền (persistence) bằng $$\sqrt{2} - 1 \approx 0.414$$!
 
-### Khung giải thích: Từ lý thuyết đồng điều Chương 07 đến phần mềm Ripser (nên đọc chậm)
+### Giải thích: Từ lý thuyết đồng điều Chương 07 đến phần mềm Ripser
 
 #### Bước 1: Thay không gian tĩnh bằng một "bộ phim" không gian lồng nhau
 Thay vì hỏi "hình này có bao nhiêu lỗ?", ta hỏi "khi phóng to dần bán kính nối điểm $$\varepsilon$$, những lỗ nào xuất hiện và tồn tại đủ lâu?". Lỗ có khoảng $$\varepsilon_{\text{death}} - \varepsilon_{\text{birth}}$$ lớn là cấu trúc hình học thật; khoảng ngắn sát đường chéo là nhiễu.

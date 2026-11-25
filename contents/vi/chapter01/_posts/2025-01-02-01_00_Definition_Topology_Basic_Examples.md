@@ -20,11 +20,11 @@ Năm 1914, trong cuốn sách kinh điển *Grundzüge der Mengenlehre*, Felix H
 
 Bài giảng này là bước ngoặt chính thức mở đầu Chương 01: ta sẽ xây dựng định nghĩa hình thức của **không gian tô-pô**, khám phá phổ các ví dụ nền tảng (từ tô-pô tầm thường nghèo nàn nhất đến tô-pô rời rạc giàu có nhất, cùng tô-pô Euclid, đồng hữu hạn, đồng đếm được), học cách so sánh tô-pô "thô hơn" và "mịn hơn", và nhìn thấy cách các khái niệm tập đóng, phần trong, bao đóng, biên đều nảy sinh thuần túy từ tập mở.
 
-**Mạch bài học:** Bản đồ kiến thức nền (tại sao là 3 tiên đề tập mở, phổ tô-pô thô–mịn & đối ngẫu mở–đóng) → Khung giải thích chậm: cầm tay kiểm tra 3 tiên đề tô-pô trên tập 3 phần tử $$\{a,b,c\}$$ và phản ví dụ giao vô hạn trên $$\mathbb{R}$$ → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tại sao là 3 tiên đề tập mở, phổ tô-pô thô–mịn & đối ngẫu mở–đóng) → Giải thích: cầm tay kiểm tra 3 tiên đề tô-pô trên tập 3 phần tử $$\{a,b,c\}$$ và phản ví dụ giao vô hạn trên $$\mathbb{R}$$ → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Không gian Tô-pô là gì và vì sao ba tiên đề lại có hình dạng như vậy?
+## Kiến thức cần nhớ: Không gian Tô-pô là gì và vì sao ba tiên đề lại có hình dạng như vậy?
 
 ### 1. Vì sao hợp *tùy ý* nhưng chỉ giao *hữu hạn*?
 
@@ -40,7 +40,7 @@ Không cần thêm bất kỳ dữ kiện nào khác: một tập là **đóng**
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm tra 3 tiên đề tô-pô trên $$X = \{a, b, c\}$$
+### Giải thích: Cầm tay kiểm tra 3 tiên đề tô-pô trên $$X = \{a, b, c\}$$
 
 Hãy tự tay kiểm tra ba họ tập con trên tập 3 phần tử $$X = \{a, b, c\}$$ để cảm nhận rõ ràng từng tiên đề:
 

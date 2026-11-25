@@ -36,7 +36,7 @@ Một mạng nơ-ron đồ thị (GNN) chỉ trao đổi thông tin dọc theo c
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Học sâu Tô-pô (TDL) và Morse rời rạc là gì?
+## 🗺️ Kiến thức cần nhớ: Học sâu Tô-pô (TDL) và Morse rời rạc là gì?
 
 ### 1. Từ Đồ thị (1 chiều) lên Phức đơn hình & Phức tế bào (Đa chiều)
 - **Bản chất:** Đồ thị chỉ gồm $$0$$-tế bào (đỉnh) và $$1$$-tế bào (cạnh). Phức đơn hình và phức tế bào bổ sung $$2$$-tế bào (tam giác, đa giác vòng thơm trong hóa học) và $$k$$-tế bào bậc cao, cho phép mạng nơ-ron truyền thông điệp qua cả biên dưới (cạnh $$\leftrightarrow$$ đỉnh) lẫn biên trên (cạnh $$\leftrightarrow$$ tam giác).
@@ -53,7 +53,7 @@ Một mạng nơ-ron đồ thị (GNN) chỉ trao đổi thông tin dọc theo c
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Hodge Laplacian $$L_1$$ phân biệt Tam giác rỗng vs. Tam giác đặc
+## 🧮 Ví dụ tính tay làm từng bước: Hodge Laplacian $$L_1$$ phân biệt Tam giác rỗng vs. Tam giác đặc
 
 Xét 3 đỉnh $$v_1, v_2, v_3$$ và 3 cạnh có hướng $$e_1 = [v_1, v_2],\; e_2 = [v_2, v_3],\; e_3 = [v_3, v_1]$$. Ma trận biên $$B_1$$ (cỡ $$3\times 3$$, hàng là đỉnh, cột là cạnh) là:
 $$
@@ -73,7 +73,7 @@ Bây giờ so sánh hai trường hợp:
    $$
    Lập tức $$\ker(L_1) = \{\mathbf{0}\}$$ ($$H_1 = 0$$)! Chỉ nhờ thêm một cột $$B_2$$, mạng nơ-ron đơn hình phân biệt rành mạch giữa **3 cặp tương tác rời rạc** và **1 tương tác nhóm 3 bên**!
 
-### Khung giải thích: TDL biến lý thuyết Chương 08 thành mạng học sâu như thế nào? (nên đọc chậm)
+### Giải thích: TDL biến lý thuyết Chương 08 thành mạng học sâu như thế nào?
 
 #### Bước 1: "Nâng" (Lift) dữ liệu từ đồ thị lên phức tô-pô
 Từ đồ thị ban đầu (phân tử, mạng protein), ta xây dựng phức đơn hình hoặc phức tế bào bằng cách gắn thêm các $$2$$-tế bào (vòng phân tử, cụm 3 điểm).

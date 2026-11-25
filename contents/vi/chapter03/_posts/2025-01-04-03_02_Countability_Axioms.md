@@ -27,11 +27,11 @@ Câu trả lời nằm ở bốn **tiên đề đếm được (countability axi
 ![Countability hierarchy](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Separation_and_countability.svg/500px-Separation_and_countability.svg.png)  
 *Quan hệ giữa các tính chất đếm được - Nguồn minh họa khái niệm*
 
-**Mạch bài học:** Bản đồ kiến thức nền (vì sao cần 4 mức đếm được, mối liên hệ với dãy số & sự trùng khớp trong không gian mê-tric) → Khung giải thích chậm: cầm tay dựng cơ sở đếm được của $$\mathbb{R}$$ và chứng minh đường thẳng Sorgenfrey khả ly nhưng không đếm được thứ hai → Định nghĩa hình thức & Quan hệ bao hàm → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (vì sao cần 4 mức đếm được, mối liên hệ với dãy số & sự trùng khớp trong không gian mê-tric) → Giải thích: cầm tay dựng cơ sở đếm được của $$\mathbb{R}$$ và chứng minh đường thẳng Sorgenfrey khả ly nhưng không đếm được thứ hai → Định nghĩa hình thức & Quan hệ bao hàm → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Các Tiên đề Đếm được nghiên cứu những gì?
+## Kiến thức cần nhớ: Các Tiên đề Đếm được nghiên cứu những gì?
 
 ### 1. Đếm được thứ nhất ($$C_1$$): ranh giới để dãy số còn đủ sức đặc trưng tô-pô
 
@@ -47,7 +47,7 @@ Trên không gian tô-pô tổng quát, $$C_2 \implies \text{Khả ly}$$ và $$C
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng $$\mathbb{R}$$ là $$C_2$$ còn đường thẳng Sorgenfrey $$\mathbb{R}_l$$ thì KHÔNG
+### Giải thích: Cầm tay kiểm chứng $$\mathbb{R}$$ là $$C_2$$ còn đường thẳng Sorgenfrey $$\mathbb{R}_l$$ thì KHÔNG
 
 **Ví dụ 1 — Vì sao $$\mathbb{R}$$ (tô-pô Euclid) đếm được thứ hai ($$C_2$$)?**
 Xét họ các khoảng mở có **hai đầu mút hữu tỉ**:

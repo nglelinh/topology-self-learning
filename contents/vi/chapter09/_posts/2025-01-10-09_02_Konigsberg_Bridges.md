@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ phân tích bài toán bảy cây cầu �
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Từ Bảy cây cầu đến Lý thuyết Đồ thị & Tô-pô 1 chiều
+## 🗺️ Kiến thức cần nhớ: Từ Bảy cây cầu đến Lý thuyết Đồ thị & Tô-pô 1 chiều
 
 ### 1. Đồ thị như một Không gian Tô-pô 1 chiều (1-phức CW)
 - **Bản chất:** Khi Euler co mỗi hòn đảo hay bờ sông về một **đỉnh** ($$0$$-tế bào) và biến mỗi cây cầu thành một **cạnh** ($$1$$-tế bào), ông đã thay thế hình học đo đạc (chiều dài, diện tích) bằng một **không gian tô-pô 1 chiều** chỉ lưu giữ quan hệ kết nối!
@@ -45,7 +45,7 @@ Trong bài học này, chúng ta sẽ phân tích bài toán bảy cây cầu �
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Bổ đề Bắt tay & "Sửa bản đồ Königsberg"
+## 🧮 Ví dụ tính tay làm từng bước: Bổ đề Bắt tay & "Sửa bản đồ Königsberg"
 
 Hãy kiểm tra bằng tay bài toán Königsberg với 4 đỉnh $$A, B, C, D$$ và 7 cạnh ($$V = 4,\; E = 7$$):
 
@@ -63,7 +63,7 @@ Hãy kiểm tra bằng tay bài toán Königsberg với 4 đỉnh $$A, B, C, D$$
      Chỉ còn đúng **2 đỉnh bậc lẻ** ($$A$$ và $$D$$) $$\implies$$ **Tồn tại đường đi Euler** xuất phát từ $$A$$ và kết thúc tại $$D$$ (bạn thử tự vạch bằng tay: $$A \to B \to A \to C \to A \to D \to B \to C \to D$$ — đúng 8 cầu, không lặp cầu nào!).
    - **Xây thêm 1 cây cầu thứ 9 nối $$A$$ với $$D$$:** Bậc thành $$(6, 4, 4, 4)$$ — toàn bộ chẵn $$\implies$$ tồn tại **chu trình Euler khép kín** đi qua cả 9 cầu rồi quay về đúng điểm xuất phát!
 
-### Khung giải thích: Bước nhảy tư duy 4 bước của Leonhard Euler (1736) (nên đọc chậm)
+### Giải thích: Bước nhảy tư duy 4 bước của Leonhard Euler (1736)
 
 #### Bước 1: Trừu tượng hóa — vứt bỏ mọi thứ không liên quan
 Đảo Kneiphof rộng bao nhiêu mét hay cầu cong bao nhiêu độ không ảnh hưởng gì đến việc có đi qua hết được không. Euler nén mỗi vùng đất thành 1 đỉnh và mỗi cây cầu thành 1 cạnh.
@@ -119,7 +119,7 @@ Dù thử xuất phát từ bất kỳ vùng đất nào, người đi bộ luô
 
 ### Cách tiếp cận của Euler
 
-Thay vì liệt kê từng lộ trình cụ thể, Euler nhận ra ba điểm mấu chốt:
+Thay vì liệt kê từng lộ trình cụ thể, Euler nhận ra ba điểm chính:
 
 1. **Hình dạng và kích thước không quan trọng:** Chiều dài cây cầu hay diện tích từng vùng đất không ảnh hưởng đến đáp án; chỉ có quan hệ kết nối giữa các vùng đất mới quyết định.
 2. **Điểm xuất phát của một chu trình khép kín không quan trọng:** Nếu tồn tại một vòng đi khép kín qua tất cả các cầu, ta có thể bắt đầu từ bất kỳ vùng nào trên vòng đó.

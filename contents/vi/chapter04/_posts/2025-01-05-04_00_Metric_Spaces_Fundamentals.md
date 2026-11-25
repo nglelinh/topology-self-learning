@@ -33,7 +33,7 @@ Không gian metric là nền tảng trực tiếp của giải tích thực (gi�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Không gian Metric là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Không gian Metric là gì và nghiên cứu những gì?
 
 ### 1. Tiên đề hóa Khoảng cách: Từ Euclid đến Mọi Thế giới
 - **Bản chất:** Một **metric** $$d: X \times X \to [0, \infty)$$ chắt lọc đúng 3 tính chất cốt lõi của khoảng cách: xác định dương ($$d(x,y)=0 \iff x=y$$), đối xứng ($$d(x,y)=d(y,x)$$), và **bất đẳng thức tam giác** ($$d(x,z) \le d(x,y) + d(y,z)$$ — đi vòng không bao giờ ngắn hơn đi thẳng!).
@@ -47,7 +47,7 @@ Không gian metric là nền tảng trực tiếp của giải tích thực (gi�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Ba hình dáng khác nhau của "Hình tròn đơn vị" $$B(0, 1)$$ trong $$\mathbb{R}^2$$
 Trên $$\mathbb{R}^2$$, xét ba metric kinh điển đo khoảng cách từ điểm $$p = (x, y)$$ tới gốc $$O = (0, 0)$$:
@@ -67,7 +67,7 @@ Dù ba quả cầu có hình dáng khác hẳn nhau (thoi, tròn, vuông), bất
 - **Bất đẳng thức tam giác:** Nếu $$x = z$$ thì vế trái $$= 0 \le$$ vế phải. Nếu $$x \neq z$$ thì vế trái $$= 1$$; với mọi $$y$$, không thể đồng thời $$x = y$$ và $$y = z$$ nên ít nhất một trong $$d(x,y), d(y,z)$$ bằng $$1$$, suy ra tổng $$\ge 1$$!
 - **Quả cầu mở bán kính $$r = \tfrac{1}{2}$$:** $$B(x, \tfrac{1}{2}) = \{x\}$$ — mọi điểm đơn lẻ đều là tập mở, sinh ra đúng **tô-pô rời rạc**!
 
-### Khung giải thích: Vì sao tô-pô học vẫn cần không gian Metric? (nên đọc chậm)
+### Giải thích: Vì sao tô-pô học vẫn cần không gian Metric?
 
 #### Bước 1: Định lượng khái niệm "gần nhau"
 Tô-pô tập hợp chỉ nói điểm $$y$$ nằm trong lân cận $$U$$ của $$x$$. Metric cho bạn một con số cụ thể $$d(x, y) < \varepsilon$$, mở khóa các công cụ định lượng: dãy Cauchy, tính đầy đủ, liên tục đều và nguyên lý ánh xạ co.

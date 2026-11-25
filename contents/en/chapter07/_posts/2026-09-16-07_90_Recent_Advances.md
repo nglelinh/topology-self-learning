@@ -18,7 +18,7 @@ When Henri Poincaré invented homology in 1895, computing the holes of a 3D shap
 
 ---
 
-## Background Knowledge Map: Boundary Matrices, Persistence, and Differentiable Vectorization
+## Key ideas: Boundary Matrices, Persistence, and Differentiable Vectorization
 
 To understand what Ripser and `giotto-tda` are actually computing under the hood, connect three Chapter 07 pillars:
 
@@ -62,7 +62,7 @@ $$
    $$\partial_1 \partial_2(t) = (2, 2, 2)^\top \equiv (0, 0, 0)^\top \pmod 2.$$
    Now $$\beta_1 = \dim(\ker\partial_1) - \operatorname{rank}(\partial_2) = 1 - 1 = \mathbf{0}$$ — **the 1-loop dies** the exact moment $$t$$ enters the filtration!
 
-### Deep-Dive Explanation: How Ripser Turns Boundary Matrices into Millisecond Barcodes (Read Slowly)
+### Explanation: How Ripser Turns Boundary Matrices into Millisecond Barcodes
 
 1. **Every simplex does one of two jobs:** when sorted by filtration radius, adding a $$k$$-simplex either *creates* a new $$k$$-cycle (column reduces to zero → **birth**) or *kills* an older $$(k-1)$$-cycle (column's lowest `1` pairs with that cycle's birth → **death**).
 2. **Switch to cohomology for massive sparsity:** Ripser reduces the transpose (*coboundary*) matrix instead; in Vietoris–Rips complexes, most columns cancel immediately via "apparent pairs" without ever storing the full complex in memory.

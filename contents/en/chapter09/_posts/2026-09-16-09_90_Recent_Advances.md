@@ -18,7 +18,7 @@ In 1736, Leonhard Euler stood over a map of Königsberg's seven bridges and real
 
 ---
 
-## Background Knowledge Map: From Euler's Formula to Materials, Brain Networks, and NLP
+## Key ideas: From Euler's Formula to Materials, Brain Networks, and NLP
 
 How do Chapter 09's classic visual stories translate into quantitative lab measurements? Three mathematical bridges do the heavy lifting:
 
@@ -58,7 +58,7 @@ Look at that third row (a connected 6-node, 8-edge brain subnetwork):
 - Because a spanning tree on $$V = 6$$ nodes uses exactly $$V - 1 = 5$$ edges, the remaining $$8 - 5 = \mathbf{3}$$ edges must close **3 independent feedback loops** ($$\beta_1 = E - V + 1 = 3$$).
 - Compare this to a 6-node, 8-edge network broken into **2** disconnected components ($$C = 2$$): now $$\beta_1 = E - V + C = 8 - 6 + 2 = \mathbf{4}$$ loops! Same vertex count, same edge count, yet different global topology—immediately visible to $$H_0, H_1$$.
 
-### Deep-Dive Explanation: How Euler's 1750 Formula Became a 2026 Scientific Instrument (Read Slowly)
+### Explanation: How Euler's 1750 Formula Became a 2026 Scientific Instrument
 
 1. **Start with a single invariant number ($$\chi$$):** counting vertices, edges, and faces is blazingly fast—$$O(\text{size})$$—and invariant under any subdivision or rubber-sheet deformation.
 2. **Add a filtration to turn a number into a curve:** sweeping a scale threshold (correlation strength in a connectome, or height $$x\cdot v$$ in a 3D porous scan) transforms $$\chi$$ into an **Euler Characteristic Curve** that tracks when pores open and close.

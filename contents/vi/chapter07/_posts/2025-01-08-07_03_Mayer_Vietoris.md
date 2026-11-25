@@ -33,7 +33,7 @@ Trong bài học này, ta sẽ ôn lại khái niệm dãy khớp, phát biểu 
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Dãy khớp & Định lý Mayer–Vietoris là gì?
+## 🗺️ Kiến thức cần nhớ: Dãy khớp & Định lý Mayer–Vietoris là gì?
 
 ### 1. Dãy khớp (Exact Sequence): Ngôn ngữ "ống dẫn" của Đại số Đồng điều
 - **Bản chất:** Một dãy các nhóm Abel và đồng cấu $$\cdots \to A \xrightarrow{f} B \xrightarrow{g} C \to \cdots$$ gọi là **khớp tại $$B$$** nếu $$\operatorname{im}(f) = \ker(g)$$.
@@ -55,7 +55,7 @@ Trong bài học này, ta sẽ ôn lại khái niệm dãy khớp, phát biểu 
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Quy nạp tính $$\tilde{H}_k(S^n)$$ trong 4 dòng bằng Mayer–Vietoris
+## 🧮 Ví dụ tính tay làm từng bước: Quy nạp tính $$\tilde{H}_k(S^n)$$ trong 4 dòng bằng Mayer–Vietoris
 
 Hãy phủ mặt cầu $$S^n$$ ($$n \ge 1$$) bởi hai chỏm cầu mở lớn:
 - $$U = S^n \setminus \{N\} \cong \mathbb{R}^n$$ (co rút được $$\implies \tilde{H}_k(U) = 0$$ với **mọi** $$k$$!).
@@ -82,7 +82,7 @@ $$
 $$
 *(Hãy chiêm ngưỡng vẻ đẹp của bước $$n=1$$: với $$S^1$$, $$U \cap V \simeq S^0$$ KHÔNG liên thông đường nên Seifert–van Kampen bó tay, nhưng Mayer–Vietoris rút gọn lại dùng chính $$\tilde{H}_0(S^0) \cong \mathbb{Z}$$ để đẩy lên $$H_1(S^1) \cong \mathbb{Z}$$ gọn gàng trong đúng 1 dòng!)*
 
-### Khung giải thích: Quy trình 4 bước "đuổi biểu đồ" với Mayer–Vietoris (nên đọc chậm)
+### Giải thích: Quy trình 4 bước "đuổi biểu đồ" với Mayer–Vietoris
 
 #### Bước 1: Chọn hai mảnh $$A, B$$ có phần trong phủ kín $$X$$ và dễ tính đồng điều nhất
 Lý tưởng nhất là chọn $$A, B$$ co rút được (như hai bán cầu mở của $$S^n$$) hoặc co rút về vòng tròn/hình số 8 (như cắt hình xuyến $$T^2$$ thành hai hình trụ mở $$A, B \simeq S^1$$ giao nhau trên hai vòng tròn rời $$A \cap B \simeq S^1 \sqcup S^1$$!).

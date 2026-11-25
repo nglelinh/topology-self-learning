@@ -29,7 +29,7 @@ Trong bài học này, ta sẽ tìm hiểu định nghĩa đa tạp tô-pô, b�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đa tạp tô-pô là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Đa tạp tô-pô là gì và nghiên cứu những gì?
 
 ### 1. Từ Không gian tô-pô tổng quát đến Không gian Euclid địa phương
 - **Bản chất:** Không gian tô-pô tổng quát trong Chương 01–04 có thể cực kỳ kỳ dị. **Đa tạp tô-pô $$n$$ chiều** lọc ra lớp không gian "đẹp nhất": tại mỗi điểm đều có lân cận đồng phôi với một tập mở trong $$\mathbb{R}^n$$ (gọi là **bản đồ tọa độ**), cộng thêm hai "hàng rào vệ sinh" là **Hausdorff** và **đếm được thứ hai**.
@@ -46,7 +46,7 @@ Trong bài học này, ta sẽ tìm hiểu định nghĩa đa tạp tô-pô, b�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Tự tính ánh xạ chuyển tiếp của tập bản đồ phép chiếu nổi trên $$S^1$$
 Xét đường tròn đơn vị $$S^1 = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}$$ phủ bởi hai bản đồ:
@@ -66,7 +66,7 @@ Lấy hai bản sao rời nhau của đường thẳng thực $$\mathbb{R} \time
 - **Kiểm tra Euclid địa phương:** Quanh $$0_a$$, tập $$U_a = (\mathbb{R}\setminus\{0\}) \cup \{0_a\}$$ đồng phôi hoàn hảo với $$\mathbb{R}$$! Quanh $$0_b$$ cũng y hệt!
 - **Kiểm tra Hausdorff:** Mọi lân cận mở của $$0_a$$ đều chứa một khoảng $$(-\varepsilon, 0) \cup (0, \varepsilon)$$, và mọi lân cận mở của $$0_b$$ cũng chứa một khoảng $$(-\delta, 0) \cup (0, \delta)$$. Hai lân cận đó **luôn cắt nhau**! Do đó một dãy $$x_n = 1/n$$ hội tụ đồng thời về *cả hai* điểm $$0_a$$ và $$0_b$$ — phá hỏng tính duy nhất của giới hạn trong giải tích! Đó là lý do định nghĩa đa tạp bắt buộc phải đòi hỏi tính **Hausdorff**.
 
-### Khung giải thích: Kiến trúc 4 bước dựng nên đa tạp hiện đại (nên đọc chậm)
+### Giải thích: Kiến trúc 4 bước dựng nên đa tạp hiện đại
 
 #### Bước 1: Bắt đầu từ không gian tô-pô "sạch"
 Yêu cầu **Hausdorff** (giới hạn duy nhất, tách được điểm) và **đếm được thứ hai** (đảm bảo tồn tại phân hoạch đơn vị và mêtric hóa được theo Urysohn) để loại bỏ mọi không gian bệnh lý.

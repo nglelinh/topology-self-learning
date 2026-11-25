@@ -20,11 +20,11 @@ Trong giải tích năm nhất, đôi khi chỉ cần đảo vị trí hai chữ
 
 Bài giảng này hệ thống hóa bốn trụ cột của tư duy chứng minh toán học: **logic mệnh đề**, **lượng từ ($$\forall, \exists$$)**, **các chiến lược chứng minh** (trực tiếp, phản đảo, phản chứng, quy nạp) và **bản đồ các lỗi logic kinh điển** mà người mới học tô-pô hay vấp phải.
 
-**Mạch bài học:** Bản đồ kiến thức nền (logic mệnh đề–phản đảo, thứ tự lượng từ & các kỹ thuật chứng minh trong tô-pô) → Khung giải thích chậm: cầm tay đảo lượng từ và viết phủ định để chứng minh hàm bước nhảy gián đoạn → Trực giác & Định nghĩa hình thức → Lỗi logic phổ biến → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (logic mệnh đề–phản đảo, thứ tự lượng từ & các kỹ thuật chứng minh trong tô-pô) → Giải thích: cầm tay đảo lượng từ và viết phủ định để chứng minh hàm bước nhảy gián đoạn → Trực giác & Định nghĩa hình thức → Lỗi logic phổ biến → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Logic toán học và Kỹ thuật chứng minh đóng vai trò gì trong Tô-pô?
+## Kiến thức cần nhớ: Logic toán học và Kỹ thuật chứng minh đóng vai trò gì trong Tô-pô?
 
 ### 1. Phép kéo theo $$P \Rightarrow Q$$ và sức mạnh của phản đảo $$\neg Q \Rightarrow \neg P$$
 
@@ -42,7 +42,7 @@ Phần lớn định lý tô-pô có dạng *"Nếu không gian $$X$$ có tính 
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay đảo thứ tự lượng từ và phủ định định nghĩa liên tục
+### Giải thích: Cầm tay đảo thứ tự lượng từ và phủ định định nghĩa liên tục
 
 Hãy tự tay kiểm tra hai bài tập "nhỏ mà có võ" sau để thấy sức mạnh của lượng từ:
 

@@ -18,7 +18,7 @@ Graph Neural Networks (GNNs) conquered social networks and basic chemistry by pa
 
 ---
 
-## Background Knowledge Map: Higher-Order Complexes, Hodge Laplacians, and Discrete Morse Theory
+## Key ideas: Higher-Order Complexes, Hodge Laplacians, and Discrete Morse Theory
 
 Three advanced topological pillars from Chapter 08 now sit directly inside modern geometric AI and computational topology:
 
@@ -61,7 +61,7 @@ A standard GNN sees only the vertex adjacency matrix—identical in both cases�
 
 **Part B — Discrete Morse pairing on a 3-vertex path.** On the path $$v_0 - e_1 - v_1 - e_2 - v_2$$ (3 vertices, 2 edges), construct a discrete gradient vector field by pairing $$(v_1 \to e_1)$$ and $$(v_2 \to e_2)$$. Every cell except $$v_0$$ is paired and collapses away! Only **1 critical 0-cell** ($$v_0$$) survives—proving in two arrows that the path is contractible ($$\chi = 3 - 2 = 1$$) without solving any linear system.
 
-### Deep-Dive Explanation: From Higher-Order Complexes to TDL and Morse Reductions (Read Slowly)
+### Explanation: From Higher-Order Complexes to TDL and Morse Reductions
 
 1. **Match the domain to the physics:** when data carries genuine multi-body interactions (protein pockets, aromatic rings, co-authorship cliques), lifting a graph to a simplicial or cell complex lets a single message-passing step aggregate the entire group at once.
 2. **Use Hodge decomposition to separate signal types:** $$L_1$$ splits any edge signal cleanly into gradient flows (from vertices), curl flows (around triangles), and harmonic flows (around true holes)—giving TDL layers crisp spectral structure.

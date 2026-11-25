@@ -39,7 +39,7 @@ Trong bài học này, ta sẽ xây dựng đồng điều đơn hình theo trì
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đồng điều Đơn hình là gì và tính toán như thế nào?
+## 🗺️ Kiến thức cần nhớ: Đồng điều Đơn hình là gì và tính toán như thế nào?
 
 ### 1. Phức Đơn hình & Nhóm Xích $$C_n(K)$$
 - **Bản chất:** Một **$$n$$-đơn hình** là bao lồi của $$n+1$$ điểm độc lập ($$0$$-đơn hình là đỉnh, $$1$$-đơn hình là cạnh, $$2$$-đơn hình là tam giác đặc, $$3$$-đơn hình là tứ diện đặc). **Nhóm xích $$C_n(K)$$** là nhóm Abel tự do sinh bởi tất cả các $$n$$-đơn hình có hướng của phức $$K$$.
@@ -53,7 +53,7 @@ Trong bài học này, ta sẽ xây dựng đồng điều đơn hình theo trì
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tam giác Rỗng $$K$$ vs. Tam giác Đặc $$\overline{K}$$
+## 🧮 Ví dụ tính tay làm từng bước: Tam giác Rỗng $$K$$ vs. Tam giác Đặc $$\overline{K}$$
 
 Xét 3 đỉnh $$v_0, v_1, v_2$$ và 3 cạnh có hướng $$e_0 = [v_0, v_1],\; e_1 = [v_1, v_2],\; e_2 = [v_2, v_0]$$.
 
@@ -81,7 +81,7 @@ Xét 3 đỉnh $$v_0, v_1, v_2$$ và 3 cạnh có hướng $$e_0 = [v_0, v_1],\;
      H_1(\overline{K}) = \frac{Z_1(\overline{K})}{B_1(\overline{K})} = \frac{\mathbb{Z}}{\mathbb{Z}} = 0 \quad (\beta_1 = 0: \text{ lỗ đã bị lấp kín!}).
      $$
 
-### Khung giải thích: Quy trình 4 bước tính Đồng điều Đơn hình bằng tay (nên đọc chậm)
+### Giải thích: Quy trình 4 bước tính Đồng điều Đơn hình bằng tay
 
 #### Bước 1: Liệt kê các đơn hình có hướng theo từng bậc $$0, 1, 2, \dots$$
 Viết rõ cơ sở cho từng nhóm xích $$C_0, C_1, C_2, \dots$$ (mỗi $$C_n \cong \mathbb{Z}^{c_n}$$).

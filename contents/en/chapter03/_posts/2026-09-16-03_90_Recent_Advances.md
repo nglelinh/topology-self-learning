@@ -18,7 +18,7 @@ Open almost any genomics or AI paper today and you will see a colorful 2D scatte
 
 ---
 
-## Background Knowledge Map: Separation Axioms, Topological Embeddings, and Stable Barcodes
+## Key ideas: Separation Axioms, Topological Embeddings, and Stable Barcodes
 
 Why do mathematicians bother distinguishing $$T_0$$, $$T_1$$, $$T_2$$ (Hausdorff), and $$T_4$$ (normal) spaces? Three pillars show how this hierarchy bites in modern TDA and representation learning:
 
@@ -61,7 +61,7 @@ $$
 
 Because $$d_B$$ is a metric, distinct diagrams sit inside disjoint open $$d_B$$-balls ($$T_2$$!), and tiny noise loops near the diagonal only nudge $$d_B$$ by half their lifetime.
 
-### Deep-Dive Explanation: Why Separation Axioms Decide When Embeddings and Barcodes Are Trustworthy (Read Slowly)
+### Explanation: Why Separation Axioms Decide When Embeddings and Barcodes Are Trustworthy
 
 1. **Finite TDA pipelines naturally live in non-Hausdorff $$T_0$$ spaces:** every finite simplicial complex's face poset is a $$T_0$$ Alexandroff space (like a larger Sierpiński space); non-Hausdorff topology is not a pathology—it is the native combinatorial engine!
 2. **Passing to homology lands in a Hausdorff metric space:** once persistent homology extracts a diagram and equips it with $$d_B$$, distinct shapes become cleanly separated by disjoint open balls, making limits and stability theorems well-defined.

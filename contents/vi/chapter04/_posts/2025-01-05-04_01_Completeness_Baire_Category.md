@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa và các ví d�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tính đầy đủ và Phạm trù Baire là gì?
+## 🗺️ Kiến thức cần nhớ: Tính đầy đủ và Phạm trù Baire là gì?
 
 ### 1. Dãy Cauchy & Không gian Metric Đầy đủ (Complete Metric Space)
 - **Bản chất:** Một dãy $$(x_n)$$ là **dãy Cauchy** nếu các phần tử tiến sát lại gần *nhau* ($$d(x_m, x_n) \to 0$$) mà không cần biết trước giới hạn là ai. Không gian gọi là **đầy đủ** nếu **mọi dãy Cauchy đều hội tụ** về một điểm *nằm trong* không gian đó.
@@ -45,7 +45,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa và các ví d�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Dãy Cauchy trong $$\mathbb{Q}$$ hội tụ vào "lỗ thủng" $$\sqrt{2}$$
 Xét dãy lặp Newton–Babylon bắt đầu từ $$x_0 = 1 \in \mathbb{Q}$$:
@@ -68,7 +68,7 @@ $$
 - Mỗi tập đơn điểm $$F_n = \{x_n\}$$ là tập **đóng** và có **phần trong rỗng** (không chứa bất kỳ khoảng mở $$(a, b)$$ nào), nên $$F_n$$ **không đâu trù mật**.
 - Nhưng $$\mathbb{R}$$ là một không gian metric đầy đủ khác rỗng! Theo **Định lý Phạm trù Baire**, $$\mathbb{R}$$ **không thể** là hợp đếm được của các tập không đâu trù mật $$\implies$$ mâu thuẫn! Vậy $$\mathbb{R}$$ bắt buộc **không đếm được**!
 
-### Khung giải thích: Ba bước khóa chặt sức mạnh của Tính đầy đủ (nên đọc chậm)
+### Giải thích: Ba bước khóa chặt sức mạnh của Tính đầy đủ
 
 #### Bước 1: Dãy Cauchy giúp kiểm tra hội tụ mà KHÔNG cần biết trước giới hạn
 Khi giải một phương trình vi phân hay tích phân phức tạp, bạn chưa biết nghiệm trông như thế nào. Bạn chỉ dựng được một dãy xấp xỉ $$(x_n)$$ mà $$d(x_{n+1}, x_n) \le k^n d(x_1, x_0)$$. Tổng cấp số nhân hữu hạn chứng tỏ $$(x_n)$$ là dãy Cauchy.

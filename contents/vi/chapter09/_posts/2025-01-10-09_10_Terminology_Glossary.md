@@ -32,7 +32,7 @@ Mỗi bảng gồm bốn cột:
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Kiến trúc 3 tầng của hệ thuật ngữ Tô-pô toàn khóa
+## 🗺️ Kiến thức cần nhớ: Kiến trúc 3 tầng của hệ thuật ngữ Tô-pô toàn khóa
 
 Toàn bộ các bảng thuật ngữ bên dưới được tổ chức theo đúng 3 tầng xây dựng của tô-pô học hiện đại:
 
@@ -50,7 +50,7 @@ Toàn bộ các bảng thuật ngữ bên dưới được tổ chức theo đú
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: "Khám sức khỏe" toàn bộ 3 tầng thuật ngữ trên Hình xuyến $$T^2 = S^1 \times S^1$$
+## 🧮 Ví dụ tính tay làm từng bước: "Khám sức khỏe" toàn bộ 3 tầng thuật ngữ trên Hình xuyến $$T^2 = S^1 \times S^1$$
 
 Để thực hành tra cứu từ điển hiệu quả nhất, hãy chọn đúng **một** không gian quen thuộc là **hình xuyến $$T^2 = S^1 \times S^1$$** và tự kiểm chứng 6 nhãn thuật ngữ đại diện cho cả 3 tầng:
 
@@ -61,7 +61,7 @@ Toàn bộ các bảng thuật ngữ bên dưới được tổ chức theo đú
 5. **Đối đồng điều & Tích cup (Chương 07.04):** Hai phần tử sinh $$\alpha, \beta \in H^1(T^2)$$ có $$\alpha \cup \beta \neq 0 \in H^2(T^2)$$ — chứng minh ngay $$T^2 \not\simeq S^1 \vee S^1 \vee S^2$$ dù có cùng mọi nhóm đồng điều!
 6. **Đa tạp & Morse (Chương 08):** $$T^2$$ là **đa tạp trơn 2 chiều đóng định hướng được**; hàm chiều cao chuẩn có đúng 4 điểm tới hạn chỉ số $$(0, 1, 1, 2)$$ khớp tuyệt đối các số Betti!
 
-### Khung giải thích: Cách dùng từ điển thuật ngữ để tự học hiệu quả (nên đọc chậm)
+### Giải thích: Cách dùng từ điển thuật ngữ để tự học hiệu quả
 
 #### Bước 1: Luôn đọc thuật ngữ theo cặp song ngữ Việt – Anh
 Phần lớn tài liệu nghiên cứu và sách kinh điển (Munkres, Hatcher, Lee, Milnor) viết bằng tiếng Anh; ghi nhớ song song (ví dụ *homeomorphism* = đồng phôi, *homotopy* = đồng luân, *covering space* = không gian phủ) giúp bạn đọc thẳng giáo trình gốc không bị vấp.

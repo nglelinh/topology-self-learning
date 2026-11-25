@@ -18,7 +18,7 @@ Think of a deep neural network as a sculptor working on tangled clay: the input 
 
 ---
 
-## Background Knowledge Map: Homotopy, Covering Spaces, and Deep Neural Networks
+## Key ideas: Homotopy, Covering Spaces, and Deep Neural Networks
 
 Three core ideas from algebraic topology's Chapter 06 explain surprising empirical discoveries in 2022–2026 deep learning:
 
@@ -66,7 +66,7 @@ That is the exact geometry behind **Git Re-Basin** and linear mode connectivity:
 - $$\phi([-3, -1]) = [1, 3]$$ and $$\phi([1, 3]) = [1, 3]$$ → the two disconnected pieces fold right on top of each other into **1 connected interval** $$[1, 3]$$ ($$\beta_0$$ drops from 2 to **1**!).
 - Meanwhile $$\phi(X_-) = [0, 1)$$, so a single linear cut at $$y = 1$$ now separates the classes with 100% accuracy!
 
-### Deep-Dive Explanation: How Layers Simplify Data Topology While Symmetries Multiply Minima (Read Slowly)
+### Explanation: How Layers Simplify Data Topology While Symmetries Multiply Minima
 
 1. **Why invertible layers alone are not enough:** a homeomorphism preserves $$\beta_0$$ and $$\beta_1$$, so an invertible map can never untangle two linked rings or merge two separated islands of the same class; ReLU's *non-invertible* folding is what drops Betti numbers!
 2. **Read mode connectivity as $$\pi_0(S_c)$$:** asking whether two checkpoints can be connected by a low-loss curve is asking whether they represent the same element in $$\pi_0(\{w : L(w) \le c\})$$.

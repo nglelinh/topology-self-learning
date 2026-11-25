@@ -25,11 +25,11 @@ Trong $$\mathbb{R}^n$$, Định lý Heine–Borel cho ta cách nhận diện nha
 ![Open cover illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Compact_space.svg/400px-Compact_space.svg.png)  
 *Không gian compact: mọi phủ mở đều trích ra được phủ con hữu hạn - Nguồn minh họa khái niệm*
 
-**Mạch bài học:** Bản đồ kiến thức nền (trực giác "phủ mở – phủ con hữu hạn", Heine–Borel vs. không gian vô hạn chiều & bộ ba định lý vàng của compact) → Khung giải thích chậm: cầm tay dựng phủ mở cụ thể chứng minh $$(0, 1]$$ và $$\mathbb{R}$$ không compact → Trực giác & Định nghĩa hình thức → Compact dãy, số Lebesgue & Tychonoff → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (trực giác "phủ mở – phủ con hữu hạn", Heine–Borel vs. không gian vô hạn chiều & bộ ba định lý vàng của compact) → Giải thích: cầm tay dựng phủ mở cụ thể chứng minh $$(0, 1]$$ và $$\mathbb{R}$$ không compact → Trực giác & Định nghĩa hình thức → Compact dãy, số Lebesgue & Tychonoff → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Không gian Compact là gì và vì sao nó quyền năng đến vậy?
+## Kiến thức cần nhớ: Không gian Compact là gì và vì sao nó quyền năng đến vậy?
 
 ### 1. Phủ mở và phủ con hữu hạn: "lọc vô hạn thành hữu hạn"
 
@@ -47,7 +47,7 @@ Trong $$\mathbb{R}^n$$, $$K$$ compact $$\iff K$$ đóng và bị chặn. Nhưng 
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm chứng tại sao $$(0, 1]$$ và $$\mathbb{R}$$ KHÔNG compact
+### Giải thích: Cầm tay kiểm chứng tại sao $$(0, 1]$$ và $$\mathbb{R}$$ KHÔNG compact
 
 Để nắm chắc cách phủ định định nghĩa compact (*"tồn tại một phủ mở không có phủ con hữu hạn"*), hãy tự tay kiểm tra hai ví dụ kinh điển:
 

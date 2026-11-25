@@ -33,7 +33,7 @@ Các bài học tiếp theo trong chương sẽ xây dựng nhóm cơ bản $\pi
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đồng luân và Tương đương Đồng luân là gì?
+## 🗺️ Kiến thức cần nhớ: Đồng luân và Tương đương Đồng luân là gì?
 
 ### 1. Đồng luân giữa hai Ánh xạ: Một "đoạn phim" liên tục $$H(x, t)$$
 - **Bản chất:** Hai ánh xạ liên tục $$f, g: X \to Y$$ gọi là **đồng luân** ($$f \simeq g$$) nếu tồn tại ánh xạ liên tục $$H: X \times [0, 1] \to Y$$ sao cho tại khung hình đầu $$H(x, 0) = f(x)$$ và tại khung hình cuối $$H(x, 1) = g(x)$$.
@@ -47,7 +47,7 @@ Các bài học tiếp theo trong chương sẽ xây dựng nhóm cơ bản $\pi
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Đồng luân tuyến tính trên tập lồi — Mọi ánh xạ vào $$\mathbb{R}^n$$ đều đồng luân với nhau!
 Cho $$f, g: X \to \mathbb{R}^n$$ là hai ánh xạ liên tục bất kỳ. Xây dựng tường minh:
@@ -73,7 +73,7 @@ Kiểm tra bằng tay 4 điều kiện:
 
 Kết luận: $$\mathbb{R}^n \setminus \{0\} \simeq S^{n-1}$$ (dù khác số chiều — $$n$$ chiều vs. $$(n-1)$$ chiều — nên chúng **không đồng phôi**, nhưng lại có **cùng kiểu đồng luân** và mọi nhóm $$\pi_k, H_k$$ hoàn toàn đẳng cấu nhau!).
 
-### Khung giải thích: Tại sao Tô-pô Đại số lại làm việc với "Đồng luân" thay vì chỉ "Đồng phôi"? (nên đọc chậm)
+### Giải thích: Tại sao Tô-pô Đại số lại làm việc với "Đồng luân" thay vì chỉ "Đồng phôi"?
 
 #### Bước 1: Đồng phôi đôi khi quá khắt khe
 Mặt phẳng thủng 1 lỗ $$\mathbb{R}^2\setminus\{0\}$$, hình trụ $$S^1 \times \mathbb{R}$$, và đường tròn $$S^1$$ đều mang cùng một "lỗ 1 chiều" cốt lõi, nhưng chúng khác số chiều hoặc tính compact nên không đồng phôi. Đồng luân gom cả ba về chung một lớp!

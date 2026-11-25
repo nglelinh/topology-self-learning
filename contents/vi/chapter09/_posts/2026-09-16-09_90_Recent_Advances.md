@@ -36,7 +36,7 @@ Công thức Euler $V-E+F$ giúp đo cấu trúc "lỗ" của một khối đa d
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tô-pô đại chúng bước vào Khoa học Dữ liệu (TDA) như thế nào?
+## 🗺️ Kiến thức cần nhớ: Tô-pô đại chúng bước vào Khoa học Dữ liệu (TDA) như thế nào?
 
 ### 1. Đường cong Đặc trưng Euler (ECC) & Vật liệu Xốp
 - **Bản chất:** Với một ảnh chụp CT 3D của đá xốp, xương hoặc vật liệu tổng hợp, mỗi điểm ảnh (voxel) có một cường độ $$f(x)$$. Quét ngưỡng $$t$$ từ thấp lên cao và ghi lại $$\chi(\{x : f(x) \le t\})$$ tạo thành **Đường cong Đặc trưng Euler** — một chữ ký tô-pô cực nhanh giúp dự đoán độ bền cơ học và độ thấm chất lỏng!
@@ -49,7 +49,7 @@ Công thức Euler $V-E+F$ giúp đo cấu trúc "lỗ" của một khối đa d
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Tính tay Đường cong Đặc trưng Euler (ECC) trên lưới vật liệu $$3\times 3$$
 Xét một lát cắt ảnh vật liệu xốp $$3\times 3$$ ô vuông (pixel) có giá trị độ rỗng như sau (ô có giá trị $$\le t$$ được tô đen là vật chất):
@@ -68,7 +68,7 @@ Lấy một câu 6 từ khác nhau đôi một $$w_1 - w_2 - w_3 - w_4 - w_5 - w
 - Ta có $$V = 6$$ đỉnh và $$E = 5$$ cạnh (một đường thẳng cây) $$\implies \beta_0 = 1,\; \beta_1 = E - V + \beta_0 = 5 - 6 + 1 = 0$$ (không có vòng lặp ngữ nghĩa).
 - Nếu từ cuối lặp lại chủ đề đầu (nối thêm cạnh $$w_6 - w_1$$), ta có $$E = 6 \implies \beta_1 = 6 - 6 + 1 = 1$$ — lập tức sinh ra một lớp $$H_1$$ phản ánh cấu trúc vòng hồi quy của đoạn văn!
 
-### Khung giải thích: Quy trình 4 bước đưa Tô-pô vào phòng thí nghiệm hiện đại (nên đọc chậm)
+### Giải thích: Quy trình 4 bước đưa Tô-pô vào phòng thí nghiệm hiện đại
 
 #### Bước 1: Mã hóa dữ liệu thực thành không gian tô-pô có lọc
 Ảnh CT vật liệu thành phức hình hộp (cubical complex); mạng não thành phức cờ có trọng số; văn bản NLP thành đám mây vectơ nhúng (embedding cloud).

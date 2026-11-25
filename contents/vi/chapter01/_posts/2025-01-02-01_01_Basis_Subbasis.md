@@ -20,11 +20,11 @@ Không một kiến trúc sư nào đi liệt kê từng ngôi nhà có thể x�
 
 Bài giảng này trang bị hai công cụ sinh tô-pô hiệu quả nhất: **cơ sở (basis)** — cho phép xây dựng và so sánh hai tô-pô mà không cần liệt kê toàn bộ tập mở — và **tiền cơ sở (subbasis)**, tầng nguyên liệu còn gọn hơn nữa, đóng vai trò nền tảng để định nghĩa tô-pô tích và tô-pô thứ tự trong các bài sau.
 
-**Mạch bài học:** Bản đồ kiến thức nền (cơ sở như "gạch Lego", tiền cơ sở 2 bước & tiêu chuẩn so sánh tô-pô qua cơ sở) → Khung giải thích chậm: cầm tay sinh trọn vẹn một tô-pô từ tiền cơ sở trên $$\{1, 2, 3\}$$ và so sánh tô-pô Sorgenfrey với tô-pô Euclid → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (cơ sở như "gạch Lego", tiền cơ sở 2 bước & tiêu chuẩn so sánh tô-pô qua cơ sở) → Giải thích: cầm tay sinh trọn vẹn một tô-pô từ tiền cơ sở trên $$\{1, 2, 3\}$$ và so sánh tô-pô Sorgenfrey với tô-pô Euclid → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Cơ sở và Tiền cơ sở hoạt động như thế nào?
+## Kiến thức cần nhớ: Cơ sở và Tiền cơ sở hoạt động như thế nào?
 
 ### 1. Cơ sở (Basis): hai điều kiện để một họ tập con "sinh" được tô-pô
 
@@ -42,7 +42,7 @@ Muốn chứng minh $$\tau'$$ mịn hơn $$\tau$$ ($$\tau \subseteq \tau'$$), ta
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay sinh tô-pô từ tiền cơ sở và so sánh Euclid vs. Sorgenfrey
+### Giải thích: Cầm tay sinh tô-pô từ tiền cơ sở và so sánh Euclid vs. Sorgenfrey
 
 **Ví dụ 1 — Sinh tô-pô 2 bước trên $$X = \{1, 2, 3\}$$:**
 Cho tiền cơ sở $$\mathcal{S} = \bigl\{\{1, 2\},\; \{2, 3\}\bigr\}$$ (hiển nhiên phủ kín $$X$$).

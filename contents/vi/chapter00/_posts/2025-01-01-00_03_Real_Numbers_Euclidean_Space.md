@@ -20,11 +20,11 @@ Hơn hai nghìn năm trước, các môn đồ trường phái Pythagoras đã b
 
 Nhưng điều bất ngờ nhất chỉ đến ở bước cuối cùng của bài giảng này: khi bạn thay chiếc thước đo Euclid quen thuộc bằng thước đo "đường phố Manhattan" ($$d_1$$) hay thước đo cực đại ($$d_\infty$$), hình dạng quả cầu đổi từ hình tròn sang hình thoi rồi hình vuông — **vậy mà họ các tập mở sinh ra vẫn giống hệt nhau!** Chính phát hiện sâu sắc đó đã mở cánh cửa bước từ Giải tích sang Tô-pô học.
 
-**Mạch bài học:** Bản đồ kiến thức nền (tính đầy đủ của $$\mathbb{R}$$, không gian mê-tric & sự tương đương tô-pô giữa các mê-tric) → Khung giải thích chậm: cầm tay so sánh 3 hình cầu đơn vị $$d_1, d_2, d_\infty$$ trên $$\mathbb{R}^2$$ tại điểm $$(0.6, 0.6)$$ → Xây dựng $$\mathbb{R}$$, mê-tric và hội tụ → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tính đầy đủ của $$\mathbb{R}$$, không gian mê-tric & sự tương đương tô-pô giữa các mê-tric) → Giải thích: cầm tay so sánh 3 hình cầu đơn vị $$d_1, d_2, d_\infty$$ trên $$\mathbb{R}^2$$ tại điểm $$(0.6, 0.6)$$ → Xây dựng $$\mathbb{R}$$, mê-tric và hội tụ → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Số thực, Không gian Mê-tric và Tô-pô Mê-tric nghiên cứu những gì?
+## Kiến thức cần nhớ: Số thực, Không gian Mê-tric và Tô-pô Mê-tric nghiên cứu những gì?
 
 ### 1. Tính đầy đủ của $$\mathbb{R}$$ — "vá kín" mọi dãy Cauchy
 
@@ -40,7 +40,7 @@ Mỗi mê-tric $$d$$ sinh ra một họ tập mở thông qua các hình cầu m
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay so sánh 3 thước đo $$d_1, d_2, d_\infty$$ trên mặt phẳng $$\mathbb{R}^2$$
+### Giải thích: Cầm tay so sánh 3 thước đo $$d_1, d_2, d_\infty$$ trên mặt phẳng $$\mathbb{R}^2$$
 
 Xét gốc tọa độ $$O = (0, 0)$$ và điểm $$P = (0.6,\; 0.6) \in \mathbb{R}^2$$. Hãy tính khoảng cách từ $$O$$ tới $$P$$ theo 3 mê-tric kinh điển trên $$\mathbb{R}^2$$:
 

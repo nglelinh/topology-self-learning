@@ -29,7 +29,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu cách xây dựng metric trên
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Không gian Tích & Không gian Hàm là gì?
+## 🗺️ Kiến thức cần nhớ: Không gian Tích & Không gian Hàm là gì?
 
 ### 1. Metric Tích: Từ Hữu hạn đến Vô hạn Đếm được
 - **Tích hữu hạn $$X_1 \times \cdots \times X_n$$:** Ba công thức $$d_1 = \sum d_i$$, $$d_2 = \sqrt{\sum d_i^2}$$, $$d_\infty = \max d_i$$ đều tương đương mạnh và sinh đúng tô-pô tích.
@@ -45,7 +45,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu cách xây dựng metric trên
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Vì sao $$f_n(x) = x^n$$ hội tụ từng điểm nhưng KHÔNG hội tụ đều?
+## 🧮 Ví dụ tính tay làm từng bước: Vì sao $$f_n(x) = x^n$$ hội tụ từng điểm nhưng KHÔNG hội tụ đều?
 
 Xét dãy hàm liên tục $$f_n(x) = x^n$$ trên đoạn đóng $$[0, 1]$$:
 1. **Hội tụ từng điểm:**
@@ -62,7 +62,7 @@ Xét dãy hàm liên tục $$f_n(x) = x^n$$ trên đoạn đóng $$[0, 1]$$:
    - Họ $$\{x^n\}$$ bị chặn đều bởi $$1$$ ($$\lvert x^n\rvert \le 1$$).
    - Nhưng tại điểm $$x = 1$$, độ dốc $$f_n'(1) = n \to +\infty$$! Họ **không đồng liên tục** tại $$1$$, nên không có dãy con nào hội tụ đều trong $$C[0, 1]$$!
 
-### Khung giải thích: Chuyển tư duy từ "điểm trong $$\mathbb{R}^n$$" sang "hàm là điểm" (nên đọc chậm)
+### Giải thích: Chuyển tư duy từ "điểm trong $$\mathbb{R}^n$$" sang "hàm là điểm"
 
 #### Bước 1: Mỗi hàm số là một điểm trong không gian vô hạn chiều
 Tưởng tượng ống lân cận bán kính $$\varepsilon$$ quanh đồ thị hàm $$f$$: quả cầu mở $$B_{d_\infty}(f, \varepsilon)$$ trong $$C[0,1]$$ gồm toàn bộ các hàm $$g$$ có đồ thị nằm lọt thỏm bên trong dải băng $$(f(x) - \varepsilon,\; f(x) + \varepsilon)$$!

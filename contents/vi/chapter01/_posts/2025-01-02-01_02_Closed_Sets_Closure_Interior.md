@@ -20,11 +20,11 @@ Hãy nghĩ về đường biên giới của một quốc gia trên bản đồ.
 
 Điều kỳ thú trong Tô-pô học là trực giác bản đồ đó vẫn đúng một cách đáng kinh ngạc — nhưng đồng thời cũng ẩn chứa những cú sốc thú vị: trên trục số thực $$\mathbb{R}$$, tập số hữu tỉ $$\mathbb{Q}$$ có **phần trong rỗng tuếch** (không chứa nổi một khoảng mở bé xíu nào) nhưng **biên của nó lại là toàn bộ trục số $$\mathbb{R}$$**! Bài giảng này xây dựng trọn vẹn hệ sinh thái đối ngẫu giữa tập mở và tập đóng, cùng ba toán tử nền tảng $$\operatorname{int}$$, $$\operatorname{cl}$$, $$\partial$$, điểm tụ và tính trù mật.
 
-**Mạch bài học:** Bản đồ kiến thức nền (đối ngẫu mở–đóng & tiên đề Kuratowski, phân loại điểm & tính trù mật) → Khung giải thích chậm: cầm tay tính trọn bộ $$\operatorname{int}, \operatorname{cl}, \partial, A'$$ cho 3 tập mẫu kinh điển trên $$\mathbb{R}$$ → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (đối ngẫu mở–đóng & tiên đề Kuratowski, phân loại điểm & tính trù mật) → Giải thích: cầm tay tính trọn bộ $$\operatorname{int}, \operatorname{cl}, \partial, A'$$ cho 3 tập mẫu kinh điển trên $$\mathbb{R}$$ → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Tập đóng, Bao đóng, Phần trong và Biên nghiên cứu những gì?
+## Kiến thức cần nhớ: Tập đóng, Bao đóng, Phần trong và Biên nghiên cứu những gì?
 
 ### 1. Đối ngẫu Mở – Đóng và Hệ tiên đề bao đóng Kuratowski
 
@@ -43,7 +43,7 @@ Tập $$D$$ gọi là **trù mật** trong $$X$$ nếu $$\operatorname{cl}(D) = 
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay tính $$\operatorname{int}(A), \operatorname{cl}(A), \partial A$$ và $$A'$$ cho 3 tập mẫu trên $$\mathbb{R}$$
+### Giải thích: Cầm tay tính $$\operatorname{int}(A), \operatorname{cl}(A), \partial A$$ và $$A'$$ cho 3 tập mẫu trên $$\mathbb{R}$$
 
 Hãy tự tay tính đủ 4 đại lượng cho ba tập con của $$\mathbb{R}$$ (với tô-pô Euclid chuẩn) và kiểm tra công thức $$\operatorname{cl}(A) = A \cup A' = \operatorname{int}(A) \cup \partial A$$:
 

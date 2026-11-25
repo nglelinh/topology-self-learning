@@ -33,7 +33,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu phát biểu chính xác của
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Tô-pô mặt phẳng khống chế việc tô màu như thế nào?
+## 🗺️ Kiến thức cần nhớ: Tô-pô mặt phẳng khống chế việc tô màu như thế nào?
 
 ### 1. Chuyển Bản đồ sang Đồ thị Đối ngẫu Phẳng
 - **Bản chất:** Đặt một **đỉnh** vào tâm mỗi quốc gia và nối hai đỉnh bằng một **cạnh** nếu hai nước có chung đoạn biên giới. Bài toán tô màu bản đồ lập tức trở thành bài toán tô màu đỉnh của một **đồ thị phẳng** (đồ thị vẽ được trên mặt phẳng sao cho không có hai cạnh nào cắt nhau).
@@ -46,7 +46,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu phát biểu chính xác của
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Chứng minh trong 4 dòng rằng mọi đồ thị phẳng luôn có đỉnh bậc $$\le 5$$ (và suy ra Định lý 6 màu!)
 Xét một đồ thị phẳng đơn liên thông có $$V \ge 3$$ đỉnh, $$E$$ cạnh và $$F$$ mặt:
@@ -77,7 +77,7 @@ Kiểm tra bằng tay hai giá trị đầu tiên:
 - **Mặt cầu / mặt phẳng ($$g = 0$$):** $$H(0) = \left\lfloor \frac{7 + 1}{2} \right\rfloor = 4$$ (chính là Định lý Bốn màu!).
 - **Mặt xuyến / bánh donut ($$g = 1$$):** $$H(1) = \left\lfloor \frac{7 + \sqrt{49}}{2} \right\rfloor = \frac{14}{2} = 7$$! (Thật vậy, trên mặt xuyến bạn có thể vẽ 7 quốc gia đôi một tiếp giáp nhau — đồ thị $$K_7$$ — nên 6 màu hoàn toàn bất lực!)
 
-### Khung giải thích: Con đường 4 bước từ công thức Euler đến Định lý Bốn màu (nên đọc chậm)
+### Giải thích: Con đường 4 bước từ công thức Euler đến Định lý Bốn màu
 
 #### Bước 1: Dùng tô-pô mặt cầu ($$\chi = 2$$) để chặn mật độ cạnh
 Bất đẳng thức $$E \le 3V - 6$$ (suy ra từ $$V - E + F = 2$$) chứng minh đồ thị phẳng luôn "thưa" và luôn có đỉnh bậc $$\le 5$$ — lập tức cho ta Định lý 6 màu.

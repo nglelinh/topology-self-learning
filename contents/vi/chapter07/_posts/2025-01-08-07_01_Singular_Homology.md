@@ -43,7 +43,7 @@ Trong bài học này, ta sẽ lần lượt tìm hiểu đơn hình chuẩn $\D
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đồng điều Kỳ dị là gì và tại sao nó là "bất biến tô-pô tự động"?
+## 🗺️ Kiến thức cần nhớ: Đồng điều Kỳ dị là gì và tại sao nó là "bất biến tô-pô tự động"?
 
 ### 1. Từ "Cắt không gian" sang "Dò không gian bằng ánh xạ liên tục"
 - **Bản chất:** Một **$$n$$-đơn hình kỳ dị** trong $$X$$ đơn giản là một ánh xạ liên tục bất kỳ $$\sigma: \Delta^n \to X$$ (có thể bóp méo, gấp nếp, thậm chí co cả tam giác về 1 điểm — vì thế mới gọi là *kỳ dị*!).
@@ -58,7 +58,7 @@ Trong bài học này, ta sẽ lần lượt tìm hiểu đơn hình chuẩn $\D
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Tính trọn vẹn Đồng điều Kỳ dị của Không gian 1 điểm $$X = \{p\}$$
+## 🧮 Ví dụ tính tay làm từng bước: Tính trọn vẹn Đồng điều Kỳ dị của Không gian 1 điểm $$X = \{p\}$$
 
 Với không gian chỉ gồm đúng 1 điểm $$X = \{p\}$$, ở mỗi bậc $$n \ge 0$$ chỉ có **duy nhất 1 ánh xạ liên tục** $$\sigma_n: \Delta^n \to \{p\}$$ (ánh xạ hằng đưa mọi điểm về $$p$$). Do đó $$C_n(\{p\}) = \mathbb{Z}\cdot \sigma_n \cong \mathbb{Z}$$ với mọi $$n \ge 0$$!
 
@@ -77,7 +77,7 @@ $$
 
 Nhờ bất biến đồng luân, kết quả này lập tức cho đồng điều của **mọi không gian co rút được** ($$\mathbb{R}^k, D^k$$): $$H_0 \cong \mathbb{Z}$$ và $$H_n = 0$$ với mọi $$n \ge 1$$!
 
-### Khung giải thích: Tại sao không gian xích khổng lồ $$C_n(X)$$ lại trở nên dễ chế ngự? (nên đọc chậm)
+### Giải thích: Tại sao không gian xích khổng lồ $$C_n(X)$$ lại trở nên dễ chế ngự?
 
 #### Bước 1: Chấp nhận $$C_n(X)$$ vô hạn chiều để đổi lấy tính tự nhiên tuyệt đối
 Không cần chọn tam giác hóa, không cần lo tính độc lập cách chia lưới: $$H_n$$ tự động là một hàm tử từ $$\mathbf{Top}$$ sang $$\mathbf{Ab}$$ ngay từ định nghĩa!

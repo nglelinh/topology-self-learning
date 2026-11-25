@@ -37,7 +37,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa công thức $V
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Đặc trưng Euler là gì và nối những lĩnh vực nào?
+## 🗺️ Kiến thức cần nhớ: Đặc trưng Euler là gì và nối những lĩnh vực nào?
 
 ### 1. Tô-pô Tổ hợp: Đếm đỉnh–cạnh–mặt mà không phụ thuộc cách chia lưới
 - **Bản chất:** Chia một mặt thành lưới đa giác (hay tổng quát hơn là một phức CW chiều $$n$$) rồi tính tổng đan dấu $$\chi(X) = \sum_{k=0}^n (-1)^k c_k$$ (số tế bào chiều chẵn trừ số tế bào chiều lẻ). Điều kỳ diệu là dù bạn thay đổi cách chia lưới tùy ý, tổng đan dấu này **không hề đổi**!
@@ -58,7 +58,7 @@ Trong bài học này, chúng ta sẽ tìm hiểu định nghĩa công thức $V
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Chứng minh bằng tay vì sao CHỈ CÓ ĐÚNG 5 khối đa diện đều Platonic
 Giả sử một khối đa diện đều lồi có mọi mặt là đa giác đều $$p$$ cạnh ($$p \ge 3$$) và tại mọi đỉnh có đúng $$q$$ mặt gặp nhau ($$q \ge 3$$).
@@ -85,7 +85,7 @@ Một quả bóng đá chuẩn gồm $$12$$ miếng ngũ giác đen và $$20$$ m
 - Tổng số đỉnh (tại mỗi mũi khâu có đúng 3 đường chỉ gặp nhau): $$V = \frac{2E}{3} = \frac{180}{3} = 60$$.
 - Kiểm tra công thức Euler: $$V - E + F = 60 - 90 + 32 = 2$$! (Và cũng là lý do bạn **không bao giờ** may được một quả bóng chỉ toàn miếng lục giác: nếu toàn lục giác thì $$\chi = 0$$ — đó phải là một chiếc bánh donut chứ không phải quả cầu!)
 
-### Khung giải thích: Tại sao chia nhỏ lưới thế nào thì $$V - E + F$$ vẫn không đổi? (nên đọc chậm)
+### Giải thích: Tại sao chia nhỏ lưới thế nào thì $$V - E + F$$ vẫn không đổi?
 
 #### Bước 1: Thêm 1 đường chéo chia đôi một mặt
 Kẻ thêm 1 cạnh nối hai đỉnh có sẵn của một mặt đa giác: $$V$$ giữ nguyên, $$E \to E+1$$, $$F \to F+1$$. Tổng $$V - (E+1) + (F+1) = V - E + F$$ **bất biến**!

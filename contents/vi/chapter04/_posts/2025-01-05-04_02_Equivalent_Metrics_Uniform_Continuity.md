@@ -31,7 +31,7 @@ Trong bài học này, chúng ta sẽ khảo sát các tiêu chuẩn nhận bi�
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Phân tầng Tương đương Metric & Tính Liên tục Đều
+## 🗺️ Kiến thức cần nhớ: Phân tầng Tương đương Metric & Tính Liên tục Đều
 
 ### 1. Ba tầng Tương đương giữa hai Metric $$d_1, d_2$$ trên cùng tập $$X$$
 - **Tương đương mạnh (Lipschitz):** Tồn tại hằng số $$c, C > 0$$ sao cho $$c\,d_1(x,y) \le d_2(x,y) \le C\,d_1(x,y)$$ với mọi $$x, y$$. Bảo toàn **tất cả**: tập mở, dãy Cauchy, tính đầy đủ và liên tục đều!
@@ -46,7 +46,7 @@ Trong bài học này, chúng ta sẽ khảo sát các tiêu chuẩn nhận bi�
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Kiểm tra tương đương mạnh trên $$\mathbb{R}^2$$ giữa $$d_1, d_2, d_\infty$$
 Với mọi $$x = (x_1, x_2),\; y = (y_1, y_2) \in \mathbb{R}^2$$, đặt $$a = \lvert x_1 - y_1\rvert \ge 0,\; b = \lvert x_2 - y_2\rvert \ge 0$$. Ta kiểm tra chuỗi bất đẳng thức bằng tay:
@@ -70,7 +70,7 @@ Vậy $$d_1, d_2, d_\infty$$ **tương đương mạnh** với nhau — mọi t�
   $$
   Vậy $$\lvert \sqrt{x} - \sqrt{y}\rvert \le \sqrt{\lvert x - y\rvert}$$ mọi nơi! Chỉ cần chọn $$\delta = \varepsilon^2$$ (không hề phụ thuộc $$x$$!), suy ra $$\sqrt{x}$$ **liên tục đều trên toàn bộ $$[0, \infty)$$** dù đạo hàm tiến ra $$+\infty$$ tại $$0$$!
 
-### Khung giải thích: Bản chất của 3 mức tương đương và vai trò của Liên tục Đều (nên đọc chậm)
+### Giải thích: Bản chất của 3 mức tương đương và vai trò của Liên tục Đều
 
 #### Bước 1: Phân biệt "cùng tập mở" với "cùng dãy Cauchy"
 Metric bị chặn $$d'(x,y) = \frac{\lvert x-y\rvert}{1 + \lvert x-y\rvert}$$ hay $$\lvert \arctan x - \arctan y\rvert$$ giữ nguyên tập mở của $$\mathbb{R}$$, nhưng ở vùng $$x \to +\infty$$ nó nén khoảng cách lại quá mạnh khiến dãy $$x_n = n$$ đột nhiên trở thành dãy Cauchy không hội tụ!

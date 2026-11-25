@@ -37,7 +37,7 @@ Các bất biến $\chi$ và tính định hướng được xác định duy nh
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Phân loại Mặt đóng là gì và dùng công cụ nào?
+## 🗺️ Kiến thức cần nhớ: Phân loại Mặt đóng là gì và dùng công cụ nào?
 
 ### 1. Mặt (2-Đa tạp) & Tổng liên thông (Connected Sum $$\#$$)
 - **Bản chất:** Một **mặt đóng** là đa tạp 2 chiều, compact, liên thông và không có biên. Phép **tổng liên thông $$M_1 \# M_2$$** khoét một đĩa nhỏ trên mỗi mặt rồi dán hai đường biên tròn lại với nhau — giống như "phép cộng" các bề mặt (trong đó mặt cầu $$S^2$$ đóng vai trò số $$0$$: $$M \# S^2 \cong M$$!).
@@ -51,7 +51,7 @@ Các bất biến $\chi$ và tính định hướng được xác định duy nh
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Đếm $$V - E + F$$ từ Từ biên của 3 mặt kinh điển
+## 🧮 Ví dụ tính tay làm từng bước: Đếm $$V - E + F$$ từ Từ biên của 3 mặt kinh điển
 
 Hãy tự tay tính đặc trưng Euler $$\chi = V - E + F$$ trực tiếp từ đa giác dán cạnh của 3 bề mặt quan trọng nhất:
 
@@ -72,7 +72,7 @@ Hãy tự tay tính đặc trưng Euler $$\chi = V - E + F$$ trực tiếp từ 
    - Nhưng khác hình xuyến ở chỗ hai cạnh $$b$$ dán **cùng chiều** (chứa dải Möbius bên trong $$\implies$$ **không định hướng được**!).
    - Tra ngay bảng phân loại: mặt không định hướng có $$\chi = 2 - k = 0 \implies k = 2$$, tức **$$K \cong \mathbb{R}P^2 \# \mathbb{R}P^2$$** (hai mặt phẳng xạ ảnh ghép lại, hay hai dải Möbius dán biên vào nhau!).
 
-### Khung giải thích: Con đường 4 bước dẫn tới Định lý Phân loại Mặt đóng (nên đọc chậm)
+### Giải thích: Con đường 4 bước dẫn tới Định lý Phân loại Mặt đóng
 
 #### Bước 1: Tam giác hóa và trải phẳng thành một đa giác duy nhất
 Mọi mặt đóng đều có thể chia thành hữu hạn tam giác (Định lý Radó). Dán lần lượt các tam giác dọc theo một cây khung sẽ trải toàn bộ mặt ra thành **một đa giác phẳng duy nhất** có các cạnh ghép cặp.

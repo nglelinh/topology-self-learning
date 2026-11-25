@@ -35,7 +35,7 @@ Trong bài học này, ta sẽ tìm hiểu định nghĩa và cấu trúc nhóm 
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Lý thuyết đồng luân bậc cao là gì và nghiên cứu những gì?
+## 🗺️ Kiến thức cần nhớ: Lý thuyết đồng luân bậc cao là gì và nghiên cứu những gì?
 
 ### 1. Tổng quát hóa vòng tròn thành mặt cầu $$n$$ chiều
 - **Bản chất:** Nếu nhóm cơ bản $$\pi_1(X)$$ thả những sợi dây thun 1 chiều ($$S^1$$) vào trong không gian $$X$$ để dò lỗ 1 chiều, thì $$\pi_n(X)$$ thả những **quả bóng $$n$$ chiều** ($$S^n$$) vào $$X$$ và phân loại chúng theo biến dạng liên tục (đồng luân).
@@ -49,7 +49,7 @@ Trong bài học này, ta sẽ tìm hiểu định nghĩa và cấu trúc nhóm 
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc
+## 🧮 Ví dụ tính tay làm từng bước
 
 ### Ví dụ 1: Kiểm tra bằng tay Phân thớ Hopf $$h: S^3 \to S^2$$ và suy ra $$\pi_3(S^2) \cong \mathbb{Z}$$
 Xem mặt cầu 3 chiều là $$S^3 = \{(z_1, z_2) \in \mathbb{C}^2 : \lvert z_1\rvert^2 + \lvert z_2\rvert^2 = 1\}$$ và xét ánh xạ Hopf tường minh:
@@ -76,7 +76,7 @@ Giả sử tập $$M$$ có hai phép toán hai ngôi $$\cdot$$ và $$\circ$$ cù
 2. Đặt $$a = d = e$$: $$(e\cdot b)\circ(c\cdot e) = (e\circ c)\cdot(b\circ e) \implies b \circ c = c \cdot b$$!
 3. Kết hợp (1) và (2): $$b \cdot c = c \cdot b$$ — phép toán bắt buộc **giao hoán**!
 
-### Khung giải thích: Vì sao $$\pi_n(X)$$ mạnh hơn $$H_n(X)$$ nhưng lại khó tính hơn rất nhiều? (nên đọc chậm)
+### Giải thích: Vì sao $$\pi_n(X)$$ mạnh hơn $$H_n(X)$$ nhưng lại khó tính hơn rất nhiều?
 
 #### Bước 1: Định nghĩa trực giác bằng khối lập phương $$I^n$$
 Đồng nhất biên $$\partial I^n$$ về một điểm biến $$I^n/\partial I^n \cong S^n$$. Phép cộng $$f + g$$ đơn giản là đặt $$f$$ ở nửa trái $$t_1 \in [0, 1/2]$$ và $$g$$ ở nửa phải $$t_1 \in [1/2, 1]$$. Khi $$n \ge 2$$, tọa độ thứ hai $$t_2$$ cho phép trượt $$f$$ và $$g$$ vòng qua nhau, sinh ra tính giao hoán.

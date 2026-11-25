@@ -33,7 +33,7 @@ Tương tự phép dán $S^1=[0,1]/\{0\sim 1\}$, Mapper xử lý một đám mâ
 
 ---
 
-## 🗺️ Bản đồ kiến thức nền: Mapper, Thần kinh (Nerve) và Phê bình UMAP
+## 🗺️ Kiến thức cần nhớ: Mapper, Thần kinh (Nerve) và Phê bình UMAP
 
 ### 1. Bổ đề Thần kinh (Nerve Lemma) & Phép lấy thương theo sợi
 - **Bản chất:** Phủ một không gian $$X$$ bằng các tập mở tốt $$\mathcal{U} = \{U_i\}$$. **Thần kinh $$N(\mathcal{U})$$** là phức đơn hình gán 1 đỉnh cho mỗi tập $$U_i$$, 1 cạnh cho mỗi cặp $$U_i \cap U_j \neq \emptyset$$, 1 tam giác cho giao 3 tập... Bổ đề Thần kinh bảo đảm $$N(\mathcal{U}) \simeq X$$!
@@ -48,7 +48,7 @@ Tương tự phép dán $S^1=[0,1]/\{0\sim 1\}$, Mapper xử lý một đám mâ
 
 ---
 
-## 🧮 Ví dụ tính tay cầm tay chỉ việc: Chạy thuật toán Mapper trên Đường tròn $$S^1$$
+## 🧮 Ví dụ tính tay làm từng bước: Chạy thuật toán Mapper trên Đường tròn $$S^1$$
 
 Xét không gian dữ liệu là đường tròn đơn vị $$X = S^1 = \{(x,y): x^2+y^2=1\}$$ cùng hàm lọc chiều cao $$f(x, y) = y \in [-1, 1]$$. Phủ đoạn $$[-1, 1]$$ bằng đúng **3 khoảng mở chồng lấn**:
 $$
@@ -68,7 +68,7 @@ Hãy thực hiện 3 bước của Mapper hoàn toàn bằng tay:
 3. **Bước 3 — Kết quả đồ thị Mapper:** Một **hình vuông 4 đỉnh** $$v_{\text{đáy}} - v_L - v_{\text{đỉnh}} - v_R - v_{\text{đáy}}$$ — bảo toàn chính xác kiểu đồng luân của $$S^1$$ ($$\beta_1 = 1$$)!
    *(Thử đổi sang 1 khoảng phủ duy nhất $$I_1 = [-1, 1]$$: đồ thị Mapper sụp xuống thành đúng **1 điểm**, đánh mất hoàn toàn vòng tròn — minh họa trực quan tầm quan trọng của việc chọn phủ!)*
 
-### Khung giải thích: Vì sao Mapper gắn chặt với Tô-pô Thương Chương 05? (nên đọc chậm)
+### Giải thích: Vì sao Mapper gắn chặt với Tô-pô Thương Chương 05?
 
 #### Bước 1: Định nghĩa đồ thị Reeb — phiên bản liên tục của Mapper
 Nếu ta dán tất cả các điểm thuộc *cùng một thành phần liên thông* của từng mức $$f^{-1}(c)$$ về một điểm, không gian thương $$X / {\sim_f}$$ chính là **đồ thị Reeb**!

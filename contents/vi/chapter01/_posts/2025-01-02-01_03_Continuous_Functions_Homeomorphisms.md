@@ -26,11 +26,11 @@ $$
 
 Bài giảng này sẽ giải mã vì sao định nghĩa "đi ngược" đó khớp hoàn toàn với $$\varepsilon$$–$$\delta$$ trên không gian mê-tric, cách nhận diện các **bất biến tô-pô**, và bóc tách một cái bẫy kinh điển: *song ánh liên tục vẫn có thể KHÔNG phải phép đồng phôi!*
 
-**Mạch bài học:** Bản đồ kiến thức nền (tính liên tục qua ảnh ngược, phép đồng phôi & bất biến tô-pô) → Khung giải thích chậm: cầm tay kiểm tra hai ví dụ đối lập — đoạn $$(-1,1)$$ đồng phôi với $$\mathbb{R}$$, nhưng $$[0, 2\pi) \to S^1$$ không đồng phôi → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
+**Mạch bài học:** Kiến thức cần nhớ (tính liên tục qua ảnh ngược, phép đồng phôi & bất biến tô-pô) → Giải thích: cầm tay kiểm tra hai ví dụ đối lập — đoạn $$(-1,1)$$ đồng phôi với $$\mathbb{R}$$, nhưng $$[0, 2\pi) \to S^1$$ không đồng phôi → Trực giác & Định nghĩa hình thức → Bài tập & Tóm tắt.
 
 ---
 
-## Bản đồ kiến thức nền: Ánh xạ liên tục, Phép đồng phôi và Bất biến Tô-pô nghiên cứu những gì?
+## Kiến thức cần nhớ: Ánh xạ liên tục, Phép đồng phôi và Bất biến Tô-pô nghiên cứu những gì?
 
 ### 1. Vì sao tính liên tục được định nghĩa bằng *ảnh ngược* tập mở?
 
@@ -46,7 +46,7 @@ Muốn chứng minh $$X \cong Y$$, ta chỉ cần chỉ ra tường minh một p
 
 ---
 
-### Khung giải thích (nên đọc chậm): Cầm tay kiểm tra một phép đồng phôi thật và một "phép đồng phôi giả"
+### Giải thích: Cầm tay kiểm tra một phép đồng phôi thật và một "phép đồng phôi giả"
 
 **Ví dụ 1 — Đoạn hữu hạn $$(-1, 1)$$ đồng phôi với cả trục số vô hạn $$\mathbb{R}$$:**
 Xét ánh xạ $$f: (-1, 1) \to \mathbb{R}$$ cho bởi công thức đại số cực gọn:

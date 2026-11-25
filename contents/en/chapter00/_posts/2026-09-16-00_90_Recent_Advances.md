@@ -18,7 +18,7 @@ Imagine walking into a dark room where someone has scattered a few hundred glowi
 
 ---
 
-## Background Knowledge Map: From Sets and Preorders to Topological Data Analysis
+## Key ideas: From Sets and Preorders to Topological Data Analysis
 
 A university graduate opening a topology textbook starts with abstract sets $$X$$, relations, and $$\mathbb{R}^d$$, often wondering when any of this meets real data. Modern TDA bridges that gap across three pillars:
 
@@ -65,7 +65,7 @@ Reading off the complete barcode:
 
 **Bonus check — a 3-point finite Alexandroff space:** on $$Y = \{a, b, c\}$$ with preorder $$a \le b \le c$$, the minimal open sets are $$U_a = \{a\}$$, $$U_b = \{a, b\}$$, $$U_c = \{a, b, c\}$$. Notice intersections and unions of these sets stay inside $$\{\emptyset, \{a\}, \{a,b\}, \{a,b,c\}\}$$ — a valid topology built purely from an order relation, with zero coordinates!
 
-### Deep-Dive Explanation: How a Finite Set Remembers a Continuum's Shape (Read Slowly)
+### Explanation: How a Finite Set Remembers a Continuum's Shape
 
 1. **Trade coordinates for pairwise relations:** once you record distances $$d(x_i, x_j)$$ (or a preorder on faces), the ambient space $$\mathbb{R}^d$$ steps aside; topology depends only on which subsets glue together at each scale $$r$$.
 2. **Avoid the single-scale trap:** at $$r = 0.9$$ our square looks like 4 disconnected specks; at $$r = 1.5$$ it looks like a solid blob with no hole. Only by sweeping *all* $$r \ge 0$$ together do we see the genuine loop $$[1, \sqrt{2})$$.
