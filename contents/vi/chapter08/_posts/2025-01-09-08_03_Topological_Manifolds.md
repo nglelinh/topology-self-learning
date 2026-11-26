@@ -326,6 +326,19 @@ Từ chiều $4$ trở lên, bài toán phân loại đồng phôi là không qu
 
 ---
 
+## ⚖️ Đối ngẫu Poincaré (Poincaré Duality) trên Đa tạp Định hướng Đóng
+
+Theo Chương 8 của [*Algebraic Topology* (L. Maxim)](https://people.math.wisc.edu/~lmaxim/topbookf.pdf), một trong những định lý đẹp nhất gắn liền cấu trúc đa tạp $n$-chiều với tôpô đại số là **Đối ngẫu Poincaré**:
+
+![Đối ngẫu Poincaré qua phân rã tế bào đối ngẫu]({{ site.imgurl }}/chapter_img/chapter08/08_03_poincare_duality.png)
+
+- Nếu $M$ là đa tạp $n$-chiều compact, không biên và **định hướng được**, thì $H_n(M; \mathbb{Z}) \cong \mathbb{Z}$ có một phần tử sinh gọi là **lớp cơ bản (fundamental class)** $[M]$.
+- **Định lý Đối ngẫu Poincaré:** Ánh xạ tích cap với $[M]$:
+  $$D = - \frown [M] : H^k(M; \mathbb{Z}) \xrightarrow{\sim} H_{n-k}(M; \mathbb{Z})$$
+  là một đẳng cấu với mọi $0 \le k \le n$ (và với mọi đa tạp compact không định hướng, định lý vẫn đúng trên hệ số $\mathbb{Z}/2\mathbb{Z}$).
+- **Trực giác hình học qua lưới đối ngẫu:** Khi chia $M$ thành phức đơn hình, mỗi $k$-đơn hình $\sigma$ trong lưới gốc ứng với đúng một $(n-k)$-tế bào đối ngẫu $\sigma^*$ cắt ngang qua tâm của $\sigma$ (như minh hoạ ở trên).
+- **Hệ quả tức thì:** Mọi đa tạp định hướng đóng có số chiều **lẻ** ($n = 2m+1$) đều có **đặc trưng Euler $\chi(M) = 0$**, vì $\beta_k = \beta_{n-k}$ triệt tiêu từng cặp trong tổng đan dấu $\sum (-1)^k \beta_k$!
+
 ## 🔗 Kết nối với các lĩnh vực khác
 
 ### Hình học vi phân

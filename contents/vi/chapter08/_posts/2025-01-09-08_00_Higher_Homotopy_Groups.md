@@ -328,6 +328,14 @@ Một vài giá trị đầu tiên:
 
 ---
 
+## 🌉 Định lý Hurewicz, Định lý Whitehead và Phê chuẩn Đồng luân
+
+Theo Chương 9 của [*Algebraic Topology* (L. Maxim)](https://people.math.wisc.edu/~lmaxim/topbookf.pdf), hai định lý trụ cột nối liền thế giới đồng luân $\pi_n$ và thế giới đồng điều $H_n$ là:
+
+1. **Định lý Hurewicz:** Nếu $X$ là không gian $(n-1)$-liên thông ($\pi_k(X) = 0$ với mọi $k < n$, $n \ge 2$), thì đồng cấu Hurewicz $h: \pi_n(X) \xrightarrow{\sim} H_n(X; \mathbb{Z})$ là một **đẳng cấu** (và khi $n=1$, $H_1(X) \cong \pi_1(X)_{\mathrm{ab}}$ là Abel hoá của $\pi_1$).
+   - Hệ quả tức thì: với $S^n$ ($n \ge 2$), $\pi_n(S^n) \cong H_n(S^n) \cong \mathbb{Z}$, nhưng $\pi_{n+1}(S^n)$ không thể tính bằng đồng điều mà cần đến **phân thớ Hopf** và **dãy phổ Serre**!
+2. **Định lý Whitehead:** Một ánh xạ liên tục $f: X \to Y$ giữa các **phức CW liên thông** là một tương đương đồng luân khi và chỉ khi $f_*: \pi_n(X) \to \pi_n(Y)$ là đẳng cấu với mọi $n \ge 1$ (tức là các nhóm đồng luân phát hiện trọn vẹn kiểu đồng luân của phức CW — điều mà đồng điều không làm được!).
+
 ## 🧠 Tài liệu kinh điển & Tham khảo
 
 ### Công trình kinh điển

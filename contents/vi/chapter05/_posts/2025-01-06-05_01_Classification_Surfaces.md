@@ -376,6 +376,18 @@ Chứng minh đầy đủ có thể tham khảo trong các giáo trình của Ar
 
 ---
 
+## 🧩 Bổ sung chuyên sâu: Sơ đồ dán nhãn đa giác và $\pi_1$ của mặt compact
+
+Theo giáo trình [*Algebraic Topology: A Comprehensive Introduction*](https://people.math.wisc.edu/~lmaxim/topbookf.pdf) (Chương 3, Laurentiu Maxim), mọi mặt compact liên thông không biên đều thu được bằng cách **dán các cặp cạnh** của một đa giác $2n$-cạnh theo một **từ biên (labeling scheme)**:
+
+![Sơ đồ dán nhãn đa giác tạo mặt Xuyến và Chai Klein]({{ site.imgurl }}/chapter_img/chapter05/05_01_surface_labeling.png)
+
+- **Mặt xuyến $T^2$** tương ứng với từ biên $aba^{-1}b^{-1}$: bốn đỉnh của hình vuông bị đồng nhất thành đúng một điểm $x_0$, hai cạnh $a, b$ trở thành hai vòng khép kín tạo thành $S^1 ee S^1$, và mặt trong hình vuông được dán theo $aba^{-1}b^{-1}$, cho:
+  $$\pi_1(T^2) \cong \langle a, b \mid aba^{-1}b^{-1} = 1 \rangle \cong \mathbb{Z} \times \mathbb{Z}.$$
+- **Mặt có giống $g \ge 1$ định hướng được $\Sigma_g$** có từ biên chuẩn $a_1 b_1 a_1^{-1} b_1^{-1} \cdots a_g b_g a_g^{-1} b_g^{-1}$, dẫn tới nhóm cơ bản:
+  $$\pi_1(\Sigma_g) \cong \langle a_1, b_1, \dots, a_g, b_g \mid \prod_{i=1}^g [a_i, b_i] = 1 \rangle.$$
+- **Mặt không định hướng được $N_k$** (tổng liên thông của $k$ mặt xạ ảnh $\mathbb{R}P^2$) có từ biên $a_1^2 a_2^2 \cdots a_k^2$; chẳng hạn với Chai Klein ($k=2$), từ $aba^{-1}b$ biến đổi cắt-dán được thành $c_1^2 c_2^2$, cho $\pi_1(K) \cong \langle a, b \mid aba^{-1}b = 1 \rangle$.
+
 ## 🧠 Tài liệu kinh điển và tham khảo
 
 ### Các công trình kinh điển

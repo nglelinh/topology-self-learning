@@ -437,3 +437,16 @@ This course represents a modern approach to teaching topology, combining classic
 
 🚀 **The journey through topology continues...** 🚀
 
+
+---
+
+## 🔄 Bổ sung từ Notebook *Topology and Geometry* (Tháng 11/2026)
+
+### Bài học mới được bổ sung (Song ngữ VI + EN)
+- **Lecture 06.05:** Wild Topology — Không gian vượt ngoài Phức CW (Hawaiian Earring, Warsaw Circle, Harmonic Archipelago) — Nguồn: [Wild Topology Bestiary](https://wildtopology.com/bestiary/), [`topbookf.pdf`](https://people.math.wisc.edu/~lmaxim/topbookf.pdf)
+- **Lecture 07.05:** Tôpô Tổ hợp, Bổ đề Sperner và Tính toán Phân tán — Nguồn: *Distributed Computing Through Combinatorial Topology* (Herlihy, Kozlov, Rajsbaum)
+- **Lecture 08.05:** Dãy Phổ (Spectral Sequences: Leray–Serre, Gysin, Wang) — Nguồn: [`topbookf.pdf` Ch. 10](https://people.math.wisc.edu/~lmaxim/topbookf.pdf)
+- **Lecture 08.06:** Đại số Clifford, Toán tử Dirac và Định lý Chỉ số Atiyah–Singer — Nguồn: [`DiracNotes.pdf`](https://people.math.harvard.edu/~dafr/DiracNotes.pdf)
+
+### Bài học hiện có được nâng cấp (Chương 05–08)
+- **05.01, 06.01, 07.02, 07.04, 08.00, 08.01, 08.03**: Bổ sung sơ đồ dán nhãn đa giác, phản ví dụ Wild Topology, đồng điều tế bào, tích Cup & Borsuk–Ulam, định lý Hurewicz & Whitehead, phân thớ Hopf & không gian phân loại, đối ngẫu Poincaré, kèm 8 hình minh hoạ mới tại `img/chapter_img/chapter05..08/`.
