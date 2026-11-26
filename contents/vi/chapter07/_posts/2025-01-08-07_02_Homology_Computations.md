@@ -343,6 +343,17 @@ Kết quả này cho thấy đặc trưng Euler có thể tính bằng hai cách
 
 ---
 
+## 🧱 Đồng điều Tế bào (Cellular Homology) — Công cụ tính nhanh cho Phức CW
+
+Tính đồng điều kỳ dị trực tiếp từ định nghĩa gần như bất khả thi, nhưng với các không gian có cấu trúc **phức CW** (như $S^n, T^2, \Sigma_g, \mathbb{R}P^n, \mathbb{C}P^n$), ta chỉ cần đếm số $k$-tế bào và **bậc ánh xạ dán (cellular boundary degree)** — theo Chương 5.5 của [*Algebraic Topology* (L. Maxim)](https://people.math.wisc.edu/~lmaxim/topbookf.pdf):
+
+![Phân rã tế bào CW của S^2 và T^2]({{ site.imgurl }}/chapter_img/chapter07/07_02_cellular_homology.png)
+
+- Định nghĩa phức dây chuyền tế bào $C_k^{\mathrm{CW}}(X) = H_k(X^{(k)}, X^{(k-1)}) \cong \bigoplus_{\alpha} \mathbb{Z}$ (mỗi $k$-tế bào đóng góp một bản sao $\mathbb{Z}$).
+- **Công thức biên tế bào:** Với $k$-tế bào $e^k_\alpha$ và $(k-1)$-tế bào $e^{k-1}_\beta$, hệ số biên $d_{\alpha\beta} = \deg(\Delta_{\alpha\beta})$ chính là **bậc (degree)** của ánh xạ hợp từ $S^{k-1} \xrightarrow{\varphi_\alpha} X^{(k-1)} \to S^{k-1}_\beta$.
+- **Ví dụ tính tay cho $T^2$:** $T^2 = e^0 \cup (e^1_a \vee e^1_b) \cup e^2$. Khi dán $e^2$ dọc theo từ $aba^{-1}b^{-1}$, mỗi cạnh $a$ và $b$ đi qua một lần theo chiều dương và một lần theo chiều âm nên bậc tổng bằng $1 - 1 = 0$. Do đó mọi $\partial_k^{\mathrm{CW}} = 0$, suy ra ngay $H_0(T^2)=\mathbb{Z},\; H_1(T^2)=\mathbb{Z}^2,\; H_2(T^2)=\mathbb{Z}$!
+- **Ví dụ $\mathbb{R}P^n$:** Có đúng một tế bào ở mỗi chiều $0 \le k \le n$, ánh xạ dán có bậc $1 + (-1)^k$ (luân phiên $0$ và $2$), cho kết quả kinh điển $H_k(\mathbb{R}P^n; \mathbb{Z}) = \mathbb{Z}/2\mathbb{Z}$ với $k$ lẻ ($0 < k < n$).
+
 ## 🧠 Tài liệu kinh điển & Tham khảo
 
 ### Công trình kinh điển

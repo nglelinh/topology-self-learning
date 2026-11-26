@@ -325,6 +325,24 @@ Nếu $X \simeq Y$ (với $X, Y$ liên thông đường), thì $\pi_1(X) \cong \
 
 ---
 
+## 🌿 Phản ví dụ từ Wild Topology và Ứng dụng Cổ điển
+
+### 1. Khi trực giác phức CW sụp đổ: Khuyên tai Hawaii và Vòng tròn Warsaw
+
+Trong [*Algebraic Topology*](https://people.math.wisc.edu/~lmaxim/topbookf.pdf) (Mục 4.1, Hình 4.1) và bộ sưu tập [Wild Topology Bestiary](https://wildtopology.com/bestiary/), **Khuyên tai Hawaii (Hawaiian Earring)** $\mathbb{E} = \bigcup_{n=1}^{\infty} C_n$ gồm vô hạn đường tròn bán kính $1/n$ tiếp xúc nhau tại gốc $p=(0,0)$:
+
+![Khuyên tai Hawaii và Vòng tròn Warsaw trong Wild Topology]({{ site.imgurl }}/chapter_img/chapter06/06_01_wild_topology.png)
+
+- Khác với bó vô hạn đường tròn $\bigvee_{n=1}^{\infty} S^1$ (có tôpô yếu của phức CW), $\mathbb{E}$ mang **tôpô không gian con** của $\mathbb{R}^2$. Mọi lân cận $U$ của gốc $p$ đều chứa trọn các đường tròn $C_n$ với $n$ đủ lớn, nên $\mathbb{E}$ **không nửa đơn liên địa phương (not semilocally simply connected)**.
+- Hệ quả: $\mathbb{E}$ **không có không gian phủ phổ dụng**, và $\pi_1(\mathbb{E}, p)$ là một nhóm **không đếm được**, lớn hơn thực sự nhóm tự do $\ast_{n=1}^\infty \mathbb{Z}$ (vì ta có thể đi qua vô hạn vòng nhỏ dần trong thời gian hữu hạn $[0,1]$!).
+- Tương tự, **Vòng tròn Warsaw (Warsaw Circle)** (đóng kín đồ thị $\sin(1/x)$ bằng một cung nối ngoài) là không gian liên thông đường với $\pi_1 = 0$, nhưng **không co rút được (non-contractible)** và không đồng luân tương đương với $S^1$.
+
+### 2. Hai ứng dụng kinh điển từ $\pi_1(S^1) \cong \mathbb{Z}$
+
+Theo [Laurentiu Maxim (Mục 2.7)](https://people.math.wisc.edu/~lmaxim/topbookf.pdf), chỉ riêng đẳng cấu $\pi_1(S^1) \cong \mathbb{Z}$ đã đủ chứng minh hai định lý nền tảng:
+- **Định lý điểm bất động Brouwer (chiều 2):** Mọi ánh xạ liên tục $f: D^2 \to D^2$ đều có ít nhất một điểm bất động (nếu không, tia nối $f(x)$ qua $x$ cắt biên $S^1$ tạo thành một phép co rút $r: D^2 \to S^1$, kéo theo đơn cấu $\mathbb{Z} = \pi_1(S^1) \hookrightarrow \pi_1(D^2) = 0$ — vô lý!).
+- **Định lý cơ bản của Đại số:** Mọi đa thức khác hằng $p(z) \in \mathbb{C}[z]$ bậc $n \ge 1$ đều có nghiệm trên $\mathbb{C}$ (nếu không có nghiệm, vòng tròn bán kính lớn $R$ tạo nên ánh xạ bậc $n$ trên $S^1$, nhưng lại đồng luân về hằng khi $R \to 0$, mâu thuẫn với $n \neq 0$ trong $\pi_1(S^1)$).
+
 ## 🧠 Tài liệu kinh điển và tham khảo
 
 ### Các công trình kinh điển

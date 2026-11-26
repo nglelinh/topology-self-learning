@@ -439,6 +439,14 @@ Với đa tạp không định hướng được như $\mathbb{R}P^2$, Đối ng
 
 ---
 
+## 💍 Cấu trúc Vành Tích Cup, Công thức Künneth và Định lý Borsuk–Ulam
+
+Theo Chương 7 của [*Algebraic Topology* (L. Maxim)](https://people.math.wisc.edu/~lmaxim/topbookf.pdf), đối đồng điều mạnh hơn đồng điều ở chỗ $H^*(X; R)$ là một **vành phân bậc** nhờ tích cup $\smile$:
+
+- **Phân biệt không gian cùng nhóm đồng điều:** $S^2 \vee S^4$ và $\mathbb{C}P^2$ có cùng các nhóm đồng điều và đối đồng điều ($\mathbb{Z}$ ở bậc $0, 2, 4$), nhưng trên $\mathbb{C}P^2$ phần tử sinh $\alpha \in H^2(\mathbb{C}P^2; \mathbb{Z})$ thỏa mãn $\alpha \smile \alpha \neq 0$ (tạo nên $H^*(\mathbb{C}P^2; \mathbb{Z}) \cong \mathbb{Z}[\alpha]/(\alpha^3)$), còn trên $S^2 \vee S^4$ mọi tích đều bằng $0$. Do đó chúng **không đồng luân tương đương**.
+- **Công thức Künneth (đối đồng điều):** Với $F$ là trường, $H^*(X \times Y; F) \cong H^*(X; F) \otimes_F H^*(Y; F)$ — giải thích vì sao $H^*(T^n; \mathbb{Z}) \cong \Lambda_{\mathbb{Z}}[x_1, \dots, x_n]$ là đại số ngoài trên $n$ biến bậc $1$.
+- **Ứng dụng: Chứng minh Định lý Borsuk–Ulam qua vành $H^*(\mathbb{R}P^n; \mathbb{Z}/2)$:** Vì $H^*(\mathbb{R}P^n; \mathbb{Z}/2) \cong (\mathbb{Z}/2)[\alpha]/(\alpha^{n+1})$, không thể tồn tại ánh xạ liên tục đối xứng tâm $f: S^n \to S^m$ với $m < n$ (nếu có, ánh xạ cảm sinh $\bar{f}: \mathbb{R}P^n \to \mathbb{R}P^m$ phải đưa $\alpha_m$ về $\alpha_n$, kéo theo $0 = \bar{f}^*(\alpha_m^{n}) = \alpha_n^n \neq 0$ — vô lý!).
+
 ## 🧠 Tài liệu kinh điển & Tham khảo
 
 ### Công trình kinh điển
